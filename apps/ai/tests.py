@@ -12,7 +12,7 @@ def reply(content, finish='stop', status=200):
     response.json.return_value = {
         'id': 'x', 'model': 'deepseek-v4-pro',
         'choices': [{'message': {'content': content}, 'finish_reason': finish}],
-        'usage': {'prompt_tokens': 10, 'completion_tokens': 20},
+        'usage': {'prompt_tokens': 10, 'completion_tokens': 20, 'prompt_cache_hit_tokens': 4, 'prompt_cache_miss_tokens': 6},
     }
     return response
 
@@ -25,7 +25,8 @@ class DeepSeekTests(SimpleTestCase):
         post.return_value = reply('{"a": "ب"}')
         result = call_json('system', 'prompt', SCHEMA)
         self.assertEqual(result.data, {'a': 'ب'})
-        self.assertEqual((result.input_tokens, result.output_tokens), (10, 20))
+        self.assertEqual((result.input_tokens, result.output_tokens, result.cache_hit_tokens), (10, 20, 4))
+        self.assertEqual(result.model, 'deepseek-v4-pro')
         payload = post.call_args.kwargs['json']
         self.assertEqual(payload['response_format'], {'type': 'json_object'})
         self.assertIn('JSON', payload['messages'][1]['content'])

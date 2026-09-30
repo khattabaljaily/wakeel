@@ -87,10 +87,13 @@ class GeneratePlanJobTests(TestCase):
 
     @mock.patch('apps.ai.planner.call_json')
     def test_success_saves_plan_and_queues_rendering(self, call_json):
-        call_json.return_value = AIResult(data=PLAN_DATA, input_tokens=1000, output_tokens=2000)
+        call_json.return_value = AIResult(data=PLAN_DATA, input_tokens=1000, output_tokens=2000,
+                                          cache_hit_tokens=600, model='deepseek-v4-pro')
         job = run_job(claim_next())
         self.assertEqual(job.status, Job.Status.DONE, job.error)
-        self.assertEqual((job.input_tokens, job.output_tokens), (1000, 2000))
+        self.assertEqual((job.input_tokens, job.output_tokens, job.cache_hit_tokens), (1000, 2000, 600))
+        self.assertEqual(job.model, 'deepseek-v4-pro')
+        self.assertGreater(job.cost_usd, 0)
         self.plan.refresh_from_db()
         self.assertEqual(self.plan.status, ContentPlan.Status.READY)
         self.assertTrue(Job.objects.filter(kind=Job.Kind.RENDER_PLAN, status=Job.Status.PENDING).exists())

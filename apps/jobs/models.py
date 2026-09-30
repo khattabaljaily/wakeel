@@ -32,8 +32,12 @@ class Job(models.Model):
     message = models.CharField(max_length=255, blank=True)
     error = models.TextField(blank=True)
     # AI token usage, tracked per job so AI cost per company can be priced later.
-    input_tokens = models.PositiveIntegerField(default=0)
+    input_tokens = models.PositiveIntegerField(default=0)  # cache hits included
     output_tokens = models.PositiveIntegerField(default=0)
+    cache_hit_tokens = models.PositiveIntegerField(default=0)
+    model = models.CharField(max_length=80, blank=True)
+    # Worked out per call (prices vary with the model, the cache and the time of day); null = prices unknown.
+    cost_usd = models.DecimalField(max_digits=10, decimal_places=6, null=True, blank=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
@@ -56,9 +60,20 @@ class Job(models.Model):
         self.save(update_fields=['progress', 'message'])
 
     def add_usage(self, result):
+        from decimal import Decimal
+
+        from django.utils import timezone
+
+        from apps.ai.pricing import cost
+
         self.input_tokens += result.input_tokens
         self.output_tokens += result.output_tokens
-        self.save(update_fields=['input_tokens', 'output_tokens'])
+        self.cache_hit_tokens += result.cache_hit_tokens
+        self.model = result.model or self.model
+        call_cost = cost(result.model, result.input_tokens, result.cache_hit_tokens, result.output_tokens, timezone.now())
+        if call_cost is not None:
+            self.cost_usd = (self.cost_usd or 0) + Decimal(str(round(call_cost, 6)))
+        self.save(update_fields=['input_tokens', 'output_tokens', 'cache_hit_tokens', 'model', 'cost_usd'])
 
     @property
     def is_finished(self):

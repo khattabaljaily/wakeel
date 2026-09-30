@@ -77,7 +77,8 @@ Open http://127.0.0.1:8000/, create an account, and follow the onboarding.
 | `AI_PROVIDER` | `anthropic` (Claude) or `deepseek` |
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` | Claude key and model (default `claude-opus-5`) |
 | `DEEPSEEK_API_KEY`, `DEEPSEEK_MODEL` | DeepSeek key and model (default `deepseek-v4-pro`; `deepseek-flash` is cheaper) |
-| `AI_PRICE_INPUT_PER_MTOK`, `AI_PRICE_OUTPUT_PER_MTOK` | Optional USD price per million tokens, to show costs on the AI usage page |
+| `DEEPSEEK_OFF_PEAK_UTC` | DeepSeek's off-peak window in UTC, `["16:30", "00:30"]` by default. DeepSeek prices (per model, cache hit/miss, peak/off-peak) are built into `apps/ai/pricing.py`, and each job's cost is stored when it runs |
+| `AI_PRICE_INPUT_PER_MTOK`, `AI_PRICE_OUTPUT_PER_MTOK` | Flat USD price per million tokens for other models (Claude); without it their jobs show no cost |
 | `SITE_URL` | Public address of the site, used in email links and for images Instagram downloads (must be public for Instagram publishing) |
 | `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `EMAIL_USE_TLS`, `DEFAULT_FROM_EMAIL` | SMTP for password reset and notifications. Empty `EMAIL_HOST` prints emails to the console |
 | `META_APP_ID`, `META_APP_SECRET`, `META_GRAPH_VERSION` | Meta app for Facebook/Instagram publishing. Add `SITE_URL/company/social/meta/callback/` as a valid OAuth redirect URI. Publishing to accounts other than the app's testers needs Meta app review for `pages_manage_posts` and `instagram_content_publish` |

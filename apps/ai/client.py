@@ -30,8 +30,10 @@ class AIError(Exception):
 @dataclass
 class AIResult:
     data: dict
-    input_tokens: int = 0
+    input_tokens: int = 0  # all input tokens, cache hits included
     output_tokens: int = 0
+    cache_hit_tokens: int = 0
+    model: str = ''
 
 
 def call_json(system, prompt, schema, *, max_tokens=32000, effort='high'):
@@ -95,7 +97,10 @@ def _anthropic(system, prompt, schema, *, max_tokens, effort):
         raise AIError('كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى.')
 
     text = ''.join(b.text for b in message.content if b.type == 'text')
-    return AIResult(_parse(text, message._request_id), usage.input_tokens, usage.output_tokens)
+    cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
+    cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
+    return AIResult(_parse(text, message._request_id), usage.input_tokens + cache_read + cache_write,
+                    usage.output_tokens, cache_read, message.model)
 
 
 # --- DeepSeek ---------------------------------------------------------------
@@ -153,4 +158,5 @@ def _deepseek(system, prompt, schema, *, max_tokens):
     if missing:
         logger.warning('DeepSeek reply is missing keys: %s', missing)
         raise AIError('وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى.')
-    return AIResult(data, usage.get('prompt_tokens', 0), usage.get('completion_tokens', 0))
+    return AIResult(data, usage.get('prompt_tokens', 0), usage.get('completion_tokens', 0),
+                    usage.get('prompt_cache_hit_tokens', 0), body.get('model') or settings.DEEPSEEK_MODEL)

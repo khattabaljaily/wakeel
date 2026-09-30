@@ -238,7 +238,10 @@ ANTHROPIC_MODEL = get_secret('ANTHROPIC_MODEL', 'claude-opus-5')
 DEEPSEEK_API_KEY = get_secret('DEEPSEEK_API_KEY', '')
 DEEPSEEK_MODEL = get_secret('DEEPSEEK_MODEL', 'deepseek-v4-pro')
 DEEPSEEK_BASE_URL = get_secret('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')
-# Optional prices (USD per million tokens) for the AI usage page; 0 hides the cost column.
+# DeepSeek charges less off-peak. The window, in UTC as [start, end], may cross midnight.
+DEEPSEEK_OFF_PEAK_UTC = get_secret('DEEPSEEK_OFF_PEAK_UTC', ['16:30', '00:30'])
+# Prices (USD per million tokens) for models other than DeepSeek, whose prices are built in (apps.ai.pricing).
+# 0 means unknown: those calls show no cost.
 AI_PRICE_INPUT_PER_MTOK = get_secret('AI_PRICE_INPUT_PER_MTOK', 0)
 AI_PRICE_OUTPUT_PER_MTOK = get_secret('AI_PRICE_OUTPUT_PER_MTOK', 0)
 AI_KEY_NAME = 'DEEPSEEK_API_KEY' if AI_PROVIDER == 'deepseek' else 'ANTHROPIC_API_KEY'

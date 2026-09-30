@@ -149,6 +149,11 @@ def generate_plan(plan):
     platforms = ', '.join(plan.platforms)
     templates = '\n'.join(f'- {key}: {t["hint"]}' for key, t in TEMPLATES.items())
     brief = plan.brief.strip() or 'No special brief — plan the best month for this brand.'
+    from apps.content.occasions import in_month
+    occasions = '\n'.join(
+        f'- {o["date"]:%Y-%m-%d}: {o["name"]}' + (' (Hijri; may shift by a day with the moon sighting)' if o['approx'] else '')
+        for o in in_month(company, plan.month)
+    ) or '- none known'
     tiktok_rule = (
         '- Every post that includes tiktok must be format "reel" with a video_script.\n'
         if 'tiktok' in plan.platforms else ''
@@ -163,6 +168,9 @@ def generate_plan(plan):
 <brief>
 {brief}
 </brief>
+<local_occasions>
+{occasions}
+</local_occasions>
 
 Plan this brand's social media for the month above and write every post.
 
@@ -170,7 +178,7 @@ Requirements:
 - Exactly {count} posts, spread sensibly over the month (days 1-{days}), at times when this audience is most active in {company.country}.
 - Each post targets one or more of these platforms only: {platforms}. Choose the format that fits each idea; include some reels when video fits.
 {tiktok_rule}- 3-5 content pillars with their share of the posts; each post belongs to one pillar (use the pillar's exact name).
-- key_dates: occasions in this month that matter to this audience (may be empty).
+- key_dates: occasions in this month that matter to this audience (may be empty). The dates in <local_occasions> are computed and correct: use them as given, pick only the ones that fit this brand, and don't add other dated occasions unless you are sure of the date.
 - summary, goals, pillar names/descriptions, key date names and visual_notes are in Arabic; captions and design text follow the language rule in the brand profile.
 - Pick the design template for each image post from:
 {templates}

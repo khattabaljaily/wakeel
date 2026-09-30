@@ -17,6 +17,7 @@ from apps.studio.designs import SIZES, TEMPLATES
 
 from .forms import ARABIC_MONTHS, PlanForm, PostForm
 from .models import ContentPlan, Platform, Post
+from .occasions import between as in_range
 from .review import share_url
 from .services import default_size
 
@@ -112,6 +113,13 @@ def calendar_view(request):
         weeks.append([{'date': d, 'posts': by_day.get(d, []), 'in_month': d.month == month.month, 'today': d == today}
                       for d in (day + datetime.timedelta(days=i) for i in range(7))])
         day += datetime.timedelta(days=7)
+
+    occasions = {}
+    for o in in_range(request.company, start, end):
+        occasions.setdefault(o['date'], []).append(o)
+    for week in weeks:
+        for cell in week:
+            cell['occasions'] = occasions.get(cell['date'], [])
 
     unscheduled = Post.objects.filter(company=request.company, scheduled_at__isnull=True).count()
     return render(request, 'content/calendar.html', {

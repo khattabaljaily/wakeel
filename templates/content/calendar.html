@@ -22,6 +22,7 @@
     {% for week in weeks %}{% for day in week %}
     <div class="wk-cal__day {% if not day.in_month %}out{% endif %} {% if day.today %}today{% endif %}" data-date="{{ day.date|date:'Y-m-d' }}">
         <span class="num">{{ day.date.day }}</span>
+        {% for o in day.occasions %}<span class="wk-occasion" title="{{ o.name }}{% if o.approx %} (قد يتغير يوماً حسب رؤية الهلال){% endif %}"><i class="bi bi-stars"></i> {{ o.name }}</span>{% endfor %}
         {% if membership.can_edit %}
         <form method="post" action="{% url 'content:post_create' %}">{% csrf_token %}<input type="hidden" name="date" value="{{ day.date|date:'Y-m-d' }}"><button class="wk-cal__add" title="منشور جديد في هذا اليوم"><i class="bi bi-plus"></i></button></form>
         {% endif %}

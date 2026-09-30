@@ -1,4 +1,56 @@
-/* Wakeel — shared front-end helpers (AJAX, job polling, toasts). */
+/* Wakeel — shared front-end helpers (page spinner, AJAX, job polling, toasts). */
+
+// ---------- Global page spinner (as in enjazpms) ----------
+// Reference-counted: every show() needs a hide(). It comes up on page navigation
+// (links, form submits) and on AJAX calls, and a 15 s safety timer means it can
+// never get stuck. AJAX calls wait 150 ms before showing it, so quick ones don't flash.
+var WkSpinner = (function () {
+    var _el = null, _count = 0, _safety = null, _delay = null;
+
+    function _getEl() { return _el || (_el = document.getElementById('wkSpinner')); }
+    function _doShow() { var s = _getEl(); if (s) s.classList.add('active'); }
+    function _doHide() { clearTimeout(_delay); _delay = null; var s = _getEl(); if (s) s.classList.remove('active'); }
+
+    function show(delayed) {
+        _count++;
+        clearTimeout(_safety);
+        _safety = setTimeout(forceHide, 15000);
+        if (delayed) { if (!_delay) _delay = setTimeout(_doShow, 150); } else _doShow();
+    }
+    function hide() {
+        _count = Math.max(0, _count - 1);
+        if (_count === 0) { clearTimeout(_safety); _doHide(); }
+    }
+    function forceHide() { clearTimeout(_safety); _count = 0; _doHide(); }
+
+    return { show: show, hide: hide, forceHide: forceHide };
+})();
+
+// pageshow fires on normal loads and on back/forward (bfcache) restores, so the
+// spinner never stays up after navigating back.
+window.addEventListener('pageshow', function () { WkSpinner.forceHide(); });
+window.addEventListener('load', function () { WkSpinner.forceHide(); });
+
+// Navigation links: skip in-page anchors, new tabs, Bootstrap toggles and downloads.
+document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    if (!href || /^(#|javascript:|mailto:|tel:|whatsapp:)/i.test(href)) return;
+    if (link.target === '_blank' || link.hasAttribute('download') || link.hasAttribute('data-no-spinner')) return;
+    if (link.hasAttribute('data-bs-toggle') || link.hasAttribute('data-bs-dismiss')) return;
+    if (/\/(download|export)\/|\.(txt|csv|png|jpe?g|pdf|zip)(\?|$)/i.test(href)) return;  // files: the page stays put
+    if (link.origin && link.origin !== location.origin) return;
+    WkSpinner.show();
+});
+
+// Forms that navigate (AJAX forms call preventDefault, so they're skipped).
+document.addEventListener('submit', function (e) {
+    if (e.defaultPrevented || e.target.target === '_blank' || e.target.hasAttribute('data-no-spinner')) return;
+    WkSpinner.show();
+});
+
 var Wakeel = (function () {
     function csrf() {
         var m = document.cookie.match(/(?:^|; )wakeel_csrftoken=([^;]+)/);
@@ -6,7 +58,11 @@ var Wakeel = (function () {
     }
 
     // JSON API call. Resolves with the parsed body; rejects with {status, data}.
-    function api(url, method, data) {
+    // The page spinner shows while it runs, unless opts.silent (background polling,
+    // or long calls that show their own progress).
+    function api(url, method, data, opts_) {
+        var silent = !!(opts_ && opts_.silent);
+        if (!silent) WkSpinner.show(true);
         var opts = { method: method || 'GET', headers: { 'X-CSRFToken': csrf(), 'X-Requested-With': 'XMLHttpRequest' }, credentials: 'same-origin' };
         if (data instanceof FormData) {
             opts.body = data;
@@ -19,7 +75,7 @@ var Wakeel = (function () {
                 if (!res.ok) throw { status: res.status, data: body };
                 return body;
             });
-        });
+        }).finally(function () { if (!silent) WkSpinner.hide(); });
     }
 
     function errorText(err, fallback) {
@@ -45,7 +101,7 @@ var Wakeel = (function () {
         return new Promise(function (resolve, reject) {
             var waited = 0;
             function tick() {
-                api('/api/jobs/' + id + '/').then(function (job) {
+                api('/api/jobs/' + id + '/', 'GET', undefined, { silent: true }).then(function (job) {
                     if (onProgress) onProgress(job);
                     if (job.finished) {
                         return job.status === 'done' ? resolve(job) : reject(job);
@@ -71,7 +127,7 @@ var Wakeel = (function () {
         return navigator.clipboard.writeText(text).then(function () { toast('تم النسخ'); });
     }
 
-    return { api: api, csrf: csrf, toast: toast, pollJob: pollJob, debounce: debounce, errorText: errorText, copy: copy };
+    return { spinner: WkSpinner, api: api, csrf: csrf, toast: toast, pollJob: pollJob, debounce: debounce, errorText: errorText, copy: copy };
 })();
 
 // Styled confirmation dialog (replaces window.confirm / window.prompt).
@@ -219,4 +275,14 @@ document.addEventListener('DOMContentLoaded', function () {
                .catch(function (e) { if (e !== null) Wakeel.toast(Wakeel.errorText(e), 'error'); });
         });
     });
+});
+
+// jQuery AJAX (DataTables) shares the page spinner, as in enjazpms. Requests made
+// with `global: false` stay silent.
+// jQuery is loaded after this file on table pages, so hook in once the page is parsed.
+document.addEventListener('DOMContentLoaded', function () {
+    if (!window.jQuery) return;
+    jQuery(document)
+        .on('ajaxSend', function () { WkSpinner.show(true); })
+        .on('ajaxComplete', function () { WkSpinner.hide(); });
 });

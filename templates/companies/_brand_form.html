@@ -194,7 +194,7 @@
         var url = document.getElementById('autofillUrl').value.trim();
         if (!url) { Wakeel.toast('أدخل رابط الموقع أولاً.', 'error'); return; }
         afBtn.disabled = true; afStatus.classList.remove('d-none');
-        Wakeel.api('{% url "companies:autofill" %}', 'POST', { url: url }).then(function (r) {
+        Wakeel.api('{% url "companies:autofill" %}', 'POST', { url: url }, { silent: true }).then(function (r) {
             var n = 0;
             Object.keys(r.fields).forEach(function (k) { if (fill(k, r.fields[k])) n++; });
             // Colours and logo are what the user asked the site for, so they replace current values.

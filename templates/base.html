@@ -167,6 +167,10 @@
 </main>
 {% endblock %}
 <div class="wk-toasts" id="wkToasts"></div>
+<div id="wkSpinner" class="wk-spinner" role="status" aria-live="polite">
+    <div class="wk-spinner__ring"><img src="{% static 'img/logo.svg' %}" alt=""></div>
+    <span class="visually-hidden">جارٍ التحميل…</span>
+</div>
 <div class="modal fade wk-modal" id="wkConfirm" tabindex="-1" aria-hidden="true" aria-labelledby="wkConfirmTitle">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

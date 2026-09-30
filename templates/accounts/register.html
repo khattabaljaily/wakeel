@@ -1,12 +1,28 @@
 {% extends "accounts/base_auth.html" %}
 {% block title %}إنشاء حساب{% endblock %}
+{% block card_class %}wk-auth__card--wide{% endblock %}
 {% block auth_content %}
-<h1 class="h3 mb-1">ابدأ مع وكيل</h1>
-<p class="text-muted mb-4">أنشئ حسابك، ثم عرّفنا بشركتك في دقائق.</p>
+<div class="wk-auth__head">
+    <h1>ابدأ مع وكيل</h1>
+    <p>أنشئ حسابك وعرّفنا بشركتك، وسنراجع طلبك ونفعّله في أقرب وقت.</p>
+</div>
 <form method="post" novalidate>{% csrf_token %}
-    {% for e in form.non_field_errors %}<div class="alert alert-danger py-2">{{ e }}</div>{% endfor %}
-    {% for field in form %}{% include "_field.html" %}{% endfor %}
-    <button class="btn btn-primary w-100 btn-lg mt-2">إنشاء الحساب</button>
+    {% for e in form.non_field_errors %}<div class="alert alert-danger py-2 small">{{ e }}</div>{% endfor %}
+    <div class="wk-auth__section"><span>1</span> حسابك</div>
+    {% include "accounts/_auth_field.html" with field=form.first_name icon="person" %}
+    <div class="row g-0 gx-md-3">
+        <div class="col-md-6">{% include "accounts/_auth_field.html" with field=form.email icon="envelope" %}</div>
+        <div class="col-md-6">{% include "accounts/_auth_field.html" with field=form.password icon="lock" %}</div>
+    </div>
+    <div class="wk-auth__section"><span>2</span> شركتك</div>
+    {% include "accounts/_auth_field.html" with field=form.company_name icon="buildings" %}
+    <div class="row g-0 gx-md-3">
+        <div class="col-md-6">{% include "accounts/_auth_field.html" with field=form.industry icon="briefcase" %}</div>
+        <div class="col-md-6">{% include "accounts/_auth_field.html" with field=form.country icon="globe2" %}</div>
+    </div>
+    {% include "accounts/_auth_field.html" with field=form.phone icon="telephone" %}
+    <button class="btn btn-primary w-100 wk-auth__submit mt-1">إنشاء الحساب <i class="bi bi-arrow-left"></i></button>
+    <p class="small-muted text-center mt-3 mb-0">يُفعَّل الحساب بعد مراجعة فريقنا، وسيصلك بريد عند التفعيل.</p>
 </form>
-<p class="text-center text-muted mt-4 mb-0">لديك حساب بالفعل؟ <a href="{% url 'accounts:login' %}" class="fw-semibold">سجّل الدخول</a></p>
+<div class="wk-auth__switch">لديك حساب بالفعل؟ <a href="{% url 'accounts:login' %}">سجّل الدخول</a></div>
 {% endblock %}

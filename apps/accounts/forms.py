@@ -21,7 +21,7 @@ class RegisterForm(forms.ModelForm):
 
     password = forms.CharField(label='كلمة المرور', strip=False, widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}))
     company_name = forms.CharField(label='اسم الشركة', max_length=150)
-    industry = forms.CharField(label='المجال', max_length=150, widget=forms.TextInput(attrs={'placeholder': 'مثال: مطعم، عيادة، متجر إلكتروني'}))
+    industry = forms.CharField(label='المجال', max_length=150, widget=forms.TextInput(attrs={'placeholder': 'مثال: مطعم، عيادة'}))
     country = forms.CharField(label='الدولة', max_length=80)
     phone = forms.CharField(label='رقم التواصل', max_length=30, widget=forms.TextInput(attrs={'autocomplete': 'tel', 'dir': 'ltr'}))
 

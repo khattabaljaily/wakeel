@@ -1,0 +1,10 @@
+{% load widget_tweaks %}<div class="wk-afield mb-3">
+    <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    <div class="wk-afield__box {% if field.errors %}has-error{% endif %}">
+        <i class="bi bi-{{ icon|default:'dot' }} wk-afield__icon" aria-hidden="true"></i>
+        {% if field.errors %}{% render_field field class="form-control is-invalid" %}{% else %}{% render_field field class="form-control" %}{% endif %}
+        {% if field.widget_type == 'password' %}<button type="button" class="wk-afield__eye" data-toggle-password aria-label="إظهار كلمة المرور"><i class="bi bi-eye"></i></button>{% endif %}
+    </div>
+    {% for e in field.errors %}<div class="invalid-feedback d-block">{{ e }}</div>{% endfor %}
+    {% if field.help_text and show_help %}<div class="form-text">{{ field.help_text|safe }}</div>{% endif %}
+</div>

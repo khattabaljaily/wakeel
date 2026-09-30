@@ -1,14 +1,17 @@
 {% extends "accounts/base_auth.html" %}
 {% block title %}تسجيل الدخول{% endblock %}
 {% block auth_content %}
-<h1 class="h3 mb-1">مرحباً بعودتك</h1>
-<p class="text-muted mb-4">سجّل الدخول لمتابعة إدارة حسابات شركتك.</p>
+<div class="wk-auth__head">
+    <h1>مرحباً بعودتك</h1>
+    <p>سجّل الدخول لمتابعة تسويق شركتك.</p>
+</div>
 <form method="post" novalidate>{% csrf_token %}
-    {% for e in form.non_field_errors %}<div class="alert alert-danger py-2">{{ e }}</div>{% endfor %}
-    {% for field in form %}{% include "_field.html" %}{% endfor %}
+    {% for e in form.non_field_errors %}<div class="alert alert-danger py-2 small"><i class="bi bi-exclamation-circle"></i> {{ e }}</div>{% endfor %}
+    {% include "accounts/_auth_field.html" with field=form.username icon="envelope" %}
+    {% include "accounts/_auth_field.html" with field=form.password icon="lock" %}
     <input type="hidden" name="next" value="{{ next }}">
-    <div class="text-start mb-3" style="margin-top:-.5rem"><a href="{% url 'accounts:password_reset' %}" class="small">نسيت كلمة المرور؟</a></div>
-    <button class="btn btn-primary w-100 btn-lg mt-2">تسجيل الدخول</button>
+    <div class="d-flex justify-content-end mb-3" style="margin-top:-.4rem"><a href="{% url 'accounts:password_reset' %}" class="small fw-semibold">نسيت كلمة المرور؟</a></div>
+    <button class="btn btn-primary w-100 wk-auth__submit">تسجيل الدخول <i class="bi bi-arrow-left"></i></button>
 </form>
-<p class="text-center text-muted mt-4 mb-0">ليس لديك حساب؟ <a href="{% url 'accounts:register' %}" class="fw-semibold">أنشئ حساباً مجانياً</a></p>
+<div class="wk-auth__switch">ليس لديك حساب؟ <a href="{% url 'accounts:register' %}">أنشئ حساباً</a></div>
 {% endblock %}

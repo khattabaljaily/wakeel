@@ -1,24 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
+{% block body_class %}wk-auth-page{% endblock %}
 {% block body %}
 <div class="wk-auth">
-    <div class="wk-auth__side">
-        <a href="{% url 'core:home' %}" class="wk-brand p-0"><img src="{% static 'img/logo.svg' %}" alt=""><span class="wk-brand__name">وكيل</span></a>
-        <div>
-            <h2 class="mb-3">فريق تسويق كامل،<br>يعمل لشركتك على مدار الساعة.</h2>
-            <p class="mb-4">يضع وكيل خطة المحتوى، ويكتب المنشورات، ويصمم الصور بهوية علامتك، ثم يرتبها في تقويم جاهز للنشر.</p>
-            <div class="feat"><i class="bi bi-stars"></i><div>استراتيجية شهرية مبنية على فهم عميق لنشاطك وجمهورك.</div></div>
-            <div class="feat"><i class="bi bi-palette"></i><div>تصاميم احترافية بألوانك وخطوطك وشعارك.</div></div>
-            <div class="feat"><i class="bi bi-calendar-check"></i><div>تقويم نشر ومراجعة واعتماد في مكان واحد.</div></div>
+    <aside class="wk-auth__side">
+        <span class="wk-auth__orb wk-auth__orb--1" aria-hidden="true"></span>
+        <span class="wk-auth__orb wk-auth__orb--2" aria-hidden="true"></span>
+        <a href="{% url 'core:home' %}" class="wk-auth__brand"><img src="{% static 'img/logo.svg' %}" alt=""><span>وكيل</span></a>
+        <div class="wk-auth__pitch">
+            <span class="wk-auth__kicker"><i class="bi bi-stars"></i> مدير التسويق الذكي</span>
+            <h2>فريق تسويق كامل،<br>يعمل لشركتك على مدار الساعة.</h2>
+            <p>يضع وكيل خطة المحتوى، ويكتب المنشورات، ويصمم الصور بهوية علامتك، ثم يرتبها في تقويم جاهز للنشر.</p>
+            <ul class="wk-auth__feats">
+                <li><i class="bi bi-bullseye"></i><span class="d-none d-lg-inline">استراتيجية شهرية مبنية على فهم نشاطك وجمهورك</span><span class="d-lg-none">استراتيجية شهرية</span></li>
+                <li><i class="bi bi-palette"></i><span class="d-none d-lg-inline">تصاميم احترافية بألوانك وخطوطك وشعارك</span><span class="d-lg-none">تصاميم بهويتك</span></li>
+                <li><i class="bi bi-calendar-check"></i><span class="d-none d-lg-inline">تقويم نشر ومراجعة واعتماد في مكان واحد</span><span class="d-lg-none">تقويم ونشر</span></li>
+            </ul>
         </div>
-        <div class="small" style="color:#6f6d98">© {% now "Y" %} وكيل</div>
-    </div>
-    <div class="wk-auth__form">
-        <div class="wk-auth__box">
-            <a href="{% url 'core:home' %}" class="d-lg-none d-flex align-items-center gap-2 mb-4"><img src="{% static 'img/logo.svg' %}" width="36" alt=""><span class="fs-4 fw-bold text-dark">وكيل</span></a>
-            {% for message in messages %}<div class="alert {{ message.tags }}">{{ message }}</div>{% endfor %}
+        <div class="wk-auth__copy">© {% now "Y" %} وكيل</div>
+    </aside>
+    <main class="wk-auth__main">
+        <div class="wk-auth__card {% block card_class %}{% endblock %}">
+            {% for message in messages %}<div class="alert {{ message.tags }} py-2">{{ message }}</div>{% endfor %}
             {% block auth_content %}{% endblock %}
         </div>
-    </div>
+        <div class="wk-auth__foot">© {% now "Y" %} وكيل · مدير التسويق الذكي</div>
+    </main>
 </div>
+{% endblock %}
+{% block scripts %}
+<script>
+// Show / hide password
+document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-toggle-password]');
+    if (!btn) return;
+    var input = btn.parentElement.querySelector('input');
+    var show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+    btn.querySelector('i').className = 'bi ' + (show ? 'bi-eye-slash' : 'bi-eye');
+    btn.setAttribute('aria-label', show ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور');
+});
+</script>
+{% block auth_scripts %}{% endblock %}
 {% endblock %}

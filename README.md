@@ -40,6 +40,10 @@ In-app notifications (bell in the top bar) for: posts sent for review (managers)
 
 Slow work (AI calls, image rendering, publishing) runs in `manage.py run_worker` (or inside `runserver` in development), a single worker that polls the `Job` table. Pages that start a job poll `/api/jobs/<id>/` for progress, warn when no worker is alive (heartbeat file), and can cancel a job; a job cancelled mid-run has its result discarded. Every 30 seconds the worker also queues approved posts that are due, for companies with auto-publishing on (each post is tried once automatically; posts more than 6 hours late are left for a person). Token usage and cost are recorded per job and shown only in the system admin panel.
 
+### Subscriptions
+
+As in enjazpms: a company created through self-registration starts **awaiting approval** (as a trial), its owner sees a "under review" page, and system admins are emailed. From the console (`/ops/subscriptions/`) an admin approves it (trial or paid, with a duration) and the owner is emailed; admins can also add a subscription with its owner, edit it, renew it (from the current end date if still running, else from today), suspend or reactivate it, and delete it (typing its name). While a company is awaiting approval, suspended or expired, its team only sees a status page, the API refuses its requests, auto-publishing skips it and its client review links stop working. Plans (أساسي / احترافي / مؤسسات) are labels for now; no per-plan limits are enforced.
+
 ### Roles
 
 | Role | Can |

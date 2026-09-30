@@ -8,6 +8,7 @@ from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.db import transaction
+from django.db.models import Q
 from django.utils import timezone
 from PIL import Image
 
@@ -109,8 +110,11 @@ def due_posts(now=None):
     now = now or timezone.now()
     return (Post.objects.select_related('company')
             .filter(status=Post.Status.APPROVED, company__auto_publish=True, publish_attempted_at__isnull=True,
+                    company__is_approved=True, company__is_active=True,
                     scheduled_at__lte=now, scheduled_at__gte=now - LATE_LIMIT, format__in=PUBLISHABLE_FORMATS)
-            .filter(company__social_accounts__isnull=False).distinct())
+            .filter(company__social_accounts__isnull=False)
+            .filter(Q(company__subscription_expires__isnull=True) | Q(company__subscription_expires__gte=timezone.localdate()))
+            .distinct())
 
 
 def enqueue_due(now=None):

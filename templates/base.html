@@ -30,7 +30,8 @@
         <nav class="wk-nav">
             <a href="{% url 'ops:overview' %}" class="{% if request.path == '/ops/' %}active{% endif %}"><i class="bi bi-speedometer2"></i> لوحة مشرف النظام</a>
             <div class="wk-nav__label">المشتركون</div>
-            <a href="{% url 'ops:companies' %}" class="{% nav_active '/ops/companies/' %}"><i class="bi bi-buildings"></i> الشركات المشتركة</a>
+            <a href="{% url 'ops:subscriptions' %}" class="{% nav_active '/ops/subscriptions/' %}"><i class="bi bi-buildings"></i> الاشتراكات
+                {% if ops_pending_approval %}<span class="wk-nav__badge wk-nav__badge--gold" title="بانتظار الاعتماد">{{ ops_pending_approval }}</span>{% endif %}</a>
             <a href="{% url 'ops:users' %}" class="{% nav_active '/ops/users/' %}"><i class="bi bi-people"></i> المستخدمون</a>
             <div class="wk-nav__label">التشغيل</div>
             <a href="{% url 'ops:usage' %}" class="{% nav_active '/ops/usage/' %}"><i class="bi bi-cpu"></i> الاستهلاك والتكلفة</a>

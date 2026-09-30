@@ -19,10 +19,16 @@ class OnboardingTests(TestCase):
             'primary_color': '#1E3A8A', 'secondary_color': '#0EA5E9', 'accent_color': '#F6A821',
             'heading_font': 'cairo', 'body_font': 'tajawal',
         })
-        self.assertRedirects(r, reverse('content:plan_create'))
+        # A self-registered company waits for a system admin to approve it (as in enjazpms).
+        self.assertRedirects(r, reverse('companies:status'))
         company = Company.objects.get(name='إنجاز')
         user = User.objects.get(email='k@x.test')
         self.assertEqual(Membership.objects.get(company=company, user=user).role, Membership.Role.OWNER)
+        self.assertEqual((company.is_approved, company.is_demo), (False, True))
+        self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('companies:status'))
+
+        company.is_approved = True
+        company.save()
         self.assertEqual(self.client.get(reverse('core:dashboard')).status_code, 200)
 
     def test_login_with_email(self):

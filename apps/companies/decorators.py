@@ -22,6 +22,9 @@ def company_required(view=None, *, manage=False, edit=False):
                 return redirect('ops:overview')
             if request.company is None:
                 return redirect('companies:create')
+            if not request.company.is_usable:
+                # Awaiting approval, suspended or expired: the status page explains.
+                return redirect('companies:status')
             if manage and not request.membership.can_manage:
                 raise PermissionDenied
             if edit and not request.membership.can_edit:

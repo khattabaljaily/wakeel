@@ -562,3 +562,15 @@ a.adm-kpi:hover { color: inherit; box-shadow: var(--wk-shadow-lg); }
   .adm-col-labels span:nth-child(even) { visibility: hidden; }
   .adm-share { grid-template-columns: 6rem 1fr 2.5rem; }
 }
+
+/* Status tabs (subscriptions) */
+.adm-tabs { display: flex; gap: .4rem; flex-wrap: wrap; }
+.adm-tab { display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .9rem; border-radius: 999px; border: 1px solid var(--wk-border);
+  background: var(--wk-card); color: var(--wk-text); font-weight: 600; font-size: .9rem; }
+.adm-tab:hover { color: var(--wk-primary-600); border-color: var(--wk-primary-100); }
+.adm-tab.active { background: var(--wk-ink); border-color: var(--wk-ink); color: #fff; }
+.adm-tab__n { min-width: 22px; padding: 0 6px; border-radius: 10px; background: var(--wk-bg); color: var(--wk-muted); font-size: .78rem; text-align: center; }
+.adm-tab.active .adm-tab__n { background: rgba(255,255,255,.18); color: #fff; }
+.adm-tab.attention:not(.active) { border-color: #f5c46b; }
+.adm-tab.attention .adm-tab__n { background: var(--wk-gold); color: #3b2800; }
+.wk-nav__badge--gold { background: var(--wk-gold); color: #3b2800; }

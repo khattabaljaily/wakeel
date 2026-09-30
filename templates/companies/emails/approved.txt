@@ -1,0 +1,9 @@
+{% autoescape off %}مرحباً {{ user.display_name }}،
+
+تم اعتماد حساب {{ company.name }} في وكيل، ويمكنك البدء الآن{% if company.is_demo %} بفترة تجريبية{% endif %}{% if company.subscription_expires %} حتى {{ company.subscription_expires|date:"j F Y" }}{% endif %}.
+
+سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:
+{{ link }}
+
+فريق وكيل
+{% endautoescape %}

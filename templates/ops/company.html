@@ -2,9 +2,19 @@
 {% load wakeel %}
 {% block title %}{{ target.name }} · لوحة النظام{% endblock %}
 {% block page_title %}{{ target.name }}{% endblock %}
-{% block subtitle %}<div class="subtitle"><a href="{% url 'ops:companies' %}">الشركات المشتركة</a> · {{ target.industry }} · {{ target.country }} · منذ {{ target.created_at|date:"j/n/Y" }}</div>{% endblock %}
-{% block actions %}<a href="{% url 'admin:companies_company_change' target.pk %}" class="btn btn-light"><i class="bi bi-gear"></i> في إدارة Django</a>{% endblock %}
+{% block subtitle %}<div class="subtitle"><a href="{% url 'ops:subscriptions' %}">الاشتراكات</a> · {{ target.industry }} · {{ target.country }} · منذ {{ target.created_at|date:"j/n/Y" }}</div>{% endblock %}
+{% block actions %}
+{% if not target.is_approved %}<button type="button" class="btn btn-success" data-sub-action="approve" data-id="{{ target.pk }}" data-name="{{ target.name }}"><i class="bi bi-patch-check"></i> اعتماد</button>{% endif %}
+{% include "ops/_subscription_actions.html" with c=target detail=True label="إجراءات" %}
+{% endblock %}
 {% block content %}
+<div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-4 align-items-center">
+    <div><div class="small-muted">الحالة</div>{% include "ops/_subscription_state.html" with c=target %}</div>
+    <div><div class="small-muted">الباقة</div><strong>{{ target.get_subscription_plan_display }}</strong></div>
+    <div><div class="small-muted">نهاية الاشتراك</div>{% include "ops/_subscription_end.html" with c=target %}</div>
+    <div><div class="small-muted">الاعتماد</div>{% if target.approved_at %}{{ target.approved_at|date:"j/n/Y" }}{% elif target.is_approved %}—{% else %}<span class="text-warning">بانتظار الاعتماد</span>{% endif %}</div>
+    <div><div class="small-muted">المالك</div><span dir="ltr">{{ owner.email|default:"—" }}</span></div>
+</div></div>
 <div class="row g-3 mb-4">
     <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-currency-dollar"></i></div><div><div class="wk-stat__value" dir="ltr">${{ total.cost|floatformat:"4u" }}</div><div class="wk-stat__label">تكلفة آخر 12 شهراً</div></div></div></div>
     <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="wk-stat__value">{{ total.input|thousands }}</div><div class="wk-stat__label">رموز مُدخلة</div></div></div></div>
@@ -35,4 +45,5 @@
     <div class="wk-card-head"><h2><i class="bi bi-list-task text-primary"></i> آخر المهام</h2><a href="{% url 'ops:jobs' %}" class="small fw-semibold">كل المهام</a></div>
     {% include "ops/_jobs_table.html" with show_company=False %}
 </div>
+{% include "ops/_subscription_modals.html" %}
 {% endblock %}

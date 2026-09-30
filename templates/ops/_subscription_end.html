@@ -1,0 +1,4 @@
+{% load wakeel %}{% with days=c.days_until_expiry %}{% if not c.subscription_expires %}<span class="text-muted">بدون انتهاء</span>
+{% else %}<span class="text-nowrap">{{ c.subscription_expires|date:"j/n/Y" }}</span>
+<div class="small {% if days < 0 %}text-danger{% elif days <= 7 %}text-warning{% else %}text-muted{% endif %}">{% if days < 0 %}انتهى منذ {{ days|abs }} يوم{% elif days == 0 %}ينتهي اليوم{% else %}باقٍ {{ days }} يوم{% endif %}</div>
+{% endif %}{% endwith %}

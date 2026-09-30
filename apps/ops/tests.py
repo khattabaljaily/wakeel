@@ -28,7 +28,7 @@ class OpsPanelTests(TestCase):
                            error='خدمة الذكاء الاصطناعي غير متاحة حالياً', error_detail='DeepSeek balance too low [HTTP 402]')
 
     def test_hidden_from_everyone_but_superusers(self):
-        for name, args in (('overview', []), ('companies', []), ('users', []), ('usage', []), ('jobs', []),
+        for name, args in (('overview', []), ('subscriptions', []), ('users', []), ('usage', []), ('jobs', []),
                            ('system', []), ('company', [self.a.pk])):
             url = reverse(f'ops:{name}', args=args)
             self.client.force_login(self.owner)
@@ -38,7 +38,7 @@ class OpsPanelTests(TestCase):
 
     def test_every_console_page_renders(self):
         self.client.force_login(self.admin)
-        for name, args in (('overview', []), ('companies', []), ('users', []), ('usage', []), ('jobs', []),
+        for name, args in (('overview', []), ('subscriptions', []), ('users', []), ('usage', []), ('jobs', []),
                            ('system', []), ('company', [self.a.pk])):
             self.assertEqual(self.client.get(reverse(f'ops:{name}', args=args)).status_code, 200, name)
 
@@ -69,7 +69,7 @@ class OpsPanelTests(TestCase):
 
     def test_companies_search(self):
         self.client.force_login(self.admin)
-        response = self.client.get(reverse('ops:companies'), {'q': 'b@x.test'})
+        response = self.client.get(reverse('ops:subscriptions'), {'q': 'b@x.test'})
         self.assertEqual([r['company'] for r in response.context['page']], [self.b])
 
     def test_suspend_and_restore_a_user(self):

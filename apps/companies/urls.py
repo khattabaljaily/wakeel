@@ -6,6 +6,7 @@ app_name = 'companies'
 
 urlpatterns = [
     path('new/', views.create, name='create'),
+    path('status/', views.status, name='status'),
     path('brand/', views.brand, name='brand'),
     path('autofill/', views.autofill, name='autofill'),
     path('delete/', views.delete_company, name='delete'),

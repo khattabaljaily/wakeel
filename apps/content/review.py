@@ -41,8 +41,11 @@ def plan_share(request, pk):
 def _plan(token):
     if not token:
         raise Http404
-    return get_object_or_404(ContentPlan.objects.select_related('company'), share_token=token,
+    plan = get_object_or_404(ContentPlan.objects.select_related('company'), share_token=token,
                              status=ContentPlan.Status.READY)
+    if not plan.company.is_usable:  # the link stops working while the subscription is off
+        raise Http404
+    return plan
 
 
 @ensure_csrf_cookie

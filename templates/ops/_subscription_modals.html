@@ -1,0 +1,77 @@
+{# Action dialogs for a subscription; opened by buttons with data-sub-action="approve|edit|renew", data-id, data-name (and data-edit JSON). #}
+<div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><form method="post" class="modal-content" data-action-url="{% url 'ops:subscription_approve' 0 %}">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <div class="modal-header"><h2 class="modal-title h5" id="approveTitle"><i class="bi bi-patch-check text-success"></i> اعتماد <span data-name></span></h2>
+            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
+        <div class="modal-body">
+            <p class="text-muted small">سيُفعَّل الحساب ويُبلَّغ مالكه بالبريد. اختر نوع الحساب ومدة الاشتراك.</p>
+            <label class="form-label" for="approveDemo">نوع الحساب</label>
+            <select name="is_demo" id="approveDemo" class="form-select mb-3"><option value="1">تجريبي</option><option value="0">حقيقي (مدفوع)</option></select>
+            <label class="form-label" for="approveDays">مدة الاشتراك</label>
+            <select name="days" id="approveDays" class="form-select">{% for v, l in durations %}<option value="{{ v }}" {% if v == '14' %}selected{% endif %}>{{ l }}</option>{% endfor %}<option value="">بدون تاريخ انتهاء</option></select>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-success"><i class="bi bi-patch-check"></i> اعتماد</button></div>
+    </form></div>
+</div>
+
+<div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="renewTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><form method="post" class="modal-content" data-action-url="{% url 'ops:subscription_renew' 0 %}">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <div class="modal-header"><h2 class="modal-title h5" id="renewTitle"><i class="bi bi-arrow-clockwise text-primary"></i> تجديد <span data-name></span></h2>
+            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
+        <div class="modal-body">
+            <p class="text-muted small">تُضاف المدة إلى تاريخ الانتهاء الحالي إن لم يكن قد مضى، وإلا فمن اليوم.</p>
+            <label class="form-label" for="renewDays">المدة</label>
+            <select name="days" id="renewDays" class="form-select mb-3">{% for v, l in durations %}<option value="{{ v }}" {% if v == '30' %}selected{% endif %}>{{ l }}</option>{% endfor %}</select>
+            <label class="form-label" for="renewPlan">الباقة</label>
+            <select name="plan" id="renewPlan" class="form-select">{% for v, l in plans %}<option value="{{ v }}">{{ l }}</option>{% endfor %}</select>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i> تجديد</button></div>
+    </form></div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"><form method="post" class="modal-content" novalidate data-action-url="{% url 'ops:subscription_update' 0 %}" {% if edit_target %}action="{% url 'ops:subscription_update' edit_target.pk %}" data-open{% endif %}>{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <div class="modal-header"><h2 class="modal-title h5" id="editTitle"><i class="bi bi-pencil-square text-primary"></i> تعديل <span data-name>{{ edit_target.name }}</span></h2>
+            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
+        <div class="modal-body"><div class="row">
+            {% include "_field.html" with field=edit_form.name wrap_class="col-md-6" %}
+            {% include "_field.html" with field=edit_form.industry wrap_class="col-md-6" %}
+            {% include "_field.html" with field=edit_form.country wrap_class="col-md-6" %}
+            {% include "_field.html" with field=edit_form.timezone wrap_class="col-md-6" %}
+            {% include "_field.html" with field=edit_form.subscription_plan wrap_class="col-md-6" %}
+            {% include "_field.html" with field=edit_form.subscription_expires wrap_class="col-md-6" %}
+            <div class="col-12"><div class="form-check"><input type="checkbox" class="form-check-input" name="is_demo" id="editDemo" {% if edit_form.is_demo.value %}checked{% endif %}><label class="form-check-label" for="editDemo">حساب تجريبي</label></div></div>
+        </div></div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-primary"><i class="bi bi-check2"></i> حفظ</button></div>
+    </form></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var MODALS = { approve: 'approveModal', renew: 'renewModal', edit: 'editModal' };
+    document.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-sub-action]');
+        if (!btn) return;
+        var el = document.getElementById(MODALS[btn.dataset.subAction]), form = el.querySelector('form');
+        form.action = form.dataset.actionUrl.replace('/0/', '/' + btn.dataset.id + '/');
+        el.querySelectorAll('[data-name]').forEach(function (s) { s.textContent = btn.dataset.name; });
+        if (btn.dataset.edit) {
+            var data = JSON.parse(btn.dataset.edit);
+            form.querySelectorAll('.is-invalid').forEach(function (f) { f.classList.remove('is-invalid'); });
+            form.querySelectorAll('.invalid-feedback').forEach(function (f) { f.remove(); });
+            Object.keys(data).forEach(function (k) {
+                var f = form.elements[k];
+                if (!f) return;
+                if (f.type === 'checkbox') f.checked = !!data[k]; else f.value = data[k];
+            });
+        }
+        if (btn.dataset.plan && form.elements.plan) form.elements.plan.value = btn.dataset.plan;
+        bootstrap.Modal.getOrCreateInstance(el).show();
+    });
+    // A form sent back with errors reopens its dialog.
+    document.querySelectorAll('form[data-open]').forEach(function (f) { bootstrap.Modal.getOrCreateInstance(f.closest('.modal')).show(); });
+});
+</script>

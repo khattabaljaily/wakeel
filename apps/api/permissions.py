@@ -8,7 +8,7 @@ class InCompany(BasePermission):
 
     def has_permission(self, request, view):
         membership = getattr(request._request, 'membership', None)
-        if membership is None:
+        if membership is None or not membership.company.is_usable:
             return False
         if request.method in ('GET', 'HEAD', 'OPTIONS'):
             return True
@@ -21,4 +21,5 @@ class InCompanyAnyRole(BasePermission):
     message = InCompany.message
 
     def has_permission(self, request, view):
-        return getattr(request._request, 'membership', None) is not None
+        membership = getattr(request._request, 'membership', None)
+        return membership is not None and membership.company.is_usable

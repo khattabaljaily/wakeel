@@ -21,6 +21,7 @@ from PIL import Image
 from apps.ai.brand import BRAND_SCHEMA, draft_brand
 from apps.ai.client import AIError
 
+from . import subscriptions
 from .decorators import company_required
 from .forms import CompanyForm, MediaUploadForm, MemberAddForm
 from .middleware import SESSION_KEY
@@ -64,9 +65,23 @@ def create(request):
             Membership.objects.create(company=company, user=request.user, role=Membership.Role.OWNER)
         _attach_logo(request, company, form)
         request.session[SESSION_KEY] = company.pk
+        if not request.user.is_superuser:
+            subscriptions.signed_up(company, request.user)
+            return redirect('companies:status')
         messages.success(request, f'تم إنشاء مساحة عمل «{company.name}». ابدأ الآن بإعداد خطة المحتوى الأولى.')
         return redirect('content:plan_create')
     return render(request, 'companies/create.html', {'form': form, 'first_company': request.company is None})
+
+
+@login_required
+def status(request):
+    """Shown instead of the app while the company awaits approval, or is suspended or expired."""
+    company = request.company
+    if company is None:
+        return redirect('companies:create')
+    if company.is_usable or request.user.is_superuser:
+        return redirect('core:dashboard')
+    return render(request, 'companies/status.html', {'target': company})
 
 
 @company_required(manage=True)

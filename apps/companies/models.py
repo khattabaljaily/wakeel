@@ -93,6 +93,16 @@ class Company(models.Model):
     timezone = models.CharField('المنطقة الزمنية', max_length=50, choices=TIMEZONE_CHOICES, default='Asia/Qatar')
     auto_publish = models.BooleanField('النشر التلقائي', default=False,
                                        help_text='انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها.')
+
+    # Subscription, managed by the system admins from the console (as in enjazpms / enjazims).
+    # Self-registered companies start unapproved; companies made by an admin are approved at once.
+    SUBSCRIPTION_PLANS = [('basic', 'أساسي'), ('pro', 'احترافي'), ('enterprise', 'مؤسسات')]
+    subscription_plan = models.CharField('الباقة', max_length=20, choices=SUBSCRIPTION_PLANS, default='basic')
+    subscription_expires = models.DateField('نهاية الاشتراك', null=True, blank=True, help_text='فارغ = بدون انتهاء.')
+    is_approved = models.BooleanField('معتمد', default=True)
+    approved_at = models.DateTimeField('تاريخ الاعتماد', null=True, blank=True)
+    is_active = models.BooleanField('نشط', default=True, help_text='إيقافه يعلّق الاشتراك.')
+    is_demo = models.BooleanField('حساب تجريبي', default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -112,6 +122,35 @@ class Company(models.Model):
                 slug, n = f'{base}-{n}', n + 1
             self.slug = slug
         super().save(*args, **kwargs)
+
+    @property
+    def days_until_expiry(self):
+        if not self.subscription_expires:
+            return None
+        from django.utils import timezone
+        return (self.subscription_expires - timezone.localdate()).days
+
+    @property
+    def subscription_status(self):
+        """pending (awaiting approval), suspended, expired or active."""
+        if not self.is_approved:
+            return 'pending'
+        if not self.is_active:
+            return 'suspended'
+        if self.subscription_expires and self.days_until_expiry < 0:
+            return 'expired'
+        return 'active'
+
+    STATUS_LABELS = {'pending': 'قيد الاعتماد', 'suspended': 'معلّق', 'expired': 'منتهي', 'active': 'نشط'}
+
+    @property
+    def subscription_status_label(self):
+        return self.STATUS_LABELS[self.subscription_status]
+
+    @property
+    def is_usable(self):
+        """Whether the company's team may work in the app."""
+        return self.subscription_status == 'active'
 
     @property
     def tzinfo(self):

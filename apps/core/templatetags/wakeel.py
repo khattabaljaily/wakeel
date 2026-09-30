@@ -30,3 +30,11 @@ def thousands(value):
         return f'{int(value):,}'
     except (TypeError, ValueError):
         return value
+
+
+@register.filter(name='abs')
+def absolute(value):
+    try:
+        return abs(value)
+    except TypeError:
+        return value

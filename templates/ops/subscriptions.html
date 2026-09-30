@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load wakeel %}
+{% block title %}الاشتراكات{% endblock %}
+{% block page_title %}الاشتراكات{% endblock %}
+{% block subtitle %}<div class="subtitle">اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها</div>{% endblock %}
+{% block actions %}<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi bi-plus-lg"></i> اشتراك جديد</button>{% endblock %}
+{% block content %}
+<div class="adm-tabs mb-3" role="tablist">
+    {% for key, label in filters %}
+    <a href="?status={{ key }}{% if q %}&q={{ q|urlencode }}{% endif %}" class="adm-tab {% if key == status %}active{% endif %} {% if key == 'pending' and stats.pending %}attention{% endif %}" {% if key == status %}aria-current="page"{% endif %}>
+        {{ label }} <span class="adm-tab__n">{% for k, n in stats.items %}{% if k == key %}{{ n }}{% endif %}{% endfor %}</span></a>
+    {% endfor %}
+</div>
+<form class="d-flex gap-2 mb-3 flex-wrap" method="get">
+    <input type="hidden" name="status" value="{{ status }}">
+    <input type="search" name="q" value="{{ q }}" class="form-control form-control-sm" style="max-width: 320px" placeholder="ابحث بالاسم أو الدولة أو بريد عضو" aria-label="بحث">
+    <button class="btn btn-sm btn-light"><i class="bi bi-search"></i> بحث</button>
+</form>
+<div class="wk-card">
+    <div class="table-responsive"><table class="table mb-0 align-middle">
+        <thead class="text-nowrap"><tr><th>المشترك</th><th class="d-none d-md-table-cell">المالك</th><th class="d-none d-md-table-cell">الباقة</th><th>الاشتراك</th><th>الحالة</th><th class="text-end d-none d-md-table-cell">المنشورات</th><th class="text-end d-none d-md-table-cell">تكلفة الشهر</th><th></th></tr></thead>
+        <tbody>{% for r in page %}{% with c=r.company %}
+        <tr class="{% if c.subscription_status == 'pending' %}table-warning{% endif %}">
+            <td><a href="{% url 'ops:company' c.pk %}" class="fw-semibold">{{ c.name }}</a><div class="small-muted">{{ c.industry }} · {{ c.country }}<span class="d-none d-md-inline"> · منذ {{ c.created_at|date:"j/n/Y" }}</span></div></td>
+            <td class="small d-none d-md-table-cell"><div>{{ r.owner.display_name|default:"—" }}</div><div class="text-muted" dir="ltr">{{ r.owner.email }}</div></td>
+            <td class="small text-nowrap d-none d-md-table-cell">{{ c.get_subscription_plan_display }}</td>
+            <td class="small">{% include "ops/_subscription_end.html" %}</td>
+            <td>{% include "ops/_subscription_state.html" %}</td>
+            <td class="text-end d-none d-md-table-cell">{{ c.post_count }}</td>
+            <td class="text-end d-none d-md-table-cell" dir="ltr">${{ r.month.cost|floatformat:"4u" }}</td>
+            <td><div class="d-flex gap-2 justify-content-end align-items-center">
+                {% if not c.is_approved %}<button type="button" class="btn btn-sm btn-success text-nowrap" data-sub-action="approve" data-id="{{ c.pk }}" data-name="{{ c.name }}" aria-label="اعتماد {{ c.name }}"><i class="bi bi-patch-check"></i><span class="d-none d-sm-inline"> اعتماد</span></button>{% endif %}
+                {% include "ops/_subscription_actions.html" with edit=r.edit %}
+            </div></td>
+        </tr>
+        {% endwith %}{% empty %}<tr><td colspan="8" class="text-center small-muted py-5">{% if status == 'pending' %}لا توجد طلبات بانتظار الاعتماد.{% else %}لا توجد نتائج.{% endif %}</td></tr>{% endfor %}</tbody>
+    </table></div>
+</div>
+{% if page.has_other_pages %}
+<nav class="mt-3 d-flex gap-2">
+    {% if page.has_previous %}<a class="btn btn-light btn-sm" href="?status={{ status }}&q={{ q|urlencode }}&page={{ page.previous_page_number }}">السابق</a>{% endif %}
+    {% if page.has_next %}<a class="btn btn-light btn-sm" href="?status={{ status }}&q={{ q|urlencode }}&page={{ page.next_page_number }}">التالي</a>{% endif %}
+</nav>
+{% endif %}
+
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"><form method="post" action="{% url 'ops:subscription_create' %}" class="modal-content" novalidate {% if create_form.is_bound %}data-open{% endif %}>{% csrf_token %}
+        <div class="modal-header"><div><h2 class="modal-title h5" id="createTitle"><i class="bi bi-plus-circle text-primary"></i> اشتراك جديد</h2><div class="small-muted">يُعتمد فوراً، ويُنشأ حساب المالك إن لم يكن موجوداً.</div></div>
+            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
+        <div class="modal-body">
+            {% for e in create_form.non_field_errors %}<div class="alert alert-danger py-2">{{ e }}</div>{% endfor %}
+            <h3 class="h6 text-muted mb-3">الشركة</h3>
+            <div class="row">
+                {% include "_field.html" with field=create_form.name wrap_class="col-md-6" %}
+                {% include "_field.html" with field=create_form.industry wrap_class="col-md-6" %}
+                {% include "_field.html" with field=create_form.country wrap_class="col-md-6" %}
+                {% include "_field.html" with field=create_form.timezone wrap_class="col-md-6" %}
+                {% include "_field.html" with field=create_form.description wrap_class="col-12" %}
+            </div>
+            <h3 class="h6 text-muted mb-3 mt-2">الاشتراك</h3>
+            <div class="row">
+                {% include "_field.html" with field=create_form.subscription_plan wrap_class="col-md-6" %}
+                {% include "_field.html" with field=create_form.days wrap_class="col-md-6" %}
+                <div class="col-12 mb-3"><div class="form-check"><input type="checkbox" class="form-check-input" name="is_demo" id="createDemo" {% if create_form.is_demo.value %}checked{% endif %}><label class="form-check-label" for="createDemo">حساب تجريبي</label></div></div>
+            </div>
+            <h3 class="h6 text-muted mb-3 mt-2">المالك</h3>
+            <div class="row">
+                {% include "_field.html" with field=create_form.owner_name wrap_class="col-md-6" %}
+                {% include "_field.html" with field=create_form.owner_email wrap_class="col-md-6" %}
+                {% include "_field.html" with field=create_form.owner_password wrap_class="col-md-6" %}
+            </div>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-primary"><i class="bi bi-check2"></i> إنشاء الاشتراك</button></div>
+    </form></div>
+</div>
+{% include "ops/_subscription_modals.html" %}
+{% endblock %}

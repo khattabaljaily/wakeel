@@ -107,6 +107,20 @@ python manage.py test apps
 
 ---
 
+## Production
+
+Live at https://wakeel.sharedlink.cc on `Server` (`/home/general/projects/wakeel`):
+
+| | |
+|---|---|
+| Web | `wakeel.service`: gunicorn on 127.0.0.1:8109 (timeout 240 s for website autofill) |
+| Worker | `wakeel-worker.service`: `manage.py run_worker`, logs in `logs/worker.log` |
+| Proxy | nginx site `wakeel` (static + media + proxy), Let's Encrypt certificate via certbot, behind Cloudflare |
+| Database | MySQL `wakeel` (user `wakeel`); secrets in the server's `secrets.json` only |
+| Rendering | Playwright's bundled Chromium (`CHROME_PATH` empty) |
+
+Deploy updates with `./deploy.sh` after pushing to `origin/main`.
+
 ## Project layout
 
 ```

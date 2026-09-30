@@ -1,4 +1,4 @@
-"""Subscription lifecycle, as in enjazpms: sign-up -> awaiting approval -> approved (trial or paid, with a
+"""Subscription lifecycle, as in enjazpms: awaiting approval -> approved (trial or paid, with a
 duration) -> renewed / suspended / reactivated / deleted. The console (apps.ops) drives it."""
 import datetime
 import logging
@@ -9,7 +9,6 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils import timezone
 
-from apps.accounts.models import User
 
 from .models import Company, Membership
 
@@ -36,18 +35,6 @@ def valid_days(value):
     except (TypeError, ValueError):
         return None
     return days if 0 < days <= MAX_DAYS else None
-
-
-def signed_up(company, user):
-    """A subscriber created a company themselves: it waits for an admin, who is told by email."""
-    company.is_approved, company.is_demo = False, True
-    company.save(update_fields=['is_approved', 'is_demo'])
-    admins = list(User.objects.filter(is_superuser=True, is_active=True).exclude(email='').values_list('email', flat=True))
-    if admins:
-        _send(admins, f'طلب اشتراك جديد: {company.name}', 'companies/emails/new_signup.txt', {
-            'company': company, 'user': user,
-            'link': settings.SITE_URL + reverse('ops:subscriptions') + '?status=pending',
-        })
 
 
 def approve(company, *, is_demo, days=None):

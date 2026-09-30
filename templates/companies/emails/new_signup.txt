@@ -1,9 +1,0 @@
-{% autoescape off %}طلب اشتراك جديد في وكيل بانتظار الاعتماد:
-
-الشركة: {{ company.name }}
-المجال: {{ company.industry }} · {{ company.country }}
-المسجِّل: {{ user.display_name }} <{{ user.email }}>
-
-راجع الطلب واعتمده من لوحة مشرف النظام:
-{{ link }}
-{% endautoescape %}

@@ -25,16 +25,15 @@ class SignupApprovalTests(TestCase):
 
     def setUp(self):
         self.admin = superuser()
-        self.client.post(reverse('accounts:register'), {
-            'first_name': 'سارة', 'email': 's@x.test', 'password': 'Strong-pass-123',
-            'company_name': 'مطعم النيل', 'industry': 'مطاعم', 'country': 'السودان', 'phone': '+249 912 000 111'})
-        self.company = Company.objects.get(name='مطعم النيل')
-        self.owner = User.objects.get(email='s@x.test')
+        # A company waiting for approval (e.g. one an admin put on hold before activating it).
+        self.company = make_company('مطعم النيل')
+        self.company.is_approved, self.company.is_demo = False, True
+        self.company.save()
+        self.owner = make_user('s@x.test', self.company)
+        self.client.force_login(self.owner)
 
-    def test_new_company_waits_and_admins_are_told(self):
+    def test_pending_company_waits(self):
         self.assertEqual(self.company.subscription_status, 'pending')
-        self.assertEqual([m.to for m in mail.outbox], [['root@x.test']])
-        self.assertIn('مطعم النيل', mail.outbox[0].subject)
         # Every app page and the API lead to the status page / are refused.
         for name in ('core:dashboard', 'content:plan_list', 'companies:brand', 'social:accounts'):
             self.assertRedirects(self.client.get(reverse(name)), reverse('companies:status'))

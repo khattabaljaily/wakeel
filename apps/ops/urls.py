@@ -6,6 +6,9 @@ app_name = 'ops'
 
 urlpatterns = [
     path('', views.overview, name='overview'),
+    path('signups/', views.signups, name='signups'),
+    path('signups/<int:pk>/approve/', views.signup_approve, name='signup_approve'),
+    path('signups/<int:pk>/reject/', views.signup_reject, name='signup_reject'),
     path('subscriptions/', views.subscriptions, name='subscriptions'),
     path('subscriptions/data/', views.subscriptions_data, name='subscriptions_data'),
     path('subscriptions/new/', views.subscription_create, name='subscription_create'),

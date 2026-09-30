@@ -29,6 +29,11 @@
     <a href="{% url 'ops:system' %}" class="alert-link ms-auto">حالة النظام</a></div>
 {% endif %}
 
+{% if ops_pending_signups %}
+<div class="alert alert-warning d-flex align-items-center gap-2"><i class="bi bi-person-plus"></i>
+    <span><strong>{{ ops_pending_signups }}</strong> طلب تسجيل جديد بانتظار الموافقة.</span>
+    <a href="{% url 'ops:signups' %}" class="alert-link ms-auto">مراجعة الطلبات</a></div>
+{% endif %}
 {% if counts.pending_approval %}
 <div class="alert alert-warning d-flex align-items-center gap-2"><i class="bi bi-hourglass-split"></i>
     <span><strong>{{ counts.pending_approval }}</strong> طلب اشتراك جديد بانتظار الاعتماد.</span>

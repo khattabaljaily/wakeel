@@ -7,37 +7,53 @@ from .models import Company, Membership
 
 
 class OnboardingTests(TestCase):
-    def test_sign_up_creates_a_company_awaiting_approval(self):
+    def test_sign_up_waits_for_approval_then_adds_companies_with_the_wizard(self):
+        from django.core import mail
+        admin = User.objects.create_superuser(username='root', email='root@x.test', password='Strong-pass-123')
         r = self.client.post(reverse('accounts:register'), {
-            'first_name': 'خطاب', 'email': 'k@x.test', 'password': 'Strong-pass-123',
-            'company_name': 'إنجاز', 'industry': 'برمجيات', 'country': 'السودان', 'phone': '+249 912 345 678'})
-        # One step, as in enjazpms: the account and its company, straight to "under review".
-        self.assertRedirects(r, reverse('companies:status'))
-        company = Company.objects.get(name='إنجاز')
+            'first_name': 'خطاب', 'email': 'k@x.test', 'password': 'Strong-pass-123', 'phone': '+249 912 345 678'})
+        self.assertRedirects(r, reverse('accounts:pending'))
         user = User.objects.get(email='k@x.test')
-        self.assertEqual(Membership.objects.get(company=company, user=user).role, Membership.Role.OWNER)
-        self.assertEqual((company.is_approved, company.is_demo, company.timezone, company.email),
-                         (False, True, 'Africa/Khartoum', 'k@x.test'))
-        self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('companies:status'))
+        self.assertFalse(user.is_approved)
+        self.assertFalse(Company.objects.exists())  # sign-up is about the person only
+        self.assertEqual([m.to for m in mail.outbox], [['root@x.test']])
+        # Until approved, the app, the wizard and the API all lead to the waiting page.
+        for name in ('core:dashboard', 'companies:create', 'content:plan_list'):
+            self.assertRedirects(self.client.get(reverse(name)), reverse('accounts:pending'), fetch_redirect_response=False)
+        self.assertEqual(self.client.get('/api/jobs/1/').status_code, 403)
+        self.assertContains(self.client.get(reverse('accounts:pending')), 'حسابك قيد المراجعة')
 
-        # Once approved, the owner is asked to complete the company profile.
-        company.is_approved = True
-        company.save()
-        response = self.client.get(reverse('core:dashboard'))
-        self.assertContains(response, 'أكمل ملف شركتك')
-        self.assertContains(response, reverse('companies:brand'))
+        # A system admin approves the account from the console; the user is emailed.
+        mail.outbox.clear()
+        self.client.force_login(admin)
+        self.assertContains(self.client.get(reverse('ops:signups')), 'k@x.test')
+        self.client.post(reverse('ops:signup_approve', args=[user.pk]))
+        user.refresh_from_db()
+        self.assertTrue(user.is_approved)
+        self.assertEqual([m.to for m in mail.outbox], [['k@x.test']])
 
-    def test_another_company_also_waits_for_approval(self):
-        owner = User.objects.create_user(username='o@x.test', email='o@x.test', password='Strong-pass-123')
-        self.client.force_login(owner)
+        # Then the user adds a company through the wizard, and it's ready at once.
+        self.client.force_login(user)
+        self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('companies:create'))
         r = self.client.post(reverse('companies:create'), {
-            'name': 'فرع', 'industry': 'برمجيات', 'country': 'قطر', 'timezone': 'Asia/Qatar',
+            'name': 'إنجاز', 'industry': 'برمجيات', 'country': 'السودان', 'timezone': 'Africa/Khartoum',
             'description': 'حلول', 'content_language': 'ar_msa', 'tone': 'professional',
             'primary_color': '#1E3A8A', 'secondary_color': '#0EA5E9', 'accent_color': '#F6A821',
             'heading_font': 'cairo', 'body_font': 'tajawal',
         })
-        self.assertRedirects(r, reverse('companies:status'))
-        self.assertFalse(Company.objects.get(name='فرع').is_approved)
+        self.assertRedirects(r, reverse('content:plan_create'))
+        company = Company.objects.get(name='إنجاز')
+        self.assertTrue(company.is_usable)
+        self.assertEqual(Membership.objects.get(company=company, user=user).role, Membership.Role.OWNER)
+        self.assertEqual(self.client.get(reverse('core:dashboard')).status_code, 200)
+
+    def test_admin_rejects_a_sign_up(self):
+        admin = User.objects.create_superuser(username='root', email='root@x.test', password='Strong-pass-123')
+        self.client.post(reverse('accounts:register'), {'first_name': 'س', 'email': 's@x.test', 'password': 'Strong-pass-123'})
+        user = User.objects.get(email='s@x.test')
+        self.client.force_login(admin)
+        self.client.post(reverse('ops:signup_reject', args=[user.pk]))
+        self.assertFalse(User.objects.filter(email='s@x.test').exists())
 
     def test_login_with_email(self):
         User.objects.create_user(username='someone', email='s@x.test', password='Strong-pass-123')

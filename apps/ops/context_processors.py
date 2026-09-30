@@ -2,6 +2,7 @@ import datetime
 
 from django.utils import timezone
 
+from apps.accounts.models import User
 from apps.companies.models import Company
 from apps.jobs.models import Job
 
@@ -15,4 +16,5 @@ def ops(request):
     return {
         'ops_failed_week': Job.objects.filter(status=Job.Status.FAILED, created_at__gte=week_ago).count(),
         'ops_pending_approval': Company.objects.filter(is_approved=False).count(),
+        'ops_pending_signups': User.objects.filter(is_approved=False, is_superuser=False).count(),
     }

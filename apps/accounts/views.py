@@ -2,13 +2,13 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.db import transaction
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.decorators.http import require_POST
 from urllib.parse import urlsplit
 
+from . import approval
 from .forms import LoginForm, PasswordResetForm, RegisterForm
 from .models import User
 
@@ -59,24 +59,19 @@ def register(request):
         return redirect('accounts:login')
     form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
-        from apps.companies import subscriptions
-        from apps.companies.middleware import SESSION_KEY
-        from apps.companies.models import Company, Membership
-        from apps.companies.views import guess_timezone
-
-        data = form.cleaned_data
-        with transaction.atomic():
-            user = form.save()
-            company = Company.objects.create(
-                name=data['company_name'], industry=data['industry'], country=data['country'], phone=data['phone'],
-                email=user.email, timezone=guess_timezone(data['country'], [data['phone']]) or 'Asia/Qatar',
-            )
-            Membership.objects.create(company=company, user=user, role=Membership.Role.OWNER)
-        subscriptions.signed_up(company, user)  # awaiting approval; system admins are emailed
+        user = form.save()
+        approval.signed_up(user)  # system admins are emailed
         login(request, user, backend='apps.accounts.backends.EmailOrUsernameBackend')
-        request.session[SESSION_KEY] = company.pk
-        return redirect('companies:status')
+        return redirect('accounts:pending')
     return render(request, 'accounts/register.html', {'form': form})
+
+
+@login_required
+def pending(request):
+    """Shown to a new account until a system admin approves it."""
+    if request.user.is_approved or request.user.is_superuser:
+        return redirect('core:dashboard')
+    return render(request, 'accounts/pending.html')
 
 
 @login_required

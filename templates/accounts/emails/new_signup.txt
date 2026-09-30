@@ -1,0 +1,9 @@
+{% autoescape off %}طلب تسجيل جديد في وكيل بانتظار الموافقة:
+
+الاسم: {{ user.display_name }}
+البريد: {{ user.email }}{% if user.phone %}
+الهاتف: {{ user.phone }}{% endif %}
+
+راجع الطلب ووافق عليه من لوحة مشرف النظام:
+{{ link }}
+{% endautoescape %}

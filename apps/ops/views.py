@@ -16,6 +16,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
+from apps.accounts import approval
 from apps.accounts.models import User
 from apps.ai.pricing import DEEPSEEK_PRICES, deepseek_tier
 from apps.companies import subscriptions as subscriptions_service
@@ -288,6 +289,35 @@ def subscription_login_as(request, pk):
     request.session[IMPERSONATOR_KEY] = admin_id
     request.session[COMPANY_SESSION_KEY] = company.pk
     return redirect('core:dashboard')
+
+
+@superuser_required
+def signups(request):
+    """Self-registered accounts waiting for approval."""
+    pending = User.objects.filter(is_approved=False, is_superuser=False).order_by('date_joined')
+    return render(request, 'ops/signups.html', {'pending': pending})
+
+
+@superuser_required
+@require_POST
+def signup_approve(request, pk):
+    user = get_object_or_404(User, pk=pk, is_superuser=False)
+    if user.is_approved:
+        messages.info(request, f'حساب {user.display_name} مفعّل بالفعل.')
+    else:
+        approval.approve(user)
+        messages.success(request, f'تم تفعيل حساب {user.display_name}، وأُبلغ بالبريد.')
+    return redirect('ops:signups')
+
+
+@superuser_required
+@require_POST
+def signup_reject(request, pk):
+    user = get_object_or_404(User, pk=pk, is_approved=False, is_superuser=False)
+    name = user.display_name
+    user.delete()
+    messages.success(request, f'تم رفض طلب {name} وحذفه.')
+    return redirect('ops:signups')
 
 
 @superuser_required

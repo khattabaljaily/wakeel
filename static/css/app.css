@@ -819,3 +819,14 @@ a.wk-mcard__title:hover { color: var(--wk-primary-600); }
 .adm-err summary { cursor: pointer; font-size: .8rem; color: #b42318; max-width: 280px; }
 .adm-err pre { margin: .35rem 0 0; padding: .5rem .6rem; border-radius: 8px; background: #fff; border: 1px solid #fecdca; font-size: .74rem;
   white-space: pre-wrap; overflow-wrap: anywhere; max-height: 220px; overflow: auto; }
+
+/* ---------- Sign-up requests (console) ---------- */
+.wk-signup { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; }
+.wk-signup .wk-avatar { width: 44px; height: 44px; border-radius: 50%; font-size: 1.05rem; }
+.wk-signup__who { flex: 1; min-width: 0; }
+.wk-signup__who .small-muted { overflow-wrap: anywhere; }
+.wk-signup__actions { display: flex; gap: .5rem; }
+@media (max-width: 575.98px) {
+  .wk-signup { flex-wrap: wrap; }
+  .wk-signup__actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+}

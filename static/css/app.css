@@ -35,6 +35,9 @@
   --bs-link-hover-color: var(--wk-primary-600);
 }
 
+/* 15px instead of the browser's 16px: every rem size (text, headings, spacing) scales down together.
+   A percentage, so a reader who enlarged their browser's text still gets it. */
+html { font-size: 93.75%; }
 body { font-family: var(--bs-body-font-family); background: var(--wk-bg); color: var(--wk-text); }
 h1, h2, h3, h4, h5, h6, .fw-display { color: var(--wk-ink); font-weight: 700; }
 a { text-decoration: none; }

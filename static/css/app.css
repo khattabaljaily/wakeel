@@ -26,7 +26,7 @@
 
   --bs-primary: var(--wk-primary);
   --bs-primary-rgb: 109, 94, 248;
-  --bs-body-font-family: 'IBM Plex Sans Arabic', 'Tajawal', system-ui, sans-serif;
+  --bs-body-font-family: 'Cairo', system-ui, sans-serif;
   --bs-body-color: var(--wk-text);
   --bs-body-bg: var(--wk-bg);
   --bs-border-color: var(--wk-border);
@@ -449,7 +449,7 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-comment .body { white-space: pre-wrap; font-size: .92rem; margin-top: .25rem; overflow-wrap: anywhere; }
 
 /* ---------- Feed preview (Instagram / Facebook mock) ---------- */
-.wk-feed { background: #fff; color: #0f1419; border-block: 1px solid var(--wk-border); font-family: system-ui, 'IBM Plex Sans Arabic', sans-serif; font-size: .9rem; }
+.wk-feed { background: #fff; color: #0f1419; border-block: 1px solid var(--wk-border); font-family: system-ui, 'Cairo', sans-serif; font-size: .9rem; }
 .wk-feed__head { display: flex; align-items: center; gap: .6rem; padding: .7rem .9rem; }
 .wk-feed__head .wk-avatar { width: 36px; height: 36px; font-size: .8rem; }
 .wk-feed.ig .wk-feed__head .wk-avatar { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #e1306c; }

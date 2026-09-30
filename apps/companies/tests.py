@@ -7,29 +7,37 @@ from .models import Company, Membership
 
 
 class OnboardingTests(TestCase):
-    def test_register_then_create_company(self):
-        r = self.client.post(reverse('accounts:register'), {'first_name': 'خطاب', 'email': 'k@x.test', 'password': 'Strong-pass-123'})
-        self.assertRedirects(r, reverse('companies:create'))
-        # Without a company, app pages lead to onboarding.
-        self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('companies:create'))
-
-        r = self.client.post(reverse('companies:create'), {
-            'name': 'إنجاز', 'industry': 'برمجيات', 'country': 'السودان', 'timezone': 'Africa/Khartoum',
-            'description': 'حلول برمجية', 'content_language': 'ar_msa', 'tone': 'professional',
-            'primary_color': '#1E3A8A', 'secondary_color': '#0EA5E9', 'accent_color': '#F6A821',
-            'heading_font': 'cairo', 'body_font': 'tajawal',
-        })
-        # A self-registered company waits for a system admin to approve it (as in enjazpms).
+    def test_sign_up_creates_a_company_awaiting_approval(self):
+        r = self.client.post(reverse('accounts:register'), {
+            'first_name': 'خطاب', 'email': 'k@x.test', 'password': 'Strong-pass-123',
+            'company_name': 'إنجاز', 'industry': 'برمجيات', 'country': 'السودان', 'phone': '+249 912 345 678'})
+        # One step, as in enjazpms: the account and its company, straight to "under review".
         self.assertRedirects(r, reverse('companies:status'))
         company = Company.objects.get(name='إنجاز')
         user = User.objects.get(email='k@x.test')
         self.assertEqual(Membership.objects.get(company=company, user=user).role, Membership.Role.OWNER)
-        self.assertEqual((company.is_approved, company.is_demo), (False, True))
+        self.assertEqual((company.is_approved, company.is_demo, company.timezone, company.email),
+                         (False, True, 'Africa/Khartoum', 'k@x.test'))
         self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('companies:status'))
 
+        # Once approved, the owner is asked to complete the company profile.
         company.is_approved = True
         company.save()
-        self.assertEqual(self.client.get(reverse('core:dashboard')).status_code, 200)
+        response = self.client.get(reverse('core:dashboard'))
+        self.assertContains(response, 'أكمل ملف شركتك')
+        self.assertContains(response, reverse('companies:brand'))
+
+    def test_another_company_also_waits_for_approval(self):
+        owner = User.objects.create_user(username='o@x.test', email='o@x.test', password='Strong-pass-123')
+        self.client.force_login(owner)
+        r = self.client.post(reverse('companies:create'), {
+            'name': 'فرع', 'industry': 'برمجيات', 'country': 'قطر', 'timezone': 'Asia/Qatar',
+            'description': 'حلول', 'content_language': 'ar_msa', 'tone': 'professional',
+            'primary_color': '#1E3A8A', 'secondary_color': '#0EA5E9', 'accent_color': '#F6A821',
+            'heading_font': 'cairo', 'body_font': 'tajawal',
+        })
+        self.assertRedirects(r, reverse('companies:status'))
+        self.assertFalse(Company.objects.get(name='فرع').is_approved)
 
     def test_login_with_email(self):
         User.objects.create_user(username='someone', email='s@x.test', password='Strong-pass-123')

@@ -15,7 +15,7 @@
     <div><div class="small-muted">المالك</div><span dir="ltr">{{ owner.email|default:"—" }}</span></div>
 </div></div>
 <div class="row g-3 mb-4">
-    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-currency-dollar"></i></div><div><div class="wk-stat__value" dir="ltr">${{ total.cost|floatformat:"4u" }}</div><div class="wk-stat__label">تكلفة آخر 12 شهراً</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-currency-dollar"></i></div><div><div class="wk-stat__value" dir="ltr">${{ total.cost|money }}</div><div class="wk-stat__label">تكلفة آخر 12 شهراً</div></div></div></div>
     <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="wk-stat__value">{{ total.input|thousands }}</div><div class="wk-stat__label">رموز مُدخلة</div></div></div></div>
     <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="wk-stat__value">{{ total.cache_rate }}%</div><div class="wk-stat__label">cache hit</div></div></div></div>
     <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="wk-stat__value">{{ total.output|thousands }}</div><div class="wk-stat__label">رموز مُخرجة</div></div></div></div>

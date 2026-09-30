@@ -12,6 +12,12 @@
 <div>{% if user.is_superuser %}الذكاء الاصطناعي غير مفعّل بعد. أضف <code>{{ ai_key_name }}</code> إلى ملف <code>secrets.json</code> ثم أعد تشغيل الخادم والعامل لتفعيل إعداد الخطط وكتابة المنشورات.{% else %}إعداد الخطط وكتابة المنشورات متوقف مؤقتاً، وفريق الدعم يعمل على إعادته.{% endif %}</div></div>
 {% endif %}
 
+{% if not company.description %}
+<div class="alert alert-primary d-flex align-items-center gap-2 flex-wrap"><i class="bi bi-person-vcard fs-5"></i>
+    <span><strong>أكمل ملف شركتك</strong> — نبذة النشاط والجمهور والأسلوب والهوية البصرية، ليكتب وكيل محتوى يشبه علامتك.</span>
+    {% if membership.can_manage %}<a href="{% url 'companies:brand' %}" class="btn btn-sm btn-primary ms-auto">أكمل الملف</a>{% endif %}
+</div>
+{% endif %}
 {% if plan_reminder and current_plan %}
 <div class="alert alert-info d-flex align-items-center gap-2 flex-wrap"><i class="bi bi-calendar-plus"></i>
     <span>لم تُعدّ خطة <strong>{{ plan_reminder }}</strong> بعد. أعدّها الآن ليجهز المحتوى قبل بداية الشهر.</span>

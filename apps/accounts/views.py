@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -58,9 +59,23 @@ def register(request):
         return redirect('accounts:login')
     form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
-        user = form.save()
+        from apps.companies import subscriptions
+        from apps.companies.middleware import SESSION_KEY
+        from apps.companies.models import Company, Membership
+        from apps.companies.views import guess_timezone
+
+        data = form.cleaned_data
+        with transaction.atomic():
+            user = form.save()
+            company = Company.objects.create(
+                name=data['company_name'], industry=data['industry'], country=data['country'], phone=data['phone'],
+                email=user.email, timezone=guess_timezone(data['country'], [data['phone']]) or 'Asia/Qatar',
+            )
+            Membership.objects.create(company=company, user=user, role=Membership.Role.OWNER)
+        subscriptions.signed_up(company, user)  # awaiting approval; system admins are emailed
         login(request, user, backend='apps.accounts.backends.EmailOrUsernameBackend')
-        return redirect('companies:create')
+        request.session[SESSION_KEY] = company.pk
+        return redirect('companies:status')
     return render(request, 'accounts/register.html', {'form': form})
 
 
@@ -96,11 +111,9 @@ def delete_account(request):
     error = ''
     if request.method == 'POST':
         if request.user.check_password(request.POST.get('password', '')):
-            for company in owned:
-                company.delete()
             user = request.user
             logout(request)
-            user.delete()
+            user.delete()  # its owned companies go with it (core.signals)
             messages.success(request, 'تم حذف حسابك وكل بياناته نهائياً.')
             return redirect('core:home')
         error = 'كلمة المرور غير صحيحة.'

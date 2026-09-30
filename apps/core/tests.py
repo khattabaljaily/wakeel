@@ -131,3 +131,45 @@ class DashboardMonthTests(TestCase):
         response = self.client.get(reverse('core:dashboard'))
         self.assertEqual(response.context['plan_reminder'], 'أكتوبر 2026')
         self.assertContains(response, 'لم تُعدّ خطة')
+
+
+class DeleteUserTests(TestCase):
+    """Deleting a user (from the Django admin or anywhere) deletes the companies they own, with everything in them."""
+
+    def setUp(self):
+        self.owner = User.objects.create_user(username='o@del.test', email='o@del.test', password='Strong-pass-123')
+        self.member = User.objects.create_user(username='m@del.test', email='m@del.test', password='Strong-pass-123')
+        self.mine = Company.objects.create(name='شركتي', industry='ت', country='قطر', description='و')
+        self.theirs = Company.objects.create(name='شركة أخرى', industry='ت', country='قطر', description='و')
+        Membership.objects.create(company=self.mine, user=self.owner, role=Membership.Role.OWNER)
+        Membership.objects.create(company=self.mine, user=self.member, role=Membership.Role.EDITOR)
+        Membership.objects.create(company=self.theirs, user=self.owner, role=Membership.Role.EDITOR)
+        plan = ContentPlan.objects.create(company=self.mine, month='2026-10-01', platforms=['facebook'])
+        Post.objects.create(company=self.mine, plan=plan, title='م', platforms=['facebook'])
+
+    def test_owned_companies_go_with_the_user(self):
+        self.owner.delete()
+        self.assertFalse(Company.objects.filter(pk=self.mine.pk).exists())
+        self.assertFalse(Post.objects.exists())
+        self.assertTrue(Company.objects.filter(pk=self.theirs.pk).exists())  # only a member there
+        self.assertTrue(User.objects.filter(pk=self.member.pk).exists())
+
+    def test_django_admin_delete_lists_and_removes_the_companies(self):
+        admin = User.objects.create_superuser(username='root@del.test', email='root@del.test', password='Strong-pass-123')
+        self.client.force_login(admin)
+        url = reverse('admin:accounts_user_delete', args=[self.owner.pk])
+        self.assertContains(self.client.get(url), 'شركتي')
+        self.client.post(url, {'post': 'yes'})
+        self.assertFalse(User.objects.filter(pk=self.owner.pk).exists())
+        self.assertFalse(Company.objects.filter(pk=self.mine.pk).exists())
+
+
+class MoneyFormatTests(TestCase):
+    def test_amounts(self):
+        from apps.core.templatetags.wakeel import money
+        self.assertEqual(money(1234.5), '1,234.50')
+        self.assertEqual(money(1000), '1,000.00')
+        self.assertEqual(money(0), '0.00')
+        self.assertEqual(money(0.1746), '0.17')
+        self.assertEqual(money(0.0022), '0.0022')  # a fraction of a cent isn't shown as zero
+        self.assertEqual(money(0.022, 4), '0.022')

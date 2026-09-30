@@ -3,6 +3,6 @@
     <tbody>{% for r in rows %}
     <tr><td class="fw-semibold" dir="auto">{{ r.label }}</td><td class="text-end">{{ r.jobs }}</td>
         <td class="text-end" dir="ltr">{{ r.input|thousands }}</td><td class="text-end">{{ r.cache_rate }}%</td>
-        <td class="text-end" dir="ltr">{{ r.output|thousands }}</td><td class="text-end" dir="ltr">${{ r.cost|floatformat:"4u" }}{% if r.unpriced %}<span class="small-muted"> +?</span>{% endif %}</td></tr>
+        <td class="text-end" dir="ltr">{{ r.output|thousands }}</td><td class="text-end" dir="ltr">${{ r.cost|money }}{% if r.unpriced %}<span class="small-muted"> +?</span>{% endif %}</td></tr>
     {% empty %}<tr><td colspan="6" class="text-center small-muted py-3">لا يوجد استهلاك بعد.</td></tr>{% endfor %}</tbody>
 </table></div>

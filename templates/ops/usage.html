@@ -5,7 +5,7 @@
 {% block subtitle %}<div class="subtitle">استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً</div>{% endblock %}
 {% block content %}
 <div class="adm-kpis">
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-gold"><i class="bi bi-currency-dollar"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ total.cost|floatformat:"2u" }}</div><div class="adm-kpi__lbl">التكلفة{% if total.unpriced %} (دون {{ total.unpriced }} مهمة بلا سعر){% endif %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-gold"><i class="bi bi-currency-dollar"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ total.cost|money }}</div><div class="adm-kpi__lbl">التكلفة{% if total.unpriced %} (دون {{ total.unpriced }} مهمة بلا سعر){% endif %}</div></div></div>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="adm-kpi__num">{{ total.input|thousands }}</div><div class="adm-kpi__lbl">رمز مُدخل</div></div></div>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="adm-kpi__num">{{ total.cache_rate }}%</div><div class="adm-kpi__lbl">من المدخلات cache hit</div></div></div>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="adm-kpi__num">{{ total.output|thousands }}</div><div class="adm-kpi__lbl">رمز مُخرج</div></div></div>
@@ -24,9 +24,9 @@
                 {% if system.prices %}
                 <table class="table table-sm mb-2"><thead><tr><th>لكل مليون رمز</th><th class="text-end">خارج الذروة</th><th class="text-end">الذروة</th></tr></thead>
                 <tbody dir="ltr">
-                    <tr><td dir="rtl">cache hit</td><td class="text-end">${{ system.prices.cache_hit.0|stringformat:"g" }}</td><td class="text-end">${{ system.prices.cache_hit.1|stringformat:"g" }}</td></tr>
-                    <tr><td dir="rtl">cache miss</td><td class="text-end">${{ system.prices.cache_miss.0|stringformat:"g" }}</td><td class="text-end">${{ system.prices.cache_miss.1|stringformat:"g" }}</td></tr>
-                    <tr><td dir="rtl">مخرجات</td><td class="text-end">${{ system.prices.output.0|stringformat:"g" }}</td><td class="text-end">${{ system.prices.output.1|stringformat:"g" }}</td></tr>
+                    <tr><td dir="rtl">cache hit</td><td class="text-end">${{ system.prices.cache_hit.0|money:4 }}</td><td class="text-end">${{ system.prices.cache_hit.1|money:4 }}</td></tr>
+                    <tr><td dir="rtl">cache miss</td><td class="text-end">${{ system.prices.cache_miss.0|money:4 }}</td><td class="text-end">${{ system.prices.cache_miss.1|money:4 }}</td></tr>
+                    <tr><td dir="rtl">مخرجات</td><td class="text-end">${{ system.prices.output.0|money:4 }}</td><td class="text-end">${{ system.prices.output.1|money:4 }}</td></tr>
                 </tbody></table>
                 <div class="small-muted">خارج الذروة <span dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }}</span> UTC (<code>DEEPSEEK_OFF_PEAK_UTC</code>). الأسعار في <code>apps/ai/pricing.py</code>، وتُحسب تكلفة كل مهمة لحظة تنفيذها.</div>
                 {% elif system.flat_prices.0 or system.flat_prices.1 %}
@@ -48,7 +48,7 @@
         <tbody>{% for r in by_company %}
         <tr><td><a href="{% url 'ops:company' r.company.pk %}" class="fw-semibold">{{ r.company.name }}</a></td><td class="text-end">{{ r.year.jobs }}</td>
             <td class="text-end" dir="ltr">{{ r.year.input|thousands }}</td><td class="text-end">{{ r.year.cache_rate }}%</td>
-            <td class="text-end" dir="ltr">${{ r.month.cost|floatformat:"4u" }}</td><td class="text-end fw-semibold" dir="ltr">${{ r.year.cost|floatformat:"4u" }}</td></tr>
+            <td class="text-end" dir="ltr">${{ r.month.cost|money }}</td><td class="text-end fw-semibold" dir="ltr">${{ r.year.cost|money }}</td></tr>
         {% empty %}<tr><td colspan="6" class="text-center small-muted py-4">لا يوجد استهلاك بعد.</td></tr>{% endfor %}</tbody>
     </table></div>
 </div>

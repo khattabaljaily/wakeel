@@ -17,7 +17,7 @@
             <div class="adm-hero__kpi-divider"></div>
             <div class="adm-hero__kpi"><span class="adm-hero__kpi-num">{{ counts.pending_approval }}</span><span class="adm-hero__kpi-lbl">بانتظار الاعتماد</span></div>
             <div class="adm-hero__kpi-divider"></div>
-            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num adm-hero__kpi-num--gold" dir="ltr">${{ this_month.cost|floatformat:"2u" }}</span><span class="adm-hero__kpi-lbl">تكلفة هذا الشهر</span></div>
+            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num adm-hero__kpi-num--gold" dir="ltr">${{ this_month.cost|money }}</span><span class="adm-hero__kpi-lbl">تكلفة هذا الشهر</span></div>
         </div>
     </div>
 </div>
@@ -58,7 +58,7 @@
             <a href="{% url 'ops:usage' %}" class="small fw-semibold">التفاصيل</a></div>
         <div class="wk-card-body">
             {% include "ops/_columns.html" with series=cost_series money=True label="تكلفة الذكاء الاصطناعي لكل شهر" %}
-            <div class="adm-chart-foot"><span>هذا الشهر: <strong class="text-dark" dir="ltr">${{ this_month.cost|floatformat:"4u" }}</strong></span><span>cache hit: <strong class="text-dark">{{ this_month.cache_rate }}%</strong></span></div>
+            <div class="adm-chart-foot"><span>هذا الشهر: <strong class="text-dark" dir="ltr">${{ this_month.cost|money }}</strong></span><span>cache hit: <strong class="text-dark">{{ this_month.cache_rate }}%</strong></span></div>
         </div>
     </div>
     <div class="wk-card">
@@ -88,7 +88,7 @@
             <tr><td><a href="{% url 'ops:company' r.company.pk %}" class="fw-semibold">{{ r.company.name }}</a><div class="small-muted">{{ r.company.country }} · {{ r.company.created_at|date:"j/n/Y" }}</div></td>
                 <td class="small" dir="ltr">{{ r.owner.email|default:"—" }}</td>
                 <td class="text-nowrap">{% include "ops/_subscription_state.html" with c=r.company %}</td>
-                <td class="text-end" dir="ltr">${{ r.month.cost|floatformat:"4u" }}</td></tr>
+                <td class="text-end" dir="ltr">${{ r.month.cost|money }}</td></tr>
             {% empty %}<tr><td colspan="4" class="text-center small-muted py-4">لا توجد شركات بعد.</td></tr>{% endfor %}</tbody>
         </table></div>
     </div>
@@ -101,7 +101,7 @@
                 <span class="text-muted small" style="width:1rem">{{ forloop.counter }}</span>
                 <span class="flex-grow-1 overflow-hidden"><span class="d-block fw-semibold text-truncate">{{ r.company.name }}</span>
                     <span class="small-muted">{{ r.month.jobs }} مهمة · {{ r.month.input|thousands }} رمز</span></span>
-                <strong dir="ltr">${{ r.month.cost|floatformat:"4u" }}</strong>
+                <strong dir="ltr">${{ r.month.cost|money }}</strong>
             </a>
             {% empty %}<div class="p-4 text-center small-muted">لا يوجد استهلاك هذا الشهر.</div>{% endfor %}
         </div>

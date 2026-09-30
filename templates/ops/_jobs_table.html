@@ -11,7 +11,7 @@
         <td dir="ltr" class="text-nowrap">{{ job.model|default:"—" }}</td>
         <td class="text-end" dir="ltr">{{ job.input_tokens|thousands }}</td><td class="text-end" dir="ltr">{{ job.cache_hit_tokens|thousands }}</td>
         <td class="text-end" dir="ltr">{{ job.output_tokens|thousands }}</td>
-        <td class="text-end" dir="ltr">{% if job.cost_usd is None %}—{% else %}${{ job.cost_usd|floatformat:"4u" }}{% endif %}</td></tr>
+        <td class="text-end" dir="ltr">{% if job.cost_usd is None %}—{% else %}${{ job.cost_usd|money }}{% endif %}</td></tr>
     {% if job.status == 'failed' %}
     <tr class="table-danger"><td></td><td colspan="10">
         <div><strong>ما رآه المشترك:</strong> {{ job.error|default:"—" }}</div>

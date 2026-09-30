@@ -25,12 +25,9 @@ class SignupApprovalTests(TestCase):
 
     def setUp(self):
         self.admin = superuser()
-        self.client.post(reverse('accounts:register'), {'first_name': 'سارة', 'email': 's@x.test', 'password': 'Strong-pass-123'})
-        self.client.post(reverse('companies:create'), {
-            'name': 'مطعم النيل', 'industry': 'مطاعم', 'country': 'السودان', 'timezone': 'Africa/Khartoum',
-            'description': 'مطعم', 'content_language': 'ar_msa', 'tone': 'friendly', 'primary_color': '#1E3A8A',
-            'secondary_color': '#0EA5E9', 'accent_color': '#F6A821', 'heading_font': 'cairo', 'body_font': 'tajawal',
-        })
+        self.client.post(reverse('accounts:register'), {
+            'first_name': 'سارة', 'email': 's@x.test', 'password': 'Strong-pass-123',
+            'company_name': 'مطعم النيل', 'industry': 'مطاعم', 'country': 'السودان', 'phone': '+249 912 000 111'})
         self.company = Company.objects.get(name='مطعم النيل')
         self.owner = User.objects.get(email='s@x.test')
 

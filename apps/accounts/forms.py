@@ -17,12 +17,18 @@ class LoginForm(AuthenticationForm):
 
 
 class RegisterForm(forms.ModelForm):
+    """Sign-up creates the account and its company together; the company then waits for approval (as in enjazpms)."""
+
     password = forms.CharField(label='كلمة المرور', strip=False, widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}))
+    company_name = forms.CharField(label='اسم الشركة', max_length=150)
+    industry = forms.CharField(label='المجال', max_length=150, widget=forms.TextInput(attrs={'placeholder': 'مثال: مطعم، عيادة، متجر إلكتروني'}))
+    country = forms.CharField(label='الدولة', max_length=80)
+    phone = forms.CharField(label='رقم التواصل', max_length=30, widget=forms.TextInput(attrs={'autocomplete': 'tel', 'dir': 'ltr'}))
 
     class Meta:
         model = User
         fields = ['first_name', 'email']
-        labels = {'first_name': 'الاسم'}
+        labels = {'first_name': 'الاسم الكامل'}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

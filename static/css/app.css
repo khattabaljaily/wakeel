@@ -38,6 +38,7 @@
 /* 15px instead of the browser's 16px: every rem size (text, headings, spacing) scales down together.
    A percentage, so a reader who enlarged their browser's text still gets it. */
 html { font-size: 93.75%; }
+html, body { overflow-x: clip; }
 body { font-family: var(--bs-body-font-family); background: var(--wk-bg); color: var(--wk-text); }
 h1, h2, h3, h4, h5, h6, .fw-display { color: var(--wk-ink); font-weight: 700; }
 a { text-decoration: none; }
@@ -418,25 +419,39 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-afield__eye:hover { background: var(--wk-primary-50); color: var(--wk-primary); }
 .wk-afield__box.has-error .wk-afield__icon { color: #dc3545; }
 
-/* Phones: the brand becomes a header, and the form a card rising over it */
+/* Phones: a centred brand header with three feature tiles, and the form as a card rising over it */
 @media (max-width: 991.98px) {
-  .wk-auth { display: block; background: var(--wk-bg); }
-  .wk-auth__side { padding: 1.5rem 1.25rem 4.25rem; gap: 1.25rem; border-radius: 0 0 28px 28px; }
-  .wk-auth__brand { font-size: 1.2rem; }
-  .wk-auth__brand img { width: 36px; height: 36px; }
-  .wk-auth__kicker { margin-bottom: .7rem; font-size: .75rem; }
-  .wk-auth__pitch h2 { font-size: 1.35rem; margin-bottom: .5rem; }
+  .wk-auth { display: block; background: var(--wk-bg); min-height: 100svh; }
+  .wk-auth__side { align-items: center; text-align: center; justify-content: flex-start; gap: 1.1rem;
+    padding: calc(1.75rem + env(safe-area-inset-top)) 1.25rem 4.5rem; border-radius: 0 0 32px 32px;
+    background: radial-gradient(circle at 50% -10%, rgba(143,130,255,.6) 0%, transparent 55%), linear-gradient(180deg, #1d1a47 0%, #12112a 100%); }
+  .wk-auth__side::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1.4px); background-size: 18px 18px;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 85%); mask-image: linear-gradient(180deg, #000 0%, transparent 85%); }
+  .wk-auth__orb--1 { width: 260px; height: 260px; inset-inline-start: -90px; bottom: -120px; }
+  .wk-auth__orb--2 { width: 180px; height: 180px; inset-inline-end: -40px; top: -30px; }
+  .wk-auth__brand { flex-direction: column; gap: .55rem; font-size: 1.55rem; letter-spacing: -.3px; }
+  .wk-auth__brand img { width: 62px; height: 62px; border-radius: 19px; box-shadow: 0 0 0 7px rgba(124,108,255,.18), 0 14px 34px rgba(79,59,219,.55); }
+  .wk-auth__pitch { max-width: 360px; }
+  .wk-auth__kicker { display: none; }
+  .wk-auth__pitch h2 { font-size: 1.05rem; font-weight: 600; line-height: 1.8; color: #d9d7f7; margin-bottom: 1.1rem; }
+  .wk-auth__pitch h2 br { display: none; }
   .wk-auth__pitch p { display: none; }
-  .wk-auth__feats { display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; margin-inline: -1.25rem; padding-inline: 1.25rem; }
-  .wk-auth__feats::-webkit-scrollbar { display: none; }
-  .wk-auth__feats li { flex: none; gap: .4rem; padding: .35rem .7rem .35rem .45rem; border-radius: 999px; background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.1); font-size: .78rem; white-space: nowrap; }
-  .wk-auth__feats i { width: 24px; height: 24px; border-radius: 50%; font-size: .8rem; }
+  .wk-auth__feats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
+  .wk-auth__feats li { flex-direction: column; justify-content: center; gap: .4rem; padding: .7rem .3rem; border-radius: 16px; min-width: 0;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); font-size: .76rem; font-weight: 600; line-height: 1.4; color: #e4e3fa; }
+  .wk-auth__feats i { width: 34px; height: 34px; border-radius: 11px; font-size: .95rem; background: rgba(255,176,32,.14); }
   .wk-auth__copy { display: none; }
-  .wk-auth__main { display: block; padding: 0 1rem 1.5rem; margin-top: -2.75rem; background: none; position: relative; }
-  .wk-auth__card, .wk-auth__card--wide { max-width: none; padding: 1.6rem 1.25rem; border-radius: 22px; }
+  .wk-auth__main { display: block; padding: 0 1rem calc(1.5rem + env(safe-area-inset-bottom)); margin-top: -3rem; background: none; position: relative; z-index: 1; }
+  .wk-auth__card, .wk-auth__card--wide { max-width: 480px; margin-inline: auto; padding: 1.75rem 1.35rem 1.5rem; border-radius: 26px; border: 0;
+    box-shadow: 0 1px 2px rgba(16,18,43,.05), 0 18px 50px rgba(16,18,43,.14); }
+  .wk-auth__head { text-align: center; margin-bottom: 1.35rem; }
+  .wk-auth__head h1 { font-size: 1.45rem; }
+  .wk-auth__head p { font-size: .92rem; }
+  .wk-auth__icon { margin-inline: auto; }
+  .wk-afield__box .form-control { min-height: 52px; font-size: 16px; }  /* 16px stops iOS zooming into the field */
+  .wk-auth__submit { min-height: 54px; }
   .wk-auth__foot { display: block; text-align: center; margin-top: 1.25rem; }
-  .wk-auth__head h1 { font-size: 1.4rem; }
 }
 
 /* ---------- Landing ---------- */
@@ -787,7 +802,7 @@ a.wk-mcard__title:hover { color: var(--wk-primary-600); }
   .wk-dt__foot .dataTables_info { width: 100%; text-align: center; }
   .wk-dt-toolbar { padding: .75rem; }
   .wk-dt-search { max-width: none; flex-basis: 100%; }
-  .wk-dt-toolbar .adm-tabs { margin-inline-start: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -.75rem; padding-inline: .75rem; width: calc(100% + 1.5rem); }
+  .wk-dt-toolbar .adm-tabs { margin-inline-start: 0; flex-wrap: wrap; width: 100%; }
   .wk-dt-toolbar .adm-tabs::-webkit-scrollbar { display: none; }
   .wk-dt-toolbar .adm-tab { flex: none; }
   .wk-dt-toolbar .form-select { flex: 1 1 45%; }

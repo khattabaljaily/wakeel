@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from apps.accounts.models import User
@@ -149,3 +149,27 @@ class TimezoneGuessTests(TestCase):
         self.assertEqual(guess_timezone('', ['+249 912 345 678']), 'Africa/Khartoum')
         self.assertEqual(guess_timezone('', ['00974 5555 1234']), 'Asia/Qatar')
         self.assertEqual(guess_timezone('', ['0912345678']), '')
+
+
+class UsagePageTests(TestCase):
+    def setUp(self):
+        from apps.jobs.models import Job
+        self.company = Company.objects.create(name='ش', industry='ت', country='قطر', description='و')
+        self.owner = User.objects.create_user(username='o@u.test', email='o@u.test', password='Strong-pass-123')
+        self.editor = User.objects.create_user(username='e@u.test', email='e@u.test', password='Strong-pass-123')
+        Membership.objects.create(company=self.company, user=self.owner, role=Membership.Role.OWNER)
+        Membership.objects.create(company=self.company, user=self.editor, role=Membership.Role.EDITOR)
+        Job.objects.create(company=self.company, kind=Job.Kind.GENERATE_PLAN, input_tokens=2_000_000, output_tokens=1_000_000)
+        Job.objects.create(company=self.company, kind=Job.Kind.RENDER_POST)  # no AI, not listed
+
+    @override_settings(AI_PRICE_INPUT_PER_MTOK=1, AI_PRICE_OUTPUT_PER_MTOK=4)
+    def test_totals_and_cost(self):
+        self.client.force_login(self.owner)
+        response = self.client.get(reverse('companies:usage'))
+        self.assertContains(response, '2,000,000')
+        self.assertContains(response, '$6.00')
+        self.assertEqual(len(response.context['recent']), 1)
+
+    def test_managers_only(self):
+        self.client.force_login(self.editor)
+        self.assertEqual(self.client.get(reverse('companies:usage')).status_code, 403)

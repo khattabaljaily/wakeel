@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load wakeel %}
+{% block title %}استهلاك الذكاء الاصطناعي{% endblock %}
+{% block page_title %}استهلاك الذكاء الاصطناعي{% endblock %}
+{% block subtitle %}<div class="subtitle">الرموز (tokens) التي استهلكها وكيل لشركة {{ company.name }} خلال آخر 12 شهراً</div>{% endblock %}
+{% block content %}
+<div class="row g-3 mb-4">
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="wk-stat__value">{{ total_in|thousands }}</div><div class="wk-stat__label">رموز مُدخلة</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="wk-stat__value">{{ total_out|thousands }}</div><div class="wk-stat__label">رموز مُخرجة</div></div></div></div>
+    {% if priced %}<div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-currency-dollar"></i></div><div><div class="wk-stat__value" dir="ltr">${{ total_cost|floatformat:"2u" }}</div><div class="wk-stat__label">التكلفة التقديرية</div></div></div></div>{% endif %}
+</div>
+
+{% if not priced %}
+<div class="alert alert-light border small"><i class="bi bi-info-circle"></i> لعرض التكلفة، أضف سعر المليون رمز لمزوّدك (<code>{{ provider }}</code>) إلى <code>secrets.json</code> باسم <code>AI_PRICE_INPUT_PER_MTOK</code> و<code>AI_PRICE_OUTPUT_PER_MTOK</code>.</div>
+{% endif %}
+
+<div class="wk-card mb-4">
+    <div class="wk-card-head"><h2><i class="bi bi-calendar3 text-primary"></i> حسب الشهر</h2></div>
+    {% if rows %}
+    <div class="table-responsive"><table class="table mb-0 align-middle">
+        <thead><tr><th>الشهر</th><th>المهام</th><th class="text-end">مُدخلة</th><th class="text-end">مُخرجة</th>{% if priced %}<th class="text-end">التكلفة</th>{% endif %}</tr></thead>
+        <tbody>{% for r in rows %}
+        <tr><td class="fw-semibold">{{ r.label }}</td>
+            <td class="small">{% for kind, n in r.kinds.items %}<span class="text-nowrap">{{ kind }}: {{ n }}</span>{% if not forloop.last %} · {% endif %}{% endfor %}</td>
+            <td class="text-end" dir="ltr">{{ r.input|thousands }}</td><td class="text-end" dir="ltr">{{ r.output|thousands }}</td>
+            {% if priced %}<td class="text-end" dir="ltr">${{ r.cost|floatformat:"2u" }}</td>{% endif %}</tr>
+        {% endfor %}</tbody>
+    </table></div>
+    {% else %}
+    <div class="wk-empty"><div class="icon"><i class="bi bi-cpu"></i></div><h3>لا يوجد استهلاك بعد</h3><p>يظهر هنا ما يستهلكه إعداد الخطط وإعادة كتابة المنشورات.</p></div>
+    {% endif %}
+</div>
+
+{% if recent %}
+<div class="wk-card">
+    <div class="wk-card-head"><h2><i class="bi bi-clock-history text-primary"></i> آخر المهام</h2></div>
+    <div class="table-responsive"><table class="table mb-0 align-middle small">
+        <thead><tr><th>المهمة</th><th>بواسطة</th><th>التاريخ</th><th class="text-end">مُدخلة</th><th class="text-end">مُخرجة</th>{% if priced %}<th class="text-end">التكلفة</th>{% endif %}</tr></thead>
+        <tbody>{% for job, c in recent %}
+        <tr><td>{{ job.get_kind_display }}{% if job.status == 'failed' %} <span class="text-danger">(فشلت)</span>{% endif %}</td><td>{{ job.created_by.display_name|default:"—" }}</td>
+            <td class="text-nowrap">{{ job.created_at|date:"j/n · H:i" }}</td>
+            <td class="text-end" dir="ltr">{{ job.input_tokens|thousands }}</td><td class="text-end" dir="ltr">{{ job.output_tokens|thousands }}</td>
+            {% if priced %}<td class="text-end" dir="ltr">${{ c|floatformat:"3u" }}</td>{% endif %}</tr>
+        {% endfor %}</tbody>
+    </table></div>
+</div>
+{% endif %}
+{% endblock %}

@@ -21,3 +21,12 @@ def status_class(status):
 def nav_active(context, *prefixes):
     path = context['request'].path
     return 'active' if any(path.startswith(p) for p in prefixes) else ''
+
+
+@register.filter
+def thousands(value):
+    """12345 -> 12,345 (Django's intcomma adds no separator in the Arabic locale)."""
+    try:
+        return f'{int(value):,}'
+    except (TypeError, ValueError):
+        return value

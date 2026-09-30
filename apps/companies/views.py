@@ -1,3 +1,4 @@
+import datetime
 import io
 import json
 import logging
@@ -13,8 +14,10 @@ from django.core.files.storage import default_storage
 from django.contrib.auth.decorators import login_required
 from django.core.files.base import ContentFile
 from django.db import transaction
+from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
 from django.views.decorators.http import require_POST
 from PIL import Image
 
@@ -272,3 +275,40 @@ def leave_company(request):
     request.session.pop(SESSION_KEY, None)
     messages.success(request, f'غادرت «{name}».')
     return redirect('core:dashboard')
+
+
+@company_required(manage=True)
+def usage(request):
+    """AI tokens spent by this company, month by month (and the cost when prices are configured)."""
+    from apps.content.forms import ARABIC_MONTHS
+    from apps.jobs.models import Job
+
+    first = timezone.localtime().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    since = (first - datetime.timedelta(days=335)).replace(day=1)
+    jobs = (Job.objects.filter(company=request.company, created_at__gte=since)
+            .filter(Q(input_tokens__gt=0) | Q(output_tokens__gt=0))
+            .select_related('created_by').order_by('-created_at'))
+    price_in, price_out = settings.AI_PRICE_INPUT_PER_MTOK, settings.AI_PRICE_OUTPUT_PER_MTOK
+
+    def cost(inp, out):
+        return (inp * price_in + out * price_out) / 1_000_000
+
+    # Grouped in Python: MySQL can't truncate dates by timezone without its tz tables.
+    months = {}
+    for job in jobs:
+        local = timezone.localtime(job.created_at)
+        row = months.setdefault((local.year, local.month), {
+            'label': f'{ARABIC_MONTHS[local.month - 1]} {local.year}', 'jobs': 0, 'input': 0, 'output': 0,
+            'kinds': {},
+        })
+        row['jobs'] += 1
+        row['input'] += job.input_tokens
+        row['output'] += job.output_tokens
+        row['kinds'][job.get_kind_display()] = row['kinds'].get(job.get_kind_display(), 0) + 1
+    rows = [dict(r, cost=cost(r['input'], r['output'])) for _, r in sorted(months.items(), reverse=True)]
+    total_in, total_out = sum(r['input'] for r in rows), sum(r['output'] for r in rows)
+    return render(request, 'companies/usage.html', {
+        'rows': rows, 'recent': [(j, cost(j.input_tokens, j.output_tokens)) for j in jobs[:15]],
+        'total_in': total_in, 'total_out': total_out, 'total_cost': cost(total_in, total_out),
+        'priced': bool(price_in or price_out), 'provider': settings.AI_PROVIDER,
+    })

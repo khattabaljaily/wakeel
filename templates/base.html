@@ -62,6 +62,7 @@
             <div class="wk-nav__label">الشركة</div>
             <a href="{% url 'companies:brand' %}" class="{% nav_active '/company/brand/' %}"><i class="bi bi-palette"></i> هوية العلامة</a>
             <a href="{% url 'companies:team' %}" class="{% nav_active '/company/team/' %}"><i class="bi bi-people"></i> الفريق</a>
+            {% if membership.can_manage %}<a href="{% url 'companies:usage' %}" class="{% nav_active '/company/usage/' %}"><i class="bi bi-cpu"></i> استهلاك الذكاء الاصطناعي</a>{% endif %}
         </nav>
 
         <div class="wk-sidebar-foot">

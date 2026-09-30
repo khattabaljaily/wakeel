@@ -65,7 +65,6 @@ class Post(models.Model):
 
     class Format(models.TextChoices):
         IMAGE = 'image', 'تصميم ثابت'
-        CAROUSEL = 'carousel', 'منشور متعدد الشرائح'
         REEL = 'reel', 'فيديو قصير (ريلز / تيك توك)'
         STORY = 'story', 'قصة (ستوري)'
 

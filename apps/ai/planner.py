@@ -11,7 +11,7 @@ from apps.studio.designs import TEMPLATES
 from .client import call_json
 
 PLATFORMS = ['facebook', 'instagram', 'tiktok']
-FORMATS = ['image', 'carousel', 'reel', 'story']
+FORMATS = ['image', 'reel', 'story']
 
 SYSTEM_PROMPT = """You are Wakeel, the senior social media strategist and copywriter a company hires instead of a marketing agency. You work mainly with businesses in Arab markets (Sudan, Qatar and the wider Gulf), and you plan, write and art-direct their organic content on Facebook, Instagram and TikTok.
 

@@ -91,6 +91,10 @@ class Company(models.Model):
     instagram_handle = models.CharField('حساب إنستغرام', max_length=100, blank=True)
     tiktok_handle = models.CharField('حساب تيك توك', max_length=100, blank=True)
 
+    # What Wakeel has learned about this brand's taste: [{"text": ..., "manual": bool}], see apps.content.learning.
+    lessons = models.JSONField('ما تعلّمه وكيل', default=list, blank=True)
+    lessons_updated_at = models.DateTimeField(null=True, blank=True)
+
     timezone = models.CharField('المنطقة الزمنية', max_length=50, choices=TIMEZONE_CHOICES, default='Asia/Qatar')
     auto_publish = models.BooleanField('النشر التلقائي', default=False,
                                        help_text='انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها.')

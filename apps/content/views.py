@@ -16,6 +16,7 @@ from apps.jobs.runner import worker_alive
 from apps.studio.designs import SIZES, TEMPLATES
 
 from .forms import ARABIC_MONTHS, PlanForm, PostForm
+from . import learning
 from .models import ContentPlan, Platform, Post
 from .occasions import between as in_range
 from apps.social.services import PUBLISHABLE_FORMATS, targets as publish_targets
@@ -179,6 +180,7 @@ def post_edit(request, pk):
         if not request.membership.can_edit:
             return JsonResponse({'ok': False, 'error': 'صلاحيتك للمشاهدة فقط.'}, status=403)
         before = {f: getattr(post, f) for f in Post.DESIGN_FIELDS}
+        texts_before = {f: getattr(post, f) for f in learning.LEARNED_FIELDS}
         scheduled_before = post.scheduled_at
         form = PostForm(request.POST, instance=post, company=request.company)
         if not form.is_valid():
@@ -190,6 +192,7 @@ def post_edit(request, pk):
         if post.scheduled_at != scheduled_before:
             post.publish_attempted_at = None  # a new time is a new chance to auto-publish
         post.save()
+        learning.record_edits(post, texts_before)
         job = None
         if (design_changed or not post.image) and not post.is_video:
             job = Job.enqueue(request.company, Job.Kind.RENDER_POST, request.user, post_id=post.pk)

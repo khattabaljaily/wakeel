@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.base import ContentFile
 from django.db import transaction
 from django.http import JsonResponse
+from django.urls import reverse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 from PIL import Image
@@ -91,7 +92,9 @@ def brand(request):
         company.posts.update(image_stale=True)
         messages.success(request, 'تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات.')
         return redirect('companies:brand')
-    return render(request, 'companies/brand.html', {'form': form})
+    from apps.content import learning
+    return render(request, 'companies/brand.html', {'form': form, 'lessons': request.company.lessons,
+                                                    'pending_signals': learning.pending(request.company).count()})
 
 
 @login_required
@@ -289,3 +292,34 @@ def leave_company(request):
     messages.success(request, f'غادرت «{name}».')
     return redirect('core:dashboard')
 
+
+
+@company_required(manage=True)
+@require_POST
+def lessons(request):
+    """The brand page's "what Wakeel learned" list: add or delete a lesson, or learn from pending feedback now."""
+    from apps.content import learning
+    from apps.jobs.models import Job
+
+    company, action = request.company, request.POST.get('action')
+    if action == 'add':
+        text = request.POST.get('text', '').strip()[:300]
+        if text and len(learning.manual_lessons(company)) < learning.MANUAL_MAX:
+            company.lessons = [{'text': text, 'manual': True}] + list(company.lessons)
+            company.save(update_fields=['lessons'])
+            messages.success(request, 'أضيفت القاعدة، وسيلتزم بها وكيل من الآن.')
+    elif action == 'delete':
+        try:
+            index = int(request.POST.get('index', ''))
+            lessons = list(company.lessons)
+            lessons.pop(index)
+        except (ValueError, IndexError):
+            return redirect(reverse('companies:brand') + '#lessons')
+        company.lessons = lessons
+        company.save(update_fields=['lessons'])
+        messages.success(request, 'حُذفت القاعدة.')
+    elif action == 'learn' and learning.pending(company).exists():
+        if not Job.objects.filter(company=company, kind=Job.Kind.LEARN, status__in=[Job.Status.PENDING, Job.Status.RUNNING]).exists():
+            Job.enqueue(company, Job.Kind.LEARN, request.user)
+        messages.info(request, 'يراجع وكيل ملاحظاتكم الآن؛ حدّث الصفحة بعد دقيقة لترى ما تعلّمه.')
+    return redirect(reverse('companies:brand') + '#lessons')

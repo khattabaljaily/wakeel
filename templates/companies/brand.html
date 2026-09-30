@@ -5,6 +5,40 @@
 {% block content %}
 {% include "companies/_brand_form.html" %}
 
+<div class="wk-card mt-4" id="lessons">
+    <div class="wk-card-head">
+        <h2><i class="bi bi-mortarboard text-primary"></i> ما تعلّمه وكيل</h2>
+        {% if pending_signals %}
+        <form method="post" action="{% url 'companies:lessons' %}">{% csrf_token %}
+            <button name="action" value="learn" class="btn btn-sm btn-soft"><i class="bi bi-stars"></i> تعلّم من {{ pending_signals }} ملاحظة جديدة</button>
+        </form>
+        {% endif %}
+    </div>
+    <div class="wk-card-body">
+        <p class="small-muted">يتعلّم وكيل ذوق علامتك من تعديلاتكم على نصوصه، وطلبات التعديل، وتعليقات العميل، ويطبّق هذه القواعد في كل خطة وكل إعادة كتابة. احذف ما لا يناسبك، أو أضف قاعدة بنفسك.</p>
+        {% if lessons %}
+        <ul class="wk-lessons">
+            {% for l in lessons %}
+            <li>
+                <i class="bi {% if l.manual %}bi-person-check{% else %}bi-stars{% endif %}" title="{% if l.manual %}أضفتموها{% else %}تعلّمها وكيل{% endif %}"></i>
+                <span>{{ l.text }}</span>
+                <form method="post" action="{% url 'companies:lessons' %}">{% csrf_token %}<input type="hidden" name="index" value="{{ forloop.counter0 }}">
+                    <button name="action" value="delete" class="btn btn-sm btn-link text-muted p-0" aria-label="حذف القاعدة"
+                            data-confirm-title="حذف هذه القاعدة؟" data-confirm="لن يلتزم بها وكيل في الخطط القادمة." data-confirm-ok="حذف"><i class="bi bi-x-lg"></i></button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <div class="small-muted mb-3"><i class="bi bi-info-circle"></i> لم يتعلّم وكيل شيئاً بعد؛ ستظهر القواعد هنا بعد أن تعدّلوا بعض المنشورات أو تطلبوا تعديلات.</div>
+        {% endif %}
+        <form method="post" action="{% url 'companies:lessons' %}" class="d-flex gap-2">{% csrf_token %}
+            <input type="text" name="text" class="form-control" maxlength="300" required placeholder="أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين">
+            <button name="action" value="add" class="btn btn-primary text-nowrap"><i class="bi bi-plus-lg"></i> إضافة</button>
+        </form>
+    </div>
+</div>
+
 {% if membership.role == 'owner' %}
 <div class="wk-card mt-5" style="border-color: #fecdca"><div class="wk-card-body">
     <h2 class="h6 text-danger mb-1"><i class="bi bi-exclamation-octagon"></i> حذف الشركة</h2>

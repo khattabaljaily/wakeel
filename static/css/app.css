@@ -861,3 +861,9 @@ a.wk-mcard__title:hover { color: var(--wk-primary-600); }
   .wk-swatches input[type=color].form-control { width: 96px; height: 42px; flex-shrink: 0; }
   .wk-swatches .invalid-feedback, .wk-swatches .form-text { flex-basis: 100%; }
 }
+
+/* ---------- What Wakeel learned (brand page) ---------- */
+.wk-lessons { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: .5rem; }
+.wk-lessons li { display: flex; align-items: flex-start; gap: .65rem; padding: .7rem .85rem; border: 1px solid var(--wk-border); border-radius: 12px; background: #fcfcff; line-height: 1.7; }
+.wk-lessons li > i { color: var(--wk-primary); margin-top: .2rem; }
+.wk-lessons li > span { flex: 1; min-width: 0; }

@@ -8,7 +8,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from apps.content import events
-from apps.content.models import ContentPlan, Post, PostComment
+from apps.content import learning
+from apps.content.models import ContentPlan, LearningSignal, Post, PostComment
 from apps.content.services import set_status
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
@@ -69,6 +70,8 @@ def post_status(request, pk):
     set_status(post, new_status, request.user, note=note)
     if new_status != old_status:
         events.status_changed([post], new_status, request.user, note)
+    if new_status == Post.Status.DRAFT and note:
+        learning.record_note(post, LearningSignal.Kind.CHANGES, note)
     return Response({'status': post.status, 'label': post.get_status_display()})
 
 
@@ -123,6 +126,7 @@ def post_rewrite(request, pk):
     if not instruction:
         return Response({'error': 'اكتب ما تريد تغييره في المنشور.'}, status=status.HTTP_400_BAD_REQUEST)
     job = Job.enqueue(_company(request), Job.Kind.REWRITE_POST, request.user, post_id=post.pk, instruction=instruction[:1000])
+    learning.record_note(post, LearningSignal.Kind.REWRITE, instruction)
     return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
 
 

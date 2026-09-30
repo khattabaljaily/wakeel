@@ -30,6 +30,7 @@ HANDLERS = {
     Job.Kind.RENDER_POST: services.run_render_post,
     Job.Kind.RENDER_PLAN: services.run_render_plan,
     Job.Kind.PUBLISH_POST: social.run_publish_post,
+    Job.Kind.LEARN: services.run_learn,
 }
 
 

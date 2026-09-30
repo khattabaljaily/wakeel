@@ -137,6 +137,17 @@ def brand_profile(company):
     return '\n'.join(lines)
 
 
+def learned_block(company):
+    """The brand's learned preferences (from past feedback), as a prompt section. Empty when none yet."""
+    from apps.content.learning import all_lessons
+    lessons = all_lessons(company)
+    if not lessons:
+        return ''
+    rules = '\n'.join(f'- {l}' for l in lessons)
+    return (f'\n<learned_preferences>\nThe brand team taught you these through their edits and feedback. '
+            f'Follow them; where one conflicts with the brand profile, the preference wins.\n{rules}\n</learned_preferences>\n')
+
+
 def posts_count(plan):
     days = calendar.monthrange(plan.month.year, plan.month.month)[1]
     return max(1, min(40, round(plan.posts_per_week * days / 7)))
@@ -159,9 +170,16 @@ def generate_plan(plan):
         if 'tiktok' in plan.platforms else ''
     )
 
+    from apps.content.learning import recent_posts
+    recent = '\n'.join(f'- {when:%Y-%m-%d} | {pillar} | {title}' for when, pillar, title in recent_posts(company, plan.month)) or '- none'
+
     prompt = f"""<brand_profile>
 {brand_profile(company)}
 </brand_profile>
+{learned_block(company)}
+<recent_posts>
+{recent}
+</recent_posts>
 
 <month>{ARABIC_MONTHS[plan.month.month - 1]} {plan.month.year} ({plan.month:%Y-%m}, {days} days)</month>
 <platforms>{platforms}</platforms>
@@ -180,6 +198,7 @@ Requirements:
 {tiktok_rule}- 3-5 content pillars with their share of the posts; each post belongs to one pillar (use the pillar's exact name).
 - key_dates: occasions in this month that matter to this audience (may be empty). The dates in <local_occasions> are computed and correct: use them as given, pick only the ones that fit this brand, and don't add other dated occasions unless you are sure of the date.
 - summary, goals, pillar names/descriptions, key date names and visual_notes are in Arabic; captions and design text follow the language rule in the brand profile.
+- Don't repeat ideas, angles or headlines from <recent_posts>; build on them with fresh ones.
 - Pick the design template for each image post from:
 {templates}
   Use photo/split only when the brand is likely to have a matching real photo."""
@@ -192,7 +211,7 @@ def rewrite_post(post, instruction):
     prompt = f"""<brand_profile>
 {brand_profile(post.company)}
 </brand_profile>
-
+{learned_block(post.company)}
 <post format="{post.format}" platforms="{', '.join(post.platforms)}" pillar="{post.pillar}">
 {fields}
 </post>

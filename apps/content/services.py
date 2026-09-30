@@ -1,5 +1,6 @@
 """Turn the AI's JSON into plans and posts, and run the jobs that produce it."""
 import calendar
+import logging
 import datetime
 
 from django.db import transaction
@@ -10,7 +11,10 @@ from apps.ai.client import AIError
 from apps.studio.designs import TEMPLATES
 
 from . import events
+from . import learning
 from .models import ContentPlan, Post
+
+logger = logging.getLogger(__name__)
 
 _TEXT_LIMITS = {f.name: f.max_length for f in Post._meta.get_fields() if getattr(f, 'max_length', None)}
 
@@ -122,6 +126,15 @@ def set_status(post, status, user=None, note=''):
 
 def run_generate_plan(job):
     plan = ContentPlan.objects.select_related('company').get(pk=job.params['plan_id'], company=job.company)
+    if learning.pending(plan.company).exists():
+        job.set_progress(5, 'وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…')
+        try:
+            result, _ = learning.learn(plan.company)
+            if result:
+                job.add_usage(result)
+            plan.company.refresh_from_db()
+        except Exception:  # learning must never block the plan itself
+            logger.exception('Learning before plan %s failed', plan.pk)
     job.set_progress(10, 'وكيل يدرس هوية الشركة ويضع الاستراتيجية…')
     try:
         result = planner.generate_plan(plan)
@@ -186,3 +199,10 @@ def run_render_plan(job):
 
 class JobCancelled(Exception):
     pass
+
+
+def run_learn(job):
+    result, used = learning.learn(job.company)
+    if result:
+        job.add_usage(result)
+    return f'تعلّم وكيل من {used} ملاحظة.' if used else 'لا توجد ملاحظات جديدة.'

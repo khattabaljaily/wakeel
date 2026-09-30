@@ -16,6 +16,7 @@ class Job(models.Model):
         RENDER_POST = 'render_post', 'تصميم صورة منشور'
         RENDER_PLAN = 'render_plan', 'تصميم صور الخطة'
         PUBLISH_POST = 'publish_post', 'نشر منشور'
+        LEARN = 'learn', 'التعلّم من الملاحظات'
 
     class Status(models.TextChoices):
         PENDING = 'pending', 'في الانتظار'

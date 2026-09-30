@@ -16,7 +16,8 @@ from apps.companies.decorators import company_required
 
 from . import events
 from .forms import ARABIC_MONTHS
-from .models import ContentPlan, Post, PostComment
+from . import learning
+from .models import ContentPlan, LearningSignal, Post, PostComment
 from .services import set_status
 
 
@@ -85,5 +86,8 @@ def post_feedback(request, token, pk):
     elif action == 'changes':
         set_status(post, Post.Status.DRAFT, note=f'{name} (العميل): {body}')
     comment = PostComment.objects.create(post=post, guest_name=name, kind=kind, body=body)
+    if body and action in ('changes', 'comment'):
+        learning.record_note(post, LearningSignal.Kind.CHANGES if action == 'changes' else LearningSignal.Kind.COMMENT,
+                             body, from_client=True)
     events.comment_added(comment)
     return JsonResponse({'status': post.status, 'status_label': post.get_status_display()})

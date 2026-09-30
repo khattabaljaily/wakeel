@@ -140,6 +140,7 @@ def run():
     root = backup_dir()
     for kind in ('db', 'media'):
         (root / kind).mkdir(parents=True, exist_ok=True)
+    os.chmod(root, 0o700)  # dumps hold password hashes and tokens: owner only
     stamp = timezone.localtime().strftime(STAMP)
     status = {'started_at': timezone.now().isoformat(), 'ok': False, 'error': ''}
     try:

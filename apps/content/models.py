@@ -179,3 +179,33 @@ class PostComment(models.Model):
     @property
     def is_guest(self):
         return self.user_id is None
+
+
+class LearningSignal(models.Model):
+    """Feedback Wakeel learns the brand's taste from: the team's edits to AI-written text,
+    change requests, rewrite instructions and the client's comments. Signals are distilled
+    into Company.lessons before the next plan (apps.content.learning)."""
+
+    class Kind(models.TextChoices):
+        EDIT = 'edit', 'تعديل نص'
+        CHANGES = 'changes', 'طلب تعديل'
+        REWRITE = 'rewrite', 'طلب إعادة كتابة'
+        COMMENT = 'comment', 'تعليق العميل'
+
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='learning_signals')
+    post = models.ForeignKey(Post, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+    kind = models.CharField(max_length=10, choices=Kind.choices)
+    field = models.CharField(max_length=30, blank=True)
+    before = models.TextField(blank=True)
+    after = models.TextField(blank=True)
+    note = models.TextField(blank=True)
+    from_client = models.BooleanField(default=False)
+    used = models.BooleanField(default=False, help_text='Already distilled into the lessons.')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
+        indexes = [models.Index(fields=['company', 'used'])]
+
+    def __str__(self):
+        return f'{self.get_kind_display()} · {self.company}'

@@ -75,7 +75,7 @@
             <h2 class="wk-section-title"><i class="bi bi-bullseye text-primary"></i> الاستراتيجية</h2>
             <p style="line-height: 2">{{ plan.summary }}</p>
             {% if plan.goals %}
-            <div class="d-flex flex-wrap gap-2 mb-4">{% for g in plan.goals %}<span class="badge rounded-pill text-bg-light border fw-semibold px-3 py-2"><i class="bi bi-check2 text-success"></i> {{ g }}</span>{% endfor %}</div>
+            <div class="d-flex flex-wrap gap-2 mb-4">{% for g in plan.goals %}<span class="wk-goal"><i class="bi bi-check2 text-success"></i> {{ g }}</span>{% endfor %}</div>
             {% endif %}
             <h3 class="h6 mb-3">محاور المحتوى</h3>
             <div class="row g-3">

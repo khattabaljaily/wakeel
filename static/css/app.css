@@ -39,7 +39,7 @@
    A percentage, so a reader who enlarged their browser's text still gets it. */
 html { font-size: 93.75%; }
 html, body { overflow-x: clip; }
-body { font-family: var(--bs-body-font-family); background: var(--wk-bg); color: var(--wk-text); }
+body { overflow-wrap: break-word; font-family: var(--bs-body-font-family); background: var(--wk-bg); color: var(--wk-text); }
 h1, h2, h3, h4, h5, h6, .fw-display { color: var(--wk-ink); font-weight: 700; }
 a { text-decoration: none; }
 .text-muted { color: var(--wk-muted) !important; }
@@ -355,6 +355,7 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-pane { display: none; }
 .wk-pane.active { display: block; animation: wkIn .2s ease-out; }
 .wk-swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+.wk-swatches > .mb-3 { display: flex; flex-direction: column; justify-content: flex-end; }  /* swatches line up even if a label wraps */
 .wk-brand-preview { border-radius: 16px; overflow: hidden; aspect-ratio: 1; position: relative; box-shadow: var(--wk-shadow-lg); }
 .wk-brand-preview iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .wk-font-sample { font-size: 1.6rem; font-weight: 700; padding: .6rem 1rem; border-radius: 12px; background: #fff; border: 1px solid var(--wk-border); }
@@ -843,3 +844,20 @@ a.wk-mcard__title:hover { color: var(--wk-primary-600); }
 @keyframes wk-spin { to { transform: rotate(360deg); } }
 @keyframes wk-pulse { 50% { transform: scale(.88); opacity: .75; } }
 @media (prefers-reduced-motion: reduce) { .wk-spinner__ring::before { animation-duration: 2s; } .wk-spinner__ring img { animation: none; } }
+
+/* ---------- Plan goals: wrap like text, never overflow the card ---------- */
+.wk-goal { display: inline-flex; align-items: flex-start; gap: .4rem; max-width: 100%; padding: .45rem .85rem; border-radius: 12px;
+  background: #f8f9fc; border: 1px solid var(--wk-border); font-size: .85rem; font-weight: 600; color: var(--wk-ink); line-height: 1.6; }
+.wk-goal i { margin-top: .15rem; flex-shrink: 0; }
+/* Short status/count badges may still carry long text (e.g. a translated label): let them wrap too. */
+.badge { max-width: 100%; white-space: normal; }
+
+/* ---------- Brand colours on phones: one row per colour (label, then swatch) ---------- */
+@media (max-width: 575.98px) {
+  .wk-swatches { grid-template-columns: 1fr; gap: .6rem; }
+  .wk-swatches > .mb-3 { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; margin: 0 !important;
+    padding: .55rem .75rem; border: 1px solid var(--wk-border); border-radius: 14px; background: #fbfbfe; }
+  .wk-swatches .form-label { margin: 0; white-space: nowrap; }
+  .wk-swatches input[type=color].form-control { width: 96px; height: 42px; flex-shrink: 0; }
+  .wk-swatches .invalid-feedback, .wk-swatches .form-text { flex-basis: 100%; }
+}

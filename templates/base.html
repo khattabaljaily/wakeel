@@ -90,6 +90,26 @@
             <h1>{% block page_title %}{% endblock %}</h1>
             {% block subtitle %}{% endblock %}
         </div>
+        <div class="dropdown wk-bell">
+            <button class="wk-bell__btn" type="button" data-bs-toggle="dropdown" aria-label="الإشعارات{% if unread_notifications %} ({{ unread_notifications }} غير مقروءة){% endif %}">
+                <i class="bi bi-bell"></i>{% if unread_notifications %}<span class="wk-bell__count">{% if unread_notifications > 99 %}99+{% else %}{{ unread_notifications }}{% endif %}</span>{% endif %}
+            </button>
+            <div class="dropdown-menu dropdown-menu-end wk-bell__menu">
+                <div class="d-flex align-items-center justify-content-between px-3 py-2">
+                    <strong>الإشعارات</strong>
+                    {% if unread_notifications %}<form method="post" action="{% url 'notifications:read_all' %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><button class="btn btn-link btn-sm p-0">تعليم الكل كمقروء</button></form>{% endif %}
+                </div>
+                {% for n in recent_notifications %}
+                <a class="wk-note {% if not n.read_at %}unread{% endif %}" href="{% url 'notifications:open' n.pk %}">
+                    <i class="bi {{ n.icon }}"></i>
+                    <span><span class="d-block">{{ n.message|truncatechars:140 }}</span><span class="small-muted">{{ n.created_at|timesince }}{% if n.company_id != company.pk %} · {{ n.company.name }}{% endif %}</span></span>
+                </a>
+                {% empty %}
+                <div class="px-3 py-4 text-center small-muted">لا توجد إشعارات بعد.</div>
+                {% endfor %}
+                <a class="dropdown-item text-center small fw-semibold border-top py-2" href="{% url 'notifications:list' %}">كل الإشعارات</a>
+            </div>
+        </div>
         <div class="actions">{% block actions %}{% endblock %}</div>
     </header>
     <div class="wk-content">

@@ -7,12 +7,13 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from apps.content.models import ContentPlan, Post
+from apps.content import events
+from apps.content.models import ContentPlan, Post, PostComment
 from apps.content.services import set_status
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
 
-from .permissions import InCompany
+from .permissions import InCompany, InCompanyAnyRole
 
 PERMS = [IsAuthenticated, InCompany]
 # Editors may move a post between draft and review; approving and marking as
@@ -63,7 +64,11 @@ def post_status(request, pk):
         return Response({'error': 'حالة غير معروفة.'}, status=status.HTTP_400_BAD_REQUEST)
     if not _can_set(request, new_status):
         return Response({'error': 'اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط.'}, status=status.HTTP_403_FORBIDDEN)
-    set_status(post, new_status, request.user, note=request.data.get('note', '').strip())
+    note = request.data.get('note', '').strip()
+    old_status = post.status
+    set_status(post, new_status, request.user, note=note)
+    if new_status != old_status:
+        events.status_changed([post], new_status, request.user, note)
     return Response({'status': post.status, 'label': post.get_status_display()})
 
 
@@ -76,9 +81,10 @@ def posts_bulk_status(request):
         return Response({'error': 'طلب غير صالح.'}, status=status.HTTP_400_BAD_REQUEST)
     if not _can_set(request, new_status):
         return Response({'error': 'اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط.'}, status=status.HTTP_403_FORBIDDEN)
-    posts = Post.objects.filter(company=_company(request), pk__in=ids)
+    posts = [p for p in Post.objects.filter(company=_company(request), pk__in=ids) if p.status != new_status]
     for post in posts:
         set_status(post, new_status, request.user)
+    events.status_changed(posts, new_status, request.user)
     return Response({'updated': len(posts)})
 
 
@@ -146,3 +152,24 @@ def plan_render(request, pk):
     plan = get_object_or_404(ContentPlan, pk=pk, company=_company(request))
     job = Job.enqueue(_company(request), Job.Kind.RENDER_PLAN, request.user, plan_id=plan.pk)
     return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated, InCompanyAnyRole])
+def post_comment(request, pk):
+    """Add to a post's review thread. Viewers may comment too; reviewing is often their whole job."""
+    post = get_object_or_404(Post, pk=pk, company=_company(request))
+    body = (request.data.get('body') or '').strip()
+    if not body:
+        return Response({'error': 'اكتب تعليقك أولاً.'}, status=status.HTTP_400_BAD_REQUEST)
+    comment = PostComment.objects.create(post=post, user=request.user, body=body[:2000])
+    events.comment_added(comment)
+    return Response(comment_json(comment), status=status.HTTP_201_CREATED)
+
+
+def comment_json(comment):
+    return {
+        'id': comment.pk, 'author': comment.author_name, 'guest': comment.is_guest, 'kind': comment.kind,
+        'kind_label': comment.get_kind_display(), 'body': comment.body,
+        'created': timezone.localtime(comment.created_at).strftime('%Y-%m-%d %H:%M'),
+    }

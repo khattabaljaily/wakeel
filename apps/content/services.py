@@ -8,6 +8,7 @@ from django.utils import timezone
 from apps.ai import planner
 from apps.studio.designs import TEMPLATES
 
+from . import events
 from .models import ContentPlan, Post
 
 _TEXT_LIMITS = {f.name: f.max_length for f in Post._meta.get_fields() if getattr(f, 'max_length', None)}
@@ -105,6 +106,8 @@ def set_status(post, status, user=None, note=''):
     post.status = status
     if note:
         post.review_note = note
+    elif status in (Post.Status.APPROVED, Post.Status.PUBLISHED):
+        post.review_note = ''  # the requested changes were made
     if status == Post.Status.PUBLISHED and not post.published_at:
         post.published_at = timezone.now()
     elif status != Post.Status.PUBLISHED:
@@ -124,12 +127,14 @@ def run_generate_plan(job):
             plan.status = ContentPlan.Status.FAILED
             plan.error = str(exc)
             plan.save(update_fields=['status', 'error'])
+            events.plan_failed(plan)
         raise
     job.add_usage(result)
     if job.was_cancelled():  # the user gave up while the AI was writing; drop the result
         return ''
     job.set_progress(80, 'حفظ المنشورات…')
     posts = apply_plan(plan, result.data)
+    events.plan_ready(plan, len(posts))
     job.set_progress(90, f'تم إعداد {len(posts)} منشوراً. جارٍ تصميم الصور…')
     from apps.jobs.models import Job
     Job.enqueue(plan.company, Job.Kind.RENDER_PLAN, job.created_by, plan_id=plan.pk)

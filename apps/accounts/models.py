@@ -5,6 +5,8 @@ from django.db import models
 class User(AbstractUser):
     email = models.EmailField('البريد الإلكتروني', unique=True)
     phone = models.CharField('رقم الهاتف', max_length=20, blank=True)
+    email_notifications = models.BooleanField('إشعارات البريد الإلكتروني', default=True,
+                                              help_text='رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات.')
 
     class Meta:
         verbose_name = 'مستخدم'

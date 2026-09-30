@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from django.views.decorators.http import require_POST
 from urllib.parse import urlsplit
 
 from .forms import LoginForm, PasswordResetForm, RegisterForm
@@ -60,6 +61,15 @@ def register(request):
         login(request, user, backend='apps.accounts.backends.EmailOrUsernameBackend')
         return redirect('companies:create')
     return render(request, 'accounts/register.html', {'form': form})
+
+
+@login_required
+@require_POST
+def email_preferences(request):
+    request.user.email_notifications = request.POST.get('email_notifications') == 'on'
+    request.user.save(update_fields=['email_notifications'])
+    messages.success(request, 'تم تفعيل إشعارات البريد.' if request.user.email_notifications else 'تم إيقاف إشعارات البريد.')
+    return redirect('accounts:password_change')
 
 
 @login_required

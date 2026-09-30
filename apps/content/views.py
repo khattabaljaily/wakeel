@@ -185,6 +185,7 @@ def post_edit(request, pk):
         'templates': TEMPLATES, 'sizes': SIZES,
         'assets': MediaAsset.objects.filter(company=request.company)[:60],
         'statuses': Post.Status,
+        'comments': post.comments.select_related('user'),
         'plan_posts': list(post.plan.posts.order_by('scheduled_at').values_list('pk', flat=True)) if post.plan else [],
         'quick_rewrites': [
             'اجعل النص أقصر وأكثر تركيزاً',

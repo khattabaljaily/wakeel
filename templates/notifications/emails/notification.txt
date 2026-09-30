@@ -1,0 +1,10 @@
+{% autoescape off %}مرحباً {{ user.display_name }}،
+
+{{ message }}
+{% if link %}
+{{ link }}
+{% endif %}
+— وكيل، مساحة عمل {{ company.name }}
+
+لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك.
+{% endautoescape %}

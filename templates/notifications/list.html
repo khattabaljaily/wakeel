@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}الإشعارات{% endblock %}
+{% block page_title %}الإشعارات{% endblock %}
+{% block actions %}
+{% if unread_notifications %}
+<form method="post" action="{% url 'notifications:read_all' %}">{% csrf_token %}<button class="btn btn-light"><i class="bi bi-check2-all"></i> تعليم الكل كمقروء</button></form>
+{% endif %}
+{% endblock %}
+{% block content %}
+<div class="wk-card" style="max-width: 760px">
+    {% for n in page %}
+    <a class="wk-note {% if not n.read_at %}unread{% endif %}" href="{% url 'notifications:open' n.pk %}" {% if forloop.first %}style="border-top:0"{% endif %}>
+        <i class="bi {{ n.icon }}"></i>
+        <span><span class="d-block">{{ n.message }}</span><span class="small-muted">{{ n.created_at|date:"j/n/Y · H:i" }} · {{ n.company.name }}</span></span>
+    </a>
+    {% empty %}
+    <div class="wk-empty"><div class="icon"><i class="bi bi-bell"></i></div><h3>لا توجد إشعارات</h3><p>ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات.</p></div>
+    {% endfor %}
+</div>
+{% if page.has_other_pages %}
+<nav class="mt-3 d-flex gap-2">
+    {% if page.has_previous %}<a class="btn btn-light btn-sm" href="?page={{ page.previous_page_number }}">الأحدث</a>{% endif %}
+    {% if page.has_next %}<a class="btn btn-light btn-sm" href="?page={{ page.next_page_number }}">الأقدم</a>{% endif %}
+</nav>
+{% endif %}
+{% endblock %}

@@ -159,6 +159,25 @@
             </div>
         </div>
     </div>
+    <div class="wk-card mt-3" id="comments">
+        <div class="wk-card-head"><h2><i class="bi bi-chat-left-text text-primary"></i> المراجعة والتعليقات</h2><span class="small-muted" id="commentCount">{{ comments|length }}</span></div>
+        <div class="wk-card-body">
+            <div class="wk-thread mb-3" id="thread">
+                {% for c in comments %}
+                <div class="wk-comment {{ c.kind }}{% if c.is_guest %} guest{% endif %}">
+                    <div class="d-flex justify-content-between gap-2"><span class="who">{{ c.author_name }}</span><span class="when">{% if c.kind != 'comment' %}{{ c.get_kind_display }} · {% endif %}{{ c.created_at|date:"j/n · H:i" }}</span></div>
+                    {% if c.body %}<div class="body">{{ c.body }}</div>{% endif %}
+                </div>
+                {% empty %}
+                <div class="small-muted" id="noComments">لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا.</div>
+                {% endfor %}
+            </div>
+            <form id="commentForm" class="d-flex gap-2 align-items-end">
+                <textarea class="form-control" id="commentBody" rows="2" placeholder="اكتب تعليقاً…" aria-label="تعليق"></textarea>
+                <button class="btn btn-primary" id="commentBtn" title="إرسال"><i class="bi bi-send"></i></button>
+            </form>
+        </div>
+    </div>
 </div>
 </div>
 {% endblock %}
@@ -169,6 +188,7 @@
     var POST_ID = {{ post.pk }};
     var CAN_EDIT = {{ membership.can_edit|yesno:"true,false" }};
     var CAN_MANAGE = {{ membership.can_manage|yesno:"true,false" }};
+    var ME = '{{ user.display_name|escapejs }}';
     var PREVIEW_URL = '{% url "studio:preview" post.pk %}';
     var SIZES = { square: [1080, 1080, 'مربع 1:1'], portrait: [1080, 1350, 'طولي 4:5'], story: [1080, 1920, 'عمودي 9:16'] };
     var form = document.getElementById('postForm');
@@ -350,6 +370,7 @@
             var pill = document.getElementById('statusPill');
             pill.textContent = r.label; pill.className = 'wk-status ' + LABELS[r.status][1];
             renderStatusActions();
+            if (note) addComment({ kind: 'changes', kind_label: 'طلب تعديل', author: ME, body: note, created: 'الآن' });
             Wakeel.toast('تم تحديث الحالة: ' + r.label);
         }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
     }
@@ -386,6 +407,35 @@
         if (i > 0) prev.href = '/app/posts/' + ids[i - 1] + '/'; else prev.classList.add('disabled');
         if (i < ids.length - 1) next.href = '/app/posts/' + ids[i + 1] + '/'; else next.classList.add('disabled');
     }
+
+    // ---------- Review thread ----------
+    var thread = document.getElementById('thread');
+    thread.scrollTop = thread.scrollHeight;
+    function addComment(c) {
+        var empty = document.getElementById('noComments'); if (empty) empty.remove();
+        var el = document.createElement('div');
+        el.className = 'wk-comment ' + c.kind + (c.guest ? ' guest' : '');
+        el.innerHTML = '<div class="d-flex justify-content-between gap-2"><span class="who"></span><span class="when"></span></div><div class="body"></div>';
+        el.querySelector('.who').textContent = c.author;
+        el.querySelector('.when').textContent = (c.kind !== 'comment' ? c.kind_label + ' · ' : '') + c.created;
+        el.querySelector('.body').textContent = c.body;
+        thread.appendChild(el);
+        thread.scrollTop = thread.scrollHeight;
+        var count = document.getElementById('commentCount'); count.textContent = +count.textContent + 1;
+    }
+    document.getElementById('commentForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var box = document.getElementById('commentBody'), btn = document.getElementById('commentBtn');
+        if (!box.value.trim()) return;
+        btn.disabled = true;
+        Wakeel.api('/api/posts/' + POST_ID + '/comments/', 'POST', { body: box.value.trim() })
+            .then(function (c) { addComment(c); box.value = ''; })
+            .catch(function (err) { Wakeel.toast(Wakeel.errorText(err), 'error'); })
+            .finally(function () { btn.disabled = false; });
+    });
+    document.getElementById('commentBody').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); document.getElementById('commentBtn').click(); }
+    });
 
     if (!CAN_EDIT) form.querySelectorAll('input, textarea, select, button').forEach(function (el) { el.disabled = true; });
     applyFormat(); countCaption(); refreshPreview(); refreshThumbs(); renderStatusActions();

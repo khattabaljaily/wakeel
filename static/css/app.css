@@ -394,3 +394,31 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-modal.danger .wk-modal__ok:hover { background: #b42318; border-color: #b42318; }
 .wk-modal.primary .wk-modal__ok { background: var(--wk-primary); border-color: var(--wk-primary); color: #fff; box-shadow: 0 8px 20px rgba(109, 94, 248, .28); }
 .wk-modal__ok:disabled { opacity: .45; box-shadow: none !important; }
+
+/* ---------- Notifications ---------- */
+.wk-bell { margin-inline-start: auto; }
+.wk-bell + .actions { margin-inline-start: 0; }
+.wk-bell__btn { position: relative; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--wk-border);
+  background: var(--wk-card); color: var(--wk-text); font-size: 1.15rem; display: inline-flex; align-items: center; justify-content: center; }
+.wk-bell__btn:hover { background: var(--wk-primary-50); color: var(--wk-primary-600); }
+.wk-bell__count { position: absolute; top: -6px; inset-inline-end: -6px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px;
+  background: #e5484d; color: #fff; font-size: .72rem; font-weight: 700; line-height: 20px; text-align: center; }
+.wk-bell__menu { width: min(380px, calc(100vw - 32px)); padding: 0; overflow: hidden; border-radius: 14px; box-shadow: var(--wk-shadow-lg); }
+.wk-note { display: flex; gap: .7rem; align-items: flex-start; padding: .7rem 1rem; color: var(--wk-text); font-size: .9rem; border-top: 1px solid var(--wk-border); }
+.wk-note:hover { background: var(--wk-bg); color: var(--wk-text); }
+.wk-note > i { color: var(--wk-primary); font-size: 1.05rem; margin-top: .1rem; }
+.wk-note.unread { background: var(--wk-primary-50); }
+.wk-note.unread span:first-child { font-weight: 600; }
+@media (max-width: 991.98px) {
+  .wk-bell { margin-inline-start: 0; }
+}
+
+/* ---------- Review thread ---------- */
+.wk-thread { display: flex; flex-direction: column; gap: .75rem; max-height: 420px; overflow-y: auto; }
+.wk-comment { border: 1px solid var(--wk-border); border-radius: 12px; padding: .65rem .85rem; background: var(--wk-card); }
+.wk-comment.changes { border-color: #fcd9a6; background: #fff9ee; }
+.wk-comment.approval { border-color: #bfe9d6; background: #f1fbf6; }
+.wk-comment.guest .who::after { content: ' · العميل'; color: var(--wk-muted); font-weight: 400; }
+.wk-comment .who { font-weight: 600; font-size: .88rem; }
+.wk-comment .when { font-size: .78rem; color: var(--wk-muted); }
+.wk-comment .body { white-space: pre-wrap; font-size: .92rem; margin-top: .25rem; overflow-wrap: anywhere; }

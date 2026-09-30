@@ -13,3 +13,12 @@ class InCompany(BasePermission):
         if request.method in ('GET', 'HEAD', 'OPTIONS'):
             return True
         return membership.can_edit
+
+
+class InCompanyAnyRole(BasePermission):
+    """The user is working inside a company, whatever their role (viewers included)."""
+
+    message = InCompany.message
+
+    def has_permission(self, request, view):
+        return getattr(request._request, 'membership', None) is not None

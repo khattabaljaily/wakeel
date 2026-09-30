@@ -137,3 +137,38 @@ class Post(models.Model):
     @property
     def full_caption(self):
         return '\n\n'.join(part for part in (self.caption.strip(), self.hashtags.strip()) if part)
+
+
+class PostComment(models.Model):
+    """A message in a post's review thread, from a team member or from the client through a share link."""
+
+    class Kind(models.TextChoices):
+        COMMENT = 'comment', 'تعليق'
+        CHANGES = 'changes', 'طلب تعديل'
+        APPROVAL = 'approval', 'اعتماد'
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+    # Set instead of `user` when the client comments through a plan's share link.
+    guest_name = models.CharField(max_length=80, blank=True)
+    kind = models.CharField(max_length=10, choices=Kind.choices, default=Kind.COMMENT)
+    body = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'تعليق'
+        verbose_name_plural = 'التعليقات'
+        ordering = ['created_at']
+
+    def __str__(self):
+        return f'{self.author_name}: {self.body[:40]}'
+
+    @property
+    def author_name(self):
+        if self.user:
+            return self.user.display_name
+        return self.guest_name or 'العميل'
+
+    @property
+    def is_guest(self):
+        return self.user_id is None

@@ -1,12 +1,13 @@
 <form method="post" enctype="multipart/form-data" novalidate id="brandForm">{% csrf_token %}
 {% if form.errors %}<div class="alert alert-danger">راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة.</div>{% endif %}
 <div class="wk-steps">
-    <div class="wk-step active" data-step="0"><span class="n">1</span> الأساسيات</div>
-    <div class="wk-step" data-step="1"><span class="n">2</span> النشاط والجمهور</div>
-    <div class="wk-step" data-step="2"><span class="n">3</span> الأسلوب والنبرة</div>
-    <div class="wk-step" data-step="3"><span class="n">4</span> الهوية البصرية</div>
-    <div class="wk-step" data-step="4"><span class="n">5</span> قنوات التواصل</div>
+    <div class="wk-step active" data-step="0"><span class="n">1</span> <span class="t">الأساسيات</span></div>
+    <div class="wk-step" data-step="1"><span class="n">2</span> <span class="t">النشاط والجمهور</span></div>
+    <div class="wk-step" data-step="2"><span class="n">3</span> <span class="t">الأسلوب والنبرة</span></div>
+    <div class="wk-step" data-step="3"><span class="n">4</span> <span class="t">الهوية البصرية</span></div>
+    <div class="wk-step" data-step="4"><span class="n">5</span> <span class="t">قنوات التواصل</span></div>
 </div>
+<div class="wk-steps__caption" aria-live="polite"></div>
 
 <div class="wk-card"><div class="wk-card-body">
     <div class="wk-pane active" data-pane="0">
@@ -122,6 +123,10 @@
     function show(i) {
         current = i;
         steps.forEach(function (s, n) { s.classList.toggle('active', n === i); s.classList.toggle('done', n < i); });
+        // Phones show numbers only; the current step is named under them.
+        form.querySelector('.wk-steps').style.setProperty('--progress', i / (steps.length - 1));
+        form.querySelector('.wk-steps__caption').textContent =
+            'الخطوة ' + (i + 1) + ' من ' + steps.length + ' · ' + steps[i].querySelector('.t').textContent;
         panes.forEach(function (p, n) { p.classList.toggle('active', n === i); });
         if (prev) {
             prev.disabled = i === 0;
@@ -143,12 +148,13 @@
         next.addEventListener('click', function () { if (paneValid(current)) show(current + 1); });
         prev.addEventListener('click', function () { show(current - 1); });
     }
+    show(0);
     // Jump to the first pane with a server-side error.
     var firstError = form.querySelector('.invalid-feedback');
     if (firstError) {
         var pane = firstError.closest('.wk-pane');
         panes.forEach(function (p, n) { if (p === pane) show(n); });
-        steps.forEach(function (s, n) { if (panes[n].querySelector('.invalid-feedback')) s.style.borderColor = '#dc3545'; });
+        steps.forEach(function (s, n) { s.classList.toggle('has-error', !!panes[n].querySelector('.invalid-feedback')); });
     }
 
     // Live brand preview

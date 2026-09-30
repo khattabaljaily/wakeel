@@ -333,6 +333,24 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-step.active { border-color: var(--wk-primary); color: var(--wk-primary-600); }
 .wk-step.active .n { background: var(--wk-primary); color: #fff; }
 .wk-step.done .n { background: #dcf7ec; color: var(--st-published); }
+.wk-step.has-error { border-color: #dc3545; }
+.wk-step.has-error .n { box-shadow: 0 0 0 2px #dc3545; }
+.wk-steps__caption { display: none; }
+/* Phones: five numbered dots on one progress line, with the current step named below. */
+@media (max-width: 767.98px) {
+  .wk-steps { position: relative; flex-wrap: nowrap; justify-content: space-between; gap: 0; margin-bottom: .6rem; --progress: 0; }
+  .wk-steps::before, .wk-steps::after { content: ''; position: absolute; top: 50%; height: 3px; margin-top: -1.5px; border-radius: 2px;
+    inset-inline-start: 17px; }
+  .wk-steps::before { inset-inline-end: 17px; background: var(--wk-border); }
+  .wk-steps::after { width: calc((100% - 34px) * var(--progress)); background: var(--wk-primary); transition: width .25s; }
+  .wk-step { position: relative; z-index: 1; padding: 0; border: 0; background: transparent; }
+  .wk-step .t { display: none; }
+  .wk-step .n { width: 34px; height: 34px; font-size: .9rem; font-weight: 700; background: #fff; color: var(--wk-muted);
+    box-shadow: 0 0 0 2px var(--wk-border); }
+  .wk-step.done .n { background: var(--wk-primary); color: #fff; box-shadow: none; }
+  .wk-step.active .n { background: var(--wk-primary); color: #fff; box-shadow: 0 0 0 4px var(--wk-primary-100); }
+  .wk-steps__caption { display: block; text-align: center; font-weight: 700; color: var(--wk-primary-600); font-size: .95rem; margin-bottom: 1rem; }
+}
 .wk-pane { display: none; }
 .wk-pane.active { display: block; animation: wkIn .2s ease-out; }
 .wk-swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }

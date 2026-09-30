@@ -12,6 +12,13 @@
 <div>الذكاء الاصطناعي غير مفعّل بعد. أضف <code>{{ ai_key_name }}</code> إلى ملف <code>secrets.json</code> ثم أعد تشغيل الخادم والعامل لتفعيل إعداد الخطط وكتابة المنشورات.</div></div>
 {% endif %}
 
+{% if plan_reminder and current_plan %}
+<div class="alert alert-info d-flex align-items-center gap-2 flex-wrap"><i class="bi bi-calendar-plus"></i>
+    <span>لم تُعدّ خطة <strong>{{ plan_reminder }}</strong> بعد. أعدّها الآن ليجهز المحتوى قبل بداية الشهر.</span>
+    {% if membership.can_edit %}<a href="{% url 'content:plan_create' %}" class="alert-link ms-auto">أعدّ الخطة</a>{% endif %}
+</div>
+{% endif %}
+
 {% if not current_plan %}
 <div class="wk-hero mb-4">
     <i class="bi bi-stars sparkle"></i>

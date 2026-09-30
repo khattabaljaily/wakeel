@@ -100,6 +100,9 @@
 
 <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
     <h2 class="h5 mb-0">المنشورات <span class="text-muted fw-normal">({{ posts|length }})</span></h2>
+    {% if membership.can_manage and review_ids %}
+    <button type="button" class="btn btn-sm btn-primary" id="approveAll" data-ids="{{ review_ids|join:',' }}"><i class="bi bi-patch-check"></i> اعتماد كل ما بانتظار المراجعة ({{ review_ids|length }})</button>
+    {% endif %}
     {% include "content/_bulk_bar.html" %}
 </div>
 <div class="wk-post-grid">
@@ -131,6 +134,21 @@
         }).then(function () { location.reload(); }, function (job) { Wakeel.toast(job.error || 'تعذّر تصميم الصور', 'error'); });
     }
     {% if render_job %}watchRender({{ render_job.pk }});{% endif %}
+
+    var approveAll = document.getElementById('approveAll');
+    if (approveAll) approveAll.addEventListener('click', function () {
+        var ids = approveAll.dataset.ids.split(',');
+        Wakeel.confirm({
+            title: 'اعتماد ' + ids.length + ' منشوراً؟', tone: 'primary', icon: 'bi-patch-check', okText: 'اعتماد',
+            message: 'ستصبح كل المنشورات التي بانتظار المراجعة في هذه الخطة معتمدة وجاهزة للنشر.',
+        }).then(function (ok) {
+            if (ok === null) return;
+            return Wakeel.api('/api/posts/bulk-status/', 'POST', { ids: ids, status: 'approved' }).then(function (r) {
+                Wakeel.toast('تم اعتماد ' + r.updated + ' منشوراً');
+                setTimeout(function () { location.reload(); }, 700);
+            });
+        }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
+    });
 
     var renderAll = document.getElementById('renderAll');
     if (renderAll) renderAll.addEventListener('click', function () {

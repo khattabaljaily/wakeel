@@ -141,6 +141,26 @@
         <div class="wk-card-head"><h2><i class="bi bi-eye text-primary"></i> معاينة حية</h2><span class="small-muted" id="sizeLabel"></span></div>
         <div class="wk-card-body">
             <div class="wk-preview" id="preview"><div class="loading"><span class="spinner-border text-primary"></span></div><iframe id="previewFrame" title="معاينة التصميم"></iframe></div>
+            <button type="button" class="btn btn-soft btn-sm w-100 mt-3" data-bs-toggle="modal" data-bs-target="#feedModal"><i class="bi bi-phone"></i> كما سيظهر في إنستغرام وفيسبوك</button>
+        </div>
+    </div>
+    <div class="modal fade" id="feedModal" tabindex="-1" aria-labelledby="feedModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 440px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h6" id="feedModalTitle">معاينة المنشور في المنصة</h2>
+                    <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="wk-seg d-flex m-3" role="tablist">
+                        <input type="radio" name="feedTab" id="feedIg" value="ig" checked><label for="feedIg"><i class="bi bi-instagram"></i> إنستغرام</label>
+                        <input type="radio" name="feedTab" id="feedFb" value="fb"><label for="feedFb"><i class="bi bi-facebook"></i> فيسبوك</label>
+                    </div>
+                    <div class="wk-feed" id="feed" data-name="{{ company.name }}" data-handle="{{ company.instagram_handle|default:company.name|cut:'@' }}"
+                         data-logo="{% if company.logo %}{{ company.logo.url }}{% endif %}" data-color="{{ company.primary_color }}" data-initials="{{ company.initials }}"></div>
+                    <p class="small-muted px-3 pb-3 mb-0" id="feedNote"></p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="wk-card mt-3" id="finalCard">
@@ -407,6 +427,55 @@
         if (i > 0) prev.href = '/app/posts/' + ids[i - 1] + '/'; else prev.classList.add('disabled');
         if (i < ids.length - 1) next.href = '/app/posts/' + ids[i + 1] + '/'; else next.classList.add('disabled');
     }
+
+    // ---------- Feed preview (how the post looks on Instagram / Facebook) ----------
+    // Platforms fold long captions: Instagram after about 125 characters, Facebook after about 250.
+    var FOLD = { ig: 125, fb: 250 };
+    function renderFeed() {
+        var feed = document.getElementById('feed'), d = feed.dataset;
+        var tab = document.querySelector('input[name=feedTab]:checked').value;
+        var caption = [F.caption.value.trim(), F.hashtags.value.trim()].filter(Boolean).join('\n\n');
+        var img = document.getElementById('finalImg'), s = SIZES[currentSize()];
+        var isVideo = (form.querySelector('input[name=format]:checked') || {}).value === 'reel';
+        feed.className = 'wk-feed ' + tab;
+        feed.innerHTML =
+            '<div class="wk-feed__head"><span class="wk-avatar"></span><span><strong class="name"></strong><span class="sub"></span></span><i class="bi bi-three-dots ms-auto"></i></div>' +
+            (tab === 'fb' ? '<div class="wk-feed__text"></div>' : '') +
+            '<div class="wk-feed__media"></div>' +
+            (tab === 'ig'
+                ? '<div class="wk-feed__bar"><i class="bi bi-heart"></i><i class="bi bi-chat"></i><i class="bi bi-send"></i><i class="bi bi-bookmark ms-auto"></i></div><div class="wk-feed__text"></div>'
+                : '<div class="wk-feed__bar fb"><span><i class="bi bi-hand-thumbs-up"></i> أعجبني</span><span><i class="bi bi-chat"></i> تعليق</span><span><i class="bi bi-share"></i> مشاركة</span></div>');
+        var av = feed.querySelector('.wk-avatar');
+        av.style.background = d.color;
+        if (d.logo) { var li = document.createElement('img'); li.src = d.logo; li.alt = ''; av.appendChild(li); } else av.textContent = d.initials;
+        feed.querySelector('.name').textContent = tab === 'ig' ? d.handle : d.name;
+        feed.querySelector('.sub').textContent = tab === 'ig' ? '' : 'الآن · 🌐';
+
+        var media = feed.querySelector('.wk-feed__media');
+        media.style.aspectRatio = isVideo ? '9 / 16' : s[0] + ' / ' + s[1];
+        var note = '';
+        if (isVideo) { media.innerHTML = '<div class="ph"><i class="bi bi-camera-reels"></i><span>فيديو قصير يصوّره فريقك</span></div>'; }
+        else if (img.getAttribute('src')) { var m = document.createElement('img'); m.src = img.src; m.alt = ''; media.appendChild(m); if (dirty) note = 'الصورة المعروضة هي آخر نسخة محفوظة.'; }
+        else { media.innerHTML = '<div class="ph"><i class="bi bi-image"></i><span></span></div>'; media.querySelector('span').textContent = F.headline.value || 'لم تُصمَّم الصورة بعد'; note = 'احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا.'; }
+
+        var text = feed.querySelector('.wk-feed__text'), fold = FOLD[tab];
+        if (tab === 'ig') { var h = document.createElement('strong'); h.textContent = d.handle + ' '; text.appendChild(h); }
+        var body = document.createElement('span');
+        text.appendChild(body);
+        if (caption.length > fold) {
+            body.textContent = caption.slice(0, fold).trimEnd() + '… ';
+            var more = document.createElement('button');
+            more.type = 'button'; more.className = 'more'; more.textContent = tab === 'ig' ? 'المزيد' : 'عرض المزيد';
+            more.addEventListener('click', function () { body.textContent = caption; more.remove(); });
+            text.appendChild(more);
+            note = (note ? note + ' ' : '') + 'يظهر أول ' + fold + ' حرفاً تقريباً قبل «' + more.textContent + '»، فاجعل البداية قوية.';
+        } else body.textContent = caption;
+        document.getElementById('feedNote').textContent = note;
+    }
+    var feedModal = document.getElementById('feedModal');
+    document.body.appendChild(feedModal);  // out of the sticky preview column, so it stacks above the backdrop
+    feedModal.addEventListener('show.bs.modal', renderFeed);
+    document.querySelectorAll('input[name=feedTab]').forEach(function (r) { r.addEventListener('change', renderFeed); });
 
     // ---------- Review thread ----------
     var thread = document.getElementById('thread');

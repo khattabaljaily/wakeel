@@ -53,6 +53,7 @@ def plan_detail(request, pk):
                                      status__in=[Job.Status.PENDING, Job.Status.RUNNING]).first())
     posts = plan.posts.select_related('background').order_by('scheduled_at')
     return render(request, 'content/plan_detail.html', {
+        'review_ids': [p.pk for p in posts if p.status == Post.Status.REVIEW],
         'plan': plan, 'posts': posts, 'job': job, 'render_job': render_job, 'worker_alive': worker_alive(),
         'month_name': ARABIC_MONTHS[plan.month.month - 1],
         'month_label': f'{ARABIC_MONTHS[plan.month.month - 1]} {plan.month.year}',

@@ -30,6 +30,20 @@
         </div>
     </div>
 </div>
+<div class="wk-card mb-4">
+    <div class="wk-card-head"><h2><i class="bi bi-safe text-primary"></i> النسخ الاحتياطي</h2><span class="small-muted">يومياً · <code>manage.py backup</code></span></div>
+    <div class="wk-card-body py-2">
+        {% if backup %}
+        <div class="adm-status"><span class="wk-dot {% if not backup.ok %}off{% endif %}"></span>
+            <div><div class="fw-semibold">آخر نسخة</div><div class="small-muted">{{ backup.finished_at|date:"j/n/Y · H:i" }} (منذ {{ backup.finished_at|timesince }})</div></div>
+            <span class="adm-status__val">{% if backup.ok %}نجحت{% else %}<span class="text-danger">فشلت: {{ backup.error }}</span>{% endif %}</span></div>
+        <div class="adm-status">النسخ المحفوظة<span class="adm-status__val">{{ backup.db_runs }} لقاعدة البيانات · {{ backup.media_runs }} للملفات</span></div>
+        <div class="adm-status">المساحة المستخدمة<span class="adm-status__val">{{ backup.total_bytes|filesizeformat }} (المساحة الحرة: {{ backup.free_bytes|filesizeformat }})</span></div>
+        {% else %}
+        <div class="adm-status"><span class="wk-dot off"></span><div class="fw-semibold">لم تُنفَّذ أي نسخة بعد</div></div>
+        {% endif %}
+    </div>
+</div>
 <div class="wk-card">
     <div class="wk-card-head"><h2><i class="bi bi-sliders text-primary"></i> الإعدادات</h2><span class="small-muted">من <code>secrets.json</code>؛ المفاتيح السرية لا تُعرض</span></div>
     <div class="wk-card-body py-2 small">

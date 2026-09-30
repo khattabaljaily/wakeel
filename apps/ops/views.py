@@ -388,8 +388,10 @@ def jobs_data(request):
 
 @superuser_required
 def system(request):
+    from .backup import last_status
     return render(request, 'ops/system.html', {
         'system': _system(),
+        'backup': last_status(),
         'queue': {s: n for s, n in Job.objects.filter(status__in=[Job.Status.PENDING, Job.Status.RUNNING])
                   .order_by().values_list('status').annotate(n=Count('pk'))},
         'oldest_pending': Job.objects.filter(status=Job.Status.PENDING).order_by('created_at').first(),

@@ -266,5 +266,12 @@ META_ENABLED = bool(META_APP_ID and META_APP_SECRET)
 # Leave CHROME_PATH empty to use Playwright's own bundled Chromium.
 CHROME_PATH = get_secret('CHROME_PATH', '')
 
+# Backups (manage.py backup, run daily by a systemd timer in production). See apps.ops.backup.
+BACKUP_DIR = get_secret('BACKUP_DIR', str(BASE_DIR.parent.parent / 'backups' / 'wakeel'))
+BACKUP_KEEP_DAILY = get_secret('BACKUP_KEEP_DAILY', 7)
+BACKUP_KEEP_WEEKLY = get_secret('BACKUP_KEEP_WEEKLY', 4)
+BACKUP_MAX_GB = get_secret('BACKUP_MAX_GB', 20)          # never let backups grow past this
+BACKUP_MIN_FREE_GB = get_secret('BACKUP_MIN_FREE_GB', 10)  # and always leave this much disk free
+
 # Background worker (manage.py run_worker) poll interval, in seconds.
 WORKER_POLL_SECONDS = 2

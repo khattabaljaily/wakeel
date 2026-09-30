@@ -125,3 +125,42 @@ class TemplateCommentTests(TestCase):
         for path in (settings.BASE_DIR / 'templates').rglob('*.html'):
             for match in re.finditer(r'\{#(.*?)#\}', path.read_text(), re.S):
                 self.assertNotIn('\n', match.group(1), f'{path} has a multi-line {{# #}} comment')
+
+
+import datetime as _dt  # noqa: E402
+import tempfile as _tempfile  # noqa: E402
+from pathlib import Path as _Path  # noqa: E402
+from unittest import mock as _mock  # noqa: E402
+
+from django.test import SimpleTestCase, override_settings  # noqa: E402
+
+from . import backup  # noqa: E402
+
+
+class BackupRetentionTests(SimpleTestCase):
+    def test_keeps_last_days_and_one_per_week(self):
+        runs = [(_dt.datetime(2026, 8, 1) + _dt.timedelta(days=i), _Path(f'/b/{i}')) for i in range(60)]
+        keep = backup._keep(runs, daily=7, weekly=4)
+        self.assertTrue({_Path(f'/b/{i}') for i in range(53, 60)} <= keep)   # last 7 days
+        self.assertLessEqual(len(keep), 7 + 4)
+        self.assertNotIn(_Path('/b/0'), keep)
+
+    def test_run_writes_status_and_prunes_old_dumps(self):
+        with _tempfile.TemporaryDirectory() as root, _tempfile.TemporaryDirectory() as media:
+            (_Path(media) / 'posts').mkdir()
+            (_Path(media) / 'posts' / 'a.png').write_bytes(b'x' * 100)
+            (_Path(root) / 'db').mkdir()
+            for i in range(20):  # old dumps from last month
+                (_Path(root) / 'db' / f'202609{i + 1:02d}-0330.sql.gz').write_bytes(b'old')
+
+            def fake_dump(target):
+                target.write_bytes(b'dump')
+            with override_settings(BACKUP_DIR=root, MEDIA_ROOT=media, BACKUP_KEEP_DAILY=7, BACKUP_KEEP_WEEKLY=4,
+                                   BACKUP_MAX_GB=1, BACKUP_MIN_FREE_GB=0), \
+                    _mock.patch.object(backup, '_dump_database', side_effect=fake_dump):
+                status = backup.run()
+                again = backup.run()  # the second media snapshot hard-links unchanged files
+            self.assertTrue(status['ok'], status['error'])
+            self.assertLessEqual(again['db_runs'], 11)
+            snaps = sorted((_Path(root) / 'media').iterdir())
+            self.assertTrue((snaps[-1] / 'posts' / 'a.png').exists())

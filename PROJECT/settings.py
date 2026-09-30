@@ -223,7 +223,10 @@ EMAIL_HOST = get_secret('EMAIL_HOST', '')
 EMAIL_PORT = get_secret('EMAIL_PORT', 587)
 EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD', '')
-EMAIL_USE_TLS = get_secret('EMAIL_USE_TLS', True)
+# Port 465 speaks SSL from the start (EMAIL_USE_SSL); port 587 upgrades with STARTTLS (EMAIL_USE_TLS).
+EMAIL_USE_SSL = get_secret('EMAIL_USE_SSL', False)
+EMAIL_USE_TLS = get_secret('EMAIL_USE_TLS', not EMAIL_USE_SSL) and not EMAIL_USE_SSL
+EMAIL_TIMEOUT = 15
 EMAIL_BACKEND = ('django.core.mail.backends.smtp.EmailBackend' if EMAIL_HOST
                  else 'django.core.mail.backends.console.EmailBackend')
 DEFAULT_FROM_EMAIL = get_secret('DEFAULT_FROM_EMAIL', 'وكيل <no-reply@wakeel.local>')

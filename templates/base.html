@@ -12,7 +12,16 @@
     <meta name="theme-color" content="#12112a">
     {% block extra_head %}{% endblock %}
 </head>
-<body class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% block body_class %}{% endblock %}">
+<body class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% if impersonating %}wk-impersonating{% endif %} {% block body_class %}{% endblock %}">
+{% if impersonating %}
+<div class="wk-impersonation" role="status">
+    <i class="bi bi-person-badge"></i>
+    <span>أنت داخل حساب <strong>{{ company.name|default:user.email }}</strong> بصفتك مشرف النظام.</span>
+    <form method="post" action="{% url 'accounts:exit_impersonation' %}" class="ms-auto">{% csrf_token %}
+        <button class="btn btn-sm btn-dark"><i class="bi bi-box-arrow-in-left"></i> العودة للوحة الإدارة</button>
+    </form>
+</div>
+{% endif %}
 {% block body %}
 <aside class="wk-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="wkSidebar">
     <div class="offcanvas-body">
@@ -32,7 +41,6 @@
             <div class="wk-nav__label">المشتركون</div>
             <a href="{% url 'ops:subscriptions' %}" class="{% nav_active '/ops/subscriptions/' %}"><i class="bi bi-buildings"></i> الاشتراكات
                 {% if ops_pending_approval %}<span class="wk-nav__badge wk-nav__badge--gold" title="بانتظار الاعتماد">{{ ops_pending_approval }}</span>{% endif %}</a>
-            <a href="{% url 'ops:users' %}" class="{% nav_active '/ops/users/' %}"><i class="bi bi-people"></i> المستخدمون</a>
             <div class="wk-nav__label">التشغيل</div>
             <a href="{% url 'ops:usage' %}" class="{% nav_active '/ops/usage/' %}"><i class="bi bi-cpu"></i> الاستهلاك والتكلفة</a>
             <a href="{% url 'ops:jobs' %}" class="{% nav_active '/ops/jobs/' %}"><i class="bi bi-list-task"></i> المهام والأخطاء

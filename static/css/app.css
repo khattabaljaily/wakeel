@@ -592,3 +592,49 @@ a.adm-kpi:hover { color: inherit; box-shadow: var(--wk-shadow-lg); }
 .adm-tab.attention:not(.active) { border-color: #f5c46b; }
 .adm-tab.attention .adm-tab__n { background: var(--wk-gold); color: #3b2800; }
 .wk-nav__badge--gold { background: var(--wk-gold); color: #3b2800; }
+
+/* A system admin inside a subscriber's account (console "login as") */
+.wk-impersonation { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; padding: .5rem 1rem;
+  background: var(--wk-gold); color: #3b2800; font-size: .9rem; }
+@media (min-width: 992px) {
+  /* A fixed-height bar pinned above the page, with the fixed sidebar starting under it. */
+  .wk-impersonation { position: sticky; top: 0; z-index: 1050; height: 48px; flex-wrap: nowrap; padding-block: 0; }
+  .wk-impersonating .wk-sidebar { top: 48px; }
+}
+
+/* Row action icon buttons (subscriptions), as in enjazpms */
+.adm-acts { display: flex; gap: .3rem; justify-content: flex-end; align-items: center; flex-wrap: nowrap; }
+.adm-acts form { margin: 0; }
+.adm-act { width: 32px; height: 32px; border-radius: 9px; border: 1px solid var(--wk-border); background: var(--wk-card); color: var(--wk-muted);
+  display: inline-flex; align-items: center; justify-content: center; font-size: .95rem; padding: 0; }
+.adm-act:hover { background: var(--wk-primary-50); color: var(--wk-primary-600); border-color: var(--wk-primary-100); }
+.adm-act--approve { background: #16a34a; border-color: #16a34a; color: #fff; }
+.adm-act--approve:hover { background: #15803d; color: #fff; border-color: #15803d; }
+.adm-act--warn:hover { background: #fff4dc; color: #b27300; border-color: #f5c46b; }
+.adm-act--ok:hover { background: #dcf7ec; color: #0f9d6b; border-color: #9fe3c6; }
+.adm-act--renew:hover { background: #e5eeff; color: #2563eb; border-color: #b9cffb; }
+.adm-act--del:hover { background: #fee4e2; color: #b42318; border-color: #fecdca; }
+.adm-act--login:hover { background: #fff4dc; color: #3b2800; border-color: var(--wk-gold); }
+
+/* View dialog */
+.adm-view__head { display: flex; align-items: center; gap: .9rem; }
+.adm-view__head .wk-avatar { width: 52px; height: 52px; border-radius: 14px; font-size: 1.05rem; flex-shrink: 0; }
+.adm-view__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1.25rem; }
+.adm-view__label { font-size: .78rem; color: var(--wk-muted); }
+.adm-view__val { font-weight: 600; overflow-wrap: anywhere; }
+.adm-statusbar { display: flex; align-items: center; gap: .75rem; padding: .8rem 1rem; border-radius: 12px; margin-top: 1rem; }
+.adm-statusbar i { font-size: 1.4rem; }
+.adm-statusbar.active { background: #dcf7ec; color: #0b6b49; }
+.adm-statusbar.soon { background: #fff4dc; color: #8a5a00; }
+.adm-statusbar.expired, .adm-statusbar.suspended { background: #fee4e2; color: #b42318; }
+.adm-statusbar.pending { background: #fff4dc; color: #8a5a00; }
+@media (max-width: 575.98px) { .adm-view__grid { grid-template-columns: 1fr; } }
+.adm-acts__more { display: none; }
+@media (max-width: 767.98px) {
+  /* Phones: approve and view stay; the rest go into the menu (the forms stay in the page, hidden). */
+  .adm-acts__wide { display: none !important; }
+  .adm-acts__more { display: block; }
+  .adm-acts { gap: .25rem; }
+  .adm-act { width: 30px; height: 30px; }
+  .adm-table > :not(caption) > * > * { padding-inline: .4rem; }
+}

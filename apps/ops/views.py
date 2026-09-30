@@ -6,6 +6,7 @@ from functools import wraps
 
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db import transaction
@@ -18,6 +19,7 @@ from django.views.decorators.http import require_POST
 from apps.accounts.models import User
 from apps.ai.pricing import DEEPSEEK_PRICES, deepseek_tier
 from apps.companies import subscriptions as subscriptions_service
+from apps.companies.middleware import SESSION_KEY as COMPANY_SESSION_KEY
 from apps.companies.models import Company, Membership
 from apps.content.models import ContentPlan, Post
 from apps.jobs.models import Job
@@ -88,7 +90,7 @@ def overview(request):
     return render(request, 'ops/overview.html', {
         'system': _system(), 'this_month': this_month,
         'counts': {
-            'companies': Company.objects.count(), 'users': User.objects.filter(is_superuser=False).count(),
+            'companies': Company.objects.count(),
             'active_subscriptions': _status_filter(Company.objects.all(), 'active').count(),
             'pending_approval': Company.objects.filter(is_approved=False).count(),
             'expiring': _status_filter(Company.objects.all(), 'active').filter(
@@ -114,6 +116,7 @@ def overview(request):
 
 
 STATUS_FILTERS = [('', 'الكل'), ('active', 'نشط'), ('suspended', 'معلّق'), ('expired', 'منتهي'), ('pending', 'قيد الاعتماد')]
+IMPERSONATOR_KEY = '_impersonator_id'
 
 
 def _status_filter(qs, status):
@@ -127,35 +130,47 @@ def _status_filter(qs, status):
     }.get(status, qs)
 
 
-def _edit_data(company):
+def _subscription_data(company, owner=None, members=None, posts=None):
+    """Everything the view / edit dialogs show for one subscription, as JSON for the row's buttons."""
     return json.dumps({
-        'name': company.name, 'industry': company.industry, 'country': company.country, 'timezone': company.timezone,
-        'subscription_plan': company.subscription_plan, 'is_demo': company.is_demo,
+        'id': company.pk, 'name': company.name, 'initials': company.initials, 'color': company.primary_color,
+        'industry': company.industry, 'email': company.email, 'phone': company.phone, 'city': company.city,
+        'country': company.country, 'timezone': company.timezone, 'is_demo': company.is_demo,
+        'is_active': company.is_active, 'is_approved': company.is_approved,
+        'subscription_start': company.subscription_start.isoformat() if company.subscription_start else '',
         'subscription_expires': company.subscription_expires.isoformat() if company.subscription_expires else '',
+        'days': company.days_until_expiry, 'status': company.subscription_status,
+        'status_label': company.subscription_status_label,
+        'created': timezone.localtime(company.created_at).strftime('%Y-%m-%d'),
+        'owner_name': owner.display_name if owner else '', 'owner_email': owner.email if owner else '',
+        'members': members, 'posts': posts,
     }, ensure_ascii=False)
 
 
 @superuser_required
 def subscriptions(request, create_form=None, edit_form=None, edit_target=None):
-    """Subscriptions, as in enjazpms: stats, status tabs, search, and every action from the list."""
+    """Subscriptions, as in enjazpms: stats, status tabs, search, and every action on each row."""
     qs = Company.objects.order_by('-created_at')
     status = request.GET.get('status', '')
     q = request.GET.get('q', '').strip()
     if q:
-        qs = qs.filter(Q(name__icontains=q) | Q(country__icontains=q) | Q(industry__icontains=q)
+        qs = qs.filter(Q(name__icontains=q) | Q(country__icontains=q) | Q(industry__icontains=q) | Q(email__icontains=q)
                        | Q(memberships__user__email__icontains=q)).distinct()
     qs = _status_filter(qs, status)
     rows = _company_rows(qs, stats.ai_jobs(created_at__gte=stats.year_start()))
     for row in rows:
-        row['edit'] = _edit_data(row['company'])
+        c = row['company']
+        row['data'] = _subscription_data(c, row['owner'], c.members, c.post_count)
     all_companies = Company.objects.all()
     return render(request, 'ops/subscriptions.html', {
         'page': Paginator(rows, 30).get_page(request.GET.get('page')), 'q': q, 'status': status,
         'filters': STATUS_FILTERS,
         'stats': {key: _status_filter(all_companies, key).count() for key, _ in STATUS_FILTERS},
-        'create_form': create_form or SubscriptionCreateForm(initial={'days': '30', 'timezone': 'Asia/Qatar'}),
+        'create_form': create_form or SubscriptionCreateForm(initial={
+            'timezone': 'Asia/Qatar', 'subscription_start': timezone.localdate(),
+            'subscription_expires': timezone.localdate() + datetime.timedelta(days=30)}),
         'edit_form': edit_form or SubscriptionEditForm(), 'edit_target': edit_target,
-        'durations': DURATIONS[1:], 'plans': Company.SUBSCRIPTION_PLANS,
+        'durations': DURATIONS[1:],
     }, status=400 if (create_form or edit_form) else 200)
 
 
@@ -172,9 +187,6 @@ def subscription_create(request):
     with transaction.atomic():
         company = form.save(commit=False)
         company.is_approved, company.approved_at = True, timezone.now()
-        days = subscriptions_service.valid_days(form.cleaned_data['days'])
-        if days:
-            subscriptions_service.extend(company, days)
         company.save()
         user = form.existing_user
         if user is None:
@@ -220,9 +232,9 @@ def subscription_renew(request, pk):
         messages.error(request, 'اختر مدة صحيحة للتجديد.')
         return _back(request)
     subscriptions_service.extend(company, days)
-    if request.POST.get('plan') in dict(Company.SUBSCRIPTION_PLANS):
-        company.subscription_plan = request.POST['plan']
-    company.save(update_fields=['subscription_expires', 'subscription_plan', 'updated_at'])
+    if request.POST.get('is_demo') in ('0', '1'):  # renewing is also when a trial becomes paid
+        company.is_demo = request.POST['is_demo'] == '1'
+    company.save(update_fields=['subscription_expires', 'is_demo', 'updated_at'])
     messages.success(request, f'تم تجديد «{company.name}» حتى {company.subscription_expires:%Y-%m-%d}.')
     return _back(request)
 
@@ -252,13 +264,33 @@ def subscription_delete(request, pk):
 
 
 @superuser_required
+@require_POST
+def subscription_login_as(request, pk):
+    """Enter the subscriber's workspace as its owner (as in enjazpms); the admin's password is asked again."""
+    company = get_object_or_404(Company, pk=pk)
+    if not request.user.check_password(request.POST.get('password', '')):
+        messages.error(request, 'كلمة مرور المشرف غير صحيحة.')
+        return _back(request)
+    owner = subscriptions_service.owner(company)
+    if owner is None or not owner.is_active:
+        messages.error(request, f'لا يوجد مالك نشط لـ «{company.name}».')
+        return _back(request)
+    admin_id = request.user.pk
+    login(request, owner, backend='apps.accounts.backends.EmailOrUsernameBackend')  # starts a fresh session
+    request.session[IMPERSONATOR_KEY] = admin_id
+    request.session[COMPANY_SESSION_KEY] = company.pk
+    return redirect('core:dashboard')
+
+
+@superuser_required
 def company_detail(request, pk):
     company = get_object_or_404(Company, pk=pk)
     total, months = stats.summarize(stats.ai_jobs(company=company, created_at__gte=stats.year_start()))
+    owner = subscriptions_service.owner(company)
     return render(request, 'ops/company.html', {
-        'target': company, 'total': total, 'months': months, 'edit': _edit_data(company),
-        'owner': subscriptions_service.owner(company), 'edit_form': SubscriptionEditForm(),
-        'durations': DURATIONS[1:], 'plans': Company.SUBSCRIPTION_PLANS,
+        'target': company, 'total': total, 'months': months, 'owner': owner,
+        'data': _subscription_data(company, owner, company.memberships.count(), company.posts.count()),
+        'edit_form': SubscriptionEditForm(), 'durations': DURATIONS[1:],
         'members': company.memberships.select_related('user').order_by('created_at'),
         'plans': company.plans.annotate(n=Count('posts'))[:12],
         'posts_by_status': {Post.Status(s).label: n for s, n in
@@ -266,42 +298,6 @@ def company_detail(request, pk):
         'accounts': company.social_accounts.all(),
         'jobs': Job.objects.filter(company=company).select_related('created_by').order_by('-created_at')[:30],
     })
-
-
-@superuser_required
-def users(request):
-    qs = User.objects.order_by('-date_joined').prefetch_related('memberships__company')
-    q = request.GET.get('q', '').strip()
-    state = request.GET.get('state', '')
-    if q:
-        qs = qs.filter(Q(email__icontains=q) | Q(first_name__icontains=q) | Q(last_name__icontains=q))
-    if state == 'inactive':
-        qs = qs.filter(is_active=False)
-    elif state == 'never':
-        qs = qs.filter(last_login__isnull=True)
-    elif state == 'admins':
-        qs = qs.filter(is_superuser=True)
-    subscribers = User.objects.filter(is_superuser=False)
-    return render(request, 'ops/users.html', {
-        'page': Paginator(qs, 40).get_page(request.GET.get('page')), 'q': q, 'state': state,
-        'counts': {
-            'all': subscribers.count(), 'active': subscribers.filter(is_active=True).count(),
-            'inactive': subscribers.filter(is_active=False).count(),
-            'never': subscribers.filter(last_login__isnull=True).count(),
-            'admins': User.objects.filter(is_superuser=True).count(),
-        },
-    })
-
-
-@superuser_required
-@require_POST
-def user_toggle_active(request, pk):
-    user = get_object_or_404(User, pk=pk, is_superuser=False)  # system admins aren't suspended from here
-    user.is_active = not user.is_active
-    user.save(update_fields=['is_active'])
-    messages.success(request, f'تم تفعيل حساب {user.email}.' if user.is_active else
-                     f'تم إيقاف حساب {user.email}؛ لن يتمكن من تسجيل الدخول.')
-    return redirect(request.POST.get('next') or 'ops:users')
 
 
 @superuser_required

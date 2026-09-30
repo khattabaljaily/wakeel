@@ -1,11 +1,39 @@
-{# Action dialogs for a subscription; opened by buttons with data-sub-action="approve|edit|renew", data-id, data-name (and data-edit JSON). #}
+{# Subscription dialogs, opened by [data-sub-action="view|edit|approve|renew|login"] buttons carrying the subscription as JSON in data-sub. #}
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content">
+        <div class="modal-header">
+            <div class="adm-view__head"><span class="wk-avatar" data-f="avatar"></span>
+                <div><h2 class="modal-title h5 mb-0" id="viewTitle" data-f="name"></h2><div class="small-muted"><span data-f="industry"></span> · منذ <span data-f="created"></span></div></div></div>
+            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+        </div>
+        <div class="modal-body">
+            <div class="adm-view__grid">
+                <div><div class="adm-view__label">المالك</div><div class="adm-view__val"><span data-f="owner_name"></span> <span class="small-muted" dir="ltr" data-f="owner_email"></span></div></div>
+                <div><div class="adm-view__label">البريد الإلكتروني</div><div class="adm-view__val" dir="ltr" data-f="email"></div></div>
+                <div><div class="adm-view__label">الهاتف</div><div class="adm-view__val" dir="ltr" data-f="phone"></div></div>
+                <div><div class="adm-view__label">المدينة والدولة</div><div class="adm-view__val"><span data-f="city"></span> <span data-f="country"></span></div></div>
+                <div><div class="adm-view__label">بداية الاشتراك</div><div class="adm-view__val" data-f="subscription_start"></div></div>
+                <div><div class="adm-view__label">نهاية الاشتراك</div><div class="adm-view__val" data-f="subscription_expires"></div></div>
+                <div><div class="adm-view__label">نوع الحساب</div><div class="adm-view__val" data-f="kind"></div></div>
+                <div><div class="adm-view__label">أعضاء الفريق · المنشورات</div><div class="adm-view__val"><span data-f="members"></span> · <span data-f="posts"></span></div></div>
+            </div>
+            <div class="adm-statusbar" data-f="statusbar"><i class="bi"></i><div class="flex-grow-1 fw-semibold" data-f="statustext"></div><span class="badge text-bg-light" data-f="status_label"></span></div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-light me-auto" data-f="detail_link"><i class="bi bi-graph-up"></i> الاستهلاك والتفاصيل</a>
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">إغلاق</button>
+            <button type="button" class="btn btn-primary" data-then="edit"><i class="bi bi-pencil-square"></i> تعديل</button>
+        </div>
+    </div></div>
+</div>
+
 <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered"><form method="post" class="modal-content" data-action-url="{% url 'ops:subscription_approve' 0 %}">{% csrf_token %}
         <input type="hidden" name="next" value="{{ request.get_full_path }}">
-        <div class="modal-header"><h2 class="modal-title h5" id="approveTitle"><i class="bi bi-patch-check text-success"></i> اعتماد <span data-name></span></h2>
+        <div class="modal-header"><h2 class="modal-title h5" id="approveTitle"><i class="bi bi-patch-check text-success"></i> اعتماد الحساب؟</h2>
             <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
         <div class="modal-body">
-            <p class="text-muted small">سيُفعَّل الحساب ويُبلَّغ مالكه بالبريد. اختر نوع الحساب ومدة الاشتراك.</p>
+            <p class="text-muted">سيُفعَّل حساب <strong data-f="name"></strong> ويُبلَّغ مالكه بالبريد.</p>
             <label class="form-label" for="approveDemo">نوع الحساب</label>
             <select name="is_demo" id="approveDemo" class="form-select mb-3"><option value="1">تجريبي</option><option value="0">حقيقي (مدفوع)</option></select>
             <label class="form-label" for="approveDays">مدة الاشتراك</label>
@@ -18,58 +46,117 @@
 <div class="modal fade" id="renewModal" tabindex="-1" aria-labelledby="renewTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered"><form method="post" class="modal-content" data-action-url="{% url 'ops:subscription_renew' 0 %}">{% csrf_token %}
         <input type="hidden" name="next" value="{{ request.get_full_path }}">
-        <div class="modal-header"><h2 class="modal-title h5" id="renewTitle"><i class="bi bi-arrow-clockwise text-primary"></i> تجديد <span data-name></span></h2>
+        <div class="modal-header"><h2 class="modal-title h5" id="renewTitle"><i class="bi bi-arrow-clockwise text-primary"></i> تجديد الاشتراك</h2>
             <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
         <div class="modal-body">
-            <p class="text-muted small">تُضاف المدة إلى تاريخ الانتهاء الحالي إن لم يكن قد مضى، وإلا فمن اليوم.</p>
+            <p class="text-muted small">تجديد <strong data-f="name"></strong>. تُضاف المدة إلى تاريخ الانتهاء الحالي إن لم يكن قد مضى، وإلا فمن اليوم.</p>
             <label class="form-label" for="renewDays">المدة</label>
             <select name="days" id="renewDays" class="form-select mb-3">{% for v, l in durations %}<option value="{{ v }}" {% if v == '30' %}selected{% endif %}>{{ l }}</option>{% endfor %}</select>
-            <label class="form-label" for="renewPlan">الباقة</label>
-            <select name="plan" id="renewPlan" class="form-select">{% for v, l in plans %}<option value="{{ v }}">{{ l }}</option>{% endfor %}</select>
+            <label class="form-label" for="renewDemo">نوع الحساب</label>
+            <select name="is_demo" id="renewDemo" class="form-select"><option value="0">حقيقي (مدفوع)</option><option value="1">تجريبي</option></select>
         </div>
         <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i> تجديد</button></div>
     </form></div>
 </div>
 
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg"><form method="post" class="modal-content" novalidate data-action-url="{% url 'ops:subscription_update' 0 %}" {% if edit_target %}action="{% url 'ops:subscription_update' edit_target.pk %}" data-open{% endif %}>{% csrf_token %}
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><form method="post" class="modal-content" data-action-url="{% url 'ops:subscription_login_as' 0 %}">{% csrf_token %}
         <input type="hidden" name="next" value="{{ request.get_full_path }}">
-        <div class="modal-header"><h2 class="modal-title h5" id="editTitle"><i class="bi bi-pencil-square text-primary"></i> تعديل <span data-name>{{ edit_target.name }}</span></h2>
+        <div class="modal-header"><h2 class="modal-title h5" id="loginTitle"><i class="bi bi-person-badge"></i> الدخول كمدير المشترك</h2>
             <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
-        <div class="modal-body"><div class="row">
-            {% include "_field.html" with field=edit_form.name wrap_class="col-md-6" %}
-            {% include "_field.html" with field=edit_form.industry wrap_class="col-md-6" %}
-            {% include "_field.html" with field=edit_form.country wrap_class="col-md-6" %}
-            {% include "_field.html" with field=edit_form.timezone wrap_class="col-md-6" %}
-            {% include "_field.html" with field=edit_form.subscription_plan wrap_class="col-md-6" %}
-            {% include "_field.html" with field=edit_form.subscription_expires wrap_class="col-md-6" %}
-            <div class="col-12"><div class="form-check"><input type="checkbox" class="form-check-input" name="is_demo" id="editDemo" {% if edit_form.is_demo.value %}checked{% endif %}><label class="form-check-label" for="editDemo">حساب تجريبي</label></div></div>
-        </div></div>
+        <div class="modal-body">
+            <p class="text-muted">ستدخل مساحة عمل <strong data-f="name"></strong> بحساب مالكها (<span dir="ltr" data-f="owner_email"></span>). ستعود إلى لوحة الإدارة من الشريط أعلى الصفحة.</p>
+            <label class="form-label" for="loginPassword">كلمة مرور المشرف للتأكيد</label>
+            <input type="password" name="password" id="loginPassword" class="form-control" autocomplete="current-password" required>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-dark"><i class="bi bi-box-arrow-in-left"></i> دخول</button></div>
+    </form></div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"><form method="post" class="modal-content" novalidate data-action-url="{% url 'ops:subscription_update' 0 %}" {% if edit_target %}action="{% url 'ops:subscription_update' edit_target.pk %}" data-open{% endif %}>{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <div class="modal-header"><h2 class="modal-title h5" id="editTitle"><i class="bi bi-pencil-square text-primary"></i> تعديل <span data-f="name">{{ edit_target.name }}</span></h2>
+            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
+        <div class="modal-body">
+            <h3 class="h6 text-muted mb-3">بيانات النشاط</h3>
+            <div class="row">
+                {% include "_field.html" with field=edit_form.name wrap_class="col-md-6" %}
+                {% include "_field.html" with field=edit_form.industry wrap_class="col-md-6" %}
+                {% include "_field.html" with field=edit_form.email wrap_class="col-md-6" %}
+                {% include "_field.html" with field=edit_form.phone wrap_class="col-md-6" %}
+                {% include "_field.html" with field=edit_form.city wrap_class="col-md-6" %}
+                {% include "_field.html" with field=edit_form.country wrap_class="col-md-6" %}
+                {% include "_field.html" with field=edit_form.timezone wrap_class="col-md-6" %}
+            </div>
+            <h3 class="h6 text-muted mb-3 mt-2">الاشتراك</h3>
+            <div class="row">
+                {% include "_field.html" with field=edit_form.subscription_start wrap_class="col-md-6" %}
+                {% include "_field.html" with field=edit_form.subscription_expires wrap_class="col-md-6" %}
+                <div class="col-12"><div class="form-check"><input type="checkbox" class="form-check-input" name="is_demo" id="editDemo" {% if edit_form.is_demo.value %}checked{% endif %}><label class="form-check-label" for="editDemo">حساب تجريبي</label></div></div>
+            </div>
+        </div>
         <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-primary"><i class="bi bi-check2"></i> حفظ</button></div>
     </form></div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    var MODALS = { approve: 'approveModal', renew: 'renewModal', edit: 'editModal' };
-    document.addEventListener('click', function (e) {
-        var btn = e.target.closest('[data-sub-action]');
-        if (!btn) return;
-        var el = document.getElementById(MODALS[btn.dataset.subAction]), form = el.querySelector('form');
-        form.action = form.dataset.actionUrl.replace('/0/', '/' + btn.dataset.id + '/');
-        el.querySelectorAll('[data-name]').forEach(function (s) { s.textContent = btn.dataset.name; });
-        if (btn.dataset.edit) {
-            var data = JSON.parse(btn.dataset.edit);
+    var MODALS = { view: 'viewModal', approve: 'approveModal', renew: 'renewModal', login: 'loginModal', edit: 'editModal' };
+    var DETAIL_URL = '{% url "ops:company" 0 %}';
+    var current = null;
+
+    function fill(el, d) {
+        el.querySelectorAll('[data-f]').forEach(function (f) {
+            var k = f.dataset.f;
+            if (k in d && typeof d[k] !== 'object') f.textContent = d[k] === '' || d[k] === null ? '—' : d[k];
+        });
+    }
+    function statusText(d) {
+        if (d.status === 'pending') return ['pending', 'bi-hourglass-split', 'بانتظار الاعتماد'];
+        if (d.status === 'suspended') return ['suspended', 'bi-pause-circle', 'الاشتراك معلّق'];
+        if (d.status === 'expired') return ['expired', 'bi-calendar-x', 'انتهى الاشتراك منذ ' + Math.abs(d.days) + ' يوم'];
+        if (d.days === null) return ['active', 'bi-check-circle', 'اشتراك نشط بدون تاريخ انتهاء'];
+        if (d.days <= 7) return ['soon', 'bi-exclamation-circle', d.days === 0 ? 'ينتهي الاشتراك اليوم' : 'ينتهي الاشتراك خلال ' + d.days + ' يوم'];
+        return ['active', 'bi-check-circle', 'اشتراك نشط، باقٍ ' + d.days + ' يوم'];
+    }
+    function open(action, d) {
+        current = d;
+        var el = document.getElementById(MODALS[action]), form = el.querySelector('form');
+        if (form) form.action = form.dataset.actionUrl.replace('/0/', '/' + d.id + '/');
+        fill(el, d);
+        if (action === 'view') {
+            var av = el.querySelector('[data-f=avatar]'); av.textContent = d.initials; av.style.background = d.color;
+            el.querySelector('[data-f=subscription_expires]').textContent = d.subscription_expires || 'بدون انتهاء';
+            el.querySelector('[data-f=kind]').textContent = d.is_demo ? 'تجريبي' : 'حقيقي (مدفوع)';
+            var s = statusText(d), bar = el.querySelector('[data-f=statusbar]');
+            bar.className = 'adm-statusbar ' + s[0]; bar.querySelector('i').className = 'bi ' + s[1];
+            el.querySelector('[data-f=statustext]').textContent = s[2];
+            el.querySelector('[data-f=detail_link]').href = DETAIL_URL.replace('/0/', '/' + d.id + '/');
+        }
+        if (action === 'edit') {
             form.querySelectorAll('.is-invalid').forEach(function (f) { f.classList.remove('is-invalid'); });
             form.querySelectorAll('.invalid-feedback').forEach(function (f) { f.remove(); });
-            Object.keys(data).forEach(function (k) {
-                var f = form.elements[k];
-                if (!f) return;
-                if (f.type === 'checkbox') f.checked = !!data[k]; else f.value = data[k];
+            ['name', 'industry', 'email', 'phone', 'city', 'country', 'timezone', 'subscription_start', 'subscription_expires'].forEach(function (k) {
+                if (form.elements[k]) form.elements[k].value = d[k] || '';
             });
+            form.elements.is_demo.checked = !!d.is_demo;
         }
-        if (btn.dataset.plan && form.elements.plan) form.elements.plan.value = btn.dataset.plan;
-        bootstrap.Modal.getOrCreateInstance(el).show();
+        if (action === 'renew') form.elements.is_demo.value = d.is_demo ? '1' : '0';
+        if (action === 'login') form.elements.password.value = '';
+        var modal = bootstrap.Modal.getOrCreateInstance(el);
+        modal.show();
+        if (action === 'login') el.addEventListener('shown.bs.modal', function f() { el.removeEventListener('shown.bs.modal', f); form.elements.password.focus(); });
+    }
+    document.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-sub-action]');
+        if (btn) { open(btn.dataset.subAction, JSON.parse(btn.dataset.sub)); return; }
+        var then = e.target.closest('[data-then]');
+        if (then && current) {
+            var from = then.closest('.modal');
+            from.addEventListener('hidden.bs.modal', function f() { from.removeEventListener('hidden.bs.modal', f); open(then.dataset.then, current); });
+            bootstrap.Modal.getInstance(from).hide();
+        }
     });
     // A form sent back with errors reopens its dialog.
     document.querySelectorAll('form[data-open]').forEach(function (f) { bootstrap.Modal.getOrCreateInstance(f.closest('.modal')).show(); });

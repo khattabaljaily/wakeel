@@ -1,3 +1,4 @@
+import datetime
 import zoneinfo
 
 from django.conf import settings
@@ -96,9 +97,10 @@ class Company(models.Model):
 
     # Subscription, managed by the system admins from the console (as in enjazpms / enjazims).
     # Self-registered companies start unapproved; companies made by an admin are approved at once.
-    SUBSCRIPTION_PLANS = [('basic', 'أساسي'), ('pro', 'احترافي'), ('enterprise', 'مؤسسات')]
-    subscription_plan = models.CharField('الباقة', max_length=20, choices=SUBSCRIPTION_PLANS, default='basic')
+    # There are no plans: every subscriber gets the same features at the same price.
+    subscription_start = models.DateField('بداية الاشتراك', default=datetime.date.today)
     subscription_expires = models.DateField('نهاية الاشتراك', null=True, blank=True, help_text='فارغ = بدون انتهاء.')
+    email = models.EmailField('البريد الإلكتروني', blank=True, help_text='بريد التواصل مع المشترك.')
     is_approved = models.BooleanField('معتمد', default=True)
     approved_at = models.DateTimeField('تاريخ الاعتماد', null=True, blank=True)
     is_active = models.BooleanField('نشط', default=True, help_text='إيقافه يعلّق الاشتراك.')

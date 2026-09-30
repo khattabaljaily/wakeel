@@ -9,6 +9,7 @@ from django.views.decorators.http import require_POST
 from urllib.parse import urlsplit
 
 from .forms import LoginForm, PasswordResetForm, RegisterForm
+from .models import User
 
 
 class LoginView(auth_views.LoginView):
@@ -61,6 +62,20 @@ def register(request):
         login(request, user, backend='apps.accounts.backends.EmailOrUsernameBackend')
         return redirect('companies:create')
     return render(request, 'accounts/register.html', {'form': form})
+
+
+@login_required
+@require_POST
+def exit_impersonation(request):
+    """Leave a subscriber's workspace entered from the console and return to the system admin account."""
+    from apps.ops.views import IMPERSONATOR_KEY
+
+    admin = User.objects.filter(pk=request.session.get(IMPERSONATOR_KEY), is_superuser=True, is_active=True).first()
+    if admin is None:
+        logout(request)
+        return redirect('accounts:login')
+    login(request, admin, backend='apps.accounts.backends.EmailOrUsernameBackend')
+    return redirect('ops:subscriptions')
 
 
 @login_required

@@ -4,13 +4,12 @@
 {% block page_title %}{{ target.name }}{% endblock %}
 {% block subtitle %}<div class="subtitle"><a href="{% url 'ops:subscriptions' %}">الاشتراكات</a> · {{ target.industry }} · {{ target.country }} · منذ {{ target.created_at|date:"j/n/Y" }}</div>{% endblock %}
 {% block actions %}
-{% if not target.is_approved %}<button type="button" class="btn btn-success" data-sub-action="approve" data-id="{{ target.pk }}" data-name="{{ target.name }}"><i class="bi bi-patch-check"></i> اعتماد</button>{% endif %}
-{% include "ops/_subscription_actions.html" with c=target detail=True label="إجراءات" %}
+{% include "ops/_subscription_buttons.html" with c=target data=data detail=True %}
 {% endblock %}
 {% block content %}
 <div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-4 align-items-center">
     <div><div class="small-muted">الحالة</div>{% include "ops/_subscription_state.html" with c=target %}</div>
-    <div><div class="small-muted">الباقة</div><strong>{{ target.get_subscription_plan_display }}</strong></div>
+    <div><div class="small-muted">بداية الاشتراك</div><strong>{{ target.subscription_start|date:"j/n/Y" }}</strong></div>
     <div><div class="small-muted">نهاية الاشتراك</div>{% include "ops/_subscription_end.html" with c=target %}</div>
     <div><div class="small-muted">الاعتماد</div>{% if target.approved_at %}{{ target.approved_at|date:"j/n/Y" }}{% elif target.is_approved %}—{% else %}<span class="text-warning">بانتظار الاعتماد</span>{% endif %}</div>
     <div><div class="small-muted">المالك</div><span dir="ltr">{{ owner.email|default:"—" }}</span></div>

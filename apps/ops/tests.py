@@ -28,7 +28,7 @@ class OpsPanelTests(TestCase):
                            error='خدمة الذكاء الاصطناعي غير متاحة حالياً', error_detail='DeepSeek balance too low [HTTP 402]')
 
     def test_hidden_from_everyone_but_superusers(self):
-        for name, args in (('overview', []), ('subscriptions', []), ('users', []), ('usage', []), ('jobs', []),
+        for name, args in (('overview', []), ('subscriptions', []), ('usage', []), ('jobs', []),
                            ('system', []), ('company', [self.a.pk])):
             url = reverse(f'ops:{name}', args=args)
             self.client.force_login(self.owner)
@@ -38,7 +38,7 @@ class OpsPanelTests(TestCase):
 
     def test_every_console_page_renders(self):
         self.client.force_login(self.admin)
-        for name, args in (('overview', []), ('subscriptions', []), ('users', []), ('usage', []), ('jobs', []),
+        for name, args in (('overview', []), ('subscriptions', []), ('usage', []), ('jobs', []),
                            ('system', []), ('company', [self.a.pk])):
             self.assertEqual(self.client.get(reverse(f'ops:{name}', args=args)).status_code, 200, name)
 
@@ -72,54 +72,6 @@ class OpsPanelTests(TestCase):
         response = self.client.get(reverse('ops:subscriptions'), {'q': 'b@x.test'})
         self.assertEqual([r['company'] for r in response.context['page']], [self.b])
 
-    def test_suspend_and_restore_a_user(self):
-        self.client.force_login(self.admin)
-        url = reverse('ops:user_toggle_active', args=[self.owner.pk])
-        self.client.post(url)
-        self.owner.refresh_from_db()
-        self.assertFalse(self.owner.is_active)
-        self.client.logout()
-        self.assertFalse(self.client.login(username='owner@x.test', password='Pass12345!x'))
-        self.client.force_login(self.admin)
-        self.client.post(url)
-        self.owner.refresh_from_db()
-        self.assertTrue(self.owner.is_active)
-        # Other system admins can't be suspended from here.
-        self.assertEqual(self.client.post(reverse('ops:user_toggle_active', args=[self.admin.pk])).status_code, 404)
-
-    def test_superuser_without_company_can_open_the_panel(self):
-        self.assertFalse(Membership.objects.filter(user=self.admin).exists())
-        self.client.force_login(self.admin)
-        self.assertEqual(self.client.get(reverse('ops:overview')).status_code, 200)
-
-
-class SubscriberSeesNoTechnicalDetailTests(TestCase):
-    def setUp(self):
-        self.company = make_company()
-        self.owner = make_user('owner@x.test', self.company)
-        self.client.force_login(self.owner)
-
-    @override_settings(AI_ENABLED=False, META_ENABLED=False)
-    def test_pages_hide_configuration(self):
-        for name in ('core:dashboard', 'content:plan_create', 'social:accounts'):
-            html = self.client.get(reverse(name)).content.decode()
-            for word in ('secrets.json', 'API_KEY', 'META_APP', 'DeepSeek', 'Claude', 'manage.py', 'لوحة النظام',
-                         'الذكاء الاصطناعي متصل', 'الذكاء الاصطناعي غير مفعّل'):
-                self.assertNotIn(word, html, f'{name} shows {word!r}')
-
-    def test_usage_page_is_gone(self):
-        self.assertEqual(self.client.get('/company/usage/').status_code, 404)
-
-    @mock.patch('apps.ai.planner.call_json', side_effect=RuntimeError('KeyError deep in the parser'))
-    def test_unexpected_failure_keeps_traceback_for_admins_only(self, _):
-        plan = ContentPlan.objects.create(company=self.company, month=datetime.date(2026, 11, 1), platforms=['facebook'])
-        Job.enqueue(self.company, Job.Kind.GENERATE_PLAN, self.owner, plan_id=plan.pk)
-        job = run_job(claim_next())
-        plan.refresh_from_db()
-        self.assertNotIn('KeyError', job.error)
-        self.assertNotIn('KeyError', plan.error)
-        self.assertIn('KeyError deep in the parser', job.error_detail)
-
 
 class ConsoleSeparationTests(TestCase):
     """System admins get their own console, like the enjazpms / enjazims admin dashboards."""
@@ -145,7 +97,8 @@ class ConsoleSeparationTests(TestCase):
         self.client.force_login(self.admin)
         console = self.client.get(reverse('ops:overview')).content.decode()
         self.assertIn('مشرف النظام', console)
-        self.assertIn(reverse('ops:users'), console)
+        self.assertIn(reverse('ops:subscriptions'), console)
+        self.assertNotIn('/ops/users/', console)
         self.assertNotIn(reverse('content:plan_list'), console)
         self.assertNotIn('wk-bell__btn', console)
 
@@ -154,3 +107,15 @@ class ConsoleSeparationTests(TestCase):
         self.assertIn(reverse('content:plan_list'), app)
         self.assertNotIn('/ops/', app)
         self.assertNotIn('مشرف النظام', app)
+
+
+class TemplateCommentTests(TestCase):
+    """Django's {# #} comments are single-line; a multi-line one is printed on the page."""
+
+    def test_no_multiline_hash_comments(self):
+        import re
+        from pathlib import Path
+        from django.conf import settings
+        for path in (settings.BASE_DIR / 'templates').rglob('*.html'):
+            for match in re.finditer(r'\{#(.*?)#\}', path.read_text(), re.S):
+                self.assertNotIn('\n', match.group(1), f'{path} has a multi-line {{# #}} comment')

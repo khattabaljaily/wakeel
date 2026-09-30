@@ -42,7 +42,7 @@ Slow work (AI calls, image rendering, publishing) runs in `manage.py run_worker`
 
 ### Subscriptions
 
-As in enjazpms: a company created through self-registration starts **awaiting approval** (as a trial), its owner sees a "under review" page, and system admins are emailed. From the console (`/ops/subscriptions/`) an admin approves it (trial or paid, with a duration) and the owner is emailed; admins can also add a subscription with its owner, edit it, renew it (from the current end date if still running, else from today), suspend or reactivate it, and delete it (typing its name). While a company is awaiting approval, suspended or expired, its team only sees a status page, the API refuses its requests, auto-publishing skips it and its client review links stop working. Plans (أساسي / احترافي / مؤسسات) are labels for now; no per-plan limits are enforced.
+Managed like enjazpms, without plans: every subscriber gets the same features at one price. A company created through self-registration starts **awaiting approval** (as a trial); its owner sees an "under review" page and system admins are emailed. In the console (`/ops/subscriptions/`) each subscription has status tabs (active, suspended, expired, awaiting approval), search, and these actions: approve (trial or paid, with a duration; the owner is emailed), view (details and a status bar), edit (contact details, start and end dates, trial), renew (from the current end date if still running, else from today; can turn a trial into paid), suspend / reactivate, delete (typing the name), **log in as the subscriber's owner** (the admin's password is asked again; a bar on every page leads back to the console), and add a subscription with its owner's account. While a company is awaiting approval, suspended or expired, its team only sees a status page, the API refuses its requests, auto-publishing skips it and its client review links stop working.
 
 ### Roles
 
@@ -51,7 +51,7 @@ As in enjazpms: a company created through self-registration starts **awaiting ap
 | Owner / Admin | Everything in their company, including approving and publishing posts, brand kit, team, client links, publishing accounts |
 | Editor | Create plans, edit posts, send them for review, comment |
 | Viewer | Read and comment |
-| Superuser | The system admin panel at `/ops/`: every company's activity, AI usage (model, tokens, cache hits) and cost, failed jobs with their technical cause, and service status. Subscribers never see technical details: AI errors carry a plain message for them and a `detail` kept on the job for this panel |
+| Superuser | The system admin console at `/ops/` (its own sidebar, like enjazpms): overview, subscriptions, AI usage (model, tokens, cache hits) and cost, failed jobs with their technical cause, and service status. Subscribers never see technical details: AI errors carry a plain message for them and a `detail` kept on the job for this panel |
 
 ---
 

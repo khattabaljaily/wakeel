@@ -7,28 +7,40 @@ from apps.companies.models import Company
 DURATIONS = [('', 'بدون تاريخ انتهاء'), ('14', '14 يوماً (تجربة)'), ('30', 'شهر'), ('90', '3 أشهر'),
              ('180', '6 أشهر'), ('365', 'سنة')]
 
+DATE = forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')
+
 
 class SubscriptionEditForm(forms.ModelForm):
+    """The subscription's details, as in enjazpms' tenant form (without plans: one offer for everyone)."""
+
     class Meta:
         model = Company
-        fields = ['name', 'industry', 'country', 'timezone', 'subscription_plan', 'subscription_expires', 'is_demo']
-        widgets = {'subscription_expires': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')}
+        fields = ['name', 'industry', 'email', 'phone', 'city', 'country', 'timezone',
+                  'subscription_start', 'subscription_expires', 'is_demo']
+        widgets = {'subscription_start': DATE, 'subscription_expires': DATE}
+
+    def clean(self):
+        cleaned = super().clean()
+        start, end = cleaned.get('subscription_start'), cleaned.get('subscription_expires')
+        if start and end and end < start:
+            self.add_error('subscription_expires', 'نهاية الاشتراك قبل بدايته.')
+        return cleaned
 
 
-class SubscriptionCreateForm(forms.ModelForm):
+class SubscriptionCreateForm(SubscriptionEditForm):
     """A subscription made by an admin: the company and its owner's account, approved at once."""
 
-    days = forms.ChoiceField(label='مدة الاشتراك', choices=DURATIONS, required=False, initial='30')
-    owner_name = forms.CharField(label='اسم المالك', max_length=150)
-    owner_email = forms.EmailField(label='بريد المالك', help_text='إن كان له حساب في وكيل يُضاف إليه، وإلا يُنشأ حساب جديد.')
+    owner_name = forms.CharField(label='الاسم الكامل', max_length=150)
+    owner_email = forms.EmailField(label='البريد الإلكتروني', help_text='إن كان له حساب في وكيل يُضاف إليه، وإلا يُنشأ حساب جديد.')
     owner_password = forms.CharField(label='كلمة المرور', required=False, strip=False,
                                      widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
                                      help_text='مطلوبة للحساب الجديد فقط.')
+    owner_password2 = forms.CharField(label='تأكيد كلمة المرور', required=False, strip=False,
+                                      widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}))
 
-    class Meta:
-        model = Company
-        fields = ['name', 'industry', 'country', 'timezone', 'description', 'subscription_plan', 'is_demo']
-        widgets = {'description': forms.Textarea(attrs={'rows': 2})}
+    class Meta(SubscriptionEditForm.Meta):
+        fields = SubscriptionEditForm.Meta.fields + ['description']
+        widgets = {**SubscriptionEditForm.Meta.widgets, 'description': forms.Textarea(attrs={'rows': 2})}
 
     def clean_owner_email(self):
         email = self.cleaned_data['owner_email'].strip().lower()
@@ -43,6 +55,8 @@ class SubscriptionCreateForm(forms.ModelForm):
         if cleaned.get('owner_email') and not getattr(self, 'existing_user', None):
             if not password:
                 self.add_error('owner_password', 'كلمة المرور مطلوبة لإنشاء حساب المالك.')
+            elif password != cleaned.get('owner_password2'):
+                self.add_error('owner_password2', 'كلمتا المرور غير متطابقتين.')
             else:
                 try:
                     password_validation.validate_password(password, User(email=cleaned['owner_email']))

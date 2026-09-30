@@ -52,6 +52,7 @@ def dashboard(request):
         'overdue': overdue,
         'current_plan': current_plan,
         'month_label': f'{ARABIC_MONTHS[month_start.month - 1]} {month_start.year}',
+        'month_name': ARABIC_MONTHS[month_start.month - 1],
         'plans': plans[:4],
         'plan_reminder': plan_reminder,
         'running_jobs': Job.objects.filter(company=company, status__in=[Job.Status.PENDING, Job.Status.RUNNING]).count(),

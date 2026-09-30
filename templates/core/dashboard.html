@@ -33,7 +33,7 @@
 {% endif %}
 
 <div class="row g-3 mb-4">
-    <div class="col-6 col-xl-3"><a href="{% url 'content:calendar' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-collection"></i></div><div><div class="wk-stat__value">{{ counts.total }}</div><div class="wk-stat__label">منشورات {{ month_label }}</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="{% url 'content:calendar' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-collection"></i></div><div><div class="wk-stat__value">{{ counts.total }}</div><div class="wk-stat__label">منشورات {{ month_name }}</div></div></a></div>
     <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=review" class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-hourglass-split"></i></div><div><div class="wk-stat__value">{{ counts.review }}</div><div class="wk-stat__label">بانتظار المراجعة</div></div></a></div>
     <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=approved" class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-patch-check"></i></div><div><div class="wk-stat__value">{{ counts.approved }}</div><div class="wk-stat__label">معتمدة للنشر</div></div></a></div>
     <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=published" class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-send-check"></i></div><div><div class="wk-stat__value">{{ counts.published }}</div><div class="wk-stat__label">تم نشرها</div></div></a></div>

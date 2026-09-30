@@ -123,7 +123,7 @@ class DashboardMonthTests(TestCase):
         self.plan(self.datetime.date(2026, 10, 1))
         response = self.client.get(reverse('core:dashboard'))
         self.assertEqual(response.context['counts']['total'], 2)
-        self.assertContains(response, 'منشورات أكتوبر 2026')
+        self.assertContains(response, 'منشورات أكتوبر<')
         self.assertIsNone(response.context['plan_reminder'])
 
     def test_reminds_late_in_month_when_next_month_is_unplanned(self):

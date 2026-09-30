@@ -172,7 +172,7 @@ def comment_json(comment):
     return {
         'id': comment.pk, 'author': comment.author_name, 'guest': comment.is_guest, 'kind': comment.kind,
         'kind_label': comment.get_kind_display(), 'body': comment.body,
-        'created': timezone.localtime(comment.created_at).strftime('%Y-%m-%d %H:%M'),
+        'created': f'{timezone.localtime(comment.created_at):%-d/%-m · %H:%M}',  # as the editor template shows it
     }
 
 

@@ -73,7 +73,7 @@ input[type=color].form-control { height: 46px; padding: .3rem; width: 100%; curs
 /* ---------- App layout ---------- */
 .wk-app { min-height: 100vh; }
 .wk-sidebar { width: 272px; background: var(--wk-sidebar) !important; color: #c9c8e6; position: fixed; top: 0; bottom: 0; right: 0;
-  display: flex; flex-direction: column; z-index: 1040; }
+  display: flex; flex-direction: column; z-index: 1045; } /* above the offcanvas backdrop (1040) on phones */
 .wk-sidebar .offcanvas-body { display: flex; flex-direction: column; padding: 0; height: 100%; }
 @media (min-width: 992px) { .wk-main { margin-right: 272px; } }
 .wk-brand { display: flex; align-items: center; gap: .7rem; padding: 1.35rem 1.35rem 1rem; color: #fff; }
@@ -127,7 +127,10 @@ input[type=color].form-control { height: 46px; padding: .3rem; width: 100%; curs
 }
 /* Phones: page actions fill the width, two per row (a lone or odd last one spans the row). */
 @media (max-width: 767.98px) {
-  .wk-topbar > div:not(.actions) { flex: 1; min-width: 0; }
+  .wk-topbar { align-items: flex-start; column-gap: .75rem; }
+  .wk-topbar > div:not(.actions):not(.wk-bell) { flex: 1; min-width: 0; }
+  .wk-topbar h1 { font-size: 1.3rem; min-height: 42px; display: flex; align-items: center; }
+  .wk-menu-btn, .wk-bell { flex: none; }
   .wk-topbar .actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; margin-inline-start: 0; gap: .6rem; }
   .wk-topbar .actions > :only-child, .wk-topbar .actions > :last-child:nth-child(odd) { grid-column: 1 / -1; }
   .wk-topbar .actions > *, .wk-topbar .actions .btn, .wk-topbar .actions form, .wk-topbar .actions .dropdown { width: 100%; }
@@ -142,7 +145,8 @@ input[type=color].form-control { height: 46px; padding: .3rem; width: 100%; curs
   .wk-stat { padding: .9rem; gap: .7rem; }
   .wk-stat__icon { width: 42px; height: 42px; font-size: 1.15rem; border-radius: 12px; }
   .wk-stat__value { font-size: 1.4rem; }
-  .wk-stat__label { font-size: .78rem; }
+  .wk-stat .wk-stat__label { font-size: .78rem; white-space: normal; line-height: 1.35; }
+  .wk-stat > div:last-child { min-width: 0; }
 }
 
 /* ---------- Alerts / toasts ---------- */

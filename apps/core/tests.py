@@ -90,3 +90,44 @@ class DeletionTests(TestCase):
         self.assertFalse(Company.objects.exists())
         self.assertTrue(User.objects.filter(pk=self.editor.pk).exists())
         self.assertFilesGone()
+
+
+class DashboardMonthTests(TestCase):
+    """The stat cards follow the plan being worked on, even when it is next month's."""
+
+    def setUp(self):
+        import datetime
+        from unittest import mock
+        from django.utils import timezone
+
+        self.company = Company.objects.create(name='إنجاز', industry='برمجيات', country='قطر', description='و',
+                                              timezone='Asia/Qatar')
+        self.owner = User.objects.create_user(username='o@d.test', email='o@d.test', password='Strong-pass-123')
+        Membership.objects.create(company=self.company, user=self.owner, role=Membership.Role.OWNER)
+        self.client.force_login(self.owner)
+        # Pretend today is 30 September; the team already planned October.
+        now = datetime.datetime(2026, 9, 30, 20, 0, tzinfo=self.company.tzinfo)
+        patcher = mock.patch.object(timezone, 'now', return_value=now)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        self.datetime, self.now = datetime, now
+
+    def plan(self, month):
+        plan = ContentPlan.objects.create(company=self.company, month=month, platforms=['facebook'], status='ready')
+        for day in (3, 9):
+            Post.objects.create(company=self.company, plan=plan, title='م', platforms=['facebook'], status='review',
+                                scheduled_at=self.datetime.datetime(month.year, month.month, day, 19, tzinfo=self.company.tzinfo))
+        return plan
+
+    def test_counts_next_months_plan_when_this_month_has_none(self):
+        self.plan(self.datetime.date(2026, 10, 1))
+        response = self.client.get(reverse('core:dashboard'))
+        self.assertEqual(response.context['counts']['total'], 2)
+        self.assertContains(response, 'منشورات أكتوبر 2026')
+        self.assertIsNone(response.context['plan_reminder'])
+
+    def test_reminds_late_in_month_when_next_month_is_unplanned(self):
+        self.plan(self.datetime.date(2026, 9, 1))
+        response = self.client.get(reverse('core:dashboard'))
+        self.assertEqual(response.context['plan_reminder'], 'أكتوبر 2026')
+        self.assertContains(response, 'لم تُعدّ خطة')

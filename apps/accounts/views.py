@@ -5,8 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from urllib.parse import urlsplit
 
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, PasswordResetForm, RegisterForm
 
 
 class LoginView(auth_views.LoginView):
@@ -22,6 +23,29 @@ class PasswordChangeView(auth_views.PasswordChangeView):
     def form_valid(self, form):
         messages.success(self.request, 'تم تغيير كلمة المرور.')
         return super().form_valid(form)
+
+
+class PasswordResetView(auth_views.PasswordResetView):
+    template_name = 'accounts/password_reset.html'
+    form_class = PasswordResetForm
+    email_template_name = 'accounts/emails/password_reset.txt'
+    subject_template_name = 'accounts/emails/password_reset_subject.txt'
+    success_url = reverse_lazy('accounts:password_reset_done')
+
+    def form_valid(self, form):
+        # Emails link back to the public site address, not whatever host the request came in on.
+        site = urlsplit(settings.SITE_URL)
+        form.save(
+            domain_override=site.netloc, use_https=site.scheme == 'https', request=self.request,
+            email_template_name=self.email_template_name, subject_template_name=self.subject_template_name,
+            token_generator=self.token_generator, extra_email_context={'site_name': 'وكيل'},
+        )
+        return redirect(self.success_url)
+
+
+class PasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    template_name = 'accounts/password_reset_confirm.html'
+    success_url = reverse_lazy('accounts:password_reset_complete')
 
 
 def register(request):

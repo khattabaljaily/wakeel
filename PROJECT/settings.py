@@ -208,6 +208,21 @@ REST_FRAMEWORK = {
     ),
 }
 
+# Public address of the site, used for links in emails (password reset,
+# notifications) and for images that Meta must download when publishing.
+SITE_URL = get_secret('SITE_URL', 'http://127.0.0.1:8000').rstrip('/')
+
+# Email: SMTP when EMAIL_HOST is set, otherwise messages are printed to the console.
+EMAIL_HOST = get_secret('EMAIL_HOST', '')
+EMAIL_PORT = get_secret('EMAIL_PORT', 587)
+EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = get_secret('EMAIL_USE_TLS', True)
+EMAIL_BACKEND = ('django.core.mail.backends.smtp.EmailBackend' if EMAIL_HOST
+                 else 'django.core.mail.backends.console.EmailBackend')
+DEFAULT_FROM_EMAIL = get_secret('DEFAULT_FROM_EMAIL', 'وكيل <no-reply@wakeel.local>')
+PASSWORD_RESET_TIMEOUT = 60 * 60 * 24  # 1 day
+
 # Wakeel is a SaaS: anyone can sign up and create their own company workspace.
 ALLOW_REGISTRATION = get_secret('ALLOW_REGISTRATION', True)
 

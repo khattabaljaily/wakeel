@@ -7,6 +7,7 @@
     {% for e in form.non_field_errors %}<div class="alert alert-danger py-2">{{ e }}</div>{% endfor %}
     {% for field in form %}{% include "_field.html" %}{% endfor %}
     <input type="hidden" name="next" value="{{ next }}">
+    <div class="text-start mb-3" style="margin-top:-.5rem"><a href="{% url 'accounts:password_reset' %}" class="small">نسيت كلمة المرور؟</a></div>
     <button class="btn btn-primary w-100 btn-lg mt-2">تسجيل الدخول</button>
 </form>
 <p class="text-center text-muted mt-4 mb-0">ليس لديك حساب؟ <a href="{% url 'accounts:register' %}" class="fw-semibold">أنشئ حساباً مجانياً</a></p>

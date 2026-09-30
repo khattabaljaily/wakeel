@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import password_validation
+from django.contrib.auth import forms as auth_forms
 from django.contrib.auth.forms import AuthenticationForm
 
 from .models import User
@@ -50,3 +51,8 @@ class RegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class PasswordResetForm(auth_forms.PasswordResetForm):
+    email = forms.EmailField(label='البريد الإلكتروني', max_length=254,
+                             widget=forms.EmailInput(attrs={'autofocus': True, 'autocomplete': 'email'}))

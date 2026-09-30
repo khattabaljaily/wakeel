@@ -23,3 +23,28 @@ class Notification(models.Model):
 
     def __str__(self):
         return self.message
+
+
+class PushSubscription(models.Model):
+    """A browser/device that agreed to receive push notifications for a user (Web Push)."""
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='push_subscriptions')
+    endpoint = models.TextField()
+    # Endpoints can be long; uniqueness is kept on their SHA-256 (MySQL can't index long text).
+    endpoint_hash = models.CharField(max_length=64, unique=True)
+    p256dh = models.CharField(max_length=200)
+    auth = models.CharField(max_length=100)
+    user_agent = models.CharField(max_length=300, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    last_sent_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.user} · {self.user_agent[:40]}'
+
+    @staticmethod
+    def hash(endpoint):
+        import hashlib
+        return hashlib.sha256(endpoint.encode()).hexdigest()
+
+    def as_info(self):
+        return {'endpoint': self.endpoint, 'keys': {'p256dh': self.p256dh, 'auth': self.auth}}

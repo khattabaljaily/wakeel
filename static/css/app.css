@@ -872,3 +872,15 @@ a.wk-mcard__title:hover { color: var(--wk-primary-600); }
 .wk-autopilot-switch { display: flex; align-items: center; gap: .9rem; cursor: pointer; }
 .wk-autopilot-switch .form-check-input { width: 3rem; height: 1.6rem; cursor: pointer; }
 .wk-nav__badge--on { background: transparent; color: #4ade80; min-width: 0; padding: 0; font-size: .7rem; }
+
+/* ---------- Install / notifications bar (phones) ---------- */
+.wk-appbar { position: fixed; z-index: 1080; inset-inline: .75rem; bottom: calc(.75rem + env(safe-area-inset-bottom));
+  display: flex; align-items: center; gap: .7rem; padding: .7rem .8rem; border-radius: 18px; background: #12112a; color: #fff;
+  box-shadow: 0 18px 50px rgba(16, 18, 43, .35); animation: wkIn .25s ease-out; max-width: 520px; margin-inline: auto; }
+.wk-appbar[hidden] { display: none; }
+.wk-appbar img { width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0; }
+.wk-appbar__text { flex: 1; min-width: 0; line-height: 1.45; }
+.wk-appbar__text strong { display: block; font-size: .92rem; }
+.wk-appbar__text span { display: block; font-size: .78rem; color: #b6b4dd; }
+.wk-appbar__go { flex-shrink: 0; }
+.wk-appbar__close { border: 0; background: transparent; color: #8f8db8; padding: .25rem; flex-shrink: 0; }

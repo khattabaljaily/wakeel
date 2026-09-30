@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 
 from apps.companies.models import Membership
 
+from . import push
 from .models import Notification
 
 logger = logging.getLogger(__name__)
@@ -34,6 +35,7 @@ def notify(users, company, message, url='', *, icon='bi-bell', actor=None, email
     Notification.objects.bulk_create([
         Notification(user=u, company=company, message=message[:300], url=url, icon=icon) for u in recipients
     ])
+    push.send(recipients, title=company.name, body=message, url=url, tag=f'wakeel-{company.pk}')
     if email:
         for user in recipients:
             if user.email and user.email_notifications:

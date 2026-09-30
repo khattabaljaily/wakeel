@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="{% static_v 'css/app.css' %}">
     <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">
     <meta name="theme-color" content="#12112a">
+    <link rel="manifest" href="{% url 'core:manifest' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="وكيل">
     {% block extra_head %}{% endblock %}
 </head>
 <body class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% if impersonating %}wk-impersonating{% endif %} {% block body_class %}{% endblock %}">
@@ -169,6 +175,14 @@
 </main>
 {% endblock %}
 <div class="wk-toasts" id="wkToasts"></div>
+{% if user.is_authenticated %}
+<div class="wk-appbar" id="wkAppBar" hidden data-vapid="{{ vapid_public_key }}">
+    <img src="{% static 'img/logo.svg' %}" alt="">
+    <div class="wk-appbar__text"><strong></strong><span></span></div>
+    <button type="button" class="btn btn-primary btn-sm wk-appbar__go"></button>
+    <button type="button" class="wk-appbar__close" aria-label="إغلاق"><i class="bi bi-x-lg"></i></button>
+</div>
+{% endif %}
 <div id="wkSpinner" class="wk-spinner" role="status" aria-live="polite">
     <div class="wk-spinner__ring"><img src="{% static 'img/logo.svg' %}" alt=""></div>
     <span class="visually-hidden">جارٍ التحميل…</span>

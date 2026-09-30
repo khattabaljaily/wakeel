@@ -7,6 +7,18 @@
 {% endif %}
 {% endblock %}
 {% block content %}
+{% if vapid_public_key %}
+<div class="wk-card mb-3 wk-device-push" style="max-width: 760px" id="devicePush" hidden>
+    <div class="wk-card-body d-flex align-items-center gap-3 flex-wrap">
+        <span class="wk-stat__icon tone-primary"><i class="bi bi-phone-vibrate"></i></span>
+        <div class="flex-grow-1" style="min-width: 200px">
+            <div class="fw-semibold text-dark">إشعارات هذا الجهاز</div>
+            <div class="small-muted" data-push-state>…</div>
+        </div>
+        <button type="button" class="btn btn-primary" data-push-toggle disabled></button>
+    </div>
+</div>
+{% endif %}
 <div class="wk-card" style="max-width: 760px">
     {% for n in page %}
     <a class="wk-note {% if not n.read_at %}unread{% endif %}" href="{% url 'notifications:open' n.pk %}" {% if forloop.first %}style="border-top:0"{% endif %}>
@@ -23,4 +35,40 @@
     {% if page.has_next %}<a class="btn btn-light btn-sm" href="?page={{ page.next_page_number }}">الأقدم</a>{% endif %}
 </nav>
 {% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var card = document.getElementById('devicePush');
+    if (!card) return;
+    var state = card.querySelector('[data-push-state]'), btn = card.querySelector('[data-push-toggle]');
+    function refresh() {
+        var pwa = Wakeel.pwa;
+        card.hidden = false;
+        if (!pwa.pushSupported()) {
+            state.textContent = pwa.ios && !pwa.standalone
+                ? 'على الآيفون: ثبّت وكيل على الشاشة الرئيسية (مشاركة ← إضافة إلى الشاشة الرئيسية)، ثم فعّل الإشعارات من التطبيق.'
+                : 'هذا المتصفح لا يدعم الإشعارات.';
+            btn.hidden = true;
+            return;
+        }
+        pwa.subscription().then(function (sub) {
+            var on = !!sub && Notification.permission === 'granted';
+            state.textContent = on ? 'مفعّلة: تصلك تنبيهات الخطط والمراجعات والتعليقات هنا حتى والتطبيق مغلق.'
+                : (Notification.permission === 'denied' ? 'محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً.' : 'غير مفعّلة على هذا الجهاز.');
+            btn.textContent = on ? 'إيقاف' : 'تفعيل';
+            btn.className = 'btn ' + (on ? 'btn-light' : 'btn-primary');
+            btn.disabled = Notification.permission === 'denied' && !on;
+            btn.onclick = function () {
+                btn.disabled = true;
+                (on ? pwa.disablePush() : pwa.enablePush()).then(function () {
+                    Wakeel.toast(on ? 'أوقفت الإشعارات على هذا الجهاز' : 'ستصلك الإشعارات على هذا الجهاز');
+                }, function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); }).then(refresh);
+            };
+        });
+    }
+    document.addEventListener('wakeel:sw-ready', refresh);
+})();
+</script>
 {% endblock %}

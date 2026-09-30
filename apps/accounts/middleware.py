@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 
 # What an account awaiting approval may still reach.
-ALLOWED_PREFIXES = ('/accounts/', '/static/', '/media/', '/i18n/')
+ALLOWED_PREFIXES = ('/accounts/', '/static/', '/media/', '/i18n/', '/sw.js', '/manifest.webmanifest', '/offline/')
 
 
 class PendingAccountMiddleware:

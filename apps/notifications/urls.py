@@ -8,4 +8,6 @@ urlpatterns = [
     path('', views.notification_list, name='list'),
     path('<int:pk>/', views.notification_open, name='open'),
     path('read-all/', views.notification_read_all, name='read_all'),
+    path('push/subscribe/', views.push_subscribe, name='push_subscribe'),
+    path('push/unsubscribe/', views.push_unsubscribe, name='push_unsubscribe'),
 ]

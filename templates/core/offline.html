@@ -1,0 +1,28 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لا يوجد اتصال · وكيل</title>
+<meta name="theme-color" content="#12112a">
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;
+    font-family: 'IBM Plex Sans Arabic', 'Tajawal', system-ui, sans-serif; color: #2a2d45;
+    background: radial-gradient(circle at 50% 0%, #efeaff 0%, transparent 55%), #f5f6fb; }
+  .box { max-width: 360px; }
+  img { width: 72px; height: 72px; border-radius: 22px; box-shadow: 0 14px 34px rgba(79,59,219,.35); }
+  h1 { font-size: 1.35rem; color: #10122b; margin: 1.25rem 0 .5rem; }
+  p { color: #6b7091; line-height: 1.9; margin: 0 0 1.5rem; }
+  button { font: inherit; font-weight: 700; border: 0; border-radius: 14px; padding: .85rem 1.6rem; color: #fff; cursor: pointer;
+    background: #6d5ef8; box-shadow: 0 8px 22px rgba(109,94,248,.3); }
+</style>
+</head>
+<body>
+<div class="box">
+  <img src="{% static 'img/logo.svg' %}" alt="">
+  <h1>لا يوجد اتصال بالإنترنت</h1>
+  <p>تعذّر الوصول إلى وكيل الآن. تحقّق من اتصالك، وستعود الصفحة كما كانت.</p>
+  <button onclick="location.reload()">إعادة المحاولة</button>
+</div>
+<script>window.addEventListener('online', function () { location.reload(); });</script>
+</body>
+</html>

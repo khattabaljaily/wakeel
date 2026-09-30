@@ -266,6 +266,12 @@ META_ENABLED = bool(META_APP_ID and META_APP_SECRET)
 # Leave CHROME_PATH empty to use Playwright's own bundled Chromium.
 CHROME_PATH = get_secret('CHROME_PATH', '')
 
+# Web Push (installed app / browser notifications). Generate keys with `manage.py vapid_keys`.
+VAPID_PUBLIC_KEY = get_secret('VAPID_PUBLIC_KEY', '')
+VAPID_PRIVATE_KEY = get_secret('VAPID_PRIVATE_KEY', '')
+VAPID_SUBJECT = get_secret('VAPID_SUBJECT', 'mailto:no-reply@example.com')
+PUSH_IN_BACKGROUND = 'test' not in sys.argv
+
 # Backups (manage.py backup, run daily by a systemd timer in production). See apps.ops.backup.
 BACKUP_DIR = get_secret('BACKUP_DIR', str(BASE_DIR.parent.parent / 'backups' / 'wakeel'))
 BACKUP_KEEP_DAILY = get_secret('BACKUP_KEEP_DAILY', 7)

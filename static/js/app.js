@@ -286,3 +286,89 @@ document.addEventListener('DOMContentLoaded', function () {
         .on('ajaxSend', function () { WkSpinner.show(true); })
         .on('ajaxComplete', function () { WkSpinner.hide(); });
 });
+
+// ---------- Installable app (PWA) and push notifications ----------
+Wakeel.pwa = (function () {
+    var standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+    var ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    var deferredPrompt = null;
+    var reg = null;
+
+    function urlKey(b64) {
+        var pad = '='.repeat((4 - b64.length % 4) % 4), raw = atob((b64 + pad).replace(/-/g, '+').replace(/_/g, '/'));
+        return Uint8Array.from(raw, function (c) { return c.charCodeAt(0); });
+    }
+    function pushSupported() { return !!(reg && 'PushManager' in window && 'Notification' in window); }
+    function subscription() { return pushSupported() ? reg.pushManager.getSubscription() : Promise.resolve(null); }
+
+    // Ask for permission (must follow a tap), subscribe, and register the device with the server.
+    function enablePush() {
+        var bar = document.getElementById('wkAppBar'), key = bar && bar.dataset.vapid;
+        if (!pushSupported() || !key) return Promise.reject({ data: { error: ios && !standalone
+            ? 'على الآيفون، ثبّت التطبيق على الشاشة الرئيسية أولاً ثم فعّل الإشعارات منه.'
+            : 'هذا المتصفح لا يدعم الإشعارات.' } });
+        return Notification.requestPermission().then(function (perm) {
+            if (perm !== 'granted') throw { data: { error: 'لم يُسمح بالإشعارات. يمكنك تفعيلها من إعدادات المتصفح.' } };
+            return reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlKey(key) });
+        }).then(function (sub) {
+            return Wakeel.api('/notifications/push/subscribe/', 'POST', sub.toJSON(), { silent: true });
+        });
+    }
+    function disablePush() {
+        return subscription().then(function (sub) {
+            if (!sub) return;
+            return Wakeel.api('/notifications/push/unsubscribe/', 'POST', { endpoint: sub.endpoint }, { silent: true })
+                .then(function () { return sub.unsubscribe(); });
+        });
+    }
+
+    // A small bar offering to install the app, or (once installed) to turn on notifications.
+    function snoozed(what) { try { return Date.now() < +localStorage.getItem('wkSnooze.' + what); } catch (e) { return false; } }
+    function snooze(what) { try { localStorage.setItem('wkSnooze.' + what, Date.now() + 14 * 864e5); } catch (e) {} }
+    function offer(what, title, text, button, action) {
+        var bar = document.getElementById('wkAppBar');
+        if (!bar || snoozed(what)) return;
+        bar.querySelector('strong').textContent = title;
+        bar.querySelector('span').textContent = text;
+        var go = bar.querySelector('.wk-appbar__go');
+        go.textContent = button;
+        go.hidden = !action;
+        go.onclick = function () { action().then(function () { bar.hidden = true; }, function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); }); };
+        bar.querySelector('.wk-appbar__close').onclick = function () { bar.hidden = true; snooze(what); };
+        bar.hidden = false;
+    }
+    function maybeOfferPush() {
+        if (!standalone || !pushSupported() || Notification.permission !== 'default') return;
+        subscription().then(function (sub) {
+            if (!sub) offer('push', 'فعّل الإشعارات', 'ليصلك جديد الخطط والمراجعات على هاتفك.', 'تفعيل', function () {
+                return enablePush().then(function () { Wakeel.toast('ستصلك الإشعارات على هذا الجهاز'); });
+            });
+        });
+    }
+
+    window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        if (window.innerWidth < 992) offer('install', 'ثبّت وكيل على هاتفك', 'افتحه كتطبيق بضغطة واحدة، وتصلك إشعاراته.', 'تثبيت', function () {
+            deferredPrompt.prompt();
+            return deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
+        });
+    });
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(function (r) {
+                reg = r;
+                maybeOfferPush();
+                document.dispatchEvent(new CustomEvent('wakeel:sw-ready'));
+            }).catch(function () {});
+            // iPhone Safari has no install prompt: explain the Share > Add to Home Screen way.
+            if (ios && !standalone && window.innerWidth < 992) {
+                offer('install-ios', 'ثبّت وكيل على الآيفون', 'اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية».', '', null);
+            }
+        });
+    }
+
+    return { enablePush: enablePush, disablePush: disablePush, subscription: subscription, pushSupported: pushSupported,
+             standalone: standalone, ios: ios };
+})();

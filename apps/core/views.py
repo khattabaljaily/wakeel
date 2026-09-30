@@ -58,3 +58,48 @@ def dashboard(request):
         'running_jobs': Job.objects.filter(company=company, status__in=[Job.Status.PENDING, Job.Status.RUNNING]).count(),
         'now': now,
     })
+
+
+# --- Installable app (PWA) ---------------------------------------------------
+
+def _asset_version():
+    """Changes whenever the app's own CSS/JS change, so the service worker refreshes its cache."""
+    import os
+    from django.conf import settings as s
+    stamps = [int(os.path.getmtime(s.BASE_DIR / 'static' / p)) for p in ('css/app.css', 'js/app.js')]
+    return str(max(stamps))
+
+
+def manifest(request):
+    from django.http import JsonResponse
+    from django.templatetags.static import static
+    return JsonResponse({
+        'name': 'وكيل · مدير التسويق الذكي',
+        'short_name': 'وكيل',
+        'description': 'يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره.',
+        'lang': 'ar', 'dir': 'rtl',
+        'start_url': '/app/?source=pwa', 'scope': '/', 'id': '/app/',
+        'display': 'standalone', 'orientation': 'portrait',
+        'background_color': '#f5f6fb', 'theme_color': '#12112a',
+        'icons': [
+            {'src': static('img/icon-192.png'), 'sizes': '192x192', 'type': 'image/png', 'purpose': 'any'},
+            {'src': static('img/icon-512.png'), 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any'},
+            {'src': static('img/icon-maskable-512.png'), 'sizes': '512x512', 'type': 'image/png', 'purpose': 'maskable'},
+        ],
+        'shortcuts': [
+            {'name': 'التقويم', 'url': '/app/calendar/'},
+            {'name': 'المنشورات', 'url': '/app/posts/'},
+            {'name': 'خطة جديدة', 'url': '/app/plans/new/'},
+        ],
+    }, content_type='application/manifest+json', json_dumps_params={'ensure_ascii': False})
+
+
+def service_worker(request):
+    response = render(request, 'core/sw.js', {'version': _asset_version()}, content_type='application/javascript')
+    response['Service-Worker-Allowed'] = '/'
+    response['Cache-Control'] = 'no-cache'
+    return response
+
+
+def offline(request):
+    return render(request, 'core/offline.html')

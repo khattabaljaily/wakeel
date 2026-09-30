@@ -1,3 +1,5 @@
+from django.conf import settings
+
 from .models import Notification
 
 
@@ -8,4 +10,5 @@ def notifications(request):
     return {
         'unread_notifications': unread.count(),
         'recent_notifications': Notification.objects.filter(user=request.user).select_related('company')[:8],
+        'vapid_public_key': settings.VAPID_PUBLIC_KEY,
     }

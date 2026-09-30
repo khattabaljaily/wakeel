@@ -23,7 +23,7 @@
 
 <div class="row g-4 mb-4">
     <div class="col-xl-7">
-        <div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-calendar3 text-primary"></i> الاستهلاك حسب الشهر</h2></div>{% include "ops/_usage_table.html" %}</div>
+        <div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-calendar3 text-primary"></i> الاستهلاك حسب الشهر</h2></div>{% include "_datatable.html" with table=months_table rows=months_rows %}</div>
     </div>
     <div class="col-xl-5">
         <div class="wk-card mb-4">
@@ -42,7 +42,8 @@
 
 <div class="wk-card">
     <div class="wk-card-head"><h2><i class="bi bi-list-task text-primary"></i> آخر المهام</h2><a href="{% url 'ops:jobs' %}" class="small fw-semibold">كل المهام</a></div>
-    {% include "ops/_jobs_table.html" with show_company=False %}
+    {% include "_datatable.html" with table=jobs_table %}
 </div>
 {% include "ops/_subscription_modals.html" %}
 {% endblock %}
+{% block scripts %}{% include "_datatables_assets.html" %}{% endblock %}

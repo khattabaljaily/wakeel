@@ -56,21 +56,27 @@ class OpsPanelTests(TestCase):
         self.client.force_login(self.admin)
         response = self.client.get(reverse('ops:usage'))
         self.assertEqual(response.context['total']['cost'], 1.75)
-        self.assertEqual([r['label'] for r in response.context['by_model']], ['deepseek-v4-pro'])
-        self.assertEqual(response.context['by_company'][0]['company'], self.a)
+        self.assertEqual(len(response.context['models_rows']), 1)
+        self.assertIn('deepseek-v4-pro', response.context['models_rows'][0]['cells'][0]['html'])
+        self.assertEqual(response.context['companies_rows'][0]['cells'][0]['html'].count(self.a.name), 1)
 
     def test_company_and_jobs_pages(self):
         self.client.force_login(self.admin)
         response = self.client.get(reverse('ops:company', args=[self.a.pk]))
         self.assertEqual(response.context['total']['cache_rate'], 25)
-        response = self.client.get(reverse('ops:jobs'), {'status': 'failed'})
-        self.assertEqual(len(response.context['page']), 1)
-        self.assertContains(response, 'HTTP 402')
+        data = self.client.get(reverse('ops:jobs_data'), {'status': 'failed'}).json()
+        self.assertEqual(data['recordsTotal'], 1)
+        self.assertIn('HTTP 402', data['data'][0]['status'])  # the cause, in the row and in its card
+        self.assertIn('HTTP 402', data['data'][0]['card'])
+        # A company's page lists only its jobs.
+        data = self.client.get(reverse('ops:jobs_data'), {'company': self.a.pk}).json()
+        self.assertEqual(data['recordsTotal'], 1)
 
     def test_companies_search(self):
         self.client.force_login(self.admin)
-        response = self.client.get(reverse('ops:subscriptions'), {'q': 'b@x.test'})
-        self.assertEqual([r['company'] for r in response.context['page']], [self.b])
+        data = self.client.get(reverse('ops:subscriptions_data'), {'search[value]': 'b@x.test', 'draw': 3}).json()
+        self.assertEqual((data['draw'], data['recordsTotal'], data['recordsFiltered']), (3, 2, 1))
+        self.assertIn('ب', data['data'][0]['name'])
 
 
 class ConsoleSeparationTests(TestCase):

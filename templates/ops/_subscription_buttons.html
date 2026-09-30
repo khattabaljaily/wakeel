@@ -1,35 +1,19 @@
-{% comment %}Row actions for subscription `c` (with `data`: its JSON), as icon buttons like enjazpms. On phones the less
-frequent ones move into a menu; its items submit the same forms through the form attribute.{% endcomment %}
+{% comment %}Actions for subscription `c` (with `data`: its JSON) as icon buttons, as in enjazpms. Used in the table row,
+the mobile card and the subscription page (`detail` hides "view").{% endcomment %}
 <div class="adm-acts">
     {% if not c.is_approved %}<button type="button" class="adm-act adm-act--approve" data-sub-action="approve" data-sub="{{ data }}" title="اعتماد" aria-label="اعتماد {{ c.name }}"><i class="bi bi-patch-check"></i></button>{% endif %}
     {% if not detail %}<button type="button" class="adm-act" data-sub-action="view" data-sub="{{ data }}" title="عرض" aria-label="عرض {{ c.name }}"><i class="bi bi-eye"></i></button>{% endif %}
-    <button type="button" class="adm-act adm-acts__wide" data-sub-action="edit" data-sub="{{ data }}" title="تعديل" aria-label="تعديل {{ c.name }}"><i class="bi bi-pencil-square"></i></button>
-    <form method="post" action="{% url 'ops:subscription_toggle' c.pk %}" id="toggle-{{ c.pk }}" class="adm-acts__wide">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <button type="button" class="adm-act" data-sub-action="edit" data-sub="{{ data }}" title="تعديل" aria-label="تعديل {{ c.name }}"><i class="bi bi-pencil-square"></i></button>
+    <form method="post" action="{% url 'ops:subscription_toggle' c.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
         {% if c.is_active %}
         <button class="adm-act adm-act--warn" title="تعليق" aria-label="تعليق {{ c.name }}" data-confirm-title="تعليق «{{ c.name }}»؟" data-confirm="لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد تنشيطه. البيانات تبقى كما هي." data-confirm-ok="تعليق"><i class="bi bi-pause-circle"></i></button>
         {% else %}
         <button class="adm-act adm-act--ok" title="تنشيط" aria-label="تنشيط {{ c.name }}"><i class="bi bi-play-circle"></i></button>
         {% endif %}
     </form>
-    <button type="button" class="adm-act adm-act--renew adm-acts__wide" data-sub-action="renew" data-sub="{{ data }}" title="تجديد الاشتراك" aria-label="تجديد {{ c.name }}"><i class="bi bi-arrow-clockwise"></i></button>
-    <form method="post" action="{% url 'ops:subscription_delete' c.pk %}" id="delete-{{ c.pk }}" class="adm-acts__wide">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="confirm_name">
+    <button type="button" class="adm-act adm-act--renew" data-sub-action="renew" data-sub="{{ data }}" title="تجديد الاشتراك" aria-label="تجديد {{ c.name }}"><i class="bi bi-arrow-clockwise"></i></button>
+    <form method="post" action="{% url 'ops:subscription_delete' c.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="confirm_name">
         <button class="adm-act adm-act--del" title="حذف" aria-label="حذف {{ c.name }}" data-confirm-title="حذف «{{ c.name }}» نهائياً؟" data-confirm="ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. حسابات أعضائها تبقى." data-confirm-ok="حذف نهائي" data-confirm-require="{{ c.name }}" data-confirm-field="confirm_name"><i class="bi bi-trash"></i></button>
     </form>
-    <button type="button" class="adm-act adm-act--login adm-acts__wide" data-sub-action="login" data-sub="{{ data }}" title="دخول كمدير المشترك" aria-label="دخول كمدير {{ c.name }}"><i class="bi bi-person-badge"></i></button>
-
-    <div class="dropdown adm-acts__more">
-        <button type="button" class="adm-act" data-bs-toggle="dropdown" aria-label="إجراءات أخرى لـ {{ c.name }}"><i class="bi bi-three-dots"></i></button>
-        <div class="dropdown-menu dropdown-menu-end">
-            <button type="button" class="dropdown-item" data-sub-action="edit" data-sub="{{ data }}"><i class="bi bi-pencil-square"></i> تعديل</button>
-            {% if c.is_active %}
-            <button class="dropdown-item text-warning" form="toggle-{{ c.pk }}" data-confirm-title="تعليق «{{ c.name }}»؟" data-confirm="لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد تنشيطه. البيانات تبقى كما هي." data-confirm-ok="تعليق"><i class="bi bi-pause-circle"></i> تعليق</button>
-            {% else %}
-            <button class="dropdown-item text-success" form="toggle-{{ c.pk }}"><i class="bi bi-play-circle"></i> تنشيط</button>
-            {% endif %}
-            <button type="button" class="dropdown-item" data-sub-action="renew" data-sub="{{ data }}"><i class="bi bi-arrow-clockwise"></i> تجديد الاشتراك</button>
-            <button type="button" class="dropdown-item" data-sub-action="login" data-sub="{{ data }}"><i class="bi bi-person-badge"></i> دخول كمدير المشترك</button>
-            <div class="dropdown-divider"></div>
-            <button class="dropdown-item text-danger" form="delete-{{ c.pk }}" data-confirm-title="حذف «{{ c.name }}» نهائياً؟" data-confirm="ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. حسابات أعضائها تبقى." data-confirm-ok="حذف نهائي" data-confirm-require="{{ c.name }}" data-confirm-field="confirm_name"><i class="bi bi-trash"></i> حذف</button>
-        </div>
-    </div>
+    <button type="button" class="adm-act adm-act--login" data-sub-action="login" data-sub="{{ data }}" title="دخول كمدير المشترك" aria-label="دخول كمدير {{ c.name }}"><i class="bi bi-person-badge"></i></button>
 </div>

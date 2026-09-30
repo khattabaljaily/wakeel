@@ -7,6 +7,7 @@ app_name = 'ops'
 urlpatterns = [
     path('', views.overview, name='overview'),
     path('subscriptions/', views.subscriptions, name='subscriptions'),
+    path('subscriptions/data/', views.subscriptions_data, name='subscriptions_data'),
     path('subscriptions/new/', views.subscription_create, name='subscription_create'),
     path('subscriptions/<int:pk>/', views.company_detail, name='company'),
     path('subscriptions/<int:pk>/update/', views.subscription_update, name='subscription_update'),
@@ -17,5 +18,6 @@ urlpatterns = [
     path('subscriptions/<int:pk>/login-as/', views.subscription_login_as, name='subscription_login_as'),
     path('usage/', views.usage, name='usage'),
     path('jobs/', views.jobs, name='jobs'),
+    path('jobs/data/', views.jobs_data, name='jobs_data'),
     path('system/', views.system, name='system'),
 ]

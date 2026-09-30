@@ -1,0 +1,35 @@
+{% load wakeel %}{% with job=r %}{% if part == 'id' %}<span class="text-muted">{{ job.pk }}</span>
+{% elif part == 'company' %}<a href="{% url 'ops:company' job.company_id %}" class="fw-semibold">{{ job.company.name }}</a>
+{% elif part == 'kind' %}<span class="text-nowrap">{{ job.get_kind_display }}</span><div class="small-muted">{{ job.created_by.display_name|default:"النظام" }}</div>
+{% elif part == 'status' %}{% include "ops/_job_status.html" %}
+{% if job.status == 'failed' %}<details class="adm-err mt-1"><summary>{{ job.error|default:"فشلت"|truncatechars:60 }}</summary>
+    <div class="small mt-1"><strong>ما رآه المشترك:</strong> {{ job.error|default:"—" }}</div>
+    {% if job.error_detail %}<pre dir="ltr">{{ job.error_detail }}</pre>{% endif %}</details>{% endif %}
+{% elif part == 'created' %}<span class="text-nowrap">{{ job.created_at|date:"j/n/Y" }}</span><div class="small-muted">{{ job.created_at|date:"H:i" }}</div>
+{% elif part == 'model' %}<span dir="ltr" class="small text-nowrap">{{ job.model|default:"—" }}</span>
+{% elif part == 'tokens' %}{% if job.input_tokens or job.output_tokens %}<span dir="ltr" class="text-nowrap small">{{ job.input_tokens|thousands }} · <span class="text-success">{{ job.cache_hit_tokens|thousands }}</span> · {{ job.output_tokens|thousands }}</span>{% else %}<span class="text-muted">—</span>{% endif %}
+{% elif part == 'cost' %}<span dir="ltr" class="fw-semibold">{% if job.cost_usd is None %}—{% else %}${{ job.cost_usd|money }}{% endif %}</span>
+{% elif part == 'card' %}
+<article class="wk-mcard {% if job.status == 'failed' %}is-failed{% endif %}">
+    <div class="wk-mcard__head">
+        <span class="wk-mcard__icon {% if job.status == 'failed' %}tone-danger{% elif job.status == 'done' %}tone-published{% else %}tone-primary{% endif %}"><i class="bi {% if job.kind == 'generate_plan' %}bi-stars{% elif job.kind == 'rewrite_post' %}bi-magic{% elif job.kind == 'publish_post' %}bi-send{% else %}bi-brush{% endif %}"></i></span>
+        <div class="overflow-hidden flex-grow-1">
+            <div class="wk-mcard__title">{{ job.get_kind_display }} <span class="text-muted fw-normal small">#{{ job.pk }}</span></div>
+            <div class="wk-mcard__sub">{% if show_company %}<a href="{% url 'ops:company' job.company_id %}">{{ job.company.name }}</a> · {% endif %}{{ job.created_by.display_name|default:"النظام" }} · {{ job.created_at|date:"j/n · H:i" }}</div>
+        </div>
+        <div class="ms-auto">{% include "ops/_job_status.html" %}</div>
+    </div>
+    {% if job.input_tokens or job.output_tokens %}
+    <div class="wk-mcard__grid wk-mcard__grid--3">
+        <div><div class="wk-mcard__label">مُدخلة</div><div class="wk-mcard__val" dir="ltr">{{ job.input_tokens|thousands }}</div></div>
+        <div><div class="wk-mcard__label">cache hit</div><div class="wk-mcard__val text-success" dir="ltr">{{ job.cache_hit_tokens|thousands }}</div></div>
+        <div><div class="wk-mcard__label">مُخرجة</div><div class="wk-mcard__val" dir="ltr">{{ job.output_tokens|thousands }}</div></div>
+        <div style="grid-column: 1 / -1"><div class="wk-mcard__label">النموذج · التكلفة</div><div class="wk-mcard__val"><span dir="ltr">{{ job.model|default:"—" }}</span> · <span dir="ltr">{% if job.cost_usd is None %}—{% else %}${{ job.cost_usd|money }}{% endif %}</span></div></div>
+    </div>
+    {% endif %}
+    {% if job.status == 'failed' %}
+    <div class="wk-mcard__note wk-mcard__note--danger"><strong>ما رآه المشترك:</strong> {{ job.error|default:"—" }}
+        {% if job.error_detail %}<details class="adm-err mt-1"><summary>التفاصيل التقنية</summary><pre dir="ltr">{{ job.error_detail }}</pre></details>{% endif %}</div>
+    {% endif %}
+</article>
+{% endif %}{% endwith %}

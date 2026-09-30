@@ -5,41 +5,20 @@
 {% block subtitle %}<div class="subtitle">اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها</div>{% endblock %}
 {% block actions %}<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi bi-plus-lg"></i> اشتراك جديد</button>{% endblock %}
 {% block content %}
-<div class="adm-tabs mb-3" role="tablist">
-    {% for key, label in filters %}
-    <a href="?status={{ key }}{% if q %}&q={{ q|urlencode }}{% endif %}" class="adm-tab {% if key == status %}active{% endif %} {% if key == 'pending' and stats.pending %}attention{% endif %}" {% if key == status %}aria-current="page"{% endif %}>
-        {{ label }} <span class="adm-tab__n">{% for k, n in stats.items %}{% if k == key %}{{ n }}{% endif %}{% endfor %}</span></a>
-    {% endfor %}
-</div>
-<form class="d-flex gap-2 mb-3 flex-wrap" method="get">
-    <input type="hidden" name="status" value="{{ status }}">
-    <input type="search" name="q" value="{{ q }}" class="form-control form-control-sm" style="max-width: 320px" placeholder="ابحث بالاسم أو الدولة أو البريد" aria-label="بحث">
-    <button class="btn btn-sm btn-light"><i class="bi bi-search"></i> بحث</button>
-</form>
 <div class="wk-card">
-    <div class="table-responsive"><table class="table mb-0 align-middle adm-table">
-        <thead class="text-nowrap"><tr><th>المشترك</th><th class="d-none d-lg-table-cell">المجال</th><th>الاشتراك</th><th class="text-end d-none d-md-table-cell">الفريق</th><th>الحالة</th><th></th></tr></thead>
-        <tbody>{% for r in page %}{% with c=r.company %}
-        <tr class="{% if c.subscription_status == 'pending' %}table-warning{% endif %}">
-            <td><div class="d-flex align-items-center gap-2">
-                <span class="wk-avatar d-none d-sm-inline-flex" style="background: {{ c.primary_color }}; width: 36px; height: 36px; flex-shrink: 0">{% if c.logo %}<img src="{{ c.logo.url }}" alt="">{% else %}{{ c.initials }}{% endif %}</span>
-                <div class="overflow-hidden"><a href="{% url 'ops:company' c.pk %}" class="fw-semibold">{{ c.name }}</a>
-                    <div class="small-muted text-truncate" dir="auto">{{ r.owner.email|default:c.email|default:"—" }}</div></div></div></td>
-            <td class="small d-none d-lg-table-cell">{{ c.industry }}<div class="text-muted">{{ c.city|default:"" }}{% if c.city %} · {% endif %}{{ c.country }}</div></td>
-            <td class="small">{% include "ops/_subscription_end.html" %}</td>
-            <td class="text-end d-none d-md-table-cell">{{ c.members }}</td>
-            <td>{% include "ops/_subscription_state.html" %}</td>
-            <td>{% include "ops/_subscription_buttons.html" with data=r.data %}</td>
-        </tr>
-        {% endwith %}{% empty %}<tr><td colspan="6" class="text-center small-muted py-5">{% if status == 'pending' %}لا توجد طلبات بانتظار الاعتماد.{% else %}لا توجد نتائج.{% endif %}</td></tr>{% endfor %}</tbody>
-    </table></div>
+    <div class="wk-dt-toolbar">
+        <label class="wk-dt-search"><i class="bi bi-search"></i>
+            <input type="search" class="form-control" data-dt-search="{{ table.id }}" placeholder="ابحث بالاسم أو البريد أو المدينة…" aria-label="بحث في الاشتراكات"></label>
+        <div class="adm-tabs" role="group" aria-label="حالة الاشتراك">
+            {% for key, label in filters %}
+            <button type="button" class="adm-tab {% if key == status %}active{% endif %} {% if key == 'pending' and stats.pending %}attention{% endif %}"
+                    data-dt-filter="{{ table.id }}" data-name="status" data-value="{{ key }}" aria-pressed="{% if key == status %}true{% else %}false{% endif %}">
+                {{ label }} <span class="adm-tab__n">{% for k, n in stats.items %}{% if k == key %}{{ n }}{% endif %}{% endfor %}</span></button>
+            {% endfor %}
+        </div>
+    </div>
+    {% include "_datatable.html" %}
 </div>
-{% if page.has_other_pages %}
-<nav class="mt-3 d-flex gap-2">
-    {% if page.has_previous %}<a class="btn btn-light btn-sm" href="?status={{ status }}&q={{ q|urlencode }}&page={{ page.previous_page_number }}">السابق</a>{% endif %}
-    {% if page.has_next %}<a class="btn btn-light btn-sm" href="?status={{ status }}&q={{ q|urlencode }}&page={{ page.next_page_number }}">التالي</a>{% endif %}
-</nav>
-{% endif %}
 
 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"><form method="post" action="{% url 'ops:subscription_create' %}" class="modal-content" novalidate {% if create_form.is_bound %}data-open{% endif %}>{% csrf_token %}
@@ -77,3 +56,4 @@
 </div>
 {% include "ops/_subscription_modals.html" %}
 {% endblock %}
+{% block scripts %}{% include "_datatables_assets.html" %}{% endblock %}

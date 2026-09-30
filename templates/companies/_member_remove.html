@@ -1,0 +1,5 @@
+{% if membership.can_manage and m.role != 'owner' %}
+<form method="post" action="{% url 'companies:member_update' m.pk %}">{% csrf_token %}
+    <button name="action" value="remove" class="adm-act adm-act--del" title="إزالة" aria-label="إزالة {{ m.user.display_name }}" data-confirm-title="إزالة العضو؟" data-confirm="لن يتمكن {{ m.user.display_name }} من الوصول إلى {{ company.name }} بعد الآن." data-confirm-ok="إزالة"><i class="bi bi-person-dash"></i></button>
+</form>
+{% endif %}

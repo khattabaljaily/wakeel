@@ -6,32 +6,12 @@
 <div class="row g-4">
     <div class="col-lg-8">
         <div class="wk-card">
-            <table class="table wk-table">
-                <thead><tr><th>العضو</th><th>الدور</th><th></th></tr></thead>
-                <tbody>
-                {% for m in members %}
-                <tr>
-                    <td><div class="fw-semibold">{{ m.user.display_name }}</div><div class="small-muted">{{ m.user.email }}</div></td>
-                    <td>
-                        {% if membership.can_manage and m.role != 'owner' %}
-                        <form method="post" action="{% url 'companies:member_update' m.pk %}" class="d-flex gap-2">{% csrf_token %}
-                            <select name="role" class="form-select form-select-sm" style="max-width: 160px" onchange="this.form.submit()">
-                                {% for value, label in roles %}{% if value != 'owner' %}<option value="{{ value }}" {% if value == m.role %}selected{% endif %}>{{ label }}</option>{% endif %}{% endfor %}
-                            </select>
-                        </form>
-                        {% else %}<span class="wk-status approved">{{ m.get_role_display }}</span>{% endif %}
-                    </td>
-                    <td class="text-end">
-                        {% if membership.can_manage and m.role != 'owner' %}
-                        <form method="post" action="{% url 'companies:member_update' m.pk %}">{% csrf_token %}
-                            <button name="action" value="remove" class="btn btn-sm btn-light text-danger" data-confirm-title="إزالة العضو؟" data-confirm="لن يتمكن {{ m.user.display_name }} من الوصول إلى {{ company.name }} بعد الآن." data-confirm-ok="إزالة"><i class="bi bi-person-dash"></i></button>
-                        </form>
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            <div class="wk-dt-toolbar">
+                <label class="wk-dt-search"><i class="bi bi-search"></i>
+                    <input type="search" class="form-control" data-dt-search="{{ table.id }}" placeholder="ابحث بالاسم أو البريد…" aria-label="بحث في الفريق"></label>
+                <span class="small-muted ms-auto">{{ members|length }} {% if members|length == 1 %}عضو{% else %}أعضاء{% endif %}</span>
+            </div>
+            {% include "_datatable.html" %}
         </div>
     </div>
     <div class="col-lg-4">
@@ -60,3 +40,4 @@
     </div>
 </div>
 {% endblock %}
+{% block scripts %}{% include "_datatables_assets.html" %}{% endblock %}

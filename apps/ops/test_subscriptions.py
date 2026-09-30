@@ -58,9 +58,13 @@ class SignupApprovalTests(TestCase):
     def test_pending_tab_and_sidebar_badge(self):
         self.client.force_login(self.admin)
         response = self.client.get(reverse('ops:subscriptions'), {'status': 'pending'})
-        self.assertEqual([r['company'] for r in response.context['page']], [self.company])
         self.assertEqual(response.context['stats']['pending'], 1)
+        self.assertEqual(response.context['status'], 'pending')  # the tab opens on "awaiting approval"
         self.assertContains(response, 'wk-nav__badge--gold')
+        rows = self.client.get(reverse('ops:subscriptions_data'), {'status': 'pending', 'draw': 1}).json()['data']
+        self.assertEqual(len(rows), 1)
+        self.assertIn('مطعم النيل', rows[0]['name'])
+        self.assertEqual(rows[0]['DT_RowClass'], 'is-pending')
 
 
 class SubscriptionActionTests(TestCase):
@@ -103,8 +107,8 @@ class SubscriptionActionTests(TestCase):
         self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('companies:status'))
         self.assertContains(self.client.get(reverse('companies:status')), 'انتهى اشتراك')
         self.client.force_login(self.admin)
-        response = self.client.get(reverse('ops:subscriptions'), {'status': 'expired'})
-        self.assertEqual(len(response.context['page']), 1)
+        data = self.client.get(reverse('ops:subscriptions_data'), {'status': 'expired'}).json()
+        self.assertEqual(data['recordsTotal'], 1)
 
         # Renewing a lapsed subscription counts from today (and a trial can become paid)...
         Company.objects.filter(pk=self.company.pk).update(is_demo=True)

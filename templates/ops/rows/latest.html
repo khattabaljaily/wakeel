@@ -1,0 +1,13 @@
+{% load wakeel %}{% with c=r.company %}{% if part == 'name' %}<a href="{% url 'ops:company' c.pk %}" class="fw-bold">{{ c.name }}</a><div class="small-muted">{{ c.country }} · {{ c.created_at|date:"j/n/Y" }}</div>
+{% elif part == 'owner' %}<span class="small" dir="ltr">{{ r.owner.email|default:"—" }}</span>
+{% elif part == 'status' %}{% include "ops/_subscription_state.html" %}
+{% elif part == 'cost' %}<span dir="ltr">${{ r.month.cost|money }}</span>
+{% elif part == 'card' %}
+<a href="{% url 'ops:company' c.pk %}" class="wk-mcard d-block text-reset {% if not c.is_approved %}is-pending{% endif %}">
+    <div class="wk-mcard__head">
+        <span class="wk-avatar" style="background: {{ c.primary_color }}">{{ c.initials }}</span>
+        <div class="flex-grow-1 overflow-hidden"><div class="wk-mcard__title">{{ c.name }}</div><div class="wk-mcard__sub" dir="auto">{{ r.owner.email|default:c.country }}</div></div>
+        <div class="ms-auto text-end">{% include "ops/_subscription_state.html" %}<div class="wk-mcard__sub mt-1">{{ c.created_at|date:"j/n/Y" }}</div></div>
+    </div>
+</a>
+{% endif %}{% endwith %}

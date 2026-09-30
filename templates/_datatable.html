@@ -1,0 +1,12 @@
+{% comment %}A DataTable from apps.core.tables.Table: pass `table`, and `rows` (client mode). Desktop shows the table;
+phones show the cards built from each row's <template class="wk-dt__card"> (client) or its JSON "card" (server).
+Search boxes and filters live outside, pointing at the table by id (see static/js/tables.js).{% endcomment %}
+<div class="wk-dt {{ wrap_class }}">
+    <table id="{{ table.id }}" class="table wk-dt__table align-middle mb-0" data-wk-table="{{ table.mode }}"
+           {% if table.url %}data-url="{{ table.url }}"{% endif %} data-order='{{ table.initial_order }}' data-page-length="{{ table.page_length }}"
+           data-paging="{{ table.paging|yesno:'true,false' }}" data-empty="{{ table.empty }}">
+        <thead><tr>{% for col in table.columns %}<th class="{{ col.cls }}" data-col="{{ col.key }}" {% if not col.order %}data-orderable="false"{% endif %}>{{ col.title }}</th>{% endfor %}</tr></thead>
+        <tbody>{% for row in rows %}<tr class="{{ row.cls }}">{% for cell in row.cells %}<td class="{{ cell.cls }}"{% if cell.sort is not None %} data-order="{{ cell.sort }}"{% endif %}>{{ cell.html }}</td>{% endfor %}<template class="wk-dt__card">{{ row.card }}</template></tr>{% endfor %}</tbody>
+    </table>
+    <div class="wk-dt__cards" aria-live="polite"></div>
+</div>

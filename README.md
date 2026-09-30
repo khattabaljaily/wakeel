@@ -44,6 +44,12 @@ Slow work (AI calls, image rendering, publishing) runs in `manage.py run_worker`
 
 Managed like enjazpms, without plans: every subscriber gets the same features at one price. A company created through self-registration starts **awaiting approval** (as a trial); its owner sees an "under review" page and system admins are emailed. In the console (`/ops/subscriptions/`) each subscription has status tabs (active, suspended, expired, awaiting approval), search, and these actions: approve (trial or paid, with a duration; the owner is emailed), view (details and a status bar), edit (contact details, start and end dates, trial), renew (from the current end date if still running, else from today; can turn a trial into paid), suspend / reactivate, delete (typing the name), **log in as the subscriber's owner** (the admin's password is asked again; a bar on every page leads back to the console), and add a subscription with its owner's account. While a company is awaiting approval, suspended or expired, its team only sees a status page, the API refuses its requests, auto-publishing skips it and its client review links stop working.
 
+### Tables
+
+Every table is a DataTable, shown as a table on desktop and as cards on phones (as in enjazpms). A table is declared once in Python (`apps/core/tables.py`: columns, sorting, search) with one template that renders each cell and the row's card side by side (`templates/*/rows/*.html`). Long lists (subscriptions, jobs) are server-side: the page loads the header and DataTables fetches pages of rows as JSON; short ones (reports, the team) render in the page. `static/js/tables.js` sets them up and rebuilds the cards on every draw, so search, sorting and paging drive both views.
+
+Amounts use English digits with thousands separators and two decimals (`1,000.00`) through the `money` template filter; a non-zero amount under one cent keeps up to four decimals so it doesn't read as zero.
+
 ### Roles
 
 | Role | Can |

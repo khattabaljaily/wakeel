@@ -173,3 +173,14 @@ class MoneyFormatTests(TestCase):
         self.assertEqual(money(0.1746), '0.17')
         self.assertEqual(money(0.0022), '0.0022')  # a fraction of a cent isn't shown as zero
         self.assertEqual(money(0.022, 4), '0.022')
+
+
+class StylesheetTests(TestCase):
+    def test_braces_balance(self):
+        """A stray brace makes browsers drop the rule after it, silently."""
+        from django.conf import settings
+        depth = 0
+        for line_no, line in enumerate((settings.BASE_DIR / 'static/css/app.css').read_text().splitlines(), 1):
+            depth += line.count('{') - line.count('}')
+            self.assertGreaterEqual(depth, 0, f'stray "}}" at app.css line {line_no}')
+        self.assertEqual(depth, 0, 'unclosed "{" in app.css')

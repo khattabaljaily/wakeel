@@ -25,7 +25,7 @@ from apps.content.models import ContentPlan, Post
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
 
-from . import stats
+from . import stats, tables
 from .forms import DURATIONS, SubscriptionCreateForm, SubscriptionEditForm
 
 
@@ -84,6 +84,7 @@ def overview(request):
     active = set(Job.objects.filter(created_at__gte=month_start).values_list('company_id', flat=True))
     active |= set(Post.objects.filter(updated_at__gte=month_start).values_list('company_id', flat=True))
     rows = _company_rows(Company.objects.all(), year_jobs)
+    latest = tables.latest_subscriptions()
     status_counts = dict(Post.objects.order_by().values_list('status').annotate(n=Count('pk')))
     total_posts = sum(status_counts.values()) or 1
 
@@ -108,7 +109,7 @@ def overview(request):
                                               lambda c: c.created_at),
         'post_status': [{'key': s, 'label': label, 'n': status_counts.get(s, 0),
                          'pct': round(status_counts.get(s, 0) * 100 / total_posts)} for s, label in Post.Status.choices],
-        'latest': sorted(rows, key=lambda r: r['company'].created_at, reverse=True)[:6],
+        'latest_table': latest, 'latest_rows': latest.rows(sorted(rows, key=lambda r: r['company'].created_at, reverse=True)[:6], request),
         'top': [r for r in sorted(rows, key=lambda r: -r['month']['cost']) if r['month']['jobs']][:6],
         'failures': Job.objects.filter(status=Job.Status.FAILED, created_at__gte=week_ago)
                                .select_related('company', 'created_by').order_by('-created_at')[:5],
@@ -149,21 +150,12 @@ def _subscription_data(company, owner=None, members=None, posts=None):
 
 @superuser_required
 def subscriptions(request, create_form=None, edit_form=None, edit_target=None):
-    """Subscriptions, as in enjazpms: stats, status tabs, search, and every action on each row."""
-    qs = Company.objects.order_by('-created_at')
+    """Subscriptions, as in enjazpms: status tabs with counts, search, and every action on each row.
+    Rows come from subscriptions_data a page at a time (a DataTable; cards on phones)."""
     status = request.GET.get('status', '')
-    q = request.GET.get('q', '').strip()
-    if q:
-        qs = qs.filter(Q(name__icontains=q) | Q(country__icontains=q) | Q(industry__icontains=q) | Q(email__icontains=q)
-                       | Q(memberships__user__email__icontains=q)).distinct()
-    qs = _status_filter(qs, status)
-    rows = _company_rows(qs, stats.ai_jobs(created_at__gte=stats.year_start()))
-    for row in rows:
-        c = row['company']
-        row['data'] = _subscription_data(c, row['owner'], c.members, c.post_count)
     all_companies = Company.objects.all()
     return render(request, 'ops/subscriptions.html', {
-        'page': Paginator(rows, 30).get_page(request.GET.get('page')), 'q': q, 'status': status,
+        'table': tables.subscriptions(), 'status': status if status in dict(STATUS_FILTERS) else '',
         'filters': STATUS_FILTERS,
         'stats': {key: _status_filter(all_companies, key).count() for key, _ in STATUS_FILTERS},
         'create_form': create_form or SubscriptionCreateForm(initial={
@@ -172,6 +164,22 @@ def subscriptions(request, create_form=None, edit_form=None, edit_target=None):
         'edit_form': edit_form or SubscriptionEditForm(), 'edit_target': edit_target,
         'durations': DURATIONS[1:],
     }, status=400 if (create_form or edit_form) else 200)
+
+
+@superuser_required
+def subscriptions_data(request):
+    queryset = _status_filter(Company.objects.annotate(members=Count('memberships', distinct=True),
+                                                       post_count=Count('posts', distinct=True)),
+                              request.GET.get('status', '')).order_by('-created_at')
+
+    def prepare(companies):
+        owners = {m.company_id: m.user for m in Membership.objects.filter(
+            company__in=companies, role=Membership.Role.OWNER).select_related('user')}
+        for c in companies:
+            c.owner = owners.get(c.pk)
+            c.data = _subscription_data(c, c.owner, c.members, c.post_count)
+
+    return tables.subscriptions().json(request, queryset, prepare=prepare)
 
 
 def _back(request):
@@ -287,8 +295,11 @@ def company_detail(request, pk):
     company = get_object_or_404(Company, pk=pk)
     total, months = stats.summarize(stats.ai_jobs(company=company, created_at__gte=stats.year_start()))
     owner = subscriptions_service.owner(company)
+    months_table = tables.usage_months()
     return render(request, 'ops/company.html', {
-        'target': company, 'total': total, 'months': months, 'owner': owner,
+        'target': company, 'total': total, 'owner': owner,
+        'months_table': months_table, 'months_rows': months_table.rows(months, request),
+        'jobs_table': tables.jobs(company),
         'data': _subscription_data(company, owner, company.memberships.count(), company.posts.count()),
         'edit_form': SubscriptionEditForm(), 'durations': DURATIONS[1:],
         'members': company.memberships.select_related('user').order_by('created_at'),
@@ -296,7 +307,6 @@ def company_detail(request, pk):
         'posts_by_status': {Post.Status(s).label: n for s, n in
                             company.posts.order_by().values_list('status').annotate(n=Count('pk'))},
         'accounts': company.social_accounts.all(),
-        'jobs': Job.objects.filter(company=company).select_related('created_by').order_by('-created_at')[:30],
     })
 
 
@@ -311,28 +321,39 @@ def usage(request):
     for job in year_jobs:
         stats.add(kinds.setdefault(job.get_kind_display(), stats.blank(job.get_kind_display())), job)
     rows = [r for r in _company_rows(Company.objects.all(), year_jobs) if r['year']['jobs']]
+    by_model, by_kind = tables.breakdown('modelsTable', 'النموذج'), tables.breakdown('kindsTable', 'المهمة')
+    months_table, companies_table = tables.usage_months(), tables.usage_companies()
     return render(request, 'ops/usage.html', {
-        'system': _system(), 'total': total, 'months': months,
-        'by_model': sorted(models.values(), key=lambda r: -r['cost']),
-        'by_kind': sorted(kinds.values(), key=lambda r: -r['cost']),
-        'by_company': sorted(rows, key=lambda r: -r['year']['cost']),
+        'system': _system(), 'total': total,
+        'months_table': months_table, 'months_rows': months_table.rows(months, request),
+        'models_table': by_model, 'models_rows': by_model.rows(models.values(), request),
+        'kinds_table': by_kind, 'kinds_rows': by_kind.rows(kinds.values(), request),
+        'companies_table': companies_table, 'companies_rows': companies_table.rows(rows, request),
         'cost_series': stats.monthly_series(year_jobs, lambda j: j.created_at, lambda j: float(j.cost_usd or 0)),
     })
 
 
 @superuser_required
 def jobs(request):
-    qs = Job.objects.select_related('company', 'created_by').order_by('-created_at')
-    status = request.GET.get('status', '')
-    kind = request.GET.get('kind', '')
-    if status in Job.Status.values:
-        qs = qs.filter(status=status)
-    if kind in Job.Kind.values:
-        qs = qs.filter(kind=kind)
     return render(request, 'ops/jobs.html', {
-        'page': Paginator(qs, 50).get_page(request.GET.get('page')),
-        'status': status, 'kind': kind, 'statuses': Job.Status.choices, 'kinds': Job.Kind.choices,
+        'table': tables.jobs(), 'statuses': Job.Status.choices, 'kinds': Job.Kind.choices,
+        'status': request.GET.get('status', ''), 'kind': request.GET.get('kind', ''),
     })
+
+
+@superuser_required
+def jobs_data(request):
+    """Jobs for the DataTables (all, or ?company=ID), filtered by status / kind."""
+    queryset = Job.objects.select_related('company', 'created_by').order_by('-created_at')
+    company = request.GET.get('company', '')
+    if company.isdigit():
+        queryset = queryset.filter(company_id=company)
+    if request.GET.get('status') in Job.Status.values:
+        queryset = queryset.filter(status=request.GET['status'])
+    if request.GET.get('kind') in Job.Kind.values:
+        queryset = queryset.filter(kind=request.GET['kind'])
+    table = tables.jobs(Company(pk=int(company)) if company.isdigit() else None)
+    return table.json(request, queryset, context={'show_company': not company.isdigit()})
 
 
 @superuser_required

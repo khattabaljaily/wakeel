@@ -48,7 +48,9 @@ def summarize(jobs):
     for job in jobs:
         local = timezone.localtime(job.created_at)
         label = f'{ARABIC_MONTHS[local.month - 1]} {local.year}'
-        add(months.setdefault((local.year, local.month), blank(label)), job)
+        row = months.setdefault((local.year, local.month), blank(label))
+        row['key'] = f'{local.year}-{local.month:02d}'  # sorts the months table
+        add(row, job)
         add(total, job)
     return total, [row for _, row in sorted(months.items(), reverse=True)]
 

@@ -1,0 +1,1 @@
+<span class="adm-pill {% if job.status == 'failed' %}adm-pill--danger{% elif job.status == 'done' %}adm-pill--ok{% elif job.status == 'cancelled' %}adm-pill--muted{% else %}adm-pill--warn{% endif %}"><span class="adm-pill__dot"></span>{{ job.get_status_display }}</span>

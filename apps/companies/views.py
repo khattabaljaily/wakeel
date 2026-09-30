@@ -21,7 +21,7 @@ from PIL import Image
 from apps.ai.brand import BRAND_SCHEMA, draft_brand
 from apps.ai.client import AIError
 
-from . import subscriptions
+from . import subscriptions, tables
 from .decorators import company_required
 from .forms import CompanyForm, MediaUploadForm, MemberAddForm
 from .middleware import SESSION_KEY
@@ -117,8 +117,12 @@ def team(request):
             Membership.objects.create(company=company, user=form.user, role=form.cleaned_data['role'])
             messages.success(request, 'تمت إضافة العضو.')
             return redirect('companies:team')
-    members = company.memberships.select_related('user').order_by('created_at')
-    return render(request, 'companies/team.html', {'form': form, 'members': members, 'roles': Membership.Role.choices})
+    members = list(company.memberships.select_related('user').order_by('created_at'))
+    table = tables.members()
+    return render(request, 'companies/team.html', {
+        'form': form, 'members': members, 'roles': Membership.Role.choices,
+        'table': table, 'rows': table.rows(members, request, {'roles': Membership.Role.choices}),
+    })
 
 
 @company_required(manage=True)

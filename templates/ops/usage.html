@@ -15,7 +15,7 @@
     <div class="wk-card">
         <div class="wk-card-head"><div><h2>التكلفة لكل شهر</h2><div class="adm-panel__sub">كل الشركات</div></div></div>
         <div class="wk-card-body">{% include "ops/_columns.html" with series=cost_series money=True label="تكلفة الذكاء الاصطناعي لكل شهر" %}</div>
-        {% include "ops/_usage_table.html" %}
+        {% include "_datatable.html" with table=months_table rows=months_rows %}
     </div>
     <div>
         <div class="wk-card mb-3">
@@ -36,20 +36,14 @@
                 {% endif %}
             </div>
         </div>
-        <div class="wk-card mb-3"><div class="wk-card-head"><h2>حسب النموذج</h2></div>{% include "ops/_breakdown.html" with rows=by_model heading="النموذج" %}</div>
-        <div class="wk-card"><div class="wk-card-head"><h2>حسب نوع المهمة</h2></div>{% include "ops/_breakdown.html" with rows=by_kind heading="المهمة" %}</div>
+        <div class="wk-card mb-3"><div class="wk-card-head"><h2>حسب النموذج</h2></div>{% include "_datatable.html" with table=models_table rows=models_rows %}</div>
+        <div class="wk-card"><div class="wk-card-head"><h2>حسب نوع المهمة</h2></div>{% include "_datatable.html" with table=kinds_table rows=kinds_rows %}</div>
     </div>
 </div>
 
 <div class="wk-card">
     <div class="wk-card-head"><h2><i class="bi bi-buildings text-primary"></i> حسب الشركة</h2></div>
-    <div class="table-responsive"><table class="table mb-0 align-middle">
-        <thead><tr><th>الشركة</th><th class="text-end">المهام</th><th class="text-end">مُدخلة</th><th class="text-end">cache hit</th><th class="text-end">تكلفة الشهر</th><th class="text-end">تكلفة 12 شهراً</th></tr></thead>
-        <tbody>{% for r in by_company %}
-        <tr><td><a href="{% url 'ops:company' r.company.pk %}" class="fw-semibold">{{ r.company.name }}</a></td><td class="text-end">{{ r.year.jobs }}</td>
-            <td class="text-end" dir="ltr">{{ r.year.input|thousands }}</td><td class="text-end">{{ r.year.cache_rate }}%</td>
-            <td class="text-end" dir="ltr">${{ r.month.cost|money }}</td><td class="text-end fw-semibold" dir="ltr">${{ r.year.cost|money }}</td></tr>
-        {% empty %}<tr><td colspan="6" class="text-center small-muted py-4">لا يوجد استهلاك بعد.</td></tr>{% endfor %}</tbody>
-    </table></div>
+    {% include "_datatable.html" with table=companies_table rows=companies_rows %}
 </div>
 {% endblock %}
+{% block scripts %}{% include "_datatables_assets.html" %}{% endblock %}

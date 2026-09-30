@@ -1,0 +1,13 @@
+{% load wakeel %}{% if part == 'label' %}<span class="fw-semibold" dir="auto">{{ r.label }}</span>
+{% elif part == 'jobs' %}{{ r.jobs }}
+{% elif part == 'input' %}<span dir="ltr">{{ r.input|thousands }}</span>
+{% elif part == 'cache' %}{{ r.cache_rate }}%
+{% elif part == 'cost' %}<span dir="ltr" class="fw-semibold">${{ r.cost|money }}</span>{% if r.unpriced %}<span class="small-muted"> +?</span>{% endif %}
+{% elif part == 'card' %}
+<article class="wk-mcard">
+    <div class="wk-mcard__head">
+        <div class="flex-grow-1 overflow-hidden"><div class="wk-mcard__title" dir="auto">{{ r.label }}</div><div class="wk-mcard__sub">{{ r.jobs }} مهمة · cache hit {{ r.cache_rate }}%</div></div>
+        <div class="ms-auto text-end"><div class="wk-mcard__big" dir="ltr">${{ r.cost|money }}</div><div class="wk-mcard__sub" dir="ltr">{{ r.input|thousands }} in</div></div>
+    </div>
+</article>
+{% endif %}

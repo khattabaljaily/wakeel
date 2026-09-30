@@ -82,15 +82,7 @@
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-primary"><i class="bi bi-buildings"></i></span>
             <div><h2>أحدث الاشتراكات</h2><div class="adm-panel__sub">إدارة المشتركين ومتابعة نشاطهم</div></div></div>
             <a href="{% url 'ops:subscriptions' %}" class="small fw-semibold">عرض الكل</a></div>
-        <div class="table-responsive"><table class="table mb-0 align-middle">
-            <thead><tr><th>المشترك</th><th>المالك</th><th>الحالة</th><th class="text-end">تكلفة الشهر</th></tr></thead>
-            <tbody>{% for r in latest %}
-            <tr><td><a href="{% url 'ops:company' r.company.pk %}" class="fw-semibold">{{ r.company.name }}</a><div class="small-muted">{{ r.company.country }} · {{ r.company.created_at|date:"j/n/Y" }}</div></td>
-                <td class="small" dir="ltr">{{ r.owner.email|default:"—" }}</td>
-                <td class="text-nowrap">{% include "ops/_subscription_state.html" with c=r.company %}</td>
-                <td class="text-end" dir="ltr">${{ r.month.cost|money }}</td></tr>
-            {% empty %}<tr><td colspan="4" class="text-center small-muted py-4">لا توجد شركات بعد.</td></tr>{% endfor %}</tbody>
-        </table></div>
+        {% include "_datatable.html" with table=latest_table rows=latest_rows %}
     </div>
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-gold"><i class="bi bi-graph-up-arrow"></i></span>
@@ -135,3 +127,4 @@
     </div>
 </div>
 {% endblock %}
+{% block scripts %}{% include "_datatables_assets.html" %}{% endblock %}

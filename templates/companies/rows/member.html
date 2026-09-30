@@ -1,0 +1,28 @@
+{% with m=r %}{% if part == 'member' %}
+<div class="d-flex align-items-center gap-2">
+    <span class="wk-avatar" style="width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0">{{ m.user.display_name|slice:":1" }}</span>
+    <div class="overflow-hidden"><div class="fw-bold">{{ m.user.display_name }}{% if m.user_id == user.pk %} <span class="small-muted fw-normal">(أنت)</span>{% endif %}</div><div class="small-muted text-truncate" dir="ltr">{{ m.user.email }}</div></div>
+</div>
+{% elif part == 'role' %}{% include "companies/_member_role.html" %}
+{% elif part == 'joined' %}<span class="text-nowrap">{{ m.created_at|date:"j/n/Y" }}</span>
+{% elif part == 'actions' %}{% include "companies/_member_remove.html" %}
+{% elif part == 'card' %}
+<article class="wk-mcard">
+    <div class="wk-mcard__head">
+        <span class="wk-avatar">{{ m.user.display_name|slice:":1" }}</span>
+        <div class="flex-grow-1 overflow-hidden">
+            <div class="wk-mcard__title">{{ m.user.display_name }}{% if m.user_id == user.pk %} <span class="small-muted fw-normal">(أنت)</span>{% endif %}</div>
+            <div class="wk-mcard__sub" dir="ltr">{{ m.user.email }}</div>
+        </div>
+        {% if m.role == 'owner' or not membership.can_manage %}<div class="ms-auto"><span class="adm-pill adm-pill--info">{{ m.get_role_display }}</span></div>{% endif %}
+    </div>
+    {% if membership.can_manage and m.role != 'owner' %}
+    <div class="wk-mcard__foot">
+        <div class="flex-grow-1">{% include "companies/_member_role.html" %}</div>
+        {% include "companies/_member_remove.html" %}
+    </div>
+    {% else %}
+    <div class="wk-mcard__grid"><div><div class="wk-mcard__label">انضم في</div><div class="wk-mcard__val">{{ m.created_at|date:"j/n/Y" }}</div></div></div>
+    {% endif %}
+</article>
+{% endif %}{% endwith %}

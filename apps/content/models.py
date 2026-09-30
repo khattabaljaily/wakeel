@@ -42,6 +42,7 @@ class ContentPlan(models.Model):
     error = models.TextField(blank=True)
     # Secret for the client review page (/review/<token>/); empty when the link is off.
     share_token = models.CharField(max_length=64, blank=True, db_index=True)
+    autopilot = models.BooleanField(default=False, help_text='Prepared by the autopilot, not by a person.')
 
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)

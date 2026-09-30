@@ -153,7 +153,8 @@ def run_generate_plan(job):
     events.plan_ready(plan, len(posts))
     job.set_progress(90, f'تم إعداد {len(posts)} منشوراً. جارٍ تصميم الصور…')
     from apps.jobs.models import Job
-    Job.enqueue(plan.company, Job.Kind.RENDER_PLAN, job.created_by, plan_id=plan.pk)
+    Job.enqueue(plan.company, Job.Kind.RENDER_PLAN, job.created_by, plan_id=plan.pk,
+                autopilot=bool(job.params.get('autopilot')))
     return f'تم إعداد الخطة و{len(posts)} منشوراً.'
 
 
@@ -194,6 +195,9 @@ def run_render_plan(job):
         render_posts(posts, progress=progress)
     except JobCancelled:
         return ''
+    if job.params.get('autopilot'):
+        from .autopilot import deliver
+        deliver(ContentPlan.objects.select_related('company').get(pk=job.params['plan_id']))
     return f'تم تصميم {len(posts)} صورة.'
 
 

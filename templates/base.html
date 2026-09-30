@@ -93,6 +93,8 @@
             <div class="wk-nav__label">المحتوى</div>
             <a href="{% url 'content:plan_list' %}" class="{% nav_active '/app/plans/' %}"><i class="bi bi-stars"></i> خطط المحتوى</a>
             <a href="{% url 'content:calendar' %}" class="{% nav_active '/app/calendar/' %}"><i class="bi bi-calendar3"></i> التقويم</a>
+            {% if membership.can_manage %}<a href="{% url 'companies:autopilot' %}" class="{% nav_active '/company/autopilot/' %}"><i class="bi bi-airplane"></i> الطيار الآلي
+                {% if company.autopilot %}<span class="wk-nav__badge wk-nav__badge--on" title="يعمل">●</span>{% endif %}</a>{% endif %}
             <a href="{% url 'content:post_list' %}" class="{% nav_active '/app/posts/' %}"><i class="bi bi-collection"></i> المنشورات</a>
             <a href="{% url 'companies:media' %}" class="{% nav_active '/company/media/' %}"><i class="bi bi-images"></i> مكتبة الوسائط</a>
             <div class="wk-nav__label">الشركة</div>

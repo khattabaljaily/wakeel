@@ -15,6 +15,7 @@ from django.core.files.base import ContentFile
 from django.db import transaction
 from django.http import JsonResponse
 from django.urls import reverse
+from django.utils import timezone
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 from PIL import Image
@@ -24,7 +25,7 @@ from apps.ai.client import AIError
 
 from . import tables
 from .decorators import company_required
-from .forms import CompanyForm, MediaUploadForm, MemberAddForm
+from .forms import AutopilotForm, CompanyForm, MediaUploadForm, MemberAddForm
 from .middleware import SESSION_KEY
 from .models import MediaAsset, Membership
 from .scrape import FetchError, read_site, safe_get
@@ -323,3 +324,27 @@ def lessons(request):
             Job.enqueue(company, Job.Kind.LEARN, request.user)
         messages.info(request, 'يراجع وكيل ملاحظاتكم الآن؛ حدّث الصفحة بعد دقيقة لترى ما تعلّمه.')
     return redirect(reverse('companies:brand') + '#lessons')
+
+
+@company_required(manage=True)
+def autopilot(request):
+    from apps.content.autopilot import _defaults, next_month
+    from apps.content.models import ContentPlan
+
+    company = request.company
+    if request.method == 'GET' and not company.autopilot_platforms:
+        company.autopilot_platforms, company.autopilot_posts_per_week = _defaults(company)
+    form = AutopilotForm(request.POST or None, instance=company)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        messages.success(request, 'تم تشغيل الطيار الآلي.' if company.autopilot else 'تم إيقاف الطيار الآلي.')
+        return redirect('companies:autopilot')
+    today = timezone.localdate()
+    upcoming = next_month(today)
+    run_on = today.replace(day=company.autopilot_day) if today.day <= company.autopilot_day else \
+        upcoming.replace(day=company.autopilot_day)
+    return render(request, 'companies/autopilot.html', {
+        'form': form, 'run_on': run_on, 'upcoming': upcoming,
+        'upcoming_plan': ContentPlan.objects.filter(company=company, month=upcoming).first(),
+        'auto_publish': company.auto_publish,
+    })

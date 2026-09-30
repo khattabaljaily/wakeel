@@ -67,3 +67,27 @@ class MediaUploadForm(forms.ModelForm):
         model = MediaAsset
         fields = ['file', 'title', 'tags']
         widgets = {'file': forms.FileInput(attrs={'accept': 'image/*'})}
+
+
+class AutopilotForm(forms.ModelForm):
+    autopilot_platforms = forms.MultipleChoiceField(label='المنصات', widget=forms.CheckboxSelectMultiple, required=False)
+
+    class Meta:
+        model = Company
+        fields = ['autopilot', 'autopilot_day', 'autopilot_posts_per_week', 'autopilot_platforms', 'autopilot_client_email']
+        widgets = {'autopilot': forms.CheckboxInput(attrs={'class': 'form-check-input', 'role': 'switch'}),
+                   'autopilot_day': forms.NumberInput(attrs={'min': 1, 'max': 28}),
+                   'autopilot_client_email': forms.EmailInput(attrs={'dir': 'ltr', 'placeholder': 'client@example.com'})}
+
+    def __init__(self, *args, **kwargs):
+        from apps.content.models import Platform
+        super().__init__(*args, **kwargs)
+        self.fields['autopilot_platforms'].choices = Platform.choices
+        self.fields['autopilot_posts_per_week'] = forms.TypedChoiceField(
+            label='عدد المنشورات أسبوعياً', coerce=int, choices=[(n, str(n)) for n in (2, 3, 4, 5, 6, 7, 10)])
+
+    def clean(self):
+        cleaned = super().clean()
+        if cleaned.get('autopilot') and not cleaned.get('autopilot_platforms'):
+            self.add_error('autopilot_platforms', 'اختر منصة واحدة على الأقل.')
+        return cleaned

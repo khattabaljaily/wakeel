@@ -17,7 +17,7 @@ from django.db import close_old_connections, transaction
 from django.utils import timezone
 
 from apps.ai.client import AIError
-from apps.content import services
+from apps.content import autopilot, services
 from apps.social import services as social
 
 from .models import Job
@@ -124,6 +124,11 @@ def work_forever(log=logger.info, once=False):
                     log(f'Queued {queued} scheduled post(s) for publishing.')
             except Exception:  # never let scheduling take the worker down
                 logger.exception('Could not queue scheduled posts')
+            try:
+                if started := autopilot.run_due():
+                    log(f'Autopilot started {started} plan(s).')
+            except Exception:
+                logger.exception('Autopilot check failed')
         job = claim_next()
         if job is None:
             if once:

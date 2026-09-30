@@ -2,7 +2,7 @@
 {% block title %}خطط المحتوى{% endblock %}
 {% block page_title %}خطط المحتوى{% endblock %}
 {% block subtitle %}<div class="subtitle">استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل.</div>{% endblock %}
-{% block actions %}<a href="{% url 'content:plan_create' %}" class="btn btn-ai"><i class="bi bi-stars"></i> خطة جديدة</a>{% endblock %}
+{% block actions %}<a href="{% url 'companies:autopilot' %}" class="btn btn-light"><i class="bi bi-airplane"></i> الطيار الآلي{% if company.autopilot %} · يعمل{% endif %}</a><a href="{% url 'content:plan_create' %}" class="btn btn-ai"><i class="bi bi-stars"></i> خطة جديدة</a>{% endblock %}
 {% block content %}
 {% if plans %}
 <div class="row g-4">

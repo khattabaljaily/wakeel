@@ -867,3 +867,8 @@ a.wk-mcard__title:hover { color: var(--wk-primary-600); }
 .wk-lessons li { display: flex; align-items: flex-start; gap: .65rem; padding: .7rem .85rem; border: 1px solid var(--wk-border); border-radius: 12px; background: #fcfcff; line-height: 1.7; }
 .wk-lessons li > i { color: var(--wk-primary); margin-top: .2rem; }
 .wk-lessons li > span { flex: 1; min-width: 0; }
+
+/* ---------- Autopilot ---------- */
+.wk-autopilot-switch { display: flex; align-items: center; gap: .9rem; cursor: pointer; }
+.wk-autopilot-switch .form-check-input { width: 3rem; height: 1.6rem; cursor: pointer; }
+.wk-nav__badge--on { background: transparent; color: #4ade80; min-width: 0; padding: 0; font-size: .7rem; }

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}الطيار الآلي{% endblock %}
+{% block page_title %}الطيار الآلي{% endblock %}
+{% block subtitle %}<div class="subtitle">يعدّ وكيل خطة كل شهر بنفسه ويرسلها للعميل للاعتماد، دون أن يطلبها أحد.</div>{% endblock %}
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-7">
+        <form method="post" class="wk-card" novalidate>{% csrf_token %}
+            <div class="wk-card-body">
+                <label class="wk-autopilot-switch">
+                    <span class="form-check form-switch m-0">{{ form.autopilot }}</span>
+                    <span><strong>تشغيل الطيار الآلي</strong>
+                        <small class="d-block small-muted">{% if company.autopilot %}يعمل: الخطة القادمة تُعدّ يوم {{ run_on|date:"j F" }}.{% else %}متوقف الآن.{% endif %}</small></span>
+                </label>
+                <hr>
+                <div class="row">
+                    {% include "_field.html" with field=form.autopilot_day wrap_class="col-sm-6" %}
+                    {% include "_field.html" with field=form.autopilot_posts_per_week wrap_class="col-sm-6" %}
+                </div>
+                {% include "_field.html" with field=form.autopilot_platforms %}
+                {% include "_field.html" with field=form.autopilot_client_email %}
+                <button class="btn btn-primary w-100"><i class="bi bi-check2"></i> حفظ</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-5">
+        <div class="wk-card"><div class="wk-card-body">
+            <h2 class="wk-section-title"><i class="bi bi-signpost-split text-primary"></i> كيف يعمل؟</h2>
+            <ol class="wk-track mb-3">
+                <li class="done"><span><i class="bi bi-calendar-event"></i></span><div><strong>في اليوم المحدد من كل شهر</strong><small>يعدّ وكيل خطة الشهر التالي مستفيداً مما تعلّمه من ملاحظاتكم</small></div></li>
+                <li class="done"><span><i class="bi bi-palette"></i></span><div><strong>يصمم المنشورات</strong><small>بألوان علامتك وخطوطها وشعارها</small></div></li>
+                <li class="done"><span><i class="bi bi-envelope"></i></span><div><strong>يرسل رابط المراجعة للعميل</strong><small>يعتمد المنشورات أو يطلب تعديلها دون حساب</small></div></li>
+                <li class="{% if auto_publish %}done{% endif %}"><span><i class="bi bi-send-check"></i></span><div><strong>ينشر المعتمد في موعده</strong>
+                    <small>{% if auto_publish %}النشر التلقائي مفعّل{% else %}فعّل <a href="{% url 'social:accounts' %}">النشر التلقائي</a> ليكتمل ذلك دون تدخل{% endif %}</small></div></li>
+            </ol>
+            {% if upcoming_plan %}
+            <a href="{{ upcoming_plan.get_absolute_url }}" class="btn btn-soft w-100"><i class="bi bi-stars"></i> خطة {{ upcoming|date:"F" }} موجودة: افتحها</a>
+            {% endif %}
+        </div></div>
+    </div>
+</div>
+{% endblock %}

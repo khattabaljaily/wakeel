@@ -2,7 +2,7 @@ import datetime
 import zoneinfo
 
 from django.conf import settings
-from django.core.validators import RegexValidator
+from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 from django.db import models
 from django.utils.text import slugify
 
@@ -90,6 +90,16 @@ class Company(models.Model):
     facebook_page = models.CharField('صفحة فيسبوك', max_length=200, blank=True)
     instagram_handle = models.CharField('حساب إنستغرام', max_length=100, blank=True)
     tiktok_handle = models.CharField('حساب تيك توك', max_length=100, blank=True)
+
+    # Autopilot: on `autopilot_day` of each month the worker prepares next month's plan and its designs,
+    # then emails the client the review link (apps.content.autopilot).
+    autopilot = models.BooleanField('الطيار الآلي', default=False)
+    autopilot_day = models.PositiveSmallIntegerField('يوم إعداد الخطة', default=25,
+                                                     validators=[MinValueValidator(1), MaxValueValidator(28)])
+    autopilot_posts_per_week = models.PositiveSmallIntegerField('عدد المنشورات أسبوعياً', default=4)
+    autopilot_platforms = models.JSONField('المنصات', default=list, blank=True)
+    autopilot_client_email = models.EmailField('بريد العميل', blank=True,
+                                               help_text='يصله رابط مراجعة الخطة واعتمادها. اتركه فارغاً ليصل الرابط إلى الفريق فقط.')
 
     # What Wakeel has learned about this brand's taste: [{"text": ..., "manual": bool}], see apps.content.learning.
     lessons = models.JSONField('ما تعلّمه وكيل', default=list, blank=True)

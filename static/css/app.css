@@ -439,3 +439,14 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-feed__bar.fb { justify-content: space-around; font-size: .88rem; color: #65676b; font-weight: 600; border-top: 1px solid #e4e6eb; margin: 0 .9rem; padding: .5rem 0; }
 .wk-feed__text { padding: .4rem .9rem .8rem; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
 .wk-feed__text .more { border: 0; background: none; padding: 0; color: #65676b; font-weight: 600; }
+
+/* ---------- Client review page ---------- */
+.wk-review { max-width: 720px; margin: 0 auto; padding: 0 16px 2rem; }
+.wk-review__head { display: flex; align-items: center; gap: .9rem; padding: 1.4rem 0 1.2rem; }
+.wk-review__head .wk-avatar { width: 52px; height: 52px; font-size: 1.05rem; border-radius: 14px; flex-shrink: 0; }
+.wk-review__post { overflow: hidden; }
+.wk-review__media { background: var(--wk-bg); border-bottom: 1px solid var(--wk-border); }
+.wk-review__media img { display: block; width: 100%; height: auto; }
+.wk-review__script { padding: 1.2rem 1.35rem; white-space: normal; line-height: 1.9; font-size: .92rem; }
+.wk-review__caption { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; }
+.wk-review .wk-thread { max-height: none; }

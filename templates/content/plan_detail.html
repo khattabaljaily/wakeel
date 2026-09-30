@@ -98,6 +98,35 @@
     </div>
 </div>
 
+{% if membership.can_manage %}
+<div class="wk-card mb-4" id="share"><div class="wk-card-body d-flex align-items-center gap-3 flex-wrap">
+    <span class="wk-stat__icon tone-primary" style="width:44px;height:44px;font-size:1.1rem"><i class="bi bi-person-check"></i></span>
+    <div class="flex-grow-1" style="min-width: 220px">
+        <strong>موافقة العميل</strong>
+        <div class="small-muted">{% if share_url %}أرسل هذا الرابط للعميل ليعتمد المنشورات أو يطلب تعديلها دون حساب في وكيل.{% else %}شارك الخطة مع عميلك برابط خاص ليعتمد المنشورات أو يطلب تعديلها دون الحاجة لحساب.{% endif %}</div>
+    </div>
+    {% if share_url %}
+    <div class="input-group" style="max-width: 460px">
+        <input type="text" class="form-control form-control-sm" id="shareUrl" value="{{ share_url }}" readonly dir="ltr" aria-label="رابط العميل">
+        <button type="button" class="btn btn-sm btn-soft" data-copy-target="#shareUrl"><i class="bi bi-clipboard"></i> نسخ</button>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown" aria-label="خيارات الرابط"><i class="bi bi-three-dots"></i></button>
+        <div class="dropdown-menu dropdown-menu-end">
+            <a class="dropdown-item" href="{{ share_url }}" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-left"></i> فتح كما يراه العميل</a>
+            <form method="post" action="{% url 'content:plan_share' plan.pk %}">{% csrf_token %}<input type="hidden" name="action" value="new">
+                <button class="dropdown-item" data-confirm-title="إنشاء رابط جديد؟" data-confirm="سيتوقف الرابط الحالي عن العمل، وتحتاج لإرسال الرابط الجديد للعميل." data-confirm-ok="رابط جديد" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> رابط جديد</button></form>
+            <form method="post" action="{% url 'content:plan_share' plan.pk %}">{% csrf_token %}<input type="hidden" name="action" value="off">
+                <button class="dropdown-item text-danger"><i class="bi bi-slash-circle"></i> إيقاف الرابط</button></form>
+        </div>
+    </div>
+    {% else %}
+    <form method="post" action="{% url 'content:plan_share' plan.pk %}">{% csrf_token %}<input type="hidden" name="action" value="on">
+        <button class="btn btn-sm btn-primary"><i class="bi bi-link-45deg"></i> إنشاء رابط للعميل</button></form>
+    {% endif %}
+</div></div>
+{% endif %}
+
 <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
     <h2 class="h5 mb-0">المنشورات <span class="text-muted fw-normal">({{ posts|length }})</span></h2>
     {% if membership.can_manage and review_ids %}

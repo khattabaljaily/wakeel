@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from . import review, views
 
 app_name = 'content'
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('plans/<int:pk>/', views.plan_detail, name='plan_detail'),
     path('plans/<int:pk>/regenerate/', views.plan_regenerate, name='plan_regenerate'),
     path('plans/<int:pk>/delete/', views.plan_delete, name='plan_delete'),
+    path('plans/<int:pk>/share/', review.plan_share, name='plan_share'),
     path('plans/<int:pk>/captions.txt', views.post_captions_export, name='plan_captions'),
     path('calendar/', views.calendar_view, name='calendar'),
     path('posts/', views.post_list, name='post_list'),

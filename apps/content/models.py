@@ -40,6 +40,8 @@ class ContentPlan(models.Model):
     pillars = models.JSONField('محاور المحتوى', default=list, blank=True)
     key_dates = models.JSONField('المناسبات', default=list, blank=True)
     error = models.TextField(blank=True)
+    # Secret for the client review page (/review/<token>/); empty when the link is off.
+    share_token = models.CharField(max_length=64, blank=True, db_index=True)
 
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)

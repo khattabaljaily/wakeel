@@ -17,6 +17,7 @@ from apps.studio.designs import SIZES, TEMPLATES
 
 from .forms import ARABIC_MONTHS, PlanForm, PostForm
 from .models import ContentPlan, Platform, Post
+from .review import share_url
 from .services import default_size
 
 WEEKDAYS = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت']
@@ -57,6 +58,7 @@ def plan_detail(request, pk):
         'plan': plan, 'posts': posts, 'job': job, 'render_job': render_job, 'worker_alive': worker_alive(),
         'month_name': ARABIC_MONTHS[plan.month.month - 1],
         'month_label': f'{ARABIC_MONTHS[plan.month.month - 1]} {plan.month.year}',
+        'share_url': share_url(plan),
     })
 
 

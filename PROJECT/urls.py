@@ -13,6 +13,7 @@ urlpatterns = [
     path('app/', include('apps.content.urls')),
     path('studio/', include('apps.studio.urls')),
     path('api/', include('apps.api.urls')),
+    path('review/', include('apps.content.review_urls')),
     path('notifications/', include('apps.notifications.urls')),
     path('', include('apps.core.urls')),
 ]

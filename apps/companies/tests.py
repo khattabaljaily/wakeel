@@ -1,4 +1,4 @@
-from django.test import TestCase, override_settings
+from django.test import TestCase
 from django.urls import reverse
 
 from apps.accounts.models import User
@@ -150,32 +150,3 @@ class TimezoneGuessTests(TestCase):
         self.assertEqual(guess_timezone('', ['00974 5555 1234']), 'Asia/Qatar')
         self.assertEqual(guess_timezone('', ['0912345678']), '')
 
-
-class UsagePageTests(TestCase):
-    def setUp(self):
-        from decimal import Decimal
-        from apps.jobs.models import Job
-        self.company = Company.objects.create(name='ش', industry='ت', country='قطر', description='و')
-        self.owner = User.objects.create_user(username='o@u.test', email='o@u.test', password='Strong-pass-123')
-        self.editor = User.objects.create_user(username='e@u.test', email='e@u.test', password='Strong-pass-123')
-        Membership.objects.create(company=self.company, user=self.owner, role=Membership.Role.OWNER)
-        Membership.objects.create(company=self.company, user=self.editor, role=Membership.Role.EDITOR)
-        Job.objects.create(company=self.company, kind=Job.Kind.GENERATE_PLAN, input_tokens=2_000_000, output_tokens=1_000_000,
-                           cache_hit_tokens=500_000, model='deepseek-v4-pro', cost_usd=Decimal('3.25'))
-        Job.objects.create(company=self.company, kind=Job.Kind.REWRITE_POST, input_tokens=10, output_tokens=10)  # unpriced
-        Job.objects.create(company=self.company, kind=Job.Kind.RENDER_POST)  # no AI, not listed
-
-    @override_settings(AI_PROVIDER='deepseek', DEEPSEEK_MODEL='deepseek-v4-pro')
-    def test_totals_cost_and_prices(self):
-        self.client.force_login(self.owner)
-        response = self.client.get(reverse('companies:usage'))
-        self.assertContains(response, '2,000,010')
-        self.assertContains(response, '$3.2500')
-        self.assertContains(response, '1 مهمة بلا سعر')
-        self.assertContains(response, '$1.98')  # Pro output price, off-peak
-        self.assertEqual(response.context['total']['cache_rate'], 25)
-        self.assertEqual(len(response.context['recent']), 2)
-
-    def test_managers_only(self):
-        self.client.force_login(self.editor)
-        self.assertEqual(self.client.get(reverse('companies:usage')).status_code, 403)

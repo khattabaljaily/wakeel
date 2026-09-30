@@ -38,15 +38,16 @@ In-app notifications (bell in the top bar) for: posts sent for review (managers)
 
 ### Background jobs
 
-Slow work (AI calls, image rendering, publishing) runs in `manage.py run_worker` (or inside `runserver` in development), a single worker that polls the `Job` table. Pages that start a job poll `/api/jobs/<id>/` for progress, warn when no worker is alive (heartbeat file), and can cancel a job; a job cancelled mid-run has its result discarded. Every 30 seconds the worker also queues approved posts that are due, for companies with auto-publishing on (each post is tried once automatically; posts more than 6 hours late are left for a person). Token usage is recorded per job and shown to managers on the AI usage page.
+Slow work (AI calls, image rendering, publishing) runs in `manage.py run_worker` (or inside `runserver` in development), a single worker that polls the `Job` table. Pages that start a job poll `/api/jobs/<id>/` for progress, warn when no worker is alive (heartbeat file), and can cancel a job; a job cancelled mid-run has its result discarded. Every 30 seconds the worker also queues approved posts that are due, for companies with auto-publishing on (each post is tried once automatically; posts more than 6 hours late are left for a person). Token usage and cost are recorded per job and shown only in the system admin panel.
 
 ### Roles
 
 | Role | Can |
 |---|---|
-| Owner / Admin | Everything, including approving and publishing posts, brand kit, team, client links, publishing accounts, AI usage |
+| Owner / Admin | Everything in their company, including approving and publishing posts, brand kit, team, client links, publishing accounts |
 | Editor | Create plans, edit posts, send them for review, comment |
 | Viewer | Read and comment |
+| Superuser | The system admin panel at `/ops/`: every company's activity, AI usage (model, tokens, cache hits) and cost, failed jobs with their technical cause, and service status. Subscribers never see technical details: AI errors carry a plain message for them and a `detail` kept on the job for this panel |
 
 ---
 
@@ -109,6 +110,7 @@ apps/
   api/         JSON endpoints used by the front-end (status, reschedule, rewrite, render, comments, publish, job polling)
   notifications/  in-app + email notifications
   social/      Meta connection (Facebook Page + Instagram) and publishing
+  ops/         system admin panel for superusers (/ops/)
 templates/     pages (RTL Arabic UI)
 static/        css, js, fonts, logo
 ```

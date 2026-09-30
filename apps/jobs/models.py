@@ -30,7 +30,8 @@ class Job(models.Model):
     status = models.CharField(max_length=10, choices=Status.choices, default=Status.PENDING)
     progress = models.PositiveSmallIntegerField(default=0)
     message = models.CharField(max_length=255, blank=True)
-    error = models.TextField(blank=True)
+    error = models.TextField(blank=True)  # shown to the subscriber
+    error_detail = models.TextField(blank=True)  # technical cause, for the system admin panel only
     # AI token usage, tracked per job so AI cost per company can be priced later.
     input_tokens = models.PositiveIntegerField(default=0)  # cache hits included
     output_tokens = models.PositiveIntegerField(default=0)

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load wakeel %}
+{% block title %}{{ target.name }} · لوحة النظام{% endblock %}
+{% block page_title %}{{ target.name }}{% endblock %}
+{% block subtitle %}<div class="subtitle"><a href="{% url 'ops:overview' %}">لوحة النظام</a> · {{ target.industry }} · {{ target.country }} · منذ {{ target.created_at|date:"j/n/Y" }}</div>{% endblock %}
+{% block actions %}<a href="{% url 'admin:companies_company_change' target.pk %}" class="btn btn-light"><i class="bi bi-gear"></i> في إدارة Django</a>{% endblock %}
+{% block content %}
+<div class="row g-3 mb-4">
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-currency-dollar"></i></div><div><div class="wk-stat__value" dir="ltr">${{ total.cost|floatformat:"4u" }}</div><div class="wk-stat__label">تكلفة آخر 12 شهراً</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="wk-stat__value">{{ total.input|thousands }}</div><div class="wk-stat__label">رموز مُدخلة</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="wk-stat__value">{{ total.cache_rate }}%</div><div class="wk-stat__label">cache hit</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="wk-stat__value">{{ total.output|thousands }}</div><div class="wk-stat__label">رموز مُخرجة</div></div></div></div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-xl-7">
+        <div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-calendar3 text-primary"></i> الاستهلاك حسب الشهر</h2></div>{% include "ops/_usage_table.html" %}</div>
+    </div>
+    <div class="col-xl-5">
+        <div class="wk-card mb-4">
+            <div class="wk-card-head"><h2><i class="bi bi-people text-primary"></i> الأعضاء</h2></div>
+            <div class="list-group list-group-flush">{% for m in members %}
+                <div class="list-group-item d-flex justify-content-between gap-2 small"><span>{{ m.user.display_name }} <span class="small-muted" dir="ltr">{{ m.user.email }}</span></span><span class="text-nowrap">{{ m.get_role_display }}</span></div>
+            {% endfor %}</div>
+        </div>
+        <div class="wk-card"><div class="wk-card-body small">
+            <div class="mb-2"><strong>المنشورات:</strong> {% for status, n in posts_by_status.items %}{{ status }}: {{ n }}{% if not forloop.last %} · {% endif %}{% empty %}لا يوجد{% endfor %}</div>
+            <div class="mb-2"><strong>الخطط:</strong> {% for p in plans %}{{ p.month|date:"n/Y" }} ({{ p.n }} منشوراً، {{ p.get_status_display }}){% if not forloop.last %} · {% endif %}{% empty %}لا يوجد{% endfor %}</div>
+            <div><strong>حسابات النشر:</strong> {% for a in accounts %}{{ a.get_platform_display }}: {{ a.name }}{% if a.last_error %} <span class="text-danger">({{ a.last_error }})</span>{% endif %}{% if not forloop.last %} · {% endif %}{% empty %}غير مربوطة{% endfor %} · النشر التلقائي: {{ target.auto_publish|yesno:"مفعّل,متوقف" }}</div>
+        </div></div>
+    </div>
+</div>
+
+<div class="wk-card">
+    <div class="wk-card-head"><h2><i class="bi bi-list-task text-primary"></i> آخر المهام</h2><a href="{% url 'ops:jobs' %}" class="small fw-semibold">كل المهام</a></div>
+    {% include "ops/_jobs_table.html" with show_company=False %}
+</div>
+{% endblock %}

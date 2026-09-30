@@ -1,4 +1,3 @@
-import datetime
 import io
 import json
 import logging
@@ -14,10 +13,8 @@ from django.core.files.storage import default_storage
 from django.contrib.auth.decorators import login_required
 from django.core.files.base import ContentFile
 from django.db import transaction
-from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.utils import timezone
 from django.views.decorators.http import require_POST
 from PIL import Image
 
@@ -276,49 +273,3 @@ def leave_company(request):
     messages.success(request, f'غادرت «{name}».')
     return redirect('core:dashboard')
 
-
-@company_required(manage=True)
-def usage(request):
-    """AI tokens and cost for this company, month by month. Each job's cost is stored when it runs."""
-    from apps.ai.pricing import DEEPSEEK_PRICES, deepseek_tier
-    from apps.content.forms import ARABIC_MONTHS
-    from apps.jobs.models import Job
-
-    first = timezone.localtime().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-    since = (first - datetime.timedelta(days=335)).replace(day=1)
-    jobs = list(Job.objects.filter(company=request.company, created_at__gte=since)
-                .filter(Q(input_tokens__gt=0) | Q(output_tokens__gt=0))
-                .select_related('created_by').order_by('-created_at'))
-
-    def blank(label):
-        return {'label': label, 'jobs': 0, 'input': 0, 'cache_hit': 0, 'output': 0, 'cost': 0, 'unpriced': 0, 'kinds': {}}
-
-    def add(row, job):
-        row['jobs'] += 1
-        row['input'] += job.input_tokens
-        row['cache_hit'] += job.cache_hit_tokens
-        row['output'] += job.output_tokens
-        if job.cost_usd is None:
-            row['unpriced'] += 1
-        else:
-            row['cost'] += float(job.cost_usd)
-        kind = job.get_kind_display()
-        row['kinds'][kind] = row['kinds'].get(kind, 0) + 1
-
-    # Grouped in Python: MySQL can't truncate dates by timezone without its tz tables.
-    months, total = {}, blank('')
-    for job in jobs:
-        local = timezone.localtime(job.created_at)
-        add(months.setdefault((local.year, local.month), blank(f'{ARABIC_MONTHS[local.month - 1]} {local.year}')), job)
-        add(total, job)
-    for row in [total, *months.values()]:
-        row['cache_rate'] = round(row['cache_hit'] * 100 / row['input']) if row['input'] else 0
-
-    tier = deepseek_tier(settings.DEEPSEEK_MODEL) if settings.AI_PROVIDER == 'deepseek' else None
-    return render(request, 'companies/usage.html', {
-        'rows': [r for _, r in sorted(months.items(), reverse=True)], 'total': total, 'recent': jobs[:15],
-        'provider': settings.AI_PROVIDER,
-        'model': settings.DEEPSEEK_MODEL if settings.AI_PROVIDER == 'deepseek' else settings.ANTHROPIC_MODEL,
-        'prices': DEEPSEEK_PRICES.get(tier), 'off_peak': settings.DEEPSEEK_OFF_PEAK_UTC,
-        'flat_priced': bool(settings.AI_PRICE_INPUT_PER_MTOK or settings.AI_PRICE_OUTPUT_PER_MTOK),
-    })

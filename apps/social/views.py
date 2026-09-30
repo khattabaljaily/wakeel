@@ -31,7 +31,7 @@ def accounts(request):
 @require_POST
 def meta_connect(request):
     if not settings.META_ENABLED:
-        messages.error(request, 'لم يُضبط تطبيق Meta بعد. أضف META_APP_ID و META_APP_SECRET إلى secrets.json.')
+        messages.error(request, 'ربط فيسبوك وإنستغرام غير متاح حالياً. تواصل مع الدعم لتفعيله.')
         return redirect('social:accounts')
     state = secrets.token_urlsafe(24)
     request.session[STATE_KEY] = {'state': state, 'company': request.company.pk}

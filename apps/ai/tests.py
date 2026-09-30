@@ -41,8 +41,12 @@ class DeepSeekTests(SimpleTestCase):
     @mock.patch('apps.ai.client.requests.post')
     def test_errors_are_user_facing(self, post):
         post.return_value = reply('{}', status=402)
-        with self.assertRaisesMessage(AIError, 'رصيد'):
+        with self.assertRaises(AIError) as caught:
             call_json('s', 'p', SCHEMA)
+        # The subscriber sees a plain message; the provider and the cause are kept for the admin panel.
+        self.assertIn('غير متاحة حالياً', str(caught.exception))
+        self.assertNotIn('DeepSeek', str(caught.exception))
+        self.assertIn('balance', caught.exception.detail)
         post.return_value = reply('{"a": "x', finish='length')
         with self.assertRaisesMessage(AIError, 'أطول'):
             call_json('s', 'p', SCHEMA)

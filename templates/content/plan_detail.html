@@ -35,8 +35,12 @@
     <div class="wk-progress"><span id="jobBar" style="width: {{ job.progress|default:3 }}%"></span></div>
     <div class="small-muted">يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية.</div>
     <div class="alert alert-warning text-start mt-4 mx-auto {% if worker_alive %}d-none{% endif %}" style="max-width: 560px" id="workerDown">
+        {% if user.is_superuser %}
         <i class="bi bi-exclamation-triangle"></i> <strong>العامل الخلفي متوقف</strong>، لذلك لم تبدأ المهمة.
         شغّل الخادم في وضع التطوير (<code>manage.py runserver</code>) ليعمل معه تلقائياً، أو شغّل <code>manage.py run_worker</code>.
+        {% else %}
+        <i class="bi bi-hourglass"></i> تأخر بدء إعداد الخطة أكثر من المعتاد، وأُبلغ فريق الدعم. ستبدأ تلقائياً فور عودة الخدمة، ولا حاجة لإعادة الطلب.
+        {% endif %}
     </div>
     {% if membership.can_edit and job %}
     <button type="button" class="btn btn-light mt-3" id="cancelJob" data-confirm-title="إيقاف إعداد الخطة؟"

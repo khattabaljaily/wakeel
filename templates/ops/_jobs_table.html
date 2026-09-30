@@ -1,0 +1,22 @@
+{% load wakeel %}<div class="table-responsive"><table class="table mb-0 align-middle small">
+    <thead><tr><th>#</th>{% if show_company %}<th>الشركة</th>{% endif %}<th>المهمة</th><th>الحالة</th><th>بواسطة</th><th>التاريخ</th><th>النموذج</th>
+        <th class="text-end">مُدخلة</th><th class="text-end">cache hit</th><th class="text-end">مُخرجة</th><th class="text-end">التكلفة</th></tr></thead>
+    <tbody>{% for job in jobs %}
+    <tr><td class="text-muted">{{ job.pk }}</td>
+        {% if show_company %}<td><a href="{% url 'ops:company' job.company_id %}">{{ job.company.name }}</a></td>{% endif %}
+        <td class="text-nowrap">{{ job.get_kind_display }}</td>
+        <td><span class="badge {% if job.status == 'failed' %}text-bg-danger{% elif job.status == 'done' %}text-bg-success{% elif job.status == 'cancelled' %}text-bg-secondary{% else %}text-bg-warning{% endif %}">{{ job.get_status_display }}</span></td>
+        <td>{{ job.created_by.display_name|default:"النظام" }}</td>
+        <td class="text-nowrap">{{ job.created_at|date:"j/n · H:i" }}</td>
+        <td dir="ltr" class="text-nowrap">{{ job.model|default:"—" }}</td>
+        <td class="text-end" dir="ltr">{{ job.input_tokens|thousands }}</td><td class="text-end" dir="ltr">{{ job.cache_hit_tokens|thousands }}</td>
+        <td class="text-end" dir="ltr">{{ job.output_tokens|thousands }}</td>
+        <td class="text-end" dir="ltr">{% if job.cost_usd is None %}—{% else %}${{ job.cost_usd|floatformat:"4u" }}{% endif %}</td></tr>
+    {% if job.status == 'failed' %}
+    <tr class="table-danger"><td></td><td colspan="10">
+        <div><strong>ما رآه المشترك:</strong> {{ job.error|default:"—" }}</div>
+        {% if job.error_detail %}<details class="mt-1"><summary>التفاصيل التقنية</summary><pre class="small mb-0 mt-1" dir="ltr" style="white-space:pre-wrap">{{ job.error_detail }}</pre></details>{% endif %}
+    </td></tr>
+    {% endif %}
+    {% empty %}<tr><td colspan="11" class="text-center small-muted py-4">لا توجد مهام.</td></tr>{% endfor %}</tbody>
+</table></div>

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load wakeel %}
+{% block title %}لوحة النظام{% endblock %}
+{% block page_title %}لوحة النظام{% endblock %}
+{% block subtitle %}<div class="subtitle">كل الشركات والاستهلاك والتكلفة وحالة الخدمات. تظهر لمدير النظام فقط.</div>{% endblock %}
+{% block actions %}
+<a href="{% url 'ops:jobs' %}" class="btn btn-light"><i class="bi bi-list-task"></i> كل المهام</a>
+<a href="{% url 'admin:index' %}" class="btn btn-light"><i class="bi bi-gear"></i> إدارة Django</a>
+{% endblock %}
+{% block content %}
+<div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-4 small">
+    <span><span class="wk-dot {% if not system.ai_enabled %}off{% endif %} d-inline-block me-1"></span> الذكاء الاصطناعي: <strong>{{ system.provider }}</strong> · <code dir="ltr">{{ system.model }}</code>{% if not system.ai_enabled %} <span class="text-danger">(ينقص {{ system.ai_key_name }})</span>{% endif %}</span>
+    <span><span class="wk-dot {% if not system.worker_alive %}off{% endif %} d-inline-block me-1"></span> العامل الخلفي: <strong>{% if system.worker_alive %}يعمل{% else %}متوقف{% endif %}</strong>{% if pending %} · {{ pending }} مهمة بالانتظار{% endif %}</span>
+    <span><span class="wk-dot {% if not system.email %}off{% endif %} d-inline-block me-1"></span> البريد: <strong>{% if system.email %}SMTP{% else %}غير مضبوط (يُطبع في الطرفية){% endif %}</strong></span>
+    <span><span class="wk-dot {% if not system.meta %}off{% endif %} d-inline-block me-1"></span> تطبيق Meta: <strong>{% if system.meta %}مضبوط{% else %}غير مضبوط{% endif %}</strong></span>
+    <span>SITE_URL: <code dir="ltr">{{ system.site_url }}</code></span>
+</div></div>
+
+{% if failed_week %}
+<div class="alert alert-danger d-flex align-items-center gap-2"><i class="bi bi-exclamation-octagon"></i> فشلت {{ failed_week }} مهمة خلال آخر 7 أيام. <a href="{% url 'ops:jobs' %}?status=failed" class="alert-link ms-auto">عرض الأخطاء</a></div>
+{% endif %}
+
+<div class="row g-3 mb-4">
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-currency-dollar"></i></div><div><div class="wk-stat__value" dir="ltr">${{ this_month.cost|floatformat:"2u" }}</div><div class="wk-stat__label">تكلفة هذا الشهر</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-graph-up"></i></div><div><div class="wk-stat__value" dir="ltr">${{ total.cost|floatformat:"2u" }}</div><div class="wk-stat__label">آخر 12 شهراً</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="wk-stat__value">{{ this_month.cache_rate }}%</div><div class="wk-stat__label">cache hit هذا الشهر</div></div></div></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-buildings"></i></div><div><div class="wk-stat__value">{{ counts.companies }}</div><div class="wk-stat__label">شركة · {{ counts.users }} مستخدم · {{ counts.posts }} منشور</div></div></div></div>
+</div>
+
+<div class="wk-card mb-4">
+    <div class="wk-card-head"><h2><i class="bi bi-buildings text-primary"></i> الشركات</h2><span class="small-muted">مرتبة حسب تكلفة آخر 12 شهراً</span></div>
+    <div class="table-responsive"><table class="table mb-0 align-middle">
+        <thead><tr><th>الشركة</th><th>المالك</th><th class="text-end">الأعضاء</th><th class="text-end">الخطط</th><th class="text-end">المنشورات</th><th class="text-end">مُدخلة هذا الشهر</th><th class="text-end">تكلفة الشهر</th><th class="text-end">تكلفة 12 شهراً</th></tr></thead>
+        <tbody>{% for r in company_rows %}
+        <tr><td><a href="{% url 'ops:company' r.company.pk %}" class="fw-semibold">{{ r.company.name }}</a><div class="small-muted">{{ r.company.country }} · منذ {{ r.company.created_at|date:"j/n/Y" }}</div></td>
+            <td class="small" dir="ltr">{{ r.owner.email|default:"—" }}</td>
+            <td class="text-end">{{ r.company.members }}</td><td class="text-end">{{ r.company.plan_count }}</td>
+            <td class="text-end">{{ r.company.post_count }}<span class="small-muted"> ({{ r.company.published }} منشور)</span></td>
+            <td class="text-end" dir="ltr">{{ r.month.input|thousands }}</td>
+            <td class="text-end" dir="ltr">${{ r.month.cost|floatformat:"4u" }}</td>
+            <td class="text-end fw-semibold" dir="ltr">${{ r.year.cost|floatformat:"4u" }}</td></tr>
+        {% empty %}<tr><td colspan="8" class="text-center small-muted py-4">لا توجد شركات بعد.</td></tr>{% endfor %}</tbody>
+    </table></div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-xl-7">
+        <div class="wk-card h-100">
+            <div class="wk-card-head"><h2><i class="bi bi-calendar3 text-primary"></i> الاستهلاك حسب الشهر (كل الشركات)</h2></div>
+            {% include "ops/_usage_table.html" %}
+        </div>
+    </div>
+    <div class="col-xl-5">
+        <div class="wk-card h-100">
+            <div class="wk-card-head"><h2><i class="bi bi-tag text-primary"></i> التسعير المستخدم</h2><code dir="ltr" class="small">{{ system.model }}</code></div>
+            <div class="wk-card-body small">
+                {% if system.prices %}
+                <table class="table table-sm mb-2"><thead><tr><th>لكل مليون رمز</th><th class="text-end">خارج الذروة</th><th class="text-end">الذروة</th></tr></thead>
+                <tbody dir="ltr">
+                    <tr><td dir="rtl">cache hit</td><td class="text-end">${{ system.prices.cache_hit.0|stringformat:"g" }}</td><td class="text-end">${{ system.prices.cache_hit.1|stringformat:"g" }}</td></tr>
+                    <tr><td dir="rtl">cache miss</td><td class="text-end">${{ system.prices.cache_miss.0|stringformat:"g" }}</td><td class="text-end">${{ system.prices.cache_miss.1|stringformat:"g" }}</td></tr>
+                    <tr><td dir="rtl">مخرجات</td><td class="text-end">${{ system.prices.output.0|stringformat:"g" }}</td><td class="text-end">${{ system.prices.output.1|stringformat:"g" }}</td></tr>
+                </tbody></table>
+                <div class="small-muted">خارج الذروة <span dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }}</span> UTC (<code>DEEPSEEK_OFF_PEAK_UTC</code>). الأسعار في <code>apps/ai/pricing.py</code>، وتُحسب تكلفة كل مهمة لحظة تنفيذها.</div>
+                {% elif system.flat_prices.0 or system.flat_prices.1 %}
+                <div>أسعار ثابتة: <span dir="ltr">${{ system.flat_prices.0 }} / ${{ system.flat_prices.1 }}</span> لكل مليون رمز (مدخلات / مخرجات).</div>
+                {% else %}
+                <div class="small-muted">أسعار هذا النموذج غير معروفة. أضف <code>AI_PRICE_INPUT_PER_MTOK</code> و<code>AI_PRICE_OUTPUT_PER_MTOK</code> إلى <code>secrets.json</code>.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if failures %}
+<div class="wk-card">
+    <div class="wk-card-head"><h2><i class="bi bi-bug text-danger"></i> آخر الأخطاء</h2><a href="{% url 'ops:jobs' %}?status=failed" class="small fw-semibold">الكل</a></div>
+    {% include "ops/_jobs_table.html" with jobs=failures show_company=True %}
+</div>
+{% endif %}
+{% endblock %}

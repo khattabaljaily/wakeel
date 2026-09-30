@@ -104,7 +104,9 @@ def publish_instagram(ig_id, token, caption, image_url, story=False, wait=30):
         if status in (None, 'FINISHED'):
             break
         if status in ('ERROR', 'EXPIRED'):
-            raise MetaError('لم يتمكن إنستغرام من تجهيز الصورة. تأكد أن رابط الموقع (SITE_URL) عام ويمكن الوصول إليه.')
+            # Usually SITE_URL isn't public, so Instagram couldn't download the image.
+            logger.error('Instagram container %s ended %s (image %s)', container, status, image_url)
+            raise MetaError('لم يتمكن إنستغرام من تجهيز الصورة. حاول مرة أخرى لاحقاً، وإن تكرر ذلك تواصل مع الدعم.')
         if time.monotonic() > deadline:
             raise MetaError('تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى.')
         time.sleep(2)

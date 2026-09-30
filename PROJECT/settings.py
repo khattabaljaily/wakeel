@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'apps.api',
     'apps.notifications',
     'apps.social',
+    'apps.ops',
 ]
 
 MIDDLEWARE = [

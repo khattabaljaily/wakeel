@@ -6,6 +6,7 @@ from django.db import transaction
 from django.utils import timezone
 
 from apps.ai import planner
+from apps.ai.client import AIError
 from apps.studio.designs import TEMPLATES
 
 from . import events
@@ -127,7 +128,7 @@ def run_generate_plan(job):
     except Exception as exc:
         if not job.was_cancelled():
             plan.status = ContentPlan.Status.FAILED
-            plan.error = str(exc)
+            plan.error = str(exc) if isinstance(exc, AIError) else 'حدث خطأ غير متوقع، وأُبلغ فريق الدعم. حاول مرة أخرى.'
             plan.save(update_fields=['status', 'error'])
             events.plan_failed(plan)
         raise

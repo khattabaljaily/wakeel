@@ -8,6 +8,7 @@ admin.site.site_title = 'وكيل'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ops/', include('apps.ops.urls')),
     path('accounts/', include('apps.accounts.urls')),
     path('company/social/', include('apps.social.urls')),
     path('company/', include('apps.companies.urls')),

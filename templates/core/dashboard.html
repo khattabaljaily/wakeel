@@ -9,7 +9,7 @@
 {% block content %}
 {% if not ai_enabled %}
 <div class="alert alert-warning d-flex gap-2 align-items-start"><i class="bi bi-exclamation-triangle mt-1"></i>
-<div>الذكاء الاصطناعي غير مفعّل بعد. أضف <code>{{ ai_key_name }}</code> إلى ملف <code>secrets.json</code> ثم أعد تشغيل الخادم والعامل لتفعيل إعداد الخطط وكتابة المنشورات.</div></div>
+<div>{% if user.is_superuser %}الذكاء الاصطناعي غير مفعّل بعد. أضف <code>{{ ai_key_name }}</code> إلى ملف <code>secrets.json</code> ثم أعد تشغيل الخادم والعامل لتفعيل إعداد الخطط وكتابة المنشورات.{% else %}إعداد الخطط وكتابة المنشورات متوقف مؤقتاً، وفريق الدعم يعمل على إعادته.{% endif %}</div></div>
 {% endif %}
 
 {% if plan_reminder and current_plan %}

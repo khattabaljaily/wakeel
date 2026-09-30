@@ -24,7 +24,18 @@ _FALLBACK_MODELS = ('claude-opus-5', 'claude-fable-5')
 
 
 class AIError(Exception):
-    """A failure the user should see (message is Arabic, user-facing)."""
+    """A failure the user should see. The message is plain Arabic for subscribers; `detail` is the
+    technical cause (provider, key, status code) and is shown only in the system admin panel."""
+
+    def __init__(self, message, detail=''):
+        super().__init__(message)
+        self.detail = detail
+
+
+# Messages for subscribers never name the provider or the server's configuration.
+UNAVAILABLE = 'خدمة الذكاء الاصطناعي غير متاحة حالياً، وفريق الدعم يعمل على إعادتها. حاول مرة أخرى لاحقاً.'
+BUSY = 'خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل.'
+UNREACHABLE = 'تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل.'
 
 
 @dataclass
@@ -38,7 +49,7 @@ class AIResult:
 
 def call_json(system, prompt, schema, *, max_tokens=32000, effort='high'):
     if not settings.AI_ENABLED:
-        raise AIError(f'لم يتم ضبط مفتاح الذكاء الاصطناعي بعد. أضف {settings.AI_KEY_NAME} إلى ملف secrets.json.')
+        raise AIError(UNAVAILABLE, f'No AI key: add {settings.AI_KEY_NAME} to secrets.json.')
     if settings.AI_PROVIDER == 'deepseek':
         return _deepseek(system, prompt, schema, max_tokens=max_tokens)
     return _anthropic(system, prompt, schema, max_tokens=max_tokens, effort=effort)
@@ -79,14 +90,14 @@ def _anthropic(system, prompt, schema, *, max_tokens, effort):
         with client.beta.messages.stream(**kwargs) as stream:
             message = stream.get_final_message()
     except anthropic.AuthenticationError as exc:
-        raise AIError('مفتاح Claude غير صالح. راجع ANTHROPIC_API_KEY في secrets.json.') from exc
+        raise AIError(UNAVAILABLE, 'Claude rejected the key: check ANTHROPIC_API_KEY in secrets.json.') from exc
     except anthropic.RateLimitError as exc:
-        raise AIError('تم تجاوز حد الاستخدام المسموح لدى Claude مؤقتاً. حاول مرة أخرى بعد قليل.') from exc
+        raise AIError(BUSY, 'Claude rate limit (429).') from exc
     except anthropic.APIStatusError as exc:
         logger.exception('Claude API error %s', exc.status_code)
-        raise AIError(f'تعذّر الاتصال بخدمة الذكاء الاصطناعي (رمز {exc.status_code}). حاول مرة أخرى.') from exc
+        raise AIError(UNREACHABLE, f'Claude API error {exc.status_code}: {exc.message}') from exc
     except anthropic.APIConnectionError as exc:
-        raise AIError('تعذّر الوصول إلى خدمة الذكاء الاصطناعي. تحقق من اتصال الخادم بالإنترنت.') from exc
+        raise AIError(UNREACHABLE, f'Cannot reach the Claude API: {exc}') from exc
 
     usage = message.usage
     logger.info('Claude %s: in=%s out=%s stop=%s', message.model, usage.input_tokens, usage.output_tokens, message.stop_reason)
@@ -106,9 +117,9 @@ def _anthropic(system, prompt, schema, *, max_tokens, effort):
 # --- DeepSeek ---------------------------------------------------------------
 
 _DEEPSEEK_ERRORS = {
-    401: 'مفتاح DeepSeek غير صالح. راجع DEEPSEEK_API_KEY في secrets.json.',
-    402: 'رصيد حساب DeepSeek غير كافٍ. اشحن الرصيد ثم حاول مرة أخرى.',
-    429: 'تم تجاوز حد الاستخدام المسموح لدى DeepSeek مؤقتاً. حاول مرة أخرى بعد قليل.',
+    401: (UNAVAILABLE, 'DeepSeek rejected the key: check DEEPSEEK_API_KEY in secrets.json.'),
+    402: (UNAVAILABLE, 'DeepSeek account balance is too low: top it up.'),
+    429: (BUSY, 'DeepSeek rate limit (429).'),
 }
 
 
@@ -133,11 +144,11 @@ def _deepseek(system, prompt, schema, *, max_tokens):
         try:
             response = requests.post(url, json=payload, headers=headers, timeout=900)
         except requests.RequestException as exc:
-            raise AIError('تعذّر الوصول إلى خدمة الذكاء الاصطناعي. تحقق من اتصال الخادم بالإنترنت.') from exc
+            raise AIError(UNREACHABLE, f'Cannot reach the DeepSeek API: {exc}') from exc
         if response.status_code != 200:
             logger.error('DeepSeek API error %s: %s', response.status_code, response.text[:500])
-            raise AIError(_DEEPSEEK_ERRORS.get(
-                response.status_code, f'تعذّر الاتصال بخدمة الذكاء الاصطناعي (رمز {response.status_code}). حاول مرة أخرى.'))
+            message, detail = _DEEPSEEK_ERRORS.get(response.status_code, (UNREACHABLE, 'DeepSeek API error'))
+            raise AIError(message, f'{detail} [HTTP {response.status_code}] {response.text[:300]}')
 
         body = response.json()
         choice = body['choices'][0]

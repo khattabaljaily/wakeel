@@ -102,9 +102,11 @@ class GeneratePlanJobTests(TestCase):
     def test_without_key_fails_with_readable_message(self):
         job = run_job(claim_next())
         self.assertEqual(job.status, Job.Status.FAILED)
-        self.assertIn('secrets.json', job.error)
+        self.assertNotIn('secrets.json', job.error)
+        self.assertIn('secrets.json', job.error_detail)
         self.plan.refresh_from_db()
         self.assertEqual(self.plan.status, ContentPlan.Status.FAILED)
+        self.assertNotIn('secrets.json', self.plan.error)
 
     @mock.patch('apps.ai.planner.call_json', side_effect=AIError('خطأ من الخدمة'))
     def test_ai_error_marks_plan_failed(self, _):

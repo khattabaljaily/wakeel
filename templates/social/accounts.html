@@ -4,10 +4,14 @@
 {% block subtitle %}<div class="subtitle">اربط صفحة فيسبوك وحساب إنستغرام لينشر وكيل المنشورات المعتمدة مباشرة.</div>{% endblock %}
 {% block content %}
 {% if not meta_enabled %}
+{% if user.is_superuser %}
 <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> <strong>تطبيق Meta غير مضبوط بعد.</strong>
     أنشئ تطبيقاً في <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener" class="alert-link">Meta for Developers</a>،
     وأضف <code>META_APP_ID</code> و<code>META_APP_SECRET</code> إلى <code>secrets.json</code>، واجعل رابط إعادة التوجيه:
     <code dir="ltr" class="d-inline-block">{{ redirect_uri }}</code></div>
+{% else %}
+<div class="alert alert-info"><i class="bi bi-info-circle"></i> ربط فيسبوك وإنستغرام غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله.</div>
+{% endif %}
 {% endif %}
 
 <div class="row g-4">

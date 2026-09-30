@@ -10,6 +10,7 @@ import logging
 import os
 import threading
 import time
+import traceback
 
 from django.conf import settings
 from django.db import close_old_connections, transaction
@@ -52,9 +53,11 @@ def run_job(job):
             return job
     except (AIError, social.PublishError) as exc:  # messages written for the user
         job.status, job.error = Job.Status.FAILED, str(exc)
+        job.error_detail = getattr(exc, 'detail', '')
     except Exception as exc:  # the worker must survive any single job
         logger.exception('Job %s failed', job.pk)
-        job.status, job.error = Job.Status.FAILED, f'حدث خطأ غير متوقع: {exc}'
+        job.status, job.error = Job.Status.FAILED, 'حدث خطأ غير متوقع، وأُبلغ فريق الدعم. حاول مرة أخرى.'
+        job.error_detail = traceback.format_exc()[-4000:]
     else:
         job.status, job.progress, job.message = Job.Status.DONE, 100, (message or '')[:255]
     if job.was_cancelled():  # cancelled while running: keep it that way

@@ -12,7 +12,6 @@ urlpatterns = [
     path('leave/', views.leave_company, name='leave'),
     path('switch/<int:pk>/', views.switch, name='switch'),
     path('team/', views.team, name='team'),
-    path('usage/', views.usage, name='usage'),
     path('team/<int:pk>/', views.member_update, name='member_update'),
     path('media/', views.media, name='media'),
     path('media/<int:pk>/delete/', views.media_delete, name='media_delete'),

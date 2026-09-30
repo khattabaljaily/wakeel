@@ -7,7 +7,7 @@
     <div class="col-lg-7">
         <form method="post" class="wk-card" novalidate>{% csrf_token %}
             <div class="wk-card-body">
-                {% if not ai_enabled %}<div class="alert alert-warning small">الذكاء الاصطناعي غير مفعّل بعد؛ ستفشل الخطة حتى يُضاف مفتاح {{ ai_key_name }}.</div>{% endif %}
+                {% if not ai_enabled %}<div class="alert alert-warning small">{% if user.is_superuser %}الذكاء الاصطناعي غير مفعّل بعد؛ ستفشل الخطة حتى يُضاف مفتاح {{ ai_key_name }}.{% else %}إعداد الخطط متوقف مؤقتاً، وفريق الدعم يعمل على إعادته. حاول لاحقاً.{% endif %}</div>{% endif %}
                 <div class="row">
                     {% include "_field.html" with field=form.month wrap_class="col-md-6" %}
                     {% include "_field.html" with field=form.posts_per_week wrap_class="col-md-6" %}

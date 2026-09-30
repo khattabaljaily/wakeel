@@ -63,14 +63,19 @@
             <a href="{% url 'companies:brand' %}" class="{% nav_active '/company/brand/' %}"><i class="bi bi-palette"></i> هوية العلامة</a>
             <a href="{% url 'companies:team' %}" class="{% nav_active '/company/team/' %}"><i class="bi bi-people"></i> الفريق</a>
             {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="{% nav_active '/company/social/' %}"><i class="bi bi-send"></i> حسابات النشر</a>{% endif %}
-            {% if membership.can_manage %}<a href="{% url 'companies:usage' %}" class="{% nav_active '/company/usage/' %}"><i class="bi bi-cpu"></i> استهلاك الذكاء الاصطناعي</a>{% endif %}
+            {% if user.is_superuser %}
+            <div class="wk-nav__label">إدارة النظام</div>
+            <a href="{% url 'ops:overview' %}" class="{% nav_active '/ops/' %}"><i class="bi bi-speedometer2"></i> لوحة النظام</a>
+            {% endif %}
         </nav>
 
         <div class="wk-sidebar-foot">
+            {% if user.is_superuser %}
             <div class="wk-ai-status">
                 <span class="wk-dot {% if not ai_enabled %}off{% endif %}"></span>
                 {% if ai_enabled %}الذكاء الاصطناعي متصل{% else %}الذكاء الاصطناعي غير مفعّل{% endif %}
             </div>
+            {% endif %}
             <div class="wk-user">
                 <span class="wk-avatar">{{ user.display_name|slice:":1" }}</span>
                 <div class="flex-grow-1 overflow-hidden">

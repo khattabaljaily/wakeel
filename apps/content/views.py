@@ -18,6 +18,8 @@ from apps.studio.designs import SIZES, TEMPLATES
 from .forms import ARABIC_MONTHS, PlanForm, PostForm
 from .models import ContentPlan, Platform, Post
 from .occasions import between as in_range
+from apps.social.services import PUBLISHABLE_FORMATS, targets as publish_targets
+
 from .review import share_url
 from .services import default_size
 
@@ -177,6 +179,7 @@ def post_edit(request, pk):
         if not request.membership.can_edit:
             return JsonResponse({'ok': False, 'error': 'صلاحيتك للمشاهدة فقط.'}, status=403)
         before = {f: getattr(post, f) for f in Post.DESIGN_FIELDS}
+        scheduled_before = post.scheduled_at
         form = PostForm(request.POST, instance=post, company=request.company)
         if not form.is_valid():
             return JsonResponse({'ok': False, 'errors': form.errors}, status=400)
@@ -184,6 +187,8 @@ def post_edit(request, pk):
         design_changed = any(getattr(post, f) != v for f, v in before.items())
         if design_changed:
             post.image_stale = True
+        if post.scheduled_at != scheduled_before:
+            post.publish_attempted_at = None  # a new time is a new chance to auto-publish
         post.save()
         job = None
         if (design_changed or not post.image) and not post.is_video:
@@ -197,6 +202,7 @@ def post_edit(request, pk):
         'assets': MediaAsset.objects.filter(company=request.company)[:60],
         'statuses': Post.Status,
         'comments': post.comments.select_related('user'),
+        'publish_targets': [a.get_platform_display() for a in publish_targets(post)] if post.format in PUBLISHABLE_FORMATS else [],
         'plan_posts': list(post.plan.posts.order_by('scheduled_at').values_list('pk', flat=True)) if post.plan else [],
         'quick_rewrites': [
             'اجعل النص أقصر وأكثر تركيزاً',

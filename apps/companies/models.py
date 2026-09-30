@@ -91,6 +91,8 @@ class Company(models.Model):
     tiktok_handle = models.CharField('حساب تيك توك', max_length=100, blank=True)
 
     timezone = models.CharField('المنطقة الزمنية', max_length=50, choices=TIMEZONE_CHOICES, default='Asia/Qatar')
+    auto_publish = models.BooleanField('النشر التلقائي', default=False,
+                                       help_text='انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها.')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

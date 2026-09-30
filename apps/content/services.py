@@ -112,7 +112,9 @@ def set_status(post, status, user=None, note=''):
         post.published_at = timezone.now()
     elif status != Post.Status.PUBLISHED:
         post.published_at = None
-    post.save(update_fields=['status', 'review_note', 'published_at', 'updated_at'])
+    if status == Post.Status.APPROVED:
+        post.publish_attempted_at = None  # (re)approved: auto-publishing may pick it up again
+    post.save(update_fields=['status', 'review_note', 'published_at', 'publish_attempted_at', 'updated_at'])
 
 
 # --- Job handlers (run by manage.py run_worker) -----------------------------

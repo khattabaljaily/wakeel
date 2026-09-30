@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'apps.jobs',
     'apps.api',
     'apps.notifications',
+    'apps.social',
 ]
 
 MIDDLEWARE = [
@@ -242,6 +243,14 @@ AI_PRICE_INPUT_PER_MTOK = get_secret('AI_PRICE_INPUT_PER_MTOK', 0)
 AI_PRICE_OUTPUT_PER_MTOK = get_secret('AI_PRICE_OUTPUT_PER_MTOK', 0)
 AI_KEY_NAME = 'DEEPSEEK_API_KEY' if AI_PROVIDER == 'deepseek' else 'ANTHROPIC_API_KEY'
 AI_ENABLED = bool(DEEPSEEK_API_KEY if AI_PROVIDER == 'deepseek' else ANTHROPIC_API_KEY)
+
+
+# Direct publishing to Facebook and Instagram through a Meta app (developers.facebook.com).
+# Its "Valid OAuth Redirect URI" must be SITE_URL + /company/social/meta/callback/.
+META_APP_ID = get_secret('META_APP_ID', '')
+META_APP_SECRET = get_secret('META_APP_SECRET', '')
+META_GRAPH_VERSION = get_secret('META_GRAPH_VERSION', 'v23.0')
+META_ENABLED = bool(META_APP_ID and META_APP_SECRET)
 
 
 # Design studio: post images are rendered from HTML templates by headless Chrome.

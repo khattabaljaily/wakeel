@@ -15,6 +15,7 @@ class Job(models.Model):
         REWRITE_POST = 'rewrite_post', 'إعادة كتابة منشور'
         RENDER_POST = 'render_post', 'تصميم صورة منشور'
         RENDER_PLAN = 'render_plan', 'تصميم صور الخطة'
+        PUBLISH_POST = 'publish_post', 'نشر منشور'
 
     class Status(models.TextChoices):
         PENDING = 'pending', 'في الانتظار'

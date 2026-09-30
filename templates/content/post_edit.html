@@ -33,6 +33,7 @@
 {% endblock %}
 
 {% block content %}
+{% if post.publish_error and post.status == 'approved' %}<div class="alert alert-danger" id="publishError"><i class="bi bi-exclamation-triangle"></i> <strong>تعذّر النشر:</strong> <span style="white-space: pre-line">{{ post.publish_error }}</span></div>{% endif %}
 {% if post.review_note %}<div class="alert alert-warning"><i class="bi bi-chat-left-text"></i> <strong>ملاحظة المراجعة:</strong> {{ post.review_note }}</div>{% endif %}
 
 <div class="wk-editor">
@@ -209,6 +210,7 @@
     var CAN_EDIT = {{ membership.can_edit|yesno:"true,false" }};
     var CAN_MANAGE = {{ membership.can_manage|yesno:"true,false" }};
     var ME = '{{ user.display_name|escapejs }}';
+    var PUBLISH_TARGETS = '{{ publish_targets|join:"، "|escapejs }}';
     var PREVIEW_URL = '{% url "studio:preview" post.pk %}';
     var SIZES = { square: [1080, 1080, 'مربع 1:1'], portrait: [1080, 1350, 'طولي 4:5'], story: [1080, 1920, 'عمودي 9:16'] };
     var form = document.getElementById('postForm');
@@ -394,6 +396,21 @@
             Wakeel.toast('تم تحديث الحالة: ' + r.label);
         }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
     }
+    function publishNow(btn) {
+        var go = dirty ? save() : Promise.resolve();
+        btn.disabled = true; btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> جارٍ النشر…';
+        go.then(function () {
+            return Wakeel.api('/api/posts/' + POST_ID + '/publish/', 'POST', {});
+        }).then(function (r) { return Wakeel.pollJob(r.job); }).then(function (job) {
+            status = 'published';
+            var pill = document.getElementById('statusPill');
+            pill.textContent = LABELS.published[0]; pill.className = 'wk-status published';
+            var err = document.getElementById('publishError'); if (err) err.remove();
+            Wakeel.toast(job.message || 'تم النشر');
+        }).catch(function (e) {
+            Wakeel.toast((e && e.error) || Wakeel.errorText(e, 'تعذّر النشر'), 'error');
+        }).finally(renderStatusActions);
+    }
     function renderStatusActions() {
         var box = document.getElementById('statusActions');
         box.innerHTML = '';
@@ -402,7 +419,12 @@
             b.type = 'button'; b.className = 'btn ' + cls;
             b.innerHTML = '<i class="bi ' + icon + '"></i> ' + label;
             b.addEventListener('click', function () {
-                if (next === 'draft-note') {
+                if (next === 'publish-now') {
+                    Wakeel.confirm({
+                        title: 'نشر المنشور الآن؟', tone: 'primary', icon: 'bi-send', okText: 'انشر',
+                        message: 'سيُنشر فوراً على: ' + PUBLISH_TARGETS + '.',
+                    }).then(function (ok) { if (ok !== null) publishNow(b); });
+                } else if (next === 'draft-note') {
                     Wakeel.confirm({
                         title: 'طلب تعديل', tone: 'primary', icon: 'bi-chat-left-text', okText: 'إرسال الملاحظة',
                         message: 'سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى.',
@@ -415,7 +437,10 @@
         if (!CAN_EDIT) return;
         if (status === 'draft') add('إرسال للمراجعة', 'bi-send', 'btn-soft', 'review');
         if (status === 'review' && CAN_MANAGE) { add('طلب تعديل', 'bi-arrow-return-right', 'btn-light', 'draft-note'); add('اعتماد', 'bi-patch-check', 'btn-primary', 'approved'); }
-        if (status === 'approved' && CAN_MANAGE) add('تم النشر', 'bi-send-check', 'btn-primary', 'published');
+        if (status === 'approved' && CAN_MANAGE) {
+            if (PUBLISH_TARGETS) add('انشر الآن', 'bi-send', 'btn-primary', 'publish-now');
+            add('تم النشر يدوياً', 'bi-send-check', PUBLISH_TARGETS ? 'btn-light' : 'btn-primary', 'published');
+        }
     }
     document.querySelectorAll('[data-set-status]').forEach(function (b) { b.addEventListener('click', function () { setStatus(b.dataset.setStatus); }); });
 

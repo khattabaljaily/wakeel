@@ -110,7 +110,8 @@ def post_reschedule(request, pk):
         return Response({'error': 'تاريخ غير صالح.'}, status=status.HTTP_400_BAD_REQUEST)
     current = timezone.localtime(post.scheduled_at).time() if post.scheduled_at else datetime.time(19, 0)
     post.scheduled_at = datetime.datetime.combine(day, current, tzinfo=_company(request).tzinfo)
-    post.save(update_fields=['scheduled_at', 'updated_at'])
+    post.publish_attempted_at = None  # a new time is a new chance to auto-publish
+    post.save(update_fields=['scheduled_at', 'publish_attempted_at', 'updated_at'])
     return Response({'scheduled_at': post.scheduled_at.isoformat()})
 
 
@@ -173,3 +174,22 @@ def comment_json(comment):
         'kind_label': comment.get_kind_display(), 'body': comment.body,
         'created': timezone.localtime(comment.created_at).strftime('%Y-%m-%d %H:%M'),
     }
+
+
+@api_view(['POST'])
+@permission_classes(PERMS)
+def post_publish(request, pk):
+    """Publish an approved post to the connected Meta accounts right away."""
+    from apps.social.services import PublishError, check_publishable
+
+    post = get_object_or_404(Post, pk=pk, company=_company(request))
+    if not request._request.membership.can_manage:
+        return Response({'error': 'النشر متاح للمالك والمديرين فقط.'}, status=status.HTTP_403_FORBIDDEN)
+    if post.status != Post.Status.APPROVED:
+        return Response({'error': 'اعتمد المنشور أولاً، ثم انشره.'}, status=status.HTTP_400_BAD_REQUEST)
+    try:
+        check_publishable(post)
+    except PublishError as exc:
+        return Response({'error': str(exc)}, status=status.HTTP_400_BAD_REQUEST)
+    job = Job.enqueue(_company(request), Job.Kind.PUBLISH_POST, request.user, post_id=post.pk)
+    return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)

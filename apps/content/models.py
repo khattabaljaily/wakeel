@@ -109,6 +109,11 @@ class Post(models.Model):
 
     review_note = models.TextField('ملاحظات المراجعة', blank=True)
     published_at = models.DateTimeField(null=True, blank=True)
+    # Direct publishing (apps.social): ids of the published posts per platform, and the last failure.
+    external_ids = models.JSONField(default=dict, blank=True)
+    publish_error = models.TextField(blank=True)
+    publish_attempted_at = models.DateTimeField(null=True, blank=True,
+                                                help_text='Set when auto-publishing picks the post, so it is tried once.')
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

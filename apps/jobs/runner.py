@@ -17,6 +17,7 @@ from django.utils import timezone
 
 from apps.ai.client import AIError
 from apps.content import services
+from apps.social import services as social
 
 from .models import Job
 
@@ -27,6 +28,7 @@ HANDLERS = {
     Job.Kind.REWRITE_POST: services.run_rewrite_post,
     Job.Kind.RENDER_POST: services.run_render_post,
     Job.Kind.RENDER_PLAN: services.run_render_plan,
+    Job.Kind.PUBLISH_POST: social.run_publish_post,
 }
 
 
@@ -48,7 +50,7 @@ def run_job(job):
         if job.was_cancelled():
             job.status = Job.Status.CANCELLED
             return job
-    except AIError as exc:
+    except (AIError, social.PublishError) as exc:  # messages written for the user
         job.status, job.error = Job.Status.FAILED, str(exc)
     except Exception as exc:  # the worker must survive any single job
         logger.exception('Job %s failed', job.pk)
@@ -69,6 +71,7 @@ def recover_stale():
 
 
 HEARTBEAT = settings.BASE_DIR / '.worker_heartbeat'
+SCHEDULE_EVERY = 30  # seconds between checks for posts due to be published
 LOCK = settings.BASE_DIR / '.run_worker.lock'
 
 
@@ -106,9 +109,17 @@ def work_forever(log=logger.info, once=False):
     if recovered := recover_stale():
         log(f'Re-queued {recovered} interrupted job(s).')
     log('Worker started.')
+    next_schedule_check = 0
     while True:
         beat()
         close_old_connections()
+        if time.monotonic() >= next_schedule_check:
+            next_schedule_check = time.monotonic() + SCHEDULE_EVERY
+            try:
+                if queued := social.enqueue_due():
+                    log(f'Queued {queued} scheduled post(s) for publishing.')
+            except Exception:  # never let scheduling take the worker down
+                logger.exception('Could not queue scheduled posts')
         job = claim_next()
         if job is None:
             if once:

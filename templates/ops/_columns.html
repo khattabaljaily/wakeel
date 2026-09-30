@@ -1,0 +1,14 @@
+{# One-series column chart over 12 months. `series` from stats.monthly_series; `money` formats values as USD. #}
+<div class="adm-cols" role="img" aria-label="{{ label }}">
+    {% for c in series %}
+    <div class="adm-col" tabindex="0">
+        <span class="adm-col__tip">{{ c.title }}: {% if money %}${{ c.value|floatformat:"2u" }}{% else %}{{ c.value }}{% endif %}</span>
+        <div class="adm-col__bar {% if not c.value %}zero{% endif %}" style="height: {% if c.value %}{{ c.height|stringformat:'s' }}%{% else %}2px{% endif %}"></div>
+    </div>
+    {% endfor %}
+</div>
+<div class="adm-col-labels" aria-hidden="true">{% for c in series %}<span>{{ c.label }}</span>{% endfor %}</div>
+<table class="visually-hidden"><caption>{{ label }}</caption>
+    <tr><th>الشهر</th><th>القيمة</th></tr>
+    {% for c in series %}<tr><td>{{ c.title }}</td><td>{% if money %}${{ c.value|floatformat:"2u" }}{% else %}{{ c.value }}{% endif %}</td></tr>{% endfor %}
+</table>

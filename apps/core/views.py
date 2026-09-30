@@ -12,7 +12,7 @@ from apps.jobs.models import Job
 
 def home(request):
     if request.user.is_authenticated:
-        return redirect('core:dashboard')
+        return redirect('ops:overview' if request.user.is_superuser else 'core:dashboard')
     return render(request, 'core/home.html')
 
 

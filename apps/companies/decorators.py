@@ -17,6 +17,9 @@ def company_required(view=None, *, manage=False, edit=False):
         @login_required
         @wraps(fn)
         def wrapped(request, *args, **kwargs):
+            if request.user.is_superuser:
+                # System admins have their own console; subscriber pages are for subscribers.
+                return redirect('ops:overview')
             if request.company is None:
                 return redirect('companies:create')
             if manage and not request.membership.can_manage:

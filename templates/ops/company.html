@@ -2,7 +2,7 @@
 {% load wakeel %}
 {% block title %}{{ target.name }} · لوحة النظام{% endblock %}
 {% block page_title %}{{ target.name }}{% endblock %}
-{% block subtitle %}<div class="subtitle"><a href="{% url 'ops:overview' %}">لوحة النظام</a> · {{ target.industry }} · {{ target.country }} · منذ {{ target.created_at|date:"j/n/Y" }}</div>{% endblock %}
+{% block subtitle %}<div class="subtitle"><a href="{% url 'ops:companies' %}">الشركات المشتركة</a> · {{ target.industry }} · {{ target.country }} · منذ {{ target.created_at|date:"j/n/Y" }}</div>{% endblock %}
 {% block actions %}<a href="{% url 'admin:companies_company_change' target.pk %}" class="btn btn-light"><i class="bi bi-gear"></i> في إدارة Django</a>{% endblock %}
 {% block content %}
 <div class="row g-3 mb-4">

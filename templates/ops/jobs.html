@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}المهام · لوحة النظام{% endblock %}
-{% block page_title %}كل المهام{% endblock %}
-{% block subtitle %}<div class="subtitle"><a href="{% url 'ops:overview' %}">لوحة النظام</a> · مهام كل الشركات مع تفاصيلها التقنية</div>{% endblock %}
+{% block page_title %}المهام والأخطاء{% endblock %}
+{% block subtitle %}<div class="subtitle">مهام كل الشركات مع تفاصيلها التقنية</div>{% endblock %}
 {% block content %}
 <form class="d-flex gap-2 mb-3 flex-wrap" method="get">
     <select name="status" class="form-select form-select-sm" style="width:auto" onchange="this.form.submit()" aria-label="الحالة">

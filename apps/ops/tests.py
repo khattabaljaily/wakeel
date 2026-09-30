@@ -28,21 +28,36 @@ class OpsPanelTests(TestCase):
                            error='خدمة الذكاء الاصطناعي غير متاحة حالياً', error_detail='DeepSeek balance too low [HTTP 402]')
 
     def test_hidden_from_everyone_but_superusers(self):
-        for url in (reverse('ops:overview'), reverse('ops:jobs'), reverse('ops:company', args=[self.a.pk])):
+        for name, args in (('overview', []), ('companies', []), ('users', []), ('usage', []), ('jobs', []),
+                           ('system', []), ('company', [self.a.pk])):
+            url = reverse(f'ops:{name}', args=args)
             self.client.force_login(self.owner)
-            self.assertEqual(self.client.get(url).status_code, 404)
+            self.assertEqual(self.client.get(url).status_code, 404, url)
             self.client.logout()
-            self.assertEqual(self.client.get(url).status_code, 302)  # to the login page
+            self.assertEqual(self.client.get(url).status_code, 302, url)  # to the login page
 
-    def test_overview_totals_across_companies(self):
+    def test_every_console_page_renders(self):
+        self.client.force_login(self.admin)
+        for name, args in (('overview', []), ('companies', []), ('users', []), ('usage', []), ('jobs', []),
+                           ('system', []), ('company', [self.a.pk])):
+            self.assertEqual(self.client.get(reverse(f'ops:{name}', args=args)).status_code, 200, name)
+
+    def test_overview_figures(self):
         self.client.force_login(self.admin)
         response = self.client.get(reverse('ops:overview'))
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context['total']['cost'], 1.75)
-        rows = response.context['company_rows']
-        self.assertEqual([r['company'].name for r in rows], ['أ', 'ب'])  # most expensive first
-        self.assertEqual(rows[0]['owner'], self.owner)
+        self.assertEqual(response.context['this_month']['cost'], 1.75)
+        self.assertEqual(response.context['cost_series'][-1]['value'], 1.75)  # this month is the last column
+        self.assertEqual(len(response.context['cost_series']), 12)
+        self.assertEqual([r['company'].name for r in response.context['top']], ['أ', 'ب'])  # most expensive first
+        self.assertEqual(response.context['counts']['failed_week'], 1)
         self.assertContains(response, 'DeepSeek balance too low')  # recent failures with their technical cause
+
+    def test_usage_breakdowns(self):
+        self.client.force_login(self.admin)
+        response = self.client.get(reverse('ops:usage'))
+        self.assertEqual(response.context['total']['cost'], 1.75)
+        self.assertEqual([r['label'] for r in response.context['by_model']], ['deepseek-v4-pro'])
+        self.assertEqual(response.context['by_company'][0]['company'], self.a)
 
     def test_company_and_jobs_pages(self):
         self.client.force_login(self.admin)
@@ -51,6 +66,26 @@ class OpsPanelTests(TestCase):
         response = self.client.get(reverse('ops:jobs'), {'status': 'failed'})
         self.assertEqual(len(response.context['page']), 1)
         self.assertContains(response, 'HTTP 402')
+
+    def test_companies_search(self):
+        self.client.force_login(self.admin)
+        response = self.client.get(reverse('ops:companies'), {'q': 'b@x.test'})
+        self.assertEqual([r['company'] for r in response.context['page']], [self.b])
+
+    def test_suspend_and_restore_a_user(self):
+        self.client.force_login(self.admin)
+        url = reverse('ops:user_toggle_active', args=[self.owner.pk])
+        self.client.post(url)
+        self.owner.refresh_from_db()
+        self.assertFalse(self.owner.is_active)
+        self.client.logout()
+        self.assertFalse(self.client.login(username='owner@x.test', password='Pass12345!x'))
+        self.client.force_login(self.admin)
+        self.client.post(url)
+        self.owner.refresh_from_db()
+        self.assertTrue(self.owner.is_active)
+        # Other system admins can't be suspended from here.
+        self.assertEqual(self.client.post(reverse('ops:user_toggle_active', args=[self.admin.pk])).status_code, 404)
 
     def test_superuser_without_company_can_open_the_panel(self):
         self.assertFalse(Membership.objects.filter(user=self.admin).exists())
@@ -84,3 +119,38 @@ class SubscriberSeesNoTechnicalDetailTests(TestCase):
         self.assertNotIn('KeyError', job.error)
         self.assertNotIn('KeyError', plan.error)
         self.assertIn('KeyError deep in the parser', job.error_detail)
+
+
+class ConsoleSeparationTests(TestCase):
+    """System admins get their own console, like the enjazpms / enjazims admin dashboards."""
+
+    def setUp(self):
+        self.company = make_company()
+        self.owner = make_user('owner@x.test', self.company)
+        self.admin = make_user('root@x.test', self.company)  # even a superuser who belongs to a company
+        self.admin.is_superuser = self.admin.is_staff = True
+        self.admin.save()
+
+    def test_superuser_lands_on_the_console(self):
+        self.client.force_login(self.admin)
+        self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('ops:overview'))
+        self.assertRedirects(self.client.get(reverse('core:home')), reverse('ops:overview'))
+        self.assertRedirects(self.client.get(reverse('content:plan_list')), reverse('ops:overview'))
+
+    def test_login_takes_superuser_to_the_console(self):
+        response = self.client.post(reverse('accounts:login'), {'username': 'root@x.test', 'password': 'Pass12345!x'}, follow=True)
+        self.assertEqual(response.redirect_chain[-1][0], reverse('ops:overview'))
+
+    def test_each_side_has_its_own_navigation(self):
+        self.client.force_login(self.admin)
+        console = self.client.get(reverse('ops:overview')).content.decode()
+        self.assertIn('مشرف النظام', console)
+        self.assertIn(reverse('ops:users'), console)
+        self.assertNotIn(reverse('content:plan_list'), console)
+        self.assertNotIn('wk-bell__btn', console)
+
+        self.client.force_login(self.owner)
+        app = self.client.get(reverse('core:dashboard')).content.decode()
+        self.assertIn(reverse('content:plan_list'), app)
+        self.assertNotIn('/ops/', app)
+        self.assertNotIn('مشرف النظام', app)

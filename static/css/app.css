@@ -458,3 +458,104 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 /* ---------- Calendar occasions ---------- */
 .wk-occasion { display: block; font-size: .72rem; font-weight: 600; color: #8a5a00; background: #fff4dc; border-radius: 6px;
   padding: .1rem .35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ==========================================================================
+   System admin console (superusers) — its own navigation and dashboard,
+   in the manner of the enjazpms / enjazims admin dashboards.
+   ========================================================================== */
+.wk-console .wk-sidebar { background: linear-gradient(180deg, #0d0c22 0%, #16143a 100%) !important; }
+.wk-console-badge { margin: 0 1rem .75rem; padding: .5rem .75rem; border-radius: 12px; font-size: .82rem; font-weight: 700;
+  color: #ffd58a; background: rgba(255,176,32,.1); border: 1px solid rgba(255,176,32,.22); display: flex; align-items: center; gap: .5rem; }
+.wk-console .wk-nav a.active { background: linear-gradient(135deg, rgba(255,176,32,.22), rgba(255,176,32,.08)); box-shadow: inset -3px 0 0 var(--wk-gold); }
+.wk-console .wk-nav a.active i { color: var(--wk-gold); }
+.wk-nav__badge { margin-inline-start: auto; min-width: 22px; height: 20px; padding: 0 6px; border-radius: 10px; background: #e5484d;
+  color: #fff; font-size: .72rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+
+/* Hero banner */
+.adm-hero { position: relative; overflow: hidden; border-radius: 20px; padding: 1.6rem 1.8rem; margin-bottom: 1.25rem; color: #fff;
+  background: radial-gradient(circle at 12% 0%, rgba(255,176,32,.28), transparent 42%),
+              radial-gradient(circle at 88% 120%, rgba(124,108,255,.55), transparent 50%),
+              linear-gradient(135deg, #16143a 0%, #231f5c 100%); }
+.adm-hero__inner { position: relative; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.adm-hero__icon { width: 58px; height: 58px; border-radius: 16px; background: rgba(255,255,255,.1); display: flex; align-items: center;
+  justify-content: center; font-size: 1.6rem; color: var(--wk-gold); flex-shrink: 0; }
+.adm-hero__kicker { font-size: .78rem; color: #b9b5f0; font-weight: 600; }
+.adm-hero__title { color: #fff; font-size: 1.55rem; margin: .1rem 0 .2rem; }
+.adm-hero__desc { color: #cfcbef; margin: 0; font-size: .92rem; }
+.adm-hero__kpis { margin-inline-start: auto; display: flex; align-items: center; gap: 1.4rem; background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: .9rem 1.4rem; }
+.adm-hero__kpi { text-align: center; }
+.adm-hero__kpi-num { display: block; font-size: 1.55rem; font-weight: 800; line-height: 1.2; }
+.adm-hero__kpi-num--gold { color: var(--wk-gold); }
+.adm-hero__kpi-lbl { font-size: .75rem; color: #cfcbef; white-space: nowrap; }
+.adm-hero__kpi-divider { width: 1px; align-self: stretch; background: rgba(255,255,255,.14); }
+
+/* KPI cards */
+.adm-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+.adm-kpi { position: relative; overflow: hidden; display: flex; align-items: center; gap: .9rem; padding: 1.1rem 1.2rem; color: inherit; }
+a.adm-kpi:hover { color: inherit; box-shadow: var(--wk-shadow-lg); }
+.adm-kpi__icon { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+.adm-kpi__num { font-size: 1.55rem; font-weight: 800; color: var(--wk-ink); line-height: 1.15; }
+.adm-kpi__lbl { font-size: .82rem; color: var(--wk-muted); }
+.adm-kpi__sub { font-size: .75rem; color: var(--wk-muted); margin-top: .1rem; }
+.adm-kpi--alert { border-color: #fecdca; }
+.adm-kpi--alert .adm-kpi__num { color: #b42318; }
+.tone-danger { background: #fee4e2; color: #b42318; }
+.tone-gold { background: #fff4dc; color: #b27300; }
+
+/* Panels */
+.adm-grid-3 { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+.adm-grid-2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+.adm-panel__sub { font-size: .8rem; color: var(--wk-muted); font-weight: 400; margin-top: .1rem; }
+.adm-panel__head-icon { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+
+/* Column chart: one series, thin columns with a rounded data end, recessive baseline, hover tooltip. */
+.adm-cols { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: end; gap: 2px; height: 170px; padding-top: 1.6rem;
+  border-bottom: 1px solid var(--wk-border); direction: ltr; }
+.adm-col { position: relative; height: 100%; display: flex; align-items: flex-end; justify-content: center; outline: none; }
+.adm-col__bar { width: min(22px, 70%); min-height: 2px; background: var(--wk-primary); border-radius: 4px 4px 0 0; transition: filter .15s; }
+.adm-col__bar.zero { background: var(--wk-border); }
+.adm-col:hover .adm-col__bar, .adm-col:focus .adm-col__bar { filter: brightness(1.15); }
+.adm-col__tip { position: absolute; bottom: calc(100% - 1.4rem); left: 50%; transform: translateX(-50%); white-space: nowrap; direction: rtl;
+  background: var(--wk-ink); color: #fff; font-size: .75rem; padding: .3rem .55rem; border-radius: 8px; pointer-events: none; z-index: 2;
+  display: none; } /* not just transparent: a hidden tip must not widen the page */
+.adm-col:hover .adm-col__tip, .adm-col:focus .adm-col__tip { display: block; }
+/* Tips of the edge columns open inwards so they stay inside the card. */
+.adm-col:nth-child(-n+3) .adm-col__tip { left: 0; transform: none; }
+.adm-col:nth-last-child(-n+3) .adm-col__tip { left: auto; right: 0; transform: none; }
+.adm-col__cap { position: absolute; font-size: .72rem; font-weight: 700; color: var(--wk-text); white-space: nowrap; }
+.adm-col-labels { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; direction: ltr; margin-top: .35rem; }
+.adm-col-labels span { text-align: center; font-size: .72rem; color: var(--wk-muted); }
+.adm-chart-foot { display: flex; justify-content: space-between; gap: 1rem; font-size: .8rem; color: var(--wk-muted); margin-top: .75rem; }
+
+/* Labelled share bars (post statuses) */
+.adm-share { display: grid; grid-template-columns: 7.5rem 1fr 3rem; align-items: center; gap: .6rem; font-size: .88rem; margin-bottom: .7rem; }
+.adm-share__track { height: 10px; background: var(--wk-bg); border-radius: 5px; overflow: hidden; }
+.adm-share__fill { height: 100%; border-radius: 5px; }
+.adm-share__fill.draft { background: var(--st-draft); } .adm-share__fill.review { background: var(--st-review); }
+.adm-share__fill.approved { background: var(--st-approved); } .adm-share__fill.published { background: var(--st-published); }
+.adm-share__n { text-align: end; font-weight: 600; }
+
+/* Service status list */
+.adm-status { display: flex; align-items: center; gap: .6rem; padding: .65rem 0; border-top: 1px solid var(--wk-border); font-size: .88rem; }
+.adm-status:first-child { border-top: 0; }
+.adm-status .wk-dot { flex-shrink: 0; }
+.adm-status__val { margin-inline-start: auto; font-weight: 600; text-align: end; }
+
+@media (max-width: 1199.98px) {
+  .adm-grid-3 { grid-template-columns: 1fr 1fr; }
+  .adm-grid-3 > :first-child { grid-column: 1 / -1; }
+  .adm-grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 767.98px) {
+  .adm-hero { padding: 1.2rem; }
+  .adm-hero__kpis { width: 100%; margin-inline-start: 0; justify-content: space-around; gap: .6rem; padding: .75rem; }
+  .adm-hero__kpi-num { font-size: 1.25rem; }
+  .adm-kpis { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .adm-kpi { padding: .85rem; gap: .6rem; }
+  .adm-kpi__icon { width: 38px; height: 38px; font-size: 1.05rem; }
+  .adm-kpi__num { font-size: 1.25rem; }
+  .adm-grid-3 { grid-template-columns: 1fr; }
+  .adm-col-labels span:nth-child(even) { visibility: hidden; }
+  .adm-share { grid-template-columns: 6rem 1fr 2.5rem; }
+}

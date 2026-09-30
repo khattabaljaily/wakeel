@@ -51,3 +51,29 @@ def summarize(jobs):
         add(months.setdefault((local.year, local.month), blank(label)), job)
         add(total, job)
     return total, [row for _, row in sorted(months.items(), reverse=True)]
+
+
+SHORT_MONTHS = ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس']
+
+
+def last_months(count=12):
+    """(year, month) keys for the last `count` months, oldest first, ending with this month."""
+    now = timezone.localtime()
+    keys, year, month = [], now.year, now.month
+    for _ in range(count):
+        keys.append((year, month))
+        year, month = (year, month - 1) if month > 1 else (year - 1, 12)
+    return keys[::-1]
+
+
+def monthly_series(items, when, value=lambda item: 1):
+    """One column per month for the last 12 months (zeros included), for the column charts."""
+    totals = dict.fromkeys(last_months(), 0)
+    for item in items:
+        local = timezone.localtime(when(item))
+        key = (local.year, local.month)
+        if key in totals:
+            totals[key] += value(item)
+    peak = max(totals.values()) or 1
+    return [{'label': SHORT_MONTHS[m - 1], 'title': f'{ARABIC_MONTHS[m - 1]} {y}', 'value': v,
+             'height': round(v * 100 / peak, 1)} for (y, m), v in totals.items()]

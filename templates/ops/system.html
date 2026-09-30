@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}حالة النظام{% endblock %}
+{% block page_title %}حالة النظام{% endblock %}
+{% block subtitle %}<div class="subtitle">الخدمات والإعدادات التي تعمل بها المنصة</div>{% endblock %}
+{% block content %}
+<div class="adm-grid-2">
+    <div class="wk-card">
+        <div class="wk-card-head"><h2><i class="bi bi-hdd-stack text-primary"></i> الخدمات</h2></div>
+        <div class="wk-card-body py-2">
+            <div class="adm-status"><span class="wk-dot {% if not system.ai_enabled %}off{% endif %}"></span>
+                <div><div class="fw-semibold">الذكاء الاصطناعي</div><div class="small-muted">{{ system.provider }} · <span dir="ltr">{{ system.model }}</span></div></div>
+                <span class="adm-status__val">{% if system.ai_enabled %}متصل{% else %}ينقص <code>{{ system.ai_key_name }}</code>{% endif %}</span></div>
+            <div class="adm-status"><span class="wk-dot {% if not system.worker_alive %}off{% endif %}"></span>
+                <div><div class="fw-semibold">العامل الخلفي</div><div class="small-muted">إعداد الخطط، التصميم، النشر، والنشر المجدول</div></div>
+                <span class="adm-status__val">{% if system.worker_alive %}يعمل{% else %}متوقف — شغّل <code>manage.py run_worker</code>{% endif %}</span></div>
+            <div class="adm-status"><span class="wk-dot {% if not system.email %}off{% endif %}"></span>
+                <div><div class="fw-semibold">البريد الإلكتروني</div><div class="small-muted">استعادة كلمة المرور والإشعارات</div></div>
+                <span class="adm-status__val">{% if system.email %}SMTP{% else %}غير مضبوط (يُطبع في الطرفية){% endif %}</span></div>
+            <div class="adm-status"><span class="wk-dot {% if not system.meta %}off{% endif %}"></span>
+                <div><div class="fw-semibold">تطبيق Meta</div><div class="small-muted">النشر على فيسبوك وإنستغرام</div></div>
+                <span class="adm-status__val">{% if system.meta %}مضبوط{% else %}ينقص <code>META_APP_ID</code> و<code>META_APP_SECRET</code>{% endif %}</span></div>
+        </div>
+    </div>
+    <div class="wk-card">
+        <div class="wk-card-head"><h2><i class="bi bi-list-task text-primary"></i> طابور المهام</h2><a href="{% url 'ops:jobs' %}" class="small fw-semibold">كل المهام</a></div>
+        <div class="wk-card-body py-2">
+            <div class="adm-status">قيد التنفيذ<span class="adm-status__val">{{ queue.running|default:0 }}</span></div>
+            <div class="adm-status">في الانتظار<span class="adm-status__val">{{ queue.pending|default:0 }}</span></div>
+            <div class="adm-status">أقدم مهمة منتظرة<span class="adm-status__val">{% if oldest_pending %}{{ oldest_pending.get_kind_display }} · منذ {{ oldest_pending.created_at|timesince }}{% else %}—{% endif %}</span></div>
+        </div>
+    </div>
+</div>
+<div class="wk-card">
+    <div class="wk-card-head"><h2><i class="bi bi-sliders text-primary"></i> الإعدادات</h2><span class="small-muted">من <code>secrets.json</code>؛ المفاتيح السرية لا تُعرض</span></div>
+    <div class="wk-card-body py-2 small">
+        <div class="adm-status">SITE_URL<span class="adm-status__val" dir="ltr">{{ system.site_url }}</span></div>
+        <div class="adm-status">DEBUG<span class="adm-status__val">{% if system.debug %}<span class="text-danger">مفعّل — أوقفه في الإنتاج</span>{% else %}متوقف{% endif %}</span></div>
+        <div class="adm-status">مزوّد الذكاء الاصطناعي<span class="adm-status__val">{{ system.provider }}</span></div>
+        <div class="adm-status">خارج الذروة (DeepSeek)<span class="adm-status__val" dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }} UTC</span></div>
+    </div>
+</div>
+{% endblock %}

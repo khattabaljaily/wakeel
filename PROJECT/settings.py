@@ -115,6 +115,7 @@ TEMPLATES = [
                 'django.template.context_processors.i18n',
                 'apps.companies.context_processors.current_company',
                 'apps.notifications.context_processors.notifications',
+                'apps.ops.context_processors.ops',
             ],
         },
     },

@@ -12,10 +12,35 @@
     <meta name="theme-color" content="#12112a">
     {% block extra_head %}{% endblock %}
 </head>
-<body class="wk-app {% block body_class %}{% endblock %}">
+<body class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% block body_class %}{% endblock %}">
 {% block body %}
 <aside class="wk-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="wkSidebar">
     <div class="offcanvas-body">
+        {% if user.is_superuser %}
+        {# System admins get their own console navigation, separate from the subscribers' app. #}
+        <a href="{% url 'ops:overview' %}" class="wk-brand">
+            <img src="{% static 'img/logo.svg' %}" alt="">
+            <div>
+                <div class="wk-brand__name">وكيل</div>
+                <div class="wk-brand__tag">إدارة المنصة</div>
+            </div>
+        </a>
+        <div class="wk-console-badge"><i class="bi bi-shield-lock"></i> مشرف النظام</div>
+
+        <nav class="wk-nav">
+            <a href="{% url 'ops:overview' %}" class="{% if request.path == '/ops/' %}active{% endif %}"><i class="bi bi-speedometer2"></i> لوحة مشرف النظام</a>
+            <div class="wk-nav__label">المشتركون</div>
+            <a href="{% url 'ops:companies' %}" class="{% nav_active '/ops/companies/' %}"><i class="bi bi-buildings"></i> الشركات المشتركة</a>
+            <a href="{% url 'ops:users' %}" class="{% nav_active '/ops/users/' %}"><i class="bi bi-people"></i> المستخدمون</a>
+            <div class="wk-nav__label">التشغيل</div>
+            <a href="{% url 'ops:usage' %}" class="{% nav_active '/ops/usage/' %}"><i class="bi bi-cpu"></i> الاستهلاك والتكلفة</a>
+            <a href="{% url 'ops:jobs' %}" class="{% nav_active '/ops/jobs/' %}"><i class="bi bi-list-task"></i> المهام والأخطاء
+                {% if ops_failed_week %}<span class="wk-nav__badge" title="مهام فشلت خلال 7 أيام">{{ ops_failed_week }}</span>{% endif %}</a>
+            <a href="{% url 'ops:system' %}" class="{% nav_active '/ops/system/' %}"><i class="bi bi-hdd-stack"></i> حالة النظام</a>
+            <div class="wk-nav__label">أدوات</div>
+            <a href="{% url 'admin:index' %}"><i class="bi bi-database-gear"></i> إدارة قاعدة البيانات</a>
+        </nav>
+        {% else %}
         <a href="{% url 'core:dashboard' %}" class="wk-brand">
             <img src="{% static 'img/logo.svg' %}" alt="">
             <div>
@@ -63,11 +88,9 @@
             <a href="{% url 'companies:brand' %}" class="{% nav_active '/company/brand/' %}"><i class="bi bi-palette"></i> هوية العلامة</a>
             <a href="{% url 'companies:team' %}" class="{% nav_active '/company/team/' %}"><i class="bi bi-people"></i> الفريق</a>
             {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="{% nav_active '/company/social/' %}"><i class="bi bi-send"></i> حسابات النشر</a>{% endif %}
-            {% if user.is_superuser %}
-            <div class="wk-nav__label">إدارة النظام</div>
-            <a href="{% url 'ops:overview' %}" class="{% nav_active '/ops/' %}"><i class="bi bi-speedometer2"></i> لوحة النظام</a>
-            {% endif %}
         </nav>
+
+        {% endif %}
 
         <div class="wk-sidebar-foot">
             {% if user.is_superuser %}
@@ -97,6 +120,7 @@
             <h1>{% block page_title %}{% endblock %}</h1>
             {% block subtitle %}{% endblock %}
         </div>
+        {% if not user.is_superuser %}
         <div class="dropdown wk-bell">
             <button class="wk-bell__btn" type="button" data-bs-toggle="dropdown" aria-label="الإشعارات{% if unread_notifications %} ({{ unread_notifications }} غير مقروءة){% endif %}">
                 <i class="bi bi-bell"></i>{% if unread_notifications %}<span class="wk-bell__count">{% if unread_notifications > 99 %}99+{% else %}{{ unread_notifications }}{% endif %}</span>{% endif %}
@@ -117,6 +141,7 @@
                 <a class="dropdown-item text-center small fw-semibold border-top py-2" href="{% url 'notifications:list' %}">كل الإشعارات</a>
             </div>
         </div>
+        {% endif %}
         <div class="actions">{% block actions %}{% endblock %}</div>
     </header>
     <div class="wk-content">

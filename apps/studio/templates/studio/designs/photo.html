@@ -1,0 +1,26 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-photo { background: var(--p-deep); color: #fff; }
+.t-photo .bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.t-photo .bg.empty { background: radial-gradient(circle at 70% 25%, var(--p) 0%, var(--p-deep) 70%); }
+.t-photo .shade { position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.62) 38%, rgba(0,0,0,.08) 72%, rgba(0,0,0,.25) 100%); }
+.t-photo .tint { position: absolute; inset: 0; background: var(--p); mix-blend-mode: multiply; opacity: .28; }
+.t-photo .fit-box { justify-content: flex-end; padding-top: 40px; }
+.t-photo .bar { width: 120px; height: 12px; border-radius: 8px; background: var(--a); margin-bottom: 30px; flex-shrink: 0; }
+.t-photo .sub { margin-top: 24px; opacity: .9; }
+.t-photo .foot { margin-top: 44px; }
+{% endblock %}
+{% block body %}
+<div class="bg{% if not photo %} empty{% endif %}"{% if photo %} style="background-image:url('{{ photo }}')"{% endif %}></div>
+<div class="tint"></div><div class="shade"></div>
+<div class="inner">
+  <div class="row">{% include "studio/designs/_logo.html" %}{% if badge %}<span class="badge">{{ badge }}</span>{% endif %}</div>
+  <div class="fit-box">
+    <div class="bar"></div>
+    <div class="headline" data-fit="110" data-min="46">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" data-fit="40" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+</div>
+{% endblock %}

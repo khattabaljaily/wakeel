@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}لوحة التحكم{% endblock %}
+{% block page_title %}أهلاً {{ user.display_name }} 👋{% endblock %}
+{% block subtitle %}<div class="subtitle">نظرة على تسويق {{ company.name }} لشهر {{ month_label }}</div>{% endblock %}
+{% block actions %}
+<form method="post" action="{% url 'content:post_create' %}">{% csrf_token %}<button class="btn btn-light"><i class="bi bi-plus-lg"></i> منشور جديد</button></form>
+<a href="{% url 'content:plan_create' %}" class="btn btn-ai"><i class="bi bi-stars"></i> خطة محتوى جديدة</a>
+{% endblock %}
+{% block content %}
+{% if not ai_enabled %}
+<div class="alert alert-warning d-flex gap-2 align-items-start"><i class="bi bi-exclamation-triangle mt-1"></i>
+<div>الذكاء الاصطناعي غير مفعّل بعد. أضف <code>{{ ai_key_name }}</code> إلى ملف <code>secrets.json</code> ثم أعد تشغيل الخادم والعامل لتفعيل إعداد الخطط وكتابة المنشورات.</div></div>
+{% endif %}
+
+{% if not current_plan %}
+<div class="wk-hero mb-4">
+    <i class="bi bi-stars sparkle"></i>
+    <div class="row align-items-center g-3">
+        <div class="col-lg-8">
+            <h2 class="mb-2">لا توجد خطة محتوى لهذا الشهر بعد</h2>
+            <p>دع وكيل يدرس هوية {{ company.name }} ويعدّ استراتيجية الشهر وكل المنشورات وتصاميمها خلال دقائق.</p>
+        </div>
+        <div class="col-lg-4 text-lg-start"><a href="{% url 'content:plan_create' %}" class="btn btn-light btn-lg"><i class="bi bi-magic"></i> أعدّ خطة الشهر</a></div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row g-3 mb-4">
+    <div class="col-6 col-xl-3"><a href="{% url 'content:calendar' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-collection"></i></div><div><div class="wk-stat__value">{{ counts.total }}</div><div class="wk-stat__label">منشورات {{ month_label }}</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=review" class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-hourglass-split"></i></div><div><div class="wk-stat__value">{{ counts.review }}</div><div class="wk-stat__label">بانتظار المراجعة</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=approved" class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-patch-check"></i></div><div><div class="wk-stat__value">{{ counts.approved }}</div><div class="wk-stat__label">معتمدة للنشر</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=published" class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-send-check"></i></div><div><div class="wk-stat__value">{{ counts.published }}</div><div class="wk-stat__label">تم نشرها</div></div></a></div>
+</div>
+
+{% if overdue %}
+<div class="alert alert-danger d-flex align-items-center gap-2"><i class="bi bi-alarm"></i> لديك {{ overdue }} منشور تجاوز موعد نشره ولم يُنشر بعد. <a href="{% url 'content:calendar' %}" class="alert-link ms-auto">عرض التقويم</a></div>
+{% endif %}
+
+<div class="row g-4">
+    <div class="col-xl-8">
+        <div class="wk-card">
+            <div class="wk-card-head"><h2><i class="bi bi-lightning-charge text-warning"></i> المنشورات القادمة</h2><a href="{% url 'content:calendar' %}" class="small fw-semibold">التقويم الكامل</a></div>
+            <div class="wk-card-body">
+                {% if upcoming %}
+                <div class="wk-post-grid" style="grid-template-columns: repeat(auto-fill, minmax(190px, 1fr))">
+                    {% for post in upcoming %}{% include "content/_post_card.html" %}{% endfor %}
+                </div>
+                {% else %}
+                <div class="wk-empty py-4"><div class="icon"><i class="bi bi-calendar-plus"></i></div><h3>لا توجد منشورات قادمة</h3><p>أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات.</p></div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="wk-card mb-4">
+            <div class="wk-card-head"><h2><i class="bi bi-stars text-primary"></i> خطط المحتوى</h2><a href="{% url 'content:plan_list' %}" class="small fw-semibold">الكل</a></div>
+            <div class="list-group list-group-flush">
+                {% for plan in plans %}
+                <a href="{{ plan.get_absolute_url }}" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3">
+                    <span class="wk-stat__icon tone-primary" style="width:40px;height:40px;font-size:1rem"><i class="bi bi-calendar3"></i></span>
+                    <span class="flex-grow-1 overflow-hidden"><span class="d-block fw-semibold text-truncate">{{ plan.title|default:"خطة قيد الإعداد" }}</span><span class="small-muted">{{ plan.month|date:"F Y" }}</span></span>
+                    {% if plan.status == 'generating' %}<span class="spinner-border spinner-border-sm text-primary"></span>{% elif plan.status == 'failed' %}<i class="bi bi-exclamation-circle text-danger"></i>{% endif %}
+                </a>
+                {% empty %}
+                <div class="p-4 text-center small-muted">لم تُعدّ أي خطة بعد.</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="wk-card">
+            <div class="wk-card-head"><h2><i class="bi bi-palette text-primary"></i> هوية العلامة</h2><a href="{% url 'companies:brand' %}" class="small fw-semibold">تعديل</a></div>
+            <div class="wk-card-body">
+                <div class="d-flex gap-2 mb-3">
+                    <span class="rounded-3 flex-fill" style="height:44px;background:{{ company.primary_color }}"></span>
+                    <span class="rounded-3 flex-fill" style="height:44px;background:{{ company.secondary_color }}"></span>
+                    <span class="rounded-3 flex-fill" style="height:44px;background:{{ company.accent_color }}"></span>
+                </div>
+                <div class="small-muted">النبرة: <strong class="text-dark">{{ company.get_tone_display }}</strong> · اللغة: <strong class="text-dark">{{ company.get_content_language_display }}</strong></div>
+                {% if running_jobs %}<div class="small mt-2 text-primary"><span class="spinner-grow spinner-grow-sm"></span> {{ running_jobs }} مهمة قيد التنفيذ الآن</div>{% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

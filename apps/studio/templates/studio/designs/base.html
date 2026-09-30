@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{% if dir == 'rtl' %}ar{% else %}en{% endif %}" dir="{{ dir }}">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ font_css }}">
+<style>
+:root {
+  --W: {{ width }}px; --H: {{ height }}px;
+  --p: {{ c.p }}; --s: {{ c.s }}; --a: {{ c.a }};
+  --on-p: {{ c.on_p }}; --on-s: {{ c.on_s }}; --on-a: {{ c.on_a }};
+  --p-dark: {{ c.p_dark }}; --p-deep: {{ c.p_deep }}; --p-light: {{ c.p_light }}; --ink: {{ c.ink }};
+  --hf: '{{ heading_font }}', 'Cairo', sans-serif;
+  --bf: '{{ body_font }}', 'Tajawal', sans-serif;
+  --pad: 88px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: var(--W); height: var(--H); overflow: hidden; background: #fff; }
+body { transform-origin: 0 0; }
+.canvas { position: relative; width: var(--W); height: var(--H); overflow: hidden; font-family: var(--bf);
+  -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+.size-story { --pad: 96px; }
+.inner { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: var(--pad); }
+.size-story .inner { padding-top: 230px; padding-bottom: 280px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.fit-box { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.headline { font-family: var(--hf); font-weight: 900; line-height: 1.18; letter-spacing: -0.5px; }
+[dir=rtl] .headline { letter-spacing: 0; line-height: 1.3; }
+.sub { font-weight: 500; line-height: 1.55; }
+.logo-chip { display: inline-flex; align-items: center; background: #fff; border-radius: 26px; padding: 16px 26px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12); max-width: 380px; }
+.logo-chip img { height: 70px; max-width: 320px; object-fit: contain; display: block; }
+.logo-text { font-family: var(--hf); font-weight: 800; font-size: 38px; }
+.badge { display: inline-block; font-family: var(--hf); font-weight: 800; font-size: 32px; padding: 12px 30px;
+  border-radius: 999px; background: var(--a); color: var(--on-a); white-space: nowrap; }
+.cta { display: inline-flex; align-items: center; gap: 16px; font-family: var(--hf); font-weight: 800; font-size: 36px;
+  padding: 22px 46px; border-radius: 999px; background: var(--a); color: var(--on-a); white-space: nowrap;
+  box-shadow: 0 14px 34px rgba(0,0,0,.18); }
+.cta .arrow { font-size: 34px; line-height: 1; }
+.contact { font-size: 27px; font-weight: 600; display: flex; gap: 26px; opacity: .88; direction: ltr; }
+.contact span + span::before { content: '•'; margin-inline-end: 26px; opacity: .6; }
+{% block style %}{% endblock %}
+</style>
+</head>
+<body>
+<div class="canvas t-{{ template }} size-{{ size }}">
+{% block body %}{% endblock %}
+</div>
+<script>
+// Shrink [data-fit] text until its .fit-box stops overflowing, then flag the page as ready to screenshot.
+(function () {
+  function fitAll() {
+    document.querySelectorAll('.fit-box').forEach(function (box) {
+      var items = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      items.forEach(function (el) { el.style.fontSize = el.dataset.fit + 'px'; });
+      var guard = 0;
+      while (box.scrollHeight > box.clientHeight + 1 && guard++ < 80) {
+        var shrunk = false;
+        items.forEach(function (el) {
+          var size = parseFloat(el.style.fontSize), min = parseFloat(el.dataset.min || 22);
+          if (size > min) { el.style.fontSize = Math.max(min, size * 0.94) + 'px'; shrunk = true; }
+        });
+        if (!shrunk) break;
+      }
+    });
+  }
+  function done() { fitAll(); window.__ready = true; }
+  var imgs = Array.prototype.slice.call(document.images).map(function (img) {
+    return img.complete ? Promise.resolve() : new Promise(function (r) { img.onload = img.onerror = r; });
+  });
+  Promise.all([document.fonts.ready].concat(imgs)).then(done, done);
+  // Live preview: scale the canvas down to the iframe's width.
+  if (window.parent !== window) {
+    // Pin the canvas to the top-left corner (RTL pages otherwise anchor it to the right).
+    var root = document.documentElement, body = document.body;
+    root.style.width = '100%'; root.style.height = '100%';
+    body.style.position = 'absolute'; body.style.top = '0'; body.style.left = '0';
+    var scale = function () { body.style.transform = 'scale(' + (window.innerWidth / {{ width }}) + ')'; };
+    scale(); window.addEventListener('resize', scale);
+  }
+})();
+</script>
+</body>
+</html>

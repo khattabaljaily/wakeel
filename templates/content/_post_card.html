@@ -1,0 +1,25 @@
+{% load wakeel %}<div class="wk-post" data-post="{{ post.pk }}">
+    {% if selectable %}<input type="checkbox" class="form-check-input wk-post__select" value="{{ post.pk }}">{% endif %}
+    <a class="wk-post-link" href="{% url 'content:post_edit' post.pk %}" aria-label="{{ post.title }}"></a>
+    <div class="wk-post__thumb">
+        {% if post.is_video %}
+            <div class="video"><i class="bi bi-camera-reels"></i><div class="small mt-1">فيديو قصير</div></div>
+        {% elif post.image %}
+            <img src="{{ post.image.url }}?v={{ post.updated_at|date:'U' }}" alt="" loading="lazy">
+            {% if post.image_stale %}<span class="stale">بحاجة لتحديث التصميم</span>{% endif %}
+        {% else %}
+            <div class="text-center"><i class="bi bi-image fs-2"></i><div class="small">لم يُصمَّم بعد</div></div>
+        {% endif %}
+    </div>
+    <div class="wk-post__body">
+        <div class="wk-post__meta">
+            <span class="wk-status {{ post.status|status_class }}">{{ post.get_status_display }}</span>
+            <span class="wk-platforms">{% for p, icon, label in post.platform_icons %}<i class="bi {{ icon }}" title="{{ label }}"></i>{% endfor %}</span>
+        </div>
+        <div class="wk-post__title">{{ post.title }}</div>
+        <div class="wk-post__meta mt-auto">
+            <span><i class="bi bi-clock"></i> {% if post.scheduled_at %}{{ post.scheduled_at|date:"j/n · H:i" }}{% else %}غير مجدول{% endif %}</span>
+            {% if post.pillar %}<span class="text-truncate" style="max-width: 50%">{{ post.pillar }}</span>{% endif %}
+        </div>
+    </div>
+</div>

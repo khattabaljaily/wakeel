@@ -1,0 +1,394 @@
+{% extends "base.html" %}
+{% load wakeel %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block page_title %}<span id="pageTitle">{{ post.title }}</span>{% endblock %}
+{% block subtitle %}
+<div class="subtitle d-flex align-items-center gap-2 flex-wrap">
+    <span class="wk-status {{ post.status|status_class }}" id="statusPill">{{ post.get_status_display }}</span>
+    {% if post.plan %}<a href="{{ post.plan.get_absolute_url }}"><i class="bi bi-stars"></i> {{ post.plan.title|default:"خطة المحتوى" }}</a>{% endif %}
+    {% if post.objective %}<span>· الهدف: {{ post.objective }}</span>{% endif %}
+</div>
+{% endblock %}
+{% block actions %}
+{% if plan_posts %}
+<div class="btn-group" id="planNav" data-ids="{{ plan_posts|join:',' }}">
+    <a class="btn btn-light" id="prevPost" title="المنشور السابق"><i class="bi bi-chevron-right"></i></a>
+    <a class="btn btn-light" id="nextPost" title="المنشور التالي"><i class="bi bi-chevron-left"></i></a>
+</div>
+{% endif %}
+{% if membership.can_edit %}
+<div class="dropdown">
+    <button class="btn btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button>
+    <div class="dropdown-menu dropdown-menu-end">
+        <button class="dropdown-item" data-set-status="draft"><i class="bi bi-pencil"></i> إعادة إلى المسودة</button>
+        <div class="dropdown-divider"></div>
+        <form method="post" action="{% url 'content:post_delete' post.pk %}">{% csrf_token %}
+            <input type="hidden" name="next" value="{% if post.plan %}{{ post.plan.get_absolute_url }}{% else %}{% url 'content:post_list' %}{% endif %}">
+            <button class="dropdown-item text-danger" data-confirm-title="حذف المنشور؟" data-confirm="سيُحذف «{{ post.title }}» وتصميمه نهائياً، ولا يمكن التراجع عن ذلك." data-confirm-ok="حذف المنشور"><i class="bi bi-trash"></i> حذف المنشور</button>
+        </form>
+    </div>
+</div>
+{% endif %}
+<div id="statusActions" class="d-flex gap-2"></div>
+{% endblock %}
+
+{% block content %}
+{% if post.review_note %}<div class="alert alert-warning"><i class="bi bi-chat-left-text"></i> <strong>ملاحظة المراجعة:</strong> {{ post.review_note }}</div>{% endif %}
+
+<div class="wk-editor">
+<form id="postForm" novalidate>{% csrf_token %}
+    {{ form.background }}
+
+    <!-- AI assistant -->
+    {% if membership.can_edit %}
+    <div class="wk-ai-box mb-4">
+        <div class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-stars text-primary fs-5"></i><strong>اطلب من وكيل تعديل المنشور</strong></div>
+        <div class="quick mb-2">{% for q in quick_rewrites %}<button type="button" data-rewrite="{{ q }}">{{ q }}</button>{% endfor %}</div>
+        <div class="input-group">
+            <input type="text" class="form-control" id="rewriteInput" placeholder="مثال: ركّز على خدمة التوصيل المجاني واذكر أنها لفترة محدودة">
+            <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> نفّذ</button>
+        </div>
+        <div class="small text-primary mt-2 d-none" id="rewriteStatus"><span class="spinner-border spinner-border-sm"></span> <span>وكيل يعيد كتابة المنشور…</span></div>
+    </div>
+    {% endif %}
+
+    <!-- Copy -->
+    <div class="wk-card mb-4">
+        <div class="wk-card-head"><h2><i class="bi bi-chat-square-text text-primary"></i> المحتوى</h2>
+            <button type="button" class="btn btn-sm btn-soft" id="copyCaption"><i class="bi bi-clipboard"></i> نسخ النص مع الوسوم</button></div>
+        <div class="wk-card-body">
+            {% include "_field.html" with field=form.title %}
+            {% include "_field.html" with field=form.platforms %}
+            <div class="mb-3">
+                <label class="form-label">نوع المنشور</label>
+                <div class="wk-seg d-flex">
+                    {% for opt in form.format %}{{ opt.tag }}<label for="{{ opt.id_for_label }}">{{ opt.choice_label }}</label>{% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                {% include "_field.html" with field=form.scheduled_at wrap_class="col-md-6" %}
+                {% include "_field.html" with field=form.pillar wrap_class="col-md-6" %}
+            </div>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between"><label class="form-label" for="{{ form.caption.id_for_label }}">{{ form.caption.label }}</label><span class="wk-counter" id="captionCount"></span></div>
+                <textarea name="caption" id="{{ form.caption.id_for_label }}" rows="9" class="form-control">{{ form.caption.value|default:"" }}</textarea>
+            </div>
+            {% include "_field.html" with field=form.hashtags %}
+        </div>
+    </div>
+
+    <!-- Video script -->
+    <div class="wk-card mb-4" id="scriptCard">
+        <div class="wk-card-head"><h2><i class="bi bi-camera-reels text-primary"></i> سيناريو الفيديو</h2>
+            <button type="button" class="btn btn-sm btn-soft" data-copy-target="#{{ form.video_script.id_for_label }}"><i class="bi bi-clipboard"></i> نسخ</button></div>
+        <div class="wk-card-body">
+            <textarea name="video_script" id="{{ form.video_script.id_for_label }}" rows="12" class="form-control wk-script">{{ form.video_script.value|default:"" }}</textarea>
+            <div class="form-text">صوّر الفيديو وفق هذا السيناريو، ثم انشره مع النص أعلاه.</div>
+        </div>
+    </div>
+
+    <!-- Design -->
+    <div class="wk-card mb-4">
+        <div class="wk-card-head"><h2><i class="bi bi-palette text-primary"></i> <span id="designTitle">التصميم</span></h2></div>
+        <div class="wk-card-body">
+            <div class="row">
+                {% include "_field.html" with field=form.headline wrap_class="col-12" %}
+                {% include "_field.html" with field=form.subheadline wrap_class="col-12" %}
+                {% include "_field.html" with field=form.cta wrap_class="col-md-6" %}
+                {% include "_field.html" with field=form.badge wrap_class="col-md-6" %}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">القالب</label>
+                <input type="hidden" name="template" id="templateInput" value="{{ form.template.value }}">
+                <div class="wk-tpl-grid" id="tplGrid">
+                    {% for key, t in templates.items %}
+                    <button type="button" class="wk-tpl {% if key == form.template.value %}active{% endif %}" data-template="{{ key }}">
+                        <div class="frame"><iframe loading="lazy" tabindex="-1" data-src="{% url 'studio:preview' post.pk %}?template={{ key }}&size=square"></iframe></div>
+                        <span>{{ t.name }}</span>
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">المقاس</label>
+                <div class="wk-seg d-flex">{% for opt in form.size %}{{ opt.tag }}<label for="{{ opt.id_for_label }}">{{ opt.choice_label }}</label>{% endfor %}</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label d-flex justify-content-between">صورة الخلفية <a href="{% url 'companies:media' %}" class="small fw-normal">إدارة المكتبة</a></label>
+                <div class="wk-asset-grid" id="assetGrid">
+                    <button type="button" class="wk-asset none {% if not post.background_id %}active{% endif %}" data-asset="">بدون</button>
+                    {% for a in assets %}
+                    <button type="button" class="wk-asset {% if a.pk == post.background_id %}active{% endif %}" data-asset="{{ a.pk }}" title="{{ a.title }}"><img src="{{ a.file.url }}" alt="" loading="lazy"></button>
+                    {% endfor %}
+                </div>
+                {% if not assets %}<div class="form-text">ارفع صوراً إلى مكتبة الوسائط لاستخدامها في قالبي «صورة كاملة» و«مقسوم».</div>{% endif %}
+            </div>
+            {% include "_field.html" with field=form.visual_notes %}
+        </div>
+    </div>
+
+    {% if membership.can_edit %}
+    <div class="wk-savebar">
+        <button type="submit" class="btn btn-primary" id="saveBtn"><i class="bi bi-check2"></i> حفظ</button>
+        <span class="small-muted" id="saveState">لا توجد تغييرات</span>
+        <span class="ms-auto small-muted d-none d-md-inline">Ctrl + S للحفظ</span>
+    </div>
+    {% endif %}
+</form>
+
+<div class="wk-preview-wrap">
+    <div class="wk-card">
+        <div class="wk-card-head"><h2><i class="bi bi-eye text-primary"></i> معاينة حية</h2><span class="small-muted" id="sizeLabel"></span></div>
+        <div class="wk-card-body">
+            <div class="wk-preview" id="preview"><div class="loading"><span class="spinner-border text-primary"></span></div><iframe id="previewFrame" title="معاينة التصميم"></iframe></div>
+        </div>
+    </div>
+    <div class="wk-card mt-3" id="finalCard">
+        <div class="wk-card-head"><h2><i class="bi bi-image text-primary"></i> الصورة النهائية</h2>
+            <span class="small text-primary d-none" id="renderState"><span class="spinner-border spinner-border-sm"></span> جارٍ التصميم…</span></div>
+        <div class="wk-card-body">
+            <div class="d-flex gap-3 align-items-center">
+                <img id="finalImg" src="{% if post.image %}{{ post.image.url }}?v={{ post.updated_at|date:'U' }}{% endif %}" alt="" class="rounded-3 border {% if not post.image %}d-none{% endif %}" style="width: 110px; height: 110px; object-fit: cover">
+                <div class="flex-grow-1">
+                    <div class="small-muted mb-2" id="finalNote">{% if not post.image %}لم تُصمَّم الصورة بعد.{% elif post.image_stale %}التصميم تغيّر منذ آخر تحديث للصورة.{% else %}الصورة محدّثة وجاهزة للنشر.{% endif %}</div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <a href="{% url 'content:post_download' post.pk %}" class="btn btn-sm btn-primary {% if not post.image %}disabled{% endif %}" id="downloadBtn"><i class="bi bi-download"></i> تنزيل</a>
+                        {% if membership.can_edit %}<button type="button" class="btn btn-sm btn-light" id="renderBtn"><i class="bi bi-arrow-repeat"></i> تحديث التصميم</button>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var POST_ID = {{ post.pk }};
+    var CAN_EDIT = {{ membership.can_edit|yesno:"true,false" }};
+    var CAN_MANAGE = {{ membership.can_manage|yesno:"true,false" }};
+    var PREVIEW_URL = '{% url "studio:preview" post.pk %}';
+    var SIZES = { square: [1080, 1080, 'مربع 1:1'], portrait: [1080, 1350, 'طولي 4:5'], story: [1080, 1920, 'عمودي 9:16'] };
+    var form = document.getElementById('postForm');
+    var F = form.elements;
+    var status = '{{ post.status }}';
+    var dirty = false;
+
+    // ---------- Live preview ----------
+    var preview = document.getElementById('preview'), frame = document.getElementById('previewFrame');
+    function currentSize() { var el = form.querySelector('input[name=size]:checked'); return el ? el.value : 'square'; }
+    function designParams(extra) {
+        var p = new URLSearchParams({
+            headline: F.headline.value, subheadline: F.subheadline.value, cta: F.cta.value, badge: F.badge.value,
+            template: F.template.value, size: currentSize(), background: F.background.value || ''
+        });
+        Object.keys(extra || {}).forEach(function (k) { p.set(k, extra[k]); });
+        return p.toString();
+    }
+    function refreshPreview() {
+        var s = SIZES[currentSize()];
+        preview.style.aspectRatio = s[0] + ' / ' + s[1];
+        document.getElementById('sizeLabel').textContent = s[2];
+        preview.classList.add('busy');
+        frame.src = PREVIEW_URL + '?' + designParams();
+    }
+    frame.addEventListener('load', function () { preview.classList.remove('busy'); });
+    var refreshSoon = Wakeel.debounce(refreshPreview, 350);
+
+    function refreshThumbs() {
+        document.querySelectorAll('#tplGrid iframe').forEach(function (f) {
+            var key = f.closest('.wk-tpl').dataset.template;
+            f.src = PREVIEW_URL + '?' + designParams({ template: key, size: 'square' });
+        });
+    }
+    var refreshThumbsSoon = Wakeel.debounce(refreshThumbs, 1200);
+
+    // ---------- Pickers ----------
+    document.getElementById('tplGrid').addEventListener('click', function (e) {
+        var b = e.target.closest('.wk-tpl'); if (!b) return;
+        document.querySelectorAll('.wk-tpl').forEach(function (x) { x.classList.toggle('active', x === b); });
+        F.template.value = b.dataset.template;
+        markDirty(); refreshPreview();
+    });
+    document.getElementById('assetGrid').addEventListener('click', function (e) {
+        var b = e.target.closest('.wk-asset'); if (!b) return;
+        document.querySelectorAll('.wk-asset').forEach(function (x) { x.classList.toggle('active', x === b); });
+        F.background.value = b.dataset.asset;
+        markDirty(); refreshPreview(); refreshThumbsSoon();
+    });
+
+    // ---------- Format-dependent sections ----------
+    function applyFormat() {
+        var fmt = (form.querySelector('input[name=format]:checked') || {}).value;
+        var isVideo = fmt === 'reel';
+        document.getElementById('scriptCard').classList.toggle('d-none', !isVideo);
+        document.getElementById('designTitle').textContent = isVideo ? 'غلاف الفيديو (اختياري)' : 'التصميم';
+    }
+
+    // ---------- Caption counter ----------
+    function countCaption() {
+        var n = (F.caption.value + (F.hashtags.value ? '\n\n' + F.hashtags.value : '')).length;
+        var el = document.getElementById('captionCount');
+        el.textContent = n + ' / 2200';
+        el.classList.toggle('over', n > 2200);
+    }
+    document.getElementById('copyCaption').addEventListener('click', function () {
+        Wakeel.copy([F.caption.value.trim(), F.hashtags.value.trim()].filter(Boolean).join('\n\n'));
+    });
+
+    // ---------- Dirty tracking & save ----------
+    var saveState = document.getElementById('saveState');
+    function markDirty() {
+        if (!CAN_EDIT) return;
+        dirty = true;
+        if (saveState) saveState.innerHTML = '<span class="text-warning">● تغييرات غير محفوظة</span>';
+    }
+    form.addEventListener('input', function (e) {
+        markDirty();
+        if (['headline', 'subheadline', 'cta', 'badge'].indexOf(e.target.name) !== -1) { refreshSoon(); refreshThumbsSoon(); }
+        if (e.target.name === 'caption' || e.target.name === 'hashtags') countCaption();
+        if (e.target.name === 'title') document.getElementById('pageTitle').textContent = e.target.value;
+    });
+    form.addEventListener('change', function (e) {
+        if (e.target.name === 'size') refreshPreview();
+        if (e.target.name === 'format') applyFormat();
+    });
+    window.addEventListener('beforeunload', function (e) { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+    function save() {
+        if (!CAN_EDIT) return Promise.resolve();
+        var btn = document.getElementById('saveBtn');
+        btn.disabled = true;
+        form.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+        return Wakeel.api(location.pathname, 'POST', new FormData(form)).then(function (r) {
+            dirty = false;
+            saveState.textContent = 'تم الحفظ الساعة ' + r.saved_at;
+            if (r.render_job) watchRender(r.render_job);
+        }).catch(function (err) {
+            var errors = (err.data && err.data.errors) || {};
+            Object.keys(errors).forEach(function (name) { if (F[name] && F[name].classList) F[name].classList.add('is-invalid'); });
+            Wakeel.toast(Object.keys(errors).length ? 'راجع الحقول المظللة.' : Wakeel.errorText(err), 'error');
+        }).finally(function () { btn.disabled = false; });
+    }
+    form.addEventListener('submit', function (e) { e.preventDefault(); save(); });
+    document.addEventListener('keydown', function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); }
+    });
+
+    // ---------- Final image ----------
+    function watchRender(jobId) {
+        var st = document.getElementById('renderState');
+        st.classList.remove('d-none');
+        Wakeel.pollJob(jobId).then(function () {
+            return Wakeel.api('/api/posts/' + POST_ID + '/');
+        }).then(function (p) {
+            var img = document.getElementById('finalImg');
+            img.src = p.image + '?v=' + Date.now();
+            img.classList.remove('d-none');
+            document.getElementById('downloadBtn').classList.remove('disabled');
+            document.getElementById('finalNote').textContent = 'الصورة محدّثة وجاهزة للنشر.';
+        }).catch(function (job) {
+            Wakeel.toast((job && job.error) || 'تعذّر تحديث التصميم', 'error');
+        }).finally(function () { st.classList.add('d-none'); });
+    }
+    var renderBtn = document.getElementById('renderBtn');
+    if (renderBtn) renderBtn.addEventListener('click', function () {
+        (dirty ? save() : Promise.resolve()).then(function () {
+            return Wakeel.api('/api/posts/' + POST_ID + '/render/', 'POST', {});
+        }).then(function (r) { watchRender(r.job); }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
+    });
+
+    // ---------- AI rewrite ----------
+    var rwStatus = document.getElementById('rewriteStatus');
+    function rewrite(instruction) {
+        if (!instruction) return;
+        var go = dirty ? save() : Promise.resolve();
+        rwStatus.classList.remove('d-none');
+        document.querySelectorAll('[data-rewrite], #rewriteBtn').forEach(function (b) { b.disabled = true; });
+        go.then(function () {
+            return Wakeel.api('/api/posts/' + POST_ID + '/rewrite/', 'POST', { instruction: instruction });
+        }).then(function (r) {
+            return Wakeel.pollJob(r.job, function (job) { if (job.message) rwStatus.querySelector('span:last-child').textContent = job.message; });
+        }).then(function () {
+            return Wakeel.api('/api/posts/' + POST_ID + '/');
+        }).then(function (p) {
+            ['title', 'headline', 'subheadline', 'cta', 'badge', 'caption', 'hashtags', 'visual_notes', 'video_script'].forEach(function (k) {
+                if (F[k]) F[k].value = p[k];
+            });
+            document.getElementById('pageTitle').textContent = p.title;
+            if (p.image) {
+                var img = document.getElementById('finalImg');
+                img.src = p.image + '?v=' + Date.now(); img.classList.remove('d-none');
+            }
+            countCaption(); refreshPreview(); refreshThumbsSoon();
+            document.getElementById('rewriteInput').value = '';
+            Wakeel.toast('أعاد وكيل كتابة المنشور');
+        }).catch(function (err) {
+            Wakeel.toast((err && err.error) || Wakeel.errorText(err, 'تعذّرت إعادة الكتابة'), 'error');
+        }).finally(function () {
+            rwStatus.classList.add('d-none');
+            document.querySelectorAll('[data-rewrite], #rewriteBtn').forEach(function (b) { b.disabled = false; });
+        });
+    }
+    document.querySelectorAll('[data-rewrite]').forEach(function (b) { b.addEventListener('click', function () { rewrite(b.dataset.rewrite); }); });
+    var rwBtn = document.getElementById('rewriteBtn');
+    if (rwBtn) {
+        rwBtn.addEventListener('click', function () { rewrite(document.getElementById('rewriteInput').value.trim()); });
+        document.getElementById('rewriteInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); rwBtn.click(); } });
+    }
+
+    // ---------- Status workflow ----------
+    var LABELS = { draft: ['مسودة', 'draft'], review: ['بانتظار المراجعة', 'review'], approved: ['معتمد', 'approved'], published: ['منشور', 'published'] };
+    function setStatus(next, note) {
+        var go = dirty ? save() : Promise.resolve();
+        go.then(function () {
+            return Wakeel.api('/api/posts/' + POST_ID + '/status/', 'POST', { status: next, note: note || '' });
+        }).then(function (r) {
+            status = r.status;
+            var pill = document.getElementById('statusPill');
+            pill.textContent = r.label; pill.className = 'wk-status ' + LABELS[r.status][1];
+            renderStatusActions();
+            Wakeel.toast('تم تحديث الحالة: ' + r.label);
+        }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
+    }
+    function renderStatusActions() {
+        var box = document.getElementById('statusActions');
+        box.innerHTML = '';
+        function add(label, icon, cls, next) {
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'btn ' + cls;
+            b.innerHTML = '<i class="bi ' + icon + '"></i> ' + label;
+            b.addEventListener('click', function () {
+                if (next === 'draft-note') {
+                    Wakeel.confirm({
+                        title: 'طلب تعديل', tone: 'primary', icon: 'bi-chat-left-text', okText: 'إرسال الملاحظة',
+                        message: 'سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى.',
+                        input: { label: 'ما الذي يحتاج إلى تعديل؟', placeholder: 'مثال: غيّر الصورة واذكر موعد انتهاء العرض', multiline: true, required: true },
+                    }).then(function (note) { if (note !== null) setStatus('draft', note); });
+                } else setStatus(next);
+            });
+            box.appendChild(b);
+        }
+        if (!CAN_EDIT) return;
+        if (status === 'draft') add('إرسال للمراجعة', 'bi-send', 'btn-soft', 'review');
+        if (status === 'review' && CAN_MANAGE) { add('طلب تعديل', 'bi-arrow-return-right', 'btn-light', 'draft-note'); add('اعتماد', 'bi-patch-check', 'btn-primary', 'approved'); }
+        if (status === 'approved' && CAN_MANAGE) add('تم النشر', 'bi-send-check', 'btn-primary', 'published');
+    }
+    document.querySelectorAll('[data-set-status]').forEach(function (b) { b.addEventListener('click', function () { setStatus(b.dataset.setStatus); }); });
+
+    // ---------- Prev / next within the plan ----------
+    var nav = document.getElementById('planNav');
+    if (nav) {
+        var ids = nav.dataset.ids.split(','), i = ids.indexOf(String(POST_ID));
+        var prev = document.getElementById('prevPost'), next = document.getElementById('nextPost');
+        if (i > 0) prev.href = '/app/posts/' + ids[i - 1] + '/'; else prev.classList.add('disabled');
+        if (i < ids.length - 1) next.href = '/app/posts/' + ids[i + 1] + '/'; else next.classList.add('disabled');
+    }
+
+    if (!CAN_EDIT) form.querySelectorAll('input, textarea, select, button').forEach(function (el) { el.disabled = true; });
+    applyFormat(); countCaption(); refreshPreview(); refreshThumbs(); renderStatusActions();
+})();
+</script>
+{% endblock %}

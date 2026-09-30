@@ -1,0 +1,32 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-split { background: var(--p); color: var(--on-p); display: flex; flex-direction: column; }
+.t-split .top { position: relative; height: 50%; flex-shrink: 0; background-size: cover; background-position: center; }
+.size-story.t-split .top { height: 46%; }
+.t-split .top.empty { background: linear-gradient(135deg, var(--s), var(--p-dark)); }
+.t-split .top.empty::after { content: ''; position: absolute; inset: 0; opacity: .18;
+  background-image: radial-gradient(#fff 2.4px, transparent 2.6px); background-size: 38px 38px; }
+.t-split .top .logo { position: absolute; top: var(--pad); inset-inline-start: var(--pad); z-index: 2; }
+.size-story.t-split .top .logo { top: 200px; }
+.t-split .top .badge { position: absolute; bottom: -30px; inset-inline-end: var(--pad); z-index: 3; font-size: 36px; padding: 16px 38px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.2); }
+.t-split .edge { height: 14px; background: var(--a); flex-shrink: 0; }
+.t-split .panel { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 64px var(--pad) var(--pad); }
+.size-story.t-split .panel { padding-bottom: 260px; }
+.t-split .sub { margin-top: 20px; opacity: .9; }
+.t-split .foot { margin-top: 30px; }
+{% endblock %}
+{% block body %}
+<div class="top{% if not photo %} empty{% endif %}"{% if photo %} style="background-image:url('{{ photo }}')"{% endif %}>
+  <div class="logo">{% include "studio/designs/_logo.html" %}</div>
+  {% if badge %}<span class="badge">{{ badge }}</span>{% endif %}
+</div>
+<div class="edge"></div>
+<div class="panel">
+  <div class="fit-box">
+    <div class="headline" data-fit="92" data-min="42">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" data-fit="38" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+</div>
+{% endblock %}

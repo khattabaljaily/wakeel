@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}هوية العلامة{% endblock %}
+{% block page_title %}هوية العلامة{% endblock %}
+{% block subtitle %}<div class="subtitle">كل ما يعرفه وكيل عن {{ company.name }}: يعتمد عليه في كتابة المحتوى وتصميمه.</div>{% endblock %}
+{% block content %}
+{% include "companies/_brand_form.html" %}
+
+{% if membership.role == 'owner' %}
+<div class="wk-card mt-5" style="border-color: #fecdca"><div class="wk-card-body">
+    <h2 class="h6 text-danger mb-1"><i class="bi bi-exclamation-octagon"></i> حذف الشركة</h2>
+    <p class="small-muted">يحذف «{{ company.name }}» نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء فريقها. لا يمكن التراجع عن ذلك.</p>
+    <form method="post" action="{% url 'companies:delete' %}">{% csrf_token %}
+        <input type="hidden" name="confirm_name">
+        <button class="btn btn-danger" data-confirm-title="حذف {{ company.name }}؟"
+                data-confirm="ستُحذف الشركة نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء فريقها."
+                data-confirm-require="{{ company.name }}" data-confirm-field="confirm_name" data-confirm-ok="حذف الشركة نهائياً"><i class="bi bi-trash"></i> حذف الشركة</button>
+    </form>
+</div></div>
+{% endif %}
+{% endblock %}

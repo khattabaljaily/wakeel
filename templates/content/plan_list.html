@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}خطط المحتوى{% endblock %}
+{% block page_title %}خطط المحتوى{% endblock %}
+{% block subtitle %}<div class="subtitle">استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل.</div>{% endblock %}
+{% block actions %}<a href="{% url 'content:plan_create' %}" class="btn btn-ai"><i class="bi bi-stars"></i> خطة جديدة</a>{% endblock %}
+{% block content %}
+{% if plans %}
+<div class="row g-4">
+    {% for plan in plans %}
+    <div class="col-md-6 col-xl-4">
+        <a href="{{ plan.get_absolute_url }}" class="wk-card d-block h-100 text-reset">
+            <div class="wk-card-body">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="wk-status {% if plan.status == 'ready' %}approved{% elif plan.status == 'failed' %}draft{% else %}review{% endif %}">{{ plan.get_status_display }}</span>
+                    <span class="small-muted ms-auto">{{ plan.month|date:"F Y" }}</span>
+                </div>
+                <h3 class="h5 mb-2">{{ plan.title|default:"خطة قيد الإعداد" }}</h3>
+                <p class="small-muted mb-3" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">{{ plan.summary|default:plan.brief|default:"—" }}</p>
+                <div class="d-flex gap-3 small-muted">
+                    <span><i class="bi bi-collection"></i> {{ plan.posts.all|length }} منشوراً</span>
+                    <span class="wk-platforms">{% for p in plan.platforms %}<i class="bi bi-{{ p }}"></i>{% endfor %}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="wk-card"><div class="wk-empty">
+    <div class="icon"><i class="bi bi-stars"></i></div>
+    <h3>ابدأ بخطتك الأولى</h3>
+    <p>اختر الشهر والمنصات، وسيعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها.</p>
+    <a href="{% url 'content:plan_create' %}" class="btn btn-ai btn-lg"><i class="bi bi-magic"></i> أعدّ خطة المحتوى</a>
+</div></div>
+{% endif %}
+{% endblock %}

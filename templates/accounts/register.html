@@ -1,0 +1,12 @@
+{% extends "accounts/base_auth.html" %}
+{% block title %}إنشاء حساب{% endblock %}
+{% block auth_content %}
+<h1 class="h3 mb-1">ابدأ مع وكيل</h1>
+<p class="text-muted mb-4">أنشئ حسابك، ثم عرّفنا بشركتك في دقائق.</p>
+<form method="post" novalidate>{% csrf_token %}
+    {% for e in form.non_field_errors %}<div class="alert alert-danger py-2">{{ e }}</div>{% endfor %}
+    {% for field in form %}{% include "_field.html" %}{% endfor %}
+    <button class="btn btn-primary w-100 btn-lg mt-2">إنشاء الحساب</button>
+</form>
+<p class="text-center text-muted mt-4 mb-0">لديك حساب بالفعل؟ <a href="{% url 'accounts:login' %}" class="fw-semibold">سجّل الدخول</a></p>
+{% endblock %}

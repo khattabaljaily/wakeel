@@ -1,0 +1,27 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-offer { background: radial-gradient(circle at 30% 20%, var(--s) 0%, var(--p) 45%, var(--p-dark) 100%); color: #fff; }
+.t-offer .rays { position: absolute; inset: -40%; opacity: .10;
+  background: repeating-conic-gradient(from 0deg at 50% 50%, #fff 0deg 6deg, transparent 6deg 18deg); }
+.t-offer .seal { flex-shrink: 0; align-self: center; width: 380px; height: 380px; border-radius: 50%; background: var(--a); color: var(--on-a);
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 50px; margin: 10px 0 44px;
+  box-shadow: 0 0 0 18px rgba(255,255,255,.18), 0 30px 70px rgba(0,0,0,.3); transform: rotate(-8deg); overflow: hidden; }
+.size-story .seal { width: 460px; height: 460px; }
+.t-offer .seal span { font-family: var(--hf); font-weight: 900; line-height: 1.15; }
+.t-offer .fit-box { text-align: center; align-items: center; }
+.t-offer .sub { margin-top: 22px; opacity: .92; }
+.t-offer .cta { background: #fff; color: var(--p-dark); }
+.t-offer .foot { justify-content: center; flex-direction: column; gap: 26px; margin-top: 30px; }
+{% endblock %}
+{% block body %}
+<div class="rays"></div>
+<div class="inner">
+  <div class="row">{% include "studio/designs/_logo.html" %}{% include "studio/designs/_contact.html" %}</div>
+  <div class="fit-box">
+    {% if badge %}<div class="seal"><span data-fit="96" data-min="40">{{ badge }}</span></div>{% endif %}
+    <div class="headline" data-fit="100" data-min="44">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" data-fit="40" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}</div>
+</div>
+{% endblock %}

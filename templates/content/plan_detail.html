@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title %}{{ plan.title|default:"خطة المحتوى" }}{% endblock %}
+{% block page_title %}{{ plan.title|default:"خطة المحتوى" }}{% endblock %}
+{% block subtitle %}<div class="subtitle"><i class="bi bi-calendar3"></i> {{ month_label }} · {{ plan.posts_per_week }} منشورات أسبوعياً · <span class="wk-platforms">{% for p in plan.platforms %}<i class="bi bi-{{ p }}"></i>{% endfor %}</span></div>{% endblock %}
+{% block actions %}
+{% if plan.status == 'ready' %}
+<a href="{% url 'content:calendar' %}?month={{ plan.month|date:'Y-m' }}" class="btn btn-light"><i class="bi bi-calendar3"></i> في التقويم</a>
+<div class="dropdown">
+    <button class="btn btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button>
+    <div class="dropdown-menu dropdown-menu-end">
+        <a class="dropdown-item" href="{% url 'content:plan_captions' plan.pk %}"><i class="bi bi-file-text"></i> تنزيل نصوص المنشورات</a>
+        {% if membership.can_edit %}
+        <button class="dropdown-item" id="renderAll"><i class="bi bi-brush"></i> إعادة تصميم كل الصور</button>
+        <form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}
+            <button class="dropdown-item" data-confirm-title="إعادة إعداد الخطة؟" data-confirm="سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك." data-confirm-ok="أعد الإعداد" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> إعادة إعداد الخطة</button>
+        </form>
+        {% endif %}
+        {% if membership.can_manage %}
+        <div class="dropdown-divider"></div>
+        <form method="post" action="{% url 'content:plan_delete' plan.pk %}">{% csrf_token %}
+            <button class="dropdown-item text-danger" data-confirm-title="حذف الخطة؟" data-confirm="ستُحذف «{{ plan.title|default:month_label }}» مع {{ posts|length }} منشوراً وتصاميمها نهائياً، ولا يمكن التراجع عن ذلك." data-confirm-ok="حذف الخطة"><i class="bi bi-trash"></i> حذف الخطة</button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if plan.status == 'generating' %}
+<div class="wk-card"><div class="wk-generating">
+    <div class="wk-orb"><i class="bi bi-stars"></i></div>
+    <h2 class="h4">وكيل يعمل على خطة {{ month_label }}</h2>
+    <p class="text-muted mb-0" id="jobMessage">{{ job.message|default:"في انتظار بدء المهمة…" }}</p>
+    <div class="wk-progress"><span id="jobBar" style="width: {{ job.progress|default:3 }}%"></span></div>
+    <div class="small-muted">يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية.</div>
+    <div class="alert alert-warning text-start mt-4 mx-auto {% if worker_alive %}d-none{% endif %}" style="max-width: 560px" id="workerDown">
+        <i class="bi bi-exclamation-triangle"></i> <strong>العامل الخلفي متوقف</strong>، لذلك لم تبدأ المهمة.
+        شغّل الخادم في وضع التطوير (<code>manage.py runserver</code>) ليعمل معه تلقائياً، أو شغّل <code>manage.py run_worker</code>.
+    </div>
+    {% if membership.can_edit and job %}
+    <button type="button" class="btn btn-light mt-3" id="cancelJob" data-confirm-title="إيقاف إعداد الخطة؟"
+            data-confirm="سيتوقف وكيل عن إعداد هذه الخطة. يمكنك إعادة المحاولة أو حذفها بعد ذلك." data-confirm-ok="إيقاف"><i class="bi bi-stop-circle"></i> إيقاف الإعداد</button>
+    {% endif %}
+</div></div>
+
+{% elif plan.status == 'failed' %}
+<div class="wk-card"><div class="wk-empty">
+    <div class="icon" style="background:#fee4e2;color:#b42318"><i class="bi bi-exclamation-triangle"></i></div>
+    <h3>تعذّر إعداد الخطة</h3>
+    <p>{{ plan.error|default:"حدث خطأ غير متوقع." }}</p>
+    <div class="d-flex gap-2 justify-content-center">
+        {% if membership.can_edit %}<form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}<button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> حاول مرة أخرى</button></form>{% endif %}
+        {% if membership.can_manage %}<form method="post" action="{% url 'content:plan_delete' plan.pk %}">{% csrf_token %}
+            <button class="btn btn-light text-danger" data-confirm-title="حذف الخطة؟" data-confirm="ستُحذف هذه الخطة نهائياً." data-confirm-ok="حذف الخطة"><i class="bi bi-trash"></i> حذف الخطة</button>
+        </form>{% endif %}
+    </div>
+</div></div>
+
+{% else %}
+{% if render_job %}
+<div class="alert alert-info d-flex align-items-center gap-3" id="renderBanner">
+    <span class="spinner-border spinner-border-sm"></span>
+    <span id="renderMsg">{{ render_job.message|default:"جارٍ تصميم الصور…" }}</span>
+</div>
+{% endif %}
+
+<div class="row g-4 mb-4">
+    <div class="col-xl-8">
+        <div class="wk-card h-100"><div class="wk-card-body">
+            <h2 class="wk-section-title"><i class="bi bi-bullseye text-primary"></i> الاستراتيجية</h2>
+            <p style="line-height: 2">{{ plan.summary }}</p>
+            {% if plan.goals %}
+            <div class="d-flex flex-wrap gap-2 mb-4">{% for g in plan.goals %}<span class="badge rounded-pill text-bg-light border fw-semibold px-3 py-2"><i class="bi bi-check2 text-success"></i> {{ g }}</span>{% endfor %}</div>
+            {% endif %}
+            <h3 class="h6 mb-3">محاور المحتوى</h3>
+            <div class="row g-3">
+                {% for p in plan.pillars %}
+                <div class="col-md-6"><div class="wk-pillar">
+                    <div class="d-flex justify-content-between"><strong>{{ p.name }}</strong><span class="share">{{ p.share_percent }}%</span></div>
+                    <div class="small-muted mt-1">{{ p.description }}</div>
+                    <div class="bar"><span style="width: {{ p.share_percent }}%"></span></div>
+                </div></div>
+                {% endfor %}
+            </div>
+        </div></div>
+    </div>
+    <div class="col-xl-4">
+        <div class="wk-card h-100"><div class="wk-card-body">
+            <h2 class="wk-section-title"><i class="bi bi-calendar-event text-warning"></i> مناسبات الشهر</h2>
+            {% for d in plan.key_dates %}
+            <div class="wk-keydate"><div class="d">{{ d.date|slice:"8:10" }}<small>{{ month_name }}</small></div><div><div class="fw-semibold">{{ d.name }}</div><div class="small-muted">{{ d.idea }}</div></div></div>
+            {% empty %}
+            <p class="small-muted mb-0">لا توجد مناسبات خاصة في هذا الشهر.</p>
+            {% endfor %}
+            {% if plan.brief %}<hr><div class="small"><strong>توجيهاتك:</strong> <span class="text-muted">{{ plan.brief }}</span></div>{% endif %}
+        </div></div>
+    </div>
+</div>
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+    <h2 class="h5 mb-0">المنشورات <span class="text-muted fw-normal">({{ posts|length }})</span></h2>
+    {% include "content/_bulk_bar.html" %}
+</div>
+<div class="wk-post-grid">
+    {% for post in posts %}{% include "content/_post_card.html" with selectable=membership.can_edit %}{% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    {% if plan.status == 'generating' and job %}
+    Wakeel.pollJob({{ job.pk }}, function (job) {
+        document.getElementById('jobMessage').textContent = job.message || 'في انتظار بدء المهمة…';
+        document.getElementById('jobBar').style.width = Math.max(3, job.progress) + '%';
+        document.getElementById('workerDown').classList.toggle('d-none', job.worker_alive || job.status !== 'pending');
+    }).then(function () { location.reload(); }, function () { location.reload(); });
+    var cancel = document.getElementById('cancelJob');
+    if (cancel) cancel.addEventListener('click', function () {
+        Wakeel.api('/api/jobs/{{ job.pk }}/cancel/', 'POST', {}).then(function () { location.reload(); })
+            .catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
+    });
+    {% endif %}
+
+    function watchRender(id) {
+        var banner = document.getElementById('renderBanner');
+        Wakeel.pollJob(id, function (job) {
+            if (banner) document.getElementById('renderMsg').textContent = job.message || 'جارٍ تصميم الصور…';
+        }).then(function () { location.reload(); }, function (job) { Wakeel.toast(job.error || 'تعذّر تصميم الصور', 'error'); });
+    }
+    {% if render_job %}watchRender({{ render_job.pk }});{% endif %}
+
+    var renderAll = document.getElementById('renderAll');
+    if (renderAll) renderAll.addEventListener('click', function () {
+        Wakeel.api('{% url "api:plan_render" plan.pk %}', 'POST', {}).then(function (r) {
+            Wakeel.toast('بدأ تصميم الصور…');
+            watchRender(r.job);
+        }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
+    });
+
+})();
+</script>
+{% endblock %}

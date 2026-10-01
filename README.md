@@ -126,7 +126,7 @@ before they sign in). The browser's language is ignored on purpose.
 
 ## Production
 
-Live at https://wakeel.sharedlink.cc on `Server` (`/home/general/projects/wakeel`):
+Live at https://wakeel.enjaztechnology.com (Enjaz Information Technology) on `Server` (`/home/general/projects/wakeel`):
 
 | | |
 |---|---|

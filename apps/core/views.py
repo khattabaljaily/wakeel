@@ -21,7 +21,7 @@ def _legal(request, page, title):
     lang = 'en' if (get_language() or '').startswith('en') else 'ar'
     return render(request, 'core/legal.html', {
         'page_title': title, 'updated': LEGAL_UPDATED, 'body_template': f'core/legal/{page}_{lang}.html',
-        'support_email': settings.SUPPORT_EMAIL, 'legal_entity': settings.LEGAL_ENTITY, 'site_url': settings.SITE_URL,
+        'support_email': settings.SUPPORT_EMAIL, 'legal_entity': settings.LEGAL_ENTITY if lang == 'en' else settings.LEGAL_ENTITY_AR, 'site_url': settings.SITE_URL,
     })
 
 

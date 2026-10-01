@@ -236,9 +236,10 @@ EMAIL_TIMEOUT = 15
 EMAIL_BACKEND = ('django.core.mail.backends.smtp.EmailBackend' if EMAIL_HOST
                  else 'django.core.mail.backends.console.EmailBackend')
 DEFAULT_FROM_EMAIL = get_secret('DEFAULT_FROM_EMAIL', 'وكيل <no-reply@wakeel.local>')
-# Shown on the terms and privacy pages: who provides Wakeel (left out when empty), and where subscribers reach
-# a person, including data deletion requests.
+# Shown on the terms and privacy pages: who provides Wakeel, in English and Arabic (left out when empty), and
+# where subscribers reach a person, including data deletion requests.
 LEGAL_ENTITY = get_secret('LEGAL_ENTITY', '')
+LEGAL_ENTITY_AR = get_secret('LEGAL_ENTITY_AR', '') or LEGAL_ENTITY
 SUPPORT_EMAIL = get_secret('SUPPORT_EMAIL', '')
 PASSWORD_RESET_TIMEOUT = 60 * 60 * 24  # 1 day
 

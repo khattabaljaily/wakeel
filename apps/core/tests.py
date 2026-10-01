@@ -216,8 +216,10 @@ class LegalPagesTests(TestCase):
 
     def test_operator_appears_only_when_set(self):
         self.assertNotContains(self.client.get(reverse('core:privacy')), 'تقدمها')
-        with self.settings(LEGAL_ENTITY='شركة المثال'):
+        with self.settings(LEGAL_ENTITY='Example Co', LEGAL_ENTITY_AR='شركة المثال'):
             self.assertContains(self.client.get(reverse('core:privacy')), 'تقدمها شركة المثال')
+            self.client.post(reverse('core:set_language'), {'language': 'en'})
+            self.assertContains(self.client.get(reverse('core:privacy')), 'provided by Example Co')
 
     def test_linked_from_landing_and_sign_in(self):
         for url in (reverse('core:home'), reverse('accounts:login')):

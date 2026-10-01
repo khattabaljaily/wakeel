@@ -71,19 +71,61 @@ class ConnectTests(TestCase):
         self.owner = make_user('owner@x.test', self.company)
         self.client.force_login(self.owner)
 
-    def start(self):
-        response = self.client.post(reverse('social:meta_connect'))
+    def start(self, popup=False):
+        response = self.client.post(reverse('social:meta_connect'), {'popup': '1'} if popup else {})
         self.assertIn('facebook.com/v23.0/dialog/oauth', response.url)
         return self.client.session['wakeel_meta_state']['state']
 
+    def callback(self, state, pages=None, **params):
+        params = params or {'code': 'abc'}
+        if pages is None:
+            with mock.patch('apps.social.meta.requests.request', FakeGraph()):
+                return self.client.get(reverse('social:meta_callback'), {'state': state, **params})
+        with mock.patch('apps.social.views.pages_for_code', return_value=pages):
+            return self.client.get(reverse('social:meta_callback'), {'state': state, **params})
+
+    def result_page(self):
+        return self.client.get(reverse('social:setup'), {'step': 'result'})
+
     def test_connects_page_and_instagram(self):
-        state = self.start()
-        with mock.patch('apps.social.meta.requests.request', FakeGraph()):
-            self.client.get(reverse('social:meta_callback'), {'state': state, 'code': 'abc'})
+        response = self.callback(self.start())
+        self.assertEqual(response.url, reverse('social:setup') + '?step=result')
         accounts = {a.platform: a for a in SocialAccount.objects.filter(company=self.company)}
         self.assertEqual((accounts['facebook'].external_id, accounts['facebook'].access_token), ('P1', 'page-token'))
         self.assertEqual((accounts['instagram'].external_id, accounts['instagram'].name), ('IG1', 'enjaz'))
         self.assertNotIn('wakeel_meta_pages', self.client.session)  # tokens don't linger in the session
+        self.assertContains(self.result_page(), 'تم الربط بنجاح')
+
+    def test_popup_tells_the_wizard_and_closes(self):
+        response = self.callback(self.start(popup=True))
+        self.assertContains(response, "BroadcastChannel('wakeel-meta')")
+        self.assertNotContains(response, 'wk-sidebar')
+        self.assertContains(self.result_page(), 'تم الربط بنجاح')
+
+    def test_choosing_among_pages_stays_in_the_popup(self):
+        pages = [{'id': f'P{i}', 'name': f'صفحة {i}', 'token': 't', 'instagram': {}} for i in (1, 2)]
+        response = self.callback(self.start(popup=True), pages=pages)
+        self.assertContains(response, 'wk-popup')
+        response = self.client.post(reverse('social:meta_choose'), {'page': 'P2'})
+        self.assertContains(response, "BroadcastChannel('wakeel-meta')")
+        self.assertContains(self.result_page(), 'لم نجد حساب إنستغرام احترافي')
+
+    def test_no_pages_offers_the_ways_out(self):
+        self.callback(self.start(), pages=[])
+        page = self.result_page()
+        self.assertContains(page, 'لم يشارك فيسبوك أي صفحة')
+        self.assertContains(page, reverse('companies:team'))
+
+    def test_cancelled_or_closed_window_offers_a_retry(self):
+        self.callback(self.start(), error='access_denied')
+        self.assertContains(self.result_page(), 'لم يكتمل الربط')
+        self.start(popup=True)
+        page = self.client.get(reverse('social:setup'), {'step': 'result', 'closed': '1'})
+        self.assertContains(page, 'لم يكتمل الربط')
+
+    def test_every_wizard_step_renders(self):
+        for step in ('page', 'page-create', 'instagram', 'ig-pro', 'ig-link', 'connect', 'result', 'bogus'):
+            self.assertEqual(self.client.get(reverse('social:setup'), {'step': step}).status_code, 200, step)
 
     def test_rejects_wrong_state(self):
         self.start()

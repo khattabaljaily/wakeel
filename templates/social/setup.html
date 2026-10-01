@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "ربط حسابات النشر" %}{% endblock %}
+{% block page_title %}{% translate "ربط حسابات النشر" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "خطوات قصيرة ترافقك حتى يصبح وكيل قادراً على النشر في صفحتك. لا تحتاج إلى حساب مطوّر أو تطبيق في Meta." %}</div>{% endblock %}
+{% block actions %}<a href="{% url 'social:accounts' %}" class="btn btn-light">{% translate "إغلاق" %}</a>{% endblock %}
+{% block content %}
+<div class="wk-setup">
+    <div class="wk-steps wk-steps--static" style="--progress: {{ progress }}">
+        <div class="wk-step {% if stage == 0 %}active{% elif stage > 0 %}done{% endif %}"><span class="n">1</span> <span class="t">{% translate "صفحة فيسبوك" %}</span></div>
+        <div class="wk-step {% if stage == 1 %}active{% elif stage > 1 %}done{% endif %}"><span class="n">2</span> <span class="t">{% translate "إنستغرام" %}</span></div>
+        <div class="wk-step {% if stage == 2 %}active{% elif stage > 2 %}done{% endif %}"><span class="n">3</span> <span class="t">{% translate "الربط" %}</span></div>
+        <div class="wk-step {% if stage == 3 %}active{% endif %}"><span class="n">4</span> <span class="t">{% translate "النتيجة" %}</span></div>
+    </div>
+
+    <div class="wk-card"><div class="wk-card-body wk-setup__body">
+    {% if step == 'page' %}
+        <div class="wk-setup__icon"><i class="bi bi-facebook"></i></div>
+        <h2>{% translate "هل لدى شركتك صفحة على فيسبوك؟" %}</h2>
+        <p>{% translate "وكيل ينشر على صفحة الشركة، وليس على حسابك الشخصي. الصفحة هي ما يظهر للناس باسم شركتك ويتابعونه." %}</p>
+        <div class="wk-setup__choices">
+            <a href="?step=instagram" class="wk-setup__choice"><i class="bi bi-check-circle"></i><span><strong>{% translate "نعم، لدينا صفحة" %}</strong><small>{% translate "وأنا أديرها من حسابي على فيسبوك" %}</small></span></a>
+            <a href="?step=page-create" class="wk-setup__choice"><i class="bi bi-plus-circle"></i><span><strong>{% translate "لا، ليس بعد" %}</strong><small>{% translate "سننشئها معاً في دقيقتين" %}</small></span></a>
+        </div>
+
+    {% elif step == 'page-create' %}
+        <div class="wk-setup__icon"><i class="bi bi-plus-square"></i></div>
+        <h2>{% translate "أنشئ صفحة لشركتك" %}</h2>
+        <p>{% translate "سنفتح لك صفحة الإنشاء في فيسبوك بنافذة جانبية. اكتب اسم الشركة واختر تصنيفها ثم اضغط «إنشاء صفحة». الباقي يمكن إكماله لاحقاً." %}</p>
+        <a href="https://www.facebook.com/pages/create" class="btn btn-primary" data-popup="wkHelper"><i class="bi bi-box-arrow-up-left"></i> {% translate "فتح صفحة الإنشاء" %}</a>
+        <div class="wk-setup__nav">
+            <a href="?step=page" class="btn btn-link px-0">{% translate "رجوع" %}</a>
+            <a href="?step=instagram" class="btn btn-light" data-after-popup>{% translate "أنشأت الصفحة، التالي" %}</a>
+        </div>
+
+    {% elif step == 'instagram' %}
+        <div class="wk-setup__icon wk-setup__icon--ig"><i class="bi bi-instagram"></i></div>
+        <h2>{% translate "هل تريد النشر على إنستغرام أيضاً؟" %}</h2>
+        <p>{% translate "إنستغرام يسمح بالنشر التلقائي للحسابات الاحترافية المربوطة بصفحة فيسبوك." %}</p>
+        <div class="wk-setup__choices">
+            <a href="?step=connect" class="wk-setup__choice"><i class="bi bi-check-circle"></i><span><strong>{% translate "نعم، وحسابي جاهز" %}</strong><small>{% translate "حساب احترافي ومربوط بصفحة الشركة" %}</small></span></a>
+            <a href="?step=ig-pro" class="wk-setup__choice"><i class="bi bi-question-circle"></i><span><strong>{% translate "نعم، لكن لست متأكداً" %}</strong><small>{% translate "سنجهّزه معاً خطوة بخطوة" %}</small></span></a>
+            <a href="?step=connect" class="wk-setup__choice"><i class="bi bi-skip-forward-circle"></i><span><strong>{% translate "فيسبوك فقط الآن" %}</strong><small>{% translate "يمكنك إضافة إنستغرام لاحقاً" %}</small></span></a>
+        </div>
+        <div class="wk-setup__nav"><a href="?step=page" class="btn btn-link px-0">{% translate "رجوع" %}</a></div>
+
+    {% elif step == 'ig-pro' %}
+        <div class="wk-setup__icon wk-setup__icon--ig"><i class="bi bi-person-badge"></i></div>
+        <h2>{% translate "حوّل حساب إنستغرام إلى احترافي" %}</h2>
+        <p>{% translate "التحويل مجاني ولا يحذف أي منشور أو متابع. إذا كان حسابك احترافياً من قبل فتخطَّ هذه الخطوة." %}</p>
+        <ol class="wk-setup__list">
+            <li>{% translate "افتح تطبيق إنستغرام وادخل إلى ملفك الشخصي." %}</li>
+            <li>{% translate "اضغط على القائمة ☰ ثم «نوع الحساب والأدوات»." %}</li>
+            <li>{% translate "اختر «التبديل إلى حساب احترافي» ثم «أعمال»، وأكمل الخطوات." %}</li>
+        </ol>
+        <a href="https://www.instagram.com/accounts/convert_to_professional_account/" class="btn btn-soft" data-popup="wkHelper"><i class="bi bi-box-arrow-up-left"></i> {% translate "أو افتحها من المتصفح" %}</a>
+        <div class="wk-setup__nav">
+            <a href="?step=instagram" class="btn btn-link px-0">{% translate "رجوع" %}</a>
+            <a href="?step=ig-link" class="btn btn-primary" data-after-popup>{% translate "حسابي احترافي، التالي" %}</a>
+        </div>
+
+    {% elif step == 'ig-link' %}
+        <div class="wk-setup__icon wk-setup__icon--ig"><i class="bi bi-link-45deg"></i></div>
+        <h2>{% translate "اربط إنستغرام بصفحة فيسبوك" %}</h2>
+        <p>{% translate "وكيل يصل إلى إنستغرام عبر صفحة فيسبوك، لذا يُربط الحسابان ببعضهما مرة واحدة فقط." %}</p>
+        <ol class="wk-setup__list">
+            <li>{% translate "من تطبيق إنستغرام: «تعديل الملف الشخصي» ثم «الصفحة» ثم «ربط صفحة»، واختر صفحة الشركة." %}</li>
+            <li>{% translate "أو من فيسبوك: انتقل إلى الصفحة، ثم الإعدادات، ثم «الحسابات المرتبطة»، ثم إنستغرام، ثم «ربط الحساب»." %}</li>
+        </ol>
+        <a href="https://www.facebook.com/settings/?tab=linked_instagram" class="btn btn-soft" data-popup="wkHelper"><i class="bi bi-box-arrow-up-left"></i> {% translate "فتح إعدادات الربط في فيسبوك" %}</a>
+        <div class="wk-setup__nav">
+            <a href="?step=ig-pro" class="btn btn-link px-0">{% translate "رجوع" %}</a>
+            <a href="?step=connect" class="btn btn-primary" data-after-popup>{% translate "ربطتهما، التالي" %}</a>
+        </div>
+
+    {% elif step == 'connect' %}
+        <div class="wk-setup__icon"><i class="bi bi-plug"></i></div>
+        <h2>{% translate "الآن نربط حساباتك بوكيل" %}</h2>
+        <p>{% translate "ستفتح نافذة من فيسبوك. هذا ما ستفعله فيها:" %}</p>
+        <ol class="wk-setup__list">
+            <li>{% translate "سجّل الدخول بحساب فيسبوك الذي يدير الصفحة، ثم اضغط «متابعة»." %}</li>
+            <li>{% translate "حدّد صفحة الشركة وحساب إنستغرام الخاص بها. إن لم تظهر القائمة اضغط «تعديل الإعدادات»." %}</li>
+            <li>{% translate "اترك كل الصلاحيات مفعّلة ثم اضغط «حفظ». بدونها لا يستطيع وكيل النشر." %}</li>
+        </ol>
+        {% if meta_enabled %}
+        <form method="post" action="{% url 'social:meta_connect' %}" id="wkMetaConnect">{% csrf_token %}
+            <button class="btn btn-primary btn-lg"><i class="bi bi-facebook"></i> {% translate "فتح نافذة فيسبوك" %}</button>
+        </form>
+        {% else %}
+        <button class="btn btn-primary btn-lg" disabled><i class="bi bi-facebook"></i> {% translate "فتح نافذة فيسبوك" %}</button>
+        <div class="alert alert-info mt-3 mb-0"><i class="bi bi-info-circle"></i> {% translate "ربط فيسبوك وإنستغرام غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله." %}</div>
+        {% endif %}
+        <div class="wk-setup__waiting" id="wkMetaWaiting" hidden>
+            <div class="spinner-border spinner-border-sm text-primary"></div>
+            <div class="flex-grow-1"><strong>{% translate "بانتظار نافذة فيسبوك…" %}</strong>
+                <div class="small-muted">{% translate "أكمل الخطوات هناك وسنتابع هنا تلقائياً." %}</div></div>
+            <a href="?step=result&closed=1" class="btn btn-sm btn-light">{% translate "أغلقتها؟ تابع" %}</a>
+        </div>
+        <div class="wk-setup__nav"><a href="?step=instagram" class="btn btn-link px-0">{% translate "رجوع" %}</a></div>
+
+    {% elif step == 'result' %}
+        {% with fb=accounts.facebook ig=accounts.instagram %}
+        {% if result == 'connected' %}
+            <div class="wk-setup__icon wk-setup__icon--ok"><i class="bi bi-check-lg"></i></div>
+            <h2>{% translate "تم الربط بنجاح" %}</h2>
+            <p>{% blocktranslate trimmed with page=fb.name username=ig.name %}سينشر وكيل على صفحة «{{ page }}» وحساب إنستغرام @{{ username }}.{% endblocktranslate %}</p>
+            <a href="{% url 'social:accounts' %}" class="btn btn-primary">{% translate "إعداد النشر التلقائي" %}</a>
+
+        {% elif result == 'no-instagram' %}
+            <div class="wk-setup__icon wk-setup__icon--ok"><i class="bi bi-check-lg"></i></div>
+            <h2>{% blocktranslate trimmed with page=fb.name %}تم ربط صفحة «{{ page }}»{% endblocktranslate %}</h2>
+            <p>{% translate "لكن لم نجد حساب إنستغرام احترافي مربوطاً بهذه الصفحة، أو لم يُحدَّد في نافذة فيسبوك." %}</p>
+            <div class="wk-setup__choices">
+                <a href="?step=ig-pro" class="wk-setup__choice"><i class="bi bi-instagram"></i><span><strong>{% translate "ربط إنستغرام الآن" %}</strong><small>{% translate "سنجهّز الحساب ثم نعيد الربط" %}</small></span></a>
+                <a href="{% url 'social:accounts' %}" class="wk-setup__choice"><i class="bi bi-facebook"></i><span><strong>{% translate "الاكتفاء بفيسبوك" %}</strong><small>{% translate "يمكنك إضافة إنستغرام لاحقاً" %}</small></span></a>
+            </div>
+
+        {% elif result == 'no-pages' %}
+            <div class="wk-setup__icon wk-setup__icon--warn"><i class="bi bi-exclamation-lg"></i></div>
+            <h2>{% translate "لم يشارك فيسبوك أي صفحة مع وكيل" %}</h2>
+            <p>{% translate "اختر ما ينطبق عليك:" %}</p>
+            <div class="wk-setup__choices">
+                <a href="?step=connect" class="wk-setup__choice"><i class="bi bi-arrow-repeat"></i><span><strong>{% translate "لم أحدد الصفحة في النافذة" %}</strong><small>{% translate "أعد المحاولة واضغط «تعديل الإعدادات» لتحديدها" %}</small></span></a>
+                <a href="?step=page-create" class="wk-setup__choice"><i class="bi bi-plus-circle"></i><span><strong>{% translate "ليس لدي صفحة" %}</strong><small>{% translate "أنشئ صفحة لشركتك أولاً" %}</small></span></a>
+                <a href="{% url 'companies:team' %}" class="wk-setup__choice"><i class="bi bi-people"></i><span><strong>{% translate "شخص آخر يدير الصفحة" %}</strong><small>{% translate "اطلب منه منحك «تحكماً كاملاً»، أو أضفه لفريقك بدور «مدير» ليربطها بنفسه" %}</small></span></a>
+            </div>
+
+        {% elif result == 'cancelled' %}
+            <div class="wk-setup__icon wk-setup__icon--warn"><i class="bi bi-x-lg"></i></div>
+            <h2>{% translate "لم يكتمل الربط" %}</h2>
+            <p>{% translate "أُغلقت نافذة فيسبوك قبل الحفظ. لا بأس، أعد المحاولة وتأكد من الضغط على «حفظ» في آخر النافذة." %}</p>
+            <a href="?step=connect" class="btn btn-primary">{% translate "إعادة المحاولة" %}</a>
+
+        {% else %}
+            <div class="wk-setup__icon wk-setup__icon--warn"><i class="bi bi-exclamation-lg"></i></div>
+            <h2>{% translate "تعذّر الربط" %}</h2>
+            <p>{% translate "حدث خطأ أثناء الربط، والتفاصيل في الأعلى. أعد المحاولة، وإن تكرر ذلك تواصل مع الدعم." %}</p>
+            <a href="?step=connect" class="btn btn-primary">{% translate "إعادة المحاولة" %}</a>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+    </div></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+(function () {
+    function openPopup(url, name) {
+        var w = 600, h = 720, left = Math.max(0, screenX + (outerWidth - w) / 2), top = Math.max(0, screenY + (outerHeight - h) / 2);
+        return window.open(url, name, 'popup,width=' + w + ',height=' + h + ',left=' + left + ',top=' + top);
+    }
+
+    // Helper links (create a Page, Instagram settings) open beside the wizard, which then points to the next step.
+    document.querySelectorAll('[data-popup]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            if (!openPopup(link.href, link.dataset.popup)) return;  // blocked: follow the link normally
+            e.preventDefault();
+            document.querySelectorAll('[data-after-popup]').forEach(function (next) { next.classList.replace('btn-light', 'btn-primary'); });
+        });
+    });
+
+    // Connecting: Facebook's login runs in a popup; the popup announces the end and the wizard shows the result.
+    var form = document.getElementById('wkMetaConnect');
+    if (!form) return;
+    var resultUrl = '?step=result';
+    function done() { location.href = resultUrl; }
+    try { new BroadcastChannel('wakeel-meta').onmessage = done; } catch (e) {}
+    addEventListener('storage', function (e) { if (e.key === 'wakeel-meta-done') done(); });
+
+    form.addEventListener('submit', function (e) {
+        if (!openPopup('about:blank', 'wkMeta')) return;  // blocked: connect in this tab instead
+        var flag = form.querySelector('[name=popup]') || form.appendChild(Object.assign(document.createElement('input'), {type: 'hidden', name: 'popup'}));
+        flag.value = '1';
+        form.target = 'wkMeta';
+        document.getElementById('wkMetaWaiting').hidden = false;
+    });
+})();
+</script>
+{% endblock %}

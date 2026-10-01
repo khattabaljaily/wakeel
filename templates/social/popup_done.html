@@ -1,0 +1,18 @@
+{% extends "social/popup_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "اكتمل الربط" %}{% endblock %}
+{% block content %}
+<div class="text-center py-4">
+    <i class="bi bi-check-circle-fill text-success fs-1 d-block mb-2"></i>
+    <p class="mb-3">{% translate "انتهينا من نافذة فيسبوك. يمكنك إغلاقها والعودة إلى وكيل." %}</p>
+    <a href="{{ result_url }}" class="btn btn-light">{% translate "متابعة هنا" %}</a>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+// Facebook's pages can cut this window's link to its opener, so tell the wizard over same-origin channels instead.
+try { new BroadcastChannel('wakeel-meta').postMessage('done'); } catch (e) {}
+try { localStorage.setItem('wakeel-meta-done', String(Date.now())); } catch (e) {}
+window.close();
+</script>
+{% endblock %}

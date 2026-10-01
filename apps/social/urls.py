@@ -6,6 +6,7 @@ app_name = 'social'
 
 urlpatterns = [
     path('', views.accounts, name='accounts'),
+    path('setup/', views.setup, name='setup'),
     path('meta/connect/', views.meta_connect, name='meta_connect'),
     path('meta/callback/', views.meta_callback, name='meta_callback'),
     path('meta/choose/', views.meta_choose, name='meta_choose'),

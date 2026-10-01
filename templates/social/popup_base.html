@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% comment %}The Facebook connection window: no sidebar or top bar, just the content.{% endcomment %}
+{% block body_class %}wk-popup{% endblock %}
+{% block body %}
+<main class="wk-popup__main">
+    <h1 class="h4 mb-1">{% block page_title %}{% endblock %}</h1>
+    {% block subtitle %}{% endblock %}
+    <div class="mt-3">{% block content %}{% endblock %}</div>
+</main>
+{% endblock %}

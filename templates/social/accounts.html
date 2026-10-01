@@ -37,6 +37,7 @@
                         <div class="fw-semibold">{% translate "إنستغرام" %}</div>
                         {% if ig %}<div class="small-muted text-truncate" dir="auto">@{{ ig.name }}</div>
                         {% if ig.last_error %}<div class="small text-danger">{{ ig.last_error }}</div>{% endif %}
+                        {% elif fb %}<div class="small-muted">{% translate "لا يوجد حساب إنستغرام احترافي مربوط بهذه الصفحة." %} <a href="{% url 'social:setup' %}?step=ig-pro">{% translate "ربطه الآن" %}</a></div>
                         {% else %}<div class="small-muted">{% translate "يُربط تلقائياً مع صفحة فيسبوك إذا كان لها حساب إنستغرام احترافي." %}</div>{% endif %}
                     </div>
                     {% if ig %}<form method="post" action="{% url 'social:disconnect' 'instagram' %}">{% csrf_token %}
@@ -49,9 +50,9 @@
                 {% endwith %}
             </div>
             <div class="wk-card-body border-top">
-                <form method="post" action="{% url 'social:meta_connect' %}">{% csrf_token %}
-                    <button class="btn btn-primary" {% if not meta_enabled %}disabled{% endif %}><i class="bi bi-facebook"></i> {% if accounts %}{% translate "إعادة الربط أو تغيير الصفحة" %}{% else %}{% translate "ربط فيسبوك وإنستغرام" %}{% endif %}</button>
-                </form>
+                {% if accounts %}<a href="{% url 'social:setup' %}?step=connect" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "إعادة الربط أو تغيير الصفحة" %}</a>
+                {% else %}<a href="{% url 'social:setup' %}" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "ربط فيسبوك وإنستغرام" %}</a>
+                    <span class="small-muted ms-2">{% translate "معالج يرافقك خطوة بخطوة" %}</span>{% endif %}
             </div>
         </div>
     </div>

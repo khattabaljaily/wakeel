@@ -901,11 +901,31 @@ a.wk-mcard__title:hover { color: var(--wk-primary-600); }
 .wk-lang--dark { margin-bottom: .75rem; }
 .wk-lang--dark button { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); color: #c9c8e6; width: 100%; justify-content: center; }
 .wk-lang--dark button:hover { background: rgba(255,255,255,.1); color: #fff; border-color: rgba(255,255,255,.2); }
-.wk-lang--float { position: absolute; top: 1rem; inset-inline-end: 1rem; z-index: 3; }
 .wk-auth__main { position: relative; }
-@media (max-width: 991.98px) {
-  .wk-lang--float { position: fixed; top: calc(.75rem + env(safe-area-inset-top)); inset-inline-end: .75rem; }
-  .wk-lang--float button { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.18); color: #fff; backdrop-filter: blur(6px); }
-}
 
 [dir=ltr] .adm-col__tip { direction: ltr; }
+
+/* ---------- Compact language toggle (phones: top bar and sign-in pages) ---------- */
+.wk-langtog { display: inline-flex; align-items: center; height: 42px; padding: 3px; gap: 2px; flex: none;
+  border: 1px solid var(--wk-border); border-radius: 12px; background: var(--wk-card); }
+.wk-langtog button { border: 0; background: transparent; height: 100%; min-width: 34px; padding: 0 .55rem; border-radius: 9px;
+  font-size: .82rem; font-weight: 700; color: var(--wk-muted); line-height: 1; }
+.wk-langtog button[lang=ar] { font-family: 'Cairo', var(--bs-body-font-family); font-size: .95rem; }
+.wk-langtog button.on { background: var(--wk-primary); color: #fff; box-shadow: 0 2px 8px rgba(109, 94, 248, .35); cursor: default; }
+.wk-langtog button:not(.on):hover { color: var(--wk-primary-600); background: var(--wk-primary-50); }
+.wk-topbar .wk-langtog { margin-inline-start: auto; }
+.wk-topbar .wk-langtog + .wk-bell { margin-inline-start: 0; }
+.wk-langtog--float { position: absolute; top: 1rem; inset-inline-end: 1rem; z-index: 3; height: 36px; }
+@media (max-width: 991.98px) {
+  .wk-langtog--float { position: fixed; top: calc(.75rem + env(safe-area-inset-top)); inset-inline-end: .75rem;
+    background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .16); backdrop-filter: blur(8px); }
+  .wk-langtog--float button { color: rgba(255, 255, 255, .75); }
+  .wk-langtog--float button.on { background: #fff; color: var(--wk-ink); box-shadow: none; }
+  .wk-langtog--float button:not(.on):hover { background: rgba(255, 255, 255, .12); color: #fff; }
+}
+
+/* ---------- Phones: while the sidebar is open, only the sidebar scrolls ---------- */
+html.wk-scroll-lock, html.wk-scroll-lock body { overflow: hidden !important; overscroll-behavior: none; }
+@media (max-width: 991.98px) {
+  .wk-sidebar .offcanvas-body { overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+}

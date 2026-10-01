@@ -21,7 +21,7 @@
         <div class="wk-auth__copy">© {% now "Y" %} {% translate "وكيل" %}</div>
     </aside>
     <main class="wk-auth__main">
-        {% include "_language_switch.html" with lang_class="wk-lang--float" %}
+        {% include "_language_toggle.html" with lang_class="wk-langtog--float" %}
         <div class="wk-auth__card {% block card_class %}{% endblock %}">
             {% for message in messages %}<div class="alert {{ message.tags }} py-2">{{ message }}</div>{% endfor %}
             {% block auth_content %}{% endblock %}

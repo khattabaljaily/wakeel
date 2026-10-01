@@ -1,0 +1,5 @@
+{% load i18n %}<form method="post" action="{% url 'core:set_language' %}" class="wk-langtog {{ lang_class }}" aria-label="Language / اللغة">{% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <button name="language" value="ar" lang="ar" class="{% if LANGUAGE_CODE == 'ar' %}on{% endif %}" {% if LANGUAGE_CODE == 'ar' %}aria-pressed="true" type="button"{% endif %} title="العربية">ع</button>
+    <button name="language" value="en" lang="en" class="{% if LANGUAGE_CODE == 'en' %}on{% endif %}" {% if LANGUAGE_CODE == 'en' %}aria-pressed="true" type="button"{% endif %} title="English">EN</button>
+</form>

@@ -372,3 +372,12 @@ Wakeel.pwa = (function () {
     return { enablePush: enablePush, disablePush: disablePush, subscription: subscription, pushSupported: pushSupported,
              standalone: standalone, ios: ios };
 })();
+
+// Phones: while the sidebar (offcanvas) is open, lock the page so only the sidebar scrolls.
+// Bootstrap locks <body>, but the page scrolls on <html> here (it clips sideways overflow), so lock both.
+document.addEventListener('DOMContentLoaded', function () {
+    var sidebar = document.getElementById('wkSidebar');
+    if (!sidebar) return;
+    sidebar.addEventListener('show.bs.offcanvas', function () { document.documentElement.classList.add('wk-scroll-lock'); });
+    sidebar.addEventListener('hidden.bs.offcanvas', function () { document.documentElement.classList.remove('wk-scroll-lock'); });
+});

@@ -112,7 +112,7 @@
         {% endif %}
 
         <div class="wk-sidebar-foot">
-            {% include "_language_switch.html" with lang_class="wk-lang--dark" %}
+            {% include "_language_switch.html" with lang_class="wk-lang--dark d-none d-lg-flex" %}
             {% if user.is_superuser %}
             <div class="wk-ai-status">
                 <span class="wk-dot {% if not ai_enabled %}off{% endif %}"></span>
@@ -140,6 +140,7 @@
             <h1>{% block page_title %}{% endblock %}</h1>
             {% block subtitle %}{% endblock %}
         </div>
+        {% include "_language_toggle.html" with lang_class="d-lg-none" %}
         {% if not user.is_superuser %}
         <div class="dropdown wk-bell">
             <button class="wk-bell__btn" type="button" data-bs-toggle="dropdown" aria-label="{% translate "الإشعارات" %}{% if unread_notifications %} {% blocktranslate trimmed with unread_notifications=unread_notifications %}({{ unread_notifications }} غير مقروءة){% endblocktranslate %}{% endif %}">

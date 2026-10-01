@@ -381,3 +381,12 @@ document.addEventListener('DOMContentLoaded', function () {
     sidebar.addEventListener('show.bs.offcanvas', function () { document.documentElement.classList.add('wk-scroll-lock'); });
     sidebar.addEventListener('hidden.bs.offcanvas', function () { document.documentElement.classList.remove('wk-scroll-lock'); });
 });
+
+// ---------- Desktop top bar height, for sticky columns that sit below it ----------
+(function () {
+    var bar = document.querySelector('.wk-topbar');
+    if (!bar || !window.ResizeObserver) return;
+    new ResizeObserver(function () {
+        document.documentElement.style.setProperty('--wk-topbar-h', bar.offsetHeight + 'px');
+    }).observe(bar);
+})();

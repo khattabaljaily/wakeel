@@ -112,7 +112,6 @@
         {% endif %}
 
         <div class="wk-sidebar-foot">
-            {% include "_language_switch.html" with lang_class="wk-lang--dark d-none d-lg-flex" %}
             {% if user.is_superuser %}
             <div class="wk-ai-status">
                 <span class="wk-dot {% if not ai_enabled %}off{% endif %}"></span>
@@ -136,11 +135,13 @@
 <main class="wk-main">
     <header class="wk-topbar">
         <button class="wk-menu-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#wkSidebar" aria-label="{% translate "القائمة" %}"><i class="bi bi-list fs-5"></i></button>
-        <div>
+        <div class="wk-topbar__title">
             <h1>{% block page_title %}{% endblock %}</h1>
             {% block subtitle %}{% endblock %}
         </div>
-        {% include "_language_toggle.html" with lang_class="d-lg-none" %}
+        <div class="actions">{% block actions %}{% endblock %}</div>
+        <div class="wk-topbar__tools">
+        {% include "_language_toggle.html" %}
         {% if not user.is_superuser %}
         <div class="dropdown wk-bell">
             <button class="wk-bell__btn" type="button" data-bs-toggle="dropdown" aria-label="{% translate "الإشعارات" %}{% if unread_notifications %} {% blocktranslate trimmed with unread_notifications=unread_notifications %}({{ unread_notifications }} غير مقروءة){% endblocktranslate %}{% endif %}">
@@ -163,7 +164,7 @@
             </div>
         </div>
         {% endif %}
-        <div class="actions">{% block actions %}{% endblock %}</div>
+        </div>
     </header>
     <div class="wk-content">
         {% for message in messages %}

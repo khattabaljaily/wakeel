@@ -236,6 +236,10 @@ EMAIL_TIMEOUT = 15
 EMAIL_BACKEND = ('django.core.mail.backends.smtp.EmailBackend' if EMAIL_HOST
                  else 'django.core.mail.backends.console.EmailBackend')
 DEFAULT_FROM_EMAIL = get_secret('DEFAULT_FROM_EMAIL', 'وكيل <no-reply@wakeel.local>')
+# Shown on the terms and privacy pages: who provides Wakeel (left out when empty), and where subscribers reach
+# a person, including data deletion requests.
+LEGAL_ENTITY = get_secret('LEGAL_ENTITY', '')
+SUPPORT_EMAIL = get_secret('SUPPORT_EMAIL', '')
 PASSWORD_RESET_TIMEOUT = 60 * 60 * 24  # 1 day
 
 # Wakeel is a SaaS: anyone can sign up and create their own company workspace.
@@ -266,6 +270,13 @@ META_APP_ID = get_secret('META_APP_ID', '')
 META_APP_SECRET = get_secret('META_APP_SECRET', '')
 META_GRAPH_VERSION = get_secret('META_GRAPH_VERSION', 'v23.0')
 META_ENABLED = bool(META_APP_ID and META_APP_SECRET)
+
+# TikTok app (developers.tiktok.com) with Login Kit and the Content Posting API (scope video.upload): designs are
+# sent to the creator's TikTok inbox to finish posting. Its redirect URI must be SITE_URL + /company/social/tiktok/callback/
+# (https only), and SITE_URL + /media/publish/ must be a verified URL prefix so TikTok can fetch the images.
+TIKTOK_CLIENT_KEY = get_secret('TIKTOK_CLIENT_KEY', '')
+TIKTOK_CLIENT_SECRET = get_secret('TIKTOK_CLIENT_SECRET', '')
+TIKTOK_ENABLED = bool(TIKTOK_CLIENT_KEY and TIKTOK_CLIENT_SECRET)
 
 
 # Design studio: post images are rendered from HTML templates by headless Chrome.

@@ -22,7 +22,8 @@ How you work:
 - Write for mobile: a strong first line, short paragraphs, a clear call to action, a few emojis only when they suit the tone.
 - Design text (headline, subheadline, CTA, badge) is printed on the image, so it must be short: headline up to about 7 words, subheadline up to about 14 words, CTA 2-4 words, badge 1-3 words or empty.
 - Hashtags: 3-8 relevant ones on one line, mixing the brand's own tags with topical ones; none for TikTok-only posts beyond 3-5.
-- TikTok and reels are video: for those posts write `video_script` as a short shooting script (hook in the first 2 seconds, then numbered scenes with what to film, on-screen text and voice-over, ending with a CTA). For other formats leave `video_script` empty."""
+- TikTok posts are photo posts by default: a vertical design the team posts on TikTok as a photo post. Use format "reel" only when the idea really needs video.
+- For reels, write `video_script` as a brief shooting script: a hook line for the first 2 seconds, then 3-5 numbered scenes (what to film and the on-screen text), ending with the CTA; under about 80 words. For other formats leave `video_script` empty."""
 
 LANGUAGE_RULES = {
     'ar_msa': 'Write every caption and all design text in clear, modern Standard Arabic (فصحى) that reads naturally on social media.',
@@ -166,7 +167,8 @@ def generate_plan(plan):
         for o in in_month(company, plan.month)
     ) or '- none known'
     tiktok_rule = (
-        '- Every post that includes tiktok must be format "reel" with a video_script.\n'
+        '- TikTok posts target tiktok only (never mixed with other platforms) and are image posts unless video is '
+        'essential to the idea; keep reels to at most about one in five posts.\n'
         if 'tiktok' in plan.platforms else ''
     )
 

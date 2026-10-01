@@ -9,19 +9,28 @@ from django.views.decorators.http import require_POST
 
 from apps.companies.decorators import company_required
 
+from . import tiktok
 from .meta import MetaError, login_url, pages_for_code
 from .models import SocialAccount
 
 STATE_KEY = 'wakeel_meta_state'
 PAGES_KEY = 'wakeel_meta_pages'
 RESULT_KEY = 'wakeel_meta_result'
+TIKTOK_STATE_KEY = 'wakeel_tiktok_state'
 
-# The setup wizard: each step belongs to one of the four stages shown in its progress bar.
-SETUP_STEPS = {'page': 0, 'page-create': 0, 'instagram': 1, 'ig-pro': 1, 'ig-link': 1, 'connect': 2, 'result': 3}
+# The setup wizard: each step belongs to one of the stages shown in its progress bar.
+# Meta: Page, Instagram, connect, result. TikTok has a short flow of its own: connect, result.
+SETUP_STEPS = {'page': 0, 'page-create': 0, 'instagram': 1, 'ig-pro': 1, 'ig-link': 1, 'connect': 2, 'result': 3,
+               'tiktok': 0}
+TIKTOK_RESULTS = ('tiktok-connected', 'tiktok-cancelled', 'tiktok-error')
 
 
 def _redirect_uri():
     return settings.SITE_URL + reverse('social:meta_callback')
+
+
+def _tiktok_redirect_uri():
+    return settings.SITE_URL + reverse('social:tiktok_callback')
 
 
 @company_required(manage=True)
@@ -29,6 +38,7 @@ def accounts(request):
     return render(request, 'social/accounts.html', {
         'accounts': {a.platform: a for a in SocialAccount.objects.filter(company=request.company)},
         'meta_enabled': settings.META_ENABLED, 'redirect_uri': _redirect_uri(),
+        'tiktok_enabled': settings.TIKTOK_ENABLED, 'tiktok_redirect_uri': _tiktok_redirect_uri(),
     })
 
 
@@ -39,17 +49,23 @@ def setup(request):
     if step not in SETUP_STEPS:
         step = 'page'
     accounts = {a.platform: a for a in SocialAccount.objects.filter(company=request.company)}
+    flow = 'tiktok' if step == 'tiktok' or request.GET.get('flow') == 'tiktok' else 'meta'
     result = None
     if step == 'result':
         result = request.session.pop(RESULT_KEY, None)
-        if result is None:  # the window closed without finishing, or the page was reloaded
+        if result in TIKTOK_RESULTS:
+            flow = 'tiktok'
+        elif flow == 'tiktok':  # the TikTok window closed without finishing
+            result = 'tiktok-cancelled'
+        elif result is None:  # the window closed without finishing, or the page was reloaded
             result = 'cancelled' if request.GET.get('closed') or 'facebook' not in accounts else 'connected'
         if result == 'connected' and 'instagram' not in accounts:
             result = 'no-instagram'
-    stage = SETUP_STEPS[step]
+    stage = 1 if flow == 'tiktok' and step == 'result' else SETUP_STEPS[step]
     return render(request, 'social/setup.html', {
-        'step': step, 'stage': stage, 'progress': stage / 3, 'result': result, 'accounts': accounts,
-        'meta_enabled': settings.META_ENABLED,
+        'step': step, 'flow': flow, 'stage': stage, 'progress': stage / (1 if flow == 'tiktok' else 3),
+        'result': result, 'accounts': accounts,
+        'meta_enabled': settings.META_ENABLED, 'tiktok_enabled': settings.TIKTOK_ENABLED,
     })
 
 
@@ -68,9 +84,43 @@ def meta_connect(request):
 def _finish(request, result, popup):
     """End a connection attempt: the wizard's result step shows what happened and what to do next."""
     request.session[RESULT_KEY] = result
+    result_url = reverse('social:setup') + '?step=result'
     if popup:  # tell the wizard in the opener window, then close
-        return render(request, 'social/popup_done.html', {'result_url': reverse('social:setup') + '?step=result'})
-    return redirect(reverse('social:setup') + '?step=result')
+        return render(request, 'social/popup_done.html', {'result_url': result_url})
+    return redirect(result_url)
+
+
+@company_required(manage=True)
+@require_POST
+def tiktok_connect(request):
+    if not settings.TIKTOK_ENABLED:
+        messages.error(request, _('ربط تيك توك غير متاح حالياً. تواصل مع الدعم لتفعيله.'))
+        return redirect('social:accounts')
+    state = secrets.token_urlsafe(24)
+    request.session[TIKTOK_STATE_KEY] = {'state': state, 'company': request.company.pk,
+                                         'popup': request.POST.get('popup') == '1'}
+    request.session.pop(RESULT_KEY, None)
+    return redirect(tiktok.login_url(_tiktok_redirect_uri(), state))
+
+
+@company_required(manage=True)
+def tiktok_callback(request):
+    expected = request.session.pop(TIKTOK_STATE_KEY, None) or {}
+    popup = expected.get('popup', False)
+    if not expected or request.GET.get('state') != expected.get('state') or expected.get('company') != request.company.pk:
+        messages.error(request, _('انتهت جلسة الربط أو لا تخص هذه الشركة. حاول مرة أخرى.'))
+        return _finish(request, 'tiktok-error', popup)
+    if 'error' in request.GET or 'code' not in request.GET:
+        return _finish(request, 'tiktok-cancelled', popup)
+    try:
+        fields = tiktok.account_for_code(request.GET['code'], _tiktok_redirect_uri())
+    except tiktok.TikTokError as exc:
+        messages.error(request, str(exc))
+        return _finish(request, 'tiktok-error', popup)
+    SocialAccount.objects.update_or_create(company=request.company, platform=SocialAccount.Platform.TIKTOK, defaults={
+        **fields, 'connected_by': request.user, 'last_error': '',
+    })
+    return _finish(request, 'tiktok-connected', popup)
 
 
 @company_required(manage=True)

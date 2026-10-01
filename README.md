@@ -22,11 +22,11 @@ It is multi-tenant SaaS: one account can run several companies (the pilots are E
 ## How it works
 
 1. **Brand kit**: during onboarding, the company describes its business, audience, tone of voice, do's and don'ts, colours, fonts, logo and contact channels.
-2. **Content plan**: pick a month, the platforms (Facebook, Instagram, TikTok), how many posts per week, and an optional brief. A background job asks the AI for the month's strategy (goals, content pillars, key dates) and every post: idea, caption, hashtags, posting time, design text, template choice, and a shooting script for reels/TikTok.
+2. **Content plan**: pick a month, the platforms (Facebook, Instagram, TikTok), how many posts per week, and an optional brief. A background job asks the AI for the month's strategy (goals, content pillars, key dates) and every post: idea, caption, hashtags, posting time, design text, template choice, and a short shooting script for reels. TikTok posts are TikTok-only photo posts (a 9:16 design) unless an idea really needs video, which keeps scripts, and AI tokens, to a minimum.
 3. **Design**: a second job renders each post image from one of seven templates (`bold`, `gradient`, `photo`, `split`, `minimal`, `quote`, `offer`) in square, 4:5 or 9:16 sizes. Photos from the company's media library can be used as backgrounds.
 4. **Review**: posts start as *awaiting review*. The post editor has a live preview (plus an Instagram/Facebook feed mock), template/size/background pickers, one-click AI rewrites, a comment thread, and a status workflow: draft → review → approved → published. Editors prepare posts; owners/admins approve them. The calendar supports drag and drop to reschedule and shows local occasions.
 5. **Client approval**: a manager can share a plan through a secret link (`/review/<token>/`). The client approves posts, requests changes or comments without an account; internal comments stay hidden.
-6. **Publish**: connect a Facebook Page and its Instagram professional account (Company → حسابات النشر), then publish an approved post with one click, or turn on auto-publishing so the worker publishes approved posts at their time. Reels and TikTok stay manual (download the image / copy the caption / export a plan's captions).
+6. **Publish**: connect a Facebook Page and its Instagram professional account (Company → حسابات النشر), then publish an approved post with one click, or turn on auto-publishing so the worker publishes approved posts at their time. TikTok photo posts go to the connected TikTok account's inbox, where the team finishes them in the app. Reels stay manual (download the image / copy the caption / export a plan's captions).
 
 ### Occasions
 
@@ -93,6 +93,7 @@ Open http://127.0.0.1:8000/, create an account, and follow the onboarding.
 | `SITE_URL` | Public address of the site, used in email links and for images Instagram downloads (must be public for Instagram publishing) |
 | `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `EMAIL_USE_TLS`, `DEFAULT_FROM_EMAIL` | SMTP for password reset and notifications. Empty `EMAIL_HOST` prints emails to the console |
 | `META_APP_ID`, `META_APP_SECRET`, `META_GRAPH_VERSION` | Meta app for Facebook/Instagram publishing. Add `SITE_URL/company/social/meta/callback/` as a valid OAuth redirect URI. Publishing to accounts other than the app's testers needs Meta app review for `pages_manage_posts` and `instagram_content_publish` |
+| `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET` | TikTok app (Login Kit + Content Posting API, scopes `user.info.basic`, `video.upload`): designs go to the creator's TikTok inbox to finish posting, which needs no TikTok audit. Redirect URI `SITE_URL/company/social/tiktok/callback/` (https only); add `SITE_URL/media/publish/` as a verified URL prefix so TikTok can fetch the images |
 | `CHROME_PATH` | Path to Chrome/Chromium for rendering. Empty = Playwright's bundled Chromium (`playwright install chromium`) |
 | `ALLOW_REGISTRATION` | Open sign-up (default `true`) |
 
@@ -157,5 +158,5 @@ static/        css, js, fonts, logo
 
 ## Roadmap
 
-- **Next**: TikTok publishing (Content Posting API, needs the shot video), pull post insights from Meta.
+- **Next**: TikTok video (needs the shot video), pull post insights from Meta.
 - **Later**: learn from performance to improve next month's plan, suggested replies to comments, subscriptions and billing for the SaaS.

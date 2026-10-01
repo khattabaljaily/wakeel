@@ -233,3 +233,117 @@ class PublishTests(TestCase):
                          {'date': timezone.localdate().isoformat()}, content_type='application/json')
         self.post.refresh_from_db()
         self.assertIsNone(self.post.publish_attempted_at)
+
+
+class FakeTikTok:
+    """Stands in for requests.request against open.tiktokapis.com; records every call."""
+
+    def __init__(self, statuses=('PROCESSING_DOWNLOAD', 'SEND_TO_USER_INBOX'), fail=None, scope='user.info.basic,video.upload'):
+        self.calls, self.statuses, self.fail, self.scope = [], list(statuses), fail or {}, scope
+
+    def __call__(self, method, url, **kwargs):
+        path = url.split('/v2/', 1)[1]
+        self.calls.append((method, path, kwargs))
+        if path in self.fail:
+            return FakeGraph.reply(self.fail[path], 400)
+        if path == 'oauth/token/':
+            return FakeGraph.reply({'access_token': 'tt-token', 'refresh_token': 'tt-refresh', 'expires_in': 86400,
+                                    'open_id': 'OPEN1', 'scope': self.scope})
+        if path.startswith('user/info/'):
+            return FakeGraph.reply({'data': {'user': {'open_id': 'OPEN1', 'display_name': 'إنجاز'}}, 'error': {'code': 'ok'}})
+        if path == 'post/publish/content/init/':
+            return FakeGraph.reply({'data': {'publish_id': 'PUB1'}, 'error': {'code': 'ok'}})
+        if path == 'post/publish/status/fetch/':
+            return FakeGraph.reply({'data': {'status': self.statuses.pop(0)}, 'error': {'code': 'ok'}})
+        raise AssertionError(f'unexpected call {method} {path}')
+
+
+@override_settings(TIKTOK_CLIENT_KEY='ck', TIKTOK_CLIENT_SECRET='cs', TIKTOK_ENABLED=True, SITE_URL='https://app.wakeel.example')
+class TikTokConnectTests(TestCase):
+    def setUp(self):
+        self.company = make_company()
+        self.owner = make_user('owner@x.test', self.company)
+        self.client.force_login(self.owner)
+
+    def start(self, popup=False):
+        response = self.client.post(reverse('social:tiktok_connect'), {'popup': '1'} if popup else {})
+        self.assertIn('tiktok.com/v2/auth/authorize/', response.url)
+        self.assertIn('video.upload', response.url)
+        return self.client.session['wakeel_tiktok_state']['state']
+
+    def callback(self, state, fake=None, **params):
+        with mock.patch('apps.social.tiktok.requests.request', fake or FakeTikTok()):
+            return self.client.get(reverse('social:tiktok_callback'), {'state': state, **(params or {'code': 'abc'})})
+
+    def test_connects_through_the_popup(self):
+        response = self.callback(self.start(popup=True))
+        self.assertContains(response, "BroadcastChannel('wakeel-meta')")
+        account = SocialAccount.objects.get(company=self.company, platform='tiktok')
+        self.assertEqual((account.external_id, account.name, account.access_token, account.refresh_token),
+                         ('OPEN1', 'إنجاز', 'tt-token', 'tt-refresh'))
+        self.assertGreater(account.token_expires_at, timezone.now() + datetime.timedelta(hours=23))
+        self.assertContains(self.client.get(reverse('social:setup'), {'step': 'result'}), 'تم ربط تيك توك')
+
+    def test_missing_upload_permission_is_an_error(self):
+        self.callback(self.start(), FakeTikTok(scope='user.info.basic'))
+        self.assertFalse(SocialAccount.objects.filter(platform='tiktok').exists())
+        self.assertContains(self.client.get(reverse('social:setup'), {'step': 'result'}), 'تعذّر الربط')
+
+    def test_cancel_and_forged_state(self):
+        self.callback(self.start(), error='access_denied')
+        self.assertContains(self.client.get(reverse('social:setup'), {'step': 'result'}), 'أُغلقت نافذة تيك توك')
+        self.start()
+        fake = FakeTikTok()
+        self.callback('forged', fake)
+        self.assertFalse(fake.calls)
+
+    def test_wizard_step_and_closed_window(self):
+        self.assertContains(self.client.get(reverse('social:setup'), {'step': 'tiktok'}), 'فتح نافذة تيك توك')
+        page = self.client.get(reverse('social:setup'), {'step': 'result', 'flow': 'tiktok'})
+        self.assertContains(page, 'أُغلقت نافذة تيك توك')
+
+
+@override_settings(MEDIA_ROOT=MEDIA, TIKTOK_CLIENT_KEY='ck', TIKTOK_CLIENT_SECRET='cs', SITE_URL='https://app.wakeel.example')
+class TikTokPublishTests(TestCase):
+    def setUp(self):
+        self.company = make_company()
+        self.owner = make_user('owner@x.test', self.company)
+        self.account = SocialAccount.objects.create(
+            company=self.company, platform='tiktok', external_id='OPEN1', name='إنجاز', access_token='old',
+            refresh_token='tt-refresh', token_expires_at=timezone.now() + datetime.timedelta(minutes=2))
+        self.post = Post.objects.create(company=self.company, title='عرض', platforms=['tiktok'], caption='نص',
+                                        hashtags='#وسم', status=Post.Status.APPROVED, image_stale=False,
+                                        scheduled_at=timezone.now())
+        self.post.image.save('t.png', ContentFile(png()))
+
+    def publish(self, fake):
+        from .services import publish
+        with mock.patch('apps.social.tiktok.requests.request', fake), mock.patch('apps.social.tiktok.time.sleep'):
+            return publish(self.post, actor=self.owner)
+
+    def test_renews_the_token_and_sends_to_the_inbox(self):
+        fake = FakeTikTok()
+        self.assertEqual(self.publish(fake), {'tiktok': 'PUB1'})
+        self.account.refresh_from_db()
+        self.assertEqual(self.account.access_token, 'tt-token')  # renewed: it had two minutes left
+        init = next(c for c in fake.calls if c[1] == 'post/publish/content/init/')
+        body = init[2]['json']
+        self.assertEqual((body['media_type'], body['post_mode']), ('PHOTO', 'MEDIA_UPLOAD'))
+        self.assertEqual(body['post_info']['description'], 'نص\n\n#وسم')
+        self.assertTrue(body['source_info']['photo_images'][0].startswith('https://app.wakeel.example/media/publish/'))
+        self.assertEqual(init[2]['headers']['Authorization'], 'Bearer tt-token')
+        self.assertEqual(os.listdir(os.path.join(MEDIA, 'publish')), [])  # removed once TikTok had fetched it
+        self.post.refresh_from_db()
+        self.assertEqual(self.post.status, Post.Status.PUBLISHED)
+        self.assertTrue(Notification.objects.filter(user=self.owner, message__contains='صندوق تيك توك').exists())
+
+    def test_failed_fetch_and_revoked_access(self):
+        from .services import PublishError
+        with self.assertRaises(PublishError):
+            self.publish(FakeTikTok(statuses=['FAILED']))
+        SocialAccount.objects.filter(pk=self.account.pk).update(token_expires_at=timezone.now())  # due for renewal again
+        fake = FakeTikTok(fail={'oauth/token/': {'error': 'invalid_grant', 'error_description': 'revoked'}})
+        with self.assertRaises(PublishError) as raised:
+            self.publish(fake)
+        self.assertIn('أعد ربط الحساب', str(raised.exception))
+        self.assertIn('أعد ربط', SocialAccount.objects.get(platform='tiktok').last_error)

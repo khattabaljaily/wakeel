@@ -1,4 +1,4 @@
-"""Publish approved posts to the connected Meta accounts, now or at their scheduled time."""
+"""Publish approved posts to the connected accounts (Meta, and TikTok's inbox), now or at their scheduled time."""
 import datetime
 import io
 import logging
@@ -19,12 +19,14 @@ from apps.content.models import Post
 from apps.content.services import set_status
 from apps.notifications.services import managers, notify
 
+from . import tiktok
 from .meta import MetaError, publish_facebook, publish_instagram
 from .models import SocialAccount
+from .tiktok import TikTokError
 
 logger = logging.getLogger(__name__)
 
-# Meta publishing covers still images and stories; reels need a video the team shoots.
+# Publishing covers still images and stories (TikTok gets them as photo posts); reels need a video the team shoots.
 PUBLISHABLE_FORMATS = (Post.Format.IMAGE, Post.Format.STORY)
 # A post whose time passed longer ago than this (worker was down, say) is left for a human to decide.
 LATE_LIMIT = datetime.timedelta(hours=6)
@@ -45,11 +47,11 @@ def check_publishable(post):
     if post.format not in PUBLISHABLE_FORMATS:
         raise PublishError(_('الفيديو القصير يُنشر يدوياً بعد تصويره؛ النشر التلقائي يدعم الصور والقصص فقط.'))
     if not targets(post):
-        raise PublishError(_('لا يوجد حساب مربوط لمنصات هذا المنشور. اربط فيسبوك أو إنستغرام من «حسابات النشر».'))
+        raise PublishError(_('لا يوجد حساب مربوط لمنصات هذا المنشور. اربط حساباتك من «حسابات النشر».'))
 
 
 def _jpeg_copy(post):
-    """Instagram accepts JPEG only, fetched from a public URL: save a temporary JPEG under MEDIA."""
+    """Instagram and TikTok take a JPEG they fetch from a public URL: save a temporary one under MEDIA."""
     with post.image.open('rb') as f, Image.open(f) as im:
         buf = io.BytesIO()
         im.convert('RGB').save(buf, 'JPEG', quality=92)
@@ -66,6 +68,7 @@ def publish(post, actor=None):
         post.refresh_from_db()
     story = post.format == Post.Format.STORY
     done, errors = dict(post.external_ids or {}), []
+    already_sent = 'tiktok' in done
     for account in targets(post):
         if account.platform in done:
             continue  # already published there on an earlier attempt
@@ -73,14 +76,20 @@ def publish(post, actor=None):
             if account.platform == SocialAccount.Platform.FACEBOOK:
                 done['facebook'] = publish_facebook(account.external_id, account.access_token, post.full_caption,
                                                     post.image.path, story=story)
-            else:
+            elif account.platform == SocialAccount.Platform.INSTAGRAM:
                 name, url = _jpeg_copy(post)
                 try:
                     done['instagram'] = publish_instagram(account.external_id, account.access_token, post.full_caption,
                                                           url, story=story)
                 finally:
                     default_storage.delete(name)
-        except MetaError as exc:
+            else:  # TikTok: to the creator's inbox, where they finish the post in the app
+                name, url = _jpeg_copy(post)
+                try:
+                    done['tiktok'] = tiktok.send_photo(tiktok.fresh_token(account), url, post.title, post.full_caption)
+                finally:
+                    default_storage.delete(name)
+        except (MetaError, TikTokError) as exc:
             errors.append(f'{account.get_platform_display()}: {exc}')
             if exc.expired:
                 account.last_error = str(exc)
@@ -101,6 +110,10 @@ def publish(post, actor=None):
     notify(managers(post.company), post.company,
            format_lazy(_('نُشر «{title}» على {platforms}.'), title=post.title, platforms=_names_text(done)),
            post.get_absolute_url(), icon='bi-send-check', actor=actor)
+    if 'tiktok' in done and not already_sent:
+        notify(managers(post.company), post.company,
+               format_lazy(_('«{title}» في صندوق تيك توك: افتح تطبيق تيك توك واضغط الإشعار لإكمال النشر.'), title=post.title),
+               post.get_absolute_url(), icon='bi-tiktok', email=True)
     return done
 
 

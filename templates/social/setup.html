@@ -2,15 +2,20 @@
 {% load i18n %}
 {% block title %}{% translate "ربط حسابات النشر" %}{% endblock %}
 {% block page_title %}{% translate "ربط حسابات النشر" %}{% endblock %}
-{% block subtitle %}<div class="subtitle">{% translate "خطوات قصيرة ترافقك حتى يصبح وكيل قادراً على النشر في صفحتك. لا تحتاج إلى حساب مطوّر أو تطبيق في Meta." %}</div>{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "خطوات قصيرة ترافقك حتى يصبح وكيل قادراً على النشر في حساباتك. لا تحتاج إلى حساب مطوّر أو أي إعداد تقني." %}</div>{% endblock %}
 {% block actions %}<a href="{% url 'social:accounts' %}" class="btn btn-light">{% translate "إغلاق" %}</a>{% endblock %}
 {% block content %}
 <div class="wk-setup">
     <div class="wk-steps wk-steps--static" style="--progress: {{ progress }}">
+        {% if flow == 'tiktok' %}
+        <div class="wk-step {% if stage == 0 %}active{% else %}done{% endif %}"><span class="n">1</span> <span class="t">{% translate "ربط تيك توك" %}</span></div>
+        <div class="wk-step {% if stage == 1 %}active{% endif %}"><span class="n">2</span> <span class="t">{% translate "النتيجة" %}</span></div>
+        {% else %}
         <div class="wk-step {% if stage == 0 %}active{% elif stage > 0 %}done{% endif %}"><span class="n">1</span> <span class="t">{% translate "صفحة فيسبوك" %}</span></div>
         <div class="wk-step {% if stage == 1 %}active{% elif stage > 1 %}done{% endif %}"><span class="n">2</span> <span class="t">{% translate "إنستغرام" %}</span></div>
         <div class="wk-step {% if stage == 2 %}active{% elif stage > 2 %}done{% endif %}"><span class="n">3</span> <span class="t">{% translate "الربط" %}</span></div>
         <div class="wk-step {% if stage == 3 %}active{% endif %}"><span class="n">4</span> <span class="t">{% translate "النتيجة" %}</span></div>
+        {% endif %}
     </div>
 
     <div class="wk-card"><div class="wk-card-body wk-setup__body">
@@ -83,20 +88,63 @@
             <li>{% translate "اترك كل الصلاحيات مفعّلة ثم اضغط «حفظ». بدونها لا يستطيع وكيل النشر." %}</li>
         </ol>
         {% if meta_enabled %}
-        <form method="post" action="{% url 'social:meta_connect' %}" id="wkMetaConnect">{% csrf_token %}
+        <form method="post" action="{% url 'social:meta_connect' %}" id="wkConnect">{% csrf_token %}
             <button class="btn btn-primary btn-lg"><i class="bi bi-facebook"></i> {% translate "فتح نافذة فيسبوك" %}</button>
         </form>
         {% else %}
         <button class="btn btn-primary btn-lg" disabled><i class="bi bi-facebook"></i> {% translate "فتح نافذة فيسبوك" %}</button>
         <div class="alert alert-info mt-3 mb-0"><i class="bi bi-info-circle"></i> {% translate "ربط فيسبوك وإنستغرام غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله." %}</div>
         {% endif %}
-        <div class="wk-setup__waiting" id="wkMetaWaiting" hidden>
+        <div class="wk-setup__waiting" id="wkWaiting" hidden>
             <div class="spinner-border spinner-border-sm text-primary"></div>
             <div class="flex-grow-1"><strong>{% translate "بانتظار نافذة فيسبوك…" %}</strong>
                 <div class="small-muted">{% translate "أكمل الخطوات هناك وسنتابع هنا تلقائياً." %}</div></div>
             <a href="?step=result&closed=1" class="btn btn-sm btn-light">{% translate "أغلقتها؟ تابع" %}</a>
         </div>
         <div class="wk-setup__nav"><a href="?step=instagram" class="btn btn-link px-0">{% translate "رجوع" %}</a></div>
+
+    {% elif step == 'tiktok' %}
+        <div class="wk-setup__icon wk-setup__icon--tiktok"><i class="bi bi-tiktok"></i></div>
+        <h2>{% translate "اربط حساب تيك توك" %}</h2>
+        <p>{% translate "بعد الربط يرسل وكيل تصاميم منشورات تيك توك المعتمدة إلى صندوق الوارد في تطبيق تيك توك. تضغط الإشعار، تضيف موسيقى إن أردت، ثم تنشر. لا يُنشر شيء دون أن تضغط «نشر» بنفسك." %}</p>
+        <p class="mb-2">{% translate "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:" %}</p>
+        <ol class="wk-setup__list">
+            <li>{% translate "سجّل الدخول بحساب تيك توك الخاص بالشركة." %}</li>
+            <li>{% translate "راجع الصلاحيات واضغط «متابعة» للموافقة عليها." %}</li>
+        </ol>
+        {% if tiktok_enabled %}
+        <form method="post" action="{% url 'social:tiktok_connect' %}" id="wkConnect">{% csrf_token %}
+            <button class="btn btn-dark btn-lg"><i class="bi bi-tiktok"></i> {% translate "فتح نافذة تيك توك" %}</button>
+        </form>
+        {% else %}
+        <button class="btn btn-dark btn-lg" disabled><i class="bi bi-tiktok"></i> {% translate "فتح نافذة تيك توك" %}</button>
+        <div class="alert alert-info mt-3 mb-0"><i class="bi bi-info-circle"></i> {% translate "ربط تيك توك غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله." %}</div>
+        {% endif %}
+        <div class="wk-setup__waiting" id="wkWaiting" hidden>
+            <div class="spinner-border spinner-border-sm text-primary"></div>
+            <div class="flex-grow-1"><strong>{% translate "بانتظار نافذة تيك توك…" %}</strong>
+                <div class="small-muted">{% translate "أكمل الخطوات هناك وسنتابع هنا تلقائياً." %}</div></div>
+            <a href="?step=result&flow=tiktok" class="btn btn-sm btn-light">{% translate "أغلقتها؟ تابع" %}</a>
+        </div>
+        <div class="wk-setup__nav"><a href="{% url 'social:accounts' %}" class="btn btn-link px-0">{% translate "رجوع" %}</a></div>
+
+    {% elif step == 'result' and flow == 'tiktok' %}
+        {% if result == 'tiktok-connected' %}
+            <div class="wk-setup__icon wk-setup__icon--ok"><i class="bi bi-check-lg"></i></div>
+            <h2>{% translate "تم ربط تيك توك" %}</h2>
+            <p>{% blocktranslate trimmed with name=accounts.tiktok.name %}سيرسل وكيل منشورات تيك توك المعتمدة إلى صندوق «{{ name }}» في موعدها، أو فوراً حين تضغط «انشر الآن». افتح تطبيق تيك توك واضغط الإشعار لإكمال كل منشور.{% endblocktranslate %}</p>
+            <a href="{% url 'social:accounts' %}" class="btn btn-primary">{% translate "إعداد النشر التلقائي" %}</a>
+        {% elif result == 'tiktok-cancelled' %}
+            <div class="wk-setup__icon wk-setup__icon--warn"><i class="bi bi-x-lg"></i></div>
+            <h2>{% translate "لم يكتمل الربط" %}</h2>
+            <p>{% translate "أُغلقت نافذة تيك توك قبل الموافقة. أعد المحاولة واضغط «متابعة» في آخر النافذة." %}</p>
+            <a href="?step=tiktok" class="btn btn-primary">{% translate "إعادة المحاولة" %}</a>
+        {% else %}
+            <div class="wk-setup__icon wk-setup__icon--warn"><i class="bi bi-exclamation-lg"></i></div>
+            <h2>{% translate "تعذّر الربط" %}</h2>
+            <p>{% translate "حدث خطأ أثناء الربط، والتفاصيل في الأعلى. أعد المحاولة، وإن تكرر ذلك تواصل مع الدعم." %}</p>
+            <a href="?step=tiktok" class="btn btn-primary">{% translate "إعادة المحاولة" %}</a>
+        {% endif %}
 
     {% elif step == 'result' %}
         {% with fb=accounts.facebook ig=accounts.instagram %}
@@ -160,9 +208,9 @@
     });
 
     // Connecting: Facebook's login runs in a popup; the popup announces the end and the wizard shows the result.
-    var form = document.getElementById('wkMetaConnect');
+    var form = document.getElementById('wkConnect');
     if (!form) return;
-    var resultUrl = '?step=result';
+    var resultUrl = '?step=result{% if flow == "tiktok" %}&flow=tiktok{% endif %}';
     function done() { location.href = resultUrl; }
     try { new BroadcastChannel('wakeel-meta').onmessage = done; } catch (e) {}
     addEventListener('storage', function (e) { if (e.key === 'wakeel-meta-done') done(); });
@@ -172,7 +220,7 @@
         var flag = form.querySelector('[name=popup]') || form.appendChild(Object.assign(document.createElement('input'), {type: 'hidden', name: 'popup'}));
         flag.value = '1';
         form.target = 'wkMeta';
-        document.getElementById('wkMetaWaiting').hidden = false;
+        document.getElementById('wkWaiting').hidden = false;
     });
 })();
 </script>

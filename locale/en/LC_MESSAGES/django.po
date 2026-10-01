@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 07:24+0300\n"
+"POT-Creation-Date: 2026-10-01 08:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1050,6 +1050,12 @@ msgstr "[Video script]"
 msgid "لا توجد بيانات"
 msgstr "No data"
 
+msgid "شروط الاستخدام"
+msgstr "Terms of use"
+
+msgid "سياسة الخصوصية"
+msgstr "Privacy policy"
+
 msgid "وكيل · مدير التسويق الذكي"
 msgstr "Wakeel · Your AI marketing manager"
 
@@ -1346,12 +1352,10 @@ msgstr ""
 "Short videos are published by hand after filming; auto-publishing supports "
 "images and stories only."
 
-msgid ""
-"لا يوجد حساب مربوط لمنصات هذا المنشور. اربط فيسبوك أو إنستغرام من «حسابات "
-"النشر»."
+msgid "لا يوجد حساب مربوط لمنصات هذا المنشور. اربط حساباتك من «حسابات النشر»."
 msgstr ""
-"No connected account for this post's platforms. Connect Facebook or "
-"Instagram from Publishing accounts."
+"No account is connected for this post's platforms. Connect your accounts in "
+"“Publishing accounts”."
 
 #, python-brace-format
 msgid "تعذّر نشر «{title}»: {error}"
@@ -1360,6 +1364,13 @@ msgstr "Couldn't publish “{title}”: {error}"
 #, python-brace-format
 msgid "نُشر «{title}» على {platforms}."
 msgstr "“{title}” was published on {platforms}."
+
+#, python-brace-format
+msgid ""
+"«{title}» في صندوق تيك توك: افتح تطبيق تيك توك واضغط الإشعار لإكمال النشر."
+msgstr ""
+"“{title}” is in your TikTok inbox: open the TikTok app and tap the "
+"notification to finish posting."
 
 msgid "، "
 msgstr ", "
@@ -1377,10 +1388,49 @@ msgstr "Publishing…"
 msgid "نُشر على %(platforms)s."
 msgstr "Published on %(platforms)s."
 
+msgid "تعذّر الوصول إلى خوادم تيك توك. تحقق من اتصال الخادم بالإنترنت."
+msgstr ""
+"Couldn't reach TikTok's servers. Check the server's internet connection."
+
+msgid "انتهت صلاحية ربط تيك توك أو أُلغي. أعد ربط الحساب من «حسابات النشر»."
+msgstr ""
+"The TikTok connection expired or was revoked. Reconnect the account in "
+"“Publishing accounts”."
+
+#, python-format
+msgid "رفض تيك توك الطلب: %(detail)s"
+msgstr "TikTok rejected the request: %(detail)s"
+
+msgid ""
+"لم تُمنح صلاحية إرسال المنشورات إلى تيك توك. أعد الربط ووافق على كل الصلاحيات."
+msgstr ""
+"Permission to send posts to TikTok wasn't granted. Reconnect and approve "
+"every permission."
+
+msgid "أُلغي ربط تيك توك من التطبيق. أعد ربط الحساب من «حسابات النشر»."
+msgstr ""
+"TikTok access was removed in the app. Reconnect the account in “Publishing "
+"accounts”."
+
+#, python-format
+msgid ""
+"لم يتمكن تيك توك من استلام الصورة (%(reason)s). حاول مرة أخرى لاحقاً، وإن "
+"تكرر ذلك تواصل مع الدعم."
+msgstr ""
+"TikTok couldn't receive the image (%(reason)s). Try again later, and if it "
+"keeps happening, contact support."
+
+msgid "تأخر تيك توك في استلام الصورة. حاول الإرسال مرة أخرى."
+msgstr "TikTok is taking too long to receive the image. Try sending it again."
+
 msgid "ربط فيسبوك وإنستغرام غير متاح حالياً. تواصل مع الدعم لتفعيله."
 msgstr ""
 "Facebook and Instagram connection isn't available right now. Contact support "
 "to enable it."
+
+msgid "ربط تيك توك غير متاح حالياً. تواصل مع الدعم لتفعيله."
+msgstr ""
+"TikTok connection isn't available right now. Contact support to enable it."
 
 msgid "انتهت جلسة الربط أو لا تخص هذه الشركة. حاول مرة أخرى."
 msgstr ""
@@ -2865,6 +2915,9 @@ msgstr "Thanks, the post is approved"
 msgid "وصلت ملاحظتك إلى الفريق"
 msgstr "Your note has reached the team"
 
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — your AI marketing manager"
+
 #, python-format
 msgid "أهلاً %(display_name)s 👋"
 msgstr "Hi %(display_name)s 👋"
@@ -3060,8 +3113,8 @@ msgstr "Review and approve"
 msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
 msgstr "Change anything with a click, and approve posts for publishing."
 
-msgid "وكيل — مدير التسويق الذكي"
-msgstr "Wakeel — your AI marketing manager"
+msgid "آخر تحديث:"
+msgstr "Last updated:"
 
 msgid "لا يوجد اتصال · وكيل"
 msgstr "No connection · Wakeel"
@@ -3824,10 +3877,24 @@ msgstr "Disconnect Instagram?"
 msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
 msgstr "Wakeel will no longer publish to this account."
 
-msgid "يُنشر يدوياً: صوّر الفيديو وفق السيناريو ثم انشره من التطبيق."
+msgid "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق"
+msgstr "Posts arrive in your TikTok inbox for you to finish in the app"
+
+msgid ""
+"اربطه ليرسل وكيل تصاميم تيك توك إلى صندوق التطبيق، فتنشرها بضغطة. الفيديو "
+"يُصوَّر ويُنشر يدوياً."
 msgstr ""
-"Published by hand: film the video following the script, then post it from "
-"the app."
+"Connect it and Wakeel sends TikTok designs to the app's inbox, so you post "
+"them with a tap. Videos are shot and posted by hand."
+
+msgid "فصل تيك توك؟"
+msgstr "Disconnect TikTok?"
+
+msgid "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن."
+msgstr "Wakeel will no longer send posts to this account."
+
+msgid "ربط"
+msgstr "Connect"
 
 msgid "إعادة الربط أو تغيير الصفحة"
 msgstr "Reconnect or change the Page"
@@ -3858,6 +3925,11 @@ msgid "التصاميم الثابتة والقصص على فيسبوك وإنس
 msgstr ""
 "Static designs and stories on Facebook and Instagram, with the text and "
 "hashtags."
+
+msgid "تصاميم تيك توك تصل إلى صندوق تطبيق تيك توك، فتكمل نشرها بضغطة."
+msgstr ""
+"TikTok designs arrive in the TikTok app's inbox, where you finish posting "
+"with a tap."
 
 msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
 msgstr "Short videos are published by hand after filming."
@@ -3905,17 +3977,20 @@ msgid "ربط حسابات النشر"
 msgstr "Connect publishing accounts"
 
 msgid ""
-"خطوات قصيرة ترافقك حتى يصبح وكيل قادراً على النشر في صفحتك. لا تحتاج إلى حساب "
-"مطوّر أو تطبيق في Meta."
+"خطوات قصيرة ترافقك حتى يصبح وكيل قادراً على النشر في حساباتك. لا تحتاج إلى "
+"حساب مطوّر أو أي إعداد تقني."
 msgstr ""
-"A few short steps until Wakeel can post to your Page. You don't need a "
-"developer account or a Meta app."
+"A few short steps until Wakeel can post to your accounts. No developer "
+"account or technical setup needed."
 
-msgid "الربط"
-msgstr "Connect"
+msgid "ربط تيك توك"
+msgstr "Connect TikTok"
 
 msgid "النتيجة"
 msgstr "Result"
+
+msgid "الربط"
+msgstr "Connect"
 
 msgid "هل لدى شركتك صفحة على فيسبوك؟"
 msgstr "Does your company have a Facebook Page?"
@@ -4077,6 +4152,72 @@ msgstr "Finish the steps there and we'll carry on here automatically."
 msgid "أغلقتها؟ تابع"
 msgstr "Closed it? Continue"
 
+msgid "اربط حساب تيك توك"
+msgstr "Connect your TikTok account"
+
+msgid ""
+"بعد الربط يرسل وكيل تصاميم منشورات تيك توك المعتمدة إلى صندوق الوارد في "
+"تطبيق تيك توك. تضغط الإشعار، تضيف موسيقى إن أردت، ثم تنشر. لا يُنشر شيء دون "
+"أن تضغط «نشر» بنفسك."
+msgstr ""
+"Once connected, Wakeel sends approved TikTok designs to the inbox in the "
+"TikTok app. Tap the notification, add music if you like, then post. Nothing "
+"goes live until you press “Post” yourself."
+
+msgid "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:"
+msgstr "A TikTok window will open. Here's what to do in it:"
+
+msgid "سجّل الدخول بحساب تيك توك الخاص بالشركة."
+msgstr "Log in with the company's TikTok account."
+
+msgid "راجع الصلاحيات واضغط «متابعة» للموافقة عليها."
+msgstr "Review the permissions and press “Continue” to approve them."
+
+msgid "فتح نافذة تيك توك"
+msgstr "Open the TikTok window"
+
+msgid "ربط تيك توك غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله."
+msgstr ""
+"TikTok connection isn't available for your account yet. Contact support to "
+"enable it."
+
+msgid "بانتظار نافذة تيك توك…"
+msgstr "Waiting for the TikTok window…"
+
+msgid "تم ربط تيك توك"
+msgstr "TikTok is connected"
+
+#, python-format
+msgid ""
+"سيرسل وكيل منشورات تيك توك المعتمدة إلى صندوق «%(name)s» في موعدها، أو فوراً "
+"حين تضغط «انشر الآن». افتح تطبيق تيك توك واضغط الإشعار لإكمال كل منشور."
+msgstr ""
+"Wakeel will send approved TikTok posts to the “%(name)s” inbox at their "
+"time, or right away when you press “Publish now”. Open the TikTok app and "
+"tap the notification to finish each post."
+
+msgid "إعداد النشر التلقائي"
+msgstr "Set up automatic posting"
+
+msgid "لم يكتمل الربط"
+msgstr "The connection didn't finish"
+
+msgid ""
+"أُغلقت نافذة تيك توك قبل الموافقة. أعد المحاولة واضغط «متابعة» في آخر النافذة."
+msgstr ""
+"The TikTok window closed before you approved. Try again and press “Continue” "
+"at the end."
+
+msgid "تعذّر الربط"
+msgstr "Couldn't connect"
+
+msgid ""
+"حدث خطأ أثناء الربط، والتفاصيل في الأعلى. أعد المحاولة، وإن تكرر ذلك تواصل "
+"مع الدعم."
+msgstr ""
+"Something went wrong while connecting; the details are above. Try again, and "
+"if it keeps happening, contact support."
+
 msgid "تم الربط بنجاح"
 msgstr "Connected successfully"
 
@@ -4085,9 +4226,6 @@ msgid "سينشر وكيل على صفحة «%(page)s» وحساب إنستغر�
 msgstr ""
 "Wakeel will post to the “%(page)s” Page and the Instagram account "
 "@%(username)s."
-
-msgid "إعداد النشر التلقائي"
-msgstr "Set up automatic posting"
 
 #, python-format
 msgid "تم ربط صفحة «%(page)s»"
@@ -4135,22 +4273,9 @@ msgstr ""
 "Ask them for “Full control”, or add them to your team as an Admin so they "
 "can connect it themselves"
 
-msgid "لم يكتمل الربط"
-msgstr "The connection didn't finish"
-
 msgid ""
 "أُغلقت نافذة فيسبوك قبل الحفظ. لا بأس، أعد المحاولة وتأكد من الضغط على «حفظ» "
 "في آخر النافذة."
 msgstr ""
 "The Facebook window closed before saving. No problem: try again, and make "
 "sure to press “Save” at the end."
-
-msgid "تعذّر الربط"
-msgstr "Couldn't connect"
-
-msgid ""
-"حدث خطأ أثناء الربط، والتفاصيل في الأعلى. أعد المحاولة، وإن تكرر ذلك تواصل "
-"مع الدعم."
-msgstr ""
-"Something went wrong while connecting; the details are above. Try again, and "
-"if it keeps happening, contact support."

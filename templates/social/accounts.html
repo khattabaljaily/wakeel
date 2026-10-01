@@ -19,7 +19,7 @@
         <div class="wk-card">
             <div class="wk-card-head"><h2><i class="bi bi-link-45deg text-primary"></i> {% translate "الحسابات المربوطة" %}</h2></div>
             <div class="list-group list-group-flush">
-                {% with fb=accounts.facebook ig=accounts.instagram %}
+                {% with fb=accounts.facebook ig=accounts.instagram tt=accounts.tiktok %}
                 <div class="list-group-item d-flex align-items-center gap-3 py-3">
                     <i class="bi bi-facebook fs-3" style="color:#1877f2"></i>
                     <div class="flex-grow-1 overflow-hidden">
@@ -45,12 +45,20 @@
                 </div>
                 <div class="list-group-item d-flex align-items-center gap-3 py-3">
                     <i class="bi bi-tiktok fs-3"></i>
-                    <div class="flex-grow-1"><div class="fw-semibold">{% translate "تيك توك" %}</div><div class="small-muted">{% translate "يُنشر يدوياً: صوّر الفيديو وفق السيناريو ثم انشره من التطبيق." %}</div></div>
+                    <div class="flex-grow-1 overflow-hidden">
+                        <div class="fw-semibold">{% translate "تيك توك" %}</div>
+                        {% if tt %}<div class="small-muted text-truncate" dir="auto">{{ tt.name }} · {% translate "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق" %}</div>
+                        {% if tt.last_error %}<div class="small text-danger">{{ tt.last_error }}</div>{% endif %}
+                        {% else %}<div class="small-muted">{% translate "اربطه ليرسل وكيل تصاميم تيك توك إلى صندوق التطبيق، فتنشرها بضغطة. الفيديو يُصوَّر ويُنشر يدوياً." %}</div>{% endif %}
+                    </div>
+                    {% if tt %}<form method="post" action="{% url 'social:disconnect' 'tiktok' %}">{% csrf_token %}
+                        <button class="btn btn-sm btn-light text-danger" data-confirm-title="{% translate "فصل تيك توك؟" %}" data-confirm="{% translate "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن." %}" data-confirm-ok="{% translate "فصل" %}">{% translate "فصل" %}</button></form>
+                    {% else %}<a href="{% url 'social:setup' %}?step=tiktok" class="btn btn-sm btn-dark flex-shrink-0"><i class="bi bi-tiktok"></i> {% translate "ربط" %}</a>{% endif %}
                 </div>
                 {% endwith %}
             </div>
             <div class="wk-card-body border-top">
-                {% if accounts %}<a href="{% url 'social:setup' %}?step=connect" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "إعادة الربط أو تغيير الصفحة" %}</a>
+                {% if accounts.facebook %}<a href="{% url 'social:setup' %}?step=connect" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "إعادة الربط أو تغيير الصفحة" %}</a>
                 {% else %}<a href="{% url 'social:setup' %}" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "ربط فيسبوك وإنستغرام" %}</a>
                     <span class="small-muted ms-2">{% translate "معالج يرافقك خطوة بخطوة" %}</span>{% endif %}
             </div>
@@ -68,6 +76,7 @@
             <strong class="d-block mb-2">{% translate "ما يُنشر تلقائياً" %}</strong>
             <ul class="mb-0 ps-3" style="line-height:2">
                 <li>{% translate "التصاميم الثابتة والقصص على فيسبوك وإنستغرام، مع النص والوسوم." %}</li>
+                <li>{% translate "تصاميم تيك توك تصل إلى صندوق تطبيق تيك توك، فتكمل نشرها بضغطة." %}</li>
                 <li>{% translate "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها." %}</li>
                 <li>{% translate "إذا فات موعد منشور بأكثر من 6 ساعات (مثلاً توقف الخادم) فلن يُنشر تلقائياً؛ انشره يدوياً من صفحته." %}</li>
                 <li>{% translate "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد." %}</li>

@@ -35,7 +35,7 @@ PLAN_DATA = {
         {'day': 5, 'time': '19:30', 'platforms': ['facebook', 'instagram'], 'format': 'image', 'pillar': 'تعليم',
          'objective': 'وعي', 'title': 'أول', 'headline': 'عنوان', 'subheadline': 'فرعي', 'cta': 'اطلب', 'badge': '',
          'template': 'gradient', 'caption': 'نص', 'hashtags': '#وسم', 'visual_notes': '', 'video_script': ''},
-        # Out-of-range day, bad time, unknown template, a platform outside the plan, TikTok forced to video.
+        # Out-of-range day, bad time, unknown template, a platform outside the plan, a script on an image post.
         {'day': 45, 'time': 'late', 'platforms': ['tiktok', 'linkedin'], 'format': 'image', 'pillar': 'تعليم',
          'objective': '', 'title': '', 'headline': 'فيديو', 'subheadline': '', 'cta': '', 'badge': '',
          'template': 'neon', 'caption': 'نص', 'hashtags': '', 'visual_notes': '', 'video_script': 'مشهد'},
@@ -63,13 +63,19 @@ class ApplyPlanTests(TestCase):
 
     def test_sanitises_bad_values(self):
         apply_plan(self.plan, PLAN_DATA)
-        video = Post.objects.get(headline='فيديو')
-        self.assertEqual(video.scheduled_at.astimezone(self.company.tzinfo).day, 28)  # clamped to Feb 28
-        self.assertEqual(video.platforms, ['tiktok'])
-        self.assertEqual(video.format, Post.Format.REEL)
-        self.assertEqual(video.size, Post.Size.STORY)
-        self.assertEqual(video.template, 'bold')
-        self.assertEqual(video.title, 'فيديو')
+        tiktok = Post.objects.get(headline='فيديو')
+        self.assertEqual(tiktok.scheduled_at.astimezone(self.company.tzinfo).day, 28)  # clamped to Feb 28
+        self.assertEqual(tiktok.platforms, ['tiktok'])
+        self.assertEqual(tiktok.format, Post.Format.IMAGE)  # a TikTok photo post, not forced to video
+        self.assertEqual(tiktok.size, Post.Size.STORY)
+        self.assertEqual(tiktok.video_script, '')
+        self.assertEqual(tiktok.template, 'bold')
+        self.assertEqual(tiktok.title, 'فيديو')
+
+    def test_reels_keep_their_script(self):
+        data = {**PLAN_DATA, 'posts': [{**PLAN_DATA['posts'][1], 'format': 'reel', 'day': 3}]}
+        reel = apply_plan(self.plan, data)[0]
+        self.assertEqual((reel.format, reel.size, reel.video_script), (Post.Format.REEL, Post.Size.STORY, 'مشهد'))
 
     def test_regenerating_replaces_posts(self):
         apply_plan(self.plan, PLAN_DATA)

@@ -39,7 +39,7 @@ def _parse_time(value):
 
 
 def default_size(fmt, platforms):
-    if fmt in (Post.Format.STORY, Post.Format.REEL):
+    if fmt in (Post.Format.STORY, Post.Format.REEL) or list(platforms) == ['tiktok']:  # TikTok photo posts are 9:16
         return Post.Size.STORY
     if 'instagram' in platforms:
         return Post.Size.PORTRAIT
@@ -51,14 +51,14 @@ def _post_fields(item, allowed_platforms):
     raw = raw if isinstance(raw, list) else []
     platforms = [p for p in dict.fromkeys(map(str, raw)) if p in allowed_platforms] or list(allowed_platforms)
     fmt = item.get('format') if item.get('format') in Post.Format.values else Post.Format.IMAGE
-    if 'tiktok' in platforms:
-        fmt = Post.Format.REEL
     template = item.get('template') if item.get('template') in TEMPLATES else 'bold'
     fields = {
         name: _clip(name, item.get(name))
         for name in ('title', 'pillar', 'objective', 'caption', 'hashtags', 'headline', 'subheadline',
                      'cta', 'badge', 'visual_notes', 'video_script')
     }
+    if fmt != Post.Format.REEL:
+        fields['video_script'] = ''
     fields['title'] = fields['title'] or fields['headline'][:200] or _('منشور')
     fields.update(platforms=platforms, format=fmt, template=template, size=default_size(fmt, platforms))
     return fields

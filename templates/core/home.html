@@ -10,7 +10,7 @@
         <div class="ms-auto d-flex gap-2 align-items-center">
             {% include "_language_switch.html" %}
             <a href="{% url 'accounts:login' %}" class="btn btn-light">{% translate "تسجيل الدخول" %}</a>
-            <a href="{% url 'accounts:register' %}" class="btn btn-primary">{% translate "ابدأ الآن" %}</a>
+            <a href="{% url 'accounts:register' %}" class="btn btn-primary d-none d-sm-inline-block">{% translate "ابدأ الآن" %}</a>
         </div>
     </div>
 </nav>

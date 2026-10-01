@@ -1,0 +1,42 @@
+<header class="wk-page-hero wk-page-hero--about">
+    <div class="container">
+        <span class="pill"><i class="bi bi-stars"></i> عن وكيل</span>
+        <h1>مدير تسويق ذكي <span class="grad">يعمل لشركتك</span></h1>
+        <p class="lead">وكيل يقوم بعمل وكالة التسويق كاملاً: يفهم علامتك، ويضع خطة المحتوى الشهرية، ويكتب المنشورات بلغة جمهورك، ويصممها بهويتك، ثم ينشرها في مواعيدها. وأنت تراجع وتعتمد فقط.</p>
+    </div>
+</header>
+
+<section class="wk-about container">
+    <h2 class="wk-about__title">ماذا يفعل وكيل؟</h2>
+    <div class="row g-3 g-lg-4">
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#efeaff;color:#6d5ef8"><i class="bi bi-person-badge"></i></div>
+            <h3>يفهم علامتك</h3><p>يقرأ موقع شركتك ليقترح ملفها: نشاطها وجمهورها وأسلوبها وألوانها، وتكمل أنت ما ينقص.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#fff4e0;color:#c27c0e"><i class="bi bi-bullseye"></i></div>
+            <h3>يخطط شهرك</h3><p>استراتيجية شهرية بأهداف ومحاور محتوى واضحة، تراعي مناسبات السوق المحلي من رمضان والأعياد إلى المواسم والأيام الوطنية.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#e7f6ef;color:#0f9d6b"><i class="bi bi-pencil-square"></i></div>
+            <h3>يكتب بلغة جمهورك</h3><p>منشورات بالفصحى أو باللهجة المحلية، بعناوين جذابة ودعوات واضحة ووسوم مناسبة، وسيناريوهات قصيرة لمقاطع الفيديو.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#fde8f0;color:#e1306c"><i class="bi bi-palette"></i></div>
+            <h3>يصمم بهويتك</h3><p>تصاميم جاهزة للنشر بألوانك وخطوطك وشعارك، بالمقاسات الصحيحة لكل منصة، وتعدّلها بضغطة.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#e7f0fe;color:#1877f2"><i class="bi bi-calendar-check"></i></div>
+            <h3>مراجعة واعتماد</h3><p>تقويم واحد لفريقك، بأدوار وصلاحيات، ورابط مراجعة لعميلك يعتمد منه الخطة دون حساب.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#eef0f4;color:#111"><i class="bi bi-send-check"></i></div>
+            <h3>ينشر في موعده</h3><p>ينشر المعتمد على فيسبوك وإنستغرام تلقائياً، ويرسل تصاميم تيك توك إلى صندوق التطبيق، ويجهّز خطة الشهر التالي من تلقاء نفسه.</p></div></div>
+    </div>
+
+    <h2 class="wk-about__title">كيف يعمل؟</h2>
+    <ol class="wk-about__steps">
+        <li><span class="num">1</span><div><strong>أضف شركتك</strong><p>اكتب رابط موقعها، ويقترح وكيل ملف العلامة لتراجعه.</p></div></li>
+        <li><span class="num">2</span><div><strong>اطلب خطة الشهر</strong><p>اختر المنصات وعدد المنشورات وأي توجيه خاص، ويجهّز وكيل الخطة وكل منشوراتها وتصاميمها خلال دقائق.</p></div></li>
+        <li><span class="num">3</span><div><strong>راجع واعتمد</strong><p>عدّل ما تشاء بضغطة، أو اطلب من وكيل إعادة صياغة منشور، ثم اعتمد.</p></div></li>
+        <li><span class="num">4</span><div><strong>اربط حساباتك ودعه ينشر</strong><p>معالج خطوة بخطوة يربط فيسبوك وإنستغرام وتيك توك، فلا تحتاج إلى أي خبرة تقنية.</p></div></li>
+    </ol>
+
+    <div class="wk-about__who">
+        <div>
+            <h2>من نحن</h2>
+            <p>وكيل{% if legal_entity %} خدمة من {{ legal_entity }}،{% endif %} صُمم للشركات في الأسواق العربية التي تريد حضوراً قوياً على وسائل التواصل دون تكلفة وكالة تسويق كاملة. نؤمن أن كل شركة تستحق تسويقاً احترافياً ومستمراً، بلغة جمهورها وهويتها.</p>
+            {% if support_email %}<p class="mb-0"><i class="bi bi-envelope"></i> <a href="mailto:{{ support_email }}" dir="ltr">{{ support_email }}</a></p>{% endif %}
+        </div>
+        {% if not user.is_authenticated %}<a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> ابدأ الآن</a>{% endif %}
+    </div>
+</section>

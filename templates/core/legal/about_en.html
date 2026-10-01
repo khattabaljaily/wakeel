@@ -1,0 +1,42 @@
+<header class="wk-page-hero wk-page-hero--about">
+    <div class="container">
+        <span class="pill"><i class="bi bi-stars"></i> About Wakeel</span>
+        <h1>An AI marketing manager <span class="grad">working for your company</span></h1>
+        <p class="lead">Wakeel does a marketing agency's whole job: it understands your brand, plans the month's content, writes posts in your audience's language, designs them in your identity, then publishes them on time. You just review and approve.</p>
+    </div>
+</header>
+
+<section class="wk-about container">
+    <h2 class="wk-about__title">What does Wakeel do?</h2>
+    <div class="row g-3 g-lg-4">
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#efeaff;color:#6d5ef8"><i class="bi bi-person-badge"></i></div>
+            <h3>Understands your brand</h3><p>It reads your company's website to suggest its profile: business, audience, tone and colors. You fill in the rest.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#fff4e0;color:#c27c0e"><i class="bi bi-bullseye"></i></div>
+            <h3>Plans your month</h3><p>A monthly strategy with clear goals and content pillars, aware of local occasions, from Ramadan and Eid to seasons and national days.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#e7f6ef;color:#0f9d6b"><i class="bi bi-pencil-square"></i></div>
+            <h3>Writes like your audience</h3><p>Posts in Standard Arabic or the local dialect, with catchy headlines, clear calls to action, fitting hashtags, and short scripts for videos.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#fde8f0;color:#e1306c"><i class="bi bi-palette"></i></div>
+            <h3>Designs in your identity</h3><p>Ready-to-post designs in your colors, fonts and logo, sized right for each platform, and editable in a click.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#e7f0fe;color:#1877f2"><i class="bi bi-calendar-check"></i></div>
+            <h3>Review and approval</h3><p>One calendar for your team, with roles and permissions, and a review link your client can approve the plan from without an account.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="feature"><div class="ico" style="background:#eef0f4;color:#111"><i class="bi bi-send-check"></i></div>
+            <h3>Publishes on time</h3><p>It publishes approved posts to Facebook and Instagram automatically, sends TikTok designs to the app's inbox, and prepares next month's plan on its own.</p></div></div>
+    </div>
+
+    <h2 class="wk-about__title">How does it work?</h2>
+    <ol class="wk-about__steps">
+        <li><span class="num">1</span><div><strong>Add your company</strong><p>Enter its website, and Wakeel suggests the brand profile for you to review.</p></div></li>
+        <li><span class="num">2</span><div><strong>Ask for the month's plan</strong><p>Pick the platforms, how many posts and any special brief, and Wakeel prepares the plan with all its posts and designs in minutes.</p></div></li>
+        <li><span class="num">3</span><div><strong>Review and approve</strong><p>Change anything in a click, or ask Wakeel to rewrite a post, then approve.</p></div></li>
+        <li><span class="num">4</span><div><strong>Connect your accounts and let it post</strong><p>A step-by-step wizard connects Facebook, Instagram and TikTok, with no technical know-how needed.</p></div></li>
+    </ol>
+
+    <div class="wk-about__who">
+        <div>
+            <h2>Who we are</h2>
+            <p>Wakeel{% if legal_entity %}, a service by {{ legal_entity }},{% endif %} is built for businesses in Arab markets that want a strong social media presence without the cost of a full marketing agency. We believe every business deserves professional, consistent marketing, in its audience's language and its own identity.</p>
+            {% if support_email %}<p class="mb-0"><i class="bi bi-envelope"></i> <a href="mailto:{{ support_email }}">{{ support_email }}</a></p>{% endif %}
+        </div>
+        {% if not user.is_authenticated %}<a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> Start now</a>{% endif %}
+    </div>
+</section>

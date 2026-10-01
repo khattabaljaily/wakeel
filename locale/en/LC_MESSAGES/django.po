@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 08:39+0300\n"
+"POT-Creation-Date: 2026-10-01 10:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1053,8 +1053,17 @@ msgstr "No data"
 msgid "شروط الاستخدام"
 msgstr "Terms of use"
 
+msgid "القواعد التي تنظّم استخدامك لوكيل، وما لك وما عليك."
+msgstr "The rules for using Wakeel: what you can expect, and what we expect of you."
+
 msgid "سياسة الخصوصية"
 msgstr "Privacy policy"
+
+msgid "ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها."
+msgstr "What data we collect, why, and how you control and delete it."
+
+msgid "عن وكيل"
+msgstr "About Wakeel"
 
 msgid "وكيل · مدير التسويق الذكي"
 msgstr "Wakeel · Your AI marketing manager"
@@ -3113,8 +3122,20 @@ msgstr "Review and approve"
 msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
 msgstr "Change anything with a click, and approve posts for publishing."
 
+msgid "وثائق وكيل"
+msgstr "Wakeel documents"
+
 msgid "آخر تحديث:"
 msgstr "Last updated:"
+
+msgid "في هذه الصفحة"
+msgstr "On this page"
+
+msgid "عندك سؤال؟"
+msgstr "Have a question?"
+
+msgid "راسلنا وسنرد عليك في أقرب وقت."
+msgstr "Email us and we'll get back to you soon."
 
 msgid "لا يوجد اتصال · وكيل"
 msgstr "No connection · Wakeel"

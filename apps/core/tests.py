@@ -203,7 +203,7 @@ class LegalPagesTests(TestCase):
             self.assertContains(page, reverse('core:privacy'))
 
 
-@override_settings(SUPPORT_EMAIL='help@wakeel.example', LEGAL_ENTITY='')
+@override_settings(SUPPORT_EMAIL='help@wakeel.example', LEGAL_ENTITY='', LEGAL_ENTITY_AR='')
 class LegalPagesTests(TestCase):
     def test_public_in_both_languages(self):
         for name, ar, en in (('core:terms', 'شروط الاستخدام', 'Terms of use'), ('core:privacy', 'سياسة الخصوصية', 'Privacy policy')):
@@ -226,3 +226,14 @@ class LegalPagesTests(TestCase):
             page = self.client.get(url)
             self.assertContains(page, reverse('core:terms'))
             self.assertContains(page, reverse('core:privacy'))
+
+
+class AboutPageTests(TestCase):
+    def test_public_bilingual_and_linked(self):
+        with self.settings(LEGAL_ENTITY='Enjaz Information Technology', LEGAL_ENTITY_AR='إنجاز لتقنية المعلومات'):
+            page = self.client.get(reverse('core:about'))
+            self.assertContains(page, 'ماذا يفعل وكيل؟')
+            self.assertContains(page, 'خدمة من إنجاز لتقنية المعلومات')
+            self.client.post(reverse('core:set_language'), {'language': 'en'})
+            self.assertContains(self.client.get(reverse('core:about')), 'a service by Enjaz Information Technology')
+        self.assertContains(self.client.get(reverse('core:privacy')), reverse('core:about'))

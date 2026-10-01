@@ -15,22 +15,30 @@ from apps.jobs.models import Job
 LEGAL_UPDATED = datetime.date(2026, 10, 1)
 
 
-def _legal(request, page, title):
+def _public_page(request, template, page, **context):
+    """A public page whose text lives in one template per language (core/legal/<page>_<ar|en>.html)."""
     from django.conf import settings
     from django.utils.translation import get_language
     lang = 'en' if (get_language() or '').startswith('en') else 'ar'
-    return render(request, 'core/legal.html', {
-        'page_title': title, 'updated': LEGAL_UPDATED, 'body_template': f'core/legal/{page}_{lang}.html',
-        'support_email': settings.SUPPORT_EMAIL, 'legal_entity': settings.LEGAL_ENTITY if lang == 'en' else settings.LEGAL_ENTITY_AR, 'site_url': settings.SITE_URL,
+    return render(request, template, {
+        'body_template': f'core/legal/{page}_{lang}.html', 'updated': LEGAL_UPDATED,
+        'support_email': settings.SUPPORT_EMAIL, 'site_url': settings.SITE_URL,
+        'legal_entity': settings.LEGAL_ENTITY if lang == 'en' else settings.LEGAL_ENTITY_AR, **context,
     })
 
 
 def terms(request):
-    return _legal(request, 'terms', _('شروط الاستخدام'))
+    return _public_page(request, 'core/legal.html', 'terms', page_title=_('شروط الاستخدام'), page_icon='bi-file-earmark-text',
+                        page_lead=_('القواعد التي تنظّم استخدامك لوكيل، وما لك وما عليك.'))
 
 
 def privacy(request):
-    return _legal(request, 'privacy', _('سياسة الخصوصية'))
+    return _public_page(request, 'core/legal.html', 'privacy', page_title=_('سياسة الخصوصية'), page_icon='bi-shield-lock',
+                        page_lead=_('ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها.'))
+
+
+def about(request):
+    return _public_page(request, 'core/about.html', 'about', page_title=_('عن وكيل'))
 
 
 def home(request):

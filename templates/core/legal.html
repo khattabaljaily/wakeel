@@ -1,23 +1,61 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load static %}
 {% block title %}{{ page_title }}{% endblock %}
-{% block body_class %}wk-landing wk-legal{% endblock %}
+{% block body_class %}wk-landing wk-public{% endblock %}
 {% block body %}
-<nav>
-    <div class="container d-flex align-items-center gap-3">
-        <a href="{% url 'core:home' %}" class="d-flex align-items-center gap-2"><img src="{% static 'img/logo.svg' %}" width="40" alt=""><span class="fs-3 fw-bold" style="color: var(--wk-ink)">{% translate "وكيل" %}</span></a>
-        <div class="ms-auto d-flex gap-2 align-items-center">
-            {% include "_language_switch.html" %}
-            {% if user.is_authenticated %}<a href="{% url 'core:dashboard' %}" class="btn btn-light">{% translate "لوحة التحكم" %}</a>
-            {% else %}<a href="{% url 'accounts:login' %}" class="btn btn-light">{% translate "تسجيل الدخول" %}</a>{% endif %}
-        </div>
+{% include "core/_public_nav.html" %}
+<header class="wk-page-hero">
+    <div class="container">
+        <span class="pill"><i class="bi {{ page_icon }}"></i> {% translate "وثائق وكيل" %}</span>
+        <h1>{{ page_title }}</h1>
+        <p class="lead">{{ page_lead }}</p>
+        <div class="wk-page-hero__meta"><i class="bi bi-calendar3"></i> {% translate "آخر تحديث:" %} {{ updated|date:"j F Y" }}</div>
     </div>
-</nav>
-<main class="container wk-legal__doc">
-    <h1>{{ page_title }}</h1>
-    <p class="wk-legal__updated">{% translate "آخر تحديث:" %} {{ updated|date:"j F Y" }}</p>
-    {% include body_template %}
-</main>
+</header>
+<div class="container wk-legal">
+    <div class="row g-4 g-lg-5">
+        <aside class="col-lg-3 d-none d-lg-block">
+            <div class="wk-toc" id="wkToc" aria-label="{% translate "في هذه الصفحة" %}">
+                <div class="wk-toc__title">{% translate "في هذه الصفحة" %}</div>
+            </div>
+        </aside>
+        <article class="col-lg-9">
+            <div class="wk-legal__doc" id="wkDoc">{% include body_template %}</div>
+            {% if support_email %}
+            <div class="wk-legal__contact">
+                <i class="bi bi-envelope-paper"></i>
+                <div><strong>{% translate "عندك سؤال؟" %}</strong>
+                    <div>{% translate "راسلنا وسنرد عليك في أقرب وقت." %} <a href="mailto:{{ support_email }}" dir="ltr">{{ support_email }}</a></div></div>
+            </div>
+            {% endif %}
+        </article>
+    </div>
+</div>
 {% include "core/_footer.html" %}
+{% endblock %}
+{% block scripts %}
+<script>
+// Contents list from the section headings, with the section in view highlighted.
+(function () {
+    var toc = document.getElementById('wkToc'), heads = document.querySelectorAll('#wkDoc h2');
+    if (!toc || !heads.length) return;
+    var links = [];
+    heads.forEach(function (h, i) {
+        h.id = h.id || 'section-' + (i + 1);
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent.replace(/^\s*\d+\.\s*/, '');
+        toc.appendChild(a);
+        links.push(a);
+    });
+    if (!window.IntersectionObserver) return;
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+        });
+    }, {rootMargin: '0px 0px -70% 0px'});
+    heads.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 {% endblock %}

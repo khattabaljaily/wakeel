@@ -10,5 +10,7 @@ urlpatterns = [
     path('sw.js', views.service_worker, name='service_worker'),
     path('offline/', views.offline, name='offline'),
     path('i18n/set/', views.set_language, name='set_language'),
+    path('terms/', views.terms, name='terms'),
+    path('privacy/', views.privacy, name='privacy'),
     path('app/', views.dashboard, name='dashboard'),
 ]

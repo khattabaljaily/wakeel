@@ -1,0 +1,2 @@
+{% load i18n %}<footer><div class="container d-flex justify-content-between flex-wrap gap-2"><span>© {% now "Y" %} {% translate "وكيل — مدير التسويق الذكي" %}</span>
+    <span class="d-flex gap-3"><a href="{% url 'core:terms' %}">{% translate "شروط الاستخدام" %}</a><a href="{% url 'core:privacy' %}">{% translate "سياسة الخصوصية" %}</a>{% if not user.is_authenticated %}<a href="{% url 'accounts:login' %}">{% translate "تسجيل الدخول" %}</a>{% endif %}</span></div></footer>

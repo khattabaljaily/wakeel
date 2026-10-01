@@ -27,6 +27,7 @@
             {% block auth_content %}{% endblock %}
         </div>
         <div class="wk-auth__foot">© {% now "Y" %} {% translate "وكيل · مدير التسويق الذكي" %}</div>
+        <div class="wk-auth__legal"><a href="{% url 'core:terms' %}">{% translate "شروط الاستخدام" %}</a> · <a href="{% url 'core:privacy' %}">{% translate "سياسة الخصوصية" %}</a></div>
     </main>
 </div>
 {% endblock %}

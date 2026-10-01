@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block body_class %}wk-landing wk-legal{% endblock %}
+{% block body %}
+<nav>
+    <div class="container d-flex align-items-center gap-3">
+        <a href="{% url 'core:home' %}" class="d-flex align-items-center gap-2"><img src="{% static 'img/logo.svg' %}" width="40" alt=""><span class="fs-3 fw-bold" style="color: var(--wk-ink)">{% translate "وكيل" %}</span></a>
+        <div class="ms-auto d-flex gap-2 align-items-center">
+            {% include "_language_switch.html" %}
+            {% if user.is_authenticated %}<a href="{% url 'core:dashboard' %}" class="btn btn-light">{% translate "لوحة التحكم" %}</a>
+            {% else %}<a href="{% url 'accounts:login' %}" class="btn btn-light">{% translate "تسجيل الدخول" %}</a>{% endif %}
+        </div>
+    </div>
+</nav>
+<main class="container wk-legal__doc">
+    <h1>{{ page_title }}</h1>
+    <p class="wk-legal__updated">{% translate "آخر تحديث:" %} {{ updated|date:"j F Y" }}</p>
+    {% include body_template %}
+</main>
+{% include "core/_footer.html" %}
+{% endblock %}

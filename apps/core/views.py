@@ -11,6 +11,28 @@ from apps.content.models import ContentPlan, Post
 from apps.jobs.models import Job
 
 
+# The date the terms and privacy texts last changed; update it with them.
+LEGAL_UPDATED = datetime.date(2026, 10, 1)
+
+
+def _legal(request, page, title):
+    from django.conf import settings
+    from django.utils.translation import get_language
+    lang = 'en' if (get_language() or '').startswith('en') else 'ar'
+    return render(request, 'core/legal.html', {
+        'page_title': title, 'updated': LEGAL_UPDATED, 'body_template': f'core/legal/{page}_{lang}.html',
+        'support_email': settings.SUPPORT_EMAIL, 'legal_entity': settings.LEGAL_ENTITY, 'site_url': settings.SITE_URL,
+    })
+
+
+def terms(request):
+    return _legal(request, 'terms', _('شروط الاستخدام'))
+
+
+def privacy(request):
+    return _legal(request, 'privacy', _('سياسة الخصوصية'))
+
+
 def home(request):
     if request.user.is_authenticated:
         return redirect('ops:overview' if request.user.is_superuser else 'core:dashboard')

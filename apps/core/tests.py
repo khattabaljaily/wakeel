@@ -184,3 +184,43 @@ class StylesheetTests(TestCase):
             depth += line.count('{') - line.count('}')
             self.assertGreaterEqual(depth, 0, f'stray "}}" at app.css line {line_no}')
         self.assertEqual(depth, 0, 'unclosed "{" in app.css')
+
+
+class LegalPagesTests(TestCase):
+    def test_public_in_both_languages(self):
+        for name, ar, en in (('core:terms', 'شروط الاستخدام', 'Terms of use'), ('core:privacy', 'سياسة الخصوصية', 'Privacy policy')):
+            page = self.client.get(reverse(name))
+            self.assertContains(page, ar)
+            self.assertContains(page, 'mailto:')
+            self.client.post(reverse('core:set_language'), {'language': 'en'})
+            self.assertContains(self.client.get(reverse(name)), en)
+            self.client.post(reverse('core:set_language'), {'language': 'ar'})
+
+    def test_linked_from_landing_and_sign_in(self):
+        for url in (reverse('core:home'), reverse('accounts:login')):
+            page = self.client.get(url)
+            self.assertContains(page, reverse('core:terms'))
+            self.assertContains(page, reverse('core:privacy'))
+
+
+@override_settings(SUPPORT_EMAIL='help@wakeel.example', LEGAL_ENTITY='')
+class LegalPagesTests(TestCase):
+    def test_public_in_both_languages(self):
+        for name, ar, en in (('core:terms', 'شروط الاستخدام', 'Terms of use'), ('core:privacy', 'سياسة الخصوصية', 'Privacy policy')):
+            page = self.client.get(reverse(name))
+            self.assertContains(page, ar)
+            self.assertContains(page, 'mailto:help@wakeel.example')
+            self.client.post(reverse('core:set_language'), {'language': 'en'})
+            self.assertContains(self.client.get(reverse(name)), en)
+            self.client.post(reverse('core:set_language'), {'language': 'ar'})
+
+    def test_operator_appears_only_when_set(self):
+        self.assertNotContains(self.client.get(reverse('core:privacy')), 'تقدمها')
+        with self.settings(LEGAL_ENTITY='شركة المثال'):
+            self.assertContains(self.client.get(reverse('core:privacy')), 'تقدمها شركة المثال')
+
+    def test_linked_from_landing_and_sign_in(self):
+        for url in (reverse('core:home'), reverse('accounts:login')):
+            page = self.client.get(url)
+            self.assertContains(page, reverse('core:terms'))
+            self.assertContains(page, reverse('core:privacy'))

@@ -72,5 +72,5 @@
     </div>
 </section>
 
-<footer><div class="container d-flex justify-content-between flex-wrap gap-2"><span>© {% now "Y" %} {% translate "وكيل — مدير التسويق الذكي" %}</span><a href="{% url 'accounts:login' %}">{% translate "تسجيل الدخول" %}</a></div></footer>
+{% include "core/_footer.html" %}
 {% endblock %}

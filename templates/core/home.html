@@ -1,14 +1,16 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
-{% block title %}مدير التسويق الذكي لشركتك{% endblock %}
+{% block title %}{% translate "مدير التسويق الذكي لشركتك" %}{% endblock %}
 {% block body_class %}wk-landing{% endblock %}
 {% block body %}
 <nav>
     <div class="container d-flex align-items-center gap-3">
-        <a href="{% url 'core:home' %}" class="d-flex align-items-center gap-2"><img src="{% static 'img/logo.svg' %}" width="40" alt=""><span class="fs-3 fw-bold" style="color: var(--wk-ink)">وكيل</span></a>
-        <div class="ms-auto d-flex gap-2">
-            <a href="{% url 'accounts:login' %}" class="btn btn-light">تسجيل الدخول</a>
-            <a href="{% url 'accounts:register' %}" class="btn btn-primary">ابدأ الآن</a>
+        <a href="{% url 'core:home' %}" class="d-flex align-items-center gap-2"><img src="{% static 'img/logo.svg' %}" width="40" alt=""><span class="fs-3 fw-bold" style="color: var(--wk-ink)">{% translate "وكيل" %}</span></a>
+        <div class="ms-auto d-flex gap-2 align-items-center">
+            {% include "_language_switch.html" %}
+            <a href="{% url 'accounts:login' %}" class="btn btn-light">{% translate "تسجيل الدخول" %}</a>
+            <a href="{% url 'accounts:register' %}" class="btn btn-primary">{% translate "ابدأ الآن" %}</a>
         </div>
     </div>
 </nav>
@@ -17,19 +19,19 @@
     <div class="container">
         <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6">
-                <span class="pill mb-3"><i class="bi bi-stars"></i> بديل ذكي لوكالات التسويق</span>
-                <h1 class="mb-3">سلّم حسابات شركتك<br>لـ<span class="grad">وكيل</span> يفهم علامتك</h1>
-                <p class="lead mb-4">وكيل يضع استراتيجية المحتوى الشهرية، ويكتب المنشورات بلغة جمهورك، ويصمم الصور بهويتك البصرية، ويرتبها في تقويم جاهز للمراجعة والنشر على فيسبوك وإنستغرام وتيك توك.</p>
+                <span class="pill mb-3"><i class="bi bi-stars"></i> {% translate "بديل ذكي لوكالات التسويق" %}</span>
+                <h1 class="mb-3">{% translate "سلّم حسابات شركتك" %}<br>{% translate "لـ" %}<span class="grad">{% translate "وكيل" %}</span> {% translate "يفهم علامتك" %}</h1>
+                <p class="lead mb-4">{% translate "وكيل يضع استراتيجية المحتوى الشهرية، ويكتب المنشورات بلغة جمهورك، ويصمم الصور بهويتك البصرية، ويرتبها في تقويم جاهز للمراجعة والنشر على فيسبوك وإنستغرام وتيك توك." %}</p>
                 <div class="d-flex gap-2 flex-wrap">
-                    <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> ابدأ الآن</a>
-                    <a href="#how" class="btn btn-light btn-lg">كيف يعمل؟</a>
+                    <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> {% translate "ابدأ الآن" %}</a>
+                    <a href="#how" class="btn btn-light btn-lg">{% translate "كيف يعمل؟" %}</a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="mock">
                     <div class="d-flex align-items-center gap-2 px-3 py-2 border-bottom small text-muted">
-                        <i class="bi bi-calendar3 text-primary"></i> خطة المحتوى — الشهر القادم
-                        <span class="ms-auto wk-status approved">16 منشوراً جاهزاً</span>
+                        <i class="bi bi-calendar3 text-primary"></i> {% translate "خطة المحتوى — الشهر القادم" %}
+                        <span class="ms-auto wk-status approved">{% translate "16 منشوراً جاهزاً" %}</span>
                     </div>
                     <div class="mock-grid">
                         <div style="background: linear-gradient(135deg,#6d5ef8,#4f3bdb)"></div>
@@ -48,14 +50,14 @@
 <section class="py-5" id="how">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">كل ما تقدمه وكالة التسويق، في منصة واحدة</h2>
-            <p class="text-muted">من الاستراتيجية إلى التصميم إلى تقويم النشر.</p>
+            <h2 class="fw-bold">{% translate "كل ما تقدمه وكالة التسويق، في منصة واحدة" %}</h2>
+            <p class="text-muted">{% translate "من الاستراتيجية إلى التصميم إلى تقويم النشر." %}</p>
         </div>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-primary"><i class="bi bi-bullseye"></i></div><h3>استراتيجية شهرية</h3><p>أهداف ومحاور محتوى ومناسبات السوق، مبنية على نشاط شركتك وجمهورها.</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-review"><i class="bi bi-pen"></i></div><h3>كتابة المنشورات</h3><p>نصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم وأفضل أوقات النشر.</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-approved"><i class="bi bi-palette"></i></div><h3>تصميم الصور</h3><p>قوالب احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة.</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-published"><i class="bi bi-camera-reels"></i></div><h3>سيناريوهات الفيديو</h3><p>نصوص تصوير جاهزة للريلز وتيك توك: الافتتاحية والمشاهد والدعوة.</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-primary"><i class="bi bi-bullseye"></i></div><h3>{% translate "استراتيجية شهرية" %}</h3><p>{% translate "أهداف ومحاور محتوى ومناسبات السوق، مبنية على نشاط شركتك وجمهورها." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-review"><i class="bi bi-pen"></i></div><h3>{% translate "كتابة المنشورات" %}</h3><p>{% translate "نصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم وأفضل أوقات النشر." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-approved"><i class="bi bi-palette"></i></div><h3>{% translate "تصميم الصور" %}</h3><p>{% translate "قوالب احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-published"><i class="bi bi-camera-reels"></i></div><h3>{% translate "سيناريوهات الفيديو" %}</h3><p>{% translate "نصوص تصوير جاهزة للريلز وتيك توك: الافتتاحية والمشاهد والدعوة." %}</p></div></div>
         </div>
     </div>
 </section>
@@ -63,12 +65,12 @@
 <section class="py-5 steps" style="background: #fafbff">
     <div class="container">
         <div class="row g-4 text-center">
-            <div class="col-md-4"><span class="num mb-3">1</span><h3 class="h5">عرّفنا بشركتك</h3><p class="text-muted">النشاط والجمهور والنبرة والهوية البصرية.</p></div>
-            <div class="col-md-4"><span class="num mb-3">2</span><h3 class="h5">اطلب خطة الشهر</h3><p class="text-muted">يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها.</p></div>
-            <div class="col-md-4"><span class="num mb-3">3</span><h3 class="h5">راجع واعتمد</h3><p class="text-muted">عدّل ما تريد بضغطة، واعتمد المنشورات للنشر.</p></div>
+            <div class="col-md-4"><span class="num mb-3">1</span><h3 class="h5">{% translate "عرّفنا بشركتك" %}</h3><p class="text-muted">{% translate "النشاط والجمهور والنبرة والهوية البصرية." %}</p></div>
+            <div class="col-md-4"><span class="num mb-3">2</span><h3 class="h5">{% translate "اطلب خطة الشهر" %}</h3><p class="text-muted">{% translate "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها." %}</p></div>
+            <div class="col-md-4"><span class="num mb-3">3</span><h3 class="h5">{% translate "راجع واعتمد" %}</h3><p class="text-muted">{% translate "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر." %}</p></div>
         </div>
     </div>
 </section>
 
-<footer><div class="container d-flex justify-content-between flex-wrap gap-2"><span>© {% now "Y" %} وكيل — مدير التسويق الذكي</span><a href="{% url 'accounts:login' %}">تسجيل الدخول</a></div></footer>
+<footer><div class="container d-flex justify-content-between flex-wrap gap-2"><span>© {% now "Y" %} {% translate "وكيل — مدير التسويق الذكي" %}</span><a href="{% url 'accounts:login' %}">{% translate "تسجيل الدخول" %}</a></div></footer>
 {% endblock %}

@@ -11,7 +11,9 @@ import logging
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.utils import timezone
+from django.utils import timezone, translation
+from django.utils.text import format_lazy
+from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Company, Membership
 
@@ -74,13 +76,19 @@ def deliver(plan):
         plan.save(update_fields=['share_token'])
     company, link = plan.company, share_url(plan)
     if company.autopilot_client_email:
+        # The client reads the language the brand publishes in.
         try:
-            send_mail(f'خطة المحتوى جاهزة للمراجعة: {company.name}',
-                      render_to_string('content/emails/autopilot_client.txt', {'plan': plan, 'company': company, 'link': link}),
-                      None, [company.autopilot_client_email])
+            with translation.override('en' if company.content_language == 'en' else 'ar'):
+                send_mail(_('خطة المحتوى جاهزة للمراجعة: %(name)s') % {'name': company.name},
+                          render_to_string('content/emails/autopilot_client.txt', {'plan': plan, 'company': company, 'link': link}),
+                          None, [company.autopilot_client_email])
         except Exception:  # an email outage must not undo the plan
             logger.exception('Could not email the autopilot review link for plan %s', plan.pk)
-    sent = f' وأُرسل رابط المراجعة إلى {company.autopilot_client_email}' if company.autopilot_client_email else ''
-    notify([plan.created_by, *managers(company)], company,
-           f'أعدّ الطيار الآلي خطة {plan.title or "الشهر القادم"}{sent}.', plan.get_absolute_url(),
+    title = plan.title or _('الشهر القادم')
+    if company.autopilot_client_email:
+        message = format_lazy(_('أعدّ الطيار الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}.'),
+                              title=title, email=company.autopilot_client_email)
+    else:
+        message = format_lazy(_('أعدّ الطيار الآلي خطة {title}.'), title=title)
+    notify([plan.created_by, *managers(company)], company, message, plan.get_absolute_url(),
            icon='bi-airplane', email=True)

@@ -1,28 +1,28 @@
-<form method="post" enctype="multipart/form-data" novalidate id="brandForm">{% csrf_token %}
-{% if form.errors %}<div class="alert alert-danger">راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة.</div>{% endif %}
+{% load i18n %}<form method="post" enctype="multipart/form-data" novalidate id="brandForm">{% csrf_token %}
+{% if form.errors %}<div class="alert alert-danger">{% translate "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة." %}</div>{% endif %}
 <div class="wk-steps">
-    <div class="wk-step active" data-step="0"><span class="n">1</span> <span class="t">الأساسيات</span></div>
-    <div class="wk-step" data-step="1"><span class="n">2</span> <span class="t">النشاط والجمهور</span></div>
-    <div class="wk-step" data-step="2"><span class="n">3</span> <span class="t">الأسلوب والنبرة</span></div>
-    <div class="wk-step" data-step="3"><span class="n">4</span> <span class="t">الهوية البصرية</span></div>
-    <div class="wk-step" data-step="4"><span class="n">5</span> <span class="t">قنوات التواصل</span></div>
+    <div class="wk-step active" data-step="0"><span class="n">1</span> <span class="t">{% translate "الأساسيات" %}</span></div>
+    <div class="wk-step" data-step="1"><span class="n">2</span> <span class="t">{% translate "النشاط والجمهور" %}</span></div>
+    <div class="wk-step" data-step="2"><span class="n">3</span> <span class="t">{% translate "الأسلوب والنبرة" %}</span></div>
+    <div class="wk-step" data-step="3"><span class="n">4</span> <span class="t">{% translate "الهوية البصرية" %}</span></div>
+    <div class="wk-step" data-step="4"><span class="n">5</span> <span class="t">{% translate "قنوات التواصل" %}</span></div>
 </div>
 <div class="wk-steps__caption" aria-live="polite"></div>
 
 <div class="wk-card"><div class="wk-card-body">
     <div class="wk-pane active" data-pane="0">
         <div class="wk-ai-box mb-4">
-            <div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-globe2 text-primary fs-5"></i><strong>لدى الشركة موقع إلكتروني؟</strong></div>
-            <p class="small-muted mb-2">أدخل الرابط، وسيقرأ وكيل الموقع ويملأ الحقول الفارغة تلقائياً، بما فيها الشعار والألوان وحسابات التواصل. راجعها بعد ذلك وعدّل ما تريد.</p>
+            <div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-globe2 text-primary fs-5"></i><strong>{% translate "لدى الشركة موقع إلكتروني؟" %}</strong></div>
+            <p class="small-muted mb-2">{% translate "أدخل الرابط، وسيقرأ وكيل الموقع ويملأ الحقول الفارغة تلقائياً، بما فيها الشعار والألوان وحسابات التواصل. راجعها بعد ذلك وعدّل ما تريد." %}</p>
             <div class="input-group">
                 <input type="url" class="form-control" id="autofillUrl" dir="ltr" placeholder="https://example.com" value="{{ form.website.value|default:'' }}">
-                <button type="button" class="btn btn-ai" id="autofillBtn"><i class="bi bi-magic"></i> املأ من الموقع</button>
+                <button type="button" class="btn btn-ai" id="autofillBtn"><i class="bi bi-magic"></i> {% translate "املأ من الموقع" %}</button>
             </div>
-            <div class="small text-primary mt-2 d-none" id="autofillStatus"><span class="spinner-border spinner-border-sm"></span> وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة.</div>
-            <div class="d-none mt-2 align-items-center gap-2 small" id="autofillLogo"><img alt="" class="rounded-2 border p-1" style="height:48px; background: repeating-conic-gradient(#eee 0 25%, #fff 0 50%) 50% / 12px 12px"> وُجد هذا الشعار في الموقع، وسيُعتمد عند الحفظ ما لم ترفع شعاراً آخر.</div>
+            <div class="small text-primary mt-2 d-none" id="autofillStatus"><span class="spinner-border spinner-border-sm"></span> {% translate "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة." %}</div>
+            <div class="d-none mt-2 align-items-center gap-2 small" id="autofillLogo"><img alt="" class="rounded-2 border p-1" style="height:48px; background: repeating-conic-gradient(#eee 0 25%, #fff 0 50%) 50% / 12px 12px"> {% translate "وُجد هذا الشعار في الموقع، وسيُعتمد عند الحفظ ما لم ترفع شعاراً آخر." %}</div>
         </div>
         {{ form.logo_url }}
-        <p class="text-muted">لنبدأ بالمعلومات الأساسية عن الشركة.</p>
+        <p class="text-muted">{% translate "لنبدأ بالمعلومات الأساسية عن الشركة." %}</p>
         <div class="row">
             {% include "_field.html" with field=form.name wrap_class="col-md-6" %}
             {% include "_field.html" with field=form.industry wrap_class="col-md-6" %}
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="wk-pane" data-pane="1">
-        <p class="text-muted">كلما كانت هذه المعلومات أدق، كان المحتوى الذي يكتبه وكيل أقرب إلى شركتك.</p>
+        <p class="text-muted">{% translate "كلما كانت هذه المعلومات أدق، كان المحتوى الذي يكتبه وكيل أقرب إلى شركتك." %}</p>
         {% include "_field.html" with field=form.description %}
         {% include "_field.html" with field=form.products %}
         <div class="row">
@@ -70,28 +70,28 @@
                     {% include "_field.html" with field=form.heading_font wrap_class="col-md-6" %}
                     {% include "_field.html" with field=form.body_font wrap_class="col-md-6" %}
                 </div>
-                <div class="form-text">تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات.</div>
+                <div class="form-text">{% translate "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات." %}</div>
             </div>
             <div class="col-lg-5">
                 <div class="wk-brand-preview" id="brandPreview">
                     <div style="position:absolute;inset:0;padding:8%;display:flex;flex-direction:column;justify-content:space-between" id="bpCanvas">
                         <div style="position:absolute;width:70%;aspect-ratio:1;border-radius:50%;top:-30%;left:-25%" id="bpOrb"></div>
                         <div style="position:relative;display:flex;justify-content:space-between;align-items:center">
-                            <span style="font-weight:800;font-size:1.1rem" id="bpName">{{ form.name.value|default:"اسم الشركة" }}</span>
-                            <span style="border-radius:99px;padding:.2rem .8rem;font-weight:800;font-size:.8rem" id="bpBadge">جديد</span>
+                            <span style="font-weight:800;font-size:1.1rem" id="bpName">{{ form.name.value|default:_("اسم الشركة") }}</span>
+                            <span style="border-radius:99px;padding:.2rem .8rem;font-weight:800;font-size:.8rem" id="bpBadge">{% translate "جديد" %}</span>
                         </div>
                         <div style="position:relative">
-                            <div style="font-size:2rem;font-weight:900;line-height:1.3" id="bpHead">عنوان المنشور يظهر هنا</div>
-                            <div style="margin-top:.6rem;opacity:.9" id="bpSub">وهذا نص فرعي قصير يشرح الفكرة.</div>
+                            <div style="font-size:2rem;font-weight:900;line-height:1.3" id="bpHead">{% translate "عنوان المنشور يظهر هنا" %}</div>
+                            <div style="margin-top:.6rem;opacity:.9" id="bpSub">{% translate "وهذا نص فرعي قصير يشرح الفكرة." %}</div>
                         </div>
-                        <div style="position:relative"><span style="border-radius:99px;padding:.5rem 1.2rem;font-weight:800;display:inline-block" id="bpCta">اطلب الآن ←</span></div>
+                        <div style="position:relative"><span style="border-radius:99px;padding:.5rem 1.2rem;font-weight:800;display:inline-block" id="bpCta">{% translate "اطلب الآن ←" %}</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="wk-pane" data-pane="4">
-        <p class="text-muted">تظهر هذه البيانات في التصاميم وفي دعوات التواصل داخل المنشورات.</p>
+        <p class="text-muted">{% translate "تظهر هذه البيانات في التصاميم وفي دعوات التواصل داخل المنشورات." %}</p>
         <div class="row">
             {% include "_field.html" with field=form.website wrap_class="col-md-6" %}
             {% include "_field.html" with field=form.phone wrap_class="col-md-6" %}
@@ -105,11 +105,11 @@
 
 <div class="d-flex gap-2 mt-3">
     {% if wizard %}
-    <button type="button" class="btn btn-light" id="prevBtn" disabled><i class="bi bi-arrow-right"></i> السابق</button>
-    <button type="button" class="btn btn-primary ms-auto" id="nextBtn">التالي <i class="bi bi-arrow-left"></i></button>
-    <button type="submit" class="btn btn-ai ms-auto d-none" id="submitBtn"><i class="bi bi-check2-circle"></i> إنشاء مساحة العمل</button>
+    <button type="button" class="btn btn-light" id="prevBtn" disabled><i class="bi bi-arrow-right"></i> {% translate "السابق" %}</button>
+    <button type="button" class="btn btn-primary ms-auto" id="nextBtn">{% translate "التالي" %} <i class="bi bi-arrow-left"></i></button>
+    <button type="submit" class="btn btn-ai ms-auto d-none" id="submitBtn"><i class="bi bi-check2-circle"></i> {% translate "إنشاء مساحة العمل" %}</button>
     {% else %}
-    <button type="submit" class="btn btn-primary ms-auto"><i class="bi bi-check2"></i> حفظ التغييرات</button>
+    <button type="submit" class="btn btn-primary ms-auto"><i class="bi bi-check2"></i> {% translate "حفظ التغييرات" %}</button>
     {% endif %}
 </div>
 </form>
@@ -126,7 +126,7 @@
         // Phones show numbers only; the current step is named under them.
         form.querySelector('.wk-steps').style.setProperty('--progress', i / (steps.length - 1));
         form.querySelector('.wk-steps__caption').textContent =
-            'الخطوة ' + (i + 1) + ' من ' + steps.length + ' · ' + steps[i].querySelector('.t').textContent;
+            '{{ _("الخطوة ")|escapejs }}' + (i + 1) + '{{ _(" من ")|escapejs }}' + steps.length + ' · ' + steps[i].querySelector('.t').textContent;
         panes.forEach(function (p, n) { p.classList.toggle('active', n === i); });
         if (prev) {
             prev.disabled = i === 0;
@@ -171,7 +171,7 @@
         document.getElementById('bpOrb').style.background = s;
         ['bpBadge', 'bpCta'].forEach(function (id) { var el = document.getElementById(id); el.style.background = a; el.style.color = onColor(a); });
         ['bpHead', 'bpName'].forEach(function (id) { document.getElementById(id).style.fontFamily = "'" + fonts[form.elements.heading_font.value] + "'"; });
-        document.getElementById('bpName').textContent = form.elements.name.value || 'اسم الشركة';
+        document.getElementById('bpName').textContent = form.elements.name.value || '{{ _("اسم الشركة")|escapejs }}';
     }
     ['primary_color', 'secondary_color', 'accent_color', 'heading_font', 'body_font', 'name'].forEach(function (n) {
         form.elements[n].addEventListener('input', paint); form.elements[n].addEventListener('change', paint);
@@ -192,7 +192,7 @@
     }
     afBtn.addEventListener('click', function () {
         var url = document.getElementById('autofillUrl').value.trim();
-        if (!url) { Wakeel.toast('أدخل رابط الموقع أولاً.', 'error'); return; }
+        if (!url) { Wakeel.toast('{{ _("أدخل رابط الموقع أولاً.")|escapejs }}', 'error'); return; }
         afBtn.disabled = true; afStatus.classList.remove('d-none');
         Wakeel.api('{% url "companies:autofill" %}', 'POST', { url: url }, { silent: true }).then(function (r) {
             var n = 0;
@@ -210,9 +210,9 @@
                 n++;
             }
             paint();
-            Wakeel.toast(n ? 'ملأ وكيل ' + n + ' حقلاً من الموقع. راجعها في كل الخطوات.' : 'لم يجد وكيل معلومات جديدة لإضافتها.');
+            Wakeel.toast(n ? '{{ _("ملأ وكيل ")|escapejs }}' + n + '{{ _(" حقلاً من الموقع. راجعها في كل الخطوات.")|escapejs }}' : '{{ _("لم يجد وكيل معلومات جديدة لإضافتها.")|escapejs }}');
         }).catch(function (e) {
-            Wakeel.toast(Wakeel.errorText(e, 'تعذّرت قراءة الموقع.'), 'error');
+            Wakeel.toast(Wakeel.errorText(e, '{{ _("تعذّرت قراءة الموقع.")|escapejs }}'), 'error');
         }).finally(function () { afBtn.disabled = false; afStatus.classList.add('d-none'); });
     });
 })();

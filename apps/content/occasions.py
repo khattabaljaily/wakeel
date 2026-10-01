@@ -8,6 +8,7 @@ import calendar
 import datetime
 
 from hijridate import Gregorian, Hijri
+from django.utils.translation import gettext_lazy as _
 
 # Country codes, from the company's country (or timezone when the country isn't recognised).
 TIMEZONE_CODES = {
@@ -18,31 +19,31 @@ ARAB = {'sd', 'qa', 'sa', 'ae', 'eg', 'kw', 'om', 'bh', 'jo'}
 
 # (month, day, name, countries); countries=None means everyone.
 FIXED = [
-    (1, 1, 'رأس السنة الميلادية', None),
-    (1, 1, 'عيد استقلال السودان', {'sd'}),
-    (2, 22, 'يوم التأسيس السعودي', {'sa'}),
-    (2, 25, 'العيد الوطني الكويتي', {'kw'}),
-    (2, 26, 'عيد التحرير في الكويت', {'kw'}),
-    (3, 21, 'عيد الأم', ARAB),
-    (5, 25, 'عيد استقلال الأردن', {'jo'}),
-    (7, 23, 'ذكرى ثورة 23 يوليو', {'eg'}),
-    (9, 23, 'اليوم الوطني السعودي', {'sa'}),
-    (10, 6, 'ذكرى انتصارات أكتوبر', {'eg'}),
-    (11, 20, 'اليوم الوطني العُماني', {'om'}),
-    (12, 2, 'عيد الاتحاد الإماراتي', {'ae'}),
-    (12, 16, 'العيد الوطني البحريني', {'bh'}),
-    (12, 18, 'اليوم الوطني القطري', {'qa'}),
+    (1, 1, _('رأس السنة الميلادية'), None),
+    (1, 1, _('عيد استقلال السودان'), {'sd'}),
+    (2, 22, _('يوم التأسيس السعودي'), {'sa'}),
+    (2, 25, _('العيد الوطني الكويتي'), {'kw'}),
+    (2, 26, _('عيد التحرير في الكويت'), {'kw'}),
+    (3, 21, _('عيد الأم'), ARAB),
+    (5, 25, _('عيد استقلال الأردن'), {'jo'}),
+    (7, 23, _('ذكرى ثورة 23 يوليو'), {'eg'}),
+    (9, 23, _('اليوم الوطني السعودي'), {'sa'}),
+    (10, 6, _('ذكرى انتصارات أكتوبر'), {'eg'}),
+    (11, 20, _('اليوم الوطني العُماني'), {'om'}),
+    (12, 2, _('عيد الاتحاد الإماراتي'), {'ae'}),
+    (12, 16, _('العيد الوطني البحريني'), {'bh'}),
+    (12, 18, _('اليوم الوطني القطري'), {'qa'}),
 ]
 
 # (hijri month, day, name). Dates can move a day with the moon sighting.
 HIJRI = [
-    (1, 1, 'رأس السنة الهجرية'),
-    (9, 1, 'بداية شهر رمضان'),
-    (9, 21, 'بداية العشر الأواخر من رمضان'),
-    (10, 1, 'عيد الفطر'),
-    (12, 1, 'بداية عشر ذي الحجة'),
-    (12, 9, 'يوم عرفة'),
-    (12, 10, 'عيد الأضحى'),
+    (1, 1, _('رأس السنة الهجرية')),
+    (9, 1, _('بداية شهر رمضان')),
+    (9, 21, _('بداية العشر الأواخر من رمضان')),
+    (10, 1, _('عيد الفطر')),
+    (12, 1, _('بداية عشر ذي الحجة')),
+    (12, 9, _('يوم عرفة')),
+    (12, 10, _('عيد الأضحى')),
 ]
 
 
@@ -67,8 +68,8 @@ def between(company, start, end):
             if countries is None or code in countries:
                 found.append((datetime.date(year, month, day), name, False))
         if code == 'qa':
-            found.append((_nth_weekday(year, 2, 1, 1), 'اليوم الرياضي للدولة في قطر', False))
-        found.append((_nth_weekday(year, 11, 4, -1), 'الجمعة البيضاء (عروض التسوق)', False))
+            found.append((_nth_weekday(year, 2, 1, 1), _('اليوم الرياضي للدولة في قطر'), False))
+        found.append((_nth_weekday(year, 11, 4, -1), _('الجمعة البيضاء (عروض التسوق)'), False))
     if code in ARAB:
         first = Gregorian.fromdate(start).to_hijri().year
         for hyear in range(first - 1, Gregorian.fromdate(end).to_hijri().year + 1):

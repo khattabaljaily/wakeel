@@ -1,9 +1,9 @@
-{% autoescape off %}مرحباً {{ user.display_name }}،
+{% load i18n %}{% autoescape off %}{% blocktranslate with name=user.display_name %}مرحباً {{ name }}،{% endblocktranslate %}
 
-تم اعتماد حساب {{ company.name }} في وكيل، ويمكنك البدء الآن{% if company.is_demo %} بفترة تجريبية{% endif %}{% if company.subscription_expires %} حتى {{ company.subscription_expires|date:"j F Y" }}{% endif %}.
+{% blocktranslate with company=company.name %}تم اعتماد حساب {{ company }} في وكيل، ويمكنك البدء الآن.{% endblocktranslate %}{% if company.is_demo %} {% translate "الحساب تجريبي." %}{% endif %}{% if company.subscription_expires %} {% blocktranslate with date=company.subscription_expires|date:"j F Y" %}ينتهي الاشتراك في {{ date }}.{% endblocktranslate %}{% endif %}
 
-سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:
+{% translate "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:" %}
 {{ link }}
 
-فريق وكيل
+{% translate "فريق وكيل" %}
 {% endautoescape %}

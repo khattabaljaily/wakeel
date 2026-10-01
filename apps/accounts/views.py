@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 from urllib.parse import urlsplit
 
@@ -24,7 +25,7 @@ class PasswordChangeView(auth_views.PasswordChangeView):
     success_url = reverse_lazy('core:dashboard')
 
     def form_valid(self, form):
-        messages.success(self.request, 'تم تغيير كلمة المرور.')
+        messages.success(self.request, _('تم تغيير كلمة المرور.'))
         return super().form_valid(form)
 
 
@@ -41,7 +42,7 @@ class PasswordResetView(auth_views.PasswordResetView):
         form.save(
             domain_override=site.netloc, use_https=site.scheme == 'https', request=self.request,
             email_template_name=self.email_template_name, subject_template_name=self.subject_template_name,
-            token_generator=self.token_generator, extra_email_context={'site_name': 'وكيل'},
+            token_generator=self.token_generator, extra_email_context={'site_name': _('وكيل')},
         )
         return redirect(self.success_url)
 
@@ -55,7 +56,7 @@ def register(request):
     if request.user.is_authenticated:
         return redirect('core:dashboard')
     if not settings.ALLOW_REGISTRATION:
-        messages.info(request, 'التسجيل مغلق حالياً.')
+        messages.info(request, _('التسجيل مغلق حالياً.'))
         return redirect('accounts:login')
     form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
@@ -93,7 +94,7 @@ def exit_impersonation(request):
 def email_preferences(request):
     request.user.email_notifications = request.POST.get('email_notifications') == 'on'
     request.user.save(update_fields=['email_notifications'])
-    messages.success(request, 'تم تفعيل إشعارات البريد.' if request.user.email_notifications else 'تم إيقاف إشعارات البريد.')
+    messages.success(request, _('تم تفعيل إشعارات البريد.') if request.user.email_notifications else _('تم إيقاف إشعارات البريد.'))
     return redirect('accounts:password_change')
 
 
@@ -109,7 +110,7 @@ def delete_account(request):
             user = request.user
             logout(request)
             user.delete()  # its owned companies go with it (core.signals)
-            messages.success(request, 'تم حذف حسابك وكل بياناته نهائياً.')
+            messages.success(request, _('تم حذف حسابك وكل بياناته نهائياً.'))
             return redirect('core:home')
-        error = 'كلمة المرور غير صحيحة.'
+        error = _('كلمة المرور غير صحيحة.')
     return render(request, 'accounts/delete.html', {'owned': owned, 'error': error})

@@ -1,10 +1,10 @@
-{% autoescape off %}مرحباً {{ user.display_name }}،
+{% load i18n %}{% autoescape off %}{% blocktranslate with name=user.display_name %}مرحباً {{ name }}،{% endblocktranslate %}
 
 {{ message }}
 {% if link %}
 {{ link }}
 {% endif %}
-— وكيل، مساحة عمل {{ company.name }}
+{% blocktranslate with company=company.name %}— وكيل، مساحة عمل {{ company }}{% endblocktranslate %}
 
-لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك.
+{% translate "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك." %}
 {% endautoescape %}

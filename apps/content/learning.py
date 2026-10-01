@@ -85,7 +85,8 @@ def learn(company):
     if not signals:
         return None, 0
     learned = [l['text'] for l in company.lessons if not l.get('manual')]
-    result = distill(learned, signals)
+    from apps.core import language
+    result = distill(learned, signals, language.name(language.of_team(company)))
     new = [str(t).strip() for t in result.data.get('lessons') or [] if str(t).strip()][:MAX_LESSONS]
     with transaction.atomic():
         company.lessons = [l for l in company.lessons if l.get('manual')] + [{'text': t[:300], 'manual': False} for t in new]

@@ -1,10 +1,11 @@
 from rest_framework.permissions import BasePermission
+from django.utils.translation import gettext_lazy as _
 
 
 class InCompany(BasePermission):
     """The user is working inside a company; writes need a non-viewer role."""
 
-    message = 'لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة.'
+    message = _('لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة.')
 
     def has_permission(self, request, view):
         membership = getattr(request._request, 'membership', None)

@@ -1,30 +1,31 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load wakeel %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block page_title %}<span id="pageTitle">{{ post.title }}</span>{% endblock %}
 {% block subtitle %}
 <div class="subtitle d-flex align-items-center gap-2 flex-wrap">
     <span class="wk-status {{ post.status|status_class }}" id="statusPill">{{ post.get_status_display }}</span>
-    {% if post.plan %}<a href="{{ post.plan.get_absolute_url }}"><i class="bi bi-stars"></i> {{ post.plan.title|default:"خطة المحتوى" }}</a>{% endif %}
-    {% if post.objective %}<span>· الهدف: {{ post.objective }}</span>{% endif %}
+    {% if post.plan %}<a href="{{ post.plan.get_absolute_url }}"><i class="bi bi-stars"></i> {{ post.plan.title|default:_("خطة المحتوى") }}</a>{% endif %}
+    {% if post.objective %}<span>{% blocktranslate trimmed with objective=post.objective %}· الهدف: {{ objective }}{% endblocktranslate %}</span>{% endif %}
 </div>
 {% endblock %}
 {% block actions %}
 {% if plan_posts %}
 <div class="btn-group" id="planNav" data-ids="{{ plan_posts|join:',' }}">
-    <a class="btn btn-light" id="prevPost" title="المنشور السابق"><i class="bi bi-chevron-right"></i></a>
-    <a class="btn btn-light" id="nextPost" title="المنشور التالي"><i class="bi bi-chevron-left"></i></a>
+    <a class="btn btn-light" id="prevPost" title="{% translate "المنشور السابق" %}"><i class="bi bi-chevron-right"></i></a>
+    <a class="btn btn-light" id="nextPost" title="{% translate "المنشور التالي" %}"><i class="bi bi-chevron-left"></i></a>
 </div>
 {% endif %}
 {% if membership.can_edit %}
 <div class="dropdown">
     <button class="btn btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button>
     <div class="dropdown-menu dropdown-menu-end">
-        <button class="dropdown-item" data-set-status="draft"><i class="bi bi-pencil"></i> إعادة إلى المسودة</button>
+        <button class="dropdown-item" data-set-status="draft"><i class="bi bi-pencil"></i> {% translate "إعادة إلى المسودة" %}</button>
         <div class="dropdown-divider"></div>
         <form method="post" action="{% url 'content:post_delete' post.pk %}">{% csrf_token %}
             <input type="hidden" name="next" value="{% if post.plan %}{{ post.plan.get_absolute_url }}{% else %}{% url 'content:post_list' %}{% endif %}">
-            <button class="dropdown-item text-danger" data-confirm-title="حذف المنشور؟" data-confirm="سيُحذف «{{ post.title }}» وتصميمه نهائياً، ولا يمكن التراجع عن ذلك." data-confirm-ok="حذف المنشور"><i class="bi bi-trash"></i> حذف المنشور</button>
+            <button class="dropdown-item text-danger" data-confirm-title="{% translate "حذف المنشور؟" %}" data-confirm="{% blocktranslate trimmed with title=post.title %}سيُحذف «{{ title }}» وتصميمه نهائياً، ولا يمكن التراجع عن ذلك.{% endblocktranslate %}" data-confirm-ok="{% translate "حذف المنشور" %}"><i class="bi bi-trash"></i> {% translate "حذف المنشور" %}</button>
         </form>
     </div>
 </div>
@@ -33,8 +34,8 @@
 {% endblock %}
 
 {% block content %}
-{% if post.publish_error and post.status == 'approved' %}<div class="alert alert-danger" id="publishError"><i class="bi bi-exclamation-triangle"></i> <strong>تعذّر النشر:</strong> <span style="white-space: pre-line">{{ post.publish_error }}</span></div>{% endif %}
-{% if post.review_note %}<div class="alert alert-warning"><i class="bi bi-chat-left-text"></i> <strong>ملاحظة المراجعة:</strong> {{ post.review_note }}</div>{% endif %}
+{% if post.publish_error and post.status == 'approved' %}<div class="alert alert-danger" id="publishError"><i class="bi bi-exclamation-triangle"></i> <strong>{% translate "تعذّر النشر:" %}</strong> <span style="white-space: pre-line">{{ post.publish_error }}</span></div>{% endif %}
+{% if post.review_note %}<div class="alert alert-warning"><i class="bi bi-chat-left-text"></i> <strong>{% translate "ملاحظة المراجعة:" %}</strong> {{ post.review_note }}</div>{% endif %}
 
 <div class="wk-editor">
 <form id="postForm" novalidate>{% csrf_token %}
@@ -43,25 +44,25 @@
     <!-- AI assistant -->
     {% if membership.can_edit %}
     <div class="wk-ai-box mb-4">
-        <div class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-stars text-primary fs-5"></i><strong>اطلب من وكيل تعديل المنشور</strong></div>
+        <div class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-stars text-primary fs-5"></i><strong>{% translate "اطلب من وكيل تعديل المنشور" %}</strong></div>
         <div class="quick mb-2">{% for q in quick_rewrites %}<button type="button" data-rewrite="{{ q }}">{{ q }}</button>{% endfor %}</div>
         <div class="input-group">
-            <input type="text" class="form-control" id="rewriteInput" placeholder="مثال: ركّز على خدمة التوصيل المجاني واذكر أنها لفترة محدودة">
-            <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> نفّذ</button>
+            <input type="text" class="form-control" id="rewriteInput" placeholder="{% translate "مثال: ركّز على خدمة التوصيل المجاني واذكر أنها لفترة محدودة" %}">
+            <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> {% translate "نفّذ" %}</button>
         </div>
-        <div class="small text-primary mt-2 d-none" id="rewriteStatus"><span class="spinner-border spinner-border-sm"></span> <span>وكيل يعيد كتابة المنشور…</span></div>
+        <div class="small text-primary mt-2 d-none" id="rewriteStatus"><span class="spinner-border spinner-border-sm"></span> <span>{% translate "وكيل يعيد كتابة المنشور…" %}</span></div>
     </div>
     {% endif %}
 
     <!-- Copy -->
     <div class="wk-card mb-4">
-        <div class="wk-card-head"><h2><i class="bi bi-chat-square-text text-primary"></i> المحتوى</h2>
-            <button type="button" class="btn btn-sm btn-soft" id="copyCaption"><i class="bi bi-clipboard"></i> نسخ النص مع الوسوم</button></div>
+        <div class="wk-card-head"><h2><i class="bi bi-chat-square-text text-primary"></i> {% translate "المحتوى" %}</h2>
+            <button type="button" class="btn btn-sm btn-soft" id="copyCaption"><i class="bi bi-clipboard"></i> {% translate "نسخ النص مع الوسوم" %}</button></div>
         <div class="wk-card-body">
             {% include "_field.html" with field=form.title %}
             {% include "_field.html" with field=form.platforms %}
             <div class="mb-3">
-                <label class="form-label">نوع المنشور</label>
+                <label class="form-label">{% translate "نوع المنشور" %}</label>
                 <div class="wk-seg d-flex">
                     {% for opt in form.format %}{{ opt.tag }}<label for="{{ opt.id_for_label }}">{{ opt.choice_label }}</label>{% endfor %}
                 </div>
@@ -80,17 +81,17 @@
 
     <!-- Video script -->
     <div class="wk-card mb-4" id="scriptCard">
-        <div class="wk-card-head"><h2><i class="bi bi-camera-reels text-primary"></i> سيناريو الفيديو</h2>
-            <button type="button" class="btn btn-sm btn-soft" data-copy-target="#{{ form.video_script.id_for_label }}"><i class="bi bi-clipboard"></i> نسخ</button></div>
+        <div class="wk-card-head"><h2><i class="bi bi-camera-reels text-primary"></i> {% translate "سيناريو الفيديو" %}</h2>
+            <button type="button" class="btn btn-sm btn-soft" data-copy-target="#{{ form.video_script.id_for_label }}"><i class="bi bi-clipboard"></i> {% translate "نسخ" %}</button></div>
         <div class="wk-card-body">
             <textarea name="video_script" id="{{ form.video_script.id_for_label }}" rows="12" class="form-control wk-script">{{ form.video_script.value|default:"" }}</textarea>
-            <div class="form-text">صوّر الفيديو وفق هذا السيناريو، ثم انشره مع النص أعلاه.</div>
+            <div class="form-text">{% translate "صوّر الفيديو وفق هذا السيناريو، ثم انشره مع النص أعلاه." %}</div>
         </div>
     </div>
 
     <!-- Design -->
     <div class="wk-card mb-4">
-        <div class="wk-card-head"><h2><i class="bi bi-palette text-primary"></i> <span id="designTitle">التصميم</span></h2></div>
+        <div class="wk-card-head"><h2><i class="bi bi-palette text-primary"></i> <span id="designTitle">{% translate "التصميم" %}</span></h2></div>
         <div class="wk-card-body">
             <div class="row">
                 {% include "_field.html" with field=form.headline wrap_class="col-12" %}
@@ -99,7 +100,7 @@
                 {% include "_field.html" with field=form.badge wrap_class="col-md-6" %}
             </div>
             <div class="mb-3">
-                <label class="form-label">القالب</label>
+                <label class="form-label">{% translate "القالب" %}</label>
                 <input type="hidden" name="template" id="templateInput" value="{{ form.template.value }}">
                 <div class="wk-tpl-grid" id="tplGrid">
                     {% for key, t in templates.items %}
@@ -111,18 +112,18 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">المقاس</label>
+                <label class="form-label">{% translate "المقاس" %}</label>
                 <div class="wk-seg d-flex">{% for opt in form.size %}{{ opt.tag }}<label for="{{ opt.id_for_label }}">{{ opt.choice_label }}</label>{% endfor %}</div>
             </div>
             <div class="mb-3">
-                <label class="form-label d-flex justify-content-between">صورة الخلفية <a href="{% url 'companies:media' %}" class="small fw-normal">إدارة المكتبة</a></label>
+                <label class="form-label d-flex justify-content-between">{% translate "صورة الخلفية" %} <a href="{% url 'companies:media' %}" class="small fw-normal">{% translate "إدارة المكتبة" %}</a></label>
                 <div class="wk-asset-grid" id="assetGrid">
-                    <button type="button" class="wk-asset none {% if not post.background_id %}active{% endif %}" data-asset="">بدون</button>
+                    <button type="button" class="wk-asset none {% if not post.background_id %}active{% endif %}" data-asset="">{% translate "بدون" %}</button>
                     {% for a in assets %}
                     <button type="button" class="wk-asset {% if a.pk == post.background_id %}active{% endif %}" data-asset="{{ a.pk }}" title="{{ a.title }}"><img src="{{ a.file.url }}" alt="" loading="lazy"></button>
                     {% endfor %}
                 </div>
-                {% if not assets %}<div class="form-text">ارفع صوراً إلى مكتبة الوسائط لاستخدامها في قالبي «صورة كاملة» و«مقسوم».</div>{% endif %}
+                {% if not assets %}<div class="form-text">{% translate "ارفع صوراً إلى مكتبة الوسائط لاستخدامها في قالبي «صورة كاملة» و«مقسوم»." %}</div>{% endif %}
             </div>
             {% include "_field.html" with field=form.visual_notes %}
         </div>
@@ -130,32 +131,32 @@
 
     {% if membership.can_edit %}
     <div class="wk-savebar">
-        <button type="submit" class="btn btn-primary" id="saveBtn"><i class="bi bi-check2"></i> حفظ</button>
-        <span class="small-muted" id="saveState">لا توجد تغييرات</span>
-        <span class="ms-auto small-muted d-none d-md-inline">Ctrl + S للحفظ</span>
+        <button type="submit" class="btn btn-primary" id="saveBtn"><i class="bi bi-check2"></i> {% translate "حفظ" %}</button>
+        <span class="small-muted" id="saveState">{% translate "لا توجد تغييرات" %}</span>
+        <span class="ms-auto small-muted d-none d-md-inline">{% translate "Ctrl + S للحفظ" %}</span>
     </div>
     {% endif %}
 </form>
 
 <div class="wk-preview-wrap">
     <div class="wk-card">
-        <div class="wk-card-head"><h2><i class="bi bi-eye text-primary"></i> معاينة حية</h2><span class="small-muted" id="sizeLabel"></span></div>
+        <div class="wk-card-head"><h2><i class="bi bi-eye text-primary"></i> {% translate "معاينة حية" %}</h2><span class="small-muted" id="sizeLabel"></span></div>
         <div class="wk-card-body">
-            <div class="wk-preview" id="preview"><div class="loading"><span class="spinner-border text-primary"></span></div><iframe id="previewFrame" title="معاينة التصميم"></iframe></div>
-            <button type="button" class="btn btn-soft btn-sm w-100 mt-3" data-bs-toggle="modal" data-bs-target="#feedModal"><i class="bi bi-phone"></i> كما سيظهر في إنستغرام وفيسبوك</button>
+            <div class="wk-preview" id="preview"><div class="loading"><span class="spinner-border text-primary"></span></div><iframe id="previewFrame" title="{% translate "معاينة التصميم" %}"></iframe></div>
+            <button type="button" class="btn btn-soft btn-sm w-100 mt-3" data-bs-toggle="modal" data-bs-target="#feedModal"><i class="bi bi-phone"></i> {% translate "كما سيظهر في إنستغرام وفيسبوك" %}</button>
         </div>
     </div>
     <div class="modal fade" id="feedModal" tabindex="-1" aria-labelledby="feedModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 440px">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title h6" id="feedModalTitle">معاينة المنشور في المنصة</h2>
-                    <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                    <h2 class="modal-title h6" id="feedModalTitle">{% translate "معاينة المنشور في المنصة" %}</h2>
+                    <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="{% translate "إغلاق" %}"></button>
                 </div>
                 <div class="modal-body p-0">
                     <div class="wk-seg d-flex m-3" role="tablist">
-                        <input type="radio" name="feedTab" id="feedIg" value="ig" checked><label for="feedIg"><i class="bi bi-instagram"></i> إنستغرام</label>
-                        <input type="radio" name="feedTab" id="feedFb" value="fb"><label for="feedFb"><i class="bi bi-facebook"></i> فيسبوك</label>
+                        <input type="radio" name="feedTab" id="feedIg" value="ig" checked><label for="feedIg"><i class="bi bi-instagram"></i> {% translate "إنستغرام" %}</label>
+                        <input type="radio" name="feedTab" id="feedFb" value="fb"><label for="feedFb"><i class="bi bi-facebook"></i> {% translate "فيسبوك" %}</label>
                     </div>
                     <div class="wk-feed" id="feed" data-name="{{ company.name }}" data-handle="{{ company.instagram_handle|default:company.name|cut:'@' }}"
                          data-logo="{% if company.logo %}{{ company.logo.url }}{% endif %}" data-color="{{ company.primary_color }}" data-initials="{{ company.initials }}"></div>
@@ -165,23 +166,23 @@
         </div>
     </div>
     <div class="wk-card mt-3" id="finalCard">
-        <div class="wk-card-head"><h2><i class="bi bi-image text-primary"></i> الصورة النهائية</h2>
-            <span class="small text-primary d-none" id="renderState"><span class="spinner-border spinner-border-sm"></span> جارٍ التصميم…</span></div>
+        <div class="wk-card-head"><h2><i class="bi bi-image text-primary"></i> {% translate "الصورة النهائية" %}</h2>
+            <span class="small text-primary d-none" id="renderState"><span class="spinner-border spinner-border-sm"></span> {% translate "جارٍ التصميم…" %}</span></div>
         <div class="wk-card-body">
             <div class="d-flex gap-3 align-items-center">
                 <img id="finalImg" src="{% if post.image %}{{ post.image.url }}?v={{ post.updated_at|date:'U' }}{% endif %}" alt="" class="rounded-3 border {% if not post.image %}d-none{% endif %}" style="width: 110px; height: 110px; object-fit: cover">
                 <div class="flex-grow-1">
-                    <div class="small-muted mb-2" id="finalNote">{% if not post.image %}لم تُصمَّم الصورة بعد.{% elif post.image_stale %}التصميم تغيّر منذ آخر تحديث للصورة.{% else %}الصورة محدّثة وجاهزة للنشر.{% endif %}</div>
+                    <div class="small-muted mb-2" id="finalNote">{% if not post.image %}{% translate "لم تُصمَّم الصورة بعد." %}{% elif post.image_stale %}{% translate "التصميم تغيّر منذ آخر تحديث للصورة." %}{% else %}{% translate "الصورة محدّثة وجاهزة للنشر." %}{% endif %}</div>
                     <div class="d-flex gap-2 flex-wrap">
-                        <a href="{% url 'content:post_download' post.pk %}" class="btn btn-sm btn-primary {% if not post.image %}disabled{% endif %}" id="downloadBtn"><i class="bi bi-download"></i> تنزيل</a>
-                        {% if membership.can_edit %}<button type="button" class="btn btn-sm btn-light" id="renderBtn"><i class="bi bi-arrow-repeat"></i> تحديث التصميم</button>{% endif %}
+                        <a href="{% url 'content:post_download' post.pk %}" class="btn btn-sm btn-primary {% if not post.image %}disabled{% endif %}" id="downloadBtn"><i class="bi bi-download"></i> {% translate "تنزيل" %}</a>
+                        {% if membership.can_edit %}<button type="button" class="btn btn-sm btn-light" id="renderBtn"><i class="bi bi-arrow-repeat"></i> {% translate "تحديث التصميم" %}</button>{% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="wk-card mt-3" id="comments">
-        <div class="wk-card-head"><h2><i class="bi bi-chat-left-text text-primary"></i> المراجعة والتعليقات</h2><span class="small-muted" id="commentCount">{{ comments|length }}</span></div>
+        <div class="wk-card-head"><h2><i class="bi bi-chat-left-text text-primary"></i> {% translate "المراجعة والتعليقات" %}</h2><span class="small-muted" id="commentCount">{{ comments|length }}</span></div>
         <div class="wk-card-body">
             <div class="wk-thread mb-3" id="thread">
                 {% for c in comments %}
@@ -190,12 +191,12 @@
                     {% if c.body %}<div class="body">{{ c.body }}</div>{% endif %}
                 </div>
                 {% empty %}
-                <div class="small-muted" id="noComments">لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا.</div>
+                <div class="small-muted" id="noComments">{% translate "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا." %}</div>
                 {% endfor %}
             </div>
             <form id="commentForm" class="d-flex gap-2 align-items-end">
-                <textarea class="form-control" id="commentBody" rows="2" placeholder="اكتب تعليقاً…" aria-label="تعليق"></textarea>
-                <button class="btn btn-primary" id="commentBtn" title="إرسال"><i class="bi bi-send"></i></button>
+                <textarea class="form-control" id="commentBody" rows="2" placeholder="{% translate "اكتب تعليقاً…" %}" aria-label="{% translate "تعليق" %}"></textarea>
+                <button class="btn btn-primary" id="commentBtn" title="{% translate "إرسال" %}"><i class="bi bi-send"></i></button>
             </form>
         </div>
     </div>
@@ -210,9 +211,9 @@
     var CAN_EDIT = {{ membership.can_edit|yesno:"true,false" }};
     var CAN_MANAGE = {{ membership.can_manage|yesno:"true,false" }};
     var ME = '{{ user.display_name|escapejs }}';
-    var PUBLISH_TARGETS = '{{ publish_targets|join:"، "|escapejs }}';
+    var PUBLISH_TARGETS = '{{ publish_targets|join:_("، ")|escapejs }}';
     var PREVIEW_URL = '{% url "studio:preview" post.pk %}';
-    var SIZES = { square: [1080, 1080, 'مربع 1:1'], portrait: [1080, 1350, 'طولي 4:5'], story: [1080, 1920, 'عمودي 9:16'] };
+    var SIZES = { square: [1080, 1080, '{{ _("مربع 1:1")|escapejs }}'], portrait: [1080, 1350, '{{ _("طولي 4:5")|escapejs }}'], story: [1080, 1920, '{{ _("عمودي 9:16")|escapejs }}'] };
     var form = document.getElementById('postForm');
     var F = form.elements;
     var status = '{{ post.status }}';
@@ -266,7 +267,7 @@
         var fmt = (form.querySelector('input[name=format]:checked') || {}).value;
         var isVideo = fmt === 'reel';
         document.getElementById('scriptCard').classList.toggle('d-none', !isVideo);
-        document.getElementById('designTitle').textContent = isVideo ? 'غلاف الفيديو (اختياري)' : 'التصميم';
+        document.getElementById('designTitle').textContent = isVideo ? '{{ _("غلاف الفيديو (اختياري)")|escapejs }}' : '{{ _("التصميم")|escapejs }}';
     }
 
     // ---------- Caption counter ----------
@@ -285,7 +286,7 @@
     function markDirty() {
         if (!CAN_EDIT) return;
         dirty = true;
-        if (saveState) saveState.innerHTML = '<span class="text-warning">● تغييرات غير محفوظة</span>';
+        if (saveState) saveState.innerHTML = '{{ _('<span class="text-warning">● تغييرات غير محفوظة</span>')|escapejs }}';
     }
     form.addEventListener('input', function (e) {
         markDirty();
@@ -306,12 +307,12 @@
         form.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
         return Wakeel.api(location.pathname, 'POST', new FormData(form)).then(function (r) {
             dirty = false;
-            saveState.textContent = 'تم الحفظ الساعة ' + r.saved_at;
+            saveState.textContent = '{{ _("تم الحفظ الساعة ")|escapejs }}' + r.saved_at;
             if (r.render_job) watchRender(r.render_job);
         }).catch(function (err) {
             var errors = (err.data && err.data.errors) || {};
             Object.keys(errors).forEach(function (name) { if (F[name] && F[name].classList) F[name].classList.add('is-invalid'); });
-            Wakeel.toast(Object.keys(errors).length ? 'راجع الحقول المظللة.' : Wakeel.errorText(err), 'error');
+            Wakeel.toast(Object.keys(errors).length ? '{{ _("راجع الحقول المظللة.")|escapejs }}' : Wakeel.errorText(err), 'error');
         }).finally(function () { btn.disabled = false; });
     }
     form.addEventListener('submit', function (e) { e.preventDefault(); save(); });
@@ -330,9 +331,9 @@
             img.src = p.image + '?v=' + Date.now();
             img.classList.remove('d-none');
             document.getElementById('downloadBtn').classList.remove('disabled');
-            document.getElementById('finalNote').textContent = 'الصورة محدّثة وجاهزة للنشر.';
+            document.getElementById('finalNote').textContent = '{{ _("الصورة محدّثة وجاهزة للنشر.")|escapejs }}';
         }).catch(function (job) {
-            Wakeel.toast((job && job.error) || 'تعذّر تحديث التصميم', 'error');
+            Wakeel.toast((job && job.error) || '{{ _("تعذّر تحديث التصميم")|escapejs }}', 'error');
         }).finally(function () { st.classList.add('d-none'); });
     }
     var renderBtn = document.getElementById('renderBtn');
@@ -366,9 +367,9 @@
             }
             countCaption(); refreshPreview(); refreshThumbsSoon();
             document.getElementById('rewriteInput').value = '';
-            Wakeel.toast('أعاد وكيل كتابة المنشور');
+            Wakeel.toast('{{ _("أعاد وكيل كتابة المنشور")|escapejs }}');
         }).catch(function (err) {
-            Wakeel.toast((err && err.error) || Wakeel.errorText(err, 'تعذّرت إعادة الكتابة'), 'error');
+            Wakeel.toast((err && err.error) || Wakeel.errorText(err, '{{ _("تعذّرت إعادة الكتابة")|escapejs }}'), 'error');
         }).finally(function () {
             rwStatus.classList.add('d-none');
             document.querySelectorAll('[data-rewrite], #rewriteBtn').forEach(function (b) { b.disabled = false; });
@@ -382,7 +383,7 @@
     }
 
     // ---------- Status workflow ----------
-    var LABELS = { draft: ['مسودة', 'draft'], review: ['بانتظار المراجعة', 'review'], approved: ['معتمد', 'approved'], published: ['منشور', 'published'] };
+    var LABELS = { draft: ['{{ _("مسودة")|escapejs }}', 'draft'], review: ['{{ _("بانتظار المراجعة")|escapejs }}', 'review'], approved: ['{{ _("معتمد")|escapejs }}', 'approved'], published: ['{{ _("منشور")|escapejs }}', 'published'] };
     function setStatus(next, note) {
         var go = dirty ? save() : Promise.resolve();
         go.then(function () {
@@ -392,13 +393,13 @@
             var pill = document.getElementById('statusPill');
             pill.textContent = r.label; pill.className = 'wk-status ' + LABELS[r.status][1];
             renderStatusActions();
-            if (note) addComment({ kind: 'changes', kind_label: 'طلب تعديل', author: ME, body: note, created: 'الآن' });
-            Wakeel.toast('تم تحديث الحالة: ' + r.label);
+            if (note) addComment({ kind: 'changes', kind_label: '{{ _("طلب تعديل")|escapejs }}', author: ME, body: note, created: '{{ _("الآن")|escapejs }}' });
+            Wakeel.toast('{{ _("تم تحديث الحالة: ")|escapejs }}' + r.label);
         }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
     }
     function publishNow(btn) {
         var go = dirty ? save() : Promise.resolve();
-        btn.disabled = true; btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> جارٍ النشر…';
+        btn.disabled = true; btn.innerHTML = '{{ _('<span class="spinner-border spinner-border-sm"></span> جارٍ النشر…')|escapejs }}';
         go.then(function () {
             return Wakeel.api('/api/posts/' + POST_ID + '/publish/', 'POST', {});
         }).then(function (r) { return Wakeel.pollJob(r.job); }).then(function (job) {
@@ -406,9 +407,9 @@
             var pill = document.getElementById('statusPill');
             pill.textContent = LABELS.published[0]; pill.className = 'wk-status published';
             var err = document.getElementById('publishError'); if (err) err.remove();
-            Wakeel.toast(job.message || 'تم النشر');
+            Wakeel.toast(job.message || '{{ _("تم النشر")|escapejs }}');
         }).catch(function (e) {
-            Wakeel.toast((e && e.error) || Wakeel.errorText(e, 'تعذّر النشر'), 'error');
+            Wakeel.toast((e && e.error) || Wakeel.errorText(e, '{{ _("تعذّر النشر")|escapejs }}'), 'error');
         }).finally(renderStatusActions);
     }
     function renderStatusActions() {
@@ -421,25 +422,25 @@
             b.addEventListener('click', function () {
                 if (next === 'publish-now') {
                     Wakeel.confirm({
-                        title: 'نشر المنشور الآن؟', tone: 'primary', icon: 'bi-send', okText: 'انشر',
-                        message: 'سيُنشر فوراً على: ' + PUBLISH_TARGETS + '.',
+                        title: '{{ _("نشر المنشور الآن؟")|escapejs }}', tone: 'primary', icon: 'bi-send', okText: '{{ _("انشر")|escapejs }}',
+                        message: '{{ _("سيُنشر فوراً على: ")|escapejs }}' + PUBLISH_TARGETS + '.',
                     }).then(function (ok) { if (ok !== null) publishNow(b); });
                 } else if (next === 'draft-note') {
                     Wakeel.confirm({
-                        title: 'طلب تعديل', tone: 'primary', icon: 'bi-chat-left-text', okText: 'إرسال الملاحظة',
-                        message: 'سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى.',
-                        input: { label: 'ما الذي يحتاج إلى تعديل؟', placeholder: 'مثال: غيّر الصورة واذكر موعد انتهاء العرض', multiline: true, required: true },
+                        title: '{% filter escapejs %}{% translate "طلب تعديل" context "action" %}{% endfilter %}', tone: 'primary', icon: 'bi-chat-left-text', okText: '{{ _("إرسال الملاحظة")|escapejs }}',
+                        message: '{{ _("سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى.")|escapejs }}',
+                        input: { label: '{{ _("ما الذي يحتاج إلى تعديل؟")|escapejs }}', placeholder: '{{ _("مثال: غيّر الصورة واذكر موعد انتهاء العرض")|escapejs }}', multiline: true, required: true },
                     }).then(function (note) { if (note !== null) setStatus('draft', note); });
                 } else setStatus(next);
             });
             box.appendChild(b);
         }
         if (!CAN_EDIT) return;
-        if (status === 'draft') add('إرسال للمراجعة', 'bi-send', 'btn-soft', 'review');
-        if (status === 'review' && CAN_MANAGE) { add('طلب تعديل', 'bi-arrow-return-right', 'btn-light', 'draft-note'); add('اعتماد', 'bi-patch-check', 'btn-primary', 'approved'); }
+        if (status === 'draft') add('{{ _("إرسال للمراجعة")|escapejs }}', 'bi-send', 'btn-soft', 'review');
+        if (status === 'review' && CAN_MANAGE) { add('{% filter escapejs %}{% translate "طلب تعديل" context "action" %}{% endfilter %}', 'bi-arrow-return-right', 'btn-light', 'draft-note'); add('{% filter escapejs %}{% translate "اعتماد" context "action" %}{% endfilter %}', 'bi-patch-check', 'btn-primary', 'approved'); }
         if (status === 'approved' && CAN_MANAGE) {
-            if (PUBLISH_TARGETS) add('انشر الآن', 'bi-send', 'btn-primary', 'publish-now');
-            add('تم النشر يدوياً', 'bi-send-check', PUBLISH_TARGETS ? 'btn-light' : 'btn-primary', 'published');
+            if (PUBLISH_TARGETS) add('{{ _("انشر الآن")|escapejs }}', 'bi-send', 'btn-primary', 'publish-now');
+            add('{{ _("تم النشر يدوياً")|escapejs }}', 'bi-send-check', PUBLISH_TARGETS ? 'btn-light' : 'btn-primary', 'published');
         }
     }
     document.querySelectorAll('[data-set-status]').forEach(function (b) { b.addEventListener('click', function () { setStatus(b.dataset.setStatus); }); });
@@ -469,19 +470,19 @@
             '<div class="wk-feed__media"></div>' +
             (tab === 'ig'
                 ? '<div class="wk-feed__bar"><i class="bi bi-heart"></i><i class="bi bi-chat"></i><i class="bi bi-send"></i><i class="bi bi-bookmark ms-auto"></i></div><div class="wk-feed__text"></div>'
-                : '<div class="wk-feed__bar fb"><span><i class="bi bi-hand-thumbs-up"></i> أعجبني</span><span><i class="bi bi-chat"></i> تعليق</span><span><i class="bi bi-share"></i> مشاركة</span></div>');
+                : '{{ _('<div class="wk-feed__bar fb"><span><i class="bi bi-hand-thumbs-up"></i> أعجبني</span><span><i class="bi bi-chat"></i> تعليق</span><span><i class="bi bi-share"></i> مشاركة</span></div>')|escapejs }}');
         var av = feed.querySelector('.wk-avatar');
         av.style.background = d.color;
         if (d.logo) { var li = document.createElement('img'); li.src = d.logo; li.alt = ''; av.appendChild(li); } else av.textContent = d.initials;
         feed.querySelector('.name').textContent = tab === 'ig' ? d.handle : d.name;
-        feed.querySelector('.sub').textContent = tab === 'ig' ? '' : 'الآن · 🌐';
+        feed.querySelector('.sub').textContent = tab === 'ig' ? '' : '{{ _("الآن · 🌐")|escapejs }}';
 
         var media = feed.querySelector('.wk-feed__media');
         media.style.aspectRatio = isVideo ? '9 / 16' : s[0] + ' / ' + s[1];
         var note = '';
-        if (isVideo) { media.innerHTML = '<div class="ph"><i class="bi bi-camera-reels"></i><span>فيديو قصير يصوّره فريقك</span></div>'; }
-        else if (img.getAttribute('src')) { var m = document.createElement('img'); m.src = img.src; m.alt = ''; media.appendChild(m); if (dirty) note = 'الصورة المعروضة هي آخر نسخة محفوظة.'; }
-        else { media.innerHTML = '<div class="ph"><i class="bi bi-image"></i><span></span></div>'; media.querySelector('span').textContent = F.headline.value || 'لم تُصمَّم الصورة بعد'; note = 'احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا.'; }
+        if (isVideo) { media.innerHTML = '{{ _('<div class="ph"><i class="bi bi-camera-reels"></i><span>فيديو قصير يصوّره فريقك</span></div>')|escapejs }}'; }
+        else if (img.getAttribute('src')) { var m = document.createElement('img'); m.src = img.src; m.alt = ''; media.appendChild(m); if (dirty) note = '{{ _("الصورة المعروضة هي آخر نسخة محفوظة.")|escapejs }}'; }
+        else { media.innerHTML = '<div class="ph"><i class="bi bi-image"></i><span></span></div>'; media.querySelector('span').textContent = F.headline.value || '{{ _("لم تُصمَّم الصورة بعد")|escapejs }}'; note = '{{ _("احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا.")|escapejs }}'; }
 
         var text = feed.querySelector('.wk-feed__text'), fold = FOLD[tab];
         if (tab === 'ig') { var h = document.createElement('strong'); h.textContent = d.handle + ' '; text.appendChild(h); }
@@ -490,10 +491,10 @@
         if (caption.length > fold) {
             body.textContent = caption.slice(0, fold).trimEnd() + '… ';
             var more = document.createElement('button');
-            more.type = 'button'; more.className = 'more'; more.textContent = tab === 'ig' ? 'المزيد' : 'عرض المزيد';
+            more.type = 'button'; more.className = 'more'; more.textContent = tab === 'ig' ? '{{ _("المزيد")|escapejs }}' : '{{ _("عرض المزيد")|escapejs }}';
             more.addEventListener('click', function () { body.textContent = caption; more.remove(); });
             text.appendChild(more);
-            note = (note ? note + ' ' : '') + 'يظهر أول ' + fold + ' حرفاً تقريباً قبل «' + more.textContent + '»، فاجعل البداية قوية.';
+            note = (note ? note + ' ' : '') + '{{ _("يظهر أول ")|escapejs }}' + fold + '{{ _(" حرفاً تقريباً قبل «")|escapejs }}' + more.textContent + '{{ _("»، فاجعل البداية قوية.")|escapejs }}';
         } else body.textContent = caption;
         document.getElementById('feedNote').textContent = note;
     }

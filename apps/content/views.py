@@ -7,6 +7,7 @@ from django.db.models.functions import Cast
 from django.http import FileResponse, Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from apps.companies.decorators import company_required
@@ -24,7 +25,7 @@ from apps.social.services import PUBLISHABLE_FORMATS, targets as publish_targets
 from .review import share_url
 from .services import default_size
 
-WEEKDAYS = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت']
+WEEKDAYS = [_('الأحد'), _('الإثنين'), _('الثلاثاء'), _('الأربعاء'), _('الخميس'), _('الجمعة'), _('السبت')]
 
 
 # --- Plans ------------------------------------------------------------------
@@ -82,7 +83,7 @@ def plan_delete(request, pk):
     plan = get_object_or_404(ContentPlan, pk=pk, company=request.company)
     plan.posts.all().delete()
     plan.delete()
-    messages.success(request, 'تم حذف الخطة ومنشوراتها.')
+    messages.success(request, _('تم حذف الخطة ومنشوراتها.'))
     return redirect('content:plan_list')
 
 
@@ -165,7 +166,7 @@ def post_create(request):
         day = timezone.localdate() + datetime.timedelta(days=1)
     platforms = [Platform.FACEBOOK, Platform.INSTAGRAM]
     post = Post.objects.create(
-        company=request.company, created_by=request.user, title='منشور جديد', platforms=platforms,
+        company=request.company, created_by=request.user, title=_('منشور جديد'), platforms=platforms,
         status=Post.Status.DRAFT, size=default_size(Post.Format.IMAGE, platforms),
         scheduled_at=datetime.datetime.combine(day, datetime.time(19, 0), tzinfo=request.company.tzinfo),
         headline=request.company.name,
@@ -178,7 +179,7 @@ def post_edit(request, pk):
     post = get_object_or_404(Post.objects.select_related('background', 'plan'), pk=pk, company=request.company)
     if request.method == 'POST':
         if not request.membership.can_edit:
-            return JsonResponse({'ok': False, 'error': 'صلاحيتك للمشاهدة فقط.'}, status=403)
+            return JsonResponse({'ok': False, 'error': _('صلاحيتك للمشاهدة فقط.')}, status=403)
         before = {f: getattr(post, f) for f in Post.DESIGN_FIELDS}
         texts_before = {f: getattr(post, f) for f in learning.LEARNED_FIELDS}
         scheduled_before = post.scheduled_at
@@ -208,11 +209,11 @@ def post_edit(request, pk):
         'publish_targets': [a.get_platform_display() for a in publish_targets(post)] if post.format in PUBLISHABLE_FORMATS else [],
         'plan_posts': list(post.plan.posts.order_by('scheduled_at').values_list('pk', flat=True)) if post.plan else [],
         'quick_rewrites': [
-            'اجعل النص أقصر وأكثر تركيزاً',
-            'اجعل الأسلوب أكثر حماساً وجاذبية',
-            'اكتب عنواناً أقوى يلفت الانتباه',
-            'أضف دعوة أوضح لاتخاذ إجراء',
-            'اكتب فكرة مختلفة تماماً لنفس المحور',
+            _('اجعل النص أقصر وأكثر تركيزاً'),
+            _('اجعل الأسلوب أكثر حماساً وجاذبية'),
+            _('اكتب عنواناً أقوى يلفت الانتباه'),
+            _('أضف دعوة أوضح لاتخاذ إجراء'),
+            _('اكتب فكرة مختلفة تماماً لنفس المحور'),
         ],
     })
 
@@ -221,7 +222,7 @@ def post_edit(request, pk):
 @require_POST
 def post_delete(request, pk):
     get_object_or_404(Post, pk=pk, company=request.company).delete()
-    messages.success(request, 'تم حذف المنشور.')
+    messages.success(request, _('تم حذف المنشور.'))
     return redirect(request.POST.get('next') or 'content:post_list')
 
 
@@ -242,7 +243,7 @@ def post_captions_export(request, pk):
         when = timezone.localtime(post.scheduled_at).strftime('%Y-%m-%d %H:%M') if post.scheduled_at else '—'
         lines += [f'### {when} | {", ".join(post.platforms)} | {post.title}', post.full_caption]
         if post.video_script:
-            lines += ['', '[سيناريو الفيديو]', post.video_script]
+            lines += ['', _('[سيناريو الفيديو]'), post.video_script]
         lines.append('\n')
     response = HttpResponse('\n'.join(lines), content_type='text/plain; charset=utf-8')
     response['Content-Disposition'] = f'attachment; filename="wakeel-plan-{plan.month:%Y-%m}.txt"'

@@ -1,5 +1,5 @@
-{% if membership.can_manage and m.role != 'owner' %}
+{% load i18n %}{% if membership.can_manage and m.role != 'owner' %}
 <form method="post" action="{% url 'companies:member_update' m.pk %}">{% csrf_token %}
-    <button name="action" value="remove" class="adm-act adm-act--del" title="إزالة" aria-label="إزالة {{ m.user.display_name }}" data-confirm-title="إزالة العضو؟" data-confirm="لن يتمكن {{ m.user.display_name }} من الوصول إلى {{ company.name }} بعد الآن." data-confirm-ok="إزالة"><i class="bi bi-person-dash"></i></button>
+    <button name="action" value="remove" class="adm-act adm-act--del" title="{% translate "إزالة" %}" aria-label="{% blocktranslate trimmed with display_name=m.user.display_name %}إزالة {{ display_name }}{% endblocktranslate %}" data-confirm-title="{% translate "إزالة العضو؟" %}" data-confirm="{% blocktranslate trimmed with display_name=m.user.display_name name=company.name %}لن يتمكن {{ display_name }} من الوصول إلى {{ name }} بعد الآن.{% endblocktranslate %}" data-confirm-ok="{% translate "إزالة" %}"><i class="bi bi-person-dash"></i></button>
 </form>
 {% endif %}

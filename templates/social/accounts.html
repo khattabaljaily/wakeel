@@ -1,56 +1,56 @@
 {% extends "base.html" %}
-{% block title %}حسابات النشر{% endblock %}
-{% block page_title %}حسابات النشر{% endblock %}
-{% block subtitle %}<div class="subtitle">اربط صفحة فيسبوك وحساب إنستغرام لينشر وكيل المنشورات المعتمدة مباشرة.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "حسابات النشر" %}{% endblock %}
+{% block page_title %}{% translate "حسابات النشر" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "اربط صفحة فيسبوك وحساب إنستغرام لينشر وكيل المنشورات المعتمدة مباشرة." %}</div>{% endblock %}
 {% block content %}
 {% if not meta_enabled %}
 {% if user.is_superuser %}
-<div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> <strong>تطبيق Meta غير مضبوط بعد.</strong>
-    أنشئ تطبيقاً في <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener" class="alert-link">Meta for Developers</a>،
-    وأضف <code>META_APP_ID</code> و<code>META_APP_SECRET</code> إلى <code>secrets.json</code>، واجعل رابط إعادة التوجيه:
+<div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> <strong>{% translate "تطبيق Meta غير مضبوط بعد." %}</strong>
+    {% translate "أنشئ تطبيقاً في" %} <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener" class="alert-link">Meta for Developers</a>{% translate "، وأضف" %} <code>META_APP_ID</code> {% translate "و" %}<code>META_APP_SECRET</code> {% translate "إلى" %} <code>secrets.json</code>{% translate "، واجعل رابط إعادة التوجيه:" %}
     <code dir="ltr" class="d-inline-block">{{ redirect_uri }}</code></div>
 {% else %}
-<div class="alert alert-info"><i class="bi bi-info-circle"></i> ربط فيسبوك وإنستغرام غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله.</div>
+<div class="alert alert-info"><i class="bi bi-info-circle"></i> {% translate "ربط فيسبوك وإنستغرام غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله." %}</div>
 {% endif %}
 {% endif %}
 
 <div class="row g-4">
     <div class="col-xl-7">
         <div class="wk-card">
-            <div class="wk-card-head"><h2><i class="bi bi-link-45deg text-primary"></i> الحسابات المربوطة</h2></div>
+            <div class="wk-card-head"><h2><i class="bi bi-link-45deg text-primary"></i> {% translate "الحسابات المربوطة" %}</h2></div>
             <div class="list-group list-group-flush">
                 {% with fb=accounts.facebook ig=accounts.instagram %}
                 <div class="list-group-item d-flex align-items-center gap-3 py-3">
                     <i class="bi bi-facebook fs-3" style="color:#1877f2"></i>
                     <div class="flex-grow-1 overflow-hidden">
-                        <div class="fw-semibold">فيسبوك</div>
-                        {% if fb %}<div class="small-muted text-truncate">صفحة «{{ fb.name }}» · ربطها {{ fb.connected_by.display_name|default:"—" }}</div>
+                        <div class="fw-semibold">{% translate "فيسبوك" %}</div>
+                        {% if fb %}<div class="small-muted text-truncate">{% blocktranslate trimmed with name=fb.name display_name=fb.connected_by.display_name|default:"—" %}صفحة «{{ name }}» · ربطها {{ display_name }}{% endblocktranslate %}</div>
                         {% if fb.last_error %}<div class="small text-danger">{{ fb.last_error }}</div>{% endif %}
-                        {% else %}<div class="small-muted">غير مربوط</div>{% endif %}
+                        {% else %}<div class="small-muted">{% translate "غير مربوط" %}</div>{% endif %}
                     </div>
                     {% if fb %}<form method="post" action="{% url 'social:disconnect' 'facebook' %}">{% csrf_token %}
-                        <button class="btn btn-sm btn-light text-danger" data-confirm-title="فصل فيسبوك؟" data-confirm="لن ينشر وكيل على هذه الصفحة بعد الآن." data-confirm-ok="فصل">فصل</button></form>{% endif %}
+                        <button class="btn btn-sm btn-light text-danger" data-confirm-title="{% translate "فصل فيسبوك؟" %}" data-confirm="{% translate "لن ينشر وكيل على هذه الصفحة بعد الآن." %}" data-confirm-ok="{% translate "فصل" %}">{% translate "فصل" %}</button></form>{% endif %}
                 </div>
                 <div class="list-group-item d-flex align-items-center gap-3 py-3">
                     <i class="bi bi-instagram fs-3" style="color:#e1306c"></i>
                     <div class="flex-grow-1 overflow-hidden">
-                        <div class="fw-semibold">إنستغرام</div>
+                        <div class="fw-semibold">{% translate "إنستغرام" %}</div>
                         {% if ig %}<div class="small-muted text-truncate" dir="auto">@{{ ig.name }}</div>
                         {% if ig.last_error %}<div class="small text-danger">{{ ig.last_error }}</div>{% endif %}
-                        {% else %}<div class="small-muted">يُربط تلقائياً مع صفحة فيسبوك إذا كان لها حساب إنستغرام احترافي.</div>{% endif %}
+                        {% else %}<div class="small-muted">{% translate "يُربط تلقائياً مع صفحة فيسبوك إذا كان لها حساب إنستغرام احترافي." %}</div>{% endif %}
                     </div>
                     {% if ig %}<form method="post" action="{% url 'social:disconnect' 'instagram' %}">{% csrf_token %}
-                        <button class="btn btn-sm btn-light text-danger" data-confirm-title="فصل إنستغرام؟" data-confirm="لن ينشر وكيل على هذا الحساب بعد الآن." data-confirm-ok="فصل">فصل</button></form>{% endif %}
+                        <button class="btn btn-sm btn-light text-danger" data-confirm-title="{% translate "فصل إنستغرام؟" %}" data-confirm="{% translate "لن ينشر وكيل على هذا الحساب بعد الآن." %}" data-confirm-ok="{% translate "فصل" %}">{% translate "فصل" %}</button></form>{% endif %}
                 </div>
                 <div class="list-group-item d-flex align-items-center gap-3 py-3">
                     <i class="bi bi-tiktok fs-3"></i>
-                    <div class="flex-grow-1"><div class="fw-semibold">تيك توك</div><div class="small-muted">يُنشر يدوياً: صوّر الفيديو وفق السيناريو ثم انشره من التطبيق.</div></div>
+                    <div class="flex-grow-1"><div class="fw-semibold">{% translate "تيك توك" %}</div><div class="small-muted">{% translate "يُنشر يدوياً: صوّر الفيديو وفق السيناريو ثم انشره من التطبيق." %}</div></div>
                 </div>
                 {% endwith %}
             </div>
             <div class="wk-card-body border-top">
                 <form method="post" action="{% url 'social:meta_connect' %}">{% csrf_token %}
-                    <button class="btn btn-primary" {% if not meta_enabled %}disabled{% endif %}><i class="bi bi-facebook"></i> {% if accounts %}إعادة الربط أو تغيير الصفحة{% else %}ربط فيسبوك وإنستغرام{% endif %}</button>
+                    <button class="btn btn-primary" {% if not meta_enabled %}disabled{% endif %}><i class="bi bi-facebook"></i> {% if accounts %}{% translate "إعادة الربط أو تغيير الصفحة" %}{% else %}{% translate "ربط فيسبوك وإنستغرام" %}{% endif %}</button>
                 </form>
             </div>
         </div>
@@ -58,18 +58,18 @@
     <div class="col-xl-5">
         <div class="wk-card mb-4"><div class="wk-card-body">
             <form method="post" action="{% url 'social:auto_publish' %}" class="d-flex align-items-start gap-3">{% csrf_token %}
-                <div class="flex-grow-1"><strong>النشر التلقائي في الموعد</strong>
-                    <div class="small-muted">عند تفعيله، ينشر وكيل كل منشور <strong>معتمد</strong> (صورة أو قصة) في موعده المحدد على الحسابات المربوطة. المنشورات غير المعتمدة لا تُنشر أبداً.</div></div>
-                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" name="auto_publish" {% if company.auto_publish %}checked{% endif %} onchange="this.form.submit()" aria-label="النشر التلقائي"></div>
+                <div class="flex-grow-1"><strong>{% translate "النشر التلقائي في الموعد" %}</strong>
+                    <div class="small-muted">{% translate "عند تفعيله، ينشر وكيل كل منشور" %} <strong>{% translate "معتمد" %}</strong> {% translate "(صورة أو قصة) في موعده المحدد على الحسابات المربوطة. المنشورات غير المعتمدة لا تُنشر أبداً." %}</div></div>
+                <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" name="auto_publish" {% if company.auto_publish %}checked{% endif %} onchange="this.form.submit()" aria-label="{% translate "النشر التلقائي" %}"></div>
             </form>
         </div></div>
         <div class="wk-card"><div class="wk-card-body small">
-            <strong class="d-block mb-2">ما يُنشر تلقائياً</strong>
+            <strong class="d-block mb-2">{% translate "ما يُنشر تلقائياً" %}</strong>
             <ul class="mb-0 ps-3" style="line-height:2">
-                <li>التصاميم الثابتة والقصص على فيسبوك وإنستغرام، مع النص والوسوم.</li>
-                <li>الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها.</li>
-                <li>إذا فات موعد منشور بأكثر من 6 ساعات (مثلاً توقف الخادم) فلن يُنشر تلقائياً؛ انشره يدوياً من صفحته.</li>
-                <li>يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد.</li>
+                <li>{% translate "التصاميم الثابتة والقصص على فيسبوك وإنستغرام، مع النص والوسوم." %}</li>
+                <li>{% translate "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها." %}</li>
+                <li>{% translate "إذا فات موعد منشور بأكثر من 6 ساعات (مثلاً توقف الخادم) فلن يُنشر تلقائياً؛ انشره يدوياً من صفحته." %}</li>
+                <li>{% translate "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد." %}</li>
             </ul>
         </div></div>
     </div>

@@ -1,35 +1,36 @@
 {% extends "base.html" %}
-{% block title %}خطة محتوى جديدة{% endblock %}
-{% block page_title %}خطة محتوى جديدة{% endblock %}
-{% block subtitle %}<div class="subtitle">أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "خطة محتوى جديدة" %}{% endblock %}
+{% block page_title %}{% translate "خطة محتوى جديدة" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي." %}</div>{% endblock %}
 {% block content %}
 <div class="row g-4">
     <div class="col-lg-7">
         <form method="post" class="wk-card" novalidate>{% csrf_token %}
             <div class="wk-card-body">
-                {% if not ai_enabled %}<div class="alert alert-warning small">{% if user.is_superuser %}الذكاء الاصطناعي غير مفعّل بعد؛ ستفشل الخطة حتى يُضاف مفتاح {{ ai_key_name }}.{% else %}إعداد الخطط متوقف مؤقتاً، وفريق الدعم يعمل على إعادته. حاول لاحقاً.{% endif %}</div>{% endif %}
-                {% if not company.description %}<div class="alert alert-primary small"><i class="bi bi-person-vcard"></i> ملف الشركة غير مكتمل، فستكون الخطة عامة. {% if membership.can_manage %}<a href="{% url 'companies:brand' %}" class="alert-link">أكمل الملف أولاً</a> ليكتب وكيل محتوى يشبه علامتك.{% endif %}</div>{% endif %}
+                {% if not ai_enabled %}<div class="alert alert-warning small">{% if user.is_superuser %}{% blocktranslate trimmed with ai_key_name=ai_key_name %}الذكاء الاصطناعي غير مفعّل بعد؛ ستفشل الخطة حتى يُضاف مفتاح {{ ai_key_name }}.{% endblocktranslate %}{% else %}{% translate "إعداد الخطط متوقف مؤقتاً، وفريق الدعم يعمل على إعادته. حاول لاحقاً." %}{% endif %}</div>{% endif %}
+                {% if not company.description %}<div class="alert alert-primary small"><i class="bi bi-person-vcard"></i> {% translate "ملف الشركة غير مكتمل، فستكون الخطة عامة." %} {% if membership.can_manage %}<a href="{% url 'companies:brand' %}" class="alert-link">{% translate "أكمل الملف أولاً" %}</a> {% translate "ليكتب وكيل محتوى يشبه علامتك." %}{% endif %}</div>{% endif %}
                 <div class="row">
                     {% include "_field.html" with field=form.month wrap_class="col-md-6" %}
                     {% include "_field.html" with field=form.posts_per_week wrap_class="col-md-6" %}
                 </div>
                 {% include "_field.html" with field=form.platforms %}
                 {% include "_field.html" with field=form.brief %}
-                <button class="btn btn-ai btn-lg w-100"><i class="bi bi-magic"></i> أعدّ الخطة الآن</button>
+                <button class="btn btn-ai btn-lg w-100"><i class="bi bi-magic"></i> {% translate "أعدّ الخطة الآن" %}</button>
             </div>
         </form>
     </div>
     <div class="col-lg-5">
         <div class="wk-card"><div class="wk-card-body">
-            <h2 class="wk-section-title"><i class="bi bi-lightbulb text-warning"></i> ماذا سيحدث؟</h2>
+            <h2 class="wk-section-title"><i class="bi bi-lightbulb text-warning"></i> {% translate "ماذا سيحدث؟" %}</h2>
             <ol class="text-muted mb-0 ps-3" style="line-height: 2">
-                <li>يدرس وكيل هوية {{ company.name }} وجمهورها وأهدافها.</li>
-                <li>يحدد أهداف الشهر ومحاور المحتوى والمناسبات المهمة في {{ company.country }}.</li>
-                <li>يكتب كل منشور: الفكرة والنص والوسوم وموعد النشر، وسيناريو للفيديوهات.</li>
-                <li>يصمم صورة كل منشور بألوانك وخطوطك وشعارك.</li>
-                <li>تجد كل شيء في التقويم بانتظار مراجعتك واعتمادك.</li>
+                <li>{% blocktranslate trimmed with name=company.name %}يدرس وكيل هوية {{ name }} وجمهورها وأهدافها.{% endblocktranslate %}</li>
+                <li>{% blocktranslate trimmed with country=company.country %}يحدد أهداف الشهر ومحاور المحتوى والمناسبات المهمة في {{ country }}.{% endblocktranslate %}</li>
+                <li>{% translate "يكتب كل منشور: الفكرة والنص والوسوم وموعد النشر، وسيناريو للفيديوهات." %}</li>
+                <li>{% translate "يصمم صورة كل منشور بألوانك وخطوطك وشعارك." %}</li>
+                <li>{% translate "تجد كل شيء في التقويم بانتظار مراجعتك واعتمادك." %}</li>
             </ol>
-            <div class="small-muted mt-3"><i class="bi bi-clock"></i> يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق.</div>
+            <div class="small-muted mt-3"><i class="bi bi-clock"></i> {% translate "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق." %}</div>
         </div></div>
     </div>
 </div>

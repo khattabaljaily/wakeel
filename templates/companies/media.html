@@ -1,20 +1,21 @@
 {% extends "base.html" %}
-{% block title %}مكتبة الوسائط{% endblock %}
-{% block page_title %}مكتبة الوسائط{% endblock %}
-{% block subtitle %}<div class="subtitle">صور منتجاتك وفريقك ومقرك، لاستخدامها خلفياتٍ في التصاميم.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "مكتبة الوسائط" %}{% endblock %}
+{% block page_title %}{% translate "مكتبة الوسائط" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "صور منتجاتك وفريقك ومقرك، لاستخدامها خلفياتٍ في التصاميم." %}</div>{% endblock %}
 {% block content %}
 {% if membership.can_edit %}
 <form method="post" enctype="multipart/form-data" class="mb-4" id="uploadForm">{% csrf_token %}
     <label class="wk-drop d-block" id="drop">
         <i class="bi bi-cloud-arrow-up"></i>
-        <div class="fw-semibold mt-2">اسحب الصور هنا أو اضغط للاختيار</div>
-        <div class="small-muted">يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)</div>
+        <div class="fw-semibold mt-2">{% translate "اسحب الصور هنا أو اضغط للاختيار" %}</div>
+        <div class="small-muted">{% translate "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)" %}</div>
         <input type="file" name="file" accept="image/*" multiple class="d-none" id="fileInput">
     </label>
     <div class="row g-2 mt-2">
-        <div class="col-md-5"><input type="text" name="title" class="form-control" placeholder="وصف اختياري للصور"></div>
-        <div class="col-md-5"><input type="text" name="tags" class="form-control" placeholder="وسوم اختيارية: منتج، فريق، مكتب…"></div>
-        <div class="col-md-2"><button class="btn btn-primary w-100" id="uploadBtn" disabled>رفع</button></div>
+        <div class="col-md-5"><input type="text" name="title" class="form-control" placeholder="{% translate "وصف اختياري للصور" %}"></div>
+        <div class="col-md-5"><input type="text" name="tags" class="form-control" placeholder="{% translate "وسوم اختيارية: منتج، فريق، مكتب…" %}"></div>
+        <div class="col-md-2"><button class="btn btn-primary w-100" id="uploadBtn" disabled>{% translate "رفع" %}</button></div>
     </div>
 </form>
 {% endif %}
@@ -25,10 +26,10 @@
     <div class="wk-media">
         <img src="{{ a.file.url }}" alt="{{ a.title }}" loading="lazy">
         <div class="cap">
-            <span class="text-truncate">{{ a.title|default:"بدون وصف" }}</span>
+            <span class="text-truncate">{{ a.title|default:_("بدون وصف") }}</span>
             {% if membership.can_edit %}
             <form method="post" action="{% url 'companies:media_delete' a.pk %}">{% csrf_token %}
-                <button class="btn btn-sm btn-link text-danger p-0" data-confirm-title="حذف الصورة؟" data-confirm="ستُحذف من المكتبة، وتُزال من خلفيات المنشورات التي تستخدمها." data-confirm-ok="حذف الصورة"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-sm btn-link text-danger p-0" data-confirm-title="{% translate "حذف الصورة؟" %}" data-confirm="{% translate "ستُحذف من المكتبة، وتُزال من خلفيات المنشورات التي تستخدمها." %}" data-confirm-ok="{% translate "حذف الصورة" %}"><i class="bi bi-trash"></i></button>
             </form>
             {% endif %}
         </div>
@@ -36,7 +37,7 @@
     {% endfor %}
 </div>
 {% else %}
-<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-images"></i></div><h3>المكتبة فارغة</h3><p>ارفع صوراً حقيقية لمنتجاتك أو مقرك أو فريقك، لتظهر في قالبي «صورة كاملة» و«مقسوم».</p></div></div>
+<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-images"></i></div><h3>{% translate "المكتبة فارغة" %}</h3><p>{% translate "ارفع صوراً حقيقية لمنتجاتك أو مقرك أو فريقك، لتظهر في قالبي «صورة كاملة» و«مقسوم»." %}</p></div></div>
 {% endif %}
 {% endblock %}
 {% block scripts %}
@@ -47,7 +48,7 @@
     function update() {
         var n = input.files.length;
         btn.disabled = !n;
-        drop.querySelector('.fw-semibold').textContent = n ? 'تم اختيار ' + n + ' صورة' : 'اسحب الصور هنا أو اضغط للاختيار';
+        drop.querySelector('.fw-semibold').textContent = n ? '{{ _("تم اختيار ")|escapejs }}' + n + '{{ _(" صورة")|escapejs }}' : '{{ _("اسحب الصور هنا أو اضغط للاختيار")|escapejs }}';
     }
     input.addEventListener('change', update);
     ['dragenter', 'dragover'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); }); });

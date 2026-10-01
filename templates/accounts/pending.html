@@ -1,17 +1,18 @@
 {% extends "accounts/base_auth.html" %}
-{% block title %}حسابك قيد المراجعة{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "حسابك قيد المراجعة" %}{% endblock %}
 {% block auth_content %}
 <div class="wk-auth__head text-center">
     <span class="wk-auth__icon mx-auto wk-auth__icon--warn"><i class="bi bi-hourglass-split"></i></span>
-    <h1>حسابك قيد المراجعة</h1>
-    <p>شكراً لتسجيلك يا {{ user.display_name }}. سيراجع فريقنا طلبك، وسيصلك بريد على <span dir="ltr" class="text-dark">{{ user.email }}</span> فور التفعيل.</p>
+    <h1>{% translate "حسابك قيد المراجعة" %}</h1>
+    <p>{% blocktranslate trimmed with display_name=user.display_name %}شكراً لتسجيلك يا {{ display_name }}. سيراجع فريقنا طلبك، وسيصلك بريد على{% endblocktranslate %} <span dir="ltr" class="text-dark">{{ user.email }}</span> {% translate "فور التفعيل." %}</p>
 </div>
 <ol class="wk-track">
-    <li class="done"><span><i class="bi bi-check-lg"></i></span><div><strong>إنشاء الحساب</strong><small>{{ user.date_joined|date:"j F Y" }}</small></div></li>
-    <li class="current"><span><i class="bi bi-hourglass-split"></i></span><div><strong>مراجعة الطلب</strong><small>يراجع فريقنا بيانات حسابك</small></div></li>
-    <li><span><i class="bi bi-buildings"></i></span><div><strong>إضافة شركاتك</strong><small>بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل</small></div></li>
+    <li class="done"><span><i class="bi bi-check-lg"></i></span><div><strong>{% translate "إنشاء الحساب" %}</strong><small>{{ user.date_joined|date:"j F Y" }}</small></div></li>
+    <li class="current"><span><i class="bi bi-hourglass-split"></i></span><div><strong>{% translate "مراجعة الطلب" %}</strong><small>{% translate "يراجع فريقنا بيانات حسابك" %}</small></div></li>
+    <li><span><i class="bi bi-buildings"></i></span><div><strong>{% translate "إضافة شركاتك" %}</strong><small>{% translate "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل" %}</small></div></li>
 </ol>
 <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}
-    <button class="btn btn-light w-100"><i class="bi bi-box-arrow-left"></i> تسجيل الخروج</button>
+    <button class="btn btn-light w-100"><i class="bi bi-box-arrow-left"></i> {% translate "تسجيل الخروج" %}</button>
 </form>
 {% endblock %}

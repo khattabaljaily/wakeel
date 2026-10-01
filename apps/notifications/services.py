@@ -4,6 +4,8 @@ import logging
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.utils import translation
+from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Membership
 
@@ -32,14 +34,14 @@ def notify(users, company, message, url='', *, icon='bi-bell', actor=None, email
             continue
         seen.add(user.pk)
         recipients.append(user)
-    Notification.objects.bulk_create([
-        Notification(user=u, company=company, message=message[:300], url=url, icon=icon) for u in recipients
-    ])
-    push.send(recipients, title=company.name, body=message, url=url, tag=f'wakeel-{company.pk}')
-    if email:
-        for user in recipients:
-            if user.email and user.email_notifications:
-                _email(user, company, message, url)
+    # `message` may be lazy (gettext_lazy / format_lazy): each recipient reads it in their own language.
+    for user in recipients:
+        with translation.override(user.language or settings.LANGUAGE_CODE):
+            text = str(message)[:300]
+            Notification.objects.create(user=user, company=company, message=text, url=url, icon=icon)
+            push.send([user], title=company.name, body=text, url=url, tag=f'wakeel-{company.pk}')
+            if email and user.email and user.email_notifications:
+                _email(user, company, text, url)
     return recipients
 
 
@@ -47,7 +49,7 @@ def _email(user, company, message, url):
     context = {'user': user, 'company': company, 'message': message,
                'link': settings.SITE_URL + url if url.startswith('/') else url}
     try:
-        send_mail(f'{company.name} · وكيل', render_to_string('notifications/emails/notification.txt', context),
+        send_mail(_('%(company)s · وكيل') % {'company': company.name}, render_to_string('notifications/emails/notification.txt', context),
                   None, [user.email])
     except Exception:  # an email outage must never break the action that triggered it
         logger.exception('Could not email notification to user %s', user.pk)

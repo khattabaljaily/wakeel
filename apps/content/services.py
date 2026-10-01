@@ -5,6 +5,7 @@ import datetime
 
 from django.db import transaction
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from apps.ai import planner
 from apps.ai.client import AIError
@@ -58,7 +59,7 @@ def _post_fields(item, allowed_platforms):
         for name in ('title', 'pillar', 'objective', 'caption', 'hashtags', 'headline', 'subheadline',
                      'cta', 'badge', 'visual_notes', 'video_script')
     }
-    fields['title'] = fields['title'] or fields['headline'][:200] or 'منشور'
+    fields['title'] = fields['title'] or fields['headline'][:200] or _('منشور')
     fields.update(platforms=platforms, format=fmt, template=template, size=default_size(fmt, platforms))
     return fields
 
@@ -101,7 +102,7 @@ def apply_rewrite(post, data):
             setattr(post, name, _clip(name, data[name]))
     if not post.is_video:
         post.video_script = ''
-    post.title = post.title or 'منشور'
+    post.title = post.title or _('منشور')
     post.image_stale = True
     post.save()
     return post
@@ -127,55 +128,55 @@ def set_status(post, status, user=None, note=''):
 def run_generate_plan(job):
     plan = ContentPlan.objects.select_related('company').get(pk=job.params['plan_id'], company=job.company)
     if learning.pending(plan.company).exists():
-        job.set_progress(5, 'وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…')
+        job.set_progress(5, _('وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…'))
         try:
-            result, _ = learning.learn(plan.company)
+            result, _used = learning.learn(plan.company)
             if result:
                 job.add_usage(result)
             plan.company.refresh_from_db()
         except Exception:  # learning must never block the plan itself
             logger.exception('Learning before plan %s failed', plan.pk)
-    job.set_progress(10, 'وكيل يدرس هوية الشركة ويضع الاستراتيجية…')
+    job.set_progress(10, _('وكيل يدرس هوية الشركة ويضع الاستراتيجية…'))
     try:
         result = planner.generate_plan(plan)
     except Exception as exc:
         if not job.was_cancelled():
             plan.status = ContentPlan.Status.FAILED
-            plan.error = str(exc) if isinstance(exc, AIError) else 'حدث خطأ غير متوقع، وأُبلغ فريق الدعم. حاول مرة أخرى.'
+            plan.error = str(exc) if isinstance(exc, AIError) else _('حدث خطأ غير متوقع، وأُبلغ فريق الدعم. حاول مرة أخرى.')
             plan.save(update_fields=['status', 'error'])
             events.plan_failed(plan)
         raise
     job.add_usage(result)
     if job.was_cancelled():  # the user gave up while the AI was writing; drop the result
         return ''
-    job.set_progress(80, 'حفظ المنشورات…')
+    job.set_progress(80, _('حفظ المنشورات…'))
     posts = apply_plan(plan, result.data)
     events.plan_ready(plan, len(posts))
-    job.set_progress(90, f'تم إعداد {len(posts)} منشوراً. جارٍ تصميم الصور…')
+    job.set_progress(90, _('تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…') % {'count': len(posts)})
     from apps.jobs.models import Job
     Job.enqueue(plan.company, Job.Kind.RENDER_PLAN, job.created_by, plan_id=plan.pk,
                 autopilot=bool(job.params.get('autopilot')))
-    return f'تم إعداد الخطة و{len(posts)} منشوراً.'
+    return _('تم إعداد الخطة و%(count)s منشوراً.') % {'count': len(posts)}
 
 
 def run_rewrite_post(job):
     post = Post.objects.select_related('company').get(pk=job.params['post_id'], company=job.company)
-    job.set_progress(20, 'وكيل يعيد كتابة المنشور…')
+    job.set_progress(20, _('وكيل يعيد كتابة المنشور…'))
     result = planner.rewrite_post(post, job.params.get('instruction', ''))
     job.add_usage(result)
     apply_rewrite(post, result.data)
     if not post.is_video:
         from apps.studio.render import render_posts
-        job.set_progress(80, 'تحديث التصميم…')
+        job.set_progress(80, _('تحديث التصميم…'))
         render_posts([post])
-    return 'تمت إعادة الكتابة.'
+    return _('تمت إعادة الكتابة.')
 
 
 def run_render_post(job):
     from apps.studio.render import render_posts
     post = Post.objects.select_related('company', 'background').get(pk=job.params['post_id'], company=job.company)
     render_posts([post])
-    return 'تم تحديث التصميم.'
+    return _('تم تحديث التصميم.')
 
 
 def run_render_plan(job):
@@ -189,7 +190,7 @@ def run_render_plan(job):
     def progress(done, total):
         if job.was_cancelled():
             raise JobCancelled
-        job.set_progress(int(done * 100 / max(total, 1)), f'تصميم الصور: {done} من {total}')
+        job.set_progress(int(done * 100 / max(total, 1)), _('تصميم الصور: %(done)s من %(total)s') % {'done': done, 'total': total})
 
     try:
         render_posts(posts, progress=progress)
@@ -198,7 +199,7 @@ def run_render_plan(job):
     if job.params.get('autopilot'):
         from .autopilot import deliver
         deliver(ContentPlan.objects.select_related('company').get(pk=job.params['plan_id']))
-    return f'تم تصميم {len(posts)} صورة.'
+    return _('تم تصميم %(count)s صورة.') % {'count': len(posts)}
 
 
 class JobCancelled(Exception):
@@ -209,4 +210,4 @@ def run_learn(job):
     result, used = learning.learn(job.company)
     if result:
         job.add_usage(result)
-    return f'تعلّم وكيل من {used} ملاحظة.' if used else 'لا توجد ملاحظات جديدة.'
+    return _('تعلّم وكيل من %(count)s ملاحظة.') % {'count': used} if used else _('لا توجد ملاحظات جديدة.')

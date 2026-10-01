@@ -1,5 +1,5 @@
-{# Status badge and end date for one subscription `c`. #}
+{% load i18n %}{# Status badge and end date for one subscription `c`. #}
 {% with state=c.subscription_status days=c.days_until_expiry %}
 <span class="badge {% if state == 'active' %}text-bg-success{% elif state == 'pending' %}text-bg-warning{% elif state == 'expired' %}text-bg-danger{% else %}text-bg-secondary{% endif %}">{{ c.subscription_status_label }}</span>
-{% if c.is_demo %}<span class="badge rounded-pill text-bg-light border">تجريبي</span>{% endif %}
+{% if c.is_demo %}<span class="badge rounded-pill text-bg-light border">{% translate "تجريبي" %}</span>{% endif %}
 {% endwith %}

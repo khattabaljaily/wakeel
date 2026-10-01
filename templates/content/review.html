@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load wakeel %}
-{% block title %}مراجعة {{ plan.title|default:"خطة المحتوى" }}{% endblock %}
+{% block title %}{% blocktranslate trimmed with title=plan.title|default:_("خطة المحتوى") %}مراجعة {{ title }}{% endblocktranslate %}{% endblock %}
 {% block extra_head %}<meta name="robots" content="noindex, nofollow">{% endblock %}
 {% block body %}
 <div class="wk-review">
@@ -8,20 +9,21 @@
         <span class="wk-avatar" style="background: {{ brand.primary_color }}">{% if brand.logo %}<img src="{{ brand.logo.url }}" alt="">{% else %}{{ brand.initials }}{% endif %}</span>
         <div class="flex-grow-1 overflow-hidden">
             <div class="small-muted">{{ brand.name }} · {{ month_label }}</div>
-            <h1 class="h4 mb-0 text-truncate">{{ plan.title|default:"خطة المحتوى" }}</h1>
+            <h1 class="h4 mb-0 text-truncate">{{ plan.title|default:_("خطة المحتوى") }}</h1>
         </div>
-        {% if pending %}<span class="wk-status review">{{ pending }} بانتظار رأيك</span>{% endif %}
+        {% if pending %}<span class="wk-status review">{% blocktranslate trimmed with pending=pending %}{{ pending }} بانتظار رأيك{% endblocktranslate %}</span>{% endif %}
+        {% include "_language_switch.html" %}
     </header>
 
     <div class="wk-review__body">
         <div class="wk-card mb-4"><div class="wk-card-body">
-            <p class="mb-3">راجع منشورات هذا الشهر: اعتمد ما يعجبك، أو اطلب التعديل واكتب ملاحظتك، وسيصل ردك إلى فريق التسويق فوراً.</p>
-            <label class="form-label" for="guestName">اسمك</label>
-            <input type="text" class="form-control" id="guestName" maxlength="80" placeholder="مثال: أحمد، مدير التسويق" style="max-width: 360px" autocomplete="name">
+            <p class="mb-3">{% translate "راجع منشورات هذا الشهر: اعتمد ما يعجبك، أو اطلب التعديل واكتب ملاحظتك، وسيصل ردك إلى فريق التسويق فوراً." %}</p>
+            <label class="form-label" for="guestName">{% translate "اسمك" %}</label>
+            <input type="text" class="form-control" id="guestName" maxlength="80" placeholder="{% translate "مثال: أحمد، مدير التسويق" %}" style="max-width: 360px" autocomplete="name">
         </div></div>
 
         {% if plan.summary %}
-        <details class="wk-card mb-4"><summary class="wk-card-body fw-semibold" style="cursor:pointer"><i class="bi bi-bullseye text-primary"></i> استراتيجية الشهر</summary>
+        <details class="wk-card mb-4"><summary class="wk-card-body fw-semibold" style="cursor:pointer"><i class="bi bi-bullseye text-primary"></i> {% translate "استراتيجية الشهر" %}</summary>
             <div class="wk-card-body pt-0" style="line-height: 2">{{ plan.summary }}</div></details>
         {% endif %}
 
@@ -29,17 +31,17 @@
         <article class="wk-card wk-review__post mb-4" data-post="{{ post.pk }}">
             <div class="wk-review__media">
                 {% if post.is_video %}
-                <div class="wk-review__script"><div class="fw-semibold mb-2"><i class="bi bi-camera-reels"></i> فيديو قصير: سيناريو التصوير</div>{{ post.video_script|linebreaksbr }}</div>
+                <div class="wk-review__script"><div class="fw-semibold mb-2"><i class="bi bi-camera-reels"></i> {% translate "فيديو قصير: سيناريو التصوير" %}</div>{{ post.video_script|linebreaksbr }}</div>
                 {% elif post.image %}
-                <img src="{{ post.image.url }}?v={{ post.updated_at|date:'U' }}" alt="تصميم المنشور: {{ post.headline }}" loading="lazy">
+                <img src="{{ post.image.url }}?v={{ post.updated_at|date:'U' }}" alt="{% blocktranslate trimmed with headline=post.headline %}تصميم المنشور: {{ headline }}{% endblocktranslate %}" loading="lazy">
                 {% else %}
-                <div class="wk-review__script text-center small-muted"><i class="bi bi-image fs-2 d-block"></i> التصميم قيد الإعداد</div>
+                <div class="wk-review__script text-center small-muted"><i class="bi bi-image fs-2 d-block"></i> {% translate "التصميم قيد الإعداد" %}</div>
                 {% endif %}
             </div>
             <div class="wk-card-body d-flex flex-column gap-2">
                 <div class="d-flex align-items-center gap-2 flex-wrap">
-                    <span class="wk-status {{ post.status|status_class }}" data-status>{% if post.status == 'draft' %}قيد التعديل{% else %}{{ post.get_status_display }}{% endif %}</span>
-                    <span class="small-muted"><i class="bi bi-clock"></i> {% if post.scheduled_at %}{{ post.scheduled_at|date:"l j F · H:i" }}{% else %}غير مجدول{% endif %}</span>
+                    <span class="wk-status {{ post.status|status_class }}" data-status>{% if post.status == 'draft' %}{% translate "قيد التعديل" %}{% else %}{{ post.get_status_display }}{% endif %}</span>
+                    <span class="small-muted"><i class="bi bi-clock"></i> {% if post.scheduled_at %}{{ post.scheduled_at|date:"l j F · H:i" }}{% else %}{% translate "غير مجدول" %}{% endif %}</span>
                     <span class="wk-platforms ms-auto">{% for p, icon, label in post.platform_icons %}<i class="bi {{ icon }}" title="{{ label }}"></i>{% endfor %}</span>
                 </div>
                 <div class="wk-review__caption">{{ post.full_caption }}</div>
@@ -50,17 +52,17 @@
                 </div>
                 {% if post.status != 'published' %}
                 <div class="d-flex gap-2 flex-wrap mt-1" data-actions>
-                    {% if post.status != 'approved' %}<button type="button" class="btn btn-primary btn-sm" data-act="approve"><i class="bi bi-patch-check"></i> اعتماد</button>{% endif %}
-                    <button type="button" class="btn btn-light btn-sm" data-act="changes"><i class="bi bi-arrow-return-right"></i> طلب تعديل</button>
-                    <button type="button" class="btn btn-light btn-sm" data-act="comment"><i class="bi bi-chat-left-text"></i> تعليق</button>
+                    {% if post.status != 'approved' %}<button type="button" class="btn btn-primary btn-sm" data-act="approve"><i class="bi bi-patch-check"></i> {% translate "اعتماد" context "action" %}</button>{% endif %}
+                    <button type="button" class="btn btn-light btn-sm" data-act="changes"><i class="bi bi-arrow-return-right"></i> {% translate "طلب تعديل" context "action" %}</button>
+                    <button type="button" class="btn btn-light btn-sm" data-act="comment"><i class="bi bi-chat-left-text"></i> {% translate "تعليق" %}</button>
                 </div>
                 {% endif %}
             </div>
         </article>
         {% empty %}
-        <div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-collection"></i></div><h3>لا توجد منشورات في هذه الخطة</h3></div></div>
+        <div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-collection"></i></div><h3>{% translate "لا توجد منشورات في هذه الخطة" %}</h3></div></div>
         {% endfor %}
-        <p class="text-center small-muted my-4">أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي</p>
+        <p class="text-center small-muted my-4">{% translate "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي" %}</p>
     </div>
 </div>
 {% endblock %}
@@ -81,19 +83,19 @@
         el.className = 'wk-comment ' + kind;
         el.innerHTML = '<div class="d-flex justify-content-between gap-2"><span class="who"></span><span class="when"></span></div><div class="body"></div>';
         el.querySelector('.who').textContent = nameInput.value.trim();
-        el.querySelector('.when').textContent = (label ? label + ' · ' : '') + 'الآن';
+        el.querySelector('.when').textContent = (label ? label + ' · ' : '') + '{{ _("الآن")|escapejs }}';
         if (body) el.querySelector('.body').textContent = body; else el.querySelector('.body').remove();
         card.querySelector('[data-thread]').appendChild(el);
     }
-    var LABELS = { approve: ['approval', 'اعتماد'], changes: ['changes', 'طلب تعديل'], comment: ['comment', ''] };
+    var LABELS = { approve: ['approval', '{{ _("اعتماد")|escapejs }}'], changes: ['changes', '{{ _("طلب تعديل")|escapejs }}'], comment: ['comment', ''] };
 
     document.addEventListener('click', function (e) {
         var btn = e.target.closest('[data-act]'); if (!btn) return;
         var card = btn.closest('[data-post]'), action = btn.dataset.act;
-        if (!nameInput.value.trim()) { nameInput.focus(); Wakeel.toast('اكتب اسمك أولاً', 'error'); return; }
+        if (!nameInput.value.trim()) { nameInput.focus(); Wakeel.toast('{{ _("اكتب اسمك أولاً")|escapejs }}', 'error'); return; }
         var ask = action === 'approve' ? Promise.resolve('') : Wakeel.confirm({
-            title: action === 'changes' ? 'طلب تعديل' : 'تعليق', tone: 'primary', icon: 'bi-chat-left-text',
-            okText: 'إرسال', input: { label: action === 'changes' ? 'ما الذي تريد تعديله؟' : 'تعليقك', multiline: true, required: true },
+            title: action === 'changes' ? '{% filter escapejs %}{% translate "طلب تعديل" context "action" %}{% endfilter %}' : '{{ _("تعليق")|escapejs }}', tone: 'primary', icon: 'bi-chat-left-text',
+            okText: '{{ _("إرسال")|escapejs }}', input: { label: action === 'changes' ? '{{ _("ما الذي تريد تعديله؟")|escapejs }}' : '{{ _("تعليقك")|escapejs }}', multiline: true, required: true },
         });
         ask.then(function (body) {
             if (body === null) return;
@@ -101,14 +103,14 @@
             return send(card, action, body).then(function (r) {
                 addComment(card, LABELS[action][0], LABELS[action][1], body);
                 var pill = card.querySelector('[data-status]');
-                pill.textContent = r.status === 'draft' ? 'قيد التعديل' : r.status_label;
+                pill.textContent = r.status === 'draft' ? '{{ _("قيد التعديل")|escapejs }}' : r.status_label;
                 pill.className = 'wk-status ' + r.status;
                 if (r.status === 'approved') { var a = card.querySelector('[data-act=approve]'); if (a) a.remove(); }
                 if (r.status === 'draft' && !card.querySelector('[data-act=approve]')) {
                     var ap = document.createElement('button'); ap.type = 'button'; ap.className = 'btn btn-primary btn-sm'; ap.dataset.act = 'approve';
-                    ap.innerHTML = '<i class="bi bi-patch-check"></i> اعتماد'; card.querySelector('[data-actions]').prepend(ap);
+                    ap.innerHTML = '{{ _('<i class="bi bi-patch-check"></i> اعتماد')|escapejs }}'; card.querySelector('[data-actions]').prepend(ap);
                 }
-                Wakeel.toast(action === 'approve' ? 'شكراً، تم اعتماد المنشور' : 'وصلت ملاحظتك إلى الفريق');
+                Wakeel.toast(action === 'approve' ? '{{ _("شكراً، تم اعتماد المنشور")|escapejs }}' : '{{ _("وصلت ملاحظتك إلى الفريق")|escapejs }}');
             });
         }).catch(function (err) { Wakeel.toast(Wakeel.errorText(err), 'error'); })
           .finally(function () { btn.disabled = false; });

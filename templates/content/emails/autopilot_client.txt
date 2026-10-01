@@ -1,11 +1,11 @@
-{% autoescape off %}مرحباً،
+{% load i18n %}{% autoescape off %}{% translate "مرحباً،" %}
 
-أعدّ فريق {{ company.name }} خطة المحتوى القادمة ({{ plan.title|default:"خطة الشهر القادم" }}) مع تصاميمها ونصوصها.
+{% blocktranslate with company=company.name title=plan.title|default:_("خطة الشهر القادم") %}أعدّ فريق {{ company }} خطة المحتوى القادمة ({{ title }}) مع تصاميمها ونصوصها.{% endblocktranslate %}
 
-راجع المنشورات من هذا الرابط، واعتمد ما يناسبك أو اطلب التعديل على أي منشور:
+{% translate "راجع المنشورات من هذا الرابط، واعتمد ما يناسبك أو اطلب التعديل على أي منشور:" %}
 {{ link }}
 
-لا يحتاج الرابط إلى حساب أو كلمة مرور.
+{% translate "لا يحتاج الرابط إلى حساب أو كلمة مرور." %}
 
-{{ company.name }} · عبر وكيل
+{% blocktranslate with company=company.name %}{{ company }} · عبر وكيل{% endblocktranslate %}
 {% endautoescape %}

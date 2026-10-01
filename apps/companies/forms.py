@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from apps.accounts.models import User
 
@@ -43,8 +44,8 @@ class CompanyForm(forms.ModelForm):
 
 
 class MemberAddForm(forms.Form):
-    email = forms.EmailField(label='البريد الإلكتروني')
-    role = forms.ChoiceField(label='الدور', choices=[c for c in Membership.Role.choices if c[0] != Membership.Role.OWNER],
+    email = forms.EmailField(label=_('البريد الإلكتروني'))
+    role = forms.ChoiceField(label=_('الدور'), choices=[c for c in Membership.Role.choices if c[0] != Membership.Role.OWNER],
                              initial=Membership.Role.EDITOR)
 
     def __init__(self, *args, company=None, **kwargs):
@@ -55,9 +56,9 @@ class MemberAddForm(forms.Form):
         email = self.cleaned_data['email'].strip().lower()
         user = User.objects.filter(email__iexact=email).first()
         if user is None:
-            raise forms.ValidationError('لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً.')
+            raise forms.ValidationError(_('لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً.'))
         if Membership.objects.filter(company=self.company, user=user).exists():
-            raise forms.ValidationError('هذا المستخدم عضو في الشركة بالفعل.')
+            raise forms.ValidationError(_('هذا المستخدم عضو في الشركة بالفعل.'))
         self.user = user
         return email
 
@@ -70,7 +71,7 @@ class MediaUploadForm(forms.ModelForm):
 
 
 class AutopilotForm(forms.ModelForm):
-    autopilot_platforms = forms.MultipleChoiceField(label='المنصات', widget=forms.CheckboxSelectMultiple, required=False)
+    autopilot_platforms = forms.MultipleChoiceField(label=_('المنصات'), widget=forms.CheckboxSelectMultiple, required=False)
 
     class Meta:
         model = Company
@@ -84,10 +85,10 @@ class AutopilotForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['autopilot_platforms'].choices = Platform.choices
         self.fields['autopilot_posts_per_week'] = forms.TypedChoiceField(
-            label='عدد المنشورات أسبوعياً', coerce=int, choices=[(n, str(n)) for n in (2, 3, 4, 5, 6, 7, 10)])
+            label=_('عدد المنشورات أسبوعياً'), coerce=int, choices=[(n, str(n)) for n in (2, 3, 4, 5, 6, 7, 10)])
 
     def clean(self):
         cleaned = super().clean()
         if cleaned.get('autopilot') and not cleaned.get('autopilot_platforms'):
-            self.add_error('autopilot_platforms', 'اختر منصة واحدة على الأقل.')
+            self.add_error('autopilot_platforms', _('اختر منصة واحدة على الأقل.'))
         return cleaned

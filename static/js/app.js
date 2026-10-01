@@ -80,7 +80,7 @@ var Wakeel = (function () {
 
     function errorText(err, fallback) {
         var d = (err && err.data) || {};
-        return d.error || d.detail || fallback || 'حدث خطأ. حاول مرة أخرى.';
+        return d.error || d.detail || fallback || gettext('حدث خطأ. حاول مرة أخرى.');
     }
 
     function toast(message, type) {
@@ -124,7 +124,7 @@ var Wakeel = (function () {
     }
 
     function copy(text) {
-        return navigator.clipboard.writeText(text).then(function () { toast('تم النسخ'); });
+        return navigator.clipboard.writeText(text).then(function () { toast(gettext('تم النسخ')); });
     }
 
     return { spinner: WkSpinner, api: api, csrf: csrf, toast: toast, pollJob: pollJob, debounce: debounce, errorText: errorText, copy: copy };
@@ -171,11 +171,11 @@ Wakeel.confirm = (function () {
         el.classList.remove('danger', 'primary');
         el.classList.add(tone);
         el.querySelector('.wk-modal__icon i').className = 'bi ' + (opts.icon || (tone === 'danger' ? 'bi-trash3' : 'bi-question-lg'));
-        el.querySelector('.wk-modal__title').textContent = opts.title || 'هل أنت متأكد؟';
+        el.querySelector('.wk-modal__title').textContent = opts.title || gettext('هل أنت متأكد؟');
         el.querySelector('.wk-modal__msg').textContent = opts.message || '';
         el.querySelector('.wk-modal__msg').classList.toggle('d-none', !opts.message);
         var ok = el.querySelector('.wk-modal__ok');
-        ok.textContent = opts.okText || (tone === 'danger' ? 'حذف' : 'تأكيد');
+        ok.textContent = opts.okText || (tone === 'danger' ? gettext('حذف') : gettext('تأكيد'));
 
         var box = el.querySelector('.wk-modal__field'), input = el.querySelector('#wkConfirmInput'), text = el.querySelector('#wkConfirmText');
         var wantsInput = !!(opts.requireText || opts.input);
@@ -190,7 +190,7 @@ Wakeel.confirm = (function () {
             f.placeholder = (opts.input && opts.input.placeholder) || opts.requireText || '';
             label.setAttribute('for', f.id);
             if (opts.requireText) {
-                label.innerHTML = 'للتأكيد، اكتب <strong></strong>';
+                label.innerHTML = gettext('للتأكيد، اكتب <strong></strong>');
                 label.querySelector('strong').textContent = opts.requireText;
             } else {
                 label.textContent = (opts.input && opts.input.label) || '';
@@ -261,15 +261,15 @@ document.addEventListener('DOMContentLoaded', function () {
             var ids = selected(), req;
             if (btn.dataset.bulkAction === 'delete') {
                 req = Wakeel.confirm({
-                    title: 'حذف ' + ids.length + ' منشوراً؟',
-                    message: 'ستُحذف المنشورات المحددة وتصاميمها نهائياً، ولا يمكن التراجع عن ذلك.',
-                    okText: 'حذف المنشورات',
+                    title: interpolate(gettext('حذف %s منشوراً؟'), [ids.length]),
+                    message: gettext('ستُحذف المنشورات المحددة وتصاميمها نهائياً، ولا يمكن التراجع عن ذلك.'),
+                    okText: gettext('حذف المنشورات'),
                 }).then(function (ok) {
                     if (ok === null) throw null;
                     return Wakeel.api('/api/posts/bulk-delete/', 'POST', { ids: ids });
-                }).then(function (r) { return 'تم حذف ' + r.deleted + ' منشوراً'; });
+                }).then(function (r) { return interpolate(gettext('تم حذف %s منشوراً'), [r.deleted]); });
             } else {
-                req = Wakeel.api('/api/posts/bulk-status/', 'POST', { ids: ids, status: 'approved' }).then(function (r) { return 'تم اعتماد ' + r.updated + ' منشوراً'; });
+                req = Wakeel.api('/api/posts/bulk-status/', 'POST', { ids: ids, status: 'approved' }).then(function (r) { return interpolate(gettext('تم اعتماد %s منشوراً'), [r.updated]); });
             }
             req.then(function (msg) { Wakeel.toast(msg); setTimeout(function () { location.reload(); }, 700); })
                .catch(function (e) { if (e !== null) Wakeel.toast(Wakeel.errorText(e), 'error'); });
@@ -305,10 +305,10 @@ Wakeel.pwa = (function () {
     function enablePush() {
         var bar = document.getElementById('wkAppBar'), key = bar && bar.dataset.vapid;
         if (!pushSupported() || !key) return Promise.reject({ data: { error: ios && !standalone
-            ? 'على الآيفون، ثبّت التطبيق على الشاشة الرئيسية أولاً ثم فعّل الإشعارات منه.'
-            : 'هذا المتصفح لا يدعم الإشعارات.' } });
+            ? gettext('على الآيفون، ثبّت التطبيق على الشاشة الرئيسية أولاً ثم فعّل الإشعارات منه.')
+            : gettext('هذا المتصفح لا يدعم الإشعارات.') } });
         return Notification.requestPermission().then(function (perm) {
-            if (perm !== 'granted') throw { data: { error: 'لم يُسمح بالإشعارات. يمكنك تفعيلها من إعدادات المتصفح.' } };
+            if (perm !== 'granted') throw { data: { error: gettext('لم يُسمح بالإشعارات. يمكنك تفعيلها من إعدادات المتصفح.') } };
             return reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlKey(key) });
         }).then(function (sub) {
             return Wakeel.api('/notifications/push/subscribe/', 'POST', sub.toJSON(), { silent: true });
@@ -340,8 +340,8 @@ Wakeel.pwa = (function () {
     function maybeOfferPush() {
         if (!standalone || !pushSupported() || Notification.permission !== 'default') return;
         subscription().then(function (sub) {
-            if (!sub) offer('push', 'فعّل الإشعارات', 'ليصلك جديد الخطط والمراجعات على هاتفك.', 'تفعيل', function () {
-                return enablePush().then(function () { Wakeel.toast('ستصلك الإشعارات على هذا الجهاز'); });
+            if (!sub) offer('push', gettext('فعّل الإشعارات'), gettext('ليصلك جديد الخطط والمراجعات على هاتفك.'), gettext('تفعيل'), function () {
+                return enablePush().then(function () { Wakeel.toast(gettext('ستصلك الإشعارات على هذا الجهاز')); });
             });
         });
     }
@@ -349,7 +349,7 @@ Wakeel.pwa = (function () {
     window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();
         deferredPrompt = e;
-        if (window.innerWidth < 992) offer('install', 'ثبّت وكيل على هاتفك', 'افتحه كتطبيق بضغطة واحدة، وتصلك إشعاراته.', 'تثبيت', function () {
+        if (window.innerWidth < 992) offer('install', gettext('ثبّت وكيل على هاتفك'), gettext('افتحه كتطبيق بضغطة واحدة، وتصلك إشعاراته.'), gettext('تثبيت'), function () {
             deferredPrompt.prompt();
             return deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
         });
@@ -364,7 +364,7 @@ Wakeel.pwa = (function () {
             }).catch(function () {});
             // iPhone Safari has no install prompt: explain the Share > Add to Home Screen way.
             if (ios && !standalone && window.innerWidth < 992) {
-                offer('install-ios', 'ثبّت وكيل على الآيفون', 'اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية».', '', null);
+                offer('install-ios', gettext('ثبّت وكيل على الآيفون'), gettext('اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية».'), '', null);
             }
         });
     }

@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Company
 
@@ -11,19 +12,19 @@ class Job(models.Model):
     """
 
     class Kind(models.TextChoices):
-        GENERATE_PLAN = 'generate_plan', 'إعداد خطة المحتوى'
-        REWRITE_POST = 'rewrite_post', 'إعادة كتابة منشور'
-        RENDER_POST = 'render_post', 'تصميم صورة منشور'
-        RENDER_PLAN = 'render_plan', 'تصميم صور الخطة'
-        PUBLISH_POST = 'publish_post', 'نشر منشور'
-        LEARN = 'learn', 'التعلّم من الملاحظات'
+        GENERATE_PLAN = 'generate_plan', _('إعداد خطة المحتوى')
+        REWRITE_POST = 'rewrite_post', _('إعادة كتابة منشور')
+        RENDER_POST = 'render_post', _('تصميم صورة منشور')
+        RENDER_PLAN = 'render_plan', _('تصميم صور الخطة')
+        PUBLISH_POST = 'publish_post', _('نشر منشور')
+        LEARN = 'learn', _('التعلّم من الملاحظات')
 
     class Status(models.TextChoices):
-        PENDING = 'pending', 'في الانتظار'
-        RUNNING = 'running', 'قيد التنفيذ'
-        DONE = 'done', 'اكتمل'
-        FAILED = 'failed', 'فشل'
-        CANCELLED = 'cancelled', 'أُلغي'
+        PENDING = 'pending', _('في الانتظار')
+        RUNNING = 'running', _('قيد التنفيذ')
+        DONE = 'done', _('اكتمل')
+        FAILED = 'failed', _('فشل')
+        CANCELLED = 'cancelled', _('أُلغي')
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='jobs')
     kind = models.CharField(max_length=20, choices=Kind.choices)

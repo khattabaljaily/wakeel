@@ -9,6 +9,7 @@ from urllib.parse import urlencode
 
 import requests
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +33,7 @@ def _call(method, path, **kwargs):
     try:
         response = requests.request(method, _graph(path), timeout=60, **kwargs)
     except requests.RequestException as exc:
-        raise MetaError('تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت.') from exc
+        raise MetaError(_('تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت.')) from exc
     try:
         body = response.json()
     except ValueError:
@@ -41,12 +42,12 @@ def _call(method, path, **kwargs):
         error = body.get('error') or {}
         logger.warning('Meta API %s %s -> %s %s', method, path, response.status_code, error)
         if error.get('code') == 190:  # expired or revoked token
-            raise MetaError('انتهت صلاحية ربط حساب Meta أو أُلغي. أعد ربط الحساب من صفحة «حسابات النشر».', expired=True)
+            raise MetaError(_('انتهت صلاحية ربط حساب Meta أو أُلغي. أعد ربط الحساب من صفحة «حسابات النشر».'), expired=True)
         code = error.get('code') or 0
         if code == 10 or 200 <= code < 300:  # permission errors
-            raise MetaError('لا يملك الحساب المربوط صلاحية النشر. أعد الربط ووافق على كل الصلاحيات المطلوبة.', expired=True)
-        detail = error.get('error_user_msg') or error.get('message') or f'رمز {response.status_code}'
-        raise MetaError(f'رفضت Meta الطلب: {detail}')
+            raise MetaError(_('لا يملك الحساب المربوط صلاحية النشر. أعد الربط ووافق على كل الصلاحيات المطلوبة.'), expired=True)
+        detail = error.get('error_user_msg') or error.get('message') or _('رمز %(code)s') % {'code': response.status_code}
+        raise MetaError(_('رفضت Meta الطلب: %(detail)s') % {'detail': detail})
     return body
 
 
@@ -106,8 +107,8 @@ def publish_instagram(ig_id, token, caption, image_url, story=False, wait=30):
         if status in ('ERROR', 'EXPIRED'):
             # Usually SITE_URL isn't public, so Instagram couldn't download the image.
             logger.error('Instagram container %s ended %s (image %s)', container, status, image_url)
-            raise MetaError('لم يتمكن إنستغرام من تجهيز الصورة. حاول مرة أخرى لاحقاً، وإن تكرر ذلك تواصل مع الدعم.')
+            raise MetaError(_('لم يتمكن إنستغرام من تجهيز الصورة. حاول مرة أخرى لاحقاً، وإن تكرر ذلك تواصل مع الدعم.'))
         if time.monotonic() > deadline:
-            raise MetaError('تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى.')
+            raise MetaError(_('تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى.'))
         time.sleep(2)
     return _call('POST', f'{ig_id}/media_publish', data={'creation_id': container, 'access_token': token})['id']

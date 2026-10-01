@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 """The design templates a post image can be rendered with.
 
 Each key maps to templates/studio/designs/<key>.html. `hint` is what the AI
@@ -6,31 +7,31 @@ reads when it picks a template for a planned post.
 
 TEMPLATES = {
     'bold': {
-        'name': 'جريء',
+        'name': _('جريء'),
         'hint': 'Solid brand-colour background, very large headline. Default for announcements, tips and statements.',
     },
     'gradient': {
-        'name': 'متدرّج',
+        'name': _('متدرّج'),
         'hint': 'Brand gradient with a glass card. Good for services, features and educational posts.',
     },
     'photo': {
-        'name': 'صورة كاملة',
+        'name': _('صورة كاملة'),
         'hint': 'Full-bleed photo with a dark overlay and text at the bottom. Use when a real product/team/place photo fits.',
     },
     'split': {
-        'name': 'مقسوم',
+        'name': _('مقسوم'),
         'hint': 'Photo on top, colour panel with text below. Good for products and case studies.',
     },
     'minimal': {
-        'name': 'بسيط',
+        'name': _('بسيط'),
         'hint': 'Light background, clean dark typography. Good for facts, statistics and elegant messages.',
     },
     'quote': {
-        'name': 'اقتباس',
+        'name': _('اقتباس'),
         'hint': 'Large quotation mark, centred text. Use for testimonials, quotes and values.',
     },
     'offer': {
-        'name': 'عرض',
+        'name': _('عرض'),
         'hint': 'Big circular badge for a discount/offer (put the offer in `badge`). Use for promotions and launches.',
     },
 }

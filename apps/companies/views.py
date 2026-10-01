@@ -17,6 +17,7 @@ from django.http import JsonResponse
 from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 from PIL import Image
 
@@ -48,7 +49,7 @@ def _attach_logo(request, company, form):
             with default_storage.open(f'{AUTOFILL_LOGO_DIR}/{local.group(1)}.png', 'rb') as f:
                 data = f.read()
         else:
-            _, _, data = safe_get(url, accept='image/*', max_bytes=2 * 1024 * 1024)
+            _url, _type, data = safe_get(url, accept='image/*', max_bytes=2 * 1024 * 1024)
         with Image.open(io.BytesIO(data)) as im:
             im.verify()
             ext = (im.format or 'png').lower()
@@ -67,7 +68,7 @@ def create(request):
             Membership.objects.create(company=company, user=request.user, role=Membership.Role.OWNER)
         _attach_logo(request, company, form)
         request.session[SESSION_KEY] = company.pk
-        messages.success(request, f'تم إنشاء مساحة عمل «{company.name}». ابدأ الآن بإعداد خطة المحتوى الأولى.')
+        messages.success(request, _('تم إنشاء مساحة عمل «%(name)s». ابدأ الآن بإعداد خطة المحتوى الأولى.') % {'name': company.name})
         return redirect('content:plan_create')
     return render(request, 'companies/create.html', {'form': form, 'first_company': request.company is None})
 
@@ -91,7 +92,7 @@ def brand(request):
         _attach_logo(request, company, form)
         # Every design uses the brand kit, so mark all images for re-rendering.
         company.posts.update(image_stale=True)
-        messages.success(request, 'تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات.')
+        messages.success(request, _('تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات.'))
         return redirect('companies:brand')
     from apps.content import learning
     return render(request, 'companies/brand.html', {'form': form, 'lessons': request.company.lessons,
@@ -112,11 +113,11 @@ def team(request):
     form = MemberAddForm(request.POST or None, company=company)
     if request.method == 'POST':
         if not request.membership.can_manage:
-            messages.error(request, 'إدارة الفريق متاحة للمالك والمديرين فقط.')
+            messages.error(request, _('إدارة الفريق متاحة للمالك والمديرين فقط.'))
             return redirect('companies:team')
         if form.is_valid():
             Membership.objects.create(company=company, user=form.user, role=form.cleaned_data['role'])
-            messages.success(request, 'تمت إضافة العضو.')
+            messages.success(request, _('تمت إضافة العضو.'))
             return redirect('companies:team')
     members = list(company.memberships.select_related('user').order_by('created_at'))
     table = tables.members()
@@ -131,14 +132,14 @@ def team(request):
 def member_update(request, pk):
     member = get_object_or_404(Membership, pk=pk, company=request.company)
     if member.role == Membership.Role.OWNER:
-        messages.error(request, 'لا يمكن تعديل صلاحيات مالك الشركة أو إزالته.')
+        messages.error(request, _('لا يمكن تعديل صلاحيات مالك الشركة أو إزالته.'))
     elif request.POST.get('action') == 'remove':
         member.delete()
-        messages.success(request, 'تمت إزالة العضو.')
+        messages.success(request, _('تمت إزالة العضو.'))
     elif request.POST.get('role') in (Membership.Role.ADMIN, Membership.Role.EDITOR, Membership.Role.VIEWER):
         member.role = request.POST['role']
         member.save(update_fields=['role'])
-        messages.success(request, 'تم تحديث الدور.')
+        messages.success(request, _('تم تحديث الدور.'))
     return redirect('companies:team')
 
 
@@ -147,7 +148,7 @@ def media(request):
     form = MediaUploadForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         if not request.membership.can_edit:
-            messages.error(request, 'صلاحيتك في هذه الشركة للمشاهدة فقط.')
+            messages.error(request, _('صلاحيتك في هذه الشركة للمشاهدة فقط.'))
             return redirect('companies:media')
         files = request.FILES.getlist('file')
         if files:
@@ -159,7 +160,7 @@ def media(request):
                     asset.company, asset.uploaded_by = request.company, request.user
                     asset.save()
                     added += 1
-            messages.success(request, f'تم رفع {added} صورة.')
+            messages.success(request, _('تم رفع %(count)s صورة.') % {'count': added})
             return redirect('companies:media')
     assets = MediaAsset.objects.filter(company=request.company)
     return render(request, 'companies/media.html', {'form': form, 'assets': assets})
@@ -169,7 +170,7 @@ def media(request):
 @require_POST
 def media_delete(request, pk):
     get_object_or_404(MediaAsset, pk=pk, company=request.company).delete()
-    messages.success(request, 'تم حذف الصورة.')
+    messages.success(request, _('تم حذف الصورة.'))
     return redirect('companies:media')
 
 
@@ -182,18 +183,19 @@ def autofill(request):
     except json.JSONDecodeError:
         url = ''
     if not url.strip():
-        return JsonResponse({'error': 'أدخل رابط الموقع أولاً.'}, status=400)
+        return JsonResponse({'error': _('أدخل رابط الموقع أولاً.')}, status=400)
     try:
         site = read_site(url)
     except FetchError as exc:
         return JsonResponse({'error': str(exc)}, status=400)
     if len(site['text']) < 200:
-        return JsonResponse({'error': 'لم نجد نصوصاً كافية في الموقع لفهم نشاط الشركة. املأ الحقول يدوياً.'}, status=400)
+        return JsonResponse({'error': _('لم نجد نصوصاً كافية في الموقع لفهم نشاط الشركة. املأ الحقول يدوياً.')}, status=400)
     # The visual probe (logo + colours through headless Chrome) runs while the AI reads the text.
     with ThreadPoolExecutor(max_workers=1) as pool:
         visuals = pool.submit(look_at, site['url'])
         try:
-            result = draft_brand(site)
+            from apps.core import language
+            result = draft_brand(site, language.name(request.LANGUAGE_CODE))
         except AIError as exc:
             return JsonResponse({'error': str(exc)}, status=400)
         visuals = visuals.result()
@@ -214,7 +216,8 @@ def autofill(request):
     return JsonResponse({'fields': fields, 'colors': visuals['colors'] or site['colors'], 'logo_url': logo_url})
 
 
-# Country (as the AI writes it, Arabic or English) or phone prefix -> timezone choice.
+# Country (as the AI or the user writes it, Arabic or English) or phone prefix -> timezone choice.
+# These names are matched against data, so they are not translated.
 COUNTRY_TIMEZONES = {
     'Africa/Khartoum': ('السودان', 'sudan'),
     'Asia/Qatar': ('قطر', 'qatar'),
@@ -230,9 +233,9 @@ COUNTRY_TIMEZONES = {
 PHONE_TIMEZONES = {'249': 'Africa/Khartoum', '974': 'Asia/Qatar', '966': 'Asia/Riyadh', '971': 'Asia/Dubai',
                    '965': 'Asia/Kuwait', '968': 'Asia/Muscat', '973': 'Asia/Bahrain', '962': 'Asia/Amman',
                    '20': 'Africa/Cairo', '44': 'Europe/London'}
-TIMEZONE_COUNTRY = {'Africa/Khartoum': 'السودان', 'Asia/Qatar': 'قطر', 'Asia/Riyadh': 'السعودية', 'Asia/Dubai': 'الإمارات',
-                    'Africa/Cairo': 'مصر', 'Asia/Kuwait': 'الكويت', 'Asia/Muscat': 'عُمان', 'Asia/Bahrain': 'البحرين',
-                    'Asia/Amman': 'الأردن', 'Europe/London': 'المملكة المتحدة'}
+TIMEZONE_COUNTRY = {'Africa/Khartoum': _('السودان'), 'Asia/Qatar': _('قطر'), 'Asia/Riyadh': _('السعودية'), 'Asia/Dubai': _('الإمارات'),
+                    'Africa/Cairo': _('مصر'), 'Asia/Kuwait': _('الكويت'), 'Asia/Muscat': _('عُمان'), 'Asia/Bahrain': _('البحرين'),
+                    'Asia/Amman': _('الأردن'), 'Europe/London': _('المملكة المتحدة')}
 
 
 def guess_timezone(country, phones):
@@ -252,7 +255,7 @@ def guess_timezone(country, phones):
 def _keep_logo(png):
     """Store a captured logo until the form is saved; clears captures older than a day."""
     try:
-        _, names = default_storage.listdir(AUTOFILL_LOGO_DIR)
+        _dirs, names = default_storage.listdir(AUTOFILL_LOGO_DIR)
     except FileNotFoundError:
         names = []
     for name in names:
@@ -269,15 +272,15 @@ def delete_company(request):
     """Delete the current company and everything in it. Owner only; the name must be typed to confirm."""
     company = request.company
     if request.membership.role != Membership.Role.OWNER:
-        messages.error(request, 'حذف الشركة متاح لمالكها فقط.')
+        messages.error(request, _('حذف الشركة متاح لمالكها فقط.'))
         return redirect('companies:brand')
     if request.POST.get('confirm_name', '').strip() != company.name.strip():
-        messages.error(request, 'الاسم المكتوب لا يطابق اسم الشركة، فلم يُحذف شيء.')
+        messages.error(request, _('الاسم المكتوب لا يطابق اسم الشركة، فلم يُحذف شيء.'))
         return redirect('companies:brand')
     name = company.name
     company.delete()
     request.session.pop(SESSION_KEY, None)
-    messages.success(request, f'تم حذف «{name}» وكل بياناتها نهائياً.')
+    messages.success(request, _('تم حذف «%(name)s» وكل بياناتها نهائياً.') % {'name': name})
     return redirect('core:dashboard')
 
 
@@ -285,12 +288,12 @@ def delete_company(request):
 @require_POST
 def leave_company(request):
     if request.membership.role == Membership.Role.OWNER:
-        messages.error(request, 'لا يمكن لمالك الشركة مغادرتها. يمكنك حذف الشركة من صفحة هوية العلامة.')
+        messages.error(request, _('لا يمكن لمالك الشركة مغادرتها. يمكنك حذف الشركة من صفحة هوية العلامة.'))
         return redirect('companies:team')
     name = request.company.name
     request.membership.delete()
     request.session.pop(SESSION_KEY, None)
-    messages.success(request, f'غادرت «{name}».')
+    messages.success(request, _('غادرت «%(name)s».') % {'name': name})
     return redirect('core:dashboard')
 
 
@@ -308,7 +311,7 @@ def lessons(request):
         if text and len(learning.manual_lessons(company)) < learning.MANUAL_MAX:
             company.lessons = [{'text': text, 'manual': True}] + list(company.lessons)
             company.save(update_fields=['lessons'])
-            messages.success(request, 'أضيفت القاعدة، وسيلتزم بها وكيل من الآن.')
+            messages.success(request, _('أضيفت القاعدة، وسيلتزم بها وكيل من الآن.'))
     elif action == 'delete':
         try:
             index = int(request.POST.get('index', ''))
@@ -318,11 +321,11 @@ def lessons(request):
             return redirect(reverse('companies:brand') + '#lessons')
         company.lessons = lessons
         company.save(update_fields=['lessons'])
-        messages.success(request, 'حُذفت القاعدة.')
+        messages.success(request, _('حُذفت القاعدة.'))
     elif action == 'learn' and learning.pending(company).exists():
         if not Job.objects.filter(company=company, kind=Job.Kind.LEARN, status__in=[Job.Status.PENDING, Job.Status.RUNNING]).exists():
             Job.enqueue(company, Job.Kind.LEARN, request.user)
-        messages.info(request, 'يراجع وكيل ملاحظاتكم الآن؛ حدّث الصفحة بعد دقيقة لترى ما تعلّمه.')
+        messages.info(request, _('يراجع وكيل ملاحظاتكم الآن؛ حدّث الصفحة بعد دقيقة لترى ما تعلّمه.'))
     return redirect(reverse('companies:brand') + '#lessons')
 
 
@@ -337,7 +340,7 @@ def autopilot(request):
     form = AutopilotForm(request.POST or None, instance=company)
     if request.method == 'POST' and form.is_valid():
         form.save()
-        messages.success(request, 'تم تشغيل الطيار الآلي.' if company.autopilot else 'تم إيقاف الطيار الآلي.')
+        messages.success(request, _('تم تشغيل الطيار الآلي.') if company.autopilot else _('تم إيقاف الطيار الآلي.'))
         return redirect('companies:autopilot')
     today = timezone.localdate()
     upcoming = next_month(today)

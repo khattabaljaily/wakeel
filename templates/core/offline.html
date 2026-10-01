@@ -1,8 +1,8 @@
-{% load static %}<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+{% load i18n %}{% load static %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>لا يوجد اتصال · وكيل</title>
+<title>{% translate "لا يوجد اتصال · وكيل" %}</title>
 <meta name="theme-color" content="#12112a">
 <style>
   body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1.5rem;
@@ -19,9 +19,9 @@
 <body>
 <div class="box">
   <img src="{% static 'img/logo.svg' %}" alt="">
-  <h1>لا يوجد اتصال بالإنترنت</h1>
-  <p>تعذّر الوصول إلى وكيل الآن. تحقّق من اتصالك، وستعود الصفحة كما كانت.</p>
-  <button onclick="location.reload()">إعادة المحاولة</button>
+  <h1>{% translate "لا يوجد اتصال بالإنترنت" %}</h1>
+  <p>{% translate "تعذّر الوصول إلى وكيل الآن. تحقّق من اتصالك، وستعود الصفحة كما كانت." %}</p>
+  <button onclick="location.reload()">{% translate "إعادة المحاولة" %}</button>
 </div>
 <script>window.addEventListener('online', function () { location.reload(); });</script>
 </body>

@@ -3,6 +3,7 @@ import datetime
 from django.db.models import Count, Q
 from django.shortcuts import redirect, render
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from apps.companies.decorators import company_required
 from apps.content.forms import ARABIC_MONTHS
@@ -74,9 +75,9 @@ def manifest(request):
     from django.http import JsonResponse
     from django.templatetags.static import static
     return JsonResponse({
-        'name': 'وكيل · مدير التسويق الذكي',
-        'short_name': 'وكيل',
-        'description': 'يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره.',
+        'name': _('وكيل · مدير التسويق الذكي'),
+        'short_name': _('وكيل'),
+        'description': _('يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره.'),
         'lang': 'ar', 'dir': 'rtl',
         'start_url': '/app/?source=pwa', 'scope': '/', 'id': '/app/',
         'display': 'standalone', 'orientation': 'portrait',
@@ -87,9 +88,9 @@ def manifest(request):
             {'src': static('img/icon-maskable-512.png'), 'sizes': '512x512', 'type': 'image/png', 'purpose': 'maskable'},
         ],
         'shortcuts': [
-            {'name': 'التقويم', 'url': '/app/calendar/'},
-            {'name': 'المنشورات', 'url': '/app/posts/'},
-            {'name': 'خطة جديدة', 'url': '/app/plans/new/'},
+            {'name': _('التقويم'), 'url': '/app/calendar/'},
+            {'name': _('المنشورات'), 'url': '/app/posts/'},
+            {'name': _('خطة جديدة'), 'url': '/app/plans/new/'},
         ],
     }, content_type='application/manifest+json', json_dumps_params={'ensure_ascii': False})
 
@@ -103,3 +104,27 @@ def service_worker(request):
 
 def offline(request):
     return render(request, 'core/offline.html')
+
+
+def set_language(request):
+    """Switch the interface language: remembered on the account (or in a cookie before signing in)."""
+    from django.conf import settings
+    from django.http import HttpResponseNotAllowed
+    from django.utils.http import url_has_allowed_host_and_scheme
+
+    from .middleware import SUPPORTED
+
+    if request.method != 'POST':
+        return HttpResponseNotAllowed(['POST'])
+    language = request.POST.get('language')
+    target = request.POST.get('next') or request.META.get('HTTP_REFERER') or '/'
+    if not url_has_allowed_host_and_scheme(target, {request.get_host()}, require_https=request.is_secure()):
+        target = '/'
+    response = redirect(target)
+    if language in SUPPORTED:
+        if request.user.is_authenticated:
+            request.user.language = language
+            request.user.save(update_fields=['language'])
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language, max_age=settings.LANGUAGE_COOKIE_AGE,
+                            samesite='Lax', secure=request.is_secure())
+    return response

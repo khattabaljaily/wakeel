@@ -21,7 +21,7 @@ SYSTEM_PROMPT = """You help a marketing platform build a company's brand profile
 
 Rules:
 - Use only what the website says or clearly implies. Never invent prices, numbers, clients, awards or services. Leave a field as an empty string when the site gives no basis for it.
-- Write every descriptive field in clear Modern Standard Arabic, even if the site is in English. Keep the company name as the company writes it.
+- Write every descriptive field in {language}, whatever the site's language. Keep the company name as the company writes it.
 - description: 2-3 sentences on what the company does and for whom. products: the main products/services as a short list, one per line. usp: what sets it apart according to the site. target_audience: who the site is speaking to.
 - goals: 2-3 sensible social media goals for this kind of business (a suggestion the owner will review).
 - voice_notes, dos, donts: short practical guidance for writing its social posts, inferred from how the site speaks.
@@ -30,7 +30,7 @@ Rules:
 - tone: the closest match to how the site speaks. content_language: the language its audience is addressed in (ar_msa if Arabic, en if English only, ar_en if both)."""
 
 
-def draft_brand(site):
+def draft_brand(site, language='Arabic (Modern Standard Arabic)'):
     prompt = f"""<website url="{site['url']}">
 Title: {site['title']}
 Meta description: {site['description']}
@@ -39,4 +39,4 @@ Meta description: {site['description']}
 </website>
 
 Build the brand profile for this company."""
-    return call_json(SYSTEM_PROMPT, prompt, BRAND_SCHEMA, max_tokens=8000, effort='medium')
+    return call_json(SYSTEM_PROMPT.format(language=language), prompt, BRAND_SCHEMA, max_tokens=8000, effort='medium')

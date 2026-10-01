@@ -5,8 +5,9 @@ from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 from django.db import models
 from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
 
-hex_color = RegexValidator(r'^#[0-9a-fA-F]{6}$', 'أدخل لوناً بصيغة ‎#RRGGBB.')
+hex_color = RegexValidator(r'^#[0-9a-fA-F]{6}$', _('أدخل لوناً بصيغة ‎#RRGGBB.'))
 
 
 class Company(models.Model):
@@ -17,18 +18,18 @@ class Company(models.Model):
     """
 
     class ContentLanguage(models.TextChoices):
-        AR_MSA = 'ar_msa', 'العربية الفصحى'
-        AR_LOCAL = 'ar_local', 'العربية بلهجة السوق المحلي'
-        EN = 'en', 'الإنجليزية'
-        AR_EN = 'ar_en', 'العربية والإنجليزية معاً'
+        AR_MSA = 'ar_msa', _('العربية الفصحى')
+        AR_LOCAL = 'ar_local', _('العربية بلهجة السوق المحلي')
+        EN = 'en', _('الإنجليزية')
+        AR_EN = 'ar_en', _('العربية والإنجليزية معاً')
 
     class Tone(models.TextChoices):
-        PROFESSIONAL = 'professional', 'مهنية وموثوقة'
-        FRIENDLY = 'friendly', 'ودودة وقريبة'
-        BOLD = 'bold', 'جريئة وحماسية'
-        LUXURY = 'luxury', 'فاخرة وراقية'
-        PLAYFUL = 'playful', 'مرحة وخفيفة'
-        INSPIRING = 'inspiring', 'ملهمة وتحفيزية'
+        PROFESSIONAL = 'professional', _('مهنية وموثوقة')
+        FRIENDLY = 'friendly', _('ودودة وقريبة')
+        BOLD = 'bold', _('جريئة وحماسية')
+        LUXURY = 'luxury', _('فاخرة وراقية')
+        PLAYFUL = 'playful', _('مرحة وخفيفة')
+        INSPIRING = 'inspiring', _('ملهمة وتحفيزية')
 
     class Font(models.TextChoices):
         CAIRO = 'cairo', 'Cairo'
@@ -41,90 +42,90 @@ class Company(models.Model):
         AMIRI = 'amiri', 'Amiri'
 
     TIMEZONE_CHOICES = [
-        ('Africa/Khartoum', 'الخرطوم (GMT+2)'),
-        ('Asia/Qatar', 'الدوحة (GMT+3)'),
-        ('Asia/Riyadh', 'الرياض (GMT+3)'),
-        ('Asia/Dubai', 'دبي (GMT+4)'),
-        ('Africa/Cairo', 'القاهرة'),
-        ('Asia/Kuwait', 'الكويت (GMT+3)'),
-        ('Asia/Muscat', 'مسقط (GMT+4)'),
-        ('Asia/Bahrain', 'المنامة (GMT+3)'),
-        ('Asia/Amman', 'عمّان'),
-        ('Europe/London', 'لندن'),
+        ('Africa/Khartoum', _('الخرطوم (GMT+2)')),
+        ('Asia/Qatar', _('الدوحة (GMT+3)')),
+        ('Asia/Riyadh', _('الرياض (GMT+3)')),
+        ('Asia/Dubai', _('دبي (GMT+4)')),
+        ('Africa/Cairo', _('القاهرة')),
+        ('Asia/Kuwait', _('الكويت (GMT+3)')),
+        ('Asia/Muscat', _('مسقط (GMT+4)')),
+        ('Asia/Bahrain', _('المنامة (GMT+3)')),
+        ('Asia/Amman', _('عمّان')),
+        ('Europe/London', _('لندن')),
     ]
 
-    name = models.CharField('اسم الشركة', max_length=150)
+    name = models.CharField(_('اسم الشركة'), max_length=150)
     slug = models.SlugField(max_length=170, unique=True, allow_unicode=True)
-    logo = models.ImageField('الشعار', upload_to='logos/', blank=True)
+    logo = models.ImageField(_('الشعار'), upload_to='logos/', blank=True)
 
     # About the business
-    industry = models.CharField('المجال', max_length=150)
-    country = models.CharField('الدولة', max_length=80)
-    city = models.CharField('المدينة', max_length=80, blank=True)
-    description = models.TextField('نبذة عن الشركة', help_text='ماذا تقدم الشركة، ولمن، وما الذي يميزها.')
-    products = models.TextField('المنتجات والخدمات', blank=True)
-    usp = models.TextField('نقاط التميز', blank=True, help_text='لماذا يختار العميل هذه الشركة دون منافسيها؟')
-    target_audience = models.TextField('الجمهور المستهدف', blank=True)
-    competitors = models.TextField('المنافسون', blank=True)
-    goals = models.TextField('أهداف التسويق', blank=True, help_text='مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات.')
+    industry = models.CharField(_('المجال'), max_length=150)
+    country = models.CharField(_('الدولة'), max_length=80)
+    city = models.CharField(_('المدينة'), max_length=80, blank=True)
+    description = models.TextField(_('نبذة عن الشركة'), help_text=_('ماذا تقدم الشركة، ولمن، وما الذي يميزها.'))
+    products = models.TextField(_('المنتجات والخدمات'), blank=True)
+    usp = models.TextField(_('نقاط التميز'), blank=True, help_text=_('لماذا يختار العميل هذه الشركة دون منافسيها؟'))
+    target_audience = models.TextField(_('الجمهور المستهدف'), blank=True)
+    competitors = models.TextField(_('المنافسون'), blank=True)
+    goals = models.TextField(_('أهداف التسويق'), blank=True, help_text=_('مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات.'))
 
     # Voice
-    content_language = models.CharField('لغة المحتوى', max_length=10, choices=ContentLanguage.choices, default=ContentLanguage.AR_MSA)
-    tone = models.CharField('نبرة الخطاب', max_length=20, choices=Tone.choices, default=Tone.PROFESSIONAL)
-    voice_notes = models.TextField('ملاحظات على الأسلوب', blank=True, help_text='عبارات مفضلة، أو أسلوب معين في الكتابة.')
-    dos = models.TextField('ما يجب فعله', blank=True)
-    donts = models.TextField('ما يجب تجنبه', blank=True)
-    brand_hashtags = models.CharField('وسوم العلامة', max_length=300, blank=True, help_text='تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات.')
+    content_language = models.CharField(_('لغة المحتوى'), max_length=10, choices=ContentLanguage.choices, default=ContentLanguage.AR_MSA)
+    tone = models.CharField(_('نبرة الخطاب'), max_length=20, choices=Tone.choices, default=Tone.PROFESSIONAL)
+    voice_notes = models.TextField(_('ملاحظات على الأسلوب'), blank=True, help_text=_('عبارات مفضلة، أو أسلوب معين في الكتابة.'))
+    dos = models.TextField(_('ما يجب فعله'), blank=True)
+    donts = models.TextField(_('ما يجب تجنبه'), blank=True)
+    brand_hashtags = models.CharField(_('وسوم العلامة'), max_length=300, blank=True, help_text=_('تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات.'))
 
     # Visual identity
-    primary_color = models.CharField('اللون الأساسي', max_length=7, default='#4F46E5', validators=[hex_color])
-    secondary_color = models.CharField('اللون الثانوي', max_length=7, default='#0EA5E9', validators=[hex_color])
-    accent_color = models.CharField('لون التمييز', max_length=7, default='#F59E0B', validators=[hex_color])
-    heading_font = models.CharField('خط العناوين', max_length=20, choices=Font.choices, default=Font.CAIRO)
-    body_font = models.CharField('خط النصوص', max_length=20, choices=Font.choices, default=Font.TAJAWAL)
+    primary_color = models.CharField(_('اللون الأساسي'), max_length=7, default='#4F46E5', validators=[hex_color])
+    secondary_color = models.CharField(_('اللون الثانوي'), max_length=7, default='#0EA5E9', validators=[hex_color])
+    accent_color = models.CharField(_('لون التمييز'), max_length=7, default='#F59E0B', validators=[hex_color])
+    heading_font = models.CharField(_('خط العناوين'), max_length=20, choices=Font.choices, default=Font.CAIRO)
+    body_font = models.CharField(_('خط النصوص'), max_length=20, choices=Font.choices, default=Font.TAJAWAL)
 
     # Contact details printed on designs and used in calls to action
-    website = models.CharField('الموقع الإلكتروني', max_length=200, blank=True)
-    phone = models.CharField('رقم التواصل', max_length=30, blank=True)
-    whatsapp = models.CharField('واتساب', max_length=30, blank=True)
-    facebook_page = models.CharField('صفحة فيسبوك', max_length=200, blank=True)
-    instagram_handle = models.CharField('حساب إنستغرام', max_length=100, blank=True)
-    tiktok_handle = models.CharField('حساب تيك توك', max_length=100, blank=True)
+    website = models.CharField(_('الموقع الإلكتروني'), max_length=200, blank=True)
+    phone = models.CharField(_('رقم التواصل'), max_length=30, blank=True)
+    whatsapp = models.CharField(_('واتساب'), max_length=30, blank=True)
+    facebook_page = models.CharField(_('صفحة فيسبوك'), max_length=200, blank=True)
+    instagram_handle = models.CharField(_('حساب إنستغرام'), max_length=100, blank=True)
+    tiktok_handle = models.CharField(_('حساب تيك توك'), max_length=100, blank=True)
 
     # Autopilot: on `autopilot_day` of each month the worker prepares next month's plan and its designs,
     # then emails the client the review link (apps.content.autopilot).
-    autopilot = models.BooleanField('الطيار الآلي', default=False)
-    autopilot_day = models.PositiveSmallIntegerField('يوم إعداد الخطة', default=25,
+    autopilot = models.BooleanField(_('الطيار الآلي'), default=False)
+    autopilot_day = models.PositiveSmallIntegerField(_('يوم إعداد الخطة'), default=25,
                                                      validators=[MinValueValidator(1), MaxValueValidator(28)])
-    autopilot_posts_per_week = models.PositiveSmallIntegerField('عدد المنشورات أسبوعياً', default=4)
-    autopilot_platforms = models.JSONField('المنصات', default=list, blank=True)
-    autopilot_client_email = models.EmailField('بريد العميل', blank=True,
-                                               help_text='يصله رابط مراجعة الخطة واعتمادها. اتركه فارغاً ليصل الرابط إلى الفريق فقط.')
+    autopilot_posts_per_week = models.PositiveSmallIntegerField(_('عدد المنشورات أسبوعياً'), default=4)
+    autopilot_platforms = models.JSONField(_('المنصات'), default=list, blank=True)
+    autopilot_client_email = models.EmailField(_('بريد العميل'), blank=True,
+                                               help_text=_('يصله رابط مراجعة الخطة واعتمادها. اتركه فارغاً ليصل الرابط إلى الفريق فقط.'))
 
     # What Wakeel has learned about this brand's taste: [{"text": ..., "manual": bool}], see apps.content.learning.
-    lessons = models.JSONField('ما تعلّمه وكيل', default=list, blank=True)
+    lessons = models.JSONField(_('ما تعلّمه وكيل'), default=list, blank=True)
     lessons_updated_at = models.DateTimeField(null=True, blank=True)
 
-    timezone = models.CharField('المنطقة الزمنية', max_length=50, choices=TIMEZONE_CHOICES, default='Asia/Qatar')
-    auto_publish = models.BooleanField('النشر التلقائي', default=False,
-                                       help_text='انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها.')
+    timezone = models.CharField(_('المنطقة الزمنية'), max_length=50, choices=TIMEZONE_CHOICES, default='Asia/Qatar')
+    auto_publish = models.BooleanField(_('النشر التلقائي'), default=False,
+                                       help_text=_('انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها.'))
 
     # Subscription, managed by the system admins from the console (as in enjazpms / enjazims).
     # Self-registered companies start unapproved; companies made by an admin are approved at once.
     # There are no plans: every subscriber gets the same features at the same price.
-    subscription_start = models.DateField('بداية الاشتراك', default=datetime.date.today)
-    subscription_expires = models.DateField('نهاية الاشتراك', null=True, blank=True, help_text='فارغ = بدون انتهاء.')
-    email = models.EmailField('البريد الإلكتروني', blank=True, help_text='بريد التواصل مع المشترك.')
-    is_approved = models.BooleanField('معتمد', default=True)
-    approved_at = models.DateTimeField('تاريخ الاعتماد', null=True, blank=True)
-    is_active = models.BooleanField('نشط', default=True, help_text='إيقافه يعلّق الاشتراك.')
-    is_demo = models.BooleanField('حساب تجريبي', default=False)
+    subscription_start = models.DateField(_('بداية الاشتراك'), default=datetime.date.today)
+    subscription_expires = models.DateField(_('نهاية الاشتراك'), null=True, blank=True, help_text=_('فارغ = بدون انتهاء.'))
+    email = models.EmailField(_('البريد الإلكتروني'), blank=True, help_text=_('بريد التواصل مع المشترك.'))
+    is_approved = models.BooleanField(_('معتمد'), default=True)
+    approved_at = models.DateTimeField(_('تاريخ الاعتماد'), null=True, blank=True)
+    is_active = models.BooleanField(_('نشط'), default=True, help_text=_('إيقافه يعلّق الاشتراك.'))
+    is_demo = models.BooleanField(_('حساب تجريبي'), default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'شركة'
-        verbose_name_plural = 'الشركات'
+        verbose_name = _('شركة')
+        verbose_name_plural = _('الشركات')
         ordering = ['name']
 
     def __str__(self):
@@ -157,7 +158,7 @@ class Company(models.Model):
             return 'expired'
         return 'active'
 
-    STATUS_LABELS = {'pending': 'قيد الاعتماد', 'suspended': 'معلّق', 'expired': 'منتهي', 'active': 'نشط'}
+    STATUS_LABELS = {'pending': _('قيد الاعتماد'), 'suspended': _('معلّق'), 'expired': _('منتهي'), 'active': _('نشط')}
 
     @property
     def subscription_status_label(self):
@@ -176,24 +177,24 @@ class Company(models.Model):
     def initials(self):
         # Two Arabic letters join into a readable mark; a lone one (e.g. «إ») can look like punctuation.
         name = self.name.strip()
-        return name[:2] if name[:1] and '\u0600' <= name[0] <= '\u06ff' else (name[:1] or '؟').upper()
+        return name[:2] if name[:1] and '\u0600' <= name[0] <= '\u06ff' else (name[:1] or _('؟')).upper()
 
 
 class Membership(models.Model):
     class Role(models.TextChoices):
-        OWNER = 'owner', 'المالك'
-        ADMIN = 'admin', 'مدير'
-        EDITOR = 'editor', 'محرر محتوى'
-        VIEWER = 'viewer', 'مشاهد'
+        OWNER = 'owner', _('المالك')
+        ADMIN = 'admin', _('مدير')
+        EDITOR = 'editor', _('محرر محتوى')
+        VIEWER = 'viewer', _('مشاهد')
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='memberships')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='memberships')
-    role = models.CharField('الدور', max_length=10, choices=Role.choices, default=Role.EDITOR)
+    role = models.CharField(_('الدور'), max_length=10, choices=Role.choices, default=Role.EDITOR)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = 'عضوية'
-        verbose_name_plural = 'العضويات'
+        verbose_name = _('عضوية')
+        verbose_name_plural = _('العضويات')
         constraints = [models.UniqueConstraint(fields=['company', 'user'], name='unique_company_member')]
 
     def __str__(self):
@@ -213,17 +214,17 @@ class MediaAsset(models.Model):
     """A photo in the company's media library, usable as a design background."""
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='assets')
-    file = models.ImageField('الصورة', upload_to='assets/%Y/%m/', width_field='width', height_field='height')
-    title = models.CharField('الوصف', max_length=150, blank=True)
-    tags = models.CharField('الوسوم', max_length=200, blank=True, help_text='كلمات تساعد في اختيار الصورة المناسبة للمنشور.')
+    file = models.ImageField(_('الصورة'), upload_to='assets/%Y/%m/', width_field='width', height_field='height')
+    title = models.CharField(_('الوصف'), max_length=150, blank=True)
+    tags = models.CharField(_('الوسوم'), max_length=200, blank=True, help_text=_('كلمات تساعد في اختيار الصورة المناسبة للمنشور.'))
     width = models.PositiveIntegerField(default=0)
     height = models.PositiveIntegerField(default=0)
     uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = 'صورة'
-        verbose_name_plural = 'مكتبة الوسائط'
+        verbose_name = _('صورة')
+        verbose_name_plural = _('مكتبة الوسائط')
         ordering = ['-created_at']
 
     def __str__(self):

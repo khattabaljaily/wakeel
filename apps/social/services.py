@@ -10,6 +10,9 @@ from django.core.files.storage import default_storage
 from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
+from django.utils.functional import lazy
+from django.utils.text import format_lazy
+from django.utils.translation import gettext_lazy as _
 from PIL import Image
 
 from apps.content.models import Post
@@ -40,9 +43,9 @@ def targets(post, accounts=None):
 
 def check_publishable(post):
     if post.format not in PUBLISHABLE_FORMATS:
-        raise PublishError('الفيديو القصير يُنشر يدوياً بعد تصويره؛ النشر التلقائي يدعم الصور والقصص فقط.')
+        raise PublishError(_('الفيديو القصير يُنشر يدوياً بعد تصويره؛ النشر التلقائي يدعم الصور والقصص فقط.'))
     if not targets(post):
-        raise PublishError('لا يوجد حساب مربوط لمنصات هذا المنشور. اربط فيسبوك أو إنستغرام من «حسابات النشر».')
+        raise PublishError(_('لا يوجد حساب مربوط لمنصات هذا المنشور. اربط فيسبوك أو إنستغرام من «حسابات النشر».'))
 
 
 def _jpeg_copy(post):
@@ -91,11 +94,12 @@ def publish(post, actor=None):
     post.publish_error = '\n'.join(errors)
     post.save(update_fields=['external_ids', 'publish_error', 'updated_at'])
     if errors:
-        notify(managers(post.company), post.company, f'تعذّر نشر «{post.title}»: {post.publish_error}',
+        notify(managers(post.company), post.company, format_lazy(_('تعذّر نشر «{title}»: {error}'), title=post.title, error=post.publish_error),
                post.get_absolute_url(), icon='bi-exclamation-triangle', email=True)
         raise PublishError(post.publish_error)
     set_status(post, Post.Status.PUBLISHED)
-    notify(managers(post.company), post.company, f'نُشر «{post.title}» على {"، ".join(_names(done))}.',
+    notify(managers(post.company), post.company,
+           format_lazy(_('نُشر «{title}» على {platforms}.'), title=post.title, platforms=_names_text(done)),
            post.get_absolute_url(), icon='bi-send-check', actor=actor)
     return done
 
@@ -103,6 +107,11 @@ def publish(post, actor=None):
 def _names(done):
     labels = dict(SocialAccount.Platform.choices)
     return [labels.get(k, k) for k in done]
+
+
+def _names_text(done):
+    """The platform names joined as a phrase, evaluated lazily in the reader's language."""
+    return lazy(lambda: str(_('، ')).join(str(n) for n in _names(done)), str)()
 
 
 def due_posts(now=None):
@@ -135,9 +144,9 @@ def enqueue_due(now=None):
 def run_publish_post(job):
     post = Post.objects.select_related('company').get(pk=job.params['post_id'], company=job.company)
     if post.status == Post.Status.PUBLISHED:
-        return 'المنشور منشور بالفعل.'
+        return _('المنشور منشور بالفعل.')
     if job.params.get('automatic') and post.status != Post.Status.APPROVED:
-        return 'تغيّرت حالة المنشور، فلم يُنشر تلقائياً.'
-    job.set_progress(20, 'جارٍ النشر…')
+        return _('تغيّرت حالة المنشور، فلم يُنشر تلقائياً.')
+    job.set_progress(20, _('جارٍ النشر…'))
     done = publish(post, actor=job.created_by)
-    return f'نُشر على {"، ".join(_names(done))}.'
+    return _('نُشر على %(platforms)s.') % {'platforms': _names_text(done)}

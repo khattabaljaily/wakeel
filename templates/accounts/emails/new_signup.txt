@@ -1,9 +1,9 @@
-{% autoescape off %}طلب تسجيل جديد في وكيل بانتظار الموافقة:
+{% load i18n %}{% autoescape off %}{% translate "طلب تسجيل جديد في وكيل بانتظار الموافقة:" %}
 
-الاسم: {{ user.display_name }}
-البريد: {{ user.email }}{% if user.phone %}
-الهاتف: {{ user.phone }}{% endif %}
+{% translate "الاسم:" %} {{ user.display_name }}
+{% translate "البريد:" %} {{ user.email }}{% if user.phone %}
+{% translate "الهاتف:" %} {{ user.phone }}{% endif %}
 
-راجع الطلب ووافق عليه من لوحة مشرف النظام:
+{% translate "راجع الطلب ووافق عليه من لوحة مشرف النظام:" %}
 {{ link }}
 {% endautoescape %}

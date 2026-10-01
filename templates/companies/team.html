@@ -1,15 +1,16 @@
 {% extends "base.html" %}
-{% block title %}الفريق{% endblock %}
-{% block page_title %}الفريق{% endblock %}
-{% block subtitle %}<div class="subtitle">من يعمل على تسويق {{ company.name }}، وما صلاحياته.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "الفريق" %}{% endblock %}
+{% block page_title %}{% translate "الفريق" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% blocktranslate trimmed with name=company.name %}من يعمل على تسويق {{ name }}، وما صلاحياته.{% endblocktranslate %}</div>{% endblock %}
 {% block content %}
 <div class="row g-4">
     <div class="col-lg-8">
         <div class="wk-card">
             <div class="wk-dt-toolbar">
                 <label class="wk-dt-search"><i class="bi bi-search"></i>
-                    <input type="search" class="form-control" data-dt-search="{{ table.id }}" placeholder="ابحث بالاسم أو البريد…" aria-label="بحث في الفريق"></label>
-                <span class="small-muted ms-auto">{{ members|length }} {% if members|length == 1 %}عضو{% else %}أعضاء{% endif %}</span>
+                    <input type="search" class="form-control" data-dt-search="{{ table.id }}" placeholder="{% translate "ابحث بالاسم أو البريد…" %}" aria-label="{% translate "بحث في الفريق" %}"></label>
+                <span class="small-muted ms-auto">{{ members|length }} {% if members|length == 1 %}{% translate "عضو" %}{% else %}{% translate "أعضاء" %}{% endif %}</span>
             </div>
             {% include "_datatable.html" %}
         </div>
@@ -17,24 +18,24 @@
     <div class="col-lg-4">
         {% if membership.can_manage %}
         <div class="wk-card"><div class="wk-card-body">
-            <h2 class="wk-section-title"><i class="bi bi-person-plus text-primary"></i> إضافة عضو</h2>
+            <h2 class="wk-section-title"><i class="bi bi-person-plus text-primary"></i> {% translate "إضافة عضو" %}</h2>
             <form method="post" novalidate>{% csrf_token %}
                 {% for field in form %}{% include "_field.html" %}{% endfor %}
-                <button class="btn btn-primary w-100">إضافة</button>
+                <button class="btn btn-primary w-100">{% translate "إضافة" %}</button>
             </form>
         </div></div>
         {% endif %}
         {% if membership.role != 'owner' %}
         <form method="post" action="{% url 'companies:leave' %}" class="mt-4">{% csrf_token %}
-            <button class="btn btn-outline-danger w-100" data-confirm-title="مغادرة الشركة؟" data-confirm="لن تتمكن من الوصول إلى «{{ company.name }}» إلا إذا أضافك أحد مديريها من جديد." data-confirm-ok="مغادرة" data-confirm-tone="danger"><i class="bi bi-box-arrow-right"></i> مغادرة الشركة</button>
+            <button class="btn btn-outline-danger w-100" data-confirm-title="{% translate "مغادرة الشركة؟" %}" data-confirm="{% blocktranslate trimmed with name=company.name %}لن تتمكن من الوصول إلى «{{ name }}» إلا إذا أضافك أحد مديريها من جديد.{% endblocktranslate %}" data-confirm-ok="{% translate "مغادرة" %}" data-confirm-tone="danger"><i class="bi bi-box-arrow-right"></i> {% translate "مغادرة الشركة" %}</button>
         </form>
         {% endif %}
         <div class="wk-card mt-4"><div class="wk-card-body small">
-            <h3 class="h6">الأدوار</h3>
+            <h3 class="h6">{% translate "الأدوار" %}</h3>
             <ul class="mb-0 ps-3 text-muted">
-                <li><strong>المالك والمدير:</strong> كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق.</li>
-                <li><strong>محرر المحتوى:</strong> يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة.</li>
-                <li><strong>المشاهد:</strong> يطّلع على الخطط والتقويم فقط.</li>
+                <li><strong>{% translate "المالك والمدير:" %}</strong> {% translate "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق." %}</li>
+                <li><strong>{% translate "محرر المحتوى:" %}</strong> {% translate "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة." %}</li>
+                <li><strong>{% translate "المشاهد:" %}</strong> {% translate "يطّلع على الخطط والتقويم فقط." %}</li>
             </ul>
         </div></div>
     </div>

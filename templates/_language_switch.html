@@ -1,0 +1,5 @@
+{% load i18n %}<form method="post" action="{% url 'core:set_language' %}" class="wk-lang {{ lang_class }}">{% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    {% if LANGUAGE_CODE == 'ar' %}<button name="language" value="en" lang="en" title="Switch to English"><i class="bi bi-translate"></i> English</button>
+    {% else %}<button name="language" value="ar" lang="ar" title="{% translate "التحويل إلى العربية" %}"><i class="bi bi-translate"></i> {% translate "العربية" %}</button>{% endif %}
+</form>

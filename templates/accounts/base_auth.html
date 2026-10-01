@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 {% block body_class %}wk-auth-page{% endblock %}
 {% block body %}
@@ -6,25 +7,26 @@
     <aside class="wk-auth__side">
         <span class="wk-auth__orb wk-auth__orb--1" aria-hidden="true"></span>
         <span class="wk-auth__orb wk-auth__orb--2" aria-hidden="true"></span>
-        <a href="{% url 'core:home' %}" class="wk-auth__brand"><img src="{% static 'img/logo.svg' %}" alt=""><span>وكيل</span></a>
+        <a href="{% url 'core:home' %}" class="wk-auth__brand"><img src="{% static 'img/logo.svg' %}" alt=""><span>{% translate "وكيل" %}</span></a>
         <div class="wk-auth__pitch">
-            <span class="wk-auth__kicker"><i class="bi bi-stars"></i> مدير التسويق الذكي</span>
-            <h2>فريق تسويق كامل، <br>يعمل لشركتك على مدار الساعة.</h2>
-            <p>يضع وكيل خطة المحتوى، ويكتب المنشورات، ويصمم الصور بهوية علامتك، ثم يرتبها في تقويم جاهز للنشر.</p>
+            <span class="wk-auth__kicker"><i class="bi bi-stars"></i> {% translate "مدير التسويق الذكي" %}</span>
+            <h2>{% translate "فريق تسويق كامل،" %} <br>{% translate "يعمل لشركتك على مدار الساعة." %}</h2>
+            <p>{% translate "يضع وكيل خطة المحتوى، ويكتب المنشورات، ويصمم الصور بهوية علامتك، ثم يرتبها في تقويم جاهز للنشر." %}</p>
             <ul class="wk-auth__feats">
-                <li><i class="bi bi-bullseye"></i><span class="d-none d-lg-inline">استراتيجية شهرية مبنية على فهم نشاطك وجمهورك</span><span class="d-lg-none">استراتيجية شهرية</span></li>
-                <li><i class="bi bi-palette"></i><span class="d-none d-lg-inline">تصاميم احترافية بألوانك وخطوطك وشعارك</span><span class="d-lg-none">تصاميم بهويتك</span></li>
-                <li><i class="bi bi-calendar-check"></i><span class="d-none d-lg-inline">تقويم نشر ومراجعة واعتماد في مكان واحد</span><span class="d-lg-none">تقويم ونشر</span></li>
+                <li><i class="bi bi-bullseye"></i><span class="d-none d-lg-inline">{% translate "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك" %}</span><span class="d-lg-none">{% translate "استراتيجية شهرية" %}</span></li>
+                <li><i class="bi bi-palette"></i><span class="d-none d-lg-inline">{% translate "تصاميم احترافية بألوانك وخطوطك وشعارك" %}</span><span class="d-lg-none">{% translate "تصاميم بهويتك" %}</span></li>
+                <li><i class="bi bi-calendar-check"></i><span class="d-none d-lg-inline">{% translate "تقويم نشر ومراجعة واعتماد في مكان واحد" %}</span><span class="d-lg-none">{% translate "تقويم ونشر" %}</span></li>
             </ul>
         </div>
-        <div class="wk-auth__copy">© {% now "Y" %} وكيل</div>
+        <div class="wk-auth__copy">© {% now "Y" %} {% translate "وكيل" %}</div>
     </aside>
     <main class="wk-auth__main">
+        {% include "_language_switch.html" with lang_class="wk-lang--float" %}
         <div class="wk-auth__card {% block card_class %}{% endblock %}">
             {% for message in messages %}<div class="alert {{ message.tags }} py-2">{{ message }}</div>{% endfor %}
             {% block auth_content %}{% endblock %}
         </div>
-        <div class="wk-auth__foot">© {% now "Y" %} وكيل · مدير التسويق الذكي</div>
+        <div class="wk-auth__foot">© {% now "Y" %} {% translate "وكيل · مدير التسويق الذكي" %}</div>
     </main>
 </div>
 {% endblock %}
@@ -38,7 +40,7 @@ document.addEventListener('click', function (e) {
     var show = input.type === 'password';
     input.type = show ? 'text' : 'password';
     btn.querySelector('i').className = 'bi ' + (show ? 'bi-eye-slash' : 'bi-eye');
-    btn.setAttribute('aria-label', show ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور');
+    btn.setAttribute('aria-label', show ? '{{ _("إخفاء كلمة المرور")|escapejs }}' : '{{ _("إظهار كلمة المرور")|escapejs }}');
 });
 </script>
 {% block auth_scripts %}{% endblock %}

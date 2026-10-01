@@ -6,6 +6,7 @@ from functools import wraps
 
 from django.conf import settings
 from django.contrib import messages
+from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -14,6 +15,7 @@ from django.db.models import Count, Max, Q
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from apps.accounts import approval
@@ -117,7 +119,7 @@ def overview(request):
     })
 
 
-STATUS_FILTERS = [('', 'الكل'), ('active', 'نشط'), ('suspended', 'معلّق'), ('expired', 'منتهي'), ('pending', 'قيد الاعتماد')]
+STATUS_FILTERS = [('', _('الكل')), ('active', _('نشط')), ('suspended', _('معلّق')), ('expired', _('منتهي')), ('pending', _('قيد الاعتماد'))]
 IMPERSONATOR_KEY = '_impersonator_id'
 
 
@@ -134,7 +136,7 @@ def _status_filter(qs, status):
 
 def _subscription_data(company, owner=None, members=None, posts=None):
     """Everything the view / edit dialogs show for one subscription, as JSON for the row's buttons."""
-    return json.dumps({
+    return json.dumps(cls=DjangoJSONEncoder, obj={
         'id': company.pk, 'name': company.name, 'initials': company.initials, 'color': company.primary_color,
         'industry': company.industry, 'email': company.email, 'phone': company.phone, 'city': company.city,
         'country': company.country, 'timezone': company.timezone, 'is_demo': company.is_demo,
@@ -203,7 +205,7 @@ def subscription_create(request):
                                             password=form.cleaned_data['owner_password'],
                                             first_name=form.cleaned_data['owner_name'])
         Membership.objects.create(company=company, user=user, role=Membership.Role.OWNER)
-    messages.success(request, f'تم إنشاء اشتراك «{company.name}» ومالكه {user.email}.')
+    messages.success(request, _('تم إنشاء اشتراك «%(name)s» ومالكه %(email)s.') % {'name': company.name, 'email': user.email})
     return redirect('ops:subscriptions')
 
 
@@ -215,7 +217,7 @@ def subscription_update(request, pk):
     if not form.is_valid():
         return subscriptions(request, edit_form=form, edit_target=company)
     form.save()
-    messages.success(request, f'تم حفظ بيانات «{company.name}».')
+    messages.success(request, _('تم حفظ بيانات «%(name)s».') % {'name': company.name})
     return _back(request)
 
 
@@ -224,11 +226,11 @@ def subscription_update(request, pk):
 def subscription_approve(request, pk):
     company = get_object_or_404(Company, pk=pk)
     if company.is_approved:
-        messages.info(request, f'«{company.name}» معتمد بالفعل.')
+        messages.info(request, _('«%(name)s» معتمد بالفعل.') % {'name': company.name})
     else:
         subscriptions_service.approve(company, is_demo=request.POST.get('is_demo') == '1',
                                       days=subscriptions_service.valid_days(request.POST.get('days')))
-        messages.success(request, f'تم اعتماد «{company.name}»، وأُبلغ مالكه بالبريد.')
+        messages.success(request, _('تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد.') % {'name': company.name})
     return _back(request)
 
 
@@ -238,13 +240,13 @@ def subscription_renew(request, pk):
     company = get_object_or_404(Company, pk=pk)
     days = subscriptions_service.valid_days(request.POST.get('days'))
     if not days:
-        messages.error(request, 'اختر مدة صحيحة للتجديد.')
+        messages.error(request, _('اختر مدة صحيحة للتجديد.'))
         return _back(request)
     subscriptions_service.extend(company, days)
     if request.POST.get('is_demo') in ('0', '1'):  # renewing is also when a trial becomes paid
         company.is_demo = request.POST['is_demo'] == '1'
     company.save(update_fields=['subscription_expires', 'is_demo', 'updated_at'])
-    messages.success(request, f'تم تجديد «{company.name}» حتى {company.subscription_expires:%Y-%m-%d}.')
+    messages.success(request, _('تم تجديد «%(name)s» حتى %(date)s.') % {'name': company.name, 'date': f'{company.subscription_expires:%Y-%m-%d}'})
     return _back(request)
 
 
@@ -254,8 +256,8 @@ def subscription_toggle(request, pk):
     company = get_object_or_404(Company, pk=pk)
     company.is_active = not company.is_active
     company.save(update_fields=['is_active', 'updated_at'])
-    messages.success(request, f'تم تنشيط «{company.name}».' if company.is_active else
-                     f'تم تعليق «{company.name}»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه.')
+    messages.success(request, _('تم تنشيط «%(name)s».') % {'name': company.name} if company.is_active else
+                     _('تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه.') % {'name': company.name})
     return _back(request)
 
 
@@ -264,11 +266,11 @@ def subscription_toggle(request, pk):
 def subscription_delete(request, pk):
     company = get_object_or_404(Company, pk=pk)
     if request.POST.get('confirm_name', '').strip() != company.name.strip():
-        messages.error(request, 'الاسم المكتوب لا يطابق اسم الشركة، فلم يُحذف شيء.')
+        messages.error(request, _('الاسم المكتوب لا يطابق اسم الشركة، فلم يُحذف شيء.'))
         return _back(request)
     name = company.name
     company.delete()  # cascades to plans, posts, media and their files
-    messages.success(request, f'تم حذف اشتراك «{name}» وكل بياناته نهائياً.')
+    messages.success(request, _('تم حذف اشتراك «%(name)s» وكل بياناته نهائياً.') % {'name': name})
     return redirect('ops:subscriptions')
 
 
@@ -278,11 +280,11 @@ def subscription_login_as(request, pk):
     """Enter the subscriber's workspace as its owner (as in enjazpms); the admin's password is asked again."""
     company = get_object_or_404(Company, pk=pk)
     if not request.user.check_password(request.POST.get('password', '')):
-        messages.error(request, 'كلمة مرور المشرف غير صحيحة.')
+        messages.error(request, _('كلمة مرور المشرف غير صحيحة.'))
         return _back(request)
     owner = subscriptions_service.owner(company)
     if owner is None or not owner.is_active:
-        messages.error(request, f'لا يوجد مالك نشط لـ «{company.name}».')
+        messages.error(request, _('لا يوجد مالك نشط لـ «%(name)s».') % {'name': company.name})
         return _back(request)
     admin_id = request.user.pk
     login(request, owner, backend='apps.accounts.backends.EmailOrUsernameBackend')  # starts a fresh session
@@ -303,10 +305,10 @@ def signups(request):
 def signup_approve(request, pk):
     user = get_object_or_404(User, pk=pk, is_superuser=False)
     if user.is_approved:
-        messages.info(request, f'حساب {user.display_name} مفعّل بالفعل.')
+        messages.info(request, _('حساب %(name)s مفعّل بالفعل.') % {'name': user.display_name})
     else:
         approval.approve(user)
-        messages.success(request, f'تم تفعيل حساب {user.display_name}، وأُبلغ بالبريد.')
+        messages.success(request, _('تم تفعيل حساب %(name)s، وأُبلغ بالبريد.') % {'name': user.display_name})
     return redirect('ops:signups')
 
 
@@ -316,7 +318,7 @@ def signup_reject(request, pk):
     user = get_object_or_404(User, pk=pk, is_approved=False, is_superuser=False)
     name = user.display_name
     user.delete()
-    messages.success(request, f'تم رفض طلب {name} وحذفه.')
+    messages.success(request, _('تم رفض طلب %(name)s وحذفه.') % {'name': name})
     return redirect('ops:signups')
 
 
@@ -351,7 +353,7 @@ def usage(request):
     for job in year_jobs:
         stats.add(kinds.setdefault(job.get_kind_display(), stats.blank(job.get_kind_display())), job)
     rows = [r for r in _company_rows(Company.objects.all(), year_jobs) if r['year']['jobs']]
-    by_model, by_kind = tables.breakdown('modelsTable', 'النموذج'), tables.breakdown('kindsTable', 'المهمة')
+    by_model, by_kind = tables.breakdown('modelsTable', _('النموذج')), tables.breakdown('kindsTable', _('المهمة'))
     months_table, companies_table = tables.usage_months(), tables.usage_companies()
     return render(request, 'ops/usage.html', {
         'system': _system(), 'total': total,

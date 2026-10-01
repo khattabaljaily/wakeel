@@ -45,7 +45,7 @@ _POST_PROPS = {
     'template': {'type': 'string', 'enum': list(TEMPLATES)},
     'caption': {'type': 'string'},
     'hashtags': {'type': 'string'},
-    'visual_notes': {'type': 'string', 'description': 'What photo or visual the design needs, in Arabic'},
+    'visual_notes': {'type': 'string', 'description': 'What photo or visual the design needs, in the team language'},
     'video_script': {'type': 'string'},
 }
 
@@ -53,7 +53,7 @@ PLAN_SCHEMA = {
     'type': 'object',
     'properties': {
         'title': {'type': 'string'},
-        'summary': {'type': 'string', 'description': 'The strategy for the month in 3-5 sentences, in Arabic'},
+        'summary': {'type': 'string', 'description': 'The strategy for the month in 3-5 sentences, in the team language'},
         'goals': {'type': 'array', 'items': {'type': 'string'}},
         'pillars': {
             'type': 'array',
@@ -171,6 +171,8 @@ def generate_plan(plan):
     )
 
     from apps.content.learning import recent_posts
+    from apps.core import language
+    team_language = language.name(language.of_user(plan.created_by) if plan.created_by else language.of_team(company))
     recent = '\n'.join(f'- {when:%Y-%m-%d} | {pillar} | {title}' for when, pillar, title in recent_posts(company, plan.month)) or '- none'
 
     prompt = f"""<brand_profile>
@@ -197,7 +199,7 @@ Requirements:
 - Each post targets one or more of these platforms only: {platforms}. Choose the format that fits each idea; include some reels when video fits.
 {tiktok_rule}- 3-5 content pillars with their share of the posts; each post belongs to one pillar (use the pillar's exact name).
 - key_dates: occasions in this month that matter to this audience (may be empty). The dates in <local_occasions> are computed and correct: use them as given, pick only the ones that fit this brand, and don't add other dated occasions unless you are sure of the date.
-- summary, goals, pillar names/descriptions, key date names and visual_notes are in Arabic; captions and design text follow the language rule in the brand profile.
+- The team reads {team_language}: summary, goals, pillar names/descriptions, key date names and visual_notes are in {team_language}; captions and design text follow the language rule in the brand profile.
 - Don't repeat ideas, angles or headlines from <recent_posts>; build on them with fresh ones.
 - Pick the design template for each image post from:
 {templates}

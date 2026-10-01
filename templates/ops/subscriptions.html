@@ -1,15 +1,16 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load wakeel %}
-{% block title %}الاشتراكات{% endblock %}
-{% block page_title %}الاشتراكات{% endblock %}
-{% block subtitle %}<div class="subtitle">اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها</div>{% endblock %}
-{% block actions %}<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi bi-plus-lg"></i> اشتراك جديد</button>{% endblock %}
+{% block title %}{% translate "الاشتراكات" %}{% endblock %}
+{% block page_title %}{% translate "الاشتراكات" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها" %}</div>{% endblock %}
+{% block actions %}<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi bi-plus-lg"></i> {% translate "اشتراك جديد" %}</button>{% endblock %}
 {% block content %}
 <div class="wk-card">
     <div class="wk-dt-toolbar">
         <label class="wk-dt-search"><i class="bi bi-search"></i>
-            <input type="search" class="form-control" data-dt-search="{{ table.id }}" placeholder="ابحث بالاسم أو البريد أو المدينة…" aria-label="بحث في الاشتراكات"></label>
-        <div class="adm-tabs" role="group" aria-label="حالة الاشتراك">
+            <input type="search" class="form-control" data-dt-search="{{ table.id }}" placeholder="{% translate "ابحث بالاسم أو البريد أو المدينة…" %}" aria-label="{% translate "بحث في الاشتراكات" %}"></label>
+        <div class="adm-tabs" role="group" aria-label="{% translate "حالة الاشتراك" %}">
             {% for key, label in filters %}
             <button type="button" class="adm-tab {% if key == status %}active{% endif %} {% if key == 'pending' and stats.pending %}attention{% endif %}"
                     data-dt-filter="{{ table.id }}" data-name="status" data-value="{{ key }}" aria-pressed="{% if key == status %}true{% else %}false{% endif %}">
@@ -22,11 +23,11 @@
 
 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"><form method="post" action="{% url 'ops:subscription_create' %}" class="modal-content" novalidate {% if create_form.is_bound %}data-open{% endif %}>{% csrf_token %}
-        <div class="modal-header"><div><h2 class="modal-title h5" id="createTitle"><i class="bi bi-plus-circle text-primary"></i> اشتراك جديد</h2><div class="small-muted">أدخل بيانات النشاط والاشتراك والمالك. يُعتمد فوراً.</div></div>
-            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="إغلاق"></button></div>
+        <div class="modal-header"><div><h2 class="modal-title h5" id="createTitle"><i class="bi bi-plus-circle text-primary"></i> {% translate "اشتراك جديد" %}</h2><div class="small-muted">{% translate "أدخل بيانات النشاط والاشتراك والمالك. يُعتمد فوراً." %}</div></div>
+            <button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="{% translate "إغلاق" %}"></button></div>
         <div class="modal-body">
             {% for e in create_form.non_field_errors %}<div class="alert alert-danger py-2">{{ e }}</div>{% endfor %}
-            <h3 class="h6 text-muted mb-3">بيانات النشاط</h3>
+            <h3 class="h6 text-muted mb-3">{% translate "بيانات النشاط" %}</h3>
             <div class="row">
                 {% include "_field.html" with field=create_form.name wrap_class="col-md-6" %}
                 {% include "_field.html" with field=create_form.industry wrap_class="col-md-6" %}
@@ -37,13 +38,13 @@
                 {% include "_field.html" with field=create_form.timezone wrap_class="col-md-6" %}
                 {% include "_field.html" with field=create_form.description wrap_class="col-12" %}
             </div>
-            <h3 class="h6 text-muted mb-3 mt-2">الاشتراك</h3>
+            <h3 class="h6 text-muted mb-3 mt-2">{% translate "الاشتراك" %}</h3>
             <div class="row">
                 {% include "_field.html" with field=create_form.subscription_start wrap_class="col-md-6" %}
                 {% include "_field.html" with field=create_form.subscription_expires wrap_class="col-md-6" %}
-                <div class="col-12 mb-3"><div class="form-check"><input type="checkbox" class="form-check-input" name="is_demo" id="createDemo" {% if create_form.is_demo.value %}checked{% endif %}><label class="form-check-label" for="createDemo">حساب تجريبي</label></div></div>
+                <div class="col-12 mb-3"><div class="form-check"><input type="checkbox" class="form-check-input" name="is_demo" id="createDemo" {% if create_form.is_demo.value %}checked{% endif %}><label class="form-check-label" for="createDemo">{% translate "حساب تجريبي" %}</label></div></div>
             </div>
-            <h3 class="h6 text-muted mb-3 mt-2">حساب مالك النشاط</h3>
+            <h3 class="h6 text-muted mb-3 mt-2">{% translate "حساب مالك النشاط" %}</h3>
             <div class="row">
                 {% include "_field.html" with field=create_form.owner_name wrap_class="col-md-6" %}
                 {% include "_field.html" with field=create_form.owner_email wrap_class="col-md-6" %}
@@ -51,7 +52,7 @@
                 {% include "_field.html" with field=create_form.owner_password2 wrap_class="col-md-6" %}
             </div>
         </div>
-        <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button><button class="btn btn-primary"><i class="bi bi-check2"></i> إنشاء الاشتراك</button></div>
+        <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">{% translate "إلغاء" %}</button><button class="btn btn-primary"><i class="bi bi-check2"></i> {% translate "إنشاء الاشتراك" %}</button></div>
     </form></div>
 </div>
 {% include "ops/_subscription_modals.html" %}

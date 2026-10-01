@@ -7,8 +7,11 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.urls import reverse
-from django.utils import timezone
+from django.utils import timezone, translation
+from django.utils.translation import gettext_lazy as _
 
+
+from apps.core.language import of_user
 
 from .models import Company, Membership
 
@@ -44,9 +47,10 @@ def approve(company, *, is_demo, days=None):
     company.save(update_fields=['is_approved', 'approved_at', 'is_demo', 'subscription_expires', 'updated_at'])
     user = owner(company)
     if user and user.email:
-        _send([user.email], f'تم تفعيل حسابك في وكيل: {company.name}', 'companies/emails/approved.txt', {
-            'company': company, 'user': user, 'link': settings.SITE_URL + reverse('accounts:login'),
-        })
+        with translation.override(of_user(user)):
+            _send([user.email], _('تم تفعيل حسابك في وكيل: %(name)s') % {'name': company.name}, 'companies/emails/approved.txt', {
+                'company': company, 'user': user, 'link': settings.SITE_URL + reverse('accounts:login'),
+            })
 
 
 def _send(to, subject, template, context):

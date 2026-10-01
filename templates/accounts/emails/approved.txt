@@ -1,7 +1,7 @@
-{% autoescape off %}مرحباً {{ user.display_name }}،
+{% load i18n %}{% autoescape off %}{% blocktranslate with name=user.display_name %}مرحباً {{ name }}،{% endblocktranslate %}
 
-تم تفعيل حسابك في وكيل. سجّل الدخول وأضف شركتك الأولى، وسيبدأ وكيل بإعداد خطة المحتوى لها:
+{% translate "تم تفعيل حسابك في وكيل. سجّل الدخول وأضف شركتك الأولى، وسيبدأ وكيل بإعداد خطة المحتوى لها:" %}
 {{ link }}
 
-فريق وكيل
+{% translate "فريق وكيل" %}
 {% endautoescape %}

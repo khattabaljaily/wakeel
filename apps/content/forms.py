@@ -2,13 +2,14 @@ import datetime
 
 from django import forms
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import MediaAsset
 from apps.studio.designs import template_choices
 
 from .models import ContentPlan, Platform, Post
 
-ARABIC_MONTHS = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر']
+ARABIC_MONTHS = [_('يناير'), _('فبراير'), _('مارس'), _('أبريل'), _('مايو'), _('يونيو'), _('يوليو'), _('أغسطس'), _('سبتمبر'), _('أكتوبر'), _('نوفمبر'), _('ديسمبر')]
 
 
 def month_choices(count=4):
@@ -23,16 +24,16 @@ def month_choices(count=4):
 
 
 class PlanForm(forms.ModelForm):
-    month = forms.ChoiceField(label='الشهر')
-    platforms = forms.MultipleChoiceField(label='المنصات', choices=Platform.choices, widget=forms.CheckboxSelectMultiple,
+    month = forms.ChoiceField(label=_('الشهر'))
+    platforms = forms.MultipleChoiceField(label=_('المنصات'), choices=Platform.choices, widget=forms.CheckboxSelectMultiple,
                                           initial=[Platform.FACEBOOK, Platform.INSTAGRAM])
-    posts_per_week = forms.TypedChoiceField(label='عدد المنشورات أسبوعياً', coerce=int, initial=4,
+    posts_per_week = forms.TypedChoiceField(label=_('عدد المنشورات أسبوعياً'), coerce=int, initial=4,
                                             choices=[(n, str(n)) for n in (2, 3, 4, 5, 6, 7, 10)])
 
     class Meta:
         model = ContentPlan
         fields = ['month', 'platforms', 'posts_per_week', 'brief']
-        widgets = {'brief': forms.Textarea(attrs={'rows': 4, 'placeholder': 'مثال: نطلق خدمة جديدة منتصف الشهر، ولدينا عرض خاص بمناسبة اليوم الوطني…'})}
+        widgets = {'brief': forms.Textarea(attrs={'rows': 4, 'placeholder': _('مثال: نطلق خدمة جديدة منتصف الشهر، ولدينا عرض خاص بمناسبة اليوم الوطني…')})}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -46,9 +47,9 @@ class PlanForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
-    platforms = forms.MultipleChoiceField(label='المنصات', choices=Platform.choices, widget=forms.CheckboxSelectMultiple)
-    template = forms.ChoiceField(label='القالب', choices=template_choices())
-    scheduled_at = forms.DateTimeField(label='موعد النشر', required=False,
+    platforms = forms.MultipleChoiceField(label=_('المنصات'), choices=Platform.choices, widget=forms.CheckboxSelectMultiple)
+    template = forms.ChoiceField(label=_('القالب'), choices=template_choices())
+    scheduled_at = forms.DateTimeField(label=_('موعد النشر'), required=False,
                                        widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
                                        input_formats=['%Y-%m-%dT%H:%M'])
 

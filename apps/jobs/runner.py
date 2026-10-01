@@ -14,7 +14,8 @@ import traceback
 
 from django.conf import settings
 from django.db import close_old_connections, transaction
-from django.utils import timezone
+from django.utils import timezone, translation
+from django.utils.translation import gettext_lazy as _
 
 from apps.ai.client import AIError
 from apps.content import autopilot, services
@@ -47,6 +48,12 @@ def claim_next():
 
 
 def run_job(job):
+    from apps.core import language
+    with translation.override(language.of_user(job.created_by) if job.created_by_id else language.of_team(job.company)):
+        return _run(job)
+
+
+def _run(job):
     try:
         message = HANDLERS[job.kind](job)
         if job.was_cancelled():
@@ -57,7 +64,7 @@ def run_job(job):
         job.error_detail = getattr(exc, 'detail', '')
     except Exception as exc:  # the worker must survive any single job
         logger.exception('Job %s failed', job.pk)
-        job.status, job.error = Job.Status.FAILED, 'حدث خطأ غير متوقع، وأُبلغ فريق الدعم. حاول مرة أخرى.'
+        job.status, job.error = Job.Status.FAILED, _('حدث خطأ غير متوقع، وأُبلغ فريق الدعم. حاول مرة أخرى.')
         job.error_detail = traceback.format_exc()[-4000:]
     else:
         job.status, job.progress, job.message = Job.Status.DONE, 100, (message or '')[:255]

@@ -1,6 +1,6 @@
-{% if membership.can_manage and m.role != 'owner' %}
+{% load i18n %}{% if membership.can_manage and m.role != 'owner' %}
 <form method="post" action="{% url 'companies:member_update' m.pk %}">{% csrf_token %}
-    <select name="role" class="form-select form-select-sm" style="max-width: 190px" onchange="this.form.submit()" aria-label="دور {{ m.user.display_name }}">
+    <select name="role" class="form-select form-select-sm" style="max-width: 190px" onchange="this.form.submit()" aria-label="{% blocktranslate trimmed with display_name=m.user.display_name %}دور {{ display_name }}{% endblocktranslate %}">
         {% for value, label in roles %}{% if value != 'owner' %}<option value="{{ value }}" {% if value == m.role %}selected{% endif %}>{{ label }}</option>{% endif %}{% endfor %}
     </select>
 </form>

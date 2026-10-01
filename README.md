@@ -107,6 +107,22 @@ python manage.py test apps
 
 ---
 
+## Languages
+
+The interface is Arabic (default, right-to-left) and English (left-to-right). Each user picks a language
+from the switcher in the sidebar or on the sign-in pages; it's saved on their account (and in a cookie
+before they sign in). The browser's language is ignored on purpose.
+
+- Source strings are the Arabic text itself: `{% translate %}` / `{% blocktranslate %}` in templates,
+  `gettext_lazy as _` in Python, `gettext()` in JavaScript (served by `/jsi18n/`). English lives in
+  `locale/en/LC_MESSAGES/` (`django.po`, `djangojs.po`); the compiled `.mo` files are committed.
+- After changing text: `python manage.py makemessages -l en --ignore=.env --ignore=staticfiles
+  --ignore='apps/studio/templates/studio/designs/*' --no-location`, the same with `-d djangojs`,
+  translate the new entries, then `python manage.py compilemessages -l en --ignore=.env`.
+- Notifications and emails are rendered in each recipient's language; background jobs run in the
+  language of the user who started them; plan strategy and learned lessons are written in the team's
+  language. The language of the posts themselves is the company's content language setting.
+
 ## Production
 
 Live at https://wakeel.sharedlink.cc on `Server` (`/home/general/projects/wakeel`):

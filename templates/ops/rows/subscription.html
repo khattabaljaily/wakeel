@@ -1,4 +1,4 @@
-{% load wakeel %}{% with c=r %}{% if part == 'name' %}
+{% load i18n %}{% load wakeel %}{% with c=r %}{% if part == 'name' %}
 <div class="d-flex align-items-center gap-2">
     <span class="wk-avatar" style="background: {{ c.primary_color }}; width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0">{% if c.logo %}<img src="{{ c.logo.url }}" alt="">{% else %}{{ c.initials }}{% endif %}</span>
     <div class="overflow-hidden"><a href="{% url 'ops:company' c.pk %}" class="fw-bold">{{ c.name }}</a>
@@ -20,10 +20,10 @@
         <div class="ms-auto text-end">{% include "ops/_subscription_state.html" %}</div>
     </div>
     <div class="wk-mcard__grid">
-        <div><div class="wk-mcard__label">المجال</div><div class="wk-mcard__val">{{ c.industry }}</div><div class="wk-mcard__sub">{% if c.city %}{{ c.city }} · {% endif %}{{ c.country }}</div></div>
-        <div><div class="wk-mcard__label">الاشتراك</div><div class="wk-mcard__val">{% include "ops/_subscription_end.html" %}</div></div>
-        <div><div class="wk-mcard__label">بداية الاشتراك</div><div class="wk-mcard__val">{{ c.subscription_start|date:"j/n/Y" }}</div></div>
-        <div><div class="wk-mcard__label">الفريق</div><div class="wk-mcard__val">{{ c.members }} {% if c.members == 1 %}عضو{% else %}أعضاء{% endif %}</div></div>
+        <div><div class="wk-mcard__label">{% translate "المجال" %}</div><div class="wk-mcard__val">{{ c.industry }}</div><div class="wk-mcard__sub">{% if c.city %}{{ c.city }} · {% endif %}{{ c.country }}</div></div>
+        <div><div class="wk-mcard__label">{% translate "الاشتراك" %}</div><div class="wk-mcard__val">{% include "ops/_subscription_end.html" %}</div></div>
+        <div><div class="wk-mcard__label">{% translate "بداية الاشتراك" %}</div><div class="wk-mcard__val">{{ c.subscription_start|date:"j/n/Y" }}</div></div>
+        <div><div class="wk-mcard__label">{% translate "الفريق" %}</div><div class="wk-mcard__val">{{ c.members }} {% if c.members == 1 %}{% translate "عضو" %}{% else %}{% translate "أعضاء" %}{% endif %}</div></div>
     </div>
     <div class="wk-mcard__foot">{% include "ops/_subscription_buttons.html" with data=c.data %}</div>
 </article>

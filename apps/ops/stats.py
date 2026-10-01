@@ -3,6 +3,7 @@ import datetime
 
 from django.db.models import Q
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from apps.content.forms import ARABIC_MONTHS
 from apps.jobs.models import Job
@@ -55,14 +56,14 @@ def summarize(jobs):
     return total, [row for _, row in sorted(months.items(), reverse=True)]
 
 
-SHORT_MONTHS = ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس']
+SHORT_MONTHS = [_('ينا'), _('فبر'), _('مار'), _('أبر'), _('ماي'), _('يون'), _('يول'), _('أغس'), _('سبت'), _('أكت'), _('نوف'), _('ديس')]
 
 
 def last_months(count=12):
     """(year, month) keys for the last `count` months, oldest first, ending with this month."""
     now = timezone.localtime()
     keys, year, month = [], now.year, now.month
-    for _ in range(count):
+    for _i in range(count):
         keys.append((year, month))
         year, month = (year, month - 1) if month > 1 else (year - 1, 12)
     return keys[::-1]

@@ -16,6 +16,7 @@ from dataclasses import dataclass
 import anthropic
 import requests
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 logger = logging.getLogger(__name__)
 
@@ -33,9 +34,9 @@ class AIError(Exception):
 
 
 # Messages for subscribers never name the provider or the server's configuration.
-UNAVAILABLE = 'خدمة الذكاء الاصطناعي غير متاحة حالياً، وفريق الدعم يعمل على إعادتها. حاول مرة أخرى لاحقاً.'
-BUSY = 'خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل.'
-UNREACHABLE = 'تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل.'
+UNAVAILABLE = _('خدمة الذكاء الاصطناعي غير متاحة حالياً، وفريق الدعم يعمل على إعادتها. حاول مرة أخرى لاحقاً.')
+BUSY = _('خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل.')
+UNREACHABLE = _('تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل.')
 
 
 @dataclass
@@ -60,9 +61,9 @@ def _parse(text, request_id=''):
         data = json.loads(text)
     except json.JSONDecodeError as exc:
         logger.warning('AI returned non-JSON output (request %s)', request_id)
-        raise AIError('وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى.') from exc
+        raise AIError(_('وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى.')) from exc
     if not isinstance(data, dict):
-        raise AIError('وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى.')
+        raise AIError(_('وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'))
     return data
 
 
@@ -103,9 +104,9 @@ def _anthropic(system, prompt, schema, *, max_tokens, effort):
     logger.info('Claude %s: in=%s out=%s stop=%s', message.model, usage.input_tokens, usage.output_tokens, message.stop_reason)
 
     if message.stop_reason == 'refusal':
-        raise AIError('اعتذر النموذج عن تنفيذ هذا الطلب. عدّل التوجيهات وحاول مرة أخرى.')
+        raise AIError(_('اعتذر النموذج عن تنفيذ هذا الطلب. عدّل التوجيهات وحاول مرة أخرى.'))
     if message.stop_reason == 'max_tokens':
-        raise AIError('كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى.')
+        raise AIError(_('كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى.'))
 
     text = ''.join(b.text for b in message.content if b.type == 'text')
     cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
@@ -156,18 +157,18 @@ def _deepseek(system, prompt, schema, *, max_tokens):
         logger.info('DeepSeek %s: in=%s out=%s finish=%s', body.get('model'), usage.get('prompt_tokens'),
                     usage.get('completion_tokens'), choice.get('finish_reason'))
         if choice.get('finish_reason') == 'length':
-            raise AIError('كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى.')
+            raise AIError(_('كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى.'))
         text = (choice.get('message') or {}).get('content') or ''
         if text.strip():
             break
         logger.warning('DeepSeek returned empty content (attempt %s)', attempt + 1)
     else:
-        raise AIError('لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى.')
+        raise AIError(_('لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'))
 
     data = _parse(text, body.get('id', ''))
     missing = [key for key in schema.get('required', []) if key not in data]
     if missing:
         logger.warning('DeepSeek reply is missing keys: %s', missing)
-        raise AIError('وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى.')
+        raise AIError(_('وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'))
     return AIResult(data, usage.get('prompt_tokens', 0), usage.get('completion_tokens', 0),
                     usage.get('prompt_cache_hit_tokens', 0), body.get('model') or settings.DEEPSEEK_MODEL)

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% block title %}خطط المحتوى{% endblock %}
-{% block page_title %}خطط المحتوى{% endblock %}
-{% block subtitle %}<div class="subtitle">استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل.</div>{% endblock %}
-{% block actions %}<a href="{% url 'companies:autopilot' %}" class="btn btn-light"><i class="bi bi-airplane"></i> الطيار الآلي{% if company.autopilot %} · يعمل{% endif %}</a><a href="{% url 'content:plan_create' %}" class="btn btn-ai"><i class="bi bi-stars"></i> خطة جديدة</a>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "خطط المحتوى" %}{% endblock %}
+{% block page_title %}{% translate "خطط المحتوى" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل." %}</div>{% endblock %}
+{% block actions %}<a href="{% url 'companies:autopilot' %}" class="btn btn-light"><i class="bi bi-airplane"></i> {% translate "الطيار الآلي" %}{% if company.autopilot %} {% translate "· يعمل" %}{% endif %}</a><a href="{% url 'content:plan_create' %}" class="btn btn-ai"><i class="bi bi-stars"></i> {% translate "خطة جديدة" %}</a>{% endblock %}
 {% block content %}
 {% if plans %}
 <div class="row g-4">
@@ -14,10 +15,10 @@
                     <span class="wk-status {% if plan.status == 'ready' %}approved{% elif plan.status == 'failed' %}draft{% else %}review{% endif %}">{{ plan.get_status_display }}</span>
                     <span class="small-muted ms-auto">{{ plan.month|date:"F Y" }}</span>
                 </div>
-                <h3 class="h5 mb-2">{{ plan.title|default:"خطة قيد الإعداد" }}</h3>
+                <h3 class="h5 mb-2">{{ plan.title|default:_("خطة قيد الإعداد") }}</h3>
                 <p class="small-muted mb-3" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">{{ plan.summary|default:plan.brief|default:"—" }}</p>
                 <div class="d-flex gap-3 small-muted">
-                    <span><i class="bi bi-collection"></i> {{ plan.posts.all|length }} منشوراً</span>
+                    <span><i class="bi bi-collection"></i> {% blocktranslate trimmed with all=plan.posts.all|length %}{{ all }} منشوراً{% endblocktranslate %}</span>
                     <span class="wk-platforms">{% for p in plan.platforms %}<i class="bi bi-{{ p }}"></i>{% endfor %}</span>
                 </div>
             </div>
@@ -28,9 +29,9 @@
 {% else %}
 <div class="wk-card"><div class="wk-empty">
     <div class="icon"><i class="bi bi-stars"></i></div>
-    <h3>ابدأ بخطتك الأولى</h3>
-    <p>اختر الشهر والمنصات، وسيعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها.</p>
-    <a href="{% url 'content:plan_create' %}" class="btn btn-ai btn-lg"><i class="bi bi-magic"></i> أعدّ خطة المحتوى</a>
+    <h3>{% translate "ابدأ بخطتك الأولى" %}</h3>
+    <p>{% translate "اختر الشهر والمنصات، وسيعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها." %}</p>
+    <a href="{% url 'content:plan_create' %}" class="btn btn-ai btn-lg"><i class="bi bi-magic"></i> {% translate "أعدّ خطة المحتوى" %}</a>
 </div></div>
 {% endif %}
 {% endblock %}

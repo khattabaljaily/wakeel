@@ -18,6 +18,7 @@ from django.http import JsonResponse
 from django.middleware.csrf import get_token
 from django.template.loader import get_template
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
 
 MAX_PAGE = 100
 
@@ -34,7 +35,7 @@ class Col:
 
 class Table:
     def __init__(self, id, template, columns, *, url=None, search=None, order=None, page_length=25,
-                 paging=True, empty='لا توجد بيانات', row_class=None):
+                 paging=True, empty=_('لا توجد بيانات'), row_class=None):
         self.id, self.template, self.columns = id, template, columns
         self.url = url                    # set = server mode
         self.search = search              # server mode: (queryset, text) -> queryset

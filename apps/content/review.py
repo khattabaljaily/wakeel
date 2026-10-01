@@ -9,6 +9,7 @@ from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_POST
 
@@ -31,10 +32,10 @@ def plan_share(request, pk):
     plan = get_object_or_404(ContentPlan, pk=pk, company=request.company)
     if request.POST.get('action') == 'off':
         plan.share_token = ''
-        messages.success(request, 'تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل.')
+        messages.success(request, _('تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل.'))
     else:  # on, or a fresh link that invalidates the old one
         plan.share_token = secrets.token_urlsafe(24)
-        messages.success(request, 'رابط العميل جاهز. انسخه وأرسله للعميل.')
+        messages.success(request, _('رابط العميل جاهز. انسخه وأرسله للعميل.'))
     plan.save(update_fields=['share_token'])
     return redirect(plan.get_absolute_url() + '#share')
 
@@ -72,19 +73,19 @@ def post_feedback(request, token, pk):
     action, name = data.get('action'), (data.get('name') or '').strip()[:80]
     body = (data.get('body') or '').strip()[:2000]
     if not name:
-        return JsonResponse({'error': 'اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة.'}, status=400)
+        return JsonResponse({'error': _('اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة.')}, status=400)
     if action not in ('approve', 'changes', 'comment'):
-        return JsonResponse({'error': 'طلب غير صالح.'}, status=400)
+        return JsonResponse({'error': _('طلب غير صالح.')}, status=400)
     if action in ('changes', 'comment') and not body:
-        return JsonResponse({'error': 'اكتب ملاحظتك أولاً.'}, status=400)
+        return JsonResponse({'error': _('اكتب ملاحظتك أولاً.')}, status=400)
     if action != 'comment' and post.status == Post.Status.PUBLISHED:
-        return JsonResponse({'error': 'نُشر هذا المنشور بالفعل.'}, status=400)
+        return JsonResponse({'error': _('نُشر هذا المنشور بالفعل.')}, status=400)
 
     kind = {'approve': PostComment.Kind.APPROVAL, 'changes': PostComment.Kind.CHANGES}.get(action, PostComment.Kind.COMMENT)
     if action == 'approve':
         set_status(post, Post.Status.APPROVED)
     elif action == 'changes':
-        set_status(post, Post.Status.DRAFT, note=f'{name} (العميل): {body}')
+        set_status(post, Post.Status.DRAFT, note=_('%(name)s (العميل): %(body)s') % {'name': name, 'body': body})
     comment = PostComment.objects.create(post=post, guest_name=name, kind=kind, body=body)
     if body and action in ('changes', 'comment'):
         learning.record_note(post, LearningSignal.Kind.CHANGES if action == 'changes' else LearningSignal.Kind.COMMENT,

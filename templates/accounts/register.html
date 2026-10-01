@@ -1,9 +1,10 @@
 {% extends "accounts/base_auth.html" %}
-{% block title %}إنشاء حساب{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "إنشاء حساب" %}{% endblock %}
 {% block auth_content %}
 <div class="wk-auth__head">
-    <h1>ابدأ مع وكيل</h1>
-    <p>أنشئ حسابك، وبعد تفعيله تضيف شركتك ويبدأ وكيل العمل.</p>
+    <h1>{% translate "ابدأ مع وكيل" %}</h1>
+    <p>{% translate "أنشئ حسابك، وبعد تفعيله تضيف شركتك ويبدأ وكيل العمل." %}</p>
 </div>
 <form method="post" novalidate>{% csrf_token %}
     {% for e in form.non_field_errors %}<div class="alert alert-danger py-2 small">{{ e }}</div>{% endfor %}
@@ -11,8 +12,8 @@
     {% include "accounts/_auth_field.html" with field=form.email icon="envelope" %}
     {% include "accounts/_auth_field.html" with field=form.phone icon="telephone" %}
     {% include "accounts/_auth_field.html" with field=form.password icon="lock" %}
-    <button class="btn btn-primary w-100 wk-auth__submit mt-1">إنشاء الحساب <i class="bi bi-arrow-left"></i></button>
-    <p class="small-muted text-center mt-3 mb-0">يُفعَّل الحساب بعد مراجعة فريقنا، وسيصلك بريد عند التفعيل.</p>
+    <button class="btn btn-primary w-100 wk-auth__submit mt-1">{% translate "إنشاء الحساب" %} <i class="bi bi-arrow-left"></i></button>
+    <p class="small-muted text-center mt-3 mb-0">{% translate "يُفعَّل الحساب بعد مراجعة فريقنا، وسيصلك بريد عند التفعيل." %}</p>
 </form>
-<div class="wk-auth__switch">لديك حساب بالفعل؟ <a href="{% url 'accounts:login' %}">سجّل الدخول</a></div>
+<div class="wk-auth__switch">{% translate "لديك حساب بالفعل؟" %} <a href="{% url 'accounts:login' %}">{% translate "سجّل الدخول" %}</a></div>
 {% endblock %}

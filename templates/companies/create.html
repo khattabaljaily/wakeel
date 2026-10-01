@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-{% block title %}شركة جديدة{% endblock %}
-{% block page_title %}{% if first_company %}مرحباً بك في وكيل ✨{% else %}إضافة شركة{% endif %}{% endblock %}
-{% block subtitle %}<div class="subtitle">عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "شركة جديدة" %}{% endblock %}
+{% block page_title %}{% if first_company %}{% translate "مرحباً بك في وكيل ✨" %}{% else %}{% translate "إضافة شركة" %}{% endif %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها." %}</div>{% endblock %}
 {% block content %}
 {% include "companies/_brand_form.html" with wizard=True %}
 {% endblock %}

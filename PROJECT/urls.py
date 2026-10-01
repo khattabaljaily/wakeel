@@ -2,12 +2,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.utils.translation import gettext_lazy as _
+from django.views.i18n import JavaScriptCatalog
 
-admin.site.site_header = 'إدارة وكيل'
-admin.site.site_title = 'وكيل'
+admin.site.site_header = _('إدارة وكيل')
+admin.site.site_title = _('وكيل')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('ops/', include('apps.ops.urls')),
     path('accounts/', include('apps.accounts.urls')),
     path('company/social/', include('apps.social.urls')),

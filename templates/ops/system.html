@@ -1,56 +1,57 @@
 {% extends "base.html" %}
-{% block title %}حالة النظام{% endblock %}
-{% block page_title %}حالة النظام{% endblock %}
-{% block subtitle %}<div class="subtitle">الخدمات والإعدادات التي تعمل بها المنصة</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "حالة النظام" %}{% endblock %}
+{% block page_title %}{% translate "حالة النظام" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "الخدمات والإعدادات التي تعمل بها المنصة" %}</div>{% endblock %}
 {% block content %}
 <div class="adm-grid-2">
     <div class="wk-card">
-        <div class="wk-card-head"><h2><i class="bi bi-hdd-stack text-primary"></i> الخدمات</h2></div>
+        <div class="wk-card-head"><h2><i class="bi bi-hdd-stack text-primary"></i> {% translate "الخدمات" %}</h2></div>
         <div class="wk-card-body py-2">
             <div class="adm-status"><span class="wk-dot {% if not system.ai_enabled %}off{% endif %}"></span>
-                <div><div class="fw-semibold">الذكاء الاصطناعي</div><div class="small-muted">{{ system.provider }} · <span dir="ltr">{{ system.model }}</span></div></div>
-                <span class="adm-status__val">{% if system.ai_enabled %}متصل{% else %}ينقص <code>{{ system.ai_key_name }}</code>{% endif %}</span></div>
+                <div><div class="fw-semibold">{% translate "الذكاء الاصطناعي" %}</div><div class="small-muted">{{ system.provider }} · <span dir="ltr">{{ system.model }}</span></div></div>
+                <span class="adm-status__val">{% if system.ai_enabled %}{% translate "متصل" %}{% else %}{% translate "ينقص" %} <code>{{ system.ai_key_name }}</code>{% endif %}</span></div>
             <div class="adm-status"><span class="wk-dot {% if not system.worker_alive %}off{% endif %}"></span>
-                <div><div class="fw-semibold">العامل الخلفي</div><div class="small-muted">إعداد الخطط، التصميم، النشر، والنشر المجدول</div></div>
-                <span class="adm-status__val">{% if system.worker_alive %}يعمل{% else %}متوقف — شغّل <code>manage.py run_worker</code>{% endif %}</span></div>
+                <div><div class="fw-semibold">{% translate "العامل الخلفي" %}</div><div class="small-muted">{% translate "إعداد الخطط، التصميم، النشر، والنشر المجدول" %}</div></div>
+                <span class="adm-status__val">{% if system.worker_alive %}{% translate "يعمل" %}{% else %}{% translate "متوقف — شغّل" %} <code>manage.py run_worker</code>{% endif %}</span></div>
             <div class="adm-status"><span class="wk-dot {% if not system.email %}off{% endif %}"></span>
-                <div><div class="fw-semibold">البريد الإلكتروني</div><div class="small-muted">استعادة كلمة المرور والإشعارات</div></div>
-                <span class="adm-status__val">{% if system.email %}SMTP{% else %}غير مضبوط (يُطبع في الطرفية){% endif %}</span></div>
+                <div><div class="fw-semibold">{% translate "البريد الإلكتروني" %}</div><div class="small-muted">{% translate "استعادة كلمة المرور والإشعارات" %}</div></div>
+                <span class="adm-status__val">{% if system.email %}SMTP{% else %}{% translate "غير مضبوط (يُطبع في الطرفية)" %}{% endif %}</span></div>
             <div class="adm-status"><span class="wk-dot {% if not system.meta %}off{% endif %}"></span>
-                <div><div class="fw-semibold">تطبيق Meta</div><div class="small-muted">النشر على فيسبوك وإنستغرام</div></div>
-                <span class="adm-status__val">{% if system.meta %}مضبوط{% else %}ينقص <code>META_APP_ID</code> و<code>META_APP_SECRET</code>{% endif %}</span></div>
+                <div><div class="fw-semibold">{% translate "تطبيق Meta" %}</div><div class="small-muted">{% translate "النشر على فيسبوك وإنستغرام" %}</div></div>
+                <span class="adm-status__val">{% if system.meta %}{% translate "مضبوط" %}{% else %}{% translate "ينقص" %} <code>META_APP_ID</code> {% translate "و" %}<code>META_APP_SECRET</code>{% endif %}</span></div>
         </div>
     </div>
     <div class="wk-card">
-        <div class="wk-card-head"><h2><i class="bi bi-list-task text-primary"></i> طابور المهام</h2><a href="{% url 'ops:jobs' %}" class="small fw-semibold">كل المهام</a></div>
+        <div class="wk-card-head"><h2><i class="bi bi-list-task text-primary"></i> {% translate "طابور المهام" %}</h2><a href="{% url 'ops:jobs' %}" class="small fw-semibold">{% translate "كل المهام" %}</a></div>
         <div class="wk-card-body py-2">
-            <div class="adm-status">قيد التنفيذ<span class="adm-status__val">{{ queue.running|default:0 }}</span></div>
-            <div class="adm-status">في الانتظار<span class="adm-status__val">{{ queue.pending|default:0 }}</span></div>
-            <div class="adm-status">أقدم مهمة منتظرة<span class="adm-status__val">{% if oldest_pending %}{{ oldest_pending.get_kind_display }} · منذ {{ oldest_pending.created_at|timesince }}{% else %}—{% endif %}</span></div>
+            <div class="adm-status">{% translate "قيد التنفيذ" %}<span class="adm-status__val">{{ queue.running|default:0 }}</span></div>
+            <div class="adm-status">{% translate "في الانتظار" %}<span class="adm-status__val">{{ queue.pending|default:0 }}</span></div>
+            <div class="adm-status">{% translate "أقدم مهمة منتظرة" %}<span class="adm-status__val">{% if oldest_pending %}{% blocktranslate trimmed with get_kind_display=oldest_pending.get_kind_display created_at=oldest_pending.created_at|timesince %}{{ get_kind_display }} · منذ {{ created_at }}{% endblocktranslate %}{% else %}—{% endif %}</span></div>
         </div>
     </div>
 </div>
 <div class="wk-card mb-4">
-    <div class="wk-card-head"><h2><i class="bi bi-safe text-primary"></i> النسخ الاحتياطي</h2><span class="small-muted">يومياً · <code>manage.py backup</code></span></div>
+    <div class="wk-card-head"><h2><i class="bi bi-safe text-primary"></i> {% translate "النسخ الاحتياطي" %}</h2><span class="small-muted">{% translate "يومياً ·" %} <code>manage.py backup</code></span></div>
     <div class="wk-card-body py-2">
         {% if backup %}
         <div class="adm-status"><span class="wk-dot {% if not backup.ok %}off{% endif %}"></span>
-            <div><div class="fw-semibold">آخر نسخة</div><div class="small-muted">{{ backup.finished_at|date:"j/n/Y · H:i" }} (منذ {{ backup.finished_at|timesince }})</div></div>
-            <span class="adm-status__val">{% if backup.ok %}نجحت{% else %}<span class="text-danger">فشلت: {{ backup.error }}</span>{% endif %}</span></div>
-        <div class="adm-status">النسخ المحفوظة<span class="adm-status__val">{{ backup.db_runs }} لقاعدة البيانات · {{ backup.media_runs }} للملفات</span></div>
-        <div class="adm-status">المساحة المستخدمة<span class="adm-status__val">{{ backup.total_bytes|filesizeformat }} (المساحة الحرة: {{ backup.free_bytes|filesizeformat }})</span></div>
+            <div><div class="fw-semibold">{% translate "آخر نسخة" %}</div><div class="small-muted">{% blocktranslate trimmed with finished_at=backup.finished_at|date:"j/n/Y · H:i" finished_at2=backup.finished_at|timesince %}{{ finished_at }} (منذ {{ finished_at2 }}){% endblocktranslate %}</div></div>
+            <span class="adm-status__val">{% if backup.ok %}{% translate "نجحت" %}{% else %}<span class="text-danger">{% blocktranslate trimmed with error=backup.error %}فشلت: {{ error }}{% endblocktranslate %}</span>{% endif %}</span></div>
+        <div class="adm-status">{% translate "النسخ المحفوظة" %}<span class="adm-status__val">{% blocktranslate trimmed with db_runs=backup.db_runs media_runs=backup.media_runs %}{{ db_runs }} لقاعدة البيانات · {{ media_runs }} للملفات{% endblocktranslate %}</span></div>
+        <div class="adm-status">{% translate "المساحة المستخدمة" %}<span class="adm-status__val">{% blocktranslate trimmed with total_bytes=backup.total_bytes|filesizeformat free_bytes=backup.free_bytes|filesizeformat %}{{ total_bytes }} (المساحة الحرة: {{ free_bytes }}){% endblocktranslate %}</span></div>
         {% else %}
-        <div class="adm-status"><span class="wk-dot off"></span><div class="fw-semibold">لم تُنفَّذ أي نسخة بعد</div></div>
+        <div class="adm-status"><span class="wk-dot off"></span><div class="fw-semibold">{% translate "لم تُنفَّذ أي نسخة بعد" %}</div></div>
         {% endif %}
     </div>
 </div>
 <div class="wk-card">
-    <div class="wk-card-head"><h2><i class="bi bi-sliders text-primary"></i> الإعدادات</h2><span class="small-muted">من <code>secrets.json</code>؛ المفاتيح السرية لا تُعرض</span></div>
+    <div class="wk-card-head"><h2><i class="bi bi-sliders text-primary"></i> {% translate "الإعدادات" %}</h2><span class="small-muted">{% translate "من" %} <code>secrets.json</code>{% translate "؛ المفاتيح السرية لا تُعرض" %}</span></div>
     <div class="wk-card-body py-2 small">
         <div class="adm-status">SITE_URL<span class="adm-status__val" dir="ltr">{{ system.site_url }}</span></div>
-        <div class="adm-status">DEBUG<span class="adm-status__val">{% if system.debug %}<span class="text-danger">مفعّل — أوقفه في الإنتاج</span>{% else %}متوقف{% endif %}</span></div>
-        <div class="adm-status">مزوّد الذكاء الاصطناعي<span class="adm-status__val">{{ system.provider }}</span></div>
-        <div class="adm-status">خارج الذروة (DeepSeek)<span class="adm-status__val" dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }} UTC</span></div>
+        <div class="adm-status">DEBUG<span class="adm-status__val">{% if system.debug %}<span class="text-danger">{% translate "مفعّل — أوقفه في الإنتاج" %}</span>{% else %}{% translate "متوقف" %}{% endif %}</span></div>
+        <div class="adm-status">{% translate "مزوّد الذكاء الاصطناعي" %}<span class="adm-status__val">{{ system.provider }}</span></div>
+        <div class="adm-status">{% translate "خارج الذروة (DeepSeek)" %}<span class="adm-status__val" dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }} UTC</span></div>
     </div>
 </div>
 {% endblock %}

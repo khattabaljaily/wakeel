@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from apps.companies.decorators import company_required
@@ -31,7 +32,7 @@ def accounts(request):
 @require_POST
 def meta_connect(request):
     if not settings.META_ENABLED:
-        messages.error(request, 'ربط فيسبوك وإنستغرام غير متاح حالياً. تواصل مع الدعم لتفعيله.')
+        messages.error(request, _('ربط فيسبوك وإنستغرام غير متاح حالياً. تواصل مع الدعم لتفعيله.'))
         return redirect('social:accounts')
     state = secrets.token_urlsafe(24)
     request.session[STATE_KEY] = {'state': state, 'company': request.company.pk}
@@ -42,10 +43,10 @@ def meta_connect(request):
 def meta_callback(request):
     expected = request.session.pop(STATE_KEY, None) or {}
     if not expected or request.GET.get('state') != expected.get('state') or expected.get('company') != request.company.pk:
-        messages.error(request, 'انتهت جلسة الربط أو لا تخص هذه الشركة. حاول مرة أخرى.')
+        messages.error(request, _('انتهت جلسة الربط أو لا تخص هذه الشركة. حاول مرة أخرى.'))
         return redirect('social:accounts')
     if 'error' in request.GET or 'code' not in request.GET:
-        messages.info(request, 'أُلغي ربط الحساب.')
+        messages.info(request, _('أُلغي ربط الحساب.'))
         return redirect('social:accounts')
     try:
         pages = pages_for_code(request.GET['code'], _redirect_uri())
@@ -53,7 +54,7 @@ def meta_callback(request):
         messages.error(request, str(exc))
         return redirect('social:accounts')
     if not pages:
-        messages.error(request, 'لم نجد صفحات فيسبوك تديرها بهذا الحساب، أو لم تُمنح صلاحية الوصول إليها.')
+        messages.error(request, _('لم نجد صفحات فيسبوك تديرها بهذا الحساب، أو لم تُمنح صلاحية الوصول إليها.'))
         return redirect('social:accounts')
     request.session[PAGES_KEY] = {'company': request.company.pk, 'pages': pages}
     if len(pages) == 1:
@@ -67,7 +68,7 @@ def meta_choose(request):
     stored = request.session.get(PAGES_KEY) or {}
     page = next((p for p in stored.get('pages', []) if p['id'] == request.POST.get('page')), None)
     if stored.get('company') != request.company.pk or page is None:
-        messages.error(request, 'انتهت جلسة الربط. حاول مرة أخرى.')
+        messages.error(request, _('انتهت جلسة الربط. حاول مرة أخرى.'))
         return redirect('social:accounts')
     return _connect(request, page)
 
@@ -85,10 +86,10 @@ def _connect(request, page):
             'external_id': ig['id'], 'name': ig.get('username') or page['name'], 'access_token': page['token'],
             'connected_by': request.user, 'last_error': '',
         })
-        messages.success(request, f'تم ربط صفحة «{page["name"]}» وحساب إنستغرام @{ig.get("username", "")}.')
+        messages.success(request, _('تم ربط صفحة «%(page)s» وحساب إنستغرام @%(username)s.') % {'page': page['name'], 'username': ig.get('username', '')})
     else:
         SocialAccount.objects.filter(company=company, platform=SocialAccount.Platform.INSTAGRAM).delete()
-        messages.success(request, f'تم ربط صفحة «{page["name"]}». لا يوجد حساب إنستغرام احترافي مرتبط بهذه الصفحة.')
+        messages.success(request, _('تم ربط صفحة «%(page)s». لا يوجد حساب إنستغرام احترافي مرتبط بهذه الصفحة.') % {'page': page['name']})
     return redirect('social:accounts')
 
 
@@ -96,7 +97,7 @@ def _connect(request, page):
 @require_POST
 def disconnect(request, platform):
     get_object_or_404(SocialAccount, company=request.company, platform=platform).delete()
-    messages.success(request, 'تم فصل الحساب.')
+    messages.success(request, _('تم فصل الحساب.'))
     return redirect('social:accounts')
 
 
@@ -105,5 +106,5 @@ def disconnect(request, platform):
 def auto_publish(request):
     request.company.auto_publish = request.POST.get('auto_publish') == 'on'
     request.company.save(update_fields=['auto_publish'])
-    messages.success(request, 'تم تفعيل النشر التلقائي.' if request.company.auto_publish else 'تم إيقاف النشر التلقائي.')
+    messages.success(request, _('تم تفعيل النشر التلقائي.') if request.company.auto_publish else _('تم إيقاف النشر التلقائي.'))
     return redirect('social:accounts')

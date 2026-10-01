@@ -1,30 +1,31 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load wakeel %}
-{% block title %}التقويم{% endblock %}
-{% block page_title %}تقويم النشر{% endblock %}
-{% block subtitle %}<div class="subtitle">اسحب المنشور إلى يوم آخر لتغيير موعده.</div>{% endblock %}
+{% block title %}{% translate "التقويم" %}{% endblock %}
+{% block page_title %}{% translate "تقويم النشر" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "اسحب المنشور إلى يوم آخر لتغيير موعده." %}</div>{% endblock %}
 {% block actions %}
 <div class="d-flex align-items-center gap-1">
-    <a href="?month={{ prev_month|date:'Y-m' }}" class="btn btn-light" title="الشهر السابق"><i class="bi bi-chevron-right"></i></a>
+    <a href="?month={{ prev_month|date:'Y-m' }}" class="btn btn-light" title="{% translate "الشهر السابق" %}"><i class="bi bi-chevron-right"></i></a>
     <span class="fw-bold px-3" style="min-width: 130px; text-align: center">{{ month_label }}</span>
-    <a href="?month={{ next_month|date:'Y-m' }}" class="btn btn-light" title="الشهر التالي"><i class="bi bi-chevron-left"></i></a>
+    <a href="?month={{ next_month|date:'Y-m' }}" class="btn btn-light" title="{% translate "الشهر التالي" %}"><i class="bi bi-chevron-left"></i></a>
 </div>
-<a href="{% url 'content:calendar' %}" class="btn btn-soft">اليوم</a>
+<a href="{% url 'content:calendar' %}" class="btn btn-soft">{% translate "اليوم" %}</a>
 {% endblock %}
 {% block content %}
 <div class="d-flex gap-3 mb-3 flex-wrap small">
-    <span class="wk-status draft">مسودة</span><span class="wk-status review">بانتظار المراجعة</span>
-    <span class="wk-status approved">معتمد</span><span class="wk-status published">منشور</span>
-    {% if unscheduled %}<a href="{% url 'content:post_list' %}" class="ms-auto">{{ unscheduled }} منشور بلا موعد</a>{% endif %}
+    <span class="wk-status draft">{% translate "مسودة" %}</span><span class="wk-status review">{% translate "بانتظار المراجعة" %}</span>
+    <span class="wk-status approved">{% translate "معتمد" %}</span><span class="wk-status published">{% translate "منشور" %}</span>
+    {% if unscheduled %}<a href="{% url 'content:post_list' %}" class="ms-auto">{% blocktranslate trimmed with unscheduled=unscheduled %}{{ unscheduled }} منشور بلا موعد{% endblocktranslate %}</a>{% endif %}
 </div>
 <div class="wk-cal" id="cal">
     {% for d in weekdays %}<div class="wk-cal__head">{{ d }}</div>{% endfor %}
     {% for week in weeks %}{% for day in week %}
     <div class="wk-cal__day {% if not day.in_month %}out{% endif %} {% if day.today %}today{% endif %}" data-date="{{ day.date|date:'Y-m-d' }}">
         <span class="num">{{ day.date.day }}</span>
-        {% for o in day.occasions %}<span class="wk-occasion" title="{{ o.name }}{% if o.approx %} (قد يتغير يوماً حسب رؤية الهلال){% endif %}"><i class="bi bi-stars"></i> {{ o.name }}</span>{% endfor %}
+        {% for o in day.occasions %}<span class="wk-occasion" title="{{ o.name }}{% if o.approx %} {% translate "(قد يتغير يوماً حسب رؤية الهلال)" %}{% endif %}"><i class="bi bi-stars"></i> {{ o.name }}</span>{% endfor %}
         {% if membership.can_edit %}
-        <form method="post" action="{% url 'content:post_create' %}">{% csrf_token %}<input type="hidden" name="date" value="{{ day.date|date:'Y-m-d' }}"><button class="wk-cal__add" title="منشور جديد في هذا اليوم"><i class="bi bi-plus"></i></button></form>
+        <form method="post" action="{% url 'content:post_create' %}">{% csrf_token %}<input type="hidden" name="date" value="{{ day.date|date:'Y-m-d' }}"><button class="wk-cal__add" title="{% translate "منشور جديد في هذا اليوم" %}"><i class="bi bi-plus"></i></button></form>
         {% endif %}
         {% for post in day.posts %}
         <a href="{% url 'content:post_edit' post.pk %}" class="wk-chip st-{{ post.status|status_class }}" draggable="{% if membership.can_edit %}true{% else %}false{% endif %}" data-post="{{ post.pk }}" title="{{ post.title }} — {{ post.get_status_display }}">
@@ -68,7 +69,7 @@
         if (from === day) return;
         day.appendChild(chip);
         Wakeel.api('/api/posts/' + chip.dataset.post + '/reschedule/', 'POST', { date: day.dataset.date })
-            .then(function () { Wakeel.toast('تم تغيير موعد النشر'); })
+            .then(function () { Wakeel.toast('{{ _("تم تغيير موعد النشر")|escapejs }}'); })
             .catch(function (err) { from.appendChild(chip); Wakeel.toast(Wakeel.errorText(err), 'error'); });
     });
 })();

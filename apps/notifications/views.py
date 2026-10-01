@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.http import url_has_allowed_host_and_scheme
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from apps.companies.middleware import SESSION_KEY
@@ -50,9 +51,9 @@ def push_subscribe(request):
         endpoint, keys = data['endpoint'], data['keys']
         p256dh, auth = keys['p256dh'], keys['auth']
     except (ValueError, KeyError, TypeError):
-        return JsonResponse({'error': 'اشتراك غير صالح.'}, status=400)
+        return JsonResponse({'error': _('اشتراك غير صالح.')}, status=400)
     if not str(endpoint).startswith('https://') or len(endpoint) > 2000:
-        return JsonResponse({'error': 'اشتراك غير صالح.'}, status=400)
+        return JsonResponse({'error': _('اشتراك غير صالح.')}, status=400)
     PushSubscription.objects.update_or_create(endpoint_hash=PushSubscription.hash(endpoint), defaults={
         'endpoint': endpoint, 'user': request.user, 'p256dh': p256dh[:200], 'auth': auth[:100],
         'user_agent': request.META.get('HTTP_USER_AGENT', '')[:300]})

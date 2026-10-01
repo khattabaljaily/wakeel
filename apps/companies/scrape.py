@@ -12,6 +12,7 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse
 
 import requests
+from django.utils.translation import gettext_lazy as _
 
 USER_AGENT = 'Mozilla/5.0 (compatible; WakeelBot/1.0; +https://wakeel.app)'
 MAX_BYTES = 2 * 1024 * 1024
@@ -27,32 +28,32 @@ class FetchError(Exception):
 def _check_public(url):
     parts = urlparse(url)
     if parts.scheme not in ('http', 'https') or not parts.hostname:
-        raise FetchError('الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https.')
+        raise FetchError(_('الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https.'))
     try:
         infos = socket.getaddrinfo(parts.hostname, parts.port or (443 if parts.scheme == 'https' else 80))
     except socket.gaierror as exc:
-        raise FetchError('تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح.') from exc
+        raise FetchError(_('تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح.')) from exc
     for info in infos:
         if not ipaddress.ip_address(info[4][0]).is_global:
-            raise FetchError('لا يمكن قراءة هذا العنوان.')
+            raise FetchError(_('لا يمكن قراءة هذا العنوان.'))
 
 
 def safe_get(url, *, accept='text/html', max_bytes=MAX_BYTES):
     """GET a public URL, following up to 4 redirects; returns (final_url, content_type, bytes)."""
-    for _ in range(5):
+    for _attempt in range(5):
         _check_public(url)
         try:
             resp = requests.get(url, headers={'User-Agent': USER_AGENT, 'Accept': accept}, timeout=12,
                                 stream=True, allow_redirects=False)
         except requests.RequestException as exc:
-            raise FetchError('تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى.') from exc
+            raise FetchError(_('تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى.')) from exc
         if resp.is_redirect and resp.headers.get('Location'):
             url = urljoin(url, resp.headers['Location'])
             resp.close()
             continue
         if resp.status_code != 200:
             resp.close()
-            raise FetchError(f'رد الموقع برمز {resp.status_code}. تأكد من الرابط.')
+            raise FetchError(_('رد الموقع برمز %(code)s. تأكد من الرابط.') % {'code': resp.status_code})
         body = b''
         for chunk in resp.iter_content(64 * 1024):
             body += chunk
@@ -60,7 +61,7 @@ def safe_get(url, *, accept='text/html', max_bytes=MAX_BYTES):
                 break
         resp.close()
         return url, resp.headers.get('Content-Type', ''), body[:max_bytes]
-    raise FetchError('الموقع يعيد التوجيه مرات كثيرة.')
+    raise FetchError(_('الموقع يعيد التوجيه مرات كثيرة.'))
 
 
 class _PageParser(HTMLParser):
@@ -156,12 +157,12 @@ def read_site(url):
         url = 'https://' + url
     final_url, ctype, body = safe_get(url)
     if 'html' not in ctype.lower():
-        raise FetchError('الرابط لا يشير إلى صفحة ويب.')
+        raise FetchError(_('الرابط لا يشير إلى صفحة ويب.'))
     home = _parse(final_url, body)
     html = body.decode('utf-8', errors='replace')
     host = urlparse(final_url).hostname
 
-    pages = [('الصفحة الرئيسية', home.text)]
+    pages = [(_('الصفحة الرئيسية'), home.text)]
     seen = {final_url.rstrip('/')}
     for href in home.links:
         link = urljoin(final_url, href).split('#')[0].rstrip('/')
@@ -170,7 +171,7 @@ def read_site(url):
         if any(hint in link.lower() or hint in href for hint in EXTRA_PAGE_HINTS):
             seen.add(link)
             try:
-                _, sub_type, sub_body = safe_get(link)
+                _url, sub_type, sub_body = safe_get(link)
             except FetchError:
                 continue
             if 'html' in sub_type.lower():

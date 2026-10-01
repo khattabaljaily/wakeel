@@ -89,10 +89,10 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'apps.core.middleware.LanguageMiddleware',
     'apps.accounts.middleware.PendingAccountMiddleware',
     'apps.companies.middleware.CurrentCompanyMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -147,7 +147,13 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'ar'
 LANGUAGES = [
     ('ar', 'العربية'),
+    ('en', 'English'),
 ]
+# Arabic unless the user picked another language (saved on their account, or in this cookie before
+# they sign in). The browser's language is deliberately ignored: many phones in our markets are set
+# to English while their owners expect Arabic. See apps.core.middleware.LanguageMiddleware.
+LANGUAGE_COOKIE_NAME = 'wakeel_lang'
+LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365
 LOCALE_PATHS = [BASE_DIR / 'locale']
 # Server-side default only: every company works in its own timezone
 # (see CurrentCompanyMiddleware).

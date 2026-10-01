@@ -23,6 +23,7 @@ from pathlib import Path
 from django.conf import settings
 from django.core.mail import send_mail
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +38,7 @@ def backup_dir():
 def _dir_size(path):
     """Real disk use: hard-linked files are counted once."""
     seen, total = set(), 0
-    for root, _, files in os.walk(path):
+    for root, _dirs, files in os.walk(path):
         for name in files:
             try:
                 st = os.lstat(os.path.join(root, name))
@@ -81,7 +82,7 @@ def prune():
     for kind in ('db', 'media'):
         runs = _runs(kind)
         keep = _keep(runs, settings.BACKUP_KEEP_DAILY, settings.BACKUP_KEEP_WEEKLY)
-        for _, path in runs:
+        for _when, path in runs:
             if path not in keep:
                 _remove(path)
 
@@ -119,7 +120,7 @@ def _dump_database(target):
                  '--routines', '--no-tablespaces', '--default-character-set=utf8mb4', db['NAME']],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             shutil.copyfileobj(proc.stdout, out)
-            _, err = proc.communicate()
+            _out, err = proc.communicate()
         if proc.returncode:
             raise RuntimeError(f'mysqldump failed: {err.decode(errors="replace")[:500]}')
     finally:
@@ -160,7 +161,7 @@ def run():
         logger.exception('Backup failed')
         status['error'] = str(exc)
         try:
-            _email_superusers('فشل النسخ الاحتياطي لوكيل', status['error'])
+            _email_superusers(_('فشل النسخ الاحتياطي لوكيل'), status['error'])
         except Exception:
             logger.exception('Could not email the backup failure')
     status.update(

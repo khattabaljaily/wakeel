@@ -1,0 +1,3917 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-01 05:41+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "إدارة وكيل"
+msgstr "Wakeel administration"
+
+msgid "وكيل"
+msgstr "Wakeel"
+
+msgid "بيانات إضافية"
+msgstr "Additional details"
+
+#, python-format
+msgid "شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)"
+msgstr "Company: %(name)s (with its plans, posts, images and all its data)"
+
+msgid "الشركات"
+msgstr "Companies"
+
+#, python-format
+msgid "طلب تسجيل جديد في وكيل: %(name)s"
+msgstr "New sign-up on Wakeel: %(name)s"
+
+msgid "تم تفعيل حسابك في وكيل"
+msgstr "Your Wakeel account is active"
+
+msgid "البريد الإلكتروني"
+msgstr "Email"
+
+msgid "كلمة المرور"
+msgstr "Password"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "Incorrect email or password."
+
+msgid "هذا الحساب غير مفعّل."
+msgstr "This account is not active."
+
+msgid "الاسم الكامل"
+msgstr "Full name"
+
+msgid "رقم الهاتف"
+msgstr "Phone number"
+
+msgid "يوجد حساب مسجل بهذا البريد الإلكتروني."
+msgstr "An account with this email already exists."
+
+msgid "حسابك قيد المراجعة."
+msgstr "Your account is under review."
+
+msgid "معتمد"
+msgstr "Approved"
+
+msgid "تاريخ الاعتماد"
+msgstr "Approval date"
+
+msgid "اللغة"
+msgstr "Language"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "Email notifications"
+
+msgid "رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات."
+msgstr "Emails when plans are ready, and for change requests and comments."
+
+msgid "مستخدم"
+msgstr "User"
+
+msgid "المستخدمون"
+msgstr "Users"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "Your password has been changed."
+
+msgid "التسجيل مغلق حالياً."
+msgstr "Sign-up is closed at the moment."
+
+msgid "تم تفعيل إشعارات البريد."
+msgstr "Email notifications turned on."
+
+msgid "تم إيقاف إشعارات البريد."
+msgstr "Email notifications turned off."
+
+msgid "تم حذف حسابك وكل بياناته نهائياً."
+msgstr "Your account and all its data have been deleted permanently."
+
+msgid "كلمة المرور غير صحيحة."
+msgstr "Incorrect password."
+
+msgid ""
+"خدمة الذكاء الاصطناعي غير متاحة حالياً، وفريق الدعم يعمل على إعادتها. حاول "
+"مرة أخرى لاحقاً."
+msgstr ""
+"The AI service is unavailable right now, and our support team is working on "
+"it. Please try again later."
+
+msgid "خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل."
+msgstr "The AI service is busy right now. Please try again shortly."
+
+msgid "تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل."
+msgstr "Couldn't reach the AI service. Please try again shortly."
+
+msgid "وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "The AI service returned an incomplete reply. Please try again."
+
+msgid "وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "The AI service returned an unexpected reply. Please try again."
+
+msgid "اعتذر النموذج عن تنفيذ هذا الطلب. عدّل التوجيهات وحاول مرة أخرى."
+msgstr ""
+"The model declined this request. Adjust the instructions and try again."
+
+msgid "كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى."
+msgstr ""
+"The reply was longer than allowed. Reduce the number of posts and try again."
+
+msgid "لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "No reply came from the AI service. Please try again."
+
+msgid "وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "The AI service returned a partial reply. Please try again."
+
+msgid "لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة."
+msgstr "You don't have permission to do this in this company."
+
+msgid "ألغاه المستخدم."
+msgstr "Cancelled by the user."
+
+msgid "أُلغي إعداد الخطة. يمكنك المحاولة مرة أخرى أو حذف الخطة."
+msgstr "Plan preparation was cancelled. You can try again or delete the plan."
+
+msgid "حالة غير معروفة."
+msgstr "Unknown status."
+
+msgid "اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط."
+msgstr "Only owners and admins can approve and publish posts."
+
+msgid "طلب غير صالح."
+msgstr "Invalid request."
+
+msgid "تاريخ غير صالح."
+msgstr "Invalid date."
+
+msgid "اكتب ما تريد تغييره في المنشور."
+msgstr "Write what you'd like to change in the post."
+
+msgid "اكتب تعليقك أولاً."
+msgstr "Write your comment first."
+
+msgid "النشر متاح للمالك والمديرين فقط."
+msgstr "Only owners and admins can publish."
+
+msgid "اعتمد المنشور أولاً، ثم انشره."
+msgstr "Approve the post first, then publish it."
+
+msgid "صلاحيتك في هذه الشركة للمشاهدة فقط."
+msgstr "You have view-only access in this company."
+
+msgid "الدور"
+msgstr "Role"
+
+msgid "لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً."
+msgstr "No user has this email. Ask them to create a Wakeel account first."
+
+msgid "هذا المستخدم عضو في الشركة بالفعل."
+msgstr "This user is already a member of the company."
+
+msgid "المنصات"
+msgstr "Platforms"
+
+msgid "عدد المنشورات أسبوعياً"
+msgstr "Posts per week"
+
+msgid "اختر منصة واحدة على الأقل."
+msgstr "Choose at least one platform."
+
+msgid "أدخل لوناً بصيغة ‎#RRGGBB."
+msgstr "Enter a colour in the #RRGGBB format."
+
+msgid "العربية الفصحى"
+msgstr "Modern Standard Arabic"
+
+msgid "العربية بلهجة السوق المحلي"
+msgstr "Arabic in the local dialect"
+
+msgid "الإنجليزية"
+msgstr "English"
+
+msgid "العربية والإنجليزية معاً"
+msgstr "Arabic and English together"
+
+msgid "مهنية وموثوقة"
+msgstr "Professional and trustworthy"
+
+msgid "ودودة وقريبة"
+msgstr "Friendly and approachable"
+
+msgid "جريئة وحماسية"
+msgstr "Bold and energetic"
+
+msgid "فاخرة وراقية"
+msgstr "Luxurious and refined"
+
+msgid "مرحة وخفيفة"
+msgstr "Playful and light"
+
+msgid "ملهمة وتحفيزية"
+msgstr "Inspiring and motivating"
+
+msgid "الخرطوم (GMT+2)"
+msgstr "Khartoum (GMT+2)"
+
+msgid "الدوحة (GMT+3)"
+msgstr "Doha (GMT+3)"
+
+msgid "الرياض (GMT+3)"
+msgstr "Riyadh (GMT+3)"
+
+msgid "دبي (GMT+4)"
+msgstr "Dubai (GMT+4)"
+
+msgid "القاهرة"
+msgstr "Cairo"
+
+msgid "الكويت (GMT+3)"
+msgstr "Kuwait (GMT+3)"
+
+msgid "مسقط (GMT+4)"
+msgstr "Muscat (GMT+4)"
+
+msgid "المنامة (GMT+3)"
+msgstr "Manama (GMT+3)"
+
+msgid "عمّان"
+msgstr "Amman"
+
+msgid "لندن"
+msgstr "London"
+
+msgid "اسم الشركة"
+msgstr "Company name"
+
+msgid "الشعار"
+msgstr "Logo"
+
+msgid "المجال"
+msgstr "Industry"
+
+msgid "الدولة"
+msgstr "Country"
+
+msgid "المدينة"
+msgstr "City"
+
+msgid "نبذة عن الشركة"
+msgstr "About the company"
+
+msgid "ماذا تقدم الشركة، ولمن، وما الذي يميزها."
+msgstr "What the company offers, to whom, and what sets it apart."
+
+msgid "المنتجات والخدمات"
+msgstr "Products and services"
+
+msgid "نقاط التميز"
+msgstr "What makes it stand out"
+
+msgid "لماذا يختار العميل هذه الشركة دون منافسيها؟"
+msgstr "Why do customers choose this company over its competitors?"
+
+msgid "الجمهور المستهدف"
+msgstr "Target audience"
+
+msgid "المنافسون"
+msgstr "Competitors"
+
+msgid "أهداف التسويق"
+msgstr "Marketing goals"
+
+msgid "مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات."
+msgstr "For example: more awareness, more leads, more sales."
+
+msgid "لغة المحتوى"
+msgstr "Content language"
+
+msgid "نبرة الخطاب"
+msgstr "Tone of voice"
+
+msgid "ملاحظات على الأسلوب"
+msgstr "Notes on style"
+
+msgid "عبارات مفضلة، أو أسلوب معين في الكتابة."
+msgstr "Favourite phrases, or a particular way of writing."
+
+msgid "ما يجب فعله"
+msgstr "Always do"
+
+msgid "ما يجب تجنبه"
+msgstr "Never do"
+
+msgid "وسوم العلامة"
+msgstr "Brand hashtags"
+
+msgid "تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات."
+msgstr "Added to posts when they fit, separated by spaces."
+
+msgid "اللون الأساسي"
+msgstr "Primary colour"
+
+msgid "اللون الثانوي"
+msgstr "Secondary colour"
+
+msgid "لون التمييز"
+msgstr "Accent colour"
+
+msgid "خط العناوين"
+msgstr "Headings font"
+
+msgid "خط النصوص"
+msgstr "Body font"
+
+msgid "الموقع الإلكتروني"
+msgstr "Website"
+
+msgid "رقم التواصل"
+msgstr "Contact number"
+
+msgid "واتساب"
+msgstr "WhatsApp"
+
+msgid "صفحة فيسبوك"
+msgstr "Facebook page"
+
+msgid "حساب إنستغرام"
+msgstr "Instagram account"
+
+msgid "حساب تيك توك"
+msgstr "TikTok account"
+
+msgid "الطيار الآلي"
+msgstr "Autopilot"
+
+msgid "يوم إعداد الخطة"
+msgstr "Plan preparation day"
+
+msgid "بريد العميل"
+msgstr "Client's email"
+
+msgid ""
+"يصله رابط مراجعة الخطة واعتمادها. اتركه فارغاً ليصل الرابط إلى الفريق فقط."
+msgstr ""
+"Receives the link to review and approve the plan. Leave it empty to send the"
+" link to the team only."
+
+msgid "ما تعلّمه وكيل"
+msgstr "What Wakeel learned"
+
+msgid "المنطقة الزمنية"
+msgstr "Time zone"
+
+msgid "النشر التلقائي"
+msgstr "Auto-publishing"
+
+msgid "انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها."
+msgstr "Publish approved posts to the connected accounts on schedule."
+
+msgid "بداية الاشتراك"
+msgstr "Subscription start"
+
+msgid "نهاية الاشتراك"
+msgstr "Subscription end"
+
+msgid "فارغ = بدون انتهاء."
+msgstr "Empty = never expires."
+
+msgid "بريد التواصل مع المشترك."
+msgstr "Contact email for the subscriber."
+
+msgid "نشط"
+msgstr "Active"
+
+msgid "إيقافه يعلّق الاشتراك."
+msgstr "Turning it off suspends the subscription."
+
+msgid "حساب تجريبي"
+msgstr "Trial account"
+
+msgid "شركة"
+msgstr "Company"
+
+msgid "قيد الاعتماد"
+msgstr "Awaiting approval"
+
+msgid "معلّق"
+msgstr "Suspended"
+
+msgid "منتهي"
+msgstr "Expired"
+
+msgid "؟"
+msgstr "?"
+
+msgid "المالك"
+msgstr "Owner"
+
+msgid "مدير"
+msgstr "Admin"
+
+msgid "محرر محتوى"
+msgstr "Content editor"
+
+msgid "مشاهد"
+msgstr "Viewer"
+
+msgid "عضوية"
+msgstr "Membership"
+
+msgid "العضويات"
+msgstr "Memberships"
+
+msgid "الصورة"
+msgstr "Image"
+
+msgid "الوصف"
+msgstr "Description"
+
+msgid "الوسوم"
+msgstr "Tags"
+
+msgid "كلمات تساعد في اختيار الصورة المناسبة للمنشور."
+msgstr "Words that help pick the right image for a post."
+
+msgid "صورة"
+msgstr "Image"
+
+msgid "مكتبة الوسائط"
+msgstr "Media library"
+
+msgid "الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https."
+msgstr "Invalid link. Use one that starts with http or https."
+
+msgid "تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح."
+msgstr "Couldn't find this website. Check that the link is spelled correctly."
+
+msgid "لا يمكن قراءة هذا العنوان."
+msgstr "This address can't be read."
+
+msgid "تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى."
+msgstr "Couldn't connect to the website. Make sure it's up, then try again."
+
+#, python-format
+msgid "رد الموقع برمز %(code)s. تأكد من الرابط."
+msgstr "The website answered with code %(code)s. Check the link."
+
+msgid "الموقع يعيد التوجيه مرات كثيرة."
+msgstr "The website redirects too many times."
+
+msgid "الرابط لا يشير إلى صفحة ويب."
+msgstr "The link doesn't point to a web page."
+
+msgid "الصفحة الرئيسية"
+msgstr "Home page"
+
+#, python-format
+msgid "تم تفعيل حسابك في وكيل: %(name)s"
+msgstr "Your Wakeel account is active: %(name)s"
+
+msgid "العضو"
+msgstr "Member"
+
+msgid "انضم في"
+msgstr "Joined"
+
+msgid "لا يوجد أعضاء"
+msgstr "No members"
+
+#, python-format
+msgid "تم إنشاء مساحة عمل «%(name)s». ابدأ الآن بإعداد خطة المحتوى الأولى."
+msgstr ""
+"Workspace “%(name)s” created. Start by preparing your first content plan."
+
+msgid "تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات."
+msgstr "Brand identity saved. Redesign the images to apply the changes."
+
+msgid "إدارة الفريق متاحة للمالك والمديرين فقط."
+msgstr "Only owners and admins can manage the team."
+
+msgid "تمت إضافة العضو."
+msgstr "Member added."
+
+msgid "لا يمكن تعديل صلاحيات مالك الشركة أو إزالته."
+msgstr ""
+"The company owner's permissions can't be changed, and the owner can't be "
+"removed."
+
+msgid "تمت إزالة العضو."
+msgstr "Member removed."
+
+msgid "تم تحديث الدور."
+msgstr "Role updated."
+
+#, python-format
+msgid "تم رفع %(count)s صورة."
+msgstr "%(count)s image(s) uploaded."
+
+msgid "تم حذف الصورة."
+msgstr "Image deleted."
+
+msgid "أدخل رابط الموقع أولاً."
+msgstr "Enter the website link first."
+
+msgid "لم نجد نصوصاً كافية في الموقع لفهم نشاط الشركة. املأ الحقول يدوياً."
+msgstr ""
+"We couldn't find enough text on the website to understand the business. "
+"Please fill in the fields yourself."
+
+msgid "السودان"
+msgstr "Sudan"
+
+msgid "قطر"
+msgstr "Qatar"
+
+msgid "السعودية"
+msgstr "Saudi Arabia"
+
+msgid "الإمارات"
+msgstr "United Arab Emirates"
+
+msgid "مصر"
+msgstr "Egypt"
+
+msgid "الكويت"
+msgstr "Kuwait"
+
+msgid "عُمان"
+msgstr "Oman"
+
+msgid "البحرين"
+msgstr "Bahrain"
+
+msgid "الأردن"
+msgstr "Jordan"
+
+msgid "المملكة المتحدة"
+msgstr "United Kingdom"
+
+msgid "حذف الشركة متاح لمالكها فقط."
+msgstr "Only the owner can delete the company."
+
+msgid "الاسم المكتوب لا يطابق اسم الشركة، فلم يُحذف شيء."
+msgstr ""
+"The name you typed doesn't match the company's name, so nothing was deleted."
+
+#, python-format
+msgid "تم حذف «%(name)s» وكل بياناتها نهائياً."
+msgstr "“%(name)s” and all its data have been deleted permanently."
+
+msgid "لا يمكن لمالك الشركة مغادرتها. يمكنك حذف الشركة من صفحة هوية العلامة."
+msgstr ""
+"The company owner can't leave it. You can delete the company from the brand "
+"identity page."
+
+#, python-format
+msgid "غادرت «%(name)s»."
+msgstr "You left “%(name)s”."
+
+msgid "أضيفت القاعدة، وسيلتزم بها وكيل من الآن."
+msgstr "Rule added. Wakeel will follow it from now on."
+
+msgid "حُذفت القاعدة."
+msgstr "Rule deleted."
+
+msgid "يراجع وكيل ملاحظاتكم الآن؛ حدّث الصفحة بعد دقيقة لترى ما تعلّمه."
+msgstr ""
+"Wakeel is going through your feedback now; refresh the page in a minute to "
+"see what it learned."
+
+msgid "تم تشغيل الطيار الآلي."
+msgstr "Autopilot is on."
+
+msgid "تم إيقاف الطيار الآلي."
+msgstr "Autopilot is off."
+
+#, python-format
+msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
+msgstr "Content plan ready for review: %(name)s"
+
+msgid "الشهر القادم"
+msgstr "next month"
+
+#, python-brace-format
+msgid "أعدّ الطيار الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}."
+msgstr ""
+"Autopilot prepared the {title} plan and sent the review link to {email}."
+
+#, python-brace-format
+msgid "أعدّ الطيار الآلي خطة {title}."
+msgstr "Autopilot prepared the {title} plan."
+
+#, python-brace-format
+msgid "{count} منشورات"
+msgstr "{count} posts"
+
+#, python-brace-format
+msgid "أرسل {name} {subject} للمراجعة."
+msgstr "{name} sent {subject} for review."
+
+#, python-brace-format
+msgid "اعتمد {name} {subject}."
+msgstr "{name} approved {subject}."
+
+#, python-brace-format
+msgid "طلب {name} تعديل {subject}: {note}"
+msgstr "{name} asked for changes to {subject}: {note}"
+
+msgctxt "notification verb"
+msgid "طلب تعديل"
+msgstr "asked for changes to"
+
+msgctxt "notification verb"
+msgid "اعتمد"
+msgstr "approved"
+
+msgctxt "notification verb"
+msgid "علّق على"
+msgstr "commented on"
+
+#, python-brace-format
+msgid "{name} (العميل)"
+msgstr "{name} (client)"
+
+#, python-brace-format
+msgid "خطة {title} جاهزة: {count} منشوراً بانتظار المراجعة."
+msgstr "The {title} plan is ready: {count} posts awaiting review."
+
+msgid "المحتوى"
+msgstr "Content"
+
+#, python-brace-format
+msgid "تعذّر إعداد خطة المحتوى: {error}"
+msgstr "Couldn't prepare the content plan: {error}"
+
+msgid "يناير"
+msgstr "January"
+
+msgid "فبراير"
+msgstr "February"
+
+msgid "مارس"
+msgstr "March"
+
+msgid "أبريل"
+msgstr "April"
+
+msgid "مايو"
+msgstr "May"
+
+msgid "يونيو"
+msgstr "June"
+
+msgid "يوليو"
+msgstr "July"
+
+msgid "أغسطس"
+msgstr "August"
+
+msgid "سبتمبر"
+msgstr "September"
+
+msgid "أكتوبر"
+msgstr "October"
+
+msgid "نوفمبر"
+msgstr "November"
+
+msgid "ديسمبر"
+msgstr "December"
+
+msgid "الشهر"
+msgstr "Month"
+
+msgid ""
+"مثال: نطلق خدمة جديدة منتصف الشهر، ولدينا عرض خاص بمناسبة اليوم الوطني…"
+msgstr ""
+"For example: we're launching a new service mid-month, and we have a special "
+"National Day offer…"
+
+msgid "القالب"
+msgstr "Template"
+
+msgid "موعد النشر"
+msgstr "Publish time"
+
+msgid "فيسبوك"
+msgstr "Facebook"
+
+msgid "إنستغرام"
+msgstr "Instagram"
+
+msgid "تيك توك"
+msgstr "TikTok"
+
+msgid "قيد الإعداد"
+msgstr "Preparing"
+
+msgid "جاهزة"
+msgstr "Ready"
+
+msgid "تعذّر الإعداد"
+msgstr "Preparation failed"
+
+msgid "أول يوم في الشهر."
+msgstr "The first day of the month."
+
+msgid "توجيهات هذا الشهر"
+msgstr "This month's brief"
+
+msgid "عروض، مناسبات، منتجات جديدة، أو أي شيء تريد التركيز عليه."
+msgstr "Offers, occasions, new products, or anything you want to focus on."
+
+msgid "العنوان"
+msgstr "Title"
+
+msgid "ملخص الاستراتيجية"
+msgstr "Strategy summary"
+
+msgid "الأهداف"
+msgstr "Goals"
+
+msgid "محاور المحتوى"
+msgstr "Content pillars"
+
+msgid "المناسبات"
+msgstr "Occasions"
+
+msgid "خطة محتوى"
+msgstr "Content plan"
+
+msgid "خطط المحتوى"
+msgstr "Content plans"
+
+msgid "مسودة"
+msgstr "Draft"
+
+msgid "بانتظار المراجعة"
+msgstr "Awaiting review"
+
+msgid "منشور"
+msgstr "Published"
+
+msgid "تصميم ثابت"
+msgstr "Static design"
+
+msgid "فيديو قصير (ريلز / تيك توك)"
+msgstr "Short video (Reels / TikTok)"
+
+msgid "قصة (ستوري)"
+msgstr "Story"
+
+msgid "مربع 1:1"
+msgstr "Square 1:1"
+
+msgid "طولي 4:5"
+msgstr "Portrait 4:5"
+
+msgid "عمودي 9:16"
+msgstr "Vertical 9:16"
+
+msgid "نوع المنشور"
+msgstr "Post type"
+
+msgid "الحالة"
+msgstr "Status"
+
+msgid "الفكرة"
+msgstr "Idea"
+
+msgid "المحور"
+msgstr "Pillar"
+
+msgid "الهدف"
+msgstr "Goal"
+
+msgid "نص المنشور"
+msgstr "Post text"
+
+msgid "العنوان الرئيسي"
+msgstr "Headline"
+
+msgid "العنوان الفرعي"
+msgstr "Subheadline"
+
+msgid "عبارة الدعوة"
+msgstr "Call to action"
+
+msgid "الشارة"
+msgstr "Badge"
+
+msgid "نص قصير بارز مثل: جديد، خصم 20%."
+msgstr "A short standout text such as: New, 20% off."
+
+msgid "المقاس"
+msgstr "Size"
+
+msgid "صورة الخلفية"
+msgstr "Background image"
+
+msgid "وصف الصورة المقترحة"
+msgstr "Suggested visual"
+
+msgid "التصميم"
+msgstr "Design"
+
+msgid "سيناريو الفيديو"
+msgstr "Video script"
+
+msgid "ملاحظات المراجعة"
+msgstr "Review notes"
+
+msgid "المنشورات"
+msgstr "Posts"
+
+msgid "تعليق"
+msgstr "Comment"
+
+msgid "طلب تعديل"
+msgstr "Change request"
+
+msgid "اعتماد"
+msgstr "Approval"
+
+msgid "التعليقات"
+msgstr "Comments"
+
+msgid "العميل"
+msgstr "Client"
+
+msgid "تعديل نص"
+msgstr "Text edit"
+
+msgid "طلب إعادة كتابة"
+msgstr "Rewrite request"
+
+msgid "تعليق العميل"
+msgstr "Client comment"
+
+msgid "رأس السنة الميلادية"
+msgstr "New Year's Day"
+
+msgid "عيد استقلال السودان"
+msgstr "Sudan Independence Day"
+
+msgid "يوم التأسيس السعودي"
+msgstr "Saudi Founding Day"
+
+msgid "العيد الوطني الكويتي"
+msgstr "Kuwait National Day"
+
+msgid "عيد التحرير في الكويت"
+msgstr "Kuwait Liberation Day"
+
+msgid "عيد الأم"
+msgstr "Mother's Day"
+
+msgid "عيد استقلال الأردن"
+msgstr "Jordan Independence Day"
+
+msgid "ذكرى ثورة 23 يوليو"
+msgstr "Anniversary of the 23 July Revolution"
+
+msgid "اليوم الوطني السعودي"
+msgstr "Saudi National Day"
+
+msgid "ذكرى انتصارات أكتوبر"
+msgstr "Anniversary of the October victory"
+
+msgid "اليوم الوطني العُماني"
+msgstr "Oman National Day"
+
+msgid "عيد الاتحاد الإماراتي"
+msgstr "UAE National Day (Union Day)"
+
+msgid "العيد الوطني البحريني"
+msgstr "Bahrain National Day"
+
+msgid "اليوم الوطني القطري"
+msgstr "Qatar National Day"
+
+msgid "رأس السنة الهجرية"
+msgstr "Islamic New Year"
+
+msgid "بداية شهر رمضان"
+msgstr "Start of Ramadan"
+
+msgid "بداية العشر الأواخر من رمضان"
+msgstr "Start of the last ten days of Ramadan"
+
+msgid "عيد الفطر"
+msgstr "Eid al-Fitr"
+
+msgid "بداية عشر ذي الحجة"
+msgstr "Start of the first ten days of Dhu al-Hijjah"
+
+msgid "يوم عرفة"
+msgstr "Day of Arafah"
+
+msgid "عيد الأضحى"
+msgstr "Eid al-Adha"
+
+msgid "اليوم الرياضي للدولة في قطر"
+msgstr "Qatar National Sport Day"
+
+msgid "الجمعة البيضاء (عروض التسوق)"
+msgstr "White Friday (shopping deals)"
+
+msgid "تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل."
+msgstr "Client link turned off. The old link no longer works."
+
+msgid "رابط العميل جاهز. انسخه وأرسله للعميل."
+msgstr "Client link ready. Copy it and send it to your client."
+
+msgid "اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة."
+msgstr "Write your name first so the team knows who left the note."
+
+msgid "اكتب ملاحظتك أولاً."
+msgstr "Write your note first."
+
+msgid "نُشر هذا المنشور بالفعل."
+msgstr "This post has already been published."
+
+#, python-format
+msgid "%(name)s (العميل): %(body)s"
+msgstr "%(name)s (client): %(body)s"
+
+msgid "وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…"
+msgstr "Wakeel is going through your earlier feedback to learn from it…"
+
+msgid "وكيل يدرس هوية الشركة ويضع الاستراتيجية…"
+msgstr "Wakeel is studying the brand and setting the strategy…"
+
+msgid "حدث خطأ غير متوقع، وأُبلغ فريق الدعم. حاول مرة أخرى."
+msgstr ""
+"Something unexpected went wrong, and our support team has been notified. "
+"Please try again."
+
+msgid "حفظ المنشورات…"
+msgstr "Saving the posts…"
+
+#, python-format
+msgid "تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…"
+msgstr "%(count)s posts prepared. Designing the images…"
+
+#, python-format
+msgid "تم إعداد الخطة و%(count)s منشوراً."
+msgstr "Plan and %(count)s posts prepared."
+
+msgid "وكيل يعيد كتابة المنشور…"
+msgstr "Wakeel is rewriting the post…"
+
+msgid "تحديث التصميم…"
+msgstr "Updating the design…"
+
+msgid "تمت إعادة الكتابة."
+msgstr "Rewrite done."
+
+msgid "تم تحديث التصميم."
+msgstr "Design updated."
+
+#, python-format
+msgid "تصميم الصور: %(done)s من %(total)s"
+msgstr "Designing images: %(done)s of %(total)s"
+
+#, python-format
+msgid "تم تصميم %(count)s صورة."
+msgstr "%(count)s images designed."
+
+#, python-format
+msgid "تعلّم وكيل من %(count)s ملاحظة."
+msgstr "Wakeel learned from %(count)s notes."
+
+msgid "لا توجد ملاحظات جديدة."
+msgstr "No new feedback."
+
+msgid "الأحد"
+msgstr "Sunday"
+
+msgid "الإثنين"
+msgstr "Monday"
+
+msgid "الثلاثاء"
+msgstr "Tuesday"
+
+msgid "الأربعاء"
+msgstr "Wednesday"
+
+msgid "الخميس"
+msgstr "Thursday"
+
+msgid "الجمعة"
+msgstr "Friday"
+
+msgid "السبت"
+msgstr "Saturday"
+
+msgid "تم حذف الخطة ومنشوراتها."
+msgstr "The plan and its posts have been deleted."
+
+msgid "منشور جديد"
+msgstr "New post"
+
+msgid "صلاحيتك للمشاهدة فقط."
+msgstr "You have view-only access."
+
+msgid "اجعل النص أقصر وأكثر تركيزاً"
+msgstr "Make the text shorter and more focused"
+
+msgid "اجعل الأسلوب أكثر حماساً وجاذبية"
+msgstr "Make the tone more energetic and engaging"
+
+msgid "اكتب عنواناً أقوى يلفت الانتباه"
+msgstr "Write a stronger, attention-grabbing headline"
+
+msgid "أضف دعوة أوضح لاتخاذ إجراء"
+msgstr "Add a clearer call to action"
+
+msgid "اكتب فكرة مختلفة تماماً لنفس المحور"
+msgstr "Write a completely different idea for the same pillar"
+
+msgid "تم حذف المنشور."
+msgstr "Post deleted."
+
+msgid "[سيناريو الفيديو]"
+msgstr "[Video script]"
+
+msgid "لا توجد بيانات"
+msgstr "No data"
+
+msgid "وكيل · مدير التسويق الذكي"
+msgstr "Wakeel · Your AI marketing manager"
+
+msgid "يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره."
+msgstr "Plans, writes, designs and publishes your company's content."
+
+msgid "التقويم"
+msgstr "Calendar"
+
+msgid "خطة جديدة"
+msgstr "New plan"
+
+msgid "إعداد خطة المحتوى"
+msgstr "Preparing the content plan"
+
+msgid "إعادة كتابة منشور"
+msgstr "Rewriting a post"
+
+msgid "تصميم صورة منشور"
+msgstr "Designing a post image"
+
+msgid "تصميم صور الخطة"
+msgstr "Designing the plan's images"
+
+msgid "نشر منشور"
+msgstr "Publishing a post"
+
+msgid "التعلّم من الملاحظات"
+msgstr "Learning from feedback"
+
+msgid "في الانتظار"
+msgstr "Pending"
+
+msgid "قيد التنفيذ"
+msgstr "Running"
+
+msgid "اكتمل"
+msgstr "Done"
+
+msgid "فشل"
+msgstr "Failed"
+
+msgid "أُلغي"
+msgstr "Cancelled"
+
+msgid "إشعار"
+msgstr "Notification"
+
+msgid "الإشعارات"
+msgstr "Notifications"
+
+#, python-format
+msgid "%(company)s · وكيل"
+msgstr "%(company)s · Wakeel"
+
+msgid "اشتراك غير صالح."
+msgstr "Invalid subscription."
+
+msgid "فشل النسخ الاحتياطي لوكيل"
+msgstr "Wakeel backup failed"
+
+msgid "بدون تاريخ انتهاء"
+msgstr "No end date"
+
+msgid "14 يوماً (تجربة)"
+msgstr "14 days (trial)"
+
+msgid "شهر"
+msgstr "1 month"
+
+msgid "3 أشهر"
+msgstr "3 months"
+
+msgid "6 أشهر"
+msgstr "6 months"
+
+msgid "سنة"
+msgstr "1 year"
+
+msgid "نهاية الاشتراك قبل بدايته."
+msgstr "The subscription ends before it starts."
+
+msgid "إن كان له حساب في وكيل يُضاف إليه، وإلا يُنشأ حساب جديد."
+msgstr ""
+"If they already have a Wakeel account they're added to it; otherwise a new "
+"account is created."
+
+msgid "مطلوبة للحساب الجديد فقط."
+msgstr "Only needed for a new account."
+
+msgid "تأكيد كلمة المرور"
+msgstr "Confirm password"
+
+msgid "هذا حساب مشرف نظام، ولا يكون مالكاً لاشتراك."
+msgstr "This is a system admin account, which can't own a subscription."
+
+msgid "كلمة المرور مطلوبة لإنشاء حساب المالك."
+msgstr "A password is needed to create the owner's account."
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "The two passwords don't match."
+
+msgid "ينا"
+msgstr "Jan"
+
+msgid "فبر"
+msgstr "Feb"
+
+msgid "مار"
+msgstr "Mar"
+
+msgid "أبر"
+msgstr "Apr"
+
+msgid "ماي"
+msgstr "May"
+
+msgid "يون"
+msgstr "Jun"
+
+msgid "يول"
+msgstr "Jul"
+
+msgid "أغس"
+msgstr "Aug"
+
+msgid "سبت"
+msgstr "Sep"
+
+msgid "أكت"
+msgstr "Oct"
+
+msgid "نوف"
+msgstr "Nov"
+
+msgid "ديس"
+msgstr "Dec"
+
+msgid "المشترك"
+msgstr "Subscriber"
+
+msgid "الاشتراك"
+msgstr "Subscription"
+
+msgid "الفريق"
+msgstr "Team"
+
+msgid "لا توجد اشتراكات"
+msgstr "No subscriptions"
+
+msgid "الشركة"
+msgstr "Company"
+
+msgid "المهمة"
+msgstr "Task"
+
+msgid "التاريخ"
+msgstr "Date"
+
+msgid "النموذج"
+msgstr "Model"
+
+msgid "الرموز (مُدخلة · cache · مُخرجة)"
+msgstr "Tokens (input · cache · output)"
+
+msgid "التكلفة"
+msgstr "Cost"
+
+msgid "لا توجد مهام"
+msgstr "No tasks"
+
+msgid "المهام"
+msgstr "Tasks"
+
+msgid "مُدخلة"
+msgstr "input"
+
+msgid "مُخرجة"
+msgstr "output"
+
+msgid "لا يوجد استهلاك بعد"
+msgstr "No usage yet"
+
+msgid "تكلفة الشهر"
+msgstr "This month's cost"
+
+msgid "تكلفة 12 شهراً"
+msgstr "12-month cost"
+
+msgid "لا توجد اشتراكات بعد"
+msgstr "No subscriptions yet"
+
+msgid "الكل"
+msgstr "All"
+
+#, python-format
+msgid "تم إنشاء اشتراك «%(name)s» ومالكه %(email)s."
+msgstr "Subscription “%(name)s” created, with %(email)s as its owner."
+
+#, python-format
+msgid "تم حفظ بيانات «%(name)s»."
+msgstr "“%(name)s” saved."
+
+#, python-format
+msgid "«%(name)s» معتمد بالفعل."
+msgstr "“%(name)s” is already approved."
+
+#, python-format
+msgid "تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد."
+msgstr "“%(name)s” approved, and its owner has been emailed."
+
+msgid "اختر مدة صحيحة للتجديد."
+msgstr "Choose a valid renewal period."
+
+#, python-format
+msgid "تم تجديد «%(name)s» حتى %(date)s."
+msgstr "“%(name)s” renewed until %(date)s."
+
+#, python-format
+msgid "تم تنشيط «%(name)s»."
+msgstr "“%(name)s” reactivated."
+
+#, python-format
+msgid "تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه."
+msgstr "“%(name)s” suspended; its team can't work until you reactivate it."
+
+#, python-format
+msgid "تم حذف اشتراك «%(name)s» وكل بياناته نهائياً."
+msgstr ""
+"Subscription “%(name)s” and all its data have been deleted permanently."
+
+msgid "كلمة مرور المشرف غير صحيحة."
+msgstr "Incorrect admin password."
+
+#, python-format
+msgid "لا يوجد مالك نشط لـ «%(name)s»."
+msgstr "“%(name)s” has no active owner."
+
+#, python-format
+msgid "حساب %(name)s مفعّل بالفعل."
+msgstr "%(name)s's account is already active."
+
+#, python-format
+msgid "تم تفعيل حساب %(name)s، وأُبلغ بالبريد."
+msgstr "%(name)s's account is now active, and they've been emailed."
+
+#, python-format
+msgid "تم رفض طلب %(name)s وحذفه."
+msgstr "%(name)s's request was rejected and deleted."
+
+msgid "تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت."
+msgstr ""
+"Couldn't reach Meta's servers. Check the server's internet connection."
+
+msgid ""
+"انتهت صلاحية ربط حساب Meta أو أُلغي. أعد ربط الحساب من صفحة «حسابات النشر»."
+msgstr ""
+"The Meta connection expired or was revoked. Reconnect the account from the "
+"Publishing accounts page."
+
+msgid ""
+"لا يملك الحساب المربوط صلاحية النشر. أعد الربط ووافق على كل الصلاحيات "
+"المطلوبة."
+msgstr ""
+"The connected account isn't allowed to publish. Reconnect it and accept "
+"every requested permission."
+
+#, python-format
+msgid "رمز %(code)s"
+msgstr "code %(code)s"
+
+#, python-format
+msgid "رفضت Meta الطلب: %(detail)s"
+msgstr "Meta rejected the request: %(detail)s"
+
+msgid ""
+"لم يتمكن إنستغرام من تجهيز الصورة. حاول مرة أخرى لاحقاً، وإن تكرر ذلك تواصل "
+"مع الدعم."
+msgstr ""
+"Instagram couldn't prepare the image. Try again later, and contact support "
+"if it keeps happening."
+
+msgid "تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى."
+msgstr "Instagram took too long to prepare the image. Try publishing again."
+
+msgid "حساب تواصل"
+msgstr "Social account"
+
+msgid "حسابات التواصل"
+msgstr "Social accounts"
+
+msgid ""
+"الفيديو القصير يُنشر يدوياً بعد تصويره؛ النشر التلقائي يدعم الصور والقصص "
+"فقط."
+msgstr ""
+"Short videos are published by hand after filming; auto-publishing supports "
+"images and stories only."
+
+msgid ""
+"لا يوجد حساب مربوط لمنصات هذا المنشور. اربط فيسبوك أو إنستغرام من «حسابات "
+"النشر»."
+msgstr ""
+"No connected account for this post's platforms. Connect Facebook or "
+"Instagram from Publishing accounts."
+
+#, python-brace-format
+msgid "تعذّر نشر «{title}»: {error}"
+msgstr "Couldn't publish “{title}”: {error}"
+
+#, python-brace-format
+msgid "نُشر «{title}» على {platforms}."
+msgstr "“{title}” was published on {platforms}."
+
+msgid "، "
+msgstr ", "
+
+msgid "المنشور منشور بالفعل."
+msgstr "The post is already published."
+
+msgid "تغيّرت حالة المنشور، فلم يُنشر تلقائياً."
+msgstr "The post's status changed, so it wasn't published automatically."
+
+msgid "جارٍ النشر…"
+msgstr "Publishing…"
+
+#, python-format
+msgid "نُشر على %(platforms)s."
+msgstr "Published on %(platforms)s."
+
+msgid "ربط فيسبوك وإنستغرام غير متاح حالياً. تواصل مع الدعم لتفعيله."
+msgstr ""
+"Facebook and Instagram connection isn't available right now. Contact support"
+" to enable it."
+
+msgid "انتهت جلسة الربط أو لا تخص هذه الشركة. حاول مرة أخرى."
+msgstr ""
+"The connection session expired or doesn't belong to this company. Please try"
+" again."
+
+msgid "أُلغي ربط الحساب."
+msgstr "Connection cancelled."
+
+msgid ""
+"لم نجد صفحات فيسبوك تديرها بهذا الحساب، أو لم تُمنح صلاحية الوصول إليها."
+msgstr ""
+"We found no Facebook Pages managed by this account, or access to them wasn't"
+" granted."
+
+msgid "انتهت جلسة الربط. حاول مرة أخرى."
+msgstr "The connection session expired. Please try again."
+
+#, python-format
+msgid "تم ربط صفحة «%(page)s» وحساب إنستغرام @%(username)s."
+msgstr ""
+"Connected the “%(page)s” Page and the Instagram account @%(username)s."
+
+#, python-format
+msgid ""
+"تم ربط صفحة «%(page)s». لا يوجد حساب إنستغرام احترافي مرتبط بهذه الصفحة."
+msgstr ""
+"Connected the “%(page)s” Page. It has no linked Instagram professional "
+"account."
+
+msgid "تم فصل الحساب."
+msgstr "Account disconnected."
+
+msgid "تم تفعيل النشر التلقائي."
+msgstr "Auto-publishing is on."
+
+msgid "تم إيقاف النشر التلقائي."
+msgstr "Auto-publishing is off."
+
+msgid "جريء"
+msgstr "Bold"
+
+msgid "متدرّج"
+msgstr "Gradient"
+
+msgid "صورة كاملة"
+msgstr "Full photo"
+
+msgid "مقسوم"
+msgstr "Split"
+
+msgid "بسيط"
+msgstr "Minimal"
+
+msgid "اقتباس"
+msgstr "Quote"
+
+msgid "عرض"
+msgstr "Offer"
+
+msgid "التحويل إلى العربية"
+msgstr "Switch to Arabic"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "إظهار كلمة المرور"
+msgstr "Show password"
+
+msgid "مدير التسويق الذكي"
+msgstr "Your AI marketing manager"
+
+msgid "فريق تسويق كامل،"
+msgstr "A complete marketing team,"
+
+msgid "يعمل لشركتك على مدار الساعة."
+msgstr "working for your company around the clock."
+
+msgid ""
+"يضع وكيل خطة المحتوى، ويكتب المنشورات، ويصمم الصور بهوية علامتك، ثم يرتبها "
+"في تقويم جاهز للنشر."
+msgstr ""
+"Wakeel plans your content, writes the posts, designs the images in your "
+"brand identity, and lines them up in a calendar ready to publish."
+
+msgid "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك"
+msgstr "A monthly strategy built on understanding your business and audience"
+
+msgid "استراتيجية شهرية"
+msgstr "Monthly strategy"
+
+msgid "تصاميم احترافية بألوانك وخطوطك وشعارك"
+msgstr "Professional designs in your colours, fonts and logo"
+
+msgid "تصاميم بهويتك"
+msgstr "On-brand designs"
+
+msgid "تقويم نشر ومراجعة واعتماد في مكان واحد"
+msgstr "Publishing calendar, review and approval in one place"
+
+msgid "تقويم ونشر"
+msgstr "Calendar & publishing"
+
+msgid "إخفاء كلمة المرور"
+msgstr "Hide password"
+
+msgid "حذف الحساب"
+msgstr "Delete account"
+
+msgid "هذا الإجراء نهائي ولا يمكن التراجع عنه"
+msgstr "This is permanent and can't be undone"
+
+#, python-format
+msgid "سيُحذف حسابك (%(email)s) وتُزال عضويتك من كل الشركات."
+msgstr ""
+"Your account (%(email)s) will be deleted and removed from every company."
+
+msgid ""
+"ستُحذف أيضاً الشركات التي تملكها، بكل خططها ومنشوراتها وصورها وأعضاء فريقها:"
+msgstr ""
+"The companies you own will be deleted too, with all their plans, posts, "
+"images and team members:"
+
+#, python-format
+msgid "%(name)s (%(count)s عضو)"
+msgstr "%(name)s (%(count)s members)"
+
+msgid "أدخل كلمة المرور للتأكيد"
+msgstr "Enter your password to confirm"
+
+msgid "حذف حسابك نهائياً؟"
+msgstr "Delete your account permanently?"
+
+#, python-format
+msgid "ستُحذف معه %(owned)s شركة بكل بياناتها."
+msgstr ""
+"%(owned)s companies will be deleted with it, along with all their data."
+
+msgid "لا يمكن التراجع عن ذلك."
+msgstr "This can't be undone."
+
+msgid "حذف حسابي"
+msgstr "Delete my account"
+
+msgid "حذف حسابي نهائياً"
+msgstr "Delete my account permanently"
+
+msgid "إلغاء"
+msgstr "Cancel"
+
+#, python-format
+msgid "مرحباً %(name)s،"
+msgstr "Hello %(name)s,"
+
+msgid ""
+"تم تفعيل حسابك في وكيل. سجّل الدخول وأضف شركتك الأولى، وسيبدأ وكيل بإعداد "
+"خطة المحتوى لها:"
+msgstr ""
+"Your Wakeel account is active. Sign in and add your first company, and "
+"Wakeel will start preparing its content plan:"
+
+msgid "فريق وكيل"
+msgstr "The Wakeel team"
+
+msgid "طلب تسجيل جديد في وكيل بانتظار الموافقة:"
+msgstr "A new Wakeel sign-up is waiting for approval:"
+
+msgid "الاسم:"
+msgstr "Name:"
+
+msgid "البريد:"
+msgstr "Email:"
+
+msgid "الهاتف:"
+msgstr "Phone:"
+
+msgid "راجع الطلب ووافق عليه من لوحة مشرف النظام:"
+msgstr "Review and approve it from the system admin console:"
+
+msgid ""
+"وصلنا طلب لتعيين كلمة مرور جديدة لحسابك في وكيل. افتح الرابط التالي لاختيار "
+"كلمة المرور:"
+msgstr ""
+"We received a request to set a new password for your Wakeel account. Open "
+"this link to choose one:"
+
+msgid ""
+"الرابط صالح ليوم واحد. إذا لم تطلب ذلك فتجاهل هذه الرسالة، ولن يتغير شيء في "
+"حسابك."
+msgstr ""
+"The link is valid for one day. If you didn't ask for this, ignore this email"
+" and nothing will change in your account."
+
+msgid "استعادة كلمة المرور في وكيل"
+msgstr "Reset your Wakeel password"
+
+msgid "تسجيل الدخول"
+msgstr "Sign in"
+
+msgid "مرحباً بعودتك"
+msgstr "Welcome back"
+
+msgid "سجّل الدخول لمتابعة تسويق شركتك."
+msgstr "Sign in to keep your company's marketing going."
+
+msgid "نسيت كلمة المرور؟"
+msgstr "Forgot your password?"
+
+msgid "ليس لديك حساب؟"
+msgstr "Don't have an account?"
+
+msgid "أنشئ حساباً"
+msgstr "Create an account"
+
+msgid "تغيير كلمة المرور"
+msgstr "Change password"
+
+msgid "الحساب"
+msgstr "Account"
+
+msgid "حفظ"
+msgstr "Save"
+
+#, python-format
+msgid "رسالة إلى %(email)s عند جاهزية الخطط، وطلبات التعديل، وتعليقات العميل."
+msgstr ""
+"An email to %(email)s when plans are ready, and for change requests and "
+"client comments."
+
+msgid "حذف حسابك والشركات التي تملكها نهائياً."
+msgstr "Delete your account and the companies you own, permanently."
+
+msgid "استعادة كلمة المرور"
+msgstr "Reset password"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr "Enter your email and we'll send you a link to set a new password."
+
+msgid "أرسل رابط الاستعادة"
+msgstr "Send reset link"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "Back to sign in"
+
+msgid "تم تغيير كلمة المرور"
+msgstr "Password changed"
+
+msgid "تم تعيين كلمة المرور"
+msgstr "Password set"
+
+msgid "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+msgstr "You can now sign in with your new password."
+
+msgid "كلمة مرور جديدة"
+msgstr "New password"
+
+msgid "اختر كلمة مرور جديدة لحسابك."
+msgstr "Choose a new password for your account."
+
+msgid "حفظ كلمة المرور"
+msgstr "Save password"
+
+msgid "الرابط غير صالح"
+msgstr "Invalid link"
+
+msgid "ربما استُخدم الرابط من قبل أو انتهت صلاحيته. اطلب رابطاً جديداً."
+msgstr "The link may have been used already or expired. Request a new one."
+
+msgid "طلب رابط جديد"
+msgstr "Request a new link"
+
+msgid "تحقق من بريدك"
+msgstr "Check your email"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "Check your email"
+
+msgid ""
+"إذا كان هذا البريد مسجلاً لدينا، فستصلك خلال دقائق رسالة فيها رابط لتعيين "
+"كلمة مرور جديدة. الرابط صالح ليوم واحد."
+msgstr ""
+"If this email is registered with us, a message with a link to set a new "
+"password will arrive within minutes. The link is valid for one day."
+
+msgid "حسابك قيد المراجعة"
+msgstr "Your account is under review"
+
+#, python-format
+msgid "شكراً لتسجيلك يا %(display_name)s. سيراجع فريقنا طلبك، وسيصلك بريد على"
+msgstr ""
+"Thanks for signing up, %(display_name)s. Our team will review your request, "
+"and you'll get an email at"
+
+msgid "فور التفعيل."
+msgstr "as soon as it's active."
+
+msgid "إنشاء الحساب"
+msgstr "Account created"
+
+msgid "مراجعة الطلب"
+msgstr "Request review"
+
+msgid "يراجع فريقنا بيانات حسابك"
+msgstr "Our team reviews your account details"
+
+msgid "إضافة شركاتك"
+msgstr "Add your companies"
+
+msgid "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل"
+msgstr "Once active, you add your companies and Wakeel gets to work"
+
+msgid "تسجيل الخروج"
+msgstr "Sign out"
+
+msgid "إنشاء حساب"
+msgstr "Create an account"
+
+msgid "ابدأ مع وكيل"
+msgstr "Get started with Wakeel"
+
+msgid "أنشئ حسابك، وبعد تفعيله تضيف شركتك ويبدأ وكيل العمل."
+msgstr ""
+"Create your account; once it's active, add your company and Wakeel gets to "
+"work."
+
+msgid "يُفعَّل الحساب بعد مراجعة فريقنا، وسيصلك بريد عند التفعيل."
+msgstr ""
+"Accounts are activated after our team reviews them, and you'll get an email "
+"when yours is."
+
+msgid "لديك حساب بالفعل؟"
+msgstr "Already have an account?"
+
+msgid "سجّل الدخول"
+msgstr "Sign in"
+
+msgid "· وكيل"
+msgstr "· Wakeel"
+
+msgid "أنت داخل حساب"
+msgstr "You're inside the account of"
+
+msgid "بصفتك مشرف النظام."
+msgstr "as a system admin."
+
+msgid "العودة للوحة الإدارة"
+msgstr "Back to the admin console"
+
+msgid "إدارة المنصة"
+msgstr "Platform admin"
+
+msgid "مشرف النظام"
+msgstr "System admin"
+
+msgid "لوحة مشرف النظام"
+msgstr "Admin dashboard"
+
+msgid "المشتركون"
+msgstr "Subscribers"
+
+msgid "طلبات التسجيل"
+msgstr "Sign-up requests"
+
+msgid "بانتظار الموافقة"
+msgstr "Awaiting approval"
+
+msgid "الاشتراكات"
+msgstr "Subscriptions"
+
+msgid "بانتظار الاعتماد"
+msgstr "Awaiting approval"
+
+msgid "التشغيل"
+msgstr "Operations"
+
+msgid "الاستهلاك والتكلفة"
+msgstr "Usage and cost"
+
+msgid "المهام والأخطاء"
+msgstr "Tasks and errors"
+
+msgid "مهام فشلت خلال 7 أيام"
+msgstr "Tasks that failed in the last 7 days"
+
+msgid "حالة النظام"
+msgstr "System status"
+
+msgid "أدوات"
+msgstr "Tools"
+
+msgid "إدارة قاعدة البيانات"
+msgstr "Database admin"
+
+msgid "شركاتك"
+msgstr "Your companies"
+
+msgid "إضافة شركة"
+msgstr "Add a company"
+
+msgid "لوحة التحكم"
+msgstr "Dashboard"
+
+msgid "يعمل"
+msgstr "On"
+
+msgid "هوية العلامة"
+msgstr "Brand identity"
+
+msgid "حسابات النشر"
+msgstr "Publishing accounts"
+
+msgid "الذكاء الاصطناعي متصل"
+msgstr "AI connected"
+
+msgid "الذكاء الاصطناعي غير مفعّل"
+msgstr "AI not configured"
+
+msgid "إعدادات الحساب"
+msgstr "Account settings"
+
+msgid "القائمة"
+msgstr "Menu"
+
+#, python-format
+msgid "(%(unread_notifications)s غير مقروءة)"
+msgstr "(%(unread_notifications)s unread)"
+
+msgid "تعليم الكل كمقروء"
+msgstr "Mark all as read"
+
+msgid "لا توجد إشعارات بعد."
+msgstr "No notifications yet."
+
+msgid "كل الإشعارات"
+msgstr "All notifications"
+
+msgid "إغلاق"
+msgstr "Close"
+
+msgid "جارٍ التحميل…"
+msgstr "Loading…"
+
+msgid "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة."
+msgstr "Check the required or invalid fields in the highlighted steps."
+
+msgid "الأساسيات"
+msgstr "Basics"
+
+msgid "النشاط والجمهور"
+msgstr "Business and audience"
+
+msgid "الأسلوب والنبرة"
+msgstr "Style and tone"
+
+msgid "الهوية البصرية"
+msgstr "Visual identity"
+
+msgid "قنوات التواصل"
+msgstr "Contact channels"
+
+msgid "لدى الشركة موقع إلكتروني؟"
+msgstr "Does the company have a website?"
+
+msgid ""
+"أدخل الرابط، وسيقرأ وكيل الموقع ويملأ الحقول الفارغة تلقائياً، بما فيها "
+"الشعار والألوان وحسابات التواصل. راجعها بعد ذلك وعدّل ما تريد."
+msgstr ""
+"Enter the link and Wakeel will read the site and fill in the empty fields, "
+"including the logo, colours and social accounts. Review them afterwards and "
+"change whatever you like."
+
+msgid "املأ من الموقع"
+msgstr "Fill from website"
+
+msgid "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة."
+msgstr "Wakeel is reading the website… this may take a minute."
+
+msgid "وُجد هذا الشعار في الموقع، وسيُعتمد عند الحفظ ما لم ترفع شعاراً آخر."
+msgstr ""
+"This logo was found on the website and will be used when you save, unless "
+"you upload another one."
+
+msgid "لنبدأ بالمعلومات الأساسية عن الشركة."
+msgstr "Let's start with the company's basic details."
+
+msgid ""
+"كلما كانت هذه المعلومات أدق، كان المحتوى الذي يكتبه وكيل أقرب إلى شركتك."
+msgstr ""
+"The more accurate this is, the closer Wakeel's content will be to your "
+"company."
+
+msgid "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات."
+msgstr "These colours and fonts are used in every post design."
+
+msgid "جديد"
+msgstr "New"
+
+msgid "عنوان المنشور يظهر هنا"
+msgstr "The post headline appears here"
+
+msgid "وهذا نص فرعي قصير يشرح الفكرة."
+msgstr "And this is a short subheadline explaining the idea."
+
+msgid "اطلب الآن ←"
+msgstr "Order now →"
+
+msgid "تظهر هذه البيانات في التصاميم وفي دعوات التواصل داخل المنشورات."
+msgstr ""
+"This information appears in the designs and in the calls to action within "
+"posts."
+
+msgid "السابق"
+msgstr "Previous"
+
+msgid "التالي"
+msgstr "Next"
+
+msgid "إنشاء مساحة العمل"
+msgstr "Create workspace"
+
+msgid "حفظ التغييرات"
+msgstr "Save changes"
+
+msgid "الخطوة "
+msgstr "Step "
+
+msgid " من "
+msgstr " of "
+
+msgid "ملأ وكيل "
+msgstr "Wakeel filled "
+
+msgid " حقلاً من الموقع. راجعها في كل الخطوات."
+msgstr " fields from the website. Review them in every step."
+
+msgid "لم يجد وكيل معلومات جديدة لإضافتها."
+msgstr "Wakeel didn't find any new information to add."
+
+msgid "تعذّرت قراءة الموقع."
+msgstr "Couldn't read the website."
+
+msgid "إزالة"
+msgstr "Remove"
+
+#, python-format
+msgid "إزالة %(display_name)s"
+msgstr "Remove %(display_name)s"
+
+msgid "إزالة العضو؟"
+msgstr "Remove member?"
+
+#, python-format
+msgid "لن يتمكن %(display_name)s من الوصول إلى %(name)s بعد الآن."
+msgstr "%(display_name)s will no longer be able to access %(name)s."
+
+#, python-format
+msgid "دور %(display_name)s"
+msgstr "%(display_name)s's role"
+
+msgid "يعدّ وكيل خطة كل شهر بنفسه ويرسلها للعميل للاعتماد، دون أن يطلبها أحد."
+msgstr ""
+"Wakeel prepares a plan every month on its own and sends it to your client "
+"for approval, without anyone asking."
+
+msgid "تشغيل الطيار الآلي"
+msgstr "Turn on autopilot"
+
+#, python-format
+msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."
+msgstr "On: the next plan is prepared on %(run_on)s."
+
+msgid "متوقف الآن."
+msgstr "Off right now."
+
+msgid "كيف يعمل؟"
+msgstr "How does it work?"
+
+msgid "في اليوم المحدد من كل شهر"
+msgstr "On the chosen day each month"
+
+msgid "يعدّ وكيل خطة الشهر التالي مستفيداً مما تعلّمه من ملاحظاتكم"
+msgstr ""
+"Wakeel prepares next month's plan, drawing on what it learned from your "
+"feedback"
+
+msgid "يصمم المنشورات"
+msgstr "Designs the posts"
+
+msgid "بألوان علامتك وخطوطها وشعارها"
+msgstr "In your brand's colours, fonts and logo"
+
+msgid "يرسل رابط المراجعة للعميل"
+msgstr "Sends the review link to your client"
+
+msgid "يعتمد المنشورات أو يطلب تعديلها دون حساب"
+msgstr "They approve posts or ask for changes, no account needed"
+
+msgid "ينشر المعتمد في موعده"
+msgstr "Publishes what's approved on schedule"
+
+msgid "النشر التلقائي مفعّل"
+msgstr "Auto-publishing is on"
+
+msgid "فعّل"
+msgstr "Turn on"
+
+msgid "ليكتمل ذلك دون تدخل"
+msgstr "to complete this without lifting a finger"
+
+#, python-format
+msgid "خطة %(upcoming)s موجودة: افتحها"
+msgstr "The %(upcoming)s plan exists: open it"
+
+#, python-format
+msgid "كل ما يعرفه وكيل عن %(name)s: يعتمد عليه في كتابة المحتوى وتصميمه."
+msgstr ""
+"Everything Wakeel knows about %(name)s: it relies on this to write and "
+"design content."
+
+#, python-format
+msgid "تعلّم من %(pending_signals)s ملاحظة جديدة"
+msgstr "Learn from %(pending_signals)s new notes"
+
+msgid ""
+"يتعلّم وكيل ذوق علامتك من تعديلاتكم على نصوصه، وطلبات التعديل، وتعليقات "
+"العميل، ويطبّق هذه القواعد في كل خطة وكل إعادة كتابة. احذف ما لا يناسبك، أو "
+"أضف قاعدة بنفسك."
+msgstr ""
+"Wakeel learns your brand's taste from your edits to its texts, change "
+"requests and client comments, and applies these rules in every plan and "
+"every rewrite. Delete what doesn't suit you, or add a rule yourself."
+
+msgid "أضفتموها"
+msgstr "Added by you"
+
+msgid "تعلّمها وكيل"
+msgstr "Learned by Wakeel"
+
+msgid "حذف القاعدة"
+msgstr "Delete rule"
+
+msgid "حذف هذه القاعدة؟"
+msgstr "Delete this rule?"
+
+msgid "لن يلتزم بها وكيل في الخطط القادمة."
+msgstr "Wakeel won't follow it in upcoming plans."
+
+msgid "حذف"
+msgstr "Delete"
+
+msgid ""
+"لم يتعلّم وكيل شيئاً بعد؛ ستظهر القواعد هنا بعد أن تعدّلوا بعض المنشورات أو "
+"تطلبوا تعديلات."
+msgstr ""
+"Wakeel hasn't learned anything yet; rules appear here once you edit some "
+"posts or ask for changes."
+
+msgid "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين"
+msgstr "Add a rule, e.g.: Don't use the word “offers” in headlines"
+
+msgid "إضافة"
+msgstr "Add"
+
+msgid "حذف الشركة"
+msgstr "Delete company"
+
+#, python-format
+msgid ""
+"يحذف «%(name)s» نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء"
+" فريقها. لا يمكن التراجع عن ذلك."
+msgstr ""
+"Permanently deletes “%(name)s” with all its plans, posts, designs, library "
+"images and team members. This can't be undone."
+
+#, python-format
+msgid "حذف %(name)s؟"
+msgstr "Delete %(name)s?"
+
+msgid ""
+"ستُحذف الشركة نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء "
+"فريقها."
+msgstr ""
+"The company will be deleted permanently, with all its plans, posts, designs,"
+" library images and team members."
+
+msgid "حذف الشركة نهائياً"
+msgstr "Delete company permanently"
+
+msgid "شركة جديدة"
+msgstr "New company"
+
+msgid "مرحباً بك في وكيل ✨"
+msgstr "Welcome to Wakeel ✨"
+
+msgid "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها."
+msgstr ""
+"Introduce your company to Wakeel so it can work as its marketing team."
+
+#, python-format
+msgid "تم اعتماد حساب %(company)s في وكيل، ويمكنك البدء الآن."
+msgstr "The %(company)s account on Wakeel is approved, and you can start now."
+
+msgid "الحساب تجريبي."
+msgstr "This is a trial account."
+
+#, python-format
+msgid "ينتهي الاشتراك في %(date)s."
+msgstr "The subscription ends on %(date)s."
+
+msgid "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:"
+msgstr "Sign in and start preparing your first content plan:"
+
+msgid "صور منتجاتك وفريقك ومقرك، لاستخدامها خلفياتٍ في التصاميم."
+msgstr ""
+"Photos of your products, team and premises, to use as design backgrounds."
+
+msgid "اسحب الصور هنا أو اضغط للاختيار"
+msgstr "Drag images here or tap to choose"
+
+msgid "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)"
+msgstr "You can upload several images at once (up to 10 MB each)"
+
+msgid "وصف اختياري للصور"
+msgstr "Optional description for the images"
+
+msgid "وسوم اختيارية: منتج، فريق، مكتب…"
+msgstr "Optional tags: product, team, office…"
+
+msgid "رفع"
+msgstr "Upload"
+
+msgid "بدون وصف"
+msgstr "No description"
+
+msgid "حذف الصورة؟"
+msgstr "Delete image?"
+
+msgid "ستُحذف من المكتبة، وتُزال من خلفيات المنشورات التي تستخدمها."
+msgstr ""
+"It will be removed from the library and from the backgrounds of posts that "
+"use it."
+
+msgid "حذف الصورة"
+msgstr "Delete image"
+
+msgid "المكتبة فارغة"
+msgstr "The library is empty"
+
+msgid ""
+"ارفع صوراً حقيقية لمنتجاتك أو مقرك أو فريقك، لتظهر في قالبي «صورة كاملة» "
+"و«مقسوم»."
+msgstr ""
+"Upload real photos of your products, premises or team to use in the “Full "
+"photo” and “Split” templates."
+
+msgid "تم اختيار "
+msgstr "Selected"
+
+msgid " صورة"
+msgstr " images"
+
+msgid "(أنت)"
+msgstr "(you)"
+
+msgid "تم استلام طلب"
+msgstr "We've received the request for"
+
+msgid ". سيراجعه فريقنا، وسيصلك بريد على"
+msgstr ". Our team will review it, and you'll get an email at"
+
+#, python-format
+msgid "انتهى اشتراك %(name)s"
+msgstr "The %(name)s subscription has expired"
+
+#, python-format
+msgid ""
+"انتهى الاشتراك في %(subscription_expires)s. بياناتك محفوظة كما هي، وستعود "
+"إليها فور تجديد الاشتراك. تواصل معنا للتجديد."
+msgstr ""
+"The subscription ended on %(subscription_expires)s. Your data is kept "
+"exactly as it is, and you'll be back to it as soon as the subscription is "
+"renewed. Contact us to renew."
+
+#, python-format
+msgid "اشتراك %(name)s معلّق"
+msgstr "The %(name)s subscription is suspended"
+
+msgid ""
+"أُوقف هذا الاشتراك مؤقتاً. بياناتك محفوظة كما هي، وستعود إليها فور إعادة "
+"التفعيل. تواصل معنا لمعرفة التفاصيل."
+msgstr ""
+"This subscription has been paused. Your data is kept exactly as it is, and "
+"you'll be back to it as soon as it's reactivated. Contact us for details."
+
+msgid "يراجع فريقنا بيانات شركتك"
+msgstr "Our team reviews your company's details"
+
+msgid "التفعيل"
+msgstr "Activation"
+
+msgid "تبدأ مع وكيل فور وصول البريد"
+msgstr "You start with Wakeel as soon as the email arrives"
+
+msgid "انتقل إلى شركة أخرى:"
+msgstr "Switch to another company:"
+
+#, python-format
+msgid "من يعمل على تسويق %(name)s، وما صلاحياته."
+msgstr "Who works on %(name)s's marketing, and what they can do."
+
+msgid "ابحث بالاسم أو البريد…"
+msgstr "Search by name or email…"
+
+msgid "بحث في الفريق"
+msgstr "Search the team"
+
+msgid "عضو"
+msgstr "member"
+
+msgid "أعضاء"
+msgstr "members"
+
+msgid "إضافة عضو"
+msgstr "Add a member"
+
+msgid "مغادرة الشركة؟"
+msgstr "Leave the company?"
+
+#, python-format
+msgid "لن تتمكن من الوصول إلى «%(name)s» إلا إذا أضافك أحد مديريها من جديد."
+msgstr ""
+"You won't be able to access “%(name)s” unless one of its admins adds you "
+"again."
+
+msgid "مغادرة"
+msgstr "Leave"
+
+msgid "مغادرة الشركة"
+msgstr "Leave company"
+
+msgid "الأدوار"
+msgstr "Roles"
+
+msgid "المالك والمدير:"
+msgstr "Owner and admin:"
+
+msgid "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق."
+msgstr ""
+"Everything, including approving posts and managing the brand and team."
+
+msgid "محرر المحتوى:"
+msgstr "Content editor:"
+
+msgid "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة."
+msgstr "Prepares plans, edits posts and sends them for review."
+
+msgid "المشاهد:"
+msgstr "Viewer:"
+
+msgid "يطّلع على الخطط والتقويم فقط."
+msgstr "Sees plans and the calendar only."
+
+msgid "تحديد الكل"
+msgstr "Select all"
+
+msgid "فيديو قصير"
+msgstr "Short video"
+
+msgid "بحاجة لتحديث التصميم"
+msgstr "Design needs updating"
+
+msgid "لم يُصمَّم بعد"
+msgstr "Not designed yet"
+
+msgid "غير مجدول"
+msgstr "Not scheduled"
+
+msgid "تقويم النشر"
+msgstr "Publishing calendar"
+
+msgid "اسحب المنشور إلى يوم آخر لتغيير موعده."
+msgstr "Drag a post to another day to change its date."
+
+msgid "الشهر السابق"
+msgstr "Previous month"
+
+msgid "الشهر التالي"
+msgstr "Next month"
+
+msgid "اليوم"
+msgstr "Today"
+
+#, python-format
+msgid "%(unscheduled)s منشور بلا موعد"
+msgstr "%(unscheduled)s posts without a date"
+
+msgid "(قد يتغير يوماً حسب رؤية الهلال)"
+msgstr "(may shift by a day with the moon sighting)"
+
+msgid "منشور جديد في هذا اليوم"
+msgstr "New post on this day"
+
+msgid "تم تغيير موعد النشر"
+msgstr "Publish date changed"
+
+msgid "مرحباً،"
+msgstr "Hello,"
+
+msgid "خطة الشهر القادم"
+msgstr "next month's plan"
+
+#, python-format
+msgid ""
+"أعدّ فريق %(company)s خطة المحتوى القادمة (%(title)s) مع تصاميمها ونصوصها."
+msgstr ""
+"The %(company)s team has prepared the upcoming content plan (%(title)s) with"
+" its designs and texts."
+
+msgid ""
+"راجع المنشورات من هذا الرابط، واعتمد ما يناسبك أو اطلب التعديل على أي منشور:"
+msgstr ""
+"Review the posts at this link, approve what you like, or ask for changes on "
+"any post:"
+
+msgid "لا يحتاج الرابط إلى حساب أو كلمة مرور."
+msgstr "The link doesn't need an account or a password."
+
+#, python-format
+msgid "%(company)s · عبر وكيل"
+msgstr "%(company)s · via Wakeel"
+
+msgid "خطة المحتوى"
+msgstr "Content plan"
+
+#, python-format
+msgid "%(month_label)s · %(posts_per_week)s منشورات أسبوعياً ·"
+msgstr "%(month_label)s · %(posts_per_week)s posts a week ·"
+
+msgid "في التقويم"
+msgstr "In calendar"
+
+msgid "تنزيل نصوص المنشورات"
+msgstr "Download post texts"
+
+msgid "إعادة تصميم كل الصور"
+msgstr "Redesign all images"
+
+msgid "إعادة إعداد الخطة؟"
+msgstr "Prepare the plan again?"
+
+msgid ""
+"سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك."
+msgstr ""
+"Wakeel will write the plan from scratch, replacing all its current posts, "
+"including your edits."
+
+msgid "أعد الإعداد"
+msgstr "Prepare again"
+
+msgid "إعادة إعداد الخطة"
+msgstr "Prepare the plan again"
+
+msgid "حذف الخطة؟"
+msgstr "Delete the plan?"
+
+#, python-format
+msgid ""
+"ستُحذف «%(title)s» مع %(posts)s منشوراً وتصاميمها نهائياً، ولا يمكن التراجع "
+"عن ذلك."
+msgstr ""
+"“%(title)s” will be deleted permanently with %(posts)s posts and their "
+"designs. This can't be undone."
+
+msgid "حذف الخطة"
+msgstr "Delete plan"
+
+#, python-format
+msgid "وكيل يعمل على خطة %(month_label)s"
+msgstr "Wakeel is working on the %(month_label)s plan"
+
+msgid "في انتظار بدء المهمة…"
+msgstr "Waiting for the task to start…"
+
+msgid "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية."
+msgstr "You can leave this page; the work continues in the background."
+
+msgid "العامل الخلفي متوقف"
+msgstr "The background worker is stopped"
+
+msgid "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير ("
+msgstr ", so the task hasn't started. Run the server in development mode ("
+
+msgid ") ليعمل معه تلقائياً، أو شغّل"
+msgstr ") so it runs along with it, or run"
+
+msgid ""
+"تأخر بدء إعداد الخطة أكثر من المعتاد، وأُبلغ فريق الدعم. ستبدأ تلقائياً فور "
+"عودة الخدمة، ولا حاجة لإعادة الطلب."
+msgstr ""
+"Starting the plan is taking longer than usual, and our support team has been"
+" notified. It will start automatically once the service is back; no need to "
+"ask again."
+
+msgid "إيقاف إعداد الخطة؟"
+msgstr "Stop preparing the plan?"
+
+msgid "سيتوقف وكيل عن إعداد هذه الخطة. يمكنك إعادة المحاولة أو حذفها بعد ذلك."
+msgstr ""
+"Wakeel will stop preparing this plan. You can try again or delete it "
+"afterwards."
+
+msgid "إيقاف"
+msgstr "Stop"
+
+msgid "إيقاف الإعداد"
+msgstr "Stop preparation"
+
+msgid "تعذّر إعداد الخطة"
+msgstr "Couldn't prepare the plan"
+
+msgid "حدث خطأ غير متوقع."
+msgstr "Something unexpected went wrong."
+
+msgid "حاول مرة أخرى"
+msgstr "Try again"
+
+msgid "ستُحذف هذه الخطة نهائياً."
+msgstr "This plan will be deleted permanently."
+
+msgid "جارٍ تصميم الصور…"
+msgstr "Designing the images…"
+
+msgid "الاستراتيجية"
+msgstr "Strategy"
+
+msgid "مناسبات الشهر"
+msgstr "This month's occasions"
+
+msgid "لا توجد مناسبات خاصة في هذا الشهر."
+msgstr "No special occasions this month."
+
+msgid "توجيهاتك:"
+msgstr "Your brief:"
+
+msgid "موافقة العميل"
+msgstr "Client approval"
+
+msgid ""
+"أرسل هذا الرابط للعميل ليعتمد المنشورات أو يطلب تعديلها دون حساب في وكيل."
+msgstr ""
+"Send this link to your client to approve posts or ask for changes, without a"
+" Wakeel account."
+
+msgid ""
+"شارك الخطة مع عميلك برابط خاص ليعتمد المنشورات أو يطلب تعديلها دون الحاجة "
+"لحساب."
+msgstr ""
+"Share the plan with your client through a private link so they can approve "
+"posts or ask for changes, no account needed."
+
+msgid "رابط العميل"
+msgstr "Client link"
+
+msgid "نسخ"
+msgstr "Copy"
+
+msgid "خيارات الرابط"
+msgstr "Link options"
+
+msgid "فتح كما يراه العميل"
+msgstr "Open as the client sees it"
+
+msgid "إنشاء رابط جديد؟"
+msgstr "Create a new link?"
+
+msgid "سيتوقف الرابط الحالي عن العمل، وتحتاج لإرسال الرابط الجديد للعميل."
+msgstr ""
+"The current link will stop working, and you'll need to send the new one to "
+"your client."
+
+msgid "رابط جديد"
+msgstr "New link"
+
+msgid "إيقاف الرابط"
+msgstr "Turn off link"
+
+msgid "إنشاء رابط للعميل"
+msgstr "Create a client link"
+
+#, python-format
+msgid "اعتماد كل ما بانتظار المراجعة (%(review_ids)s)"
+msgstr "Approve everything awaiting review (%(review_ids)s)"
+
+msgid "تعذّر تصميم الصور"
+msgstr "Couldn't design the images"
+
+msgid "اعتماد "
+msgstr "Approve "
+
+msgid " منشوراً؟"
+msgstr " posts?"
+
+msgid ""
+"ستصبح كل المنشورات التي بانتظار المراجعة في هذه الخطة معتمدة وجاهزة للنشر."
+msgstr ""
+"Every post awaiting review in this plan will be approved and ready to "
+"publish."
+
+msgid "تم اعتماد "
+msgstr "Approved "
+
+msgid " منشوراً"
+msgstr " posts"
+
+msgid "بدأ تصميم الصور…"
+msgstr "Designing the images…"
+
+msgid "خطة محتوى جديدة"
+msgstr "New content plan"
+
+msgid "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي."
+msgstr ""
+"Tell Wakeel what matters to you this month, and it'll handle the rest."
+
+#, python-format
+msgid ""
+"الذكاء الاصطناعي غير مفعّل بعد؛ ستفشل الخطة حتى يُضاف مفتاح %(ai_key_name)s."
+msgstr ""
+"The AI isn't configured yet; the plan will fail until the %(ai_key_name)s "
+"key is added."
+
+msgid "إعداد الخطط متوقف مؤقتاً، وفريق الدعم يعمل على إعادته. حاول لاحقاً."
+msgstr ""
+"Plan preparation is paused at the moment, and our support team is working on"
+" it. Please try later."
+
+msgid "ملف الشركة غير مكتمل، فستكون الخطة عامة."
+msgstr "The company profile is incomplete, so the plan will be generic."
+
+msgid "أكمل الملف أولاً"
+msgstr "Complete the profile first"
+
+msgid "ليكتب وكيل محتوى يشبه علامتك."
+msgstr "so Wakeel writes content that sounds like your brand."
+
+msgid "أعدّ الخطة الآن"
+msgstr "Prepare the plan now"
+
+msgid "ماذا سيحدث؟"
+msgstr "What happens next?"
+
+#, python-format
+msgid "يدرس وكيل هوية %(name)s وجمهورها وأهدافها."
+msgstr "Wakeel studies %(name)s's identity, audience and goals."
+
+#, python-format
+msgid "يحدد أهداف الشهر ومحاور المحتوى والمناسبات المهمة في %(country)s."
+msgstr ""
+"It sets the month's goals, content pillars and key occasions in %(country)s."
+
+msgid "يكتب كل منشور: الفكرة والنص والوسوم وموعد النشر، وسيناريو للفيديوهات."
+msgstr ""
+"It writes every post: the idea, text, hashtags and publish time, plus a "
+"script for videos."
+
+msgid "يصمم صورة كل منشور بألوانك وخطوطك وشعارك."
+msgstr "It designs every post's image in your colours, fonts and logo."
+
+msgid "تجد كل شيء في التقويم بانتظار مراجعتك واعتمادك."
+msgstr ""
+"You'll find everything in the calendar awaiting your review and approval."
+
+msgid "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق."
+msgstr "Preparation usually takes two to five minutes."
+
+msgid "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل."
+msgstr "Each month's strategy and posts, as Wakeel prepared them."
+
+msgid "· يعمل"
+msgstr "· on"
+
+msgid "خطة قيد الإعداد"
+msgstr "Plan in preparation"
+
+#, python-format
+msgid "%(all)s منشوراً"
+msgstr "%(all)s posts"
+
+msgid "ابدأ بخطتك الأولى"
+msgstr "Start with your first plan"
+
+msgid "اختر الشهر والمنصات، وسيعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr ""
+"Choose the month and platforms, and Wakeel will prepare the strategy, every "
+"post and its design."
+
+msgid "أعدّ خطة المحتوى"
+msgstr "Prepare a content plan"
+
+#, python-format
+msgid "· الهدف: %(objective)s"
+msgstr "· Goal: %(objective)s"
+
+msgid "المنشور السابق"
+msgstr "Previous post"
+
+msgid "المنشور التالي"
+msgstr "Next post"
+
+msgid "إعادة إلى المسودة"
+msgstr "Back to draft"
+
+msgid "حذف المنشور؟"
+msgstr "Delete the post?"
+
+#, python-format
+msgid "سيُحذف «%(title)s» وتصميمه نهائياً، ولا يمكن التراجع عن ذلك."
+msgstr ""
+"“%(title)s” and its design will be deleted permanently. This can't be "
+"undone."
+
+msgid "حذف المنشور"
+msgstr "Delete post"
+
+msgid "تعذّر النشر:"
+msgstr "Couldn't publish:"
+
+msgid "ملاحظة المراجعة:"
+msgstr "Review note:"
+
+msgid "اطلب من وكيل تعديل المنشور"
+msgstr "Ask Wakeel to change the post"
+
+msgid "مثال: ركّز على خدمة التوصيل المجاني واذكر أنها لفترة محدودة"
+msgstr ""
+"For example: focus on free delivery and mention it's for a limited time"
+
+msgid "نفّذ"
+msgstr "Go"
+
+msgid "نسخ النص مع الوسوم"
+msgstr "Copy text with hashtags"
+
+msgid "صوّر الفيديو وفق هذا السيناريو، ثم انشره مع النص أعلاه."
+msgstr ""
+"Film the video following this script, then publish it with the text above."
+
+msgid "إدارة المكتبة"
+msgstr "Manage library"
+
+msgid "بدون"
+msgstr "None"
+
+msgid ""
+"ارفع صوراً إلى مكتبة الوسائط لاستخدامها في قالبي «صورة كاملة» و«مقسوم»."
+msgstr ""
+"Upload images to the media library to use them in the “Full photo” and "
+"“Split” templates."
+
+msgid "لا توجد تغييرات"
+msgstr "No changes"
+
+msgid "Ctrl + S للحفظ"
+msgstr "Ctrl + S to save"
+
+msgid "معاينة حية"
+msgstr "Live preview"
+
+msgid "معاينة التصميم"
+msgstr "Design preview"
+
+msgid "كما سيظهر في إنستغرام وفيسبوك"
+msgstr "As it will look on Instagram and Facebook"
+
+msgid "معاينة المنشور في المنصة"
+msgstr "Post preview on the platform"
+
+msgid "الصورة النهائية"
+msgstr "Final image"
+
+msgid "جارٍ التصميم…"
+msgstr "Designing…"
+
+msgid "لم تُصمَّم الصورة بعد."
+msgstr "The image hasn't been designed yet."
+
+msgid "التصميم تغيّر منذ آخر تحديث للصورة."
+msgstr "The design changed since the image was last updated."
+
+msgid "الصورة محدّثة وجاهزة للنشر."
+msgstr "The image is up to date and ready to publish."
+
+msgid "تنزيل"
+msgstr "Download"
+
+msgid "تحديث التصميم"
+msgstr "Update design"
+
+msgid "المراجعة والتعليقات"
+msgstr "Review and comments"
+
+msgid "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا."
+msgstr "No comments yet. Write your note for the team here."
+
+msgid "اكتب تعليقاً…"
+msgstr "Write a comment…"
+
+msgid "إرسال"
+msgstr "Send"
+
+msgid "غلاف الفيديو (اختياري)"
+msgstr "Video cover (optional)"
+
+msgid "<span class=\"text-warning\">● تغييرات غير محفوظة</span>"
+msgstr "<span class=\"text-warning\">● Unsaved changes</span>"
+
+msgid "تم الحفظ الساعة "
+msgstr "Saved at "
+
+msgid "راجع الحقول المظللة."
+msgstr "Check the highlighted fields."
+
+msgid "تعذّر تحديث التصميم"
+msgstr "Couldn't update the design"
+
+msgid "أعاد وكيل كتابة المنشور"
+msgstr "Wakeel rewrote the post"
+
+msgid "تعذّرت إعادة الكتابة"
+msgstr "Couldn't rewrite the post"
+
+msgid "الآن"
+msgstr "Just now"
+
+msgid "تم تحديث الحالة: "
+msgstr "Status updated: "
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ النشر…"
+msgstr "<span class=\"spinner-border spinner-border-sm\"></span> Publishing…"
+
+msgid "تم النشر"
+msgstr "Published"
+
+msgid "تعذّر النشر"
+msgstr "Couldn't publish"
+
+msgid "نشر المنشور الآن؟"
+msgstr "Publish the post now?"
+
+msgid "انشر"
+msgstr "Publish"
+
+msgid "سيُنشر فوراً على: "
+msgstr "It will be published right away on: "
+
+#| msgid "طلب تعديل"
+msgctxt "action"
+msgid "طلب تعديل"
+msgstr "Request changes"
+
+msgid "إرسال الملاحظة"
+msgstr "Send note"
+
+msgid "سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى."
+msgstr "The post goes back to draft with your note for the content editor."
+
+msgid "ما الذي يحتاج إلى تعديل؟"
+msgstr "What needs changing?"
+
+msgid "مثال: غيّر الصورة واذكر موعد انتهاء العرض"
+msgstr "For example: change the image and mention when the offer ends"
+
+msgid "إرسال للمراجعة"
+msgstr "Send for review"
+
+#| msgid "اعتماد"
+msgctxt "action"
+msgid "اعتماد"
+msgstr "Approve"
+
+msgid "انشر الآن"
+msgstr "Publish now"
+
+msgid "تم النشر يدوياً"
+msgstr "Published manually"
+
+msgid ""
+"<div class=\"wk-feed__bar fb\"><span><i class=\"bi bi-hand-thumbs-up\"></i> "
+"أعجبني</span><span><i class=\"bi bi-chat\"></i> تعليق</span><span><i "
+"class=\"bi bi-share\"></i> مشاركة</span></div>"
+msgstr ""
+"<div class=\"wk-feed__bar fb\"><span><i class=\"bi bi-hand-thumbs-up\"></i> "
+"Like</span><span><i class=\"bi bi-chat\"></i> Comment</span><span><i "
+"class=\"bi bi-share\"></i> Share</span></div>"
+
+msgid "الآن · 🌐"
+msgstr "Just now · 🌐"
+
+msgid ""
+"<div class=\"ph\"><i class=\"bi bi-camera-reels\"></i><span>فيديو قصير "
+"يصوّره فريقك</span></div>"
+msgstr ""
+"<div class=\"ph\"><i class=\"bi bi-camera-reels\"></i><span>A short video "
+"your team films</span></div>"
+
+msgid "الصورة المعروضة هي آخر نسخة محفوظة."
+msgstr "The image shown is the last saved version."
+
+msgid "لم تُصمَّم الصورة بعد"
+msgstr "The image hasn't been designed yet"
+
+msgid "احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا."
+msgstr "Save the post to design it, and the image will appear here."
+
+msgid "المزيد"
+msgstr "more"
+
+msgid "عرض المزيد"
+msgstr "See more"
+
+msgid "يظهر أول "
+msgstr "About the first "
+
+msgid " حرفاً تقريباً قبل «"
+msgstr " characters show before “"
+
+msgid "»، فاجعل البداية قوية."
+msgstr "”, so make the opening strong."
+
+msgid "ابحث في المنشورات…"
+msgstr "Search posts…"
+
+msgid "كل الحالات"
+msgstr "All statuses"
+
+msgid "كل المنصات"
+msgstr "All platforms"
+
+msgid "مسح التصفية"
+msgstr "Clear filters"
+
+#, python-format
+msgid "%(count)s منشور"
+msgstr "%(count)s posts"
+
+msgid "لا توجد منشورات"
+msgstr "No posts"
+
+msgid "أعدّ خطة محتوى أو أنشئ منشوراً يدوياً."
+msgstr "Prepare a content plan or create a post by hand."
+
+#, python-format
+msgid "مراجعة %(title)s"
+msgstr "Review %(title)s"
+
+#, python-format
+msgid "%(pending)s بانتظار رأيك"
+msgstr "%(pending)s awaiting your feedback"
+
+msgid ""
+"راجع منشورات هذا الشهر: اعتمد ما يعجبك، أو اطلب التعديل واكتب ملاحظتك، وسيصل"
+" ردك إلى فريق التسويق فوراً."
+msgstr ""
+"Review this month's posts: approve what you like, or ask for changes and "
+"leave a note, and your reply reaches the marketing team right away."
+
+msgid "اسمك"
+msgstr "Your name"
+
+msgid "مثال: أحمد، مدير التسويق"
+msgstr "For example: Ahmed, marketing manager"
+
+msgid "استراتيجية الشهر"
+msgstr "This month's strategy"
+
+msgid "فيديو قصير: سيناريو التصوير"
+msgstr "Short video: filming script"
+
+#, python-format
+msgid "تصميم المنشور: %(headline)s"
+msgstr "Post design: %(headline)s"
+
+msgid "التصميم قيد الإعداد"
+msgstr "Design in progress"
+
+msgid "قيد التعديل"
+msgstr "Being revised"
+
+msgid "لا توجد منشورات في هذه الخطة"
+msgstr "No posts in this plan"
+
+msgid "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي"
+msgstr "This plan was prepared by Wakeel · Your AI marketing manager"
+
+msgid "اكتب اسمك أولاً"
+msgstr "Write your name first"
+
+msgid "ما الذي تريد تعديله؟"
+msgstr "What would you like changed?"
+
+msgid "تعليقك"
+msgstr "Your comment"
+
+msgid "<i class=\"bi bi-patch-check\"></i> اعتماد"
+msgstr "<i class=\"bi bi-patch-check\"></i> Approve"
+
+msgid "شكراً، تم اعتماد المنشور"
+msgstr "Thanks, the post is approved"
+
+msgid "وصلت ملاحظتك إلى الفريق"
+msgstr "Your note has reached the team"
+
+#, python-format
+msgid "أهلاً %(display_name)s 👋"
+msgstr "Hi %(display_name)s 👋"
+
+#, python-format
+msgid "نظرة على تسويق %(name)s لشهر %(month_label)s"
+msgstr "%(name)s's marketing for %(month_label)s"
+
+msgid "الذكاء الاصطناعي غير مفعّل بعد. أضف"
+msgstr "The AI isn't configured yet. Add"
+
+msgid "إلى ملف"
+msgstr "to the"
+
+msgid "ثم أعد تشغيل الخادم والعامل لتفعيل إعداد الخطط وكتابة المنشورات."
+msgstr ""
+"file, then restart the server and the worker to enable plans and post "
+"writing."
+
+msgid ""
+"إعداد الخطط وكتابة المنشورات متوقف مؤقتاً، وفريق الدعم يعمل على إعادته."
+msgstr ""
+"Plan preparation and post writing are paused at the moment, and our support "
+"team is working on it."
+
+msgid "أكمل ملف شركتك"
+msgstr "Complete your company profile"
+
+msgid ""
+"— نبذة النشاط والجمهور والأسلوب والهوية البصرية، ليكتب وكيل محتوى يشبه "
+"علامتك."
+msgstr ""
+"— the business overview, audience, style and visual identity, so Wakeel "
+"writes content that sounds like your brand."
+
+msgid "أكمل الملف"
+msgstr "Complete profile"
+
+msgid "لم تُعدّ خطة"
+msgstr "The plan for"
+
+msgid "بعد. أعدّها الآن ليجهز المحتوى قبل بداية الشهر."
+msgstr ""
+"hasn't been prepared yet. Prepare it now so the content is ready before the "
+"month starts."
+
+msgid "أعدّ الخطة"
+msgstr "Prepare the plan"
+
+msgid "لا توجد خطة محتوى لهذا الشهر بعد"
+msgstr "No content plan for this month yet"
+
+#, python-format
+msgid ""
+"دع وكيل يدرس هوية %(name)s ويعدّ استراتيجية الشهر وكل المنشورات وتصاميمها "
+"خلال دقائق."
+msgstr ""
+"Let Wakeel study %(name)s's identity and prepare the month's strategy, every"
+" post and its design in minutes."
+
+msgid "أعدّ خطة الشهر"
+msgstr "Prepare this month's plan"
+
+#, python-format
+msgid "منشورات %(month_name)s"
+msgstr "%(month_name)s posts"
+
+msgid "معتمدة للنشر"
+msgstr "Approved to publish"
+
+msgid "تم نشرها"
+msgstr "Published"
+
+#, python-format
+msgid "لديك %(overdue)s منشور تجاوز موعد نشره ولم يُنشر بعد."
+msgstr ""
+"You have %(overdue)s posts past their publish time that haven't been "
+"published."
+
+msgid "عرض التقويم"
+msgstr "View calendar"
+
+msgid "المنشورات القادمة"
+msgstr "Upcoming posts"
+
+msgid "التقويم الكامل"
+msgstr "Full calendar"
+
+msgid "لا توجد منشورات قادمة"
+msgstr "No upcoming posts"
+
+msgid "أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات."
+msgstr "Prepare a content plan and Wakeel will fill your calendar with posts."
+
+msgid "لم تُعدّ أي خطة بعد."
+msgstr "No plan prepared yet."
+
+msgid "تعديل"
+msgstr "Edit"
+
+msgid "النبرة:"
+msgstr "Tone:"
+
+msgid "· اللغة:"
+msgstr "· Language:"
+
+#, python-format
+msgid "%(running_jobs)s مهمة قيد التنفيذ الآن"
+msgstr "%(running_jobs)s tasks running now"
+
+msgid "مدير التسويق الذكي لشركتك"
+msgstr "Your company's AI marketing manager"
+
+msgid "ابدأ الآن"
+msgstr "Get started"
+
+msgid "بديل ذكي لوكالات التسويق"
+msgstr "A smart alternative to marketing agencies"
+
+msgid "سلّم حسابات شركتك"
+msgstr "Hand your company's accounts"
+
+msgid "لـ"
+msgstr "to "
+
+msgid "يفهم علامتك"
+msgstr "that understands your brand"
+
+msgid ""
+"وكيل يضع استراتيجية المحتوى الشهرية، ويكتب المنشورات بلغة جمهورك، ويصمم "
+"الصور بهويتك البصرية، ويرتبها في تقويم جاهز للمراجعة والنشر على فيسبوك "
+"وإنستغرام وتيك توك."
+msgstr ""
+"Wakeel sets your monthly content strategy, writes posts in your audience's "
+"language, designs images in your visual identity, and lines them up in a "
+"calendar ready for review and publishing on Facebook, Instagram and TikTok."
+
+msgid "خطة المحتوى — الشهر القادم"
+msgstr "Content plan — next month"
+
+msgid "16 منشوراً جاهزاً"
+msgstr "16 posts ready"
+
+msgid "كل ما تقدمه وكالة التسويق، في منصة واحدة"
+msgstr "Everything a marketing agency does, in one platform"
+
+msgid "من الاستراتيجية إلى التصميم إلى تقويم النشر."
+msgstr "From strategy to design to the publishing calendar."
+
+msgid "أهداف ومحاور محتوى ومناسبات السوق، مبنية على نشاط شركتك وجمهورها."
+msgstr ""
+"Goals, content pillars and market occasions, built on your business and "
+"audience."
+
+msgid "كتابة المنشورات"
+msgstr "Post writing"
+
+msgid "نصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم وأفضل أوقات النشر."
+msgstr ""
+"Persuasive copy in Arabic or English, with hashtags and the best times to "
+"post."
+
+msgid "تصميم الصور"
+msgstr "Image design"
+
+msgid "قوالب احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة."
+msgstr ""
+"Professional templates in your colours, fonts and logo, sized for every "
+"platform."
+
+msgid "سيناريوهات الفيديو"
+msgstr "Video scripts"
+
+msgid "نصوص تصوير جاهزة للريلز وتيك توك: الافتتاحية والمشاهد والدعوة."
+msgstr ""
+"Ready-to-film scripts for Reels and TikTok: the hook, the scenes and the "
+"call to action."
+
+msgid "عرّفنا بشركتك"
+msgstr "Introduce your company"
+
+msgid "النشاط والجمهور والنبرة والهوية البصرية."
+msgstr "Business, audience, tone and visual identity."
+
+msgid "اطلب خطة الشهر"
+msgstr "Ask for the month's plan"
+
+msgid "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr "Wakeel prepares the strategy, every post and its design."
+
+msgid "راجع واعتمد"
+msgstr "Review and approve"
+
+msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
+msgstr "Change anything with a click, and approve posts for publishing."
+
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — your AI marketing manager"
+
+msgid "لا يوجد اتصال · وكيل"
+msgstr "No connection · Wakeel"
+
+msgid "لا يوجد اتصال بالإنترنت"
+msgstr "No internet connection"
+
+msgid "تعذّر الوصول إلى وكيل الآن. تحقّق من اتصالك، وستعود الصفحة كما كانت."
+msgstr ""
+"Wakeel can't be reached right now. Check your connection, and the page will "
+"come back as it was."
+
+msgid "إعادة المحاولة"
+msgstr "Try again"
+
+#, python-format
+msgid "— وكيل، مساحة عمل %(company)s"
+msgstr "— Wakeel, the %(company)s workspace"
+
+msgid "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك."
+msgstr "To stop emails from Wakeel, turn them off in your account settings."
+
+msgid "إشعارات هذا الجهاز"
+msgstr "Notifications on this device"
+
+msgid "لا توجد إشعارات"
+msgstr "No notifications"
+
+msgid "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات."
+msgstr "Alerts for ready plans, reviews and comments will appear here."
+
+msgid "الأحدث"
+msgstr "Newest"
+
+msgid "الأقدم"
+msgstr "Oldest"
+
+msgid ""
+"على الآيفون: ثبّت وكيل على الشاشة الرئيسية (مشاركة ← إضافة إلى الشاشة "
+"الرئيسية)، ثم فعّل الإشعارات من التطبيق."
+msgstr ""
+"On iPhone: install Wakeel on the Home Screen (Share → Add to Home Screen), "
+"then turn on notifications from the app."
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "This browser doesn't support notifications."
+
+msgid ""
+"مفعّلة: تصلك تنبيهات الخطط والمراجعات والتعليقات هنا حتى والتطبيق مغلق."
+msgstr ""
+"On: alerts for plans, reviews and comments reach you here, even when the app"
+" is closed."
+
+msgid "محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً."
+msgstr "Blocked in the browser settings; allow them there first."
+
+msgid "غير مفعّلة على هذا الجهاز."
+msgstr "Off on this device."
+
+msgid "تفعيل"
+msgstr "Turn on"
+
+msgid "أوقفت الإشعارات على هذا الجهاز"
+msgstr "Notifications turned off on this device"
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "You'll get notifications on this device"
+
+msgid "القيمة"
+msgstr "Value"
+
+#, python-format
+msgid "اعتماد %(name)s"
+msgstr "Approve %(name)s"
+
+#, python-format
+msgid "عرض %(name)s"
+msgstr "View %(name)s"
+
+#, python-format
+msgid "تعديل %(name)s"
+msgstr "Edit %(name)s"
+
+#, python-format
+msgid "تعليق %(name)s"
+msgstr "Suspend %(name)s"
+
+#, python-format
+msgid "تعليق «%(name)s»؟"
+msgstr "Suspend “%(name)s”?"
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"The company's team won't be able to work, and auto-publishing and the client"
+" link stop until you reactivate it. The data stays as it is."
+
+msgid "تنشيط"
+msgstr "Reactivate"
+
+#, python-format
+msgid "تنشيط %(name)s"
+msgstr "Reactivate %(name)s"
+
+msgid "تجديد الاشتراك"
+msgstr "Renew subscription"
+
+#, python-format
+msgid "تجديد %(name)s"
+msgstr "Renew %(name)s"
+
+#, python-format
+msgid "حذف %(name)s"
+msgstr "Delete %(name)s"
+
+#, python-format
+msgid "حذف «%(name)s» نهائياً؟"
+msgstr "Delete “%(name)s” permanently?"
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن "
+"ذلك. حسابات أعضائها تبقى."
+msgstr ""
+"The company, its plans, posts, images and all its data will be deleted, and "
+"this can't be undone. Its members' accounts remain."
+
+msgid "حذف نهائي"
+msgstr "Delete permanently"
+
+msgid "دخول كمدير المشترك"
+msgstr "Sign in as the subscriber's admin"
+
+#, python-format
+msgid "دخول كمدير %(name)s"
+msgstr "Sign in as %(name)s's admin"
+
+msgid "بدون انتهاء"
+msgstr "No end date"
+
+msgid "· منذ"
+msgstr "· since"
+
+msgid "الهاتف"
+msgstr "Phone"
+
+msgid "المدينة والدولة"
+msgstr "City and country"
+
+msgid "نوع الحساب"
+msgstr "Account type"
+
+msgid "أعضاء الفريق · المنشورات"
+msgstr "Team members · posts"
+
+msgid "الاستهلاك والتفاصيل"
+msgstr "Usage and details"
+
+msgid "اعتماد الحساب؟"
+msgstr "Approve the account?"
+
+msgid "سيُفعَّل حساب"
+msgstr "This will activate the account of"
+
+msgid "ويُبلَّغ مالكه بالبريد."
+msgstr "and email its owner."
+
+msgid "تجريبي"
+msgstr "Trial"
+
+msgid "حقيقي (مدفوع)"
+msgstr "Real (paid)"
+
+msgid "مدة الاشتراك"
+msgstr "Subscription length"
+
+msgid "تجديد"
+msgstr "Renew"
+
+msgid ""
+". تُضاف المدة إلى تاريخ الانتهاء الحالي إن لم يكن قد مضى، وإلا فمن اليوم."
+msgstr ""
+". The period is added to the current end date if it hasn't passed, otherwise"
+" from today."
+
+msgid "المدة"
+msgstr "Period"
+
+msgid "الدخول كمدير المشترك"
+msgstr "Sign in as the subscriber's admin"
+
+msgid "ستدخل مساحة عمل"
+msgstr "You'll enter the workspace of"
+
+msgid "بحساب مالكها ("
+msgstr "with its owner's account ("
+
+msgid "). ستعود إلى لوحة الإدارة من الشريط أعلى الصفحة."
+msgstr ""
+"). You'll get back to the admin console from the bar at the top of the page."
+
+msgid "كلمة مرور المشرف للتأكيد"
+msgstr "Admin password to confirm"
+
+msgid "دخول"
+msgstr "Sign in"
+
+msgid "بيانات النشاط"
+msgstr "Business details"
+
+msgid "الاشتراك معلّق"
+msgstr "Subscription suspended"
+
+msgid "انتهى الاشتراك منذ "
+msgstr "Subscription expired "
+
+msgid " يوم"
+msgstr " days ago"
+
+msgid "اشتراك نشط بدون تاريخ انتهاء"
+msgstr "Active subscription with no end date"
+
+msgid "ينتهي الاشتراك اليوم"
+msgstr "Subscription ends today"
+
+msgid "ينتهي الاشتراك خلال "
+msgstr "Subscription ends in "
+
+msgid "اشتراك نشط، باقٍ "
+msgstr "Active subscription, remaining "
+
+#, python-format
+msgid "%(name)s · لوحة النظام"
+msgstr "%(name)s · System console"
+
+#, python-format
+msgid "· %(industry)s · %(country)s · منذ %(created_at)s"
+msgstr "· %(industry)s · %(country)s · since %(created_at)s"
+
+msgid "الاعتماد"
+msgstr "Approval"
+
+msgid "تكلفة آخر 12 شهراً"
+msgstr "Cost over the last 12 months"
+
+msgid "رموز مُدخلة"
+msgstr "Input tokens"
+
+msgid "رموز مُخرجة"
+msgstr "Output tokens"
+
+msgid "الاستهلاك حسب الشهر"
+msgstr "Usage by month"
+
+msgid "الأعضاء"
+msgstr "Members"
+
+msgid "المنشورات:"
+msgstr "Posts:"
+
+msgid "لا يوجد"
+msgstr "None"
+
+msgid "الخطط:"
+msgstr "Plans:"
+
+#, python-format
+msgid "%(month)s (%(n)s منشوراً، %(get_status_display)s)"
+msgstr "%(month)s (%(n)s posts, %(get_status_display)s)"
+
+msgid "حسابات النشر:"
+msgstr "Publishing accounts:"
+
+msgid "غير مربوطة"
+msgstr "Not connected"
+
+msgid "مفعّل,متوقف"
+msgstr "on,off"
+
+#, python-format
+msgid "· النشر التلقائي: %(auto_publish)s"
+msgstr "· Auto-publishing: %(auto_publish)s"
+
+msgid "آخر المهام"
+msgstr "Latest tasks"
+
+msgid "كل المهام"
+msgstr "All tasks"
+
+msgid "مهام كل الشركات مع تفاصيلها التقنية"
+msgstr "Every company's tasks with their technical details"
+
+msgid "ابحث بالشركة أو الخطأ أو النموذج…"
+msgstr "Search by company, error or model…"
+
+msgid "بحث في المهام"
+msgstr "Search tasks"
+
+msgid "نوع المهمة"
+msgstr "Task type"
+
+msgid "كل الأنواع"
+msgstr "All types"
+
+msgid "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة"
+msgstr "Central control of subscribers, usage, cost and platform operations"
+
+msgid "لوحة التحكم الرئيسية"
+msgstr "Main dashboard"
+
+msgid ""
+"نظرة شاملة على الشركات المشتركة، واستهلاك الذكاء الاصطناعي وتكلفته، وصحة "
+"الخدمات."
+msgstr ""
+"An overview of subscribing companies, AI usage and cost, and service health."
+
+msgid "اشتراك نشط"
+msgstr "Active subscriptions"
+
+msgid "تكلفة هذا الشهر"
+msgstr "This month's cost"
+
+msgid "الذكاء الاصطناعي غير مفعّل (ينقص"
+msgstr "The AI isn't configured (missing"
+
+#, python-format
+msgid "، و%(pending)s مهمة تنتظر"
+msgstr ", and %(pending)s tasks are waiting"
+
+msgid "طلب تسجيل جديد بانتظار الموافقة."
+msgstr "new sign-up request(s) awaiting approval."
+
+msgid "مراجعة الطلبات"
+msgstr "Review requests"
+
+msgid "طلب اشتراك جديد بانتظار الاعتماد."
+msgstr "new subscription request(s) awaiting approval."
+
+msgid "اشتراك ينتهي خلال 7 أيام."
+msgstr "subscription(s) ending within 7 days."
+
+msgid "عرض الاشتراكات"
+msgstr "View subscriptions"
+
+msgid "شركة نشطة هذا الشهر"
+msgstr "Active companies this month"
+
+#, python-format
+msgid "%(new_companies)s جديدة هذا الشهر"
+msgstr "%(new_companies)s new this month"
+
+msgid "منشور أُنشئ هذا الشهر"
+msgstr "Posts created this month"
+
+#, python-format
+msgid "%(plans_month)s خطة محتوى"
+msgstr "%(plans_month)s content plans"
+
+msgid "منشور نُشر هذا الشهر"
+msgstr "Posts published this month"
+
+msgid "مهمة فشلت خلال 7 أيام"
+msgstr "Tasks failed in 7 days"
+
+#, python-format
+msgid "%(pending)s قيد الانتظار"
+msgstr "%(pending)s pending"
+
+msgid "تكلفة الذكاء الاصطناعي"
+msgstr "AI cost"
+
+msgid "آخر 12 شهراً"
+msgstr "Last 12 months"
+
+msgid "التفاصيل"
+msgstr "Details"
+
+msgid "تكلفة الذكاء الاصطناعي لكل شهر"
+msgstr "AI cost per month"
+
+msgid "هذا الشهر:"
+msgstr "This month:"
+
+msgid "اشتراكات جديدة"
+msgstr "New subscriptions"
+
+msgid "التسجيل خلال آخر 12 شهراً"
+msgstr "Sign-ups over the last 12 months"
+
+msgid "الاشتراكات الجديدة لكل شهر"
+msgstr "New subscriptions per month"
+
+msgid "حالة المنشورات"
+msgstr "Post status"
+
+msgid "كل الشركات"
+msgstr "All companies"
+
+msgid "أحدث الاشتراكات"
+msgstr "Latest subscriptions"
+
+msgid "إدارة المشتركين ومتابعة نشاطهم"
+msgstr "Manage subscribers and follow their activity"
+
+msgid "عرض الكل"
+msgstr "View all"
+
+msgid "الأعلى استهلاكاً هذا الشهر"
+msgstr "Top usage this month"
+
+msgid "حسب تكلفة الذكاء الاصطناعي"
+msgstr "By AI cost"
+
+#, python-format
+msgid "%(jobs)s مهمة · %(input)s رمز"
+msgstr "%(jobs)s tasks · %(input)s tokens"
+
+msgid "لا يوجد استهلاك هذا الشهر."
+msgstr "No usage this month."
+
+msgid "آخر الأخطاء"
+msgstr "Latest errors"
+
+msgid "خلال 7 أيام، مع السبب التقني"
+msgstr "In the last 7 days, with the technical cause"
+
+msgid "لا أخطاء خلال آخر 7 أيام."
+msgstr "No errors in the last 7 days."
+
+msgid "حالة الخدمات"
+msgstr "Service status"
+
+msgid "مباشرة"
+msgstr "Live"
+
+msgid "الذكاء الاصطناعي"
+msgstr "AI"
+
+msgid "العامل الخلفي"
+msgstr "Background worker"
+
+msgid "متوقف"
+msgstr "Stopped"
+
+msgid "غير مضبوط"
+msgstr "Not configured"
+
+msgid "النشر عبر Meta"
+msgstr "Publishing via Meta"
+
+msgid "مضبوط"
+msgstr "Configured"
+
+#, python-format
+msgid "%(jobs)s مهمة · cache hit %(cache_rate)s%%"
+msgstr "%(jobs)s tasks · cache hit %(cache_rate)s%%"
+
+msgid "النظام"
+msgstr "System"
+
+msgid "فشلت"
+msgstr "Failed"
+
+msgid "ما رآه المشترك:"
+msgstr "What the subscriber saw:"
+
+#, python-format
+msgid "%(display_name)s · %(created_at)s"
+msgstr "%(display_name)s · %(created_at)s"
+
+msgid "النموذج · التكلفة"
+msgstr "Model · cost"
+
+msgid "التفاصيل التقنية"
+msgstr "Technical details"
+
+msgid "12 شهراً"
+msgstr "12 months"
+
+#, python-format
+msgid "%(unpriced)s مهمة بلا سعر"
+msgstr "%(unpriced)s unpriced tasks"
+
+#, python-format
+msgid "%(jobs)s مهمة"
+msgstr "%(jobs)s tasks"
+
+msgid ""
+"حسابات جديدة بانتظار الموافقة. بعد التفعيل يضيف صاحب الحساب شركاته بنفسه."
+msgstr ""
+"New accounts awaiting approval. Once active, the account holder adds their "
+"companies themselves."
+
+#, python-format
+msgid "سجّل %(date_joined)s"
+msgstr "Signed up %(date_joined)s ago"
+
+#, python-format
+msgid "رفض طلب %(display_name)s؟"
+msgstr "Reject %(display_name)s's request?"
+
+#, python-format
+msgid "سيُحذف الحساب (%(email)s) نهائياً، ويمكنه التسجيل من جديد لاحقاً."
+msgstr ""
+"The account (%(email)s) will be deleted permanently; they can sign up again "
+"later."
+
+msgid "رفض وحذف"
+msgstr "Reject and delete"
+
+msgid "رفض"
+msgstr "Reject"
+
+msgid "لا توجد طلبات جديدة"
+msgstr "No new requests"
+
+msgid "ستظهر هنا الحسابات المسجلة حديثاً، ويصلك بريد عند كل طلب."
+msgstr ""
+"Newly registered accounts appear here, and you get an email for each "
+"request."
+
+msgid "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها"
+msgstr "Approve new subscribers, and renew, suspend or delete subscriptions"
+
+msgid "اشتراك جديد"
+msgstr "New subscription"
+
+msgid "ابحث بالاسم أو البريد أو المدينة…"
+msgstr "Search by name, email or city…"
+
+msgid "بحث في الاشتراكات"
+msgstr "Search subscriptions"
+
+msgid "حالة الاشتراك"
+msgstr "Subscription status"
+
+msgid "أدخل بيانات النشاط والاشتراك والمالك. يُعتمد فوراً."
+msgstr ""
+"Enter the business, subscription and owner details. It's approved "
+"immediately."
+
+msgid "حساب مالك النشاط"
+msgstr "Business owner's account"
+
+msgid "إنشاء الاشتراك"
+msgstr "Create subscription"
+
+msgid "الخدمات والإعدادات التي تعمل بها المنصة"
+msgstr "The services and settings the platform runs on"
+
+msgid "الخدمات"
+msgstr "Services"
+
+msgid "متصل"
+msgstr "Connected"
+
+msgid "ينقص"
+msgstr "Missing"
+
+msgid "إعداد الخطط، التصميم، النشر، والنشر المجدول"
+msgstr "Plan preparation, design, publishing and scheduled publishing"
+
+msgid "متوقف — شغّل"
+msgstr "Stopped — run"
+
+msgid "استعادة كلمة المرور والإشعارات"
+msgstr "Password reset and notifications"
+
+msgid "غير مضبوط (يُطبع في الطرفية)"
+msgstr "Not configured (printed to the console)"
+
+msgid "تطبيق Meta"
+msgstr "Meta app"
+
+msgid "النشر على فيسبوك وإنستغرام"
+msgstr "Publishing to Facebook and Instagram"
+
+msgid "و"
+msgstr "and"
+
+msgid "طابور المهام"
+msgstr "Task queue"
+
+msgid "أقدم مهمة منتظرة"
+msgstr "Oldest waiting task"
+
+#, python-format
+msgid "%(get_kind_display)s · منذ %(created_at)s"
+msgstr "%(get_kind_display)s · %(created_at)s ago"
+
+msgid "النسخ الاحتياطي"
+msgstr "Backups"
+
+msgid "يومياً ·"
+msgstr "Daily ·"
+
+msgid "آخر نسخة"
+msgstr "Last backup"
+
+#, python-format
+msgid "%(finished_at)s (منذ %(finished_at2)s)"
+msgstr "%(finished_at)s (%(finished_at2)s ago)"
+
+msgid "نجحت"
+msgstr "Succeeded"
+
+#, python-format
+msgid "فشلت: %(error)s"
+msgstr "Failed: %(error)s"
+
+msgid "النسخ المحفوظة"
+msgstr "Backups kept"
+
+#, python-format
+msgid "%(db_runs)s لقاعدة البيانات · %(media_runs)s للملفات"
+msgstr "%(db_runs)s of the database · %(media_runs)s of the files"
+
+msgid "المساحة المستخدمة"
+msgstr "Space used"
+
+#, python-format
+msgid "%(total_bytes)s (المساحة الحرة: %(free_bytes)s)"
+msgstr "%(total_bytes)s (free space: %(free_bytes)s)"
+
+msgid "لم تُنفَّذ أي نسخة بعد"
+msgstr "No backup has run yet"
+
+msgid "الإعدادات"
+msgstr "Settings"
+
+msgid "من"
+msgstr "From"
+
+msgid "؛ المفاتيح السرية لا تُعرض"
+msgstr "; secret keys aren't shown"
+
+msgid "مفعّل — أوقفه في الإنتاج"
+msgstr "On — turn it off in production"
+
+msgid "مزوّد الذكاء الاصطناعي"
+msgstr "AI provider"
+
+msgid "خارج الذروة (DeepSeek)"
+msgstr "Off-peak (DeepSeek)"
+
+msgid "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً"
+msgstr "AI usage across the platform over the last 12 months"
+
+#, python-format
+msgid "(دون %(unpriced)s مهمة بلا سعر)"
+msgstr "(excluding %(unpriced)s unpriced tasks)"
+
+msgid "رمز مُدخل"
+msgstr "input tokens"
+
+msgid "من المدخلات cache hit"
+msgstr "of inputs were cache hits"
+
+msgid "رمز مُخرج"
+msgstr "output tokens"
+
+msgid "التكلفة لكل شهر"
+msgstr "Cost per month"
+
+msgid "التسعير المستخدم"
+msgstr "Pricing used"
+
+msgid "لكل مليون رمز"
+msgstr "per million tokens"
+
+msgid "خارج الذروة"
+msgstr "Off-peak"
+
+msgid "الذروة"
+msgstr "Peak"
+
+msgid "مخرجات"
+msgstr "output"
+
+msgid "). الأسعار في"
+msgstr "). Prices in"
+
+msgid "، وتُحسب تكلفة كل مهمة لحظة تنفيذها."
+msgstr ", and each task's cost is calculated when it runs."
+
+msgid "أسعار ثابتة:"
+msgstr "Fixed prices:"
+
+msgid "لكل مليون رمز (مدخلات / مخرجات)."
+msgstr "per million tokens (input / output)."
+
+msgid "أسعار هذا النموذج غير معروفة. أضف"
+msgstr "This model's prices are unknown. Add"
+
+msgid "إلى"
+msgstr "to"
+
+msgid "حسب النموذج"
+msgstr "By model"
+
+msgid "حسب نوع المهمة"
+msgstr "By task type"
+
+msgid "حسب الشركة"
+msgstr "By company"
+
+msgid "اربط صفحة فيسبوك وحساب إنستغرام لينشر وكيل المنشورات المعتمدة مباشرة."
+msgstr ""
+"Connect a Facebook Page and an Instagram account so Wakeel publishes "
+"approved posts directly."
+
+msgid "تطبيق Meta غير مضبوط بعد."
+msgstr "The Meta app isn't configured yet."
+
+msgid "أنشئ تطبيقاً في"
+msgstr "Create an app on"
+
+msgid "، وأضف"
+msgstr ", add"
+
+msgid "، واجعل رابط إعادة التوجيه:"
+msgstr ", and set the redirect URI to:"
+
+msgid "ربط فيسبوك وإنستغرام غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله."
+msgstr ""
+"Facebook and Instagram connection isn't available for your account yet. "
+"Contact support to enable it."
+
+msgid "الحسابات المربوطة"
+msgstr "Connected accounts"
+
+#, python-format
+msgid "صفحة «%(name)s» · ربطها %(display_name)s"
+msgstr "Page “%(name)s” · connected by %(display_name)s"
+
+msgid "غير مربوط"
+msgstr "Not connected"
+
+msgid "فصل فيسبوك؟"
+msgstr "Disconnect Facebook?"
+
+msgid "لن ينشر وكيل على هذه الصفحة بعد الآن."
+msgstr "Wakeel will no longer publish to this Page."
+
+msgid "فصل"
+msgstr "Disconnect"
+
+msgid "يُربط تلقائياً مع صفحة فيسبوك إذا كان لها حساب إنستغرام احترافي."
+msgstr ""
+"Connected automatically with the Facebook Page if it has an Instagram "
+"professional account."
+
+msgid "فصل إنستغرام؟"
+msgstr "Disconnect Instagram?"
+
+msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
+msgstr "Wakeel will no longer publish to this account."
+
+msgid "يُنشر يدوياً: صوّر الفيديو وفق السيناريو ثم انشره من التطبيق."
+msgstr ""
+"Published by hand: film the video following the script, then post it from "
+"the app."
+
+msgid "إعادة الربط أو تغيير الصفحة"
+msgstr "Reconnect or change the Page"
+
+msgid "ربط فيسبوك وإنستغرام"
+msgstr "Connect Facebook and Instagram"
+
+msgid "النشر التلقائي في الموعد"
+msgstr "Auto-publish on schedule"
+
+msgid "عند تفعيله، ينشر وكيل كل منشور"
+msgstr "When it's on, Wakeel publishes every"
+
+msgid ""
+"(صورة أو قصة) في موعده المحدد على الحسابات المربوطة. المنشورات غير المعتمدة "
+"لا تُنشر أبداً."
+msgstr ""
+"post (image or story) at its scheduled time on the connected accounts. Posts"
+" that aren't approved are never published."
+
+msgid "ما يُنشر تلقائياً"
+msgstr "What's published automatically"
+
+msgid "التصاميم الثابتة والقصص على فيسبوك وإنستغرام، مع النص والوسوم."
+msgstr ""
+"Static designs and stories on Facebook and Instagram, with the text and "
+"hashtags."
+
+msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
+msgstr "Short videos are published by hand after filming."
+
+msgid ""
+"إذا فات موعد منشور بأكثر من 6 ساعات (مثلاً توقف الخادم) فلن يُنشر تلقائياً؛ "
+"انشره يدوياً من صفحته."
+msgstr ""
+"If a post's time passed by more than 6 hours (e.g. the server was down), it "
+"won't be published automatically; publish it by hand from its page."
+
+msgid "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد."
+msgstr "You can always publish right away from an approved post's page."
+
+msgid "اختر الصفحة"
+msgstr "Choose the Page"
+
+msgid "اختر صفحة فيسبوك"
+msgstr "Choose a Facebook Page"
+
+#, python-format
+msgid ""
+"حسابك يدير أكثر من صفحة. اختر الصفحة التي ينشر عليها وكيل لشركة %(name)s."
+msgstr ""
+"Your account manages more than one Page. Choose the Page Wakeel publishes to"
+" for %(name)s."
+
+msgid "بدون حساب إنستغرام"
+msgstr "No Instagram account"
+
+msgid "اختيار"
+msgstr "Choose"

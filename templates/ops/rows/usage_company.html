@@ -1,4 +1,4 @@
-{% load wakeel %}{% with c=r.company %}{% if part == 'company' %}<a href="{% url 'ops:company' c.pk %}" class="fw-bold">{{ c.name }}</a>
+{% load i18n %}{% load wakeel %}{% with c=r.company %}{% if part == 'company' %}<a href="{% url 'ops:company' c.pk %}" class="fw-bold">{{ c.name }}</a>
 {% elif part == 'jobs' %}{{ r.year.jobs }}
 {% elif part == 'input' %}<span dir="ltr">{{ r.year.input|thousands }}</span>
 {% elif part == 'cache' %}{{ r.year.cache_rate }}%
@@ -8,12 +8,12 @@
 <article class="wk-mcard">
     <div class="wk-mcard__head">
         <span class="wk-avatar" style="background: {{ c.primary_color }}">{{ c.initials }}</span>
-        <div class="flex-grow-1 overflow-hidden"><a href="{% url 'ops:company' c.pk %}" class="wk-mcard__title">{{ c.name }}</a><div class="wk-mcard__sub">{{ r.year.jobs }} مهمة · cache hit {{ r.year.cache_rate }}%</div></div>
-        <div class="ms-auto text-end"><div class="wk-mcard__label">12 شهراً</div><div class="wk-mcard__big" dir="ltr">${{ r.year.cost|money }}</div></div>
+        <div class="flex-grow-1 overflow-hidden"><a href="{% url 'ops:company' c.pk %}" class="wk-mcard__title">{{ c.name }}</a><div class="wk-mcard__sub">{% blocktranslate trimmed with jobs=r.year.jobs cache_rate=r.year.cache_rate %}{{ jobs }} مهمة · cache hit {{ cache_rate }}%{% endblocktranslate %}</div></div>
+        <div class="ms-auto text-end"><div class="wk-mcard__label">{% translate "12 شهراً" %}</div><div class="wk-mcard__big" dir="ltr">${{ r.year.cost|money }}</div></div>
     </div>
     <div class="wk-mcard__grid">
-        <div><div class="wk-mcard__label">تكلفة هذا الشهر</div><div class="wk-mcard__val" dir="ltr">${{ r.month.cost|money }}</div></div>
-        <div><div class="wk-mcard__label">رموز مُدخلة</div><div class="wk-mcard__val" dir="ltr">{{ r.year.input|thousands }}</div></div>
+        <div><div class="wk-mcard__label">{% translate "تكلفة هذا الشهر" %}</div><div class="wk-mcard__val" dir="ltr">${{ r.month.cost|money }}</div></div>
+        <div><div class="wk-mcard__label">{% translate "رموز مُدخلة" %}</div><div class="wk-mcard__val" dir="ltr">{{ r.year.input|thousands }}</div></div>
     </div>
 </article>
 {% endif %}{% endwith %}

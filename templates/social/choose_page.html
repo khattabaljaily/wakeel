@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-{% block title %}اختر الصفحة{% endblock %}
-{% block page_title %}اختر صفحة فيسبوك{% endblock %}
-{% block subtitle %}<div class="subtitle">حسابك يدير أكثر من صفحة. اختر الصفحة التي ينشر عليها وكيل لشركة {{ company.name }}.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "اختر الصفحة" %}{% endblock %}
+{% block page_title %}{% translate "اختر صفحة فيسبوك" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% blocktranslate trimmed with name=company.name %}حسابك يدير أكثر من صفحة. اختر الصفحة التي ينشر عليها وكيل لشركة {{ name }}.{% endblocktranslate %}</div>{% endblock %}
 {% block content %}
 <div class="wk-card" style="max-width: 620px">
     <div class="list-group list-group-flush">
@@ -10,8 +11,8 @@
             <input type="hidden" name="page" value="{{ p.id }}">
             <i class="bi bi-facebook fs-4" style="color:#1877f2"></i>
             <div class="flex-grow-1 overflow-hidden"><div class="fw-semibold text-truncate">{{ p.name }}</div>
-                <div class="small-muted">{% if p.instagram.id %}<i class="bi bi-instagram"></i> @{{ p.instagram.username }}{% else %}بدون حساب إنستغرام{% endif %}</div></div>
-            <button class="btn btn-sm btn-primary">اختيار</button>
+                <div class="small-muted">{% if p.instagram.id %}<i class="bi bi-instagram"></i> @{{ p.instagram.username }}{% else %}{% translate "بدون حساب إنستغرام" %}{% endif %}</div></div>
+            <button class="btn btn-sm btn-primary">{% translate "اختيار" %}</button>
         </form>
         {% endfor %}
     </div>

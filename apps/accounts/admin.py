@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.utils.translation import gettext_lazy as _
 
 from .models import User
 
 
 @admin.register(User)
 class WakeelUserAdmin(UserAdmin):
-    fieldsets = UserAdmin.fieldsets + (('بيانات إضافية', {'fields': ('phone',)}),)
+    fieldsets = UserAdmin.fieldsets + ((_('بيانات إضافية'), {'fields': ('phone',)}),)
     list_display = ('username', 'email', 'first_name', 'is_staff', 'date_joined')
 
     def get_deleted_objects(self, objs, request):
@@ -16,6 +17,6 @@ class WakeelUserAdmin(UserAdmin):
         to_delete, model_count, perms_needed, protected = super().get_deleted_objects(objs, request)
         for user in objs:
             for company in owned_companies(user):
-                to_delete.append(f'شركة: {company.name} (مع خططها ومنشوراتها وصورها وكل بياناتها)')
-                model_count['الشركات'] = model_count.get('الشركات', 0) + 1
+                to_delete.append(_('شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)') % {'name': company.name})
+                model_count[_('الشركات')] = model_count.get(_('الشركات'), 0) + 1
         return to_delete, model_count, perms_needed, protected

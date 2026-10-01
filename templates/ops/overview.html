@@ -1,79 +1,80 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load wakeel %}
-{% block title %}لوحة مشرف النظام{% endblock %}
-{% block page_title %}لوحة مشرف النظام{% endblock %}
-{% block subtitle %}<div class="subtitle">تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة</div>{% endblock %}
+{% block title %}{% translate "لوحة مشرف النظام" %}{% endblock %}
+{% block page_title %}{% translate "لوحة مشرف النظام" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة" %}</div>{% endblock %}
 {% block content %}
 <div class="adm-hero">
     <div class="adm-hero__inner">
         <div class="adm-hero__icon"><i class="bi bi-shield-lock"></i></div>
         <div>
-            <div class="adm-hero__kicker">لوحة التحكم الرئيسية</div>
-            <h2 class="adm-hero__title">مشرف النظام</h2>
-            <p class="adm-hero__desc">نظرة شاملة على الشركات المشتركة، واستهلاك الذكاء الاصطناعي وتكلفته، وصحة الخدمات.</p>
+            <div class="adm-hero__kicker">{% translate "لوحة التحكم الرئيسية" %}</div>
+            <h2 class="adm-hero__title">{% translate "مشرف النظام" %}</h2>
+            <p class="adm-hero__desc">{% translate "نظرة شاملة على الشركات المشتركة، واستهلاك الذكاء الاصطناعي وتكلفته، وصحة الخدمات." %}</p>
         </div>
         <div class="adm-hero__kpis">
-            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num">{{ counts.active_subscriptions }}</span><span class="adm-hero__kpi-lbl">اشتراك نشط</span></div>
+            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num">{{ counts.active_subscriptions }}</span><span class="adm-hero__kpi-lbl">{% translate "اشتراك نشط" %}</span></div>
             <div class="adm-hero__kpi-divider"></div>
-            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num">{{ counts.pending_approval }}</span><span class="adm-hero__kpi-lbl">بانتظار الاعتماد</span></div>
+            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num">{{ counts.pending_approval }}</span><span class="adm-hero__kpi-lbl">{% translate "بانتظار الاعتماد" %}</span></div>
             <div class="adm-hero__kpi-divider"></div>
-            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num adm-hero__kpi-num--gold" dir="ltr">${{ this_month.cost|money }}</span><span class="adm-hero__kpi-lbl">تكلفة هذا الشهر</span></div>
+            <div class="adm-hero__kpi"><span class="adm-hero__kpi-num adm-hero__kpi-num--gold" dir="ltr">${{ this_month.cost|money }}</span><span class="adm-hero__kpi-lbl">{% translate "تكلفة هذا الشهر" %}</span></div>
         </div>
     </div>
 </div>
 
 {% if not system.ai_enabled or not system.worker_alive %}
 <div class="alert alert-danger d-flex align-items-center gap-2"><i class="bi bi-exclamation-octagon"></i>
-    {% if not system.ai_enabled %}الذكاء الاصطناعي غير مفعّل (ينقص <code>{{ system.ai_key_name }}</code>).{% endif %}
-    {% if not system.worker_alive %}العامل الخلفي متوقف{% if counts.pending %}، و{{ counts.pending }} مهمة تنتظر{% endif %}.{% endif %}
-    <a href="{% url 'ops:system' %}" class="alert-link ms-auto">حالة النظام</a></div>
+    {% if not system.ai_enabled %}{% translate "الذكاء الاصطناعي غير مفعّل (ينقص" %} <code>{{ system.ai_key_name }}</code>).{% endif %}
+    {% if not system.worker_alive %}{% translate "العامل الخلفي متوقف" %}{% if counts.pending %}{% blocktranslate trimmed with pending=counts.pending %}، و{{ pending }} مهمة تنتظر{% endblocktranslate %}{% endif %}.{% endif %}
+    <a href="{% url 'ops:system' %}" class="alert-link ms-auto">{% translate "حالة النظام" %}</a></div>
 {% endif %}
 
 {% if ops_pending_signups %}
 <div class="alert alert-warning d-flex align-items-center gap-2"><i class="bi bi-person-plus"></i>
-    <span><strong>{{ ops_pending_signups }}</strong> طلب تسجيل جديد بانتظار الموافقة.</span>
-    <a href="{% url 'ops:signups' %}" class="alert-link ms-auto">مراجعة الطلبات</a></div>
+    <span><strong>{{ ops_pending_signups }}</strong> {% translate "طلب تسجيل جديد بانتظار الموافقة." %}</span>
+    <a href="{% url 'ops:signups' %}" class="alert-link ms-auto">{% translate "مراجعة الطلبات" %}</a></div>
 {% endif %}
 {% if counts.pending_approval %}
 <div class="alert alert-warning d-flex align-items-center gap-2"><i class="bi bi-hourglass-split"></i>
-    <span><strong>{{ counts.pending_approval }}</strong> طلب اشتراك جديد بانتظار الاعتماد.</span>
-    <a href="{% url 'ops:subscriptions' %}?status=pending" class="alert-link ms-auto">مراجعة الطلبات</a></div>
+    <span><strong>{{ counts.pending_approval }}</strong> {% translate "طلب اشتراك جديد بانتظار الاعتماد." %}</span>
+    <a href="{% url 'ops:subscriptions' %}?status=pending" class="alert-link ms-auto">{% translate "مراجعة الطلبات" %}</a></div>
 {% endif %}
 {% if counts.expiring %}
 <div class="alert alert-info d-flex align-items-center gap-2"><i class="bi bi-calendar-event"></i>
-    <span><strong>{{ counts.expiring }}</strong> اشتراك ينتهي خلال 7 أيام.</span>
-    <a href="{% url 'ops:subscriptions' %}?status=active" class="alert-link ms-auto">عرض الاشتراكات</a></div>
+    <span><strong>{{ counts.expiring }}</strong> {% translate "اشتراك ينتهي خلال 7 أيام." %}</span>
+    <a href="{% url 'ops:subscriptions' %}?status=active" class="alert-link ms-auto">{% translate "عرض الاشتراكات" %}</a></div>
 {% endif %}
 
 <div class="adm-kpis">
     <a href="{% url 'ops:subscriptions' %}?status=active" class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-buildings"></i></div>
-        <div><div class="adm-kpi__num">{{ counts.active_companies }}</div><div class="adm-kpi__lbl">شركة نشطة هذا الشهر</div><div class="adm-kpi__sub">{{ counts.new_companies }} جديدة هذا الشهر</div></div></a>
+        <div><div class="adm-kpi__num">{{ counts.active_companies }}</div><div class="adm-kpi__lbl">{% translate "شركة نشطة هذا الشهر" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with new_companies=counts.new_companies %}{{ new_companies }} جديدة هذا الشهر{% endblocktranslate %}</div></div></a>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-collection"></i></div>
-        <div><div class="adm-kpi__num">{{ counts.posts_month }}</div><div class="adm-kpi__lbl">منشور أُنشئ هذا الشهر</div><div class="adm-kpi__sub">{{ counts.plans_month }} خطة محتوى</div></div></div>
+        <div><div class="adm-kpi__num">{{ counts.posts_month }}</div><div class="adm-kpi__lbl">{% translate "منشور أُنشئ هذا الشهر" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with plans_month=counts.plans_month %}{{ plans_month }} خطة محتوى{% endblocktranslate %}</div></div></div>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-published"><i class="bi bi-send-check"></i></div>
-        <div><div class="adm-kpi__num">{{ counts.published_month }}</div><div class="adm-kpi__lbl">منشور نُشر هذا الشهر</div></div></div>
+        <div><div class="adm-kpi__num">{{ counts.published_month }}</div><div class="adm-kpi__lbl">{% translate "منشور نُشر هذا الشهر" %}</div></div></div>
     <a href="{% url 'ops:jobs' %}?status=failed" class="wk-card adm-kpi {% if counts.failed_week %}adm-kpi--alert{% endif %}"><div class="adm-kpi__icon {% if counts.failed_week %}tone-danger{% else %}tone-published{% endif %}"><i class="bi bi-bug"></i></div>
-        <div><div class="adm-kpi__num">{{ counts.failed_week }}</div><div class="adm-kpi__lbl">مهمة فشلت خلال 7 أيام</div>{% if counts.pending %}<div class="adm-kpi__sub">{{ counts.pending }} قيد الانتظار</div>{% endif %}</div></a>
+        <div><div class="adm-kpi__num">{{ counts.failed_week }}</div><div class="adm-kpi__lbl">{% translate "مهمة فشلت خلال 7 أيام" %}</div>{% if counts.pending %}<div class="adm-kpi__sub">{% blocktranslate trimmed with pending=counts.pending %}{{ pending }} قيد الانتظار{% endblocktranslate %}</div>{% endif %}</div></a>
 </div>
 
 <div class="adm-grid-3">
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-gold"><i class="bi bi-currency-dollar"></i></span>
-            <div><h2>تكلفة الذكاء الاصطناعي</h2><div class="adm-panel__sub">آخر 12 شهراً</div></div></div>
-            <a href="{% url 'ops:usage' %}" class="small fw-semibold">التفاصيل</a></div>
+            <div><h2>{% translate "تكلفة الذكاء الاصطناعي" %}</h2><div class="adm-panel__sub">{% translate "آخر 12 شهراً" %}</div></div></div>
+            <a href="{% url 'ops:usage' %}" class="small fw-semibold">{% translate "التفاصيل" %}</a></div>
         <div class="wk-card-body">
-            {% include "ops/_columns.html" with series=cost_series money=True label="تكلفة الذكاء الاصطناعي لكل شهر" %}
-            <div class="adm-chart-foot"><span>هذا الشهر: <strong class="text-dark" dir="ltr">${{ this_month.cost|money }}</strong></span><span>cache hit: <strong class="text-dark">{{ this_month.cache_rate }}%</strong></span></div>
+            {% include "ops/_columns.html" with series=cost_series money=True label=_("تكلفة الذكاء الاصطناعي لكل شهر") %}
+            <div class="adm-chart-foot"><span>{% translate "هذا الشهر:" %} <strong class="text-dark" dir="ltr">${{ this_month.cost|money }}</strong></span><span>cache hit: <strong class="text-dark">{{ this_month.cache_rate }}%</strong></span></div>
         </div>
     </div>
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-primary"><i class="bi bi-person-plus"></i></span>
-            <div><h2>اشتراكات جديدة</h2><div class="adm-panel__sub">التسجيل خلال آخر 12 شهراً</div></div></div></div>
-        <div class="wk-card-body">{% include "ops/_columns.html" with series=signup_series money=False label="الاشتراكات الجديدة لكل شهر" %}</div>
+            <div><h2>{% translate "اشتراكات جديدة" %}</h2><div class="adm-panel__sub">{% translate "التسجيل خلال آخر 12 شهراً" %}</div></div></div></div>
+        <div class="wk-card-body">{% include "ops/_columns.html" with series=signup_series money=False label=_("الاشتراكات الجديدة لكل شهر") %}</div>
     </div>
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-approved"><i class="bi bi-pie-chart"></i></span>
-            <div><h2>حالة المنشورات</h2><div class="adm-panel__sub">كل الشركات</div></div></div></div>
+            <div><h2>{% translate "حالة المنشورات" %}</h2><div class="adm-panel__sub">{% translate "كل الشركات" %}</div></div></div></div>
         <div class="wk-card-body">
             {% for s in post_status %}
             <div class="adm-share"><span>{{ s.label }}</span><div class="adm-share__track"><div class="adm-share__fill {{ s.key }}" style="width: {{ s.pct }}%"></div></div><span class="adm-share__n">{{ s.n }}</span></div>
@@ -85,22 +86,22 @@
 <div class="adm-grid-2">
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-primary"><i class="bi bi-buildings"></i></span>
-            <div><h2>أحدث الاشتراكات</h2><div class="adm-panel__sub">إدارة المشتركين ومتابعة نشاطهم</div></div></div>
-            <a href="{% url 'ops:subscriptions' %}" class="small fw-semibold">عرض الكل</a></div>
+            <div><h2>{% translate "أحدث الاشتراكات" %}</h2><div class="adm-panel__sub">{% translate "إدارة المشتركين ومتابعة نشاطهم" %}</div></div></div>
+            <a href="{% url 'ops:subscriptions' %}" class="small fw-semibold">{% translate "عرض الكل" %}</a></div>
         {% include "_datatable.html" with table=latest_table rows=latest_rows %}
     </div>
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-gold"><i class="bi bi-graph-up-arrow"></i></span>
-            <div><h2>الأعلى استهلاكاً هذا الشهر</h2><div class="adm-panel__sub">حسب تكلفة الذكاء الاصطناعي</div></div></div></div>
+            <div><h2>{% translate "الأعلى استهلاكاً هذا الشهر" %}</h2><div class="adm-panel__sub">{% translate "حسب تكلفة الذكاء الاصطناعي" %}</div></div></div></div>
         <div class="list-group list-group-flush">
             {% for r in top %}
             <a href="{% url 'ops:company' r.company.pk %}" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3">
                 <span class="text-muted small" style="width:1rem">{{ forloop.counter }}</span>
                 <span class="flex-grow-1 overflow-hidden"><span class="d-block fw-semibold text-truncate">{{ r.company.name }}</span>
-                    <span class="small-muted">{{ r.month.jobs }} مهمة · {{ r.month.input|thousands }} رمز</span></span>
+                    <span class="small-muted">{% blocktranslate trimmed with jobs=r.month.jobs input=r.month.input|thousands %}{{ jobs }} مهمة · {{ input }} رمز{% endblocktranslate %}</span></span>
                 <strong dir="ltr">${{ r.month.cost|money }}</strong>
             </a>
-            {% empty %}<div class="p-4 text-center small-muted">لا يوجد استهلاك هذا الشهر.</div>{% endfor %}
+            {% empty %}<div class="p-4 text-center small-muted">{% translate "لا يوجد استهلاك هذا الشهر." %}</div>{% endfor %}
         </div>
     </div>
 </div>
@@ -108,26 +109,26 @@
 <div class="adm-grid-2">
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-danger"><i class="bi bi-bug"></i></span>
-            <div><h2>آخر الأخطاء</h2><div class="adm-panel__sub">خلال 7 أيام، مع السبب التقني</div></div></div>
-            <a href="{% url 'ops:jobs' %}?status=failed" class="small fw-semibold">الكل</a></div>
+            <div><h2>{% translate "آخر الأخطاء" %}</h2><div class="adm-panel__sub">{% translate "خلال 7 أيام، مع السبب التقني" %}</div></div></div>
+            <a href="{% url 'ops:jobs' %}?status=failed" class="small fw-semibold">{% translate "الكل" %}</a></div>
         <div class="list-group list-group-flush">
             {% for job in failures %}
             <div class="list-group-item py-3">
                 <div class="d-flex justify-content-between gap-2 small"><span><strong>{{ job.get_kind_display }}</strong> · <a href="{% url 'ops:company' job.company_id %}">{{ job.company.name }}</a></span><span class="text-muted text-nowrap">{{ job.created_at|date:"j/n · H:i" }}</span></div>
                 <div class="small text-danger mt-1" dir="auto" style="overflow-wrap:anywhere">{{ job.error_detail|default:job.error|truncatechars:180 }}</div>
             </div>
-            {% empty %}<div class="p-4 text-center small-muted"><i class="bi bi-check-circle text-success"></i> لا أخطاء خلال آخر 7 أيام.</div>{% endfor %}
+            {% empty %}<div class="p-4 text-center small-muted"><i class="bi bi-check-circle text-success"></i> {% translate "لا أخطاء خلال آخر 7 أيام." %}</div>{% endfor %}
         </div>
     </div>
     <div class="wk-card">
         <div class="wk-card-head"><div class="d-flex align-items-center gap-2"><span class="adm-panel__head-icon tone-approved"><i class="bi bi-hdd-stack"></i></span>
-            <div><h2>حالة الخدمات</h2><div class="adm-panel__sub">مباشرة</div></div></div>
-            <a href="{% url 'ops:system' %}" class="small fw-semibold">التفاصيل</a></div>
+            <div><h2>{% translate "حالة الخدمات" %}</h2><div class="adm-panel__sub">{% translate "مباشرة" %}</div></div></div>
+            <a href="{% url 'ops:system' %}" class="small fw-semibold">{% translate "التفاصيل" %}</a></div>
         <div class="wk-card-body py-2">
-            <div class="adm-status"><span class="wk-dot {% if not system.ai_enabled %}off{% endif %}"></span> الذكاء الاصطناعي<span class="adm-status__val" dir="ltr">{{ system.model }}</span></div>
-            <div class="adm-status"><span class="wk-dot {% if not system.worker_alive %}off{% endif %}"></span> العامل الخلفي<span class="adm-status__val">{% if system.worker_alive %}يعمل{% else %}متوقف{% endif %}</span></div>
-            <div class="adm-status"><span class="wk-dot {% if not system.email %}off{% endif %}"></span> البريد الإلكتروني<span class="adm-status__val">{% if system.email %}SMTP{% else %}غير مضبوط{% endif %}</span></div>
-            <div class="adm-status"><span class="wk-dot {% if not system.meta %}off{% endif %}"></span> النشر عبر Meta<span class="adm-status__val">{% if system.meta %}مضبوط{% else %}غير مضبوط{% endif %}</span></div>
+            <div class="adm-status"><span class="wk-dot {% if not system.ai_enabled %}off{% endif %}"></span> {% translate "الذكاء الاصطناعي" %}<span class="adm-status__val" dir="ltr">{{ system.model }}</span></div>
+            <div class="adm-status"><span class="wk-dot {% if not system.worker_alive %}off{% endif %}"></span> {% translate "العامل الخلفي" %}<span class="adm-status__val">{% if system.worker_alive %}{% translate "يعمل" %}{% else %}{% translate "متوقف" %}{% endif %}</span></div>
+            <div class="adm-status"><span class="wk-dot {% if not system.email %}off{% endif %}"></span> {% translate "البريد الإلكتروني" %}<span class="adm-status__val">{% if system.email %}SMTP{% else %}{% translate "غير مضبوط" %}{% endif %}</span></div>
+            <div class="adm-status"><span class="wk-dot {% if not system.meta %}off{% endif %}"></span> {% translate "النشر عبر Meta" %}<span class="adm-status__val">{% if system.meta %}{% translate "مضبوط" %}{% else %}{% translate "غير مضبوط" %}{% endif %}</span></div>
         </div>
     </div>
 </div>

@@ -5,7 +5,10 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.urls import reverse
-from django.utils import timezone
+from django.utils import timezone, translation
+from django.utils.translation import gettext_lazy as _
+
+from apps.core.language import of_user
 
 from .models import User
 
@@ -13,20 +16,20 @@ logger = logging.getLogger(__name__)
 
 
 def signed_up(user):
-    admins = list(User.objects.filter(is_superuser=True, is_active=True).exclude(email='').values_list('email', flat=True))
-    if admins:
-        _send(admins, f'طلب تسجيل جديد في وكيل: {user.display_name}', 'accounts/emails/new_signup.txt', {
-            'user': user, 'link': settings.SITE_URL + reverse('ops:signups'),
-        })
+    for admin in User.objects.filter(is_superuser=True, is_active=True).exclude(email=''):
+        with translation.override(of_user(admin)):
+            _send([admin.email], _('طلب تسجيل جديد في وكيل: %(name)s') % {'name': user.display_name},
+                  'accounts/emails/new_signup.txt', {'user': user, 'link': settings.SITE_URL + reverse('ops:signups')})
 
 
 def approve(user):
     user.is_approved, user.approved_at = True, timezone.now()
     user.save(update_fields=['is_approved', 'approved_at'])
     if user.email:
-        _send([user.email], 'تم تفعيل حسابك في وكيل', 'accounts/emails/approved.txt', {
-            'user': user, 'link': settings.SITE_URL + reverse('accounts:login'),
-        })
+        with translation.override(of_user(user)):
+            _send([user.email], _('تم تفعيل حسابك في وكيل'), 'accounts/emails/approved.txt', {
+                'user': user, 'link': settings.SITE_URL + reverse('accounts:login'),
+            })
 
 
 def _send(to, subject, template, context):

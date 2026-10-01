@@ -10,11 +10,11 @@
  */
 (function () {
     var AR = {
-        emptyTable: 'لا توجد بيانات', zeroRecords: 'لا توجد نتائج مطابقة',
-        info: 'عرض _START_ إلى _END_ من أصل _TOTAL_', infoEmpty: 'لا توجد نتائج', infoFiltered: '(من أصل _MAX_)',
-        processing: '<span class="spinner-border spinner-border-sm"></span> جارٍ التحميل…', loadingRecords: 'جارٍ التحميل…',
-        paginate: { first: 'الأول', last: 'الأخير', next: '<i class="bi bi-chevron-left"></i>', previous: '<i class="bi bi-chevron-right"></i>' },
-        aria: { paginate: { next: 'التالي', previous: 'السابق' } }
+        emptyTable: gettext('لا توجد بيانات'), zeroRecords: gettext('لا توجد نتائج مطابقة'),
+        info: gettext('عرض _START_ إلى _END_ من أصل _TOTAL_'), infoEmpty: gettext('لا توجد نتائج'), infoFiltered: gettext('(من أصل _MAX_)'),
+        processing: gettext('<span class="spinner-border spinner-border-sm"></span> جارٍ التحميل…'), loadingRecords: gettext('جارٍ التحميل…'),
+        paginate: { first: gettext('الأول'), last: gettext('الأخير'), next: '<i class="bi bi-chevron-left"></i>', previous: '<i class="bi bi-chevron-right"></i>' },
+        aria: { paginate: { next: gettext('التالي'), previous: gettext('السابق') } }
     };
     Wakeel.tables = {};
 

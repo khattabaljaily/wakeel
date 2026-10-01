@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Company
 
@@ -16,8 +17,8 @@ class Notification(models.Model):
     read_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
-        verbose_name = 'إشعار'
-        verbose_name_plural = 'الإشعارات'
+        verbose_name = _('إشعار')
+        verbose_name_plural = _('الإشعارات')
         ordering = ['-created_at']
         indexes = [models.Index(fields=['user', 'read_at'])]
 

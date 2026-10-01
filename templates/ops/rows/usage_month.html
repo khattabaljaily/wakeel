@@ -1,20 +1,20 @@
-{% load wakeel %}{% if part == 'month' %}<span class="fw-bold text-nowrap">{{ r.label }}</span>
+{% load i18n %}{% load wakeel %}{% if part == 'month' %}<span class="fw-bold text-nowrap">{{ r.label }}</span>
 {% elif part == 'jobs' %}{{ r.jobs }}
 {% elif part == 'input' %}<span dir="ltr">{{ r.input|thousands }}</span>
 {% elif part == 'cache' %}{{ r.cache_rate }}%
 {% elif part == 'output' %}<span dir="ltr">{{ r.output|thousands }}</span>
-{% elif part == 'cost' %}<span dir="ltr" class="fw-semibold">${{ r.cost|money }}</span>{% if r.unpriced %}<span class="small-muted" title="{{ r.unpriced }} مهمة بلا سعر"> +?</span>{% endif %}
+{% elif part == 'cost' %}<span dir="ltr" class="fw-semibold">${{ r.cost|money }}</span>{% if r.unpriced %}<span class="small-muted" title="{% blocktranslate trimmed with unpriced=r.unpriced %}{{ unpriced }} مهمة بلا سعر{% endblocktranslate %}"> +?</span>{% endif %}
 {% elif part == 'card' %}
 <article class="wk-mcard">
     <div class="wk-mcard__head">
         <span class="wk-mcard__icon tone-primary"><i class="bi bi-calendar3"></i></span>
-        <div class="flex-grow-1"><div class="wk-mcard__title">{{ r.label }}</div><div class="wk-mcard__sub">{{ r.jobs }} مهمة</div></div>
-        <div class="ms-auto text-end"><div class="wk-mcard__label">التكلفة</div><div class="wk-mcard__big" dir="ltr">${{ r.cost|money }}</div></div>
+        <div class="flex-grow-1"><div class="wk-mcard__title">{{ r.label }}</div><div class="wk-mcard__sub">{% blocktranslate trimmed with jobs=r.jobs %}{{ jobs }} مهمة{% endblocktranslate %}</div></div>
+        <div class="ms-auto text-end"><div class="wk-mcard__label">{% translate "التكلفة" %}</div><div class="wk-mcard__big" dir="ltr">${{ r.cost|money }}</div></div>
     </div>
     <div class="wk-mcard__grid wk-mcard__grid--3">
-        <div><div class="wk-mcard__label">مُدخلة</div><div class="wk-mcard__val" dir="ltr">{{ r.input|thousands }}</div></div>
+        <div><div class="wk-mcard__label">{% translate "مُدخلة" %}</div><div class="wk-mcard__val" dir="ltr">{{ r.input|thousands }}</div></div>
         <div><div class="wk-mcard__label">cache hit</div><div class="wk-mcard__val">{{ r.cache_rate }}%</div></div>
-        <div><div class="wk-mcard__label">مُخرجة</div><div class="wk-mcard__val" dir="ltr">{{ r.output|thousands }}</div></div>
+        <div><div class="wk-mcard__label">{% translate "مُخرجة" %}</div><div class="wk-mcard__val" dir="ltr">{{ r.output|thousands }}</div></div>
     </div>
 </article>
 {% endif %}

@@ -1,23 +1,24 @@
 {% extends "base.html" %}
-{% block title %}حذف الحساب{% endblock %}
-{% block page_title %}حذف الحساب{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "حذف الحساب" %}{% endblock %}
+{% block page_title %}{% translate "حذف الحساب" %}{% endblock %}
 {% block content %}
 <div class="wk-card" style="max-width: 600px; border-color: #fecdca"><div class="wk-card-body">
-    <h2 class="h5 text-danger"><i class="bi bi-exclamation-octagon"></i> هذا الإجراء نهائي ولا يمكن التراجع عنه</h2>
-    <p class="text-muted">سيُحذف حسابك ({{ user.email }}) وتُزال عضويتك من كل الشركات.</p>
+    <h2 class="h5 text-danger"><i class="bi bi-exclamation-octagon"></i> {% translate "هذا الإجراء نهائي ولا يمكن التراجع عنه" %}</h2>
+    <p class="text-muted">{% blocktranslate trimmed with email=user.email %}سيُحذف حسابك ({{ email }}) وتُزال عضويتك من كل الشركات.{% endblocktranslate %}</p>
     {% if owned %}
     <div class="alert alert-danger">
-        <strong>ستُحذف أيضاً الشركات التي تملكها، بكل خططها ومنشوراتها وصورها وأعضاء فريقها:</strong>
-        <ul class="mb-0 mt-2">{% for c in owned %}<li>{{ c.name }} ({{ c.memberships.count }} عضو)</li>{% endfor %}</ul>
+        <strong>{% translate "ستُحذف أيضاً الشركات التي تملكها، بكل خططها ومنشوراتها وصورها وأعضاء فريقها:" %}</strong>
+        <ul class="mb-0 mt-2">{% for c in owned %}<li>{% blocktranslate trimmed with name=c.name count=c.memberships.count %}{{ name }} ({{ count }} عضو){% endblocktranslate %}</li>{% endfor %}</ul>
     </div>
     {% endif %}
     <form method="post">{% csrf_token %}
-        <label class="form-label" for="pw">أدخل كلمة المرور للتأكيد</label>
+        <label class="form-label" for="pw">{% translate "أدخل كلمة المرور للتأكيد" %}</label>
         <input type="password" name="password" id="pw" class="form-control {% if error %}is-invalid{% endif %}" required autocomplete="current-password">
         {% if error %}<div class="invalid-feedback d-block">{{ error }}</div>{% endif %}
         <div class="d-flex gap-2 mt-3">
-            <button class="btn btn-danger" data-confirm-title="حذف حسابك نهائياً؟" data-confirm="{% if owned %}ستُحذف معه {{ owned|length }} شركة بكل بياناتها. {% endif %}لا يمكن التراجع عن ذلك." data-confirm-ok="حذف حسابي"><i class="bi bi-trash"></i> حذف حسابي نهائياً</button>
-            <a href="{% url 'core:dashboard' %}" class="btn btn-light">إلغاء</a>
+            <button class="btn btn-danger" data-confirm-title="{% translate "حذف حسابك نهائياً؟" %}" data-confirm="{% if owned %}{% blocktranslate trimmed with owned=owned|length %}ستُحذف معه {{ owned }} شركة بكل بياناتها.{% endblocktranslate %} {% endif %}{% translate "لا يمكن التراجع عن ذلك." %}" data-confirm-ok="{% translate "حذف حسابي" %}"><i class="bi bi-trash"></i> {% translate "حذف حسابي نهائياً" %}</button>
+            <a href="{% url 'core:dashboard' %}" class="btn btn-light">{% translate "إلغاء" %}</a>
         </div>
     </form>
 </div></div>

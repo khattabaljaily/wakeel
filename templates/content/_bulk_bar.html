@@ -1,7 +1,7 @@
-{% if membership.can_edit %}
+{% load i18n %}{% if membership.can_edit %}
 <div class="ms-auto d-flex gap-2 align-items-center" data-bulk>
-    <label class="small-muted d-flex align-items-center gap-1"><input type="checkbox" class="form-check-input m-0" data-bulk-all> تحديد الكل</label>
-    {% if membership.can_manage %}<button type="button" class="btn btn-sm btn-primary" data-bulk-action="approve" disabled><i class="bi bi-patch-check"></i> اعتماد <span class="n"></span></button>{% endif %}
-    <button type="button" class="btn btn-sm btn-outline-danger" data-bulk-action="delete" disabled><i class="bi bi-trash"></i> حذف <span class="n"></span></button>
+    <label class="small-muted d-flex align-items-center gap-1"><input type="checkbox" class="form-check-input m-0" data-bulk-all> {% translate "تحديد الكل" %}</label>
+    {% if membership.can_manage %}<button type="button" class="btn btn-sm btn-primary" data-bulk-action="approve" disabled><i class="bi bi-patch-check"></i> {% translate "اعتماد" %} <span class="n"></span></button>{% endif %}
+    <button type="button" class="btn btn-sm btn-outline-danger" data-bulk-action="delete" disabled><i class="bi bi-trash"></i> {% translate "حذف" %} <span class="n"></span></button>
 </div>
 {% endif %}

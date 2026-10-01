@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-{% block title %}طلبات التسجيل{% endblock %}
-{% block page_title %}طلبات التسجيل{% endblock %}
-{% block subtitle %}<div class="subtitle">حسابات جديدة بانتظار الموافقة. بعد التفعيل يضيف صاحب الحساب شركاته بنفسه.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "طلبات التسجيل" %}{% endblock %}
+{% block page_title %}{% translate "طلبات التسجيل" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "حسابات جديدة بانتظار الموافقة. بعد التفعيل يضيف صاحب الحساب شركاته بنفسه." %}</div>{% endblock %}
 {% block content %}
 {% if pending %}
 <div class="wk-card">
@@ -12,15 +13,15 @@
             <div class="wk-signup__who">
                 <div class="fw-semibold text-dark">{{ u.display_name }}</div>
                 <div class="small-muted"><span dir="ltr">{{ u.email }}</span>{% if u.phone %} · <span dir="ltr">{{ u.phone }}</span>{% endif %}</div>
-                <div class="small-muted"><i class="bi bi-clock"></i> سجّل {{ u.date_joined|timesince }}</div>
+                <div class="small-muted"><i class="bi bi-clock"></i> {% blocktranslate trimmed with date_joined=u.date_joined|timesince %}سجّل {{ date_joined }}{% endblocktranslate %}</div>
             </div>
             <div class="wk-signup__actions">
                 <form method="post" action="{% url 'ops:signup_reject' u.pk %}">{% csrf_token %}
-                    <button class="btn btn-light text-danger w-100" data-confirm-title="رفض طلب {{ u.display_name }}؟"
-                            data-confirm="سيُحذف الحساب ({{ u.email }}) نهائياً، ويمكنه التسجيل من جديد لاحقاً." data-confirm-ok="رفض وحذف"><i class="bi bi-x-lg"></i> رفض</button>
+                    <button class="btn btn-light text-danger w-100" data-confirm-title="{% blocktranslate trimmed with display_name=u.display_name %}رفض طلب {{ display_name }}؟{% endblocktranslate %}"
+                            data-confirm="{% blocktranslate trimmed with email=u.email %}سيُحذف الحساب ({{ email }}) نهائياً، ويمكنه التسجيل من جديد لاحقاً.{% endblocktranslate %}" data-confirm-ok="{% translate "رفض وحذف" %}"><i class="bi bi-x-lg"></i> {% translate "رفض" %}</button>
                 </form>
                 <form method="post" action="{% url 'ops:signup_approve' u.pk %}">{% csrf_token %}
-                    <button class="btn btn-primary w-100"><i class="bi bi-check-lg"></i> تفعيل</button>
+                    <button class="btn btn-primary w-100"><i class="bi bi-check-lg"></i> {% translate "تفعيل" %}</button>
                 </form>
             </div>
         </div>
@@ -28,6 +29,6 @@
     </div>
 </div>
 {% else %}
-<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-person-check"></i></div><h3>لا توجد طلبات جديدة</h3><p>ستظهر هنا الحسابات المسجلة حديثاً، ويصلك بريد عند كل طلب.</p></div></div>
+<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-person-check"></i></div><h3>{% translate "لا توجد طلبات جديدة" %}</h3><p>{% translate "ستظهر هنا الحسابات المسجلة حديثاً، ويصلك بريد عند كل طلب." %}</p></div></div>
 {% endif %}
 {% endblock %}

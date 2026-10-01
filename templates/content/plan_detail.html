@@ -1,24 +1,25 @@
 {% extends "base.html" %}
-{% block title %}{{ plan.title|default:"خطة المحتوى" }}{% endblock %}
-{% block page_title %}{{ plan.title|default:"خطة المحتوى" }}{% endblock %}
-{% block subtitle %}<div class="subtitle"><i class="bi bi-calendar3"></i> {{ month_label }} · {{ plan.posts_per_week }} منشورات أسبوعياً · <span class="wk-platforms">{% for p in plan.platforms %}<i class="bi bi-{{ p }}"></i>{% endfor %}</span></div>{% endblock %}
+{% load i18n %}
+{% block title %}{{ plan.title|default:_("خطة المحتوى") }}{% endblock %}
+{% block page_title %}{{ plan.title|default:_("خطة المحتوى") }}{% endblock %}
+{% block subtitle %}<div class="subtitle"><i class="bi bi-calendar3"></i> {% blocktranslate trimmed with month_label=month_label posts_per_week=plan.posts_per_week %}{{ month_label }} · {{ posts_per_week }} منشورات أسبوعياً ·{% endblocktranslate %} <span class="wk-platforms">{% for p in plan.platforms %}<i class="bi bi-{{ p }}"></i>{% endfor %}</span></div>{% endblock %}
 {% block actions %}
 {% if plan.status == 'ready' %}
-<a href="{% url 'content:calendar' %}?month={{ plan.month|date:'Y-m' }}" class="btn btn-light"><i class="bi bi-calendar3"></i> في التقويم</a>
+<a href="{% url 'content:calendar' %}?month={{ plan.month|date:'Y-m' }}" class="btn btn-light"><i class="bi bi-calendar3"></i> {% translate "في التقويم" %}</a>
 <div class="dropdown">
     <button class="btn btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button>
     <div class="dropdown-menu dropdown-menu-end">
-        <a class="dropdown-item" href="{% url 'content:plan_captions' plan.pk %}"><i class="bi bi-file-text"></i> تنزيل نصوص المنشورات</a>
+        <a class="dropdown-item" href="{% url 'content:plan_captions' plan.pk %}"><i class="bi bi-file-text"></i> {% translate "تنزيل نصوص المنشورات" %}</a>
         {% if membership.can_edit %}
-        <button class="dropdown-item" id="renderAll"><i class="bi bi-brush"></i> إعادة تصميم كل الصور</button>
+        <button class="dropdown-item" id="renderAll"><i class="bi bi-brush"></i> {% translate "إعادة تصميم كل الصور" %}</button>
         <form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}
-            <button class="dropdown-item" data-confirm-title="إعادة إعداد الخطة؟" data-confirm="سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك." data-confirm-ok="أعد الإعداد" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> إعادة إعداد الخطة</button>
+            <button class="dropdown-item" data-confirm-title="{% translate "إعادة إعداد الخطة؟" %}" data-confirm="{% translate "سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك." %}" data-confirm-ok="{% translate "أعد الإعداد" %}" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> {% translate "إعادة إعداد الخطة" %}</button>
         </form>
         {% endif %}
         {% if membership.can_manage %}
         <div class="dropdown-divider"></div>
         <form method="post" action="{% url 'content:plan_delete' plan.pk %}">{% csrf_token %}
-            <button class="dropdown-item text-danger" data-confirm-title="حذف الخطة؟" data-confirm="ستُحذف «{{ plan.title|default:month_label }}» مع {{ posts|length }} منشوراً وتصاميمها نهائياً، ولا يمكن التراجع عن ذلك." data-confirm-ok="حذف الخطة"><i class="bi bi-trash"></i> حذف الخطة</button>
+            <button class="dropdown-item text-danger" data-confirm-title="{% translate "حذف الخطة؟" %}" data-confirm="{% blocktranslate trimmed with title=plan.title|default:month_label posts=posts|length %}ستُحذف «{{ title }}» مع {{ posts }} منشوراً وتصاميمها نهائياً، ولا يمكن التراجع عن ذلك.{% endblocktranslate %}" data-confirm-ok="{% translate "حذف الخطة" %}"><i class="bi bi-trash"></i> {% translate "حذف الخطة" %}</button>
         </form>
         {% endif %}
     </div>
@@ -30,33 +31,32 @@
 {% if plan.status == 'generating' %}
 <div class="wk-card"><div class="wk-generating">
     <div class="wk-orb"><i class="bi bi-stars"></i></div>
-    <h2 class="h4">وكيل يعمل على خطة {{ month_label }}</h2>
-    <p class="text-muted mb-0" id="jobMessage">{{ job.message|default:"في انتظار بدء المهمة…" }}</p>
+    <h2 class="h4">{% blocktranslate trimmed with month_label=month_label %}وكيل يعمل على خطة {{ month_label }}{% endblocktranslate %}</h2>
+    <p class="text-muted mb-0" id="jobMessage">{{ job.message|default:_("في انتظار بدء المهمة…") }}</p>
     <div class="wk-progress"><span id="jobBar" style="width: {{ job.progress|default:3 }}%"></span></div>
-    <div class="small-muted">يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية.</div>
+    <div class="small-muted">{% translate "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية." %}</div>
     <div class="alert alert-warning text-start mt-4 mx-auto {% if worker_alive %}d-none{% endif %}" style="max-width: 560px" id="workerDown">
         {% if user.is_superuser %}
-        <i class="bi bi-exclamation-triangle"></i> <strong>العامل الخلفي متوقف</strong>، لذلك لم تبدأ المهمة.
-        شغّل الخادم في وضع التطوير (<code>manage.py runserver</code>) ليعمل معه تلقائياً، أو شغّل <code>manage.py run_worker</code>.
+        <i class="bi bi-exclamation-triangle"></i> <strong>{% translate "العامل الخلفي متوقف" %}</strong>{% translate "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير (" %}<code>manage.py runserver</code>{% translate ") ليعمل معه تلقائياً، أو شغّل" %} <code>manage.py run_worker</code>.
         {% else %}
-        <i class="bi bi-hourglass"></i> تأخر بدء إعداد الخطة أكثر من المعتاد، وأُبلغ فريق الدعم. ستبدأ تلقائياً فور عودة الخدمة، ولا حاجة لإعادة الطلب.
+        <i class="bi bi-hourglass"></i> {% translate "تأخر بدء إعداد الخطة أكثر من المعتاد، وأُبلغ فريق الدعم. ستبدأ تلقائياً فور عودة الخدمة، ولا حاجة لإعادة الطلب." %}
         {% endif %}
     </div>
     {% if membership.can_edit and job %}
-    <button type="button" class="btn btn-light mt-3" id="cancelJob" data-confirm-title="إيقاف إعداد الخطة؟"
-            data-confirm="سيتوقف وكيل عن إعداد هذه الخطة. يمكنك إعادة المحاولة أو حذفها بعد ذلك." data-confirm-ok="إيقاف"><i class="bi bi-stop-circle"></i> إيقاف الإعداد</button>
+    <button type="button" class="btn btn-light mt-3" id="cancelJob" data-confirm-title="{% translate "إيقاف إعداد الخطة؟" %}"
+            data-confirm="{% translate "سيتوقف وكيل عن إعداد هذه الخطة. يمكنك إعادة المحاولة أو حذفها بعد ذلك." %}" data-confirm-ok="{% translate "إيقاف" %}"><i class="bi bi-stop-circle"></i> {% translate "إيقاف الإعداد" %}</button>
     {% endif %}
 </div></div>
 
 {% elif plan.status == 'failed' %}
 <div class="wk-card"><div class="wk-empty">
     <div class="icon" style="background:#fee4e2;color:#b42318"><i class="bi bi-exclamation-triangle"></i></div>
-    <h3>تعذّر إعداد الخطة</h3>
-    <p>{{ plan.error|default:"حدث خطأ غير متوقع." }}</p>
+    <h3>{% translate "تعذّر إعداد الخطة" %}</h3>
+    <p>{{ plan.error|default:_("حدث خطأ غير متوقع.") }}</p>
     <div class="d-flex gap-2 justify-content-center">
-        {% if membership.can_edit %}<form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}<button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> حاول مرة أخرى</button></form>{% endif %}
+        {% if membership.can_edit %}<form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}<button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> {% translate "حاول مرة أخرى" %}</button></form>{% endif %}
         {% if membership.can_manage %}<form method="post" action="{% url 'content:plan_delete' plan.pk %}">{% csrf_token %}
-            <button class="btn btn-light text-danger" data-confirm-title="حذف الخطة؟" data-confirm="ستُحذف هذه الخطة نهائياً." data-confirm-ok="حذف الخطة"><i class="bi bi-trash"></i> حذف الخطة</button>
+            <button class="btn btn-light text-danger" data-confirm-title="{% translate "حذف الخطة؟" %}" data-confirm="{% translate "ستُحذف هذه الخطة نهائياً." %}" data-confirm-ok="{% translate "حذف الخطة" %}"><i class="bi bi-trash"></i> {% translate "حذف الخطة" %}</button>
         </form>{% endif %}
     </div>
 </div></div>
@@ -65,19 +65,19 @@
 {% if render_job %}
 <div class="alert alert-info d-flex align-items-center gap-3" id="renderBanner">
     <span class="spinner-border spinner-border-sm"></span>
-    <span id="renderMsg">{{ render_job.message|default:"جارٍ تصميم الصور…" }}</span>
+    <span id="renderMsg">{{ render_job.message|default:_("جارٍ تصميم الصور…") }}</span>
 </div>
 {% endif %}
 
 <div class="row g-4 mb-4">
     <div class="col-xl-8">
         <div class="wk-card h-100"><div class="wk-card-body">
-            <h2 class="wk-section-title"><i class="bi bi-bullseye text-primary"></i> الاستراتيجية</h2>
+            <h2 class="wk-section-title"><i class="bi bi-bullseye text-primary"></i> {% translate "الاستراتيجية" %}</h2>
             <p style="line-height: 2">{{ plan.summary }}</p>
             {% if plan.goals %}
             <div class="d-flex flex-wrap gap-2 mb-4">{% for g in plan.goals %}<span class="wk-goal"><i class="bi bi-check2 text-success"></i> {{ g }}</span>{% endfor %}</div>
             {% endif %}
-            <h3 class="h6 mb-3">محاور المحتوى</h3>
+            <h3 class="h6 mb-3">{% translate "محاور المحتوى" %}</h3>
             <div class="row g-3">
                 {% for p in plan.pillars %}
                 <div class="col-md-6"><div class="wk-pillar">
@@ -91,13 +91,13 @@
     </div>
     <div class="col-xl-4">
         <div class="wk-card h-100"><div class="wk-card-body">
-            <h2 class="wk-section-title"><i class="bi bi-calendar-event text-warning"></i> مناسبات الشهر</h2>
+            <h2 class="wk-section-title"><i class="bi bi-calendar-event text-warning"></i> {% translate "مناسبات الشهر" %}</h2>
             {% for d in plan.key_dates %}
             <div class="wk-keydate"><div class="d">{{ d.date|slice:"8:10" }}<small>{{ month_name }}</small></div><div><div class="fw-semibold">{{ d.name }}</div><div class="small-muted">{{ d.idea }}</div></div></div>
             {% empty %}
-            <p class="small-muted mb-0">لا توجد مناسبات خاصة في هذا الشهر.</p>
+            <p class="small-muted mb-0">{% translate "لا توجد مناسبات خاصة في هذا الشهر." %}</p>
             {% endfor %}
-            {% if plan.brief %}<hr><div class="small"><strong>توجيهاتك:</strong> <span class="text-muted">{{ plan.brief }}</span></div>{% endif %}
+            {% if plan.brief %}<hr><div class="small"><strong>{% translate "توجيهاتك:" %}</strong> <span class="text-muted">{{ plan.brief }}</span></div>{% endif %}
         </div></div>
     </div>
 </div>
@@ -106,35 +106,35 @@
 <div class="wk-card mb-4" id="share"><div class="wk-card-body d-flex align-items-center gap-3 flex-wrap">
     <span class="wk-stat__icon tone-primary" style="width:44px;height:44px;font-size:1.1rem"><i class="bi bi-person-check"></i></span>
     <div class="flex-grow-1" style="min-width: 220px">
-        <strong>موافقة العميل</strong>
-        <div class="small-muted">{% if share_url %}أرسل هذا الرابط للعميل ليعتمد المنشورات أو يطلب تعديلها دون حساب في وكيل.{% else %}شارك الخطة مع عميلك برابط خاص ليعتمد المنشورات أو يطلب تعديلها دون الحاجة لحساب.{% endif %}</div>
+        <strong>{% translate "موافقة العميل" %}</strong>
+        <div class="small-muted">{% if share_url %}{% translate "أرسل هذا الرابط للعميل ليعتمد المنشورات أو يطلب تعديلها دون حساب في وكيل." %}{% else %}{% translate "شارك الخطة مع عميلك برابط خاص ليعتمد المنشورات أو يطلب تعديلها دون الحاجة لحساب." %}{% endif %}</div>
     </div>
     {% if share_url %}
     <div class="input-group" style="max-width: 460px">
-        <input type="text" class="form-control form-control-sm" id="shareUrl" value="{{ share_url }}" readonly dir="ltr" aria-label="رابط العميل">
-        <button type="button" class="btn btn-sm btn-soft" data-copy-target="#shareUrl"><i class="bi bi-clipboard"></i> نسخ</button>
+        <input type="text" class="form-control form-control-sm" id="shareUrl" value="{{ share_url }}" readonly dir="ltr" aria-label="{% translate "رابط العميل" %}">
+        <button type="button" class="btn btn-sm btn-soft" data-copy-target="#shareUrl"><i class="bi bi-clipboard"></i> {% translate "نسخ" %}</button>
     </div>
     <div class="dropdown">
-        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown" aria-label="خيارات الرابط"><i class="bi bi-three-dots"></i></button>
+        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown" aria-label="{% translate "خيارات الرابط" %}"><i class="bi bi-three-dots"></i></button>
         <div class="dropdown-menu dropdown-menu-end">
-            <a class="dropdown-item" href="{{ share_url }}" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-left"></i> فتح كما يراه العميل</a>
+            <a class="dropdown-item" href="{{ share_url }}" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-left"></i> {% translate "فتح كما يراه العميل" %}</a>
             <form method="post" action="{% url 'content:plan_share' plan.pk %}">{% csrf_token %}<input type="hidden" name="action" value="new">
-                <button class="dropdown-item" data-confirm-title="إنشاء رابط جديد؟" data-confirm="سيتوقف الرابط الحالي عن العمل، وتحتاج لإرسال الرابط الجديد للعميل." data-confirm-ok="رابط جديد" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> رابط جديد</button></form>
+                <button class="dropdown-item" data-confirm-title="{% translate "إنشاء رابط جديد؟" %}" data-confirm="{% translate "سيتوقف الرابط الحالي عن العمل، وتحتاج لإرسال الرابط الجديد للعميل." %}" data-confirm-ok="{% translate "رابط جديد" %}" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> {% translate "رابط جديد" %}</button></form>
             <form method="post" action="{% url 'content:plan_share' plan.pk %}">{% csrf_token %}<input type="hidden" name="action" value="off">
-                <button class="dropdown-item text-danger"><i class="bi bi-slash-circle"></i> إيقاف الرابط</button></form>
+                <button class="dropdown-item text-danger"><i class="bi bi-slash-circle"></i> {% translate "إيقاف الرابط" %}</button></form>
         </div>
     </div>
     {% else %}
     <form method="post" action="{% url 'content:plan_share' plan.pk %}">{% csrf_token %}<input type="hidden" name="action" value="on">
-        <button class="btn btn-sm btn-primary"><i class="bi bi-link-45deg"></i> إنشاء رابط للعميل</button></form>
+        <button class="btn btn-sm btn-primary"><i class="bi bi-link-45deg"></i> {% translate "إنشاء رابط للعميل" %}</button></form>
     {% endif %}
 </div></div>
 {% endif %}
 
 <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
-    <h2 class="h5 mb-0">المنشورات <span class="text-muted fw-normal">({{ posts|length }})</span></h2>
+    <h2 class="h5 mb-0">{% translate "المنشورات" %} <span class="text-muted fw-normal">({{ posts|length }})</span></h2>
     {% if membership.can_manage and review_ids %}
-    <button type="button" class="btn btn-sm btn-primary" id="approveAll" data-ids="{{ review_ids|join:',' }}"><i class="bi bi-patch-check"></i> اعتماد كل ما بانتظار المراجعة ({{ review_ids|length }})</button>
+    <button type="button" class="btn btn-sm btn-primary" id="approveAll" data-ids="{{ review_ids|join:',' }}"><i class="bi bi-patch-check"></i> {% blocktranslate trimmed with review_ids=review_ids|length %}اعتماد كل ما بانتظار المراجعة ({{ review_ids }}){% endblocktranslate %}</button>
     {% endif %}
     {% include "content/_bulk_bar.html" %}
 </div>
@@ -149,7 +149,7 @@
 (function () {
     {% if plan.status == 'generating' and job %}
     Wakeel.pollJob({{ job.pk }}, function (job) {
-        document.getElementById('jobMessage').textContent = job.message || 'في انتظار بدء المهمة…';
+        document.getElementById('jobMessage').textContent = job.message || '{{ _("في انتظار بدء المهمة…")|escapejs }}';
         document.getElementById('jobBar').style.width = Math.max(3, job.progress) + '%';
         document.getElementById('workerDown').classList.toggle('d-none', job.worker_alive || job.status !== 'pending');
     }).then(function () { location.reload(); }, function () { location.reload(); });
@@ -163,8 +163,8 @@
     function watchRender(id) {
         var banner = document.getElementById('renderBanner');
         Wakeel.pollJob(id, function (job) {
-            if (banner) document.getElementById('renderMsg').textContent = job.message || 'جارٍ تصميم الصور…';
-        }).then(function () { location.reload(); }, function (job) { Wakeel.toast(job.error || 'تعذّر تصميم الصور', 'error'); });
+            if (banner) document.getElementById('renderMsg').textContent = job.message || '{{ _("جارٍ تصميم الصور…")|escapejs }}';
+        }).then(function () { location.reload(); }, function (job) { Wakeel.toast(job.error || '{{ _("تعذّر تصميم الصور")|escapejs }}', 'error'); });
     }
     {% if render_job %}watchRender({{ render_job.pk }});{% endif %}
 
@@ -172,12 +172,12 @@
     if (approveAll) approveAll.addEventListener('click', function () {
         var ids = approveAll.dataset.ids.split(',');
         Wakeel.confirm({
-            title: 'اعتماد ' + ids.length + ' منشوراً؟', tone: 'primary', icon: 'bi-patch-check', okText: 'اعتماد',
-            message: 'ستصبح كل المنشورات التي بانتظار المراجعة في هذه الخطة معتمدة وجاهزة للنشر.',
+            title: '{{ _("اعتماد ")|escapejs }}' + ids.length + '{{ _(" منشوراً؟")|escapejs }}', tone: 'primary', icon: 'bi-patch-check', okText: '{{ _("اعتماد")|escapejs }}',
+            message: '{{ _("ستصبح كل المنشورات التي بانتظار المراجعة في هذه الخطة معتمدة وجاهزة للنشر.")|escapejs }}',
         }).then(function (ok) {
             if (ok === null) return;
             return Wakeel.api('/api/posts/bulk-status/', 'POST', { ids: ids, status: 'approved' }).then(function (r) {
-                Wakeel.toast('تم اعتماد ' + r.updated + ' منشوراً');
+                Wakeel.toast('{{ _("تم اعتماد ")|escapejs }}' + r.updated + '{{ _(" منشوراً")|escapejs }}');
                 setTimeout(function () { location.reload(); }, 700);
             });
         }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
@@ -186,7 +186,7 @@
     var renderAll = document.getElementById('renderAll');
     if (renderAll) renderAll.addEventListener('click', function () {
         Wakeel.api('{% url "api:plan_render" plan.pk %}', 'POST', {}).then(function (r) {
-            Wakeel.toast('بدأ تصميم الصور…');
+            Wakeel.toast('{{ _("بدأ تصميم الصور…")|escapejs }}');
             watchRender(r.job);
         }).catch(function (e) { Wakeel.toast(Wakeel.errorText(e), 'error'); });
     });

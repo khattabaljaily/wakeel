@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-01 05:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "حدث خطأ. حاول مرة أخرى."
+msgstr "Something went wrong. Please try again."
+
+msgid "تم النسخ"
+msgstr "Copied"
+
+msgid "هل أنت متأكد؟"
+msgstr "Are you sure?"
+
+msgid "حذف"
+msgstr "Delete"
+
+msgid "تأكيد"
+msgstr "Confirm"
+
+msgid "للتأكيد، اكتب <strong></strong>"
+msgstr "To confirm, type <strong></strong>"
+
+#, javascript-format
+msgid "حذف %s منشوراً؟"
+msgstr "Delete %s posts?"
+
+msgid "ستُحذف المنشورات المحددة وتصاميمها نهائياً، ولا يمكن التراجع عن ذلك."
+msgstr ""
+"The selected posts and their designs will be deleted permanently. This can't"
+" be undone."
+
+msgid "حذف المنشورات"
+msgstr "Delete posts"
+
+#, javascript-format
+msgid "تم حذف %s منشوراً"
+msgstr "%s posts deleted"
+
+#, javascript-format
+msgid "تم اعتماد %s منشوراً"
+msgstr "%s posts approved"
+
+msgid ""
+"على الآيفون، ثبّت التطبيق على الشاشة الرئيسية أولاً ثم فعّل الإشعارات منه."
+msgstr ""
+"On iPhone, install the app on the Home Screen first, then turn on "
+"notifications from it."
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "This browser doesn't support notifications."
+
+msgid "لم يُسمح بالإشعارات. يمكنك تفعيلها من إعدادات المتصفح."
+msgstr ""
+"Notifications weren't allowed. You can turn them on in the browser settings."
+
+msgid "فعّل الإشعارات"
+msgstr "Turn on notifications"
+
+msgid "ليصلك جديد الخطط والمراجعات على هاتفك."
+msgstr "Get new plans and reviews on your phone."
+
+msgid "تفعيل"
+msgstr "Turn on"
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "You'll get notifications on this device"
+
+msgid "ثبّت وكيل على هاتفك"
+msgstr "Install Wakeel on your phone"
+
+msgid "افتحه كتطبيق بضغطة واحدة، وتصلك إشعاراته."
+msgstr "Open it as an app in one tap, and get its notifications."
+
+msgid "تثبيت"
+msgstr "Install"
+
+msgid "ثبّت وكيل على الآيفون"
+msgstr "Install Wakeel on iPhone"
+
+msgid "اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية»."
+msgstr "Tap Share, then “Add to Home Screen”."
+
+msgid "لا توجد بيانات"
+msgstr "No data"
+
+msgid "لا توجد نتائج مطابقة"
+msgstr "No matching results"
+
+msgid "عرض _START_ إلى _END_ من أصل _TOTAL_"
+msgstr "Showing _START_ to _END_ of _TOTAL_"
+
+msgid "لا توجد نتائج"
+msgstr "No results"
+
+msgid "(من أصل _MAX_)"
+msgstr "(out of _MAX_)"
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ التحميل…"
+msgstr "<span class=\"spinner-border spinner-border-sm\"></span> Loading…"
+
+msgid "جارٍ التحميل…"
+msgstr "Loading…"
+
+msgid "الأول"
+msgstr "First"
+
+msgid "الأخير"
+msgstr "Last"
+
+msgid "التالي"
+msgstr "Next"
+
+msgid "السابق"
+msgstr "Previous"

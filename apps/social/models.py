@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Company
 
@@ -8,8 +9,8 @@ class SocialAccount(models.Model):
     """A publishing destination connected through Meta: a Facebook Page or the Instagram account linked to it."""
 
     class Platform(models.TextChoices):
-        FACEBOOK = 'facebook', 'فيسبوك'
-        INSTAGRAM = 'instagram', 'إنستغرام'
+        FACEBOOK = 'facebook', _('فيسبوك')
+        INSTAGRAM = 'instagram', _('إنستغرام')
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='social_accounts')
     platform = models.CharField(max_length=10, choices=Platform.choices)
@@ -22,8 +23,8 @@ class SocialAccount(models.Model):
     connected_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'حساب تواصل'
-        verbose_name_plural = 'حسابات التواصل'
+        verbose_name = _('حساب تواصل')
+        verbose_name_plural = _('حسابات التواصل')
         constraints = [models.UniqueConstraint(fields=['company', 'platform'], name='one_account_per_platform')]
 
     def __str__(self):

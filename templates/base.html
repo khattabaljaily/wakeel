@@ -1,10 +1,10 @@
-{% load static cache_bust wakeel %}<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+{% load static cache_bust wakeel i18n %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %} · وكيل</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <title>{% block title %}{% endblock %} {% translate "· وكيل" %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap{% if LANGUAGE_BIDI %}.rtl{% endif %}.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
     <link rel="stylesheet" href="{% static_v 'css/app.css' %}">
@@ -15,16 +15,16 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="وكيل">
+    <meta name="apple-mobile-web-app-title" content="{% translate "وكيل" %}">
     {% block extra_head %}{% endblock %}
 </head>
 <body class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% if impersonating %}wk-impersonating{% endif %} {% block body_class %}{% endblock %}">
 {% if impersonating %}
 <div class="wk-impersonation" role="status">
     <i class="bi bi-person-badge"></i>
-    <span>أنت داخل حساب <strong>{{ company.name|default:user.email }}</strong> بصفتك مشرف النظام.</span>
+    <span>{% translate "أنت داخل حساب" %} <strong>{{ company.name|default:user.email }}</strong> {% translate "بصفتك مشرف النظام." %}</span>
     <form method="post" action="{% url 'accounts:exit_impersonation' %}" class="ms-auto">{% csrf_token %}
-        <button class="btn btn-sm btn-dark"><i class="bi bi-box-arrow-in-left"></i> العودة للوحة الإدارة</button>
+        <button class="btn btn-sm btn-dark"><i class="bi bi-box-arrow-in-left"></i> {% translate "العودة للوحة الإدارة" %}</button>
     </form>
 </div>
 {% endif %}
@@ -36,33 +36,33 @@
         <a href="{% url 'ops:overview' %}" class="wk-brand">
             <img src="{% static 'img/logo.svg' %}" alt="">
             <div>
-                <div class="wk-brand__name">وكيل</div>
-                <div class="wk-brand__tag">إدارة المنصة</div>
+                <div class="wk-brand__name">{% translate "وكيل" %}</div>
+                <div class="wk-brand__tag">{% translate "إدارة المنصة" %}</div>
             </div>
         </a>
-        <div class="wk-console-badge"><i class="bi bi-shield-lock"></i> مشرف النظام</div>
+        <div class="wk-console-badge"><i class="bi bi-shield-lock"></i> {% translate "مشرف النظام" %}</div>
 
         <nav class="wk-nav">
-            <a href="{% url 'ops:overview' %}" class="{% if request.path == '/ops/' %}active{% endif %}"><i class="bi bi-speedometer2"></i> لوحة مشرف النظام</a>
-            <div class="wk-nav__label">المشتركون</div>
-            <a href="{% url 'ops:signups' %}" class="{% nav_active '/ops/signups/' %}"><i class="bi bi-person-plus"></i> طلبات التسجيل
-                {% if ops_pending_signups %}<span class="wk-nav__badge wk-nav__badge--gold" title="بانتظار الموافقة">{{ ops_pending_signups }}</span>{% endif %}</a>
-            <a href="{% url 'ops:subscriptions' %}" class="{% nav_active '/ops/subscriptions/' %}"><i class="bi bi-buildings"></i> الاشتراكات
-                {% if ops_pending_approval %}<span class="wk-nav__badge wk-nav__badge--gold" title="بانتظار الاعتماد">{{ ops_pending_approval }}</span>{% endif %}</a>
-            <div class="wk-nav__label">التشغيل</div>
-            <a href="{% url 'ops:usage' %}" class="{% nav_active '/ops/usage/' %}"><i class="bi bi-cpu"></i> الاستهلاك والتكلفة</a>
-            <a href="{% url 'ops:jobs' %}" class="{% nav_active '/ops/jobs/' %}"><i class="bi bi-list-task"></i> المهام والأخطاء
-                {% if ops_failed_week %}<span class="wk-nav__badge" title="مهام فشلت خلال 7 أيام">{{ ops_failed_week }}</span>{% endif %}</a>
-            <a href="{% url 'ops:system' %}" class="{% nav_active '/ops/system/' %}"><i class="bi bi-hdd-stack"></i> حالة النظام</a>
-            <div class="wk-nav__label">أدوات</div>
-            <a href="{% url 'admin:index' %}"><i class="bi bi-database-gear"></i> إدارة قاعدة البيانات</a>
+            <a href="{% url 'ops:overview' %}" class="{% if request.path == '/ops/' %}active{% endif %}"><i class="bi bi-speedometer2"></i> {% translate "لوحة مشرف النظام" %}</a>
+            <div class="wk-nav__label">{% translate "المشتركون" %}</div>
+            <a href="{% url 'ops:signups' %}" class="{% nav_active '/ops/signups/' %}"><i class="bi bi-person-plus"></i> {% translate "طلبات التسجيل" %}
+                {% if ops_pending_signups %}<span class="wk-nav__badge wk-nav__badge--gold" title="{% translate "بانتظار الموافقة" %}">{{ ops_pending_signups }}</span>{% endif %}</a>
+            <a href="{% url 'ops:subscriptions' %}" class="{% nav_active '/ops/subscriptions/' %}"><i class="bi bi-buildings"></i> {% translate "الاشتراكات" %}
+                {% if ops_pending_approval %}<span class="wk-nav__badge wk-nav__badge--gold" title="{% translate "بانتظار الاعتماد" %}">{{ ops_pending_approval }}</span>{% endif %}</a>
+            <div class="wk-nav__label">{% translate "التشغيل" %}</div>
+            <a href="{% url 'ops:usage' %}" class="{% nav_active '/ops/usage/' %}"><i class="bi bi-cpu"></i> {% translate "الاستهلاك والتكلفة" %}</a>
+            <a href="{% url 'ops:jobs' %}" class="{% nav_active '/ops/jobs/' %}"><i class="bi bi-list-task"></i> {% translate "المهام والأخطاء" %}
+                {% if ops_failed_week %}<span class="wk-nav__badge" title="{% translate "مهام فشلت خلال 7 أيام" %}">{{ ops_failed_week }}</span>{% endif %}</a>
+            <a href="{% url 'ops:system' %}" class="{% nav_active '/ops/system/' %}"><i class="bi bi-hdd-stack"></i> {% translate "حالة النظام" %}</a>
+            <div class="wk-nav__label">{% translate "أدوات" %}</div>
+            <a href="{% url 'admin:index' %}"><i class="bi bi-database-gear"></i> {% translate "إدارة قاعدة البيانات" %}</a>
         </nav>
         {% else %}
         <a href="{% url 'core:dashboard' %}" class="wk-brand">
             <img src="{% static 'img/logo.svg' %}" alt="">
             <div>
-                <div class="wk-brand__name">وكيل</div>
-                <div class="wk-brand__tag">مدير التسويق الذكي</div>
+                <div class="wk-brand__name">{% translate "وكيل" %}</div>
+                <div class="wk-brand__tag">{% translate "مدير التسويق الذكي" %}</div>
             </div>
         </a>
 
@@ -79,7 +79,7 @@
                 <i class="bi bi-chevron-expand"></i>
             </button>
             <div class="dropdown-menu wk-company-menu">
-                <div class="px-2 py-1 small-muted">شركاتك</div>
+                <div class="px-2 py-1 small-muted">{% translate "شركاتك" %}</div>
                 {% for m in my_memberships %}
                 <form method="post" action="{% url 'companies:switch' m.company_id %}">{% csrf_token %}
                     <button class="dropdown-item {% if m.company_id == company.pk %}active{% endif %}" type="submit">
@@ -89,43 +89,44 @@
                 </form>
                 {% endfor %}
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'companies:create' %}"><i class="bi bi-plus-lg"></i> إضافة شركة</a>
+                <a class="dropdown-item" href="{% url 'companies:create' %}"><i class="bi bi-plus-lg"></i> {% translate "إضافة شركة" %}</a>
             </div>
         </div>
         {% endif %}
 
         <nav class="wk-nav">
-            <a href="{% url 'core:dashboard' %}" class="{% if request.path == '/app/' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> لوحة التحكم</a>
-            <div class="wk-nav__label">المحتوى</div>
-            <a href="{% url 'content:plan_list' %}" class="{% nav_active '/app/plans/' %}"><i class="bi bi-stars"></i> خطط المحتوى</a>
-            <a href="{% url 'content:calendar' %}" class="{% nav_active '/app/calendar/' %}"><i class="bi bi-calendar3"></i> التقويم</a>
-            {% if membership.can_manage %}<a href="{% url 'companies:autopilot' %}" class="{% nav_active '/company/autopilot/' %}"><i class="bi bi-airplane"></i> الطيار الآلي
-                {% if company.autopilot %}<span class="wk-nav__badge wk-nav__badge--on" title="يعمل">●</span>{% endif %}</a>{% endif %}
-            <a href="{% url 'content:post_list' %}" class="{% nav_active '/app/posts/' %}"><i class="bi bi-collection"></i> المنشورات</a>
-            <a href="{% url 'companies:media' %}" class="{% nav_active '/company/media/' %}"><i class="bi bi-images"></i> مكتبة الوسائط</a>
-            <div class="wk-nav__label">الشركة</div>
-            <a href="{% url 'companies:brand' %}" class="{% nav_active '/company/brand/' %}"><i class="bi bi-palette"></i> هوية العلامة</a>
-            <a href="{% url 'companies:team' %}" class="{% nav_active '/company/team/' %}"><i class="bi bi-people"></i> الفريق</a>
-            {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="{% nav_active '/company/social/' %}"><i class="bi bi-send"></i> حسابات النشر</a>{% endif %}
+            <a href="{% url 'core:dashboard' %}" class="{% if request.path == '/app/' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> {% translate "لوحة التحكم" %}</a>
+            <div class="wk-nav__label">{% translate "المحتوى" %}</div>
+            <a href="{% url 'content:plan_list' %}" class="{% nav_active '/app/plans/' %}"><i class="bi bi-stars"></i> {% translate "خطط المحتوى" %}</a>
+            <a href="{% url 'content:calendar' %}" class="{% nav_active '/app/calendar/' %}"><i class="bi bi-calendar3"></i> {% translate "التقويم" %}</a>
+            {% if membership.can_manage %}<a href="{% url 'companies:autopilot' %}" class="{% nav_active '/company/autopilot/' %}"><i class="bi bi-airplane"></i> {% translate "الطيار الآلي" %}
+                {% if company.autopilot %}<span class="wk-nav__badge wk-nav__badge--on" title="{% translate "يعمل" %}">●</span>{% endif %}</a>{% endif %}
+            <a href="{% url 'content:post_list' %}" class="{% nav_active '/app/posts/' %}"><i class="bi bi-collection"></i> {% translate "المنشورات" %}</a>
+            <a href="{% url 'companies:media' %}" class="{% nav_active '/company/media/' %}"><i class="bi bi-images"></i> {% translate "مكتبة الوسائط" %}</a>
+            <div class="wk-nav__label">{% translate "الشركة" %}</div>
+            <a href="{% url 'companies:brand' %}" class="{% nav_active '/company/brand/' %}"><i class="bi bi-palette"></i> {% translate "هوية العلامة" %}</a>
+            <a href="{% url 'companies:team' %}" class="{% nav_active '/company/team/' %}"><i class="bi bi-people"></i> {% translate "الفريق" %}</a>
+            {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="{% nav_active '/company/social/' %}"><i class="bi bi-send"></i> {% translate "حسابات النشر" %}</a>{% endif %}
         </nav>
 
         {% endif %}
 
         <div class="wk-sidebar-foot">
+            {% include "_language_switch.html" with lang_class="wk-lang--dark" %}
             {% if user.is_superuser %}
             <div class="wk-ai-status">
                 <span class="wk-dot {% if not ai_enabled %}off{% endif %}"></span>
-                {% if ai_enabled %}الذكاء الاصطناعي متصل{% else %}الذكاء الاصطناعي غير مفعّل{% endif %}
+                {% if ai_enabled %}{% translate "الذكاء الاصطناعي متصل" %}{% else %}{% translate "الذكاء الاصطناعي غير مفعّل" %}{% endif %}
             </div>
             {% endif %}
             <div class="wk-user">
                 <span class="wk-avatar">{{ user.display_name|slice:":1" }}</span>
                 <div class="flex-grow-1 overflow-hidden">
                     <div class="text-truncate fw-semibold small">{{ user.display_name }}</div>
-                    <a href="{% url 'accounts:password_change' %}" class="small">إعدادات الحساب</a>
+                    <a href="{% url 'accounts:password_change' %}" class="small">{% translate "إعدادات الحساب" %}</a>
                 </div>
                 <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}
-                    <button class="btn btn-link p-0 text-reset" title="تسجيل الخروج"><i class="bi bi-box-arrow-left fs-5" style="color:#8f8db8"></i></button>
+                    <button class="btn btn-link p-0 text-reset" title="{% translate "تسجيل الخروج" %}"><i class="bi bi-box-arrow-left fs-5" style="color:#8f8db8"></i></button>
                 </form>
             </div>
         </div>
@@ -134,20 +135,20 @@
 
 <main class="wk-main">
     <header class="wk-topbar">
-        <button class="wk-menu-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#wkSidebar" aria-label="القائمة"><i class="bi bi-list fs-5"></i></button>
+        <button class="wk-menu-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#wkSidebar" aria-label="{% translate "القائمة" %}"><i class="bi bi-list fs-5"></i></button>
         <div>
             <h1>{% block page_title %}{% endblock %}</h1>
             {% block subtitle %}{% endblock %}
         </div>
         {% if not user.is_superuser %}
         <div class="dropdown wk-bell">
-            <button class="wk-bell__btn" type="button" data-bs-toggle="dropdown" aria-label="الإشعارات{% if unread_notifications %} ({{ unread_notifications }} غير مقروءة){% endif %}">
+            <button class="wk-bell__btn" type="button" data-bs-toggle="dropdown" aria-label="{% translate "الإشعارات" %}{% if unread_notifications %} {% blocktranslate trimmed with unread_notifications=unread_notifications %}({{ unread_notifications }} غير مقروءة){% endblocktranslate %}{% endif %}">
                 <i class="bi bi-bell"></i>{% if unread_notifications %}<span class="wk-bell__count">{% if unread_notifications > 99 %}99+{% else %}{{ unread_notifications }}{% endif %}</span>{% endif %}
             </button>
             <div class="dropdown-menu dropdown-menu-end wk-bell__menu">
                 <div class="d-flex align-items-center justify-content-between px-3 py-2">
-                    <strong>الإشعارات</strong>
-                    {% if unread_notifications %}<form method="post" action="{% url 'notifications:read_all' %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><button class="btn btn-link btn-sm p-0">تعليم الكل كمقروء</button></form>{% endif %}
+                    <strong>{% translate "الإشعارات" %}</strong>
+                    {% if unread_notifications %}<form method="post" action="{% url 'notifications:read_all' %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><button class="btn btn-link btn-sm p-0">{% translate "تعليم الكل كمقروء" %}</button></form>{% endif %}
                 </div>
                 {% for n in recent_notifications %}
                 <a class="wk-note {% if not n.read_at %}unread{% endif %}" href="{% url 'notifications:open' n.pk %}">
@@ -155,9 +156,9 @@
                     <span><span class="d-block">{{ n.message|truncatechars:140 }}</span><span class="small-muted">{{ n.created_at|timesince }}{% if n.company_id != company.pk %} · {{ n.company.name }}{% endif %}</span></span>
                 </a>
                 {% empty %}
-                <div class="px-3 py-4 text-center small-muted">لا توجد إشعارات بعد.</div>
+                <div class="px-3 py-4 text-center small-muted">{% translate "لا توجد إشعارات بعد." %}</div>
                 {% endfor %}
-                <a class="dropdown-item text-center small fw-semibold border-top py-2" href="{% url 'notifications:list' %}">كل الإشعارات</a>
+                <a class="dropdown-item text-center small fw-semibold border-top py-2" href="{% url 'notifications:list' %}">{% translate "كل الإشعارات" %}</a>
             </div>
         </div>
         {% endif %}
@@ -167,7 +168,7 @@
         {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
             {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="إغلاق"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{% translate "إغلاق" %}"></button>
         </div>
         {% endfor %}
         {% block content %}{% endblock %}
@@ -180,12 +181,12 @@
     <img src="{% static 'img/logo.svg' %}" alt="">
     <div class="wk-appbar__text"><strong></strong><span></span></div>
     <button type="button" class="btn btn-primary btn-sm wk-appbar__go"></button>
-    <button type="button" class="wk-appbar__close" aria-label="إغلاق"><i class="bi bi-x-lg"></i></button>
+    <button type="button" class="wk-appbar__close" aria-label="{% translate "إغلاق" %}"><i class="bi bi-x-lg"></i></button>
 </div>
 {% endif %}
 <div id="wkSpinner" class="wk-spinner" role="status" aria-live="polite">
     <div class="wk-spinner__ring"><img src="{% static 'img/logo.svg' %}" alt=""></div>
-    <span class="visually-hidden">جارٍ التحميل…</span>
+    <span class="visually-hidden">{% translate "جارٍ التحميل…" %}</span>
 </div>
 <div class="modal fade wk-modal" id="wkConfirm" tabindex="-1" aria-hidden="true" aria-labelledby="wkConfirmTitle">
     <div class="modal-dialog modal-dialog-centered">
@@ -200,7 +201,7 @@
                     <textarea class="form-control d-none" id="wkConfirmText" rows="3"></textarea>
                 </div>
                 <div class="wk-modal__actions">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">{% translate "إلغاء" %}</button>
                     <button type="button" class="btn wk-modal__ok"></button>
                 </div>
             </div>
@@ -208,6 +209,7 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% url 'javascript-catalog' %}"></script>
 <script src="{% static_v 'js/app.js' %}"></script>
 {% block scripts %}{% endblock %}
 </body>

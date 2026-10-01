@@ -1,53 +1,54 @@
 {% extends "base.html" %}
-{% block title %}هوية العلامة{% endblock %}
-{% block page_title %}هوية العلامة{% endblock %}
-{% block subtitle %}<div class="subtitle">كل ما يعرفه وكيل عن {{ company.name }}: يعتمد عليه في كتابة المحتوى وتصميمه.</div>{% endblock %}
+{% load i18n %}
+{% block title %}{% translate "هوية العلامة" %}{% endblock %}
+{% block page_title %}{% translate "هوية العلامة" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% blocktranslate trimmed with name=company.name %}كل ما يعرفه وكيل عن {{ name }}: يعتمد عليه في كتابة المحتوى وتصميمه.{% endblocktranslate %}</div>{% endblock %}
 {% block content %}
 {% include "companies/_brand_form.html" %}
 
 <div class="wk-card mt-4" id="lessons">
     <div class="wk-card-head">
-        <h2><i class="bi bi-mortarboard text-primary"></i> ما تعلّمه وكيل</h2>
+        <h2><i class="bi bi-mortarboard text-primary"></i> {% translate "ما تعلّمه وكيل" %}</h2>
         {% if pending_signals %}
         <form method="post" action="{% url 'companies:lessons' %}">{% csrf_token %}
-            <button name="action" value="learn" class="btn btn-sm btn-soft"><i class="bi bi-stars"></i> تعلّم من {{ pending_signals }} ملاحظة جديدة</button>
+            <button name="action" value="learn" class="btn btn-sm btn-soft"><i class="bi bi-stars"></i> {% blocktranslate trimmed with pending_signals=pending_signals %}تعلّم من {{ pending_signals }} ملاحظة جديدة{% endblocktranslate %}</button>
         </form>
         {% endif %}
     </div>
     <div class="wk-card-body">
-        <p class="small-muted">يتعلّم وكيل ذوق علامتك من تعديلاتكم على نصوصه، وطلبات التعديل، وتعليقات العميل، ويطبّق هذه القواعد في كل خطة وكل إعادة كتابة. احذف ما لا يناسبك، أو أضف قاعدة بنفسك.</p>
+        <p class="small-muted">{% translate "يتعلّم وكيل ذوق علامتك من تعديلاتكم على نصوصه، وطلبات التعديل، وتعليقات العميل، ويطبّق هذه القواعد في كل خطة وكل إعادة كتابة. احذف ما لا يناسبك، أو أضف قاعدة بنفسك." %}</p>
         {% if lessons %}
         <ul class="wk-lessons">
             {% for l in lessons %}
             <li>
-                <i class="bi {% if l.manual %}bi-person-check{% else %}bi-stars{% endif %}" title="{% if l.manual %}أضفتموها{% else %}تعلّمها وكيل{% endif %}"></i>
+                <i class="bi {% if l.manual %}bi-person-check{% else %}bi-stars{% endif %}" title="{% if l.manual %}{% translate "أضفتموها" %}{% else %}{% translate "تعلّمها وكيل" %}{% endif %}"></i>
                 <span>{{ l.text }}</span>
                 <form method="post" action="{% url 'companies:lessons' %}">{% csrf_token %}<input type="hidden" name="index" value="{{ forloop.counter0 }}">
-                    <button name="action" value="delete" class="btn btn-sm btn-link text-muted p-0" aria-label="حذف القاعدة"
-                            data-confirm-title="حذف هذه القاعدة؟" data-confirm="لن يلتزم بها وكيل في الخطط القادمة." data-confirm-ok="حذف"><i class="bi bi-x-lg"></i></button>
+                    <button name="action" value="delete" class="btn btn-sm btn-link text-muted p-0" aria-label="{% translate "حذف القاعدة" %}"
+                            data-confirm-title="{% translate "حذف هذه القاعدة؟" %}" data-confirm="{% translate "لن يلتزم بها وكيل في الخطط القادمة." %}" data-confirm-ok="{% translate "حذف" %}"><i class="bi bi-x-lg"></i></button>
                 </form>
             </li>
             {% endfor %}
         </ul>
         {% else %}
-        <div class="small-muted mb-3"><i class="bi bi-info-circle"></i> لم يتعلّم وكيل شيئاً بعد؛ ستظهر القواعد هنا بعد أن تعدّلوا بعض المنشورات أو تطلبوا تعديلات.</div>
+        <div class="small-muted mb-3"><i class="bi bi-info-circle"></i> {% translate "لم يتعلّم وكيل شيئاً بعد؛ ستظهر القواعد هنا بعد أن تعدّلوا بعض المنشورات أو تطلبوا تعديلات." %}</div>
         {% endif %}
         <form method="post" action="{% url 'companies:lessons' %}" class="d-flex gap-2">{% csrf_token %}
-            <input type="text" name="text" class="form-control" maxlength="300" required placeholder="أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين">
-            <button name="action" value="add" class="btn btn-primary text-nowrap"><i class="bi bi-plus-lg"></i> إضافة</button>
+            <input type="text" name="text" class="form-control" maxlength="300" required placeholder="{% translate "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين" %}">
+            <button name="action" value="add" class="btn btn-primary text-nowrap"><i class="bi bi-plus-lg"></i> {% translate "إضافة" %}</button>
         </form>
     </div>
 </div>
 
 {% if membership.role == 'owner' %}
 <div class="wk-card mt-5" style="border-color: #fecdca"><div class="wk-card-body">
-    <h2 class="h6 text-danger mb-1"><i class="bi bi-exclamation-octagon"></i> حذف الشركة</h2>
-    <p class="small-muted">يحذف «{{ company.name }}» نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء فريقها. لا يمكن التراجع عن ذلك.</p>
+    <h2 class="h6 text-danger mb-1"><i class="bi bi-exclamation-octagon"></i> {% translate "حذف الشركة" %}</h2>
+    <p class="small-muted">{% blocktranslate trimmed with name=company.name %}يحذف «{{ name }}» نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء فريقها. لا يمكن التراجع عن ذلك.{% endblocktranslate %}</p>
     <form method="post" action="{% url 'companies:delete' %}">{% csrf_token %}
         <input type="hidden" name="confirm_name">
-        <button class="btn btn-danger" data-confirm-title="حذف {{ company.name }}؟"
-                data-confirm="ستُحذف الشركة نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء فريقها."
-                data-confirm-require="{{ company.name }}" data-confirm-field="confirm_name" data-confirm-ok="حذف الشركة نهائياً"><i class="bi bi-trash"></i> حذف الشركة</button>
+        <button class="btn btn-danger" data-confirm-title="{% blocktranslate trimmed with name=company.name %}حذف {{ name }}؟{% endblocktranslate %}"
+                data-confirm="{% translate "ستُحذف الشركة نهائياً مع كل خططها ومنشوراتها وتصاميمها وصور مكتبتها وأعضاء فريقها." %}"
+                data-confirm-require="{{ company.name }}" data-confirm-field="confirm_name" data-confirm-ok="{% translate "حذف الشركة نهائياً" %}"><i class="bi bi-trash"></i> {% translate "حذف الشركة" %}</button>
     </form>
 </div></div>
 {% endif %}

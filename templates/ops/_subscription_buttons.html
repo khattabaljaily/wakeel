@@ -1,19 +1,19 @@
-{% comment %}Actions for subscription `c` (with `data`: its JSON) as icon buttons, as in enjazpms. Used in the table row,
+{% load i18n %}{% comment %}Actions for subscription `c` (with `data`: its JSON) as icon buttons, as in enjazpms. Used in the table row,
 the mobile card and the subscription page (`detail` hides "view").{% endcomment %}
 <div class="adm-acts">
-    {% if not c.is_approved %}<button type="button" class="adm-act adm-act--approve" data-sub-action="approve" data-sub="{{ data }}" title="اعتماد" aria-label="اعتماد {{ c.name }}"><i class="bi bi-patch-check"></i></button>{% endif %}
-    {% if not detail %}<button type="button" class="adm-act" data-sub-action="view" data-sub="{{ data }}" title="عرض" aria-label="عرض {{ c.name }}"><i class="bi bi-eye"></i></button>{% endif %}
-    <button type="button" class="adm-act" data-sub-action="edit" data-sub="{{ data }}" title="تعديل" aria-label="تعديل {{ c.name }}"><i class="bi bi-pencil-square"></i></button>
+    {% if not c.is_approved %}<button type="button" class="adm-act adm-act--approve" data-sub-action="approve" data-sub="{{ data }}" title="{% translate "اعتماد" %}" aria-label="{% blocktranslate trimmed with name=c.name %}اعتماد {{ name }}{% endblocktranslate %}"><i class="bi bi-patch-check"></i></button>{% endif %}
+    {% if not detail %}<button type="button" class="adm-act" data-sub-action="view" data-sub="{{ data }}" title="{% translate "عرض" %}" aria-label="{% blocktranslate trimmed with name=c.name %}عرض {{ name }}{% endblocktranslate %}"><i class="bi bi-eye"></i></button>{% endif %}
+    <button type="button" class="adm-act" data-sub-action="edit" data-sub="{{ data }}" title="{% translate "تعديل" %}" aria-label="{% blocktranslate trimmed with name=c.name %}تعديل {{ name }}{% endblocktranslate %}"><i class="bi bi-pencil-square"></i></button>
     <form method="post" action="{% url 'ops:subscription_toggle' c.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
         {% if c.is_active %}
-        <button class="adm-act adm-act--warn" title="تعليق" aria-label="تعليق {{ c.name }}" data-confirm-title="تعليق «{{ c.name }}»؟" data-confirm="لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد تنشيطه. البيانات تبقى كما هي." data-confirm-ok="تعليق"><i class="bi bi-pause-circle"></i></button>
+        <button class="adm-act adm-act--warn" title="{% translate "تعليق" %}" aria-label="{% blocktranslate trimmed with name=c.name %}تعليق {{ name }}{% endblocktranslate %}" data-confirm-title="{% blocktranslate trimmed with name=c.name %}تعليق «{{ name }}»؟{% endblocktranslate %}" data-confirm="{% translate "لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد تنشيطه. البيانات تبقى كما هي." %}" data-confirm-ok="{% translate "تعليق" %}"><i class="bi bi-pause-circle"></i></button>
         {% else %}
-        <button class="adm-act adm-act--ok" title="تنشيط" aria-label="تنشيط {{ c.name }}"><i class="bi bi-play-circle"></i></button>
+        <button class="adm-act adm-act--ok" title="{% translate "تنشيط" %}" aria-label="{% blocktranslate trimmed with name=c.name %}تنشيط {{ name }}{% endblocktranslate %}"><i class="bi bi-play-circle"></i></button>
         {% endif %}
     </form>
-    <button type="button" class="adm-act adm-act--renew" data-sub-action="renew" data-sub="{{ data }}" title="تجديد الاشتراك" aria-label="تجديد {{ c.name }}"><i class="bi bi-arrow-clockwise"></i></button>
+    <button type="button" class="adm-act adm-act--renew" data-sub-action="renew" data-sub="{{ data }}" title="{% translate "تجديد الاشتراك" %}" aria-label="{% blocktranslate trimmed with name=c.name %}تجديد {{ name }}{% endblocktranslate %}"><i class="bi bi-arrow-clockwise"></i></button>
     <form method="post" action="{% url 'ops:subscription_delete' c.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="confirm_name">
-        <button class="adm-act adm-act--del" title="حذف" aria-label="حذف {{ c.name }}" data-confirm-title="حذف «{{ c.name }}» نهائياً؟" data-confirm="ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. حسابات أعضائها تبقى." data-confirm-ok="حذف نهائي" data-confirm-require="{{ c.name }}" data-confirm-field="confirm_name"><i class="bi bi-trash"></i></button>
+        <button class="adm-act adm-act--del" title="{% translate "حذف" %}" aria-label="{% blocktranslate trimmed with name=c.name %}حذف {{ name }}{% endblocktranslate %}" data-confirm-title="{% blocktranslate trimmed with name=c.name %}حذف «{{ name }}» نهائياً؟{% endblocktranslate %}" data-confirm="{% translate "ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. حسابات أعضائها تبقى." %}" data-confirm-ok="{% translate "حذف نهائي" %}" data-confirm-require="{{ c.name }}" data-confirm-field="confirm_name"><i class="bi bi-trash"></i></button>
     </form>
-    <button type="button" class="adm-act adm-act--login" data-sub-action="login" data-sub="{{ data }}" title="دخول كمدير المشترك" aria-label="دخول كمدير {{ c.name }}"><i class="bi bi-person-badge"></i></button>
+    <button type="button" class="adm-act adm-act--login" data-sub-action="login" data-sub="{{ data }}" title="{% translate "دخول كمدير المشترك" %}" aria-label="{% blocktranslate trimmed with name=c.name %}دخول كمدير {{ name }}{% endblocktranslate %}"><i class="bi bi-person-badge"></i></button>
 </div>

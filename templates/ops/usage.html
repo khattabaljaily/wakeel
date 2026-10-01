@@ -1,48 +1,49 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load wakeel %}
-{% block title %}الاستهلاك والتكلفة{% endblock %}
-{% block page_title %}الاستهلاك والتكلفة{% endblock %}
-{% block subtitle %}<div class="subtitle">استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً</div>{% endblock %}
+{% block title %}{% translate "الاستهلاك والتكلفة" %}{% endblock %}
+{% block page_title %}{% translate "الاستهلاك والتكلفة" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً" %}</div>{% endblock %}
 {% block content %}
 <div class="adm-kpis">
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-gold"><i class="bi bi-currency-dollar"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ total.cost|money }}</div><div class="adm-kpi__lbl">التكلفة{% if total.unpriced %} (دون {{ total.unpriced }} مهمة بلا سعر){% endif %}</div></div></div>
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="adm-kpi__num">{{ total.input|thousands }}</div><div class="adm-kpi__lbl">رمز مُدخل</div></div></div>
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="adm-kpi__num">{{ total.cache_rate }}%</div><div class="adm-kpi__lbl">من المدخلات cache hit</div></div></div>
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="adm-kpi__num">{{ total.output|thousands }}</div><div class="adm-kpi__lbl">رمز مُخرج</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-gold"><i class="bi bi-currency-dollar"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ total.cost|money }}</div><div class="adm-kpi__lbl">{% translate "التكلفة" %}{% if total.unpriced %} {% blocktranslate trimmed with unpriced=total.unpriced %}(دون {{ unpriced }} مهمة بلا سعر){% endblocktranslate %}{% endif %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="adm-kpi__num">{{ total.input|thousands }}</div><div class="adm-kpi__lbl">{% translate "رمز مُدخل" %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="adm-kpi__num">{{ total.cache_rate }}%</div><div class="adm-kpi__lbl">{% translate "من المدخلات cache hit" %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="adm-kpi__num">{{ total.output|thousands }}</div><div class="adm-kpi__lbl">{% translate "رمز مُخرج" %}</div></div></div>
 </div>
 
 <div class="adm-grid-2">
     <div class="wk-card">
-        <div class="wk-card-head"><div><h2>التكلفة لكل شهر</h2><div class="adm-panel__sub">كل الشركات</div></div></div>
-        <div class="wk-card-body">{% include "ops/_columns.html" with series=cost_series money=True label="تكلفة الذكاء الاصطناعي لكل شهر" %}</div>
+        <div class="wk-card-head"><div><h2>{% translate "التكلفة لكل شهر" %}</h2><div class="adm-panel__sub">{% translate "كل الشركات" %}</div></div></div>
+        <div class="wk-card-body">{% include "ops/_columns.html" with series=cost_series money=True label=_("تكلفة الذكاء الاصطناعي لكل شهر") %}</div>
         {% include "_datatable.html" with table=months_table rows=months_rows %}
     </div>
     <div>
         <div class="wk-card mb-3">
-            <div class="wk-card-head"><h2><i class="bi bi-tag text-primary"></i> التسعير المستخدم</h2><code dir="ltr" class="small">{{ system.model }}</code></div>
+            <div class="wk-card-head"><h2><i class="bi bi-tag text-primary"></i> {% translate "التسعير المستخدم" %}</h2><code dir="ltr" class="small">{{ system.model }}</code></div>
             <div class="wk-card-body small">
                 {% if system.prices %}
-                <table class="table table-sm mb-2"><thead><tr><th>لكل مليون رمز</th><th class="text-end">خارج الذروة</th><th class="text-end">الذروة</th></tr></thead>
+                <table class="table table-sm mb-2"><thead><tr><th>{% translate "لكل مليون رمز" %}</th><th class="text-end">{% translate "خارج الذروة" %}</th><th class="text-end">{% translate "الذروة" %}</th></tr></thead>
                 <tbody dir="ltr">
-                    <tr><td dir="rtl">cache hit</td><td class="text-end">${{ system.prices.cache_hit.0|money:4 }}</td><td class="text-end">${{ system.prices.cache_hit.1|money:4 }}</td></tr>
-                    <tr><td dir="rtl">cache miss</td><td class="text-end">${{ system.prices.cache_miss.0|money:4 }}</td><td class="text-end">${{ system.prices.cache_miss.1|money:4 }}</td></tr>
-                    <tr><td dir="rtl">مخرجات</td><td class="text-end">${{ system.prices.output.0|money:4 }}</td><td class="text-end">${{ system.prices.output.1|money:4 }}</td></tr>
+                    <tr><td>cache hit</td><td class="text-end">${{ system.prices.cache_hit.0|money:4 }}</td><td class="text-end">${{ system.prices.cache_hit.1|money:4 }}</td></tr>
+                    <tr><td>cache miss</td><td class="text-end">${{ system.prices.cache_miss.0|money:4 }}</td><td class="text-end">${{ system.prices.cache_miss.1|money:4 }}</td></tr>
+                    <tr><td>{% translate "مخرجات" %}</td><td class="text-end">${{ system.prices.output.0|money:4 }}</td><td class="text-end">${{ system.prices.output.1|money:4 }}</td></tr>
                 </tbody></table>
-                <div class="small-muted">خارج الذروة <span dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }}</span> UTC (<code>DEEPSEEK_OFF_PEAK_UTC</code>). الأسعار في <code>apps/ai/pricing.py</code>، وتُحسب تكلفة كل مهمة لحظة تنفيذها.</div>
+                <div class="small-muted">{% translate "خارج الذروة" %} <span dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }}</span> UTC (<code>DEEPSEEK_OFF_PEAK_UTC</code>{% translate "). الأسعار في" %} <code>apps/ai/pricing.py</code>{% translate "، وتُحسب تكلفة كل مهمة لحظة تنفيذها." %}</div>
                 {% elif system.flat_prices.0 or system.flat_prices.1 %}
-                <div>أسعار ثابتة: <span dir="ltr">${{ system.flat_prices.0 }} / ${{ system.flat_prices.1 }}</span> لكل مليون رمز (مدخلات / مخرجات).</div>
+                <div>{% translate "أسعار ثابتة:" %} <span dir="ltr">${{ system.flat_prices.0 }} / ${{ system.flat_prices.1 }}</span> {% translate "لكل مليون رمز (مدخلات / مخرجات)." %}</div>
                 {% else %}
-                <div class="small-muted">أسعار هذا النموذج غير معروفة. أضف <code>AI_PRICE_INPUT_PER_MTOK</code> و<code>AI_PRICE_OUTPUT_PER_MTOK</code> إلى <code>secrets.json</code>.</div>
+                <div class="small-muted">{% translate "أسعار هذا النموذج غير معروفة. أضف" %} <code>AI_PRICE_INPUT_PER_MTOK</code> {% translate "و" %}<code>AI_PRICE_OUTPUT_PER_MTOK</code> {% translate "إلى" %} <code>secrets.json</code>.</div>
                 {% endif %}
             </div>
         </div>
-        <div class="wk-card mb-3"><div class="wk-card-head"><h2>حسب النموذج</h2></div>{% include "_datatable.html" with table=models_table rows=models_rows %}</div>
-        <div class="wk-card"><div class="wk-card-head"><h2>حسب نوع المهمة</h2></div>{% include "_datatable.html" with table=kinds_table rows=kinds_rows %}</div>
+        <div class="wk-card mb-3"><div class="wk-card-head"><h2>{% translate "حسب النموذج" %}</h2></div>{% include "_datatable.html" with table=models_table rows=models_rows %}</div>
+        <div class="wk-card"><div class="wk-card-head"><h2>{% translate "حسب نوع المهمة" %}</h2></div>{% include "_datatable.html" with table=kinds_table rows=kinds_rows %}</div>
     </div>
 </div>
 
 <div class="wk-card">
-    <div class="wk-card-head"><h2><i class="bi bi-buildings text-primary"></i> حسب الشركة</h2></div>
+    <div class="wk-card-head"><h2><i class="bi bi-buildings text-primary"></i> {% translate "حسب الشركة" %}</h2></div>
     {% include "_datatable.html" with table=companies_table rows=companies_rows %}
 </div>
 {% endblock %}

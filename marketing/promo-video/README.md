@@ -1,12 +1,16 @@
 # Wakeel promo video
 
-A 1:42 English motion-graphics ad for Wakeel (1920×1080, 30 fps, H.264 + AAC).
+A motion-graphics ad for Wakeel in two languages (1920×1080, 30 fps, H.264 + AAC):
+
+- **English**: 1:42, `wakeel_ad.mp4`
+- **Arabic**: 1:59, `wakeel_ad_ar.mp4`, right to left, Modern Standard Arabic voice-over
 
 | File | What it is |
 |---|---|
 | `wakeel_ad.mp4` | The finished video with voice-over and music |
 | `wakeel_ad.srt` | English subtitles, for feeds that autoplay muted |
 | `poster.jpg` | A thumbnail frame |
+| `wakeel_ad_ar.mp4`, `wakeel_ad_ar.srt`, `poster_ar.jpg` | The Arabic version, its subtitles and thumbnail |
 | `source/` | Everything needed to change and re-render it |
 
 ## Script
@@ -32,3 +36,9 @@ Run from `source/`, with `pip install kokoro-onnx soundfile playwright` and ffmp
 3. `music.py`: the synthesized music bed and transition whooshes (`music.wav`).
 4. `render.py`: renders `index.html` frame by frame in headless Chromium (`video_silent.mp4`). Open `index.html?play` in a browser to preview it live, or `index.html?t=42` to see one moment.
 5. Mix and mux with ffmpeg: place each `vo/<scene>.wav` at its `vo` time, duck the music under the voice (sidechaincompress), loudnorm to -15 LUFS, then `ffmpeg -i video_silent.mp4 -i audio.wav -c:v copy -c:a aac wakeel_ad.mp4`.
+
+## Arabic version
+
+`source/arabic/make_ar.py` builds `index_ar.html` from the English `index.html`: it translates every on-screen text, mirrors the layouts for right-to-left reading, and stretches each scene's cues to the Arabic narration (`timeline_ar.json`). Re-run it after changing the English page.
+
+The voice is Piper's `ar_JO-kareem-medium`, run with sherpa-onnx (`vo_ar.py`, model from the sherpa-onnx `tts-models` GitHub release). The script is fully diacritized so the voice reads it correctly. Keep the diacritics when you edit it.

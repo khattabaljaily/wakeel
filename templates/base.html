@@ -133,7 +133,7 @@
 </aside>
 
 <main class="wk-main">
-    <header class="wk-topbar">
+    <header class="wk-topbar {% block topbar_class %}{% endblock %}">
         <button class="wk-menu-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#wkSidebar" aria-label="{% translate "القائمة" %}"><i class="bi bi-list fs-5"></i></button>
         <div class="wk-topbar__title">
             <h1>{% block page_title %}{% endblock %}</h1>

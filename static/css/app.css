@@ -941,6 +941,12 @@ html.wk-scroll-lock, html.wk-scroll-lock body { overflow: hidden !important; ove
   .wk-topbar .wk-langtog, .wk-topbar .wk-bell { grid-row: 1; }
   .wk-topbar .subtitle { grid-column: 1 / -1; grid-row: 2; margin-top: 0; }
   .wk-topbar .actions { grid-column: 1 / -1; grid-row: 3; margin-top: .4rem; }
+  /* Long titles (e.g. a plan's) get their own full-width row under the menu and tools */
+  .wk-topbar--long-title h1 { grid-column: 1 / -1; grid-row: 2; min-height: 0; font-size: 1.2rem; line-height: 1.5; margin-top: .4rem; }
+  .wk-topbar--long-title .wk-langtog { grid-column: 3; }
+  .wk-topbar--long-title .wk-bell { grid-column: 4; }
+  .wk-topbar--long-title .subtitle { grid-row: 3; }
+  .wk-topbar--long-title .actions { grid-row: 4; }
 }
 
 /* ---------- Social accounts setup wizard ---------- */

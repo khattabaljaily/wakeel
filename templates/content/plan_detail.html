@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block title %}{{ plan.title|default:_("خطة المحتوى") }}{% endblock %}
 {% block page_title %}{{ plan.title|default:_("خطة المحتوى") }}{% endblock %}
+{% block topbar_class %}wk-topbar--long-title{% endblock %}
 {% block subtitle %}<div class="subtitle"><i class="bi bi-calendar3"></i> {% blocktranslate trimmed with month_label=month_label posts_per_week=plan.posts_per_week %}{{ month_label }} · {{ posts_per_week }} منشورات أسبوعياً ·{% endblocktranslate %} <span class="wk-platforms">{% for p in plan.platforms %}<i class="bi bi-{{ p }}"></i>{% endfor %}</span></div>{% endblock %}
 {% block actions %}
 {% if plan.status == 'ready' %}

@@ -86,9 +86,9 @@ def deliver(plan):
             logger.exception('Could not email the autopilot review link for plan %s', plan.pk)
     title = plan.title or _('الشهر القادم')
     if company.autopilot_client_email:
-        message = format_lazy(_('أعدّ الطيار الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}.'),
+        message = format_lazy(_('أعدّ المخطط الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}.'),
                               title=title, email=company.autopilot_client_email)
     else:
-        message = format_lazy(_('أعدّ الطيار الآلي خطة {title}.'), title=title)
+        message = format_lazy(_('أعدّ المخطط الآلي خطة {title}.'), title=title)
     notify([plan.created_by, *managers(company)], company, message, plan.get_absolute_url(),
            icon='bi-airplane', email=True)

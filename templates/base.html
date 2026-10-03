@@ -99,7 +99,7 @@
             <div class="wk-nav__label">{% translate "المحتوى" %}</div>
             <a href="{% url 'content:plan_list' %}" class="{% nav_active '/app/plans/' %}"><i class="bi bi-stars"></i> {% translate "خطط المحتوى" %}</a>
             <a href="{% url 'content:calendar' %}" class="{% nav_active '/app/calendar/' %}"><i class="bi bi-calendar3"></i> {% translate "التقويم" %}</a>
-            {% if membership.can_manage %}<a href="{% url 'companies:autopilot' %}" class="{% nav_active '/company/autopilot/' %}"><i class="bi bi-airplane"></i> {% translate "الطيار الآلي" %}
+            {% if membership.can_manage %}<a href="{% url 'companies:autopilot' %}" class="{% nav_active '/company/autopilot/' %}"><i class="bi bi-calendar2-check"></i> {% translate "المخطط الآلي" %}
                 {% if company.autopilot %}<span class="wk-nav__badge wk-nav__badge--on" title="{% translate "يعمل" %}">●</span>{% endif %}</a>{% endif %}
             <a href="{% url 'content:post_list' %}" class="{% nav_active '/app/posts/' %}"><i class="bi bi-collection"></i> {% translate "المنشورات" %}</a>
             <a href="{% url 'companies:media' %}" class="{% nav_active '/company/media/' %}"><i class="bi bi-images"></i> {% translate "مكتبة الوسائط" %}</a>

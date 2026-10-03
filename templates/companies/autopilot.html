@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}{% translate "الطيار الآلي" %}{% endblock %}
-{% block page_title %}{% translate "الطيار الآلي" %}{% endblock %}
+{% block title %}{% translate "المخطط الآلي" %}{% endblock %}
+{% block page_title %}{% translate "المخطط الآلي" %}{% endblock %}
 {% block subtitle %}<div class="subtitle">{% translate "يعدّ وكيل خطة كل شهر بنفسه ويرسلها للعميل للاعتماد، دون أن يطلبها أحد." %}</div>{% endblock %}
 {% block content %}
 <div class="row g-4">
@@ -10,7 +10,7 @@
             <div class="wk-card-body">
                 <label class="wk-autopilot-switch">
                     <span class="form-check form-switch m-0">{{ form.autopilot }}</span>
-                    <span><strong>{% translate "تشغيل الطيار الآلي" %}</strong>
+                    <span><strong>{% translate "تشغيل المخطط الآلي" %}</strong>
                         <small class="d-block small-muted">{% if company.autopilot %}{% blocktranslate trimmed with run_on=run_on|date:"j F" %}يعمل: الخطة القادمة تُعدّ يوم {{ run_on }}.{% endblocktranslate %}{% else %}{% translate "متوقف الآن." %}{% endif %}</small></span>
                 </label>
                 <hr>

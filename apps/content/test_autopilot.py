@@ -60,7 +60,7 @@ class AutopilotTests(TestCase):
 
     def test_settings_page(self):
         self.client.force_login(self.owner)
-        self.assertContains(self.client.get(reverse('companies:autopilot')), 'الطيار الآلي')
+        self.assertContains(self.client.get(reverse('companies:autopilot')), 'المخطط الآلي')
         r = self.client.post(reverse('companies:autopilot'), {
             'autopilot': 'on', 'autopilot_day': '20', 'autopilot_posts_per_week': '5',
             'autopilot_platforms': ['facebook', 'instagram'], 'autopilot_client_email': 'c@x.test'})

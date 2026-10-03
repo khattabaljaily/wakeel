@@ -353,8 +353,8 @@ msgstr "Instagram account"
 msgid "حساب تيك توك"
 msgstr "TikTok account"
 
-msgid "الطيار الآلي"
-msgstr "Autopilot"
+msgid "المخطط الآلي"
+msgstr "Auto planner"
 
 msgid "يوم إعداد الخطة"
 msgstr "Plan preparation day"
@@ -591,11 +591,11 @@ msgstr ""
 "Wakeel is going through your feedback now; refresh the page in a minute to "
 "see what it learned."
 
-msgid "تم تشغيل الطيار الآلي."
-msgstr "Autopilot is on."
+msgid "تم تشغيل المخطط الآلي."
+msgstr "The auto planner is on."
 
-msgid "تم إيقاف الطيار الآلي."
-msgstr "Autopilot is off."
+msgid "تم إيقاف المخطط الآلي."
+msgstr "The auto planner is off."
 
 #, python-format
 msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
@@ -605,13 +605,13 @@ msgid "الشهر القادم"
 msgstr "next month"
 
 #, python-brace-format
-msgid "أعدّ الطيار الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}."
+msgid "أعدّ المخطط الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}."
 msgstr ""
-"Autopilot prepared the {title} plan and sent the review link to {email}."
+"The auto planner prepared the {title} plan and sent the review link to {email}."
 
 #, python-brace-format
-msgid "أعدّ الطيار الآلي خطة {title}."
-msgstr "Autopilot prepared the {title} plan."
+msgid "أعدّ المخطط الآلي خطة {title}."
+msgstr "The auto planner prepared the {title} plan."
 
 #, python-brace-format
 msgid "{count} منشورات"
@@ -1983,8 +1983,8 @@ msgstr ""
 "Wakeel prepares a plan every month on its own and sends it to your client "
 "for approval, without anyone asking."
 
-msgid "تشغيل الطيار الآلي"
-msgstr "Turn on autopilot"
+msgid "تشغيل المخطط الآلي"
+msgstr "Turn on the auto planner"
 
 #, python-format
 msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."

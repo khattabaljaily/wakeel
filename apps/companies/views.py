@@ -340,7 +340,7 @@ def autopilot(request):
     form = AutopilotForm(request.POST or None, instance=company)
     if request.method == 'POST' and form.is_valid():
         form.save()
-        messages.success(request, _('تم تشغيل الطيار الآلي.') if company.autopilot else _('تم إيقاف الطيار الآلي.'))
+        messages.success(request, _('تم تشغيل المخطط الآلي.') if company.autopilot else _('تم إيقاف المخطط الآلي.'))
         return redirect('companies:autopilot')
     today = timezone.localdate()
     upcoming = next_month(today)

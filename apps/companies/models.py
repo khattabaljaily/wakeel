@@ -94,7 +94,7 @@ class Company(models.Model):
 
     # Autopilot: on `autopilot_day` of each month the worker prepares next month's plan and its designs,
     # then emails the client the review link (apps.content.autopilot).
-    autopilot = models.BooleanField(_('الطيار الآلي'), default=False)
+    autopilot = models.BooleanField(_('المخطط الآلي'), default=False)
     autopilot_day = models.PositiveSmallIntegerField(_('يوم إعداد الخطة'), default=25,
                                                      validators=[MinValueValidator(1), MaxValueValidator(28)])
     autopilot_posts_per_week = models.PositiveSmallIntegerField(_('عدد المنشورات أسبوعياً'), default=4)

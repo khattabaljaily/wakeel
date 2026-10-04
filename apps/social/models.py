@@ -21,6 +21,8 @@ class SocialAccount(models.Model):
     access_token = models.TextField()
     # TikTok tokens last a day and are renewed with the refresh token (valid a year); Meta Page tokens don't expire.
     refresh_token = models.TextField(blank=True)
+    # Facebook only: the long-lived user token (about 60 days), needed to reach the user's ad accounts.
+    user_token = models.TextField(blank=True)
     token_expires_at = models.DateTimeField(null=True, blank=True)
     last_error = models.TextField(blank=True)
     connected_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL, related_name='+')

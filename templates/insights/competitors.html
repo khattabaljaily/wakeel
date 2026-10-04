@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "المنافسون" %}{% endblock %}
+{% block page_title %}{% translate "المنافسون" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "يقرأ وكيل مواقع منافسيك وما تلصقه من منشوراتهم، ويستخرج الفجوات التي تميّز علامتك، ثم يستخدمها في خطط الأشهر القادمة." %}</div>{% endblock %}
+{% block actions %}{% if membership.can_edit and rivals %}<form method="post" action="{% url 'competitors:analyse' %}" class="d-inline">{% csrf_token %}<button class="btn btn-ai" {% if running %}disabled{% endif %}><i class="bi bi-magic"></i> {% if running %}{% translate "جارٍ التحليل…" %}{% else %}{% translate "حلّل المنافسين" %}{% endif %}</button></form>{% endif %}{% endblock %}
+{% block content %}
+<div class="row g-4">
+<div class="col-lg-5">
+    {% for c in rivals %}
+    <div class="wk-card mb-3"><div class="wk-card-body">
+        <div class="d-flex align-items-start gap-2">
+            <div class="flex-grow-1 overflow-hidden"><div class="fw-semibold">{{ c.name }}</div>
+                {% if c.website %}<div class="small-muted text-truncate" dir="ltr">{{ c.website }}</div>{% endif %}
+                {% if c.site_error %}<div class="small text-danger">{{ c.site_error }}</div>{% elif c.site_read_at %}<div class="small-muted">{% translate "قُرئ الموقع" %} · {{ c.site_read_at|date:"j F" }}</div>{% endif %}</div>
+            {% if membership.can_edit %}<a href="?edit={{ c.pk }}" class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></a>
+            <form method="post" action="{% url 'competitors:delete' c.pk %}">{% csrf_token %}<button class="btn btn-sm btn-light" aria-label="{% translate "حذف" %}"><i class="bi bi-trash"></i></button></form>{% endif %}
+        </div>
+    </div></div>
+    {% endfor %}
+    {% if membership.can_edit %}
+    <form method="post" class="wk-card"><div class="wk-card-head"><h2>{% if editing %}{% translate "تعديل المنافس" %}{% else %}{% translate "أضف منافساً" %}{% endif %}</h2></div><div class="wk-card-body">
+        {% csrf_token %}
+        {% include "_field.html" with field=form.name %}{% include "_field.html" with field=form.website %}
+        {% include "_field.html" with field=form.social %}{% include "_field.html" with field=form.sample_posts %}
+        <button class="btn btn-primary">{% translate "حفظ" %}</button>{% if editing %} <a href="{% url 'competitors:list' %}" class="btn btn-light">{% translate "إلغاء" %}</a>{% endif %}
+    </div></form>
+    {% endif %}
+</div>
+<div class="col-lg-7">
+    {% if analysis.status == 'ready' %}
+    <div class="wk-card mb-4"><div class="wk-card-head"><h2><i class="bi bi-binoculars text-primary"></i> {% translate "قراءة وكيل" %}</h2><span class="small-muted">{{ analysis.created_at|date:"j F Y" }}</span></div>
+        <div class="wk-card-body"><p style="line-height:2">{{ analysis.summary }}</p>
+        {% for c in analysis.competitors %}<div class="border-top pt-3 mt-3"><div class="fw-semibold">{{ c.name }}</div><div class="small-muted mb-1">{{ c.positioning }}</div>
+            {% if c.themes %}<div class="mb-1">{% for t in c.themes %}<span class="badge text-bg-light me-1">{{ t }}</span>{% endfor %}</div>{% endif %}
+            <div class="small"><strong>{% translate "قوة:" %}</strong> {{ c.strengths }}</div><div class="small"><strong>{% translate "ضعف:" %}</strong> {{ c.weaknesses }}</div></div>{% endfor %}
+        </div></div>
+    <div class="row g-4">
+        <div class="col-md-6"><div class="wk-card h-100"><div class="wk-card-head"><h2>{% translate "فجوات يتركونها" %}</h2></div><div class="wk-card-body">{% for g in analysis.gaps %}<p class="mb-2">• {{ g }}</p>{% endfor %}</div></div></div>
+        <div class="col-md-6"><div class="wk-card h-100"><div class="wk-card-head"><h2>{% translate "زوايا تميّزك" %}</h2></div><div class="wk-card-body">{% for o in analysis.opportunities %}<p class="mb-2">• {{ o }}</p>{% endfor %}</div></div></div>
+    </div>
+    {% elif analysis.status == 'failed' %}<div class="alert alert-danger">{{ analysis.error }}</div>
+    {% elif running %}<div class="alert alert-info">{% translate "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة." %}</div>
+    {% else %}<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-binoculars"></i></div><h3>{% translate "أضف منافسيك" %}</h3>
+        <p>{% translate "أضف حتى 8 منافسين بموقعهم، والصق أمثلة من منشوراتهم إن أمكن، ثم اضغط «حلّل المنافسين»." %}</p></div></div>{% endif %}
+</div>
+</div>
+{% endblock %}

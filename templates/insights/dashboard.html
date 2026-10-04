@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "الأداء" %}{% endblock %}
+{% block page_title %}{% translate "الأداء" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها." %}</div>{% endblock %}
+{% block actions %}
+<a href="{% url 'insights:report_list' %}" class="btn btn-light"><i class="bi bi-file-earmark-text"></i> {% translate "التقارير الشهرية" %}</a>
+{% if membership.can_edit %}<form method="post" action="{% url 'insights:refresh' %}" class="d-inline">{% csrf_token %}<button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> {% translate "تحديث الأرقام" %}</button></form>{% endif %}
+{% endblock %}
+{% block content %}
+{% if not accounts %}
+<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-graph-up"></i></div>
+    <h3>{% translate "اربط حسابات فيسبوك أو إنستغرام" %}</h3>
+    <p>{% translate "يقرأ وكيل أرقام المنشورات التي نشرها عبر حساباتك المربوطة، ثم يستخدمها في خطط الأشهر القادمة." %}</p>
+    {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="btn btn-ai btn-lg"><i class="bi bi-send"></i> {% translate "حسابات النشر" %}</a>{% endif %}</div></div>
+{% else %}
+<div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+    {% for key, label in ranges %}<a href="?range={{ key }}" class="btn btn-sm {% if key == range %}btn-primary{% else %}btn-light{% endif %}">{{ label }}</a>{% endfor %}
+    <span class="small-muted ms-auto">{% if last_fetch %}{% blocktranslate trimmed with when=last_fetch|naturaltime %}آخر تحديث: {{ when }}{% endblocktranslate %}{% else %}{% translate "لم تُقرأ أرقام بعد." %}{% endif %}</span>
+</div>
+{% if not data.totals.posts %}
+<div class="alert alert-info">
+    {% if published %}{% translate "لم تصل أرقام بعد. اضغط «تحديث الأرقام»؛ وإن بقيت فارغة فأعد ربط حساب Meta من «حسابات النشر» ووافق على صلاحية قراءة الإحصاءات." %}
+    {% else %}{% translate "لا توجد منشورات منشورة بعد. تظهر الأرقام هنا بعد نشر أول منشور عبر وكيل." %}{% endif %}
+</div>
+{% endif %}
+{% with totals=data.totals %}{% include "insights/_kpis.html" %}{% endwith %}
+
+<div class="row g-4 mb-4">
+    <div class="col-lg-6"><div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-trophy text-primary"></i> {% translate "الأفضل أداءً" %}</h2></div><div class="wk-card-body">{% include "insights/_post_rows.html" with cards=data.top %}</div></div></div>
+    <div class="col-lg-6"><div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-arrow-down-circle text-primary"></i> {% translate "الأضعف أداءً" %}</h2></div><div class="wk-card-body">{% include "insights/_post_rows.html" with cards=data.bottom %}</div></div></div>
+</div>
+<div class="row g-4 mb-4">
+    <div class="col-lg-4"><div class="wk-card h-100"><div class="wk-card-head"><h2>{% translate "حسب المحور" %}</h2></div><div class="wk-card-body">{% include "insights/_bars.html" with rows=data.by_pillar peak=peak %}<div class="small-muted mt-2">{% translate "متوسط التفاعل · معدل التفاعل" %}</div></div></div></div>
+    <div class="col-lg-4"><div class="wk-card h-100"><div class="wk-card-head"><h2>{% translate "حسب التصميم" %}</h2></div><div class="wk-card-body">{% include "insights/_bars.html" with rows=data.by_layout peak=peak %}</div></div></div>
+    <div class="col-lg-4"><div class="wk-card h-100"><div class="wk-card-head"><h2>{% translate "حسب يوم النشر" %}</h2></div><div class="wk-card-body">{% include "insights/_bars.html" with rows=data.by_weekday peak=peak %}</div></div></div>
+</div>
+{% if evergreen %}
+<div class="wk-card mb-4"><div class="wk-card-head"><h2><i class="bi bi-recycle text-primary"></i> {% translate "منشورات تستحق العودة" %}</h2>
+    <a href="{% url 'companies:autopilot' %}" class="small">{% translate "إعادة نشر تلقائية كل شهر" %}</a></div><div class="wk-card-body">
+    {% for post, engagement in evergreen %}
+    <div class="d-flex align-items-center gap-3 py-2 {% if not forloop.last %}border-bottom{% endif %}">
+        <div class="flex-grow-1 overflow-hidden"><a href="{% url 'content:post_edit' post.pk %}" class="fw-semibold text-truncate d-block">{{ post.title }}</a>
+            <div class="small-muted">{% if post.evergreen %}{% translate "محتوى دائم" %} · {% endif %}{{ post.published_at|date:"j F Y" }} · {{ engagement }} {% translate "تفاعل" %}</div></div>
+        {% if membership.can_edit %}<form method="post" action="{% url 'insights:repost' post.pk %}">{% csrf_token %}<button class="btn btn-sm btn-soft"><i class="bi bi-recycle"></i> {% translate "أعد نشره" %}</button></form>{% endif %}
+    </div>
+    {% endfor %}
+</div></div>
+{% endif %}
+<div class="wk-card mb-4"><div class="wk-card-head"><h2><i class="bi bi-clock text-primary"></i> {% translate "أفضل ساعات النشر لجمهورك" %}</h2></div><div class="wk-card-body">
+    {% if slots %}<p class="mb-3">{% translate "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:" %}
+        {% for hour, n, avg in slots %}<span class="badge text-bg-primary me-1">{{ hour|stringformat:"02d" }}:00</span>{% endfor %}</p>
+    {% else %}<p class="small-muted mb-3">{% translate "تحتاج 3 منشورات على الأقل في الساعة نفسها لتحديد أفضل وقت. يزداد دقة كلما نُشر أكثر." %}</p>{% endif %}
+    {% include "insights/_bars.html" with rows=data.by_hour peak=peak_hour %}
+</div></div>
+{% endif %}
+{% endblock %}

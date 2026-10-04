@@ -1,0 +1,31 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-spotlight .orbit { position: absolute; z-index: 1; width: 620px; height: 620px; border-radius: 50%; top: -30px; inset-inline-end: -10px; border: 3px solid var(--line); }
+.t-spotlight .orbit::after { content: ''; position: absolute; inset: 60px; border-radius: 50%; border: 3px solid var(--line); }
+.t-spotlight .disc { position: absolute; z-index: 2; width: 430px; height: 430px; border-radius: 50%; top: 70px; inset-inline-end: 70px;
+  background: var(--ac) center/cover no-repeat; border: 14px solid var(--bg-base); box-shadow: 0 0 0 5px var(--ac), 0 30px 70px rgba(0,0,0,.25); }
+.size-portrait.t-spotlight .disc { width: 500px; height: 500px; top: 80px; }
+.size-story.t-spotlight .disc { top: 360px; width: 600px; height: 600px; inset-inline-end: 240px; }
+.t-spotlight .disc.empty { background: linear-gradient(150deg, var(--ac), var(--p-dark)); }
+.t-spotlight .disc.empty::after { content: ''; position: absolute; inset: 0; border-radius: 50%; opacity: .2;
+  background-image: radial-gradient(#fff 2.4px, transparent 2.6px); background-size: 36px 36px; }
+.t-spotlight .disc .badge { position: absolute; top: 10px; inset-inline-start: -60px; font-size: 34px; box-shadow: 0 12px 30px rgba(0,0,0,.25); transform: rotate(-6deg); }
+.t-spotlight .fit-box { justify-content: flex-end; padding-top: 420px; }
+.size-story.t-spotlight .fit-box { padding-top: 780px; }
+.size-portrait.t-spotlight .fit-box { padding-top: 500px; }
+.t-spotlight .headline { font-weight: 900; }
+.t-spotlight .sub { margin-top: 22px; opacity: .92; }
+.t-spotlight .foot { margin-top: 34px; }
+{% endblock %}
+{% block body %}
+<div class="orbit"></div>
+<div class="disc{% if not photo %} empty{% endif %}"{% if photo %} style="background-image:url('{{ photo }}')"{% endif %}>{% if badge %}<span class="badge">{{ badge }}</span>{% endif %}</div>
+<div class="inner">
+  <div class="row" style="justify-content:flex-start">{% include "studio/designs/_logo.html" %}</div>
+  <div class="fit-box">
+    <div class="headline" data-fit="104" data-min="44">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" data-fit="40" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+</div>
+{% endblock %}

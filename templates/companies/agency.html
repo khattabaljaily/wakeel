@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "وضع الوكالة" %}{% endblock %}
+{% block page_title %}{% translate "وضع الوكالة" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "إن كنت وكالة تسويق تدير شركات عملائك هنا، يرى عملاؤك اسم وكالتك وشعارها في صفحات مراجعة الخطط والتقارير والرسائل، بدل علامة وكيل." %}</div>{% endblock %}
+{% block content %}
+<form method="post" enctype="multipart/form-data" class="wk-card" style="max-width:720px"><div class="wk-card-body">{% csrf_token %}
+    <div class="row">
+        {% include "_field.html" with field=form.name wrap_class="col-md-8" %}{% include "_field.html" with field=form.color wrap_class="col-md-4" %}
+        {% include "_field.html" with field=form.logo wrap_class="col-md-6" %}{% include "_field.html" with field=form.website wrap_class="col-md-6" %}
+    </div>
+    <label class="form-label">{% translate "الشركات التي تظهر لعملائها هوية الوكالة" %}</label>
+    {% for c in owned %}
+    <div class="form-check"><input class="form-check-input" type="checkbox" name="companies" value="{{ c.pk }}" id="co{{ c.pk }}" {% if current_agency and c.agency_id == current_agency.pk %}checked{% endif %}>
+        <label class="form-check-label" for="co{{ c.pk }}">{{ c.name }}</label></div>
+    {% empty %}<div class="small-muted">{% translate "لا توجد شركات تملكها." %}</div>{% endfor %}
+    <div class="d-flex gap-2 mt-3"><button class="btn btn-primary">{% translate "حفظ" %}</button>
+        {% if current_agency %}<button class="btn btn-light text-danger" name="action" value="off" formnovalidate>{% translate "إيقاف وضع الوكالة" %}</button>{% endif %}</div>
+</div></form>
+{% endblock %}

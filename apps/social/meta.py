@@ -54,8 +54,9 @@ def _call(method, path, **kwargs):
 # --- Connecting -------------------------------------------------------------
 
 def login_url(redirect_uri, state):
+    scopes = list(dict.fromkeys([*SCOPES, *settings.META_INSIGHTS_SCOPES, *settings.META_INBOX_SCOPES, *settings.META_ADS_SCOPES]))
     params = {'client_id': settings.META_APP_ID, 'redirect_uri': redirect_uri, 'state': state,
-              'scope': ','.join(SCOPES), 'response_type': 'code'}
+              'scope': ','.join(scopes), 'response_type': 'code'}
     return f'https://www.facebook.com/{settings.META_GRAPH_VERSION}/dialog/oauth?{urlencode(params)}'
 
 
@@ -73,6 +74,7 @@ def pages_for_code(code, redirect_uri):
     return [{
         'id': p['id'], 'name': p['name'], 'token': p['access_token'],
         'instagram': (p.get('instagram_business_account') or {}),
+        'user_token': long['access_token'],
     } for p in pages.get('data', []) if p.get('access_token')]
 
 
@@ -112,3 +114,81 @@ def publish_instagram(ig_id, token, caption, image_url, story=False, wait=30):
             raise MetaError(_('تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى.'))
         time.sleep(2)
     return _call('POST', f'{ig_id}/media_publish', data={'creation_id': container, 'access_token': token})['id']
+
+
+# --- Insights ---------------------------------------------------------------
+
+def _total(value):
+    """A Graph summary or number as an int."""
+    if isinstance(value, dict):
+        value = (value.get('summary') or {}).get('total_count', 0)
+    try:
+        return int(value or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def facebook_post_stats(post_id, token):
+    """Reactions, comments, shares and (when the token may read insights) reach of a Page post."""
+    body = _call('GET', post_id, params={
+        'access_token': token,
+        'fields': 'reactions.summary(true).limit(0),comments.summary(true).limit(0),shares',
+    })
+    stats = {'likes': _total(body.get('reactions')), 'comments': _total(body.get('comments')),
+             'shares': _total((body.get('shares') or {}).get('count')), 'saves': 0, 'reach': None}
+    try:
+        data = _call('GET', f'{post_id}/insights', params={'access_token': token, 'metric': 'post_impressions_unique'})
+        for row in data.get('data', []):
+            if row.get('name') == 'post_impressions_unique' and row.get('values'):
+                stats['reach'] = _total(row['values'][0].get('value'))
+    except MetaError:  # no read_insights permission: engagement alone is still useful
+        logger.info('No reach for Facebook post %s', post_id)
+    return stats
+
+
+def instagram_media_stats(media_id, token, story=False):
+    """Likes, comments, shares, saves and reach of an Instagram post."""
+    body = _call('GET', media_id, params={'access_token': token, 'fields': 'like_count,comments_count'})
+    stats = {'likes': _total(body.get('like_count')), 'comments': _total(body.get('comments_count')),
+             'shares': 0, 'saves': 0, 'reach': None}
+    metrics = 'reach' if story else 'reach,shares,saved'
+    try:
+        data = _call('GET', f'{media_id}/insights', params={'access_token': token, 'metric': metrics})
+        for row in data.get('data', []):
+            value = _total((row.get('values') or [{}])[0].get('value', row.get('total_value', {}).get('value')))
+            name = row.get('name')
+            if name == 'reach':
+                stats['reach'] = value
+            elif name == 'shares':
+                stats['shares'] = value
+            elif name == 'saved':
+                stats['saves'] = value
+    except MetaError:
+        logger.info('No insights for Instagram media %s', media_id)
+    return stats
+
+
+# --- Comments (inbox) -------------------------------------------------------
+
+def facebook_comments(post_id, token):
+    """Latest top-level comments on a Page post: [{id, author, author_id, text, time}]."""
+    body = _call('GET', f'{post_id}/comments', params={
+        'access_token': token, 'filter': 'toplevel', 'order': 'reverse_chronological', 'limit': 50,
+        'fields': 'id,from{id,name},message,created_time',
+    })
+    return [{'id': c['id'], 'author': (c.get('from') or {}).get('name', ''), 'author_id': (c.get('from') or {}).get('id', ''),
+             'text': c.get('message', ''), 'time': c.get('created_time')} for c in body.get('data', []) if c.get('id')]
+
+
+def instagram_comments(media_id, token):
+    body = _call('GET', f'{media_id}/comments', params={'access_token': token, 'limit': 50, 'fields': 'id,username,text,timestamp'})
+    return [{'id': c['id'], 'author': c.get('username', ''), 'author_id': c.get('username', ''), 'text': c.get('text', ''),
+             'time': c.get('timestamp')} for c in body.get('data', []) if c.get('id')]
+
+
+def reply_facebook(comment_id, token, message):
+    return _call('POST', f'{comment_id}/comments', data={'message': message, 'access_token': token}).get('id', '')
+
+
+def reply_instagram(comment_id, token, message):
+    return _call('POST', f'{comment_id}/replies', data={'message': message, 'access_token': token}).get('id', '')

@@ -62,7 +62,7 @@
         {% empty %}
         <div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-collection"></i></div><h3>{% translate "لا توجد منشورات في هذه الخطة" %}</h3></div></div>
         {% endfor %}
-        <p class="text-center small-muted my-4">{% translate "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي" %}</p>
+        <p class="text-center small-muted my-4">{% if agency %}{% if agency.logo %}<img src="{{ agency.logo.url }}" alt="" style="height:28px" class="d-block mx-auto mb-2">{% endif %}{% blocktranslate trimmed with name=agency.name %}أعدّت هذه الخطة {{ name }}{% endblocktranslate %}{% if agency.website %} · <a href="{% if '://' not in agency.website %}https://{% endif %}{{ agency.website }}" rel="noopener" style="color:{{ agency.color }}">{{ agency.website }}</a>{% endif %}{% else %}{% translate "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي" %}{% endif %}</p>
     </div>
 </div>
 {% endblock %}

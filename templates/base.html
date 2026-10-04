@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %} {% translate "· وكيل" %}</title>
+    <title>{% block title %}{% endblock %} {% if agency %}· {{ agency.name }}{% else %}{% translate "· وكيل" %}{% endif %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap{% if LANGUAGE_BIDI %}.rtl{% endif %}.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
     <link rel="stylesheet" href="{% static_v 'css/app.css' %}">
-    <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">
+    {% if agency.logo %}<link rel="icon" href="{{ agency.logo.url }}">{% else %}<link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">{% endif %}
     <meta name="theme-color" content="#12112a">
     <link rel="manifest" href="{% url 'core:manifest' %}">
     <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
@@ -102,10 +102,16 @@
             {% if membership.can_manage %}<a href="{% url 'companies:autopilot' %}" class="{% nav_active '/company/autopilot/' %}"><i class="bi bi-calendar2-check"></i> {% translate "المخطط الآلي" %}
                 {% if company.autopilot %}<span class="wk-nav__badge wk-nav__badge--on" title="{% translate "يعمل" %}">●</span>{% endif %}</a>{% endif %}
             <a href="{% url 'content:post_list' %}" class="{% nav_active '/app/posts/' %}"><i class="bi bi-collection"></i> {% translate "المنشورات" %}</a>
+            <a href="{% url 'inbox:inbox' %}" class="{% nav_active '/app/inbox/' %}"><i class="bi bi-chat-dots"></i> {% translate "التعليقات" %}
+                {% inbox_count company as inbox_new %}{% if inbox_new %}<span class="wk-nav__badge" title="{% translate "بانتظار الرد" %}">{{ inbox_new }}</span>{% endif %}</a>
+            <a href="{% url 'insights:dashboard' %}" class="{% nav_active '/app/insights/' %}"><i class="bi bi-graph-up"></i> {% translate "الأداء" %}</a>
+            <a href="{% url 'competitors:list' %}" class="{% nav_active '/app/competitors/' %}"><i class="bi bi-binoculars"></i> {% translate "المنافسون" %}</a>
+            <a href="{% url 'ads:list' %}" class="{% nav_active '/app/ads/' %}"><i class="bi bi-megaphone"></i> {% translate "الترويج المدفوع" %}</a>
             <a href="{% url 'companies:media' %}" class="{% nav_active '/company/media/' %}"><i class="bi bi-images"></i> {% translate "مكتبة الوسائط" %}</a>
             <div class="wk-nav__label">{% translate "الشركة" %}</div>
             <a href="{% url 'companies:brand' %}" class="{% nav_active '/company/brand/' %}"><i class="bi bi-palette"></i> {% translate "هوية العلامة" %}</a>
             <a href="{% url 'companies:team' %}" class="{% nav_active '/company/team/' %}"><i class="bi bi-people"></i> {% translate "الفريق" %}</a>
+            {% if membership.role == 'owner' %}<a href="{% url 'companies:agency' %}" class="{% nav_active '/company/agency/' %}"><i class="bi bi-briefcase"></i> {% translate "وضع الوكالة" %}</a>{% endif %}
             {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="{% nav_active '/company/social/' %}"><i class="bi bi-send"></i> {% translate "حسابات النشر" %}</a>{% endif %}
         </nav>
 

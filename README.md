@@ -23,10 +23,61 @@ It is multi-tenant SaaS: one account can run several companies (the pilots are E
 
 1. **Brand kit**: during onboarding, the company describes its business, audience, tone of voice, do's and don'ts, colours, fonts, logo and contact channels.
 2. **Content plan**: pick a month, the platforms (Facebook, Instagram, TikTok), how many posts per week, and an optional brief. A background job asks the AI for the month's strategy (goals, content pillars, key dates) and every post: idea, caption, hashtags, posting time, design text, template choice, and a short shooting script for reels. TikTok posts are TikTok-only photo posts (a 9:16 design) unless an idea really needs video, which keeps scripts, and AI tokens, to a minimum.
-3. **Design**: a second job renders each post image from one of seven templates (`bold`, `gradient`, `photo`, `split`, `minimal`, `quote`, `offer`) in square, 4:5 or 9:16 sizes. Photos from the company's media library can be used as backgrounds.
+3. **Design**: a second job renders each post image in square, 4:5 or 9:16. A design is four independent choices (see *Design engine* below), so a month of posts doesn't repeat one look. Photos from the company's media library are used as backgrounds by the photo layouts.
 4. **Review**: posts start as *awaiting review*. The post editor has a live preview (plus an Instagram/Facebook feed mock), template/size/background pickers, one-click AI rewrites, a comment thread, and a status workflow: draft → review → approved → published. Editors prepare posts; owners/admins approve them. The calendar supports drag and drop to reschedule and shows local occasions.
 5. **Client approval**: a manager can share a plan through a secret link (`/review/<token>/`). The client approves posts, requests changes or comments without an account; internal comments stay hidden.
 6. **Publish**: connect a Facebook Page and its Instagram professional account (Company → حسابات النشر), then publish an approved post with one click, or turn on auto-publishing so the worker publishes approved posts at their time. TikTok photo posts go to the connected TikTok account's inbox, where the team finishes them in the app. Reels stay manual (download the image / copy the caption / export a plan's captions).
+
+### Design engine
+
+`apps/studio` composes every post image from four layers instead of picking one fixed template:
+
+| Layer | Choices | Where |
+|---|---|---|
+| **Layout** (`Post.template`) | 16: `bold`, `gradient`, `photo`, `split`, `minimal`, `quote`, `offer`, `poster`, `stat`, `sidebar`, `diagonal`, `frame`, `arch`, `card`, `bands`, `spotlight` | `templates/studio/designs/<key>.html` |
+| **Colour scheme** (`Post.scheme`) | 9: `primary`, `secondary`, `accent`, `deep`, `light`, `soft`, `gradient`, `dusk`, `dark`, built from the brand's three colours with a contrast check (`render.palette`) | `apps/studio/designs.py` |
+| **Motif** (`Post.motif`) | 12 background decorations: dots, rings, blobs, waves, grid, rays, stripes, arcs, confetti, plus, sun, none | CSS in `designs/base.html` |
+| **Variant** (`Post.variant`) | a seed for the small differences (where the motif sits, the button and badge shape) | `render.variation` |
+
+An empty `scheme` / `motif` means the layout's own default (posts made before these fields existed keep a similar look). The AI art-directs all three per post; `apps/studio/art.py` then validates them and makes the month varied (no layout twice within 3 posts, least-used schemes and motifs first, photo layouts only when the media library has photos, which it also assigns). In the editor, *New design* (تصميم جديد) shuffles scheme, motif and variant, and the colour swatches and motif list pick them by hand.
+
+To add a layout: write `designs/<key>.html` (extend `base.html`, use `var(--bg) --fg --ac --on-ac --soft --line --muted`, never fixed brand colours), then add it to `TEMPLATES` and `DEFAULT_MOTIF` in `designs.py`. `apps/studio/tests.py` renders every layout in every size.
+
+### Performance (insights)
+
+`apps/insights` reads how published posts did and feeds it back:
+
+- **Numbers**: the worker refreshes reach, likes, comments, shares and saves of the last 45 days of published Facebook and Instagram posts every 6 hours (`PostInsight`), or on demand from the Performance page. Facebook's reach and Instagram's insights need `read_insights` / `instagram_manage_insights`; without them engagement is still collected, and the page asks the owner to reconnect.
+- **Learning**: before each plan, `performance_block` gives the AI the best and weakest posts, results per pillar, layout and format, and the hours that worked, so the next month does more of what worked.
+- **Best hours**: the hours (in the company's timezone) with the best results, once at least 3 posts exist in the same hour.
+- **Monthly report**: in the first days of a month the worker writes the previous month's report (`MonthlyReport`: totals, top posts, what worked, three recommendations), emails the client when the auto planner has a client email, and notifies the team. Reports have a secret share link (`/report/<token>/`).
+
+### Language and dialect versions, evergreen reposts
+
+- **Versions**: from the post editor, *New version of this post* writes a copy in Modern Standard Arabic, Gulf, Sudanese, Egyptian or Levantine Arabic, or English (`apps/content/copies.py`). The copy keeps the design and date, is linked to the original (`Post.source_post`, `Post.language`) and waits for review.
+- **Evergreen**: a post can be marked evergreen. Published posts older than 60 days that are marked, or that performed well, are offered for reposting on the Performance page; a repost is reworded by the AI, gets a fresh look, and lands on a free day at one of the brand's best hours. With *Evergreen posts reposted each month* (Auto planner settings, 0 = off) the best candidates are added to every generated plan.
+
+### Competitors
+
+`/app/competitors/`: up to 8 competitors with their website, accounts and pasted examples of their posts. *Analyse competitors* reads the websites (`companies.scrape.read_site`, re-read weekly) and asks the AI for each competitor's positioning, the gaps they leave and angles for the brand (`CompetitorAnalysis`). The latest analysis (if under 120 days old) is given to the planner as `<competitor_insights>`.
+
+### Comments inbox
+
+`apps/inbox`: every 30 minutes the worker reads new Facebook and Instagram comments on posts published in the last 30 days, and the AI labels each (sentiment, category, urgency) and drafts a reply in the brand's voice. *High* and *crisis* comments notify the owners and admins at once (in the app and by email). Replies are sent from the inbox page; *auto-reply* (off by default) answers simple questions and praise on its own, never complaints or anything urgent. Needs `META_INBOX_SCOPES`.
+
+### WhatsApp approvals
+
+`apps/whatsapp` (WhatsApp Business Cloud API). With a client WhatsApp number in the Auto planner settings, *Send to the client on WhatsApp* on a plan (and the auto planner, when a plan is ready) sends the approved template `WHATSAPP_REVIEW_TEMPLATE` with the brand name, month and review link, and a quick-reply button. When the client taps it, every post awaiting review arrives as its design with *Approve* / *Request changes* buttons; a change request takes the client's next message as the note. Button ids are signed for the client's number; only the company's own client number is listened to. Webhook: `SITE_URL/whatsapp/webhook/` (verify token `WHATSAPP_VERIFY_TOKEN`, signed with the app secret).
+
+The template must exist and be approved in WhatsApp Manager: category *utility*, language `WHATSAPP_TEMPLATE_LANGUAGE`, body with three variables (brand, month, link), e.g. «خطة محتوى {{1}} لشهر {{2}} جاهزة للمراجعة. اضغط «ابدأ المراجعة» لتصلك المنشورات هنا، أو افتح الرابط: {{3}}», and one quick-reply button «ابدأ المراجعة».
+
+### Paid promotion
+
+`apps/ads`: for a published Facebook post, the AI suggests a small test promotion (daily budget, days, age, gender, countries, interests to add by hand), clamped to at most 500 a day for 30 days. The owner can then create it in the chosen ad account through the Marketing API: campaign (engagement), ad set and ad, **all PAUSED**. Nothing is spent until a person turns it on in Ads Manager. Needs `META_ADS_SCOPES` (`ads_management`, Meta app review); the Facebook connection keeps the long-lived user token (`SocialAccount.user_token`) to reach the ad accounts.
+
+### Agency mode (white label)
+
+`/company/agency/`: an owner who is a marketing agency sets the agency's name, logo, colour and website, and picks which of the companies they own use it. Those companies' clients then see the agency instead of Wakeel on the plan review page, the shared reports and the client emails. Billing is unchanged.
 
 ### Occasions
 
@@ -90,6 +141,12 @@ Open http://127.0.0.1:8000/, create an account, and follow the onboarding.
 | `DEEPSEEK_API_KEY`, `DEEPSEEK_MODEL` | DeepSeek key and model (default `deepseek-v4-pro`; `deepseek-flash` is cheaper) |
 | `DEEPSEEK_OFF_PEAK_UTC` | DeepSeek's off-peak window in UTC, `["16:30", "00:30"]` by default. DeepSeek prices (per model, cache hit/miss, peak/off-peak) are built into `apps/ai/pricing.py`, and each job's cost is stored when it runs |
 | `AI_PRICE_INPUT_PER_MTOK`, `AI_PRICE_OUTPUT_PER_MTOK` | Flat USD price per million tokens for other models (Claude); without it their jobs show no cost |
+| `META_INBOX_SCOPES` | Permissions for the comments inbox, `["pages_read_user_content", "pages_manage_engagement", "instagram_manage_comments"]` by default; `[]` to leave it out |
+| `META_ADS_SCOPES` | `[]` by default; `["ads_management"]` turns on paid promotion drafts once the Meta app is approved for it |
+| `WHATSAPP_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID` | WhatsApp Business Cloud API system-user token and sender number id. Empty = WhatsApp approvals off |
+| `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_APP_SECRET` | Webhook verify token you choose, and the app secret that signs deliveries (defaults to `META_APP_SECRET`) |
+| `WHATSAPP_REVIEW_TEMPLATE`, `WHATSAPP_TEMPLATE_LANGUAGE` | The approved review template (`wakeel_plan_review`, `ar` by default) |
+| `META_INSIGHTS_SCOPES` | Extra Meta permissions asked at connect time for analytics, `["read_insights", "instagram_manage_insights"]` by default; set `[]` to ask for publishing permissions only. They need Meta app review for accounts other than the app's testers |
 | `SITE_URL` | Public address of the site, used in email links and for images Instagram downloads (must be public for Instagram publishing) |
 | `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `EMAIL_USE_TLS`, `DEFAULT_FROM_EMAIL` | SMTP for password reset and notifications. Empty `EMAIL_HOST` prints emails to the console |
 | `META_APP_ID`, `META_APP_SECRET`, `META_GRAPH_VERSION` | Meta app for Facebook/Instagram publishing. Add `SITE_URL/company/social/meta/callback/` as a valid OAuth redirect URI. Publishing to accounts other than the app's testers needs Meta app review for `pages_manage_posts` and `instagram_content_publish` |
@@ -146,7 +203,11 @@ apps/
   companies/   tenants (Company), memberships & roles, media library, current-company middleware
   content/     content plans, posts, calendar, post editor, plan -> posts services
   ai/          AI client (Claude / DeepSeek) and the planning / rewriting prompts and JSON schemas
-  studio/      design templates (templates/studio/designs/) and the Chrome renderer
+  studio/      design layouts (templates/studio/designs/), colour schemes, motifs, art direction and the Chrome renderer
+  insights/    post performance from Meta, best hours, the planner's performance block, monthly reports, competitors
+  inbox/       comments from Facebook and Instagram, AI triage, crisis alerts, replies
+  whatsapp/    client approvals over WhatsApp (Cloud API, webhook)
+  ads/         paid promotion suggestions, created PAUSED in Meta
   jobs/        background job model and the run_worker command
   api/         JSON endpoints used by the front-end (status, reschedule, rewrite, render, comments, publish, job polling)
   notifications/  in-app + email notifications
@@ -158,5 +219,5 @@ static/        css, js, fonts, logo
 
 ## Roadmap
 
-- **Next**: TikTok video (needs the shot video), pull post insights from Meta.
-- **Later**: learn from performance to improve next month's plan, suggested replies to comments, subscriptions and billing for the SaaS.
+- **Next**: TikTok video (needs the shot video), direct messages in the inbox (Messenger / Instagram DMs).
+- **Later**: subscriptions and billing for the SaaS (including agency plans), custom domains for agencies.

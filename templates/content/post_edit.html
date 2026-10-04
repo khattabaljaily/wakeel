@@ -51,6 +51,16 @@
             <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> {% translate "نفّذ" %}</button>
         </div>
         <div class="small text-primary mt-2 d-none" id="rewriteStatus"><span class="spinner-border spinner-border-sm"></span> <span>{% translate "وكيل يعيد كتابة المنشور…" %}</span></div>
+        <div class="d-flex flex-wrap gap-2 align-items-center mt-3 pt-3 border-top">
+            <span class="small fw-semibold"><i class="bi bi-translate"></i> {% translate "نسخة جديدة من هذا المنشور:" %}</span>
+            <select class="form-select form-select-sm w-auto" id="variantLang">{% for key, label in variants %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select>
+            <button type="button" class="btn btn-sm btn-soft" id="variantBtn">{% translate "أنشئ النسخة" %}</button>
+            {% if post.status == 'published' %}<button type="button" class="btn btn-sm btn-soft" id="repostBtn"><i class="bi bi-recycle"></i> {% translate "أعد نشره بصياغة جديدة" %}</button>{% endif %}
+        </div>
+        {% if post.source_post or copies %}<div class="small-muted mt-2">
+            {% if post.source_post %}{% translate "منسوخ من:" %} <a href="{% url 'content:post_edit' post.source_post_id %}">{{ post.source_post.title }}</a>{% endif %}
+            {% for c in copies %}{% if forloop.first %}{% translate "نسخ منه:" %} {% endif %}<a href="{% url 'content:post_edit' c.pk %}">{{ c.title }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
+        </div>{% endif %}
     </div>
     {% endif %}
 
@@ -70,6 +80,10 @@
             <div class="row">
                 {% include "_field.html" with field=form.scheduled_at wrap_class="col-md-6" %}
                 {% include "_field.html" with field=form.pillar wrap_class="col-md-6" %}
+                <div class="col-12 mb-3"><div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" name="evergreen" id="id_evergreen" {% if form.evergreen.value %}checked{% endif %}>
+                    <label class="form-check-label" for="id_evergreen">{{ form.evergreen.label }} <span class="small-muted">· {{ form.evergreen.help_text }}</span></label>
+                </div></div>
             </div>
             <div class="mb-3">
                 <div class="d-flex justify-content-between"><label class="form-label" for="{{ form.caption.id_for_label }}">{{ form.caption.label }}</label><span class="wk-counter" id="captionCount"></span></div>
@@ -109,6 +123,26 @@
                         <span>{{ t.name }}</span>
                     </button>
                     {% endfor %}
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label class="form-label mb-0">{% translate "الألوان والزخرفة" %}</label>
+                    <button type="button" class="btn btn-sm btn-outline-primary" id="shuffleBtn"><i class="bi bi-shuffle"></i> {% translate "تصميم جديد" %}</button>
+                </div>
+                <input type="hidden" name="scheme" id="schemeInput" value="{{ form.scheme.value|default_if_none:'' }}">
+                <input type="hidden" name="variant" id="variantInput" value="{{ form.variant.value|default_if_none:0 }}">
+                <div class="wk-scheme-grid" id="schemeGrid">
+                    <button type="button" class="wk-scheme auto {% if not form.scheme.value %}active{% endif %}" data-scheme="" title="{% translate "تلقائي" %}">{% translate "تلقائي" %}</button>
+                    {% for sc in schemes %}
+                    <button type="button" class="wk-scheme {% if sc.key == form.scheme.value %}active{% endif %}" data-scheme="{{ sc.key }}" title="{{ sc.name }}"
+                            style="background:{{ sc.bg }}"><i style="background:{{ sc.ac }}"></i></button>
+                    {% endfor %}
+                </div>
+                <div class="mt-2">
+                    <select name="motif" id="motifInput" class="form-select form-select-sm">
+                        {% for value, label in form.motif.field.choices %}<option value="{{ value }}" {% if value == form.motif.value|default_if_none:'' %}selected{% endif %}>{% translate "الزخرفة" %}: {{ label }}</option>{% endfor %}
+                    </select>
                 </div>
             </div>
             <div class="mb-3">
@@ -225,7 +259,8 @@
     function designParams(extra) {
         var p = new URLSearchParams({
             headline: F.headline.value, subheadline: F.subheadline.value, cta: F.cta.value, badge: F.badge.value,
-            template: F.template.value, size: currentSize(), background: F.background.value || ''
+            template: F.template.value, size: currentSize(), background: F.background.value || '',
+            scheme: F.scheme.value || '', motif: F.motif.value || '', variant: F.variant.value || '0'
         });
         Object.keys(extra || {}).forEach(function (k) { p.set(k, extra[k]); });
         return p.toString();
@@ -254,6 +289,25 @@
         document.querySelectorAll('.wk-tpl').forEach(function (x) { x.classList.toggle('active', x === b); });
         F.template.value = b.dataset.template;
         markDirty(); refreshPreview();
+    });
+    document.getElementById('schemeGrid').addEventListener('click', function (e) {
+        var b = e.target.closest('.wk-scheme'); if (!b) return;
+        document.querySelectorAll('.wk-scheme').forEach(function (x) { x.classList.toggle('active', x === b); });
+        F.scheme.value = b.dataset.scheme;
+        markDirty(); refreshPreview(); refreshThumbsSoon();
+    });
+    F.motif.addEventListener('change', function () { markDirty(); refreshPreview(); refreshThumbsSoon(); });
+    // "New design": a random colour scheme, motif and variation, keeping the layout and the text.
+    document.getElementById('shuffleBtn').addEventListener('click', function () {
+        var schemes = Array.prototype.slice.call(document.querySelectorAll('.wk-scheme:not(.auto)'));
+        var motifs = Array.prototype.slice.call(F.motif.options).filter(function (o) { return o.value; });
+        var pick = function (list) { return list[Math.floor(Math.random() * list.length)]; };
+        var sc = pick(schemes.filter(function (x) { return x.dataset.scheme !== F.scheme.value; }));
+        document.querySelectorAll('.wk-scheme').forEach(function (x) { x.classList.toggle('active', x === sc); });
+        F.scheme.value = sc.dataset.scheme;
+        F.motif.value = pick(motifs.filter(function (o) { return o.value !== F.motif.value; })).value;
+        F.variant.value = 1 + Math.floor(Math.random() * 999998);
+        markDirty(); refreshPreview(); refreshThumbsSoon();
     });
     document.getElementById('assetGrid').addEventListener('click', function (e) {
         var b = e.target.closest('.wk-asset'); if (!b) return;
@@ -381,6 +435,27 @@
         rwBtn.addEventListener('click', function () { rewrite(document.getElementById('rewriteInput').value.trim()); });
         document.getElementById('rewriteInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); rwBtn.click(); } });
     }
+
+    // ---------- Language versions and reposts: each makes a new post, then opens it ----------
+    function makeCopy(url, data, btn) {
+        btn.disabled = true;
+        rwStatus.classList.remove('d-none');
+        (dirty ? save() : Promise.resolve()).then(function () {
+            return Wakeel.api(url, 'POST', data);
+        }).then(function (r) {
+            return Wakeel.pollJob(r.job, function (job) { if (job.message) rwStatus.querySelector('span:last-child').textContent = job.message; });
+        }).then(function (job) {
+            if (job.result_url) window.location = job.result_url;
+        }).catch(function (err) {
+            Wakeel.toast((err && err.error) || Wakeel.errorText(err), 'error');
+        }).finally(function () { btn.disabled = false; rwStatus.classList.add('d-none'); });
+    }
+    var variantBtn = document.getElementById('variantBtn');
+    if (variantBtn) variantBtn.addEventListener('click', function () {
+        makeCopy('/api/posts/' + POST_ID + '/variant/', { language: document.getElementById('variantLang').value }, variantBtn);
+    });
+    var repostBtn = document.getElementById('repostBtn');
+    if (repostBtn) repostBtn.addEventListener('click', function () { makeCopy('/api/posts/' + POST_ID + '/repost/', {}, repostBtn); });
 
     // ---------- Status workflow ----------
     var LABELS = { draft: ['{{ _("مسودة")|escapejs }}', 'draft'], review: ['{{ _("بانتظار المراجعة")|escapejs }}', 'review'], approved: ['{{ _("معتمد")|escapejs }}', 'approved'], published: ['{{ _("منشور")|escapejs }}', 'published'] };

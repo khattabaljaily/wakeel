@@ -16,5 +16,7 @@ urlpatterns = [
     path('posts/<int:pk>/comments/', views.post_comment, name='post_comment'),
     path('posts/<int:pk>/publish/', views.post_publish, name='post_publish'),
     path('posts/<int:pk>/render/', views.post_render, name='post_render'),
+    path('posts/<int:pk>/variant/', views.post_variant, name='post_variant'),
+    path('posts/<int:pk>/repost/', views.post_repost, name='post_repost'),
     path('plans/<int:pk>/render/', views.plan_render, name='plan_render'),
 ]

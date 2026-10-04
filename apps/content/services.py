@@ -9,7 +9,8 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.ai import planner
 from apps.ai.client import AIError
-from apps.studio.designs import TEMPLATES
+from apps.companies.models import MediaAsset
+from apps.studio import art
 
 from . import events
 from . import learning
@@ -51,7 +52,6 @@ def _post_fields(item, allowed_platforms):
     raw = raw if isinstance(raw, list) else []
     platforms = [p for p in dict.fromkeys(map(str, raw)) if p in allowed_platforms] or list(allowed_platforms)
     fmt = item.get('format') if item.get('format') in Post.Format.values else Post.Format.IMAGE
-    template = item.get('template') if item.get('template') in TEMPLATES else 'bold'
     fields = {
         name: _clip(name, item.get(name))
         for name in ('title', 'pillar', 'objective', 'caption', 'hashtags', 'headline', 'subheadline',
@@ -60,7 +60,9 @@ def _post_fields(item, allowed_platforms):
     if fmt != Post.Format.REEL:
         fields['video_script'] = ''
     fields['title'] = fields['title'] or fields['headline'][:200] or _('منشور')
-    fields.update(platforms=platforms, format=fmt, template=template, size=default_size(fmt, platforms))
+    fields.update(platforms=platforms, format=fmt, size=default_size(fmt, platforms))
+    # The AI's art direction; apps.studio.art.direct validates and varies it across the month.
+    fields.update({k: str(item.get(k) or '') for k in ('template', 'scheme', 'motif')})
     return fields
 
 
@@ -79,7 +81,7 @@ def apply_plan(plan, data):
     plan.posts.all().delete()
     tz = plan.company.tzinfo
     days = calendar.monthrange(plan.month.year, plan.month.month)[1]
-    posts = []
+    entries = []
     for item in data.get('posts') or []:
         if not isinstance(item, dict):
             continue
@@ -88,10 +90,13 @@ def apply_plan(plan, data):
         except (TypeError, ValueError):
             day = 1
         when = datetime.datetime.combine(plan.month.replace(day=day), _parse_time(item.get('time')), tzinfo=tz)
-        posts.append(Post(
-            company=plan.company, plan=plan, scheduled_at=when, status=Post.Status.REVIEW,
-            created_by=plan.created_by, **_post_fields(item, plan.platforms),
-        ))
+        entries.append((when, _post_fields(item, plan.platforms)))
+    entries.sort(key=lambda e: e[0])  # art direction looks at neighbours, so it needs posting order
+    assets = MediaAsset.objects.filter(company=plan.company)[:30]
+    art.direct([fields for _when, fields in entries], has_photos=bool(assets), seed=plan.pk)
+    posts = [Post(company=plan.company, plan=plan, scheduled_at=when, status=Post.Status.REVIEW,
+                  created_by=plan.created_by, **fields) for when, fields in entries]
+    art.assign_backgrounds(posts, assets)
     Post.objects.bulk_create(posts)
     return posts
 
@@ -156,6 +161,8 @@ def run_generate_plan(job):
     from apps.jobs.models import Job
     Job.enqueue(plan.company, Job.Kind.RENDER_PLAN, job.created_by, plan_id=plan.pk,
                 autopilot=bool(job.params.get('autopilot')))
+    from .copies import schedule_evergreen
+    schedule_evergreen(plan, job.created_by)
     return _('تم إعداد الخطة و%(count)s منشوراً.') % {'count': len(posts)}
 
 

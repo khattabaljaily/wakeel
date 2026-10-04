@@ -1,0 +1,16 @@
+{% load i18n %}
+{% if report.status == 'ready' %}
+<div class="wk-card mb-4"><div class="wk-card-body"><h2 class="h5 mb-3"><i class="bi bi-card-text text-primary"></i> {% translate "ملخص الشهر" %}</h2><p class="mb-0" style="line-height:2">{{ report.summary }}</p></div></div>
+{% include "insights/_kpis.html" %}
+<div class="row g-4 mb-4">
+    <div class="col-lg-6"><div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-trophy text-primary"></i> {% translate "الأفضل أداءً" %}</h2></div><div class="wk-card-body">{% include "insights/_post_rows.html" with cards=stats.top %}</div></div></div>
+    <div class="col-lg-6"><div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-check2-circle text-primary"></i> {% translate "ما نجح" %}</h2></div><div class="wk-card-body">
+        {% for w in report.wins %}<p class="mb-2">• {{ w }}</p>{% empty %}<span class="small-muted">—</span>{% endfor %}</div></div></div>
+</div>
+<div class="wk-card mb-4"><div class="wk-card-head"><h2><i class="bi bi-lightbulb text-primary"></i> {% translate "توصيات الشهر القادم" %}</h2></div><div class="wk-card-body">
+    <ol class="mb-0" style="line-height:2">{% for r in report.recommendations %}<li>{{ r }}</li>{% endfor %}</ol></div></div>
+{% elif report.status == 'failed' %}
+<div class="alert alert-danger">{{ report.error|default:_("تعذّر إعداد التقرير.") }}</div>
+{% else %}
+<div class="alert alert-info">{% translate "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات." %}</div>
+{% endif %}

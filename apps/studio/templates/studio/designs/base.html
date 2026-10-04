@@ -9,6 +9,9 @@
   --p: {{ c.p }}; --s: {{ c.s }}; --a: {{ c.a }};
   --on-p: {{ c.on_p }}; --on-s: {{ c.on_s }}; --on-a: {{ c.on_a }};
   --p-dark: {{ c.p_dark }}; --p-deep: {{ c.p_deep }}; --p-light: {{ c.p_light }}; --ink: {{ c.ink }};
+  --bg: {{ k.bg }}; --fg: {{ k.fg }}; --ac: {{ k.ac }}; --on-ac: {{ k.on_ac }};
+  --soft: {{ k.soft }}; --line: {{ k.line }}; --muted: {{ k.muted }}; --bg-base: {{ k.bg_base }};
+  --mx: {{ v.x }}%; --my: {{ v.y }}%; --mr: {{ v.rot }}deg; --ms: {{ v.scale }}; --flip: {{ v.flip }};
   --hf: '{{ heading_font }}', 'Cairo', sans-serif;
   --bf: '{{ body_font }}', 'Tajawal', sans-serif;
   --pad: 88px;
@@ -16,7 +19,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: var(--W); height: var(--H); overflow: hidden; background: #fff; }
 body { transform-origin: 0 0; }
-.canvas { position: relative; width: var(--W); height: var(--H); overflow: hidden; font-family: var(--bf);
+.canvas { position: relative; width: var(--W); height: var(--H); overflow: hidden; font-family: var(--bf); background: var(--bg); color: var(--fg);
   -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
 .size-story { --pad: 96px; }
 .inner { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: var(--pad); }
@@ -31,18 +34,67 @@ body { transform-origin: 0 0; }
 .logo-chip img { height: 70px; max-width: 320px; object-fit: contain; display: block; }
 .logo-text { font-family: var(--hf); font-weight: 800; font-size: 38px; }
 .badge { display: inline-block; font-family: var(--hf); font-weight: 800; font-size: 32px; padding: 12px 30px;
-  border-radius: 999px; background: var(--a); color: var(--on-a); white-space: nowrap; }
+  border-radius: 999px; background: var(--ac); color: var(--on-ac); white-space: nowrap; }
+.bd-tag .badge { border-radius: 10px; }
+.bd-sticker .badge { border-radius: 14px; transform: rotate(-4deg); box-shadow: 0 8px 0 rgba(0,0,0,.18); }
+.bd-plain .badge { background: transparent; color: var(--ac); border: 4px solid var(--ac); }
 .cta { display: inline-flex; align-items: center; gap: 16px; font-family: var(--hf); font-weight: 800; font-size: 36px;
-  padding: 22px 46px; border-radius: 999px; background: var(--a); color: var(--on-a); white-space: nowrap;
+  padding: 22px 46px; border-radius: 999px; background: var(--ac); color: var(--on-ac); white-space: nowrap;
   box-shadow: 0 14px 34px rgba(0,0,0,.18); }
+.cs-square .cta { border-radius: 14px; }
+.cs-outline .cta { background: transparent; color: var(--fg); border: 5px solid var(--ac); box-shadow: none; }
+.cs-underline .cta { background: transparent; color: var(--fg); box-shadow: none; padding: 8px 0; border-radius: 0;
+  border-bottom: 8px solid var(--ac); }
 .cta .arrow { font-size: 34px; line-height: 1; }
 .contact { font-size: 27px; font-weight: 600; display: flex; gap: 26px; opacity: .88; direction: ltr; }
 .contact span + span::before { content: '•'; margin-inline-end: 26px; opacity: .6; }
+
+/* Motifs: decoration behind the text, positioned by the post's variant (--mx --my --mr --ms --flip). */
+.motif { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; color: var(--fg); }
+.motif i { position: absolute; display: block; }
+.m-dots .motif { opacity: .16; background-image: radial-gradient(currentColor 2.4px, transparent 2.7px); background-size: 36px 36px;
+  -webkit-mask-image: linear-gradient(var(--mr), transparent 30%, #000 100%); mask-image: linear-gradient(var(--mr), transparent 30%, #000 100%); }
+.m-rings .motif i { border-radius: 50%; border: 36px solid var(--ac); opacity: .55; }
+.m-rings .motif .a { width: calc(620px * var(--ms)); height: calc(620px * var(--ms)); left: calc(var(--mx) - 300px); top: calc(var(--my) - 360px); }
+.m-rings .motif .b { width: calc(340px * var(--ms)); height: calc(340px * var(--ms)); right: calc(100% - var(--mx) - 220px); bottom: calc(100% - var(--my) - 260px); opacity: .35; border-width: 24px; }
+.m-blobs .motif i { border-radius: 50%; filter: blur(70px); opacity: .55; background: var(--ac); }
+.m-blobs .motif .a { width: calc(640px * var(--ms)); height: calc(640px * var(--ms)); left: calc(var(--mx) - 320px); top: calc(var(--my) - 340px); }
+.m-blobs .motif .b { width: calc(520px * var(--ms)); height: calc(520px * var(--ms)); right: calc(100% - var(--mx) - 260px); bottom: calc(100% - var(--my) - 300px); background: var(--fg); opacity: .16; }
+.m-waves .motif { transform: scaleX(var(--flip)); }
+.m-waves .motif i { left: -5%; right: -5%; height: 38%; opacity: .22; background: var(--ac);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath d='M0 90 C150 10 300 10 450 90 S750 170 900 90 S1100 20 1200 80 V200 H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath d='M0 90 C150 10 300 10 450 90 S750 170 900 90 S1100 20 1200 80 V200 H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat; }
+.m-waves .motif .a { bottom: -2%; }
+.m-waves .motif .b { bottom: -9%; opacity: .14; background: var(--fg); transform: scaleX(-1); }
+.m-grid .motif { opacity: .12; background-image: linear-gradient(currentColor 1.5px, transparent 1.5px), linear-gradient(90deg, currentColor 1.5px, transparent 1.5px);
+  background-size: 72px 72px; background-position: var(--mx) var(--my);
+  -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), #000 0%, transparent 78%); mask-image: radial-gradient(circle at var(--mx) var(--my), #000 0%, transparent 78%); }
+.m-rays .motif { opacity: .10; background: repeating-conic-gradient(from var(--mr) at var(--mx) var(--my), currentColor 0deg 5deg, transparent 5deg 17deg);
+  -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), #000 0%, transparent 85%); mask-image: radial-gradient(circle at var(--mx) var(--my), #000 0%, transparent 85%); }
+.m-stripes .motif { opacity: .12; background: repeating-linear-gradient(var(--mr), currentColor 0 3px, transparent 3px 44px);
+  -webkit-mask-image: linear-gradient(calc(var(--mr) + 90deg), #000, transparent 70%); mask-image: linear-gradient(calc(var(--mr) + 90deg), #000, transparent 70%); }
+.m-arcs .motif { transform: scaleX(var(--flip)); }
+.m-arcs .motif i { width: 800px; height: 800px; opacity: .7;
+  background: radial-gradient(circle, transparent 0 366px, var(--ac) 367px 371px, transparent 372px 418px, var(--ac) 419px 423px, transparent 424px 470px, var(--ac) 471px 475px, transparent 476px); }
+.m-arcs .motif .a { left: -400px; top: -400px; }
+.m-arcs .motif .b { right: -400px; bottom: -400px; }
+.m-confetti .motif i { border-radius: 50%; background: var(--ac); }
+.m-confetti .motif .a { width: 26px; height: 26px; left: 12%; top: 9%; box-shadow: 760px 90px 0 var(--fg), 300px 160px 0 -8px var(--ac), 880px 500px 0 -6px var(--ac), 60px 700px 0 var(--fg), 520px 940px 0 -4px var(--ac), 940px 880px 0 var(--ac), 140px 420px 0 -8px var(--fg); opacity: .5; }
+.m-confetti .motif .b { width: 70px; height: 16px; border-radius: 8px; right: 14%; top: 18%; transform: rotate(var(--mr)); box-shadow: -620px 380px 0 var(--fg), -300px 760px 0 var(--ac), -820px 120px 0 var(--ac), -90px 560px 0 var(--fg), -480px 980px 0 var(--ac); opacity: .45; }
+.m-plus .motif { opacity: .14; background-size: 96px 96px; background-position: var(--mx) var(--my);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cpath d='M48 38v20M38 48h20' stroke='%23888' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(var(--mr), #000 10%, transparent 80%); mask-image: linear-gradient(var(--mr), #000 10%, transparent 80%); }
+.m-plus .motif { background-color: transparent; filter: none; }
+.m-sun .motif i { border-radius: 50%; background: var(--ac); }
+.m-sun .motif .a { width: calc(700px * var(--ms)); height: calc(700px * var(--ms)); left: calc(var(--mx) - 350px); bottom: calc(-350px * var(--ms)); opacity: .5; box-shadow: 0 0 0 60px rgba(255,255,255,.07), 0 0 0 130px rgba(255,255,255,.05); }
+.m-sun .motif .b { display: none; }
+.text-on-photo { color: #fff; }
 {% block style %}{% endblock %}
 </style>
 </head>
 <body>
-<div class="canvas t-{{ template }} size-{{ size }}">
+<div class="canvas t-{{ template }} size-{{ size }} m-{{ motif }} cs-{{ v.cta }} bd-{{ v.badge }}">
+{% if motif != 'none' %}<div class="motif"><i class="a"></i><i class="b"></i></div>{% endif %}
 {% block body %}{% endblock %}
 </div>
 <script>

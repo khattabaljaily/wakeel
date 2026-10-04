@@ -2,14 +2,16 @@
 {% block style %}
 .t-photo { background: var(--p-deep); color: #fff; }
 .t-photo .bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-.t-photo .bg.empty { background: radial-gradient(circle at 70% 25%, var(--p) 0%, var(--p-deep) 70%); }
+.t-photo .bg.empty { background: radial-gradient(circle at 70% 25%, var(--bg-base) 0%, var(--p-deep) 80%); }
 .t-photo .shade { position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.62) 38%, rgba(0,0,0,.08) 72%, rgba(0,0,0,.25) 100%); }
 .t-photo .tint { position: absolute; inset: 0; background: var(--p); mix-blend-mode: multiply; opacity: .28; }
+.t-photo .motif { color: #fff; }
 .t-photo .fit-box { justify-content: flex-end; padding-top: 40px; }
-.t-photo .bar { width: 120px; height: 12px; border-radius: 8px; background: var(--a); margin-bottom: 30px; flex-shrink: 0; }
+.t-photo .bar { width: 120px; height: 12px; border-radius: 8px; background: var(--ac); margin-bottom: 30px; flex-shrink: 0; }
 .t-photo .sub { margin-top: 24px; opacity: .9; }
 .t-photo .foot { margin-top: 44px; }
+.t-photo .cs-outline .cta, .t-photo.cs-outline .cta, .t-photo.cs-underline .cta { color: #fff; }
 {% endblock %}
 {% block body %}
 <div class="bg{% if not photo %} empty{% endif %}"{% if photo %} style="background-image:url('{{ photo }}')"{% endif %}></div>

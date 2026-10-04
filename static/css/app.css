@@ -297,6 +297,12 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-tpl .frame { aspect-ratio: 1; position: relative; overflow: hidden; pointer-events: none; }
 .wk-tpl .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .wk-tpl span { display: block; font-size: .75rem; padding: .3rem 0; font-weight: 600; }
+.wk-scheme-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+.wk-scheme { position: relative; width: 44px; height: 44px; border-radius: 12px; border: 2px solid transparent; padding: 0; cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); overflow: hidden; }
+.wk-scheme i { position: absolute; inset-inline-end: 6px; bottom: 6px; width: 14px; height: 14px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,255,255,.7); }
+.wk-scheme.auto { width: auto; padding: 0 .8rem; font-size: .8rem; font-weight: 600; background: #fff; color: #374151; }
+.wk-scheme.active { border-color: var(--wk-primary); box-shadow: 0 0 0 3px var(--wk-primary-100); }
 .wk-tpl.active { border-color: var(--wk-primary); box-shadow: 0 0 0 3px var(--wk-primary-100); }
 .wk-asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: .5rem; max-height: 220px; overflow-y: auto; }
 .wk-asset { aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 2px solid transparent; cursor: pointer; padding: 0; background: #eef0f8; }

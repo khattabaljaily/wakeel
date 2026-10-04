@@ -1,0 +1,31 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-card .inner { padding: 70px 80px 76px; }
+.size-story.t-card .inner { padding: 220px 80px 270px; }
+.t-card .row.top { flex-shrink: 0; }
+.t-card .card { position: relative; flex: 1; min-height: 0; margin: 50px 20px 40px 0; padding: 64px 60px; background: #fff; color: #111827;
+  border: 6px solid #111827; border-radius: 34px; box-shadow: 20px 20px 0 #111827; display: flex; flex-direction: column; justify-content: center; }
+[dir=rtl] .t-card .card { margin: 50px 0 40px 20px; box-shadow: -20px 20px 0 #111827; }
+.t-card .fit-box { overflow: hidden; }
+.t-card .headline { color: #111827; font-weight: 900; }
+.t-card .sub { margin-top: 22px; color: #4b5563; }
+.t-card .sticker { position: absolute; top: -46px; inset-inline-end: 40px; transform: rotate(6deg); background: var(--ac); color: var(--on-ac);
+  border: 5px solid #111827; box-shadow: 8px 8px 0 #111827; border-radius: 16px; font-size: 34px; }
+.t-card .foot { flex-shrink: 0; }
+.t-card .cta { border: 5px solid #111827; box-shadow: 8px 8px 0 #111827; }
+.t-card .contact { color: var(--fg); }
+.t-card.cs-underline .cta, .t-card.cs-outline .cta { box-shadow: none; }
+{% endblock %}
+{% block body %}
+<div class="inner">
+  <div class="row top">{% include "studio/designs/_logo.html" %}{% include "studio/designs/_contact.html" %}</div>
+  <div class="card">
+    {% if badge %}<span class="badge sticker">{{ badge }}</span>{% endif %}
+    <div class="fit-box">
+      <div class="headline" data-fit="104" data-min="42">{{ headline }}</div>
+      {% if subheadline %}<div class="sub" data-fit="40" data-min="24">{{ subheadline }}</div>{% endif %}
+    </div>
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}<span></span></div>
+</div>
+{% endblock %}

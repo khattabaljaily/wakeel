@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "ترويج" %} · {{ draft.post.title }}{% endblock %}
+{% block page_title %}{% translate "ترويج" %} · {{ draft.post.title }}{% endblock %}
+{% block actions %}<a href="{% url 'ads:list' %}" class="btn btn-light">{% translate "كل الترويجات" %}</a>{% endblock %}
+{% block content %}
+{% if draft.status == 'suggesting' %}<div class="alert alert-info">{% translate "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات." %}</div>{% endif %}
+{% if draft.error %}<div class="alert alert-danger">{{ draft.error }}</div>{% endif %}
+{% if draft.status == 'created' %}
+<div class="alert alert-success"><i class="bi bi-pause-circle"></i> {% translate "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله." %}
+    <a href="{{ manager_url }}" target="_blank" rel="noopener" class="alert-link">{% translate "افتح مدير الإعلانات" %}</a></div>
+{% endif %}
+<div class="row g-4">
+<div class="col-lg-7">
+    {% if draft.rationale %}<div class="wk-card mb-4"><div class="wk-card-body"><h2 class="h6">{% translate "لماذا هذا الترويج" %}</h2><p class="mb-2" style="line-height:2">{{ draft.rationale }}</p>
+        {% if draft.audience_notes %}<h2 class="h6 mt-3">{% translate "اهتمامات تضيفها في مدير الإعلانات" %}</h2><p class="mb-0">{{ draft.audience_notes }}</p>{% endif %}</div></div>{% endif %}
+    <form method="post" class="wk-card"><div class="wk-card-body">{% csrf_token %}
+        <div class="row">
+            {% include "_field.html" with field=form.daily_budget wrap_class="col-md-6" %}{% include "_field.html" with field=form.days wrap_class="col-md-6" %}
+            {% include "_field.html" with field=form.age_min wrap_class="col-md-4" %}{% include "_field.html" with field=form.age_max wrap_class="col-md-4" %}
+            {% include "_field.html" with field=form.gender wrap_class="col-md-4" %}{% include "_field.html" with field=form.countries wrap_class="col-12" %}
+        </div>
+        <p class="small-muted">{% blocktranslate trimmed with total=draft.total_budget cur=currency %}الإجمالي الأقصى: {{ total }} {{ cur }}{% endblocktranslate %}</p>
+        {% if membership.can_edit and draft.status != 'created' %}<button class="btn btn-light">{% translate "حفظ" %}</button>{% endif %}
+    </div></form>
+</div>
+<div class="col-lg-5">
+    {% if draft.post.image %}<img src="{{ draft.post.image.url }}" class="img-fluid rounded mb-3" alt="">{% endif %}
+    {% if membership.can_manage and draft.status in 'suggested failed' and can_create %}
+    <form method="post" action="{% url 'ads:create' draft.pk %}">{% csrf_token %}
+        <button class="btn btn-ai w-100" data-confirm-title="{% translate "إنشاء الإعلان في Meta؟" %}" data-confirm="{% translate "سيُنشأ متوقفاً، ولا يُصرف شيء حتى تفعّله من مدير الإعلانات." %}" data-confirm-ok="{% translate "إنشاء متوقفاً" %}" data-confirm-tone="primary"><i class="bi bi-pause-circle"></i> {% translate "أنشئه في Meta متوقفاً" %}</button></form>
+    {% elif not can_create and draft.status != 'created' %}<div class="small-muted">{% translate "اختر حساباً إعلانياً من صفحة الترويج أولاً." %}</div>{% endif %}
+    {% if membership.can_edit and draft.status != 'created' %}<form method="post" action="{% url 'ads:delete' draft.pk %}" class="mt-2">{% csrf_token %}<button class="btn btn-sm btn-link text-danger">{% translate "حذف الاقتراح" %}</button></form>{% endif %}
+</div>
+</div>
+{% endblock %}

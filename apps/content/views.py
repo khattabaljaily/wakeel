@@ -14,8 +14,12 @@ from apps.companies.decorators import company_required
 from apps.companies.models import MediaAsset
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
-from apps.studio.designs import SIZES, TEMPLATES
+from apps.studio.designs import MOTIFS, SCHEMES, SIZES, TEMPLATES
+from apps.studio.render import palette
 
+from apps.whatsapp.services import available as whatsapp_available
+
+from .copies import variant_choices
 from .forms import ARABIC_MONTHS, PlanForm, PostForm
 from . import learning
 from .models import ContentPlan, Platform, Post
@@ -64,6 +68,7 @@ def plan_detail(request, pk):
         'month_name': ARABIC_MONTHS[plan.month.month - 1],
         'month_label': f'{ARABIC_MONTHS[plan.month.month - 1]} {plan.month.year}',
         'share_url': share_url(plan),
+        'whatsapp_ready': request.membership.can_manage and plan.status == ContentPlan.Status.READY and whatsapp_available(request.company),
     })
 
 
@@ -202,7 +207,10 @@ def post_edit(request, pk):
     form = PostForm(instance=post, company=request.company)
     return render(request, 'content/post_edit.html', {
         'post': post, 'form': form,
-        'templates': TEMPLATES, 'sizes': SIZES,
+        'templates': TEMPLATES, 'sizes': SIZES, 'motifs': MOTIFS,
+        'variants': variant_choices(), 'copies': post.copies.order_by('created_at')[:10],
+        'schemes': [{'key': key, 'name': v['name'], **palette(key, request.company.primary_color, request.company.secondary_color,
+                                                              request.company.accent_color)} for key, v in SCHEMES.items()],
         'assets': MediaAsset.objects.filter(company=request.company)[:60],
         'statuses': Post.Status,
         'comments': post.comments.select_related('user'),

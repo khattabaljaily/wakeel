@@ -75,17 +75,24 @@ class AutopilotForm(forms.ModelForm):
 
     class Meta:
         model = Company
-        fields = ['autopilot', 'autopilot_day', 'autopilot_posts_per_week', 'autopilot_platforms', 'autopilot_client_email']
+        fields = ['autopilot', 'autopilot_day', 'autopilot_posts_per_week', 'autopilot_platforms', 'autopilot_client_email',
+                  'client_whatsapp', 'evergreen_per_month']
         widgets = {'autopilot': forms.CheckboxInput(attrs={'class': 'form-check-input', 'role': 'switch'}),
                    'autopilot_day': forms.NumberInput(attrs={'min': 1, 'max': 28}),
+                   'evergreen_per_month': forms.NumberInput(attrs={'min': 0, 'max': 8}),
+                   'client_whatsapp': forms.TextInput(attrs={'dir': 'ltr', 'placeholder': '+97455551234'}),
                    'autopilot_client_email': forms.EmailInput(attrs={'dir': 'ltr', 'placeholder': 'client@example.com'})}
 
     def __init__(self, *args, **kwargs):
         from apps.content.models import Platform
         super().__init__(*args, **kwargs)
         self.fields['autopilot_platforms'].choices = Platform.choices
+        self.fields['evergreen_per_month'].required = False
         self.fields['autopilot_posts_per_week'] = forms.TypedChoiceField(
             label=_('عدد المنشورات أسبوعياً'), coerce=int, choices=[(n, str(n)) for n in (2, 3, 4, 5, 6, 7, 10)])
+
+    def clean_evergreen_per_month(self):
+        return self.cleaned_data.get('evergreen_per_month') or 0
 
     def clean(self):
         cleaned = super().clean()

@@ -1,20 +1,15 @@
 {% extends "studio/designs/base.html" %}
 {% block style %}
-.t-gradient { background: linear-gradient(140deg, var(--p) 0%, var(--p) 25%, var(--s) 100%); color: #fff; }
-.t-gradient .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; }
-.t-gradient .b1 { width: 620px; height: 620px; background: var(--a); top: -180px; inset-inline-start: -160px; opacity: .45; }
-.t-gradient .b2 { width: 700px; height: 700px; background: var(--s); bottom: -260px; inset-inline-end: -220px; }
-.t-gradient .lines { position: absolute; inset: 0; opacity: .10;
-  background: repeating-linear-gradient(135deg, #fff 0 2px, transparent 2px 46px); }
+.t-gradient .lines { position: absolute; inset: 0; opacity: .08;
+  background: repeating-linear-gradient(135deg, var(--fg) 0 2px, transparent 2px 46px); }
 .t-gradient .card { flex: 1; min-height: 0; margin: 44px 0; padding: 70px 64px; border-radius: 56px;
-  background: rgba(255,255,255,.14); border: 2px solid rgba(255,255,255,.32);
-  box-shadow: 0 30px 80px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.35); backdrop-filter: blur(18px); }
-.t-gradient .headline { text-shadow: 0 4px 24px rgba(0,0,0,.18); }
+  background: color-mix(in srgb, var(--fg) 13%, transparent); border: 2px solid color-mix(in srgb, var(--fg) 30%, transparent);
+  box-shadow: 0 30px 80px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.3); backdrop-filter: blur(18px); }
 .t-gradient .sub { margin-top: 28px; opacity: .95; }
 .t-gradient .badge { margin-bottom: 28px; align-self: flex-start; }
 {% endblock %}
 {% block body %}
-<div class="blob b1"></div><div class="blob b2"></div><div class="lines"></div>
+<div class="lines"></div>
 <div class="inner">
   <div class="row">{% include "studio/designs/_logo.html" %}{% include "studio/designs/_contact.html" %}</div>
   <div class="card fit-box">

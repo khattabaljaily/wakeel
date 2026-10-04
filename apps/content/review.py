@@ -56,7 +56,7 @@ def plan_review(request, token):
     timezone.activate(plan.company.tzinfo)  # the client sees the brand's local times (the middleware resets it)
     posts = plan.posts.prefetch_related('comments__user').order_by('scheduled_at')
     return render(request, 'content/review.html', {
-        'plan': plan, 'brand': plan.company, 'posts': posts,
+        'plan': plan, 'brand': plan.company, 'posts': posts, 'agency': plan.company.agency,
         'month_label': f'{ARABIC_MONTHS[plan.month.month - 1]} {plan.month.year}',
         'pending': sum(p.status == Post.Status.REVIEW for p in posts),
     })

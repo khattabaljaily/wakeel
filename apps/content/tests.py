@@ -9,6 +9,7 @@ from apps.ai.client import AIError, AIResult
 from apps.companies.models import Company, Membership
 from apps.jobs.models import Job
 from apps.jobs.runner import claim_next, run_job
+from apps.studio.designs import MOTIFS, SCHEMES, TEMPLATES
 
 from .models import ContentPlan, Post
 from .services import apply_plan
@@ -69,8 +70,31 @@ class ApplyPlanTests(TestCase):
         self.assertEqual(tiktok.format, Post.Format.IMAGE)  # a TikTok photo post, not forced to video
         self.assertEqual(tiktok.size, Post.Size.STORY)
         self.assertEqual(tiktok.video_script, '')
-        self.assertEqual(tiktok.template, 'bold')
+        self.assertIn(tiktok.template, TEMPLATES)  # 'neon' is unknown: art direction picks a real layout
+        self.assertIn(tiktok.scheme, SCHEMES)
+        self.assertIn(tiktok.motif, MOTIFS)
         self.assertEqual(tiktok.title, 'فيديو')
+
+    def test_posts_get_varied_art_direction_and_the_brands_photos(self):
+        import io
+        import tempfile
+
+        from django.core.files.uploadedfile import SimpleUploadedFile
+        from PIL import Image
+
+        from apps.companies.models import MediaAsset
+        buf = io.BytesIO()
+        Image.new('RGB', (4, 4), '#6d5ef8').save(buf, 'PNG')
+        with override_settings(MEDIA_ROOT=tempfile.mkdtemp()):
+            MediaAsset.objects.create(company=self.company, file=SimpleUploadedFile('a.png', buf.getvalue(), 'image/png'))
+        item = PLAN_DATA['posts'][0]
+        data = {**PLAN_DATA, 'posts': [{**item, 'day': d, 'title': f'م{d}', 'template': 'photo'} for d in range(1, 13)]}
+        apply_plan(self.plan, data)  # bulk_create: MySQL doesn't hand back primary keys, so query the plan's posts
+        posts = Post.objects.filter(plan=self.plan).order_by('scheduled_at')
+        layouts = [p.template for p in posts]
+        self.assertGreaterEqual(len(set(layouts)), 6)  # twelve "photo" suggestions do not become twelve photo posts
+        self.assertTrue(all(a != b for a, b in zip(layouts, layouts[1:])))
+        self.assertTrue(all(p.background_id for p in posts if p.template in ('photo', 'split', 'arch', 'spotlight')))
 
     def test_reels_keep_their_script(self):
         data = {**PLAN_DATA, 'posts': [{**PLAN_DATA['posts'][1], 'format': 'reel', 'day': 3}]}
@@ -181,6 +205,36 @@ class PostWorkflowTests(TestCase):
         self.post.refresh_from_db()
         self.assertEqual(self.post.headline, 'جديد')
         self.assertTrue(self.post.image_stale)
+
+    def editor_data(self, **extra):
+        return {'title': 'منشور', 'platforms': ['facebook'], 'format': 'image', 'scheduled_at': '2026-04-02T18:45',
+                'headline': 'قديم', 'template': 'bold', 'size': 'square', **extra}
+
+    def test_editor_saves_colour_scheme_motif_and_variant(self):
+        self.client.force_login(self.editor)
+        r = self.client.post(reverse('content:post_edit', args=[self.post.pk]),
+                             self.editor_data(scheme='dark', motif='confetti', variant='4242'))
+        self.assertEqual(r.status_code, 200, r.content)
+        self.assertIsNotNone(r.json()['render_job'])  # only the look changed, the image is still redrawn
+        self.post.refresh_from_db()
+        self.assertEqual((self.post.scheme, self.post.motif, self.post.variant), ('dark', 'confetti', 4242))
+
+    def test_blank_variant_keeps_the_saved_one_and_bad_choices_are_refused(self):
+        Post.objects.filter(pk=self.post.pk).update(variant=77)
+        self.client.force_login(self.editor)
+        r = self.client.post(reverse('content:post_edit', args=[self.post.pk]), self.editor_data(scheme='', motif='', variant=''))
+        self.assertEqual(r.status_code, 200, r.content)
+        self.post.refresh_from_db()
+        self.assertEqual((self.post.scheme, self.post.motif, self.post.variant), ('', '', 77))
+        r = self.client.post(reverse('content:post_edit', args=[self.post.pk]), self.editor_data(scheme='neon'))
+        self.assertEqual(r.status_code, 400)
+
+    def test_editor_page_offers_the_design_pickers(self):
+        self.client.force_login(self.editor)
+        html = self.client.get(reverse('content:post_edit', args=[self.post.pk])).content.decode()
+        self.assertIn('id="shuffleBtn"', html)
+        self.assertEqual(html.count('data-scheme='), 10)  # auto + nine schemes
+        self.assertEqual(html.count('data-template='), 16)
 
     def test_viewer_cannot_save(self):
         self.client.force_login(self.viewer)

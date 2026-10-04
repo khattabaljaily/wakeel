@@ -18,7 +18,10 @@ from django.utils import timezone, translation
 from django.utils.translation import gettext_lazy as _
 
 from apps.ai.client import AIError
-from apps.content import autopilot, services
+from apps.ads import services as ads
+from apps.content import autopilot, copies, services
+from apps.inbox import services as inbox
+from apps.insights import competitors, tasks as insights
 from apps.social import services as social
 
 from .models import Job
@@ -32,6 +35,13 @@ HANDLERS = {
     Job.Kind.RENDER_PLAN: services.run_render_plan,
     Job.Kind.PUBLISH_POST: social.run_publish_post,
     Job.Kind.LEARN: services.run_learn,
+    Job.Kind.FETCH_INSIGHTS: insights.run_fetch_insights,
+    Job.Kind.GENERATE_REPORT: insights.run_generate_report,
+    Job.Kind.VARIANT_POST: copies.run_variant,
+    Job.Kind.REPOST: copies.run_repost,
+    Job.Kind.ANALYZE_COMPETITORS: competitors.run_analysis,
+    Job.Kind.FETCH_INBOX: inbox.run_fetch_inbox,
+    Job.Kind.AD_SUGGEST: ads.run_suggest,
 }
 
 
@@ -136,6 +146,16 @@ def work_forever(log=logger.info, once=False):
                     log(f'Autopilot started {started} plan(s).')
             except Exception:
                 logger.exception('Autopilot check failed')
+            try:
+                if queued := insights.run_due():
+                    log(f'Queued {queued} insight job(s).')
+            except Exception:
+                logger.exception('Insights schedule failed')
+            try:
+                if queued := inbox.run_due():
+                    log(f'Queued {queued} inbox check(s).')
+            except Exception:
+                logger.exception('Inbox schedule failed')
         job = claim_next()
         if job is None:
             if once:

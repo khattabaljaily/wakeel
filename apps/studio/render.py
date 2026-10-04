@@ -4,6 +4,7 @@ The same template is used twice: served as a page for the live preview in the
 post editor (assets by URL), and written to a temp file that Chrome screenshots
 for the final image (assets by file:// path, so rendering needs no web server).
 """
+import random
 import re
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
@@ -15,7 +16,7 @@ from django.core.files.base import ContentFile
 from django.template.loader import render_to_string
 from django.templatetags.static import static
 
-from .designs import FONT_FAMILIES, SIZES, TEMPLATES
+from .designs import DEFAULT_MOTIF, FONT_FAMILIES, MOTIFS, SCHEMES, SIZES, TEMPLATES
 
 ARABIC_RE = re.compile(r'[\u0600-\u06FF]')
 
@@ -49,6 +50,64 @@ def mix(hex_color, other, amount):
     return _hex(tuple(x + (y - x) * amount for x, y in zip(a, b)))
 
 
+def contrast(a, b):
+    hi, lo = sorted((_luminance(a), _luminance(b)), reverse=True)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+def palette(scheme, p, s, a):
+    """The colours a design uses, for a colour scheme built from the brand's three colours.
+
+    bg is a CSS background (a colour or a gradient), fg the text colour on it, ac the
+    accent for buttons and shapes (the first brand colour that stands out from the
+    background, else the text colour), soft a subtle panel colour on the background.
+    """
+    p_dark, p_deep, p_light = mix(p, '#000000', 0.45), mix(p, '#000000', 0.7), mix(p, '#ffffff', 0.85)
+    ink = mix(p, '#000000', 0.78)
+    if scheme == 'secondary':
+        base, order = s, (a, p)
+    elif scheme == 'accent':
+        base, order = a, (p, s)
+    elif scheme == 'deep':
+        base, order = p_deep, (a, s, p)
+    elif scheme == 'light':
+        base, order = '#f7f6f2', (p, s, a)
+    elif scheme == 'soft':
+        base, order = p_light, (p, s, a)
+    elif scheme == 'gradient':
+        base, order = mix(p, s, 0.5), (a, '#ffffff')
+    elif scheme == 'dusk':
+        base, order = mix(p_deep, p, 0.5), (a, s, '#ffffff')
+    elif scheme == 'dark':
+        base, order = '#0f1115', (a, s, p)
+    else:  # primary
+        base, order = p, (a, s)
+    bg = {
+        'gradient': f'linear-gradient(140deg, {p} 0%, {p} 25%, {s} 100%)',
+        'dusk': f'linear-gradient(160deg, {p_deep} 0%, {p} 100%)',
+    }.get(scheme, base)
+    fg = on_color(base)
+    if scheme in ('light', 'soft'):
+        fg = ink
+    ac = next((c for c in order if contrast(base, c) >= 2.2), fg)
+    return {
+        'bg': bg, 'bg_base': base, 'fg': fg, 'ac': ac, 'on_ac': on_color(ac),
+        'soft': mix(base, fg, 0.10), 'line': mix(base, fg, 0.28),
+        'muted': mix(base, fg, 0.30 if fg == '#ffffff' else 0.38) if scheme in ('light', 'soft') else fg,
+    }
+
+
+def variation(seed):
+    """Small deterministic differences between posts that share a layout, scheme and motif."""
+    r = random.Random(seed)
+    return {
+        'x': r.randint(8, 92), 'y': r.randint(8, 92), 'rot': r.choice((-35, -20, 15, 30, 45, 60, 120, 135)),
+        'scale': round(r.uniform(0.8, 1.35), 2), 'flip': r.choice((1, -1)),
+        'cta': r.choice(('pill', 'pill', 'square', 'outline', 'underline')),
+        'badge': r.choice(('pill', 'tag', 'sticker', 'plain')),
+    }
+
+
 # --- context ----------------------------------------------------------------
 
 def post_fields(post, overrides=None):
@@ -60,6 +119,9 @@ def post_fields(post, overrides=None):
         'template': post.template,
         'size': post.size,
         'background': post.background,
+        'motif': post.motif,
+        'scheme': post.scheme,
+        'variant': post.variant or post.pk or 0,
     }
     fields.update(overrides or {})
     if fields['template'] not in TEMPLATES:
@@ -88,8 +150,22 @@ def design_context(company, fields, *, for_file=False):
         company.phone,
     ) if c][:2]
     p, s, a = company.primary_color, company.secondary_color, company.accent_color
+    template = fields['template']
+    scheme = fields.get('scheme') if fields.get('scheme') in SCHEMES else TEMPLATES[template]['scheme']
+    motif = fields.get('motif') if fields.get('motif') in MOTIFS else DEFAULT_MOTIF.get(template, 'none')
+    try:
+        variant = int(fields.get('variant') or 0)
+    except (TypeError, ValueError):
+        variant = 0
+    first, _, rest = fields['headline'].strip().partition(' ')
     return {
         **fields,
+        'scheme': scheme,
+        'motif': motif,
+        'v': variation(variant),
+        'k': palette(scheme, p, s, a),
+        'headline_first': first,
+        'headline_rest': rest,
         'company': company,
         'width': width,
         'height': height,

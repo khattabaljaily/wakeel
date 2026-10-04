@@ -10,6 +10,28 @@ from django.utils.translation import gettext_lazy as _
 hex_color = RegexValidator(r'^#[0-9a-fA-F]{6}$', _('أدخل لوناً بصيغة ‎#RRGGBB.'))
 
 
+class Agency(models.Model):
+    """White label: a marketing agency that runs its clients' companies in Wakeel and shows its own brand to them.
+
+    The client-facing pages (plan review, reports) and client emails carry the agency's name, logo and colour
+    instead of Wakeel's. One agency per user; the user attaches the companies they own.
+    """
+
+    owner = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='agency')
+    name = models.CharField(_('اسم الوكالة'), max_length=150)
+    logo = models.ImageField(_('شعار الوكالة'), upload_to='agencies/', blank=True)
+    color = models.CharField(_('لون الوكالة'), max_length=7, default='#4F46E5', validators=[hex_color])
+    website = models.CharField(_('موقع الوكالة'), max_length=200, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _('وكالة')
+        verbose_name_plural = _('الوكالات')
+
+    def __str__(self):
+        return self.name
+
+
 class Company(models.Model):
     """A tenant: one business whose social media Wakeel runs.
 
@@ -101,6 +123,24 @@ class Company(models.Model):
     autopilot_platforms = models.JSONField(_('المنصات'), default=list, blank=True)
     autopilot_client_email = models.EmailField(_('بريد العميل'), blank=True,
                                                help_text=_('يصله رابط مراجعة الخطة واعتمادها. اتركه فارغاً ليصل الرابط إلى الفريق فقط.'))
+
+    # The client's WhatsApp number for approvals over WhatsApp (apps.whatsapp).
+    client_whatsapp = models.CharField(_('واتساب العميل'), max_length=20, blank=True,
+                                       help_text=_('يصله كل منشور بزرّي «اعتماد» و«طلب تعديل». مع رمز الدولة، مثل ‎+97455551234.'))
+
+    # Inbox: answer simple questions and thanks on the brand's posts with the AI's reply, without waiting for a person.
+    inbox_auto_reply = models.BooleanField(_('الرد التلقائي على التعليقات البسيطة'), default=False)
+
+    # White label: the agency whose brand the client sees (None = Wakeel's).
+    agency = models.ForeignKey(Agency, null=True, blank=True, on_delete=models.SET_NULL, related_name='companies')
+
+    # Paid promotion (apps.ads): the Meta ad account campaigns are drafted in, and its currency.
+    ad_account_id = models.CharField(_('الحساب الإعلاني'), max_length=40, blank=True)
+    ad_account_currency = models.CharField(max_length=3, blank=True)
+
+    # Evergreen: how many of the best older posts the auto planner reposts each month, freshly reworded.
+    evergreen_per_month = models.PositiveSmallIntegerField(_('منشورات دائمة يُعاد نشرها شهرياً'), default=0,
+                                                           validators=[MaxValueValidator(8)])
 
     # What Wakeel has learned about this brand's taste: [{"text": ..., "manual": bool}], see apps.content.learning.
     lessons = models.JSONField(_('ما تعلّمه وكيل'), default=list, blank=True)

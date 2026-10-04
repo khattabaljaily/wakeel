@@ -84,6 +84,12 @@ def deliver(plan):
                           None, [company.autopilot_client_email])
         except Exception:  # an email outage must not undo the plan
             logger.exception('Could not email the autopilot review link for plan %s', plan.pk)
+    from apps.whatsapp import services as whatsapp
+    if whatsapp.available(company):
+        try:
+            whatsapp.invite(plan)
+        except Exception:  # WhatsApp being down must not undo the plan
+            logger.exception('Could not send the WhatsApp review invitation for plan %s', plan.pk)
     title = plan.title or _('الشهر القادم')
     if company.autopilot_client_email:
         message = format_lazy(_('أعدّ المخطط الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}.'),

@@ -163,7 +163,7 @@ def _connect(request, page, popup):
     company = request.company
     SocialAccount.objects.update_or_create(company=company, platform=SocialAccount.Platform.FACEBOOK, defaults={
         'external_id': page['id'], 'name': page['name'], 'access_token': page['token'],
-        'connected_by': request.user, 'last_error': '',
+        'user_token': page.get('user_token', ''), 'connected_by': request.user, 'last_error': '',
     })
     ig = page.get('instagram') or {}
     if ig.get('id'):

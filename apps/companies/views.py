@@ -7,6 +7,7 @@ import uuid
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urlparse
 
+from django import forms
 from django.conf import settings
 from django.contrib import messages
 from django.core.files.storage import default_storage
@@ -28,7 +29,7 @@ from . import tables
 from .decorators import company_required
 from .forms import AutopilotForm, CompanyForm, MediaUploadForm, MemberAddForm
 from .middleware import SESSION_KEY
-from .models import MediaAsset, Membership
+from .models import Agency, Company, MediaAsset, Membership
 from .scrape import FetchError, read_site, safe_get
 from .visual import look_at
 
@@ -351,3 +352,35 @@ def autopilot(request):
         'upcoming_plan': ContentPlan.objects.filter(company=company, month=upcoming).first(),
         'auto_publish': company.auto_publish,
     })
+
+
+class AgencyForm(forms.ModelForm):
+    class Meta:
+        model = Agency
+        fields = ['name', 'logo', 'color', 'website']
+        widgets = {'color': forms.TextInput(attrs={'type': 'color'}), 'website': forms.TextInput(attrs={'dir': 'ltr'})}
+
+
+@login_required
+def agency(request):
+    """White label: the user's agency brand, and which of the companies they own show it to clients."""
+    current = Agency.objects.filter(owner=request.user).first()
+    owned = Company.objects.filter(memberships__user=request.user, memberships__role=Membership.Role.OWNER).distinct()
+    form = AgencyForm(request.POST or None, request.FILES or None, instance=current)
+    if request.method == 'POST':
+        if request.POST.get('action') == 'off' and current:
+            owned.filter(agency=current).update(agency=None)
+            current.delete()
+            messages.success(request, _('أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد.'))
+            return redirect('companies:agency')
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.owner = request.user
+            item.save()
+            chosen = set(map(int, request.POST.getlist('companies')))
+            for company in owned:
+                company.agency = item if company.pk in chosen else (None if company.agency_id == item.pk else company.agency)
+                company.save(update_fields=['agency'])
+            messages.success(request, _('تم حفظ هوية الوكالة.'))
+            return redirect('companies:agency')
+    return render(request, 'companies/agency.html', {'form': form, 'current_agency': current, 'owned': owned})

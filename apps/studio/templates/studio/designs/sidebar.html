@@ -1,0 +1,31 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-sidebar .band { position: absolute; top: 0; bottom: 0; inset-inline-start: 0; width: 180px; background: var(--ac); z-index: 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 70px 0; color: var(--on-ac); }
+.size-story.t-sidebar .band { padding: 230px 0 280px; }
+.t-sidebar .band .logo-chip { padding: 12px; border-radius: 22px; max-width: 150px; }
+.t-sidebar .band .logo-chip img { height: 70px; max-width: 120px; }
+.t-sidebar .band .logo-text { font-size: 30px; writing-mode: vertical-rl; transform: rotate(180deg); }
+.t-sidebar .band .vert { writing-mode: vertical-rl; transform: rotate(180deg); font-weight: 700; font-size: 26px; letter-spacing: 3px; direction: ltr; opacity: .85; }
+.t-sidebar .inner { padding-inline-start: 290px; }
+.size-story.t-sidebar .inner { padding-inline-start: 290px; }
+.t-sidebar .badge { align-self: flex-start; margin-bottom: 34px; background: var(--fg); color: var(--bg-base); }
+.t-sidebar .headline { text-align: start; }
+.t-sidebar .sub { margin-top: 28px; color: var(--muted); padding-inline-start: 28px; border-inline-start: 8px solid var(--ac); }
+.t-sidebar .foot { margin-top: 30px; }
+.t-sidebar .contact { display: none; }
+{% endblock %}
+{% block body %}
+<div class="band">
+  {% include "studio/designs/_logo.html" %}
+  <span class="vert">{% if contact %}{{ contact.0 }}{% endif %}</span>
+</div>
+<div class="inner">
+  <div class="fit-box">
+    {% if badge %}<span class="badge">{{ badge }}</span>{% endif %}
+    <div class="headline" data-fit="104" data-min="44">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" data-fit="40" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}<span></span></div>
+</div>
+{% endblock %}

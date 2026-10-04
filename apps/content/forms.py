@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import MediaAsset
-from apps.studio.designs import template_choices
+from apps.studio.designs import motif_choices, scheme_choices, template_choices
 
 from .models import ContentPlan, Platform, Post
 
@@ -49,6 +49,9 @@ class PlanForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     platforms = forms.MultipleChoiceField(label=_('المنصات'), choices=Platform.choices, widget=forms.CheckboxSelectMultiple)
     template = forms.ChoiceField(label=_('القالب'), choices=template_choices())
+    scheme = forms.ChoiceField(label=_('نظام الألوان'), choices=scheme_choices(), required=False)
+    motif = forms.ChoiceField(label=_('الزخرفة'), choices=motif_choices(), required=False)
+    variant = forms.IntegerField(required=False, min_value=0, widget=forms.HiddenInput())
     scheduled_at = forms.DateTimeField(label=_('موعد النشر'), required=False,
                                        widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
                                        input_formats=['%Y-%m-%dT%H:%M'])
@@ -56,7 +59,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'platforms', 'format', 'scheduled_at', 'pillar', 'caption', 'hashtags',
-                  'headline', 'subheadline', 'cta', 'badge', 'template', 'size', 'background', 'video_script', 'visual_notes']
+                  'headline', 'subheadline', 'cta', 'badge', 'template', 'scheme', 'motif', 'variant', 'size', 'background', 'video_script', 'visual_notes', 'evergreen']
         widgets = {
             'caption': forms.Textarea(attrs={'rows': 8}),
             'video_script': forms.Textarea(attrs={'rows': 8}),
@@ -65,6 +68,10 @@ class PostForm(forms.ModelForm):
             'format': forms.RadioSelect,
             'size': forms.RadioSelect,
         }
+
+    def clean_variant(self):
+        value = self.cleaned_data.get('variant')
+        return self.instance.variant if value is None else value
 
     def __init__(self, *args, company=None, **kwargs):
         super().__init__(*args, **kwargs)

@@ -18,6 +18,13 @@ class Job(models.Model):
         RENDER_PLAN = 'render_plan', _('تصميم صور الخطة')
         PUBLISH_POST = 'publish_post', _('نشر منشور')
         LEARN = 'learn', _('التعلّم من الملاحظات')
+        FETCH_INSIGHTS = 'fetch_insights', _('تحديث أرقام الأداء')
+        GENERATE_REPORT = 'generate_report', _('إعداد تقرير الأداء')
+        VARIANT_POST = 'variant_post', _('نسخة بلغة أو لهجة أخرى')
+        REPOST = 'repost', _('إعادة نشر محتوى دائم')
+        ANALYZE_COMPETITORS = 'competitors', _('تحليل المنافسين')
+        FETCH_INBOX = 'fetch_inbox', _('قراءة التعليقات')
+        AD_SUGGEST = 'ad_suggest', _('اقتراح ترويج')
 
     class Status(models.TextChoices):
         PENDING = 'pending', _('في الانتظار')

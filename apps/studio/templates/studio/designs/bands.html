@@ -1,0 +1,20 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-bands { display: flex; flex-direction: column; }
+.t-bands .b1 { position: relative; z-index: 2; flex-shrink: 0; background: var(--ac); color: var(--on-ac); padding: 56px var(--pad); display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.size-story.t-bands .b1 { padding-top: 200px; }
+.t-bands .b1 .badge { background: var(--bg-base); color: var(--fg); }
+.t-bands .b2 { position: relative; z-index: 2; flex: 1; min-height: 0; padding: 40px var(--pad); display: flex; flex-direction: column; justify-content: center; }
+.t-bands .b3 { position: relative; z-index: 2; flex-shrink: 0; background: var(--soft); padding: 46px var(--pad) 56px; }
+.size-story.t-bands .b3 { padding-bottom: 250px; }
+.t-bands .sub { opacity: .92; margin-bottom: 28px; font-size: 40px; line-height: 1.5; font-weight: 500; }
+.t-bands .row { align-items: center; }
+{% endblock %}
+{% block body %}
+<div class="b1">{% include "studio/designs/_logo.html" %}{% if badge %}<span class="badge">{{ badge }}</span>{% endif %}</div>
+<div class="b2 fit-box"><div class="headline" data-fit="116" data-min="46">{{ headline }}</div></div>
+<div class="b3">
+  {% if subheadline %}<div class="sub">{{ subheadline }}</div>{% endif %}
+  <div class="row">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+</div>
+{% endblock %}

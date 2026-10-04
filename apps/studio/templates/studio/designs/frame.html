@@ -1,0 +1,31 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-frame { text-align: center; }
+.t-frame .frame { position: absolute; inset: 40px; border: 3px solid var(--ac); z-index: 2; }
+.t-frame .frame::before { content: ''; position: absolute; inset: 14px; border: 1.5px solid var(--line); }
+.t-frame .orn { position: absolute; width: 26px; height: 26px; background: var(--ac); transform: rotate(45deg); z-index: 3; }
+.t-frame .o1 { top: 27px; left: 50%; margin-left: -13px; } .t-frame .o2 { bottom: 27px; left: 50%; margin-left: -13px; }
+.t-frame .inner { align-items: center; padding: 120px 120px 110px; }
+.size-story.t-frame .inner { padding: 280px 120px 300px; }
+.t-frame .fit-box { align-items: center; width: 100%; }
+.t-frame .headline { font-weight: 800; }
+.t-frame .divider { display: flex; align-items: center; gap: 18px; margin: 34px 0 28px; flex-shrink: 0; }
+.t-frame .divider i { display: block; width: 110px; height: 3px; background: var(--ac); }
+.t-frame .divider b { display: block; width: 16px; height: 16px; background: var(--ac); transform: rotate(45deg); }
+.t-frame .sub { color: var(--muted); }
+.t-frame .badge { margin-bottom: 30px; }
+.t-frame .foot { flex-direction: column; gap: 22px; margin-top: 26px; justify-content: center; }
+.t-frame .contact { justify-content: center; color: var(--muted); }
+{% endblock %}
+{% block body %}
+<div class="frame"></div><div class="orn o1"></div><div class="orn o2"></div>
+<div class="inner">
+  {% include "studio/designs/_logo.html" %}
+  <div class="fit-box">
+    {% if badge %}<span class="badge">{{ badge }}</span>{% endif %}
+    <div class="headline" data-fit="104" data-min="44">{{ headline }}</div>
+    {% if subheadline %}<div class="divider"><i></i><b></b><i></i></div><div class="sub" data-fit="40" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+</div>
+{% endblock %}

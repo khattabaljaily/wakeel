@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% blocktranslate trimmed with m=month_label %}تقرير {{ m }}{% endblocktranslate %}{% endblock %}
+{% block page_title %}{% blocktranslate trimmed with m=month_label %}تقرير {{ m }}{% endblocktranslate %}{% endblock %}
+{% block actions %}<a href="{% url 'insights:report_list' %}" class="btn btn-light">{% translate "كل التقارير" %}</a>
+{% if membership.can_edit %}<form method="post" action="{% url 'insights:report_create' %}" class="d-inline">{% csrf_token %}<input type="hidden" name="month" value="{{ report.month|date:'Y-m-d' }}"><input type="hidden" name="again" value="1"><button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> {% translate "إعادة الإعداد" %}</button></form>{% endif %}{% endblock %}
+{% block content %}
+{% include "insights/_report_body.html" %}
+{% if membership.can_manage and report.status == 'ready' %}
+<div class="wk-card"><div class="wk-card-body">
+    <h2 class="h6">{% translate "رابط العميل" %}</h2>
+    {% if share_link %}<div class="input-group mb-2"><input class="form-control" readonly value="{{ share_link }}" id="shareLink"><button class="btn btn-light" type="button" onclick="Wakeel.copy(document.getElementById('shareLink').value)"><i class="bi bi-clipboard"></i></button></div>{% endif %}
+    <form method="post" action="{% url 'insights:report_share' report.pk %}" class="d-flex gap-2">{% csrf_token %}
+        <button class="btn btn-sm btn-light">{% if share_link %}{% translate "رابط جديد" %}{% else %}{% translate "تفعيل الرابط" %}{% endif %}</button>
+        {% if share_link %}<button class="btn btn-sm btn-light" name="action" value="off">{% translate "إيقاف الرابط" %}</button>{% endif %}</form>
+</div></div>
+{% endif %}
+{% endblock %}

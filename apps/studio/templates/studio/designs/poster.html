@@ -1,0 +1,22 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-poster .headline { font-weight: 900; line-height: 1.02; letter-spacing: -2px; }
+[dir=rtl].t-poster .headline, [dir=rtl] .t-poster .headline { line-height: 1.12; letter-spacing: 0; }
+.t-poster .headline .first { color: var(--ac); display: block; }
+.t-poster .rule { height: 10px; background: var(--ac); width: 100%; margin: 40px 0 30px; flex-shrink: 0; border-radius: 6px; }
+.t-poster .sub { font-weight: 600; opacity: .9; }
+.t-poster .sticker { position: absolute; z-index: 3; top: calc(var(--pad) + 90px); inset-inline-end: var(--pad); transform: rotate(8deg); }
+.size-story.t-poster .sticker { top: 330px; }
+.t-poster .foot { margin-top: 36px; }
+{% endblock %}
+{% block body %}
+{% if badge %}<span class="badge sticker">{{ badge }}</span>{% endif %}
+<div class="inner">
+  <div class="row">{% include "studio/designs/_logo.html" %}<span></span></div>
+  <div class="fit-box">
+    <div class="headline" data-fit="190" data-min="56">{% if headline_rest %}<span class="first">{{ headline_first }}</span>{{ headline_rest }}{% else %}{{ headline }}{% endif %}</div>
+    {% if subheadline %}<div class="rule"></div><div class="sub" data-fit="42" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+</div>
+{% endblock %}

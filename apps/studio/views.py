@@ -8,7 +8,7 @@ from apps.content.models import Post
 
 from .render import post_fields, render_html
 
-OVERRIDABLE = ('headline', 'subheadline', 'cta', 'badge', 'template', 'size')
+OVERRIDABLE = ('headline', 'subheadline', 'cta', 'badge', 'template', 'size', 'scheme', 'motif', 'variant')
 
 
 @company_required

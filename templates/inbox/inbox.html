@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "التعليقات" %}{% endblock %}
+{% block page_title %}{% translate "التعليقات" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "تعليقات فيسبوك وإنستغرام على منشوراتك في مكان واحد. يقرأها وكيل، وينبّهك للعاجل منها، ويقترح ردّاً بنبرة علامتك." %}</div>{% endblock %}
+{% block actions %}
+{% if membership.can_manage %}<form method="post" action="{% url 'inbox:auto_reply' %}" class="d-inline">{% csrf_token %}<input type="hidden" name="on" value="{% if company.inbox_auto_reply %}0{% else %}1{% endif %}">
+    <button class="btn btn-light" title="{% translate "يرد وكيل وحده على الأسئلة البسيطة والإشادات. الشكاوى والعاجل تبقى لك دائماً." %}"><i class="bi bi-robot"></i> {% if company.inbox_auto_reply %}{% translate "الرد التلقائي: يعمل" %}{% else %}{% translate "الرد التلقائي: متوقف" %}{% endif %}</button></form>{% endif %}
+{% if membership.can_edit %}<form method="post" action="{% url 'inbox:refresh' %}" class="d-inline">{% csrf_token %}<button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> {% translate "تحديث" %}</button></form>{% endif %}
+{% endblock %}
+{% block content %}
+{% if not connected %}
+<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-chat-dots"></i></div><h3>{% translate "اربط فيسبوك أو إنستغرام" %}</h3>
+    <p>{% translate "يقرأ وكيل التعليقات على المنشورات التي نشرها عبر حساباتك المربوطة." %}</p>
+    {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="btn btn-ai btn-lg">{% translate "حسابات النشر" %}</a>{% endif %}</div></div>
+{% else %}
+<div class="d-flex flex-wrap gap-2 mb-3">
+    {% for key, label in views %}<a href="?view={{ key }}" class="btn btn-sm {% if key == view %}btn-primary{% else %}btn-light{% endif %}">{{ label }}{% for k, n in counts.items %}{% if k == key and n %} · {{ n }}{% endif %}{% endfor %}</a>{% endfor %}
+</div>
+{% for item in page %}
+<div class="wk-card mb-3 {% if item.urgency == 'crisis' %}border border-danger{% elif item.urgency == 'high' %}border border-warning{% endif %}"><div class="wk-card-body">
+    <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
+        <i class="bi bi-{{ item.platform }}"></i><strong>{{ item.author|default:"—" }}</strong>
+        <span class="small-muted">{{ item.received_at|date:"j F · H:i" }}</span>
+        {% if item.triaged %}
+        {% if item.urgency == 'crisis' or item.urgency == 'high' %}<span class="badge text-bg-{% if item.urgency == 'crisis' %}danger{% else %}warning{% endif %}">{{ item.get_urgency_display }}</span>{% endif %}
+        <span class="badge text-bg-light">{{ item.get_category_display }}</span>
+        <span class="badge {% if item.sentiment == 'negative' %}text-bg-danger{% elif item.sentiment == 'positive' %}text-bg-success{% else %}text-bg-light{% endif %}">{{ item.get_sentiment_display }}</span>
+        {% else %}<span class="badge text-bg-light">{% translate "لم يُقرأ بعد" %}</span>{% endif %}
+        {% if item.post %}<a href="{% url 'content:post_edit' item.post_id %}" class="small ms-auto text-truncate" style="max-width:260px">{{ item.post.title }}</a>{% endif %}
+    </div>
+    <p class="mb-3" style="white-space:pre-line">{{ item.text }}</p>
+    {% if item.status == 'replied' %}
+    <div class="small p-2 rounded" style="background:#f3f4f8"><i class="bi bi-reply"></i> {{ item.reply_text }}
+        <div class="small-muted">{% if item.auto_replied %}{% translate "رد تلقائي من وكيل" %}{% else %}{{ item.replied_by.display_name|default:"" }}{% endif %} · {{ item.replied_at|date:"j F H:i" }}</div></div>
+    {% elif membership.can_edit %}
+    <form method="post" action="{% url 'inbox:reply' item.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <textarea name="text" class="form-control mb-2" rows="2" placeholder="{% translate "اكتب الرد…" %}">{{ item.suggested_reply }}</textarea>
+        {% if item.reply_error %}<div class="small text-danger mb-2">{{ item.reply_error }}</div>{% endif %}
+        <div class="d-flex gap-2"><button class="btn btn-sm btn-primary"><i class="bi bi-send"></i> {% translate "إرسال الرد" %}</button>
+            <button class="btn btn-sm btn-light" formaction="{% url 'inbox:dismiss' item.pk %}" {% if item.status == 'dismissed' %}name="undo" value="1"{% endif %}>{% if item.status == 'dismissed' %}{% translate "إرجاع" %}{% else %}{% translate "تجاهل" %}{% endif %}</button></div>
+    </form>
+    {% endif %}
+</div></div>
+{% empty %}
+<div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-inbox"></i></div><h3>{% translate "لا توجد تعليقات هنا" %}</h3>
+    <p>{% translate "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة." %}</p></div></div>
+{% endfor %}
+{% if page.has_other_pages %}<div class="d-flex gap-2 justify-content-center">
+    {% if page.has_previous %}<a class="btn btn-light btn-sm" href="?view={{ view }}&page={{ page.previous_page_number }}">{% translate "السابق" %}</a>{% endif %}
+    {% if page.has_next %}<a class="btn btn-light btn-sm" href="?view={{ view }}&page={{ page.next_page_number }}">{% translate "التالي" %}</a>{% endif %}</div>{% endif %}
+{% endif %}
+{% endblock %}

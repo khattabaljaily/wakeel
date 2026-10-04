@@ -82,6 +82,10 @@ INSTALLED_APPS = [
     'apps.api',
     'apps.notifications',
     'apps.social',
+    'apps.insights',
+    'apps.whatsapp',
+    'apps.inbox',
+    'apps.ads',
     'apps.ops',
 ]
 
@@ -271,6 +275,22 @@ META_APP_ID = get_secret('META_APP_ID', '')
 META_APP_SECRET = get_secret('META_APP_SECRET', '')
 META_GRAPH_VERSION = get_secret('META_GRAPH_VERSION', 'v23.0')
 META_ENABLED = bool(META_APP_ID and META_APP_SECRET)
+# Extra Meta permissions asked at connect time for analytics (Meta app review needed for non-testers).
+# Without them publishing still works; the insights pages explain that the account must be reconnected.
+META_INSIGHTS_SCOPES = get_secret('META_INSIGHTS_SCOPES', ['read_insights', 'instagram_manage_insights'])
+# Reading and answering comments for the inbox (apps.inbox); also needs Meta app review.
+META_INBOX_SCOPES = get_secret('META_INBOX_SCOPES', ['pages_read_user_content', 'pages_manage_engagement', 'instagram_manage_comments'])
+# Paid promotion drafts (apps.ads). Off by default: set ["ads_management"] once the Meta app is approved for it.
+META_ADS_SCOPES = get_secret('META_ADS_SCOPES', [])
+
+# WhatsApp Business Cloud API, for client approvals (apps.whatsapp). Off until a token and number are set.
+WHATSAPP_TOKEN = get_secret('WHATSAPP_TOKEN', '')
+WHATSAPP_PHONE_NUMBER_ID = get_secret('WHATSAPP_PHONE_NUMBER_ID', '')
+WHATSAPP_VERIFY_TOKEN = get_secret('WHATSAPP_VERIFY_TOKEN', '')
+WHATSAPP_APP_SECRET = get_secret('WHATSAPP_APP_SECRET', '') or META_APP_SECRET
+WHATSAPP_REVIEW_TEMPLATE = get_secret('WHATSAPP_REVIEW_TEMPLATE', 'wakeel_plan_review')
+WHATSAPP_TEMPLATE_LANGUAGE = get_secret('WHATSAPP_TEMPLATE_LANGUAGE', 'ar')
+WHATSAPP_ENABLED = bool(WHATSAPP_TOKEN and WHATSAPP_PHONE_NUMBER_ID)
 
 # TikTok app (developers.tiktok.com) with Login Kit and the Content Posting API (scope video.upload): designs are
 # sent to the creator's TikTok inbox to finish posting. Its redirect URI must be SITE_URL + /company/social/tiktok/callback/

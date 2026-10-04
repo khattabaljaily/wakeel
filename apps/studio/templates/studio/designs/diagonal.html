@@ -1,0 +1,29 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-diagonal .slab { position: absolute; inset: 0; z-index: 1; background: var(--ac);
+  clip-path: polygon(0 0, 100% 0, 100% 34%, 0 52%); }
+.size-story.t-diagonal .slab { clip-path: polygon(0 0, 100% 0, 100% 30%, 0 42%); }
+.t-diagonal .slab2 { position: absolute; inset: 0; z-index: 1; background: color-mix(in srgb, var(--fg) 12%, transparent);
+  clip-path: polygon(0 52%, 100% 34%, 100% 38%, 0 56%); }
+.size-story.t-diagonal .slab2 { clip-path: polygon(0 42%, 100% 30%, 100% 33%, 0 45%); }
+.t-diagonal .top { color: var(--on-ac); }
+.t-diagonal .top .badge { background: var(--bg-base); color: var(--fg); }
+.t-diagonal .body { flex: 1; min-height: 0; display: flex; flex-direction: column; padding-top: 70px; }
+.size-story.t-diagonal .body { padding-top: 110px; }
+.t-diagonal .headline { text-shadow: none; }
+.t-diagonal .sub { margin-top: 26px; opacity: .92; }
+.t-diagonal .foot { margin-top: 30px; }
+{% endblock %}
+{% block body %}
+<div class="slab"></div><div class="slab2"></div>
+<div class="inner">
+  <div class="row top">{% include "studio/designs/_logo.html" %}{% if badge %}<span class="badge">{{ badge }}</span>{% endif %}</div>
+  <div class="body">
+    <div class="fit-box">
+      <div class="headline" data-fit="104" data-min="44">{{ headline }}</div>
+      {% if subheadline %}<div class="sub" data-fit="40" data-min="24">{{ subheadline }}</div>{% endif %}
+    </div>
+    <div class="row foot">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+  </div>
+</div>
+{% endblock %}

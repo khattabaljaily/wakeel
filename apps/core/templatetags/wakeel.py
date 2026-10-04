@@ -60,3 +60,12 @@ def money(value, decimals=2):
         whole, _, fraction = text.partition('.')
         text = f'{whole}.{fraction.rstrip("0").ljust(2, "0")}'
     return text
+
+
+@register.simple_tag
+def inbox_count(company):
+    """Comments awaiting an answer, for the sidebar badge."""
+    if not company:
+        return 0
+    from apps.inbox.models import InboxItem
+    return InboxItem.objects.filter(company=company, status=InboxItem.Status.NEW).exclude(category=InboxItem.Category.SPAM).count()

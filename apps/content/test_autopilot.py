@@ -68,6 +68,12 @@ class AutopilotTests(TestCase):
         self.company.refresh_from_db()
         self.assertEqual((self.company.autopilot_day, self.company.autopilot_posts_per_week, self.company.autopilot_platforms),
                          (20, 5, ['facebook', 'instagram']))
+        r = self.client.post(reverse('companies:autopilot'), {
+            'autopilot': 'on', 'autopilot_day': '20', 'autopilot_posts_per_week': '5', 'autopilot_platforms': ['facebook'],
+            'evergreen_per_month': '2', 'client_whatsapp': '+97455551234'})
+        self.assertRedirects(r, reverse('companies:autopilot'))
+        self.company.refresh_from_db()
+        self.assertEqual((self.company.evergreen_per_month, self.company.client_whatsapp), (2, '+97455551234'))
         bad = self.client.post(reverse('companies:autopilot'), {'autopilot': 'on', 'autopilot_day': '31',
                                                                 'autopilot_posts_per_week': '4', 'autopilot_platforms': ['facebook']})
         self.assertEqual(bad.status_code, 200)  # day 31 is refused (months differ in length)

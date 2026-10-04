@@ -7,5 +7,5 @@
 
 {% translate "لا يحتاج الرابط إلى حساب أو كلمة مرور." %}
 
-{% blocktranslate with company=company.name %}{{ company }} · عبر وكيل{% endblocktranslate %}
+{% if company.agency %}{{ company.name }} · {{ company.agency.name }}{% else %}{% blocktranslate with company=company.name %}{{ company }} · عبر وكيل{% endblocktranslate %}{% endif %}
 {% endautoescape %}

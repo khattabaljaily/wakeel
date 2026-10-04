@@ -6,7 +6,7 @@ schemas below; `apps.content.services` turns them into model rows.
 """
 import calendar
 
-from apps.studio.designs import TEMPLATES
+from apps.studio.designs import MOTIFS, SCHEMES, TEMPLATES
 
 from .client import call_json
 
@@ -44,6 +44,8 @@ _POST_PROPS = {
     'cta': {'type': 'string'},
     'badge': {'type': 'string'},
     'template': {'type': 'string', 'enum': list(TEMPLATES)},
+    'scheme': {'type': 'string', 'enum': list(SCHEMES), 'description': 'Colour scheme of the design'},
+    'motif': {'type': 'string', 'enum': list(MOTIFS), 'description': 'Background decoration of the design'},
     'caption': {'type': 'string'},
     'hashtags': {'type': 'string'},
     'visual_notes': {'type': 'string', 'description': 'What photo or visual the design needs, in the team language'},
@@ -160,6 +162,8 @@ def generate_plan(plan):
     count = posts_count(plan)
     platforms = ', '.join(plan.platforms)
     templates = '\n'.join(f'- {key}: {t["hint"]}' for key, t in TEMPLATES.items())
+    schemes = '\n'.join(f'- {key}: {v["hint"]}' for key, v in SCHEMES.items())
+    motifs = '\n'.join(f'- {key}: {v["hint"]}' for key, v in MOTIFS.items())
     brief = plan.brief.strip() or 'No special brief — plan the best month for this brand.'
     from apps.content.occasions import in_month
     occasions = '\n'.join(
@@ -172,9 +176,17 @@ def generate_plan(plan):
         if 'tiktok' in plan.platforms else ''
     )
 
+    from apps.companies.models import MediaAsset
     from apps.content.learning import recent_posts
     from apps.core import language
+    variety = max(4, min(10, count // 2))
+    photo_note = ('the media library has photos' if MediaAsset.objects.filter(company=company).exists()
+                  else 'the media library is empty, so do not use them')
     team_language = language.name(language.of_user(plan.created_by) if plan.created_by else language.of_team(company))
+    from apps.insights.services import performance_block
+    performance = performance_block(company)
+    from apps.insights.competitors import planner_block
+    competition = planner_block(company)
     recent = '\n'.join(f'- {when:%Y-%m-%d} | {pillar} | {title}' for when, pillar, title in recent_posts(company, plan.month)) or '- none'
 
     prompt = f"""<brand_profile>
@@ -184,7 +196,7 @@ def generate_plan(plan):
 <recent_posts>
 {recent}
 </recent_posts>
-
+{performance}{competition}
 <month>{ARABIC_MONTHS[plan.month.month - 1]} {plan.month.year} ({plan.month:%Y-%m}, {days} days)</month>
 <platforms>{platforms}</platforms>
 <brief>
@@ -203,9 +215,21 @@ Requirements:
 - key_dates: occasions in this month that matter to this audience (may be empty). The dates in <local_occasions> are computed and correct: use them as given, pick only the ones that fit this brand, and don't add other dated occasions unless you are sure of the date.
 - The team reads {team_language}: summary, goals, pillar names/descriptions, key date names and visual_notes are in {team_language}; captions and design text follow the language rule in the brand profile.
 - Don't repeat ideas, angles or headlines from <recent_posts>; build on them with fresh ones.
-- Pick the design template for each image post from:
+- If <performance> is present, lean into the pillars, layouts and formats that did best, retire what did poorly, and prefer its best posting hours for `time`.
+- If <competitor_insights> is present, give a few posts to those gaps and angles.
+
+Art direction (you are also the art director; a feed that repeats one look reads as automated):
+- For every image post choose `template` (the layout), `scheme` (the colours) and `motif` (the background decoration) so the idea and the look match: a statistic gets `stat`, an offer gets `offer`, a testimonial gets `quote`, a question or myth-buster gets `card`, a bold slogan gets `poster`, a greeting or occasion gets `frame`.
+- Vary them across the month. Use at least {variety} different layouts. Never use the same layout in two posts in a row, and avoid repeating a scheme or motif in consecutive posts. Don't default to `bold`.
+- The brand's own colours are applied automatically; `scheme` only decides how they are used (which colour is the ground). Keep the month's look cohesive but lively: mix calm and loud schemes.
+- Layouts:
 {templates}
-  Use photo/split only when the brand is likely to have a matching real photo."""
+  Use the photo layouts (photo, split, arch, spotlight) only when the brand is likely to have a matching real photo: {photo_note}.
+- Schemes:
+{schemes}
+- Motifs:
+{motifs}
+- `stat` needs a short `badge` (the number or figure) and `offer` needs the offer in `badge`; give other layouts a badge only when it adds something."""
 
     return call_json(SYSTEM_PROMPT, prompt, PLAN_SCHEMA, max_tokens=64000, effort='high')
 
@@ -225,4 +249,25 @@ def rewrite_post(post, instruction):
 </instruction>
 
 Rewrite this post following the instruction. Return every field; keep a field unchanged when the instruction doesn't concern it. Keep video_script empty unless the format is reel."""
+    return call_json(SYSTEM_PROMPT, prompt, REWRITE_SCHEMA, max_tokens=16000, effort='medium')
+
+
+def adapt_post(post, instruction):
+    """Rewrite a post for a new use (another language or dialect, or a fresh repost). The instruction
+    wins over the brand profile's language rule. Returns the same fields as rewrite_post."""
+    fields = '\n'.join(f'{field}: {getattr(post, field)}' for field in _REWRITE_FIELDS)
+    prompt = f"""<brand_profile>
+{brand_profile(post.company)}
+</brand_profile>
+{learned_block(post.company)}
+<post format="{post.format}" platforms="{', '.join(post.platforms)}" pillar="{post.pillar}">
+{fields}
+</post>
+
+<instruction>
+{instruction}
+</instruction>
+
+Follow the instruction; where it names a language or dialect, it overrides the brand profile's language rule.
+Return every field. Design text stays short (headline up to about 7 words). Keep video_script empty unless the format is reel."""
     return call_json(SYSTEM_PROMPT, prompt, REWRITE_SCHEMA, max_tokens=16000, effort='medium')

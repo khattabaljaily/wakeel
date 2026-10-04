@@ -110,6 +110,8 @@
         <strong>{% translate "موافقة العميل" %}</strong>
         <div class="small-muted">{% if share_url %}{% translate "أرسل هذا الرابط للعميل ليعتمد المنشورات أو يطلب تعديلها دون حساب في وكيل." %}{% else %}{% translate "شارك الخطة مع عميلك برابط خاص ليعتمد المنشورات أو يطلب تعديلها دون الحاجة لحساب." %}{% endif %}</div>
     </div>
+    {% if whatsapp_ready %}<form method="post" action="{% url 'whatsapp:send_plan' plan.pk %}">{% csrf_token %}
+        <button class="btn btn-sm btn-success"><i class="bi bi-whatsapp"></i> {% translate "أرسل للعميل على واتساب" %}</button></form>{% endif %}
     {% if share_url %}
     <div class="input-group" style="max-width: 460px">
         <input type="text" class="form-control form-control-sm" id="shareUrl" value="{{ share_url }}" readonly dir="ltr" aria-label="{% translate "رابط العميل" %}">

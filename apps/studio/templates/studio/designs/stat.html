@@ -1,0 +1,23 @@
+{% extends "studio/designs/base.html" %}
+{% block style %}
+.t-stat .inner { align-items: center; text-align: center; }
+.t-stat .fit-box { align-items: center; width: 100%; }
+.t-stat .hero { font-family: var(--hf); font-weight: 900; line-height: 1; color: var(--ac); letter-spacing: -4px; direction: ltr; unicode-bidi: plaintext; white-space: nowrap; }
+.t-stat .hero-line { width: 220px; height: 14px; background: var(--fg); opacity: .85; border-radius: 8px; margin: 36px 0 40px; flex-shrink: 0; }
+.t-stat .headline { font-weight: 800; }
+.t-stat .sub { margin-top: 22px; opacity: .9; }
+.t-stat .foot { margin-top: 30px; justify-content: center; flex-direction: column; gap: 24px; }
+.t-stat .contact { justify-content: center; }
+.t-stat .row { width: 100%; }
+{% endblock %}
+{% block body %}
+<div class="inner">
+  <div class="row">{% include "studio/designs/_logo.html" %}<span></span></div>
+  <div class="fit-box">
+    {% if badge %}<div class="hero" data-fit="340" data-min="90">{{ badge }}</div><div class="hero-line"></div>{% endif %}
+    <div class="headline" data-fit="{% if badge %}74{% else %}130{% endif %}" data-min="40">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" data-fit="38" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  <div class="row foot">{% include "studio/designs/_cta.html" %}{% include "studio/designs/_contact.html" %}</div>
+</div>
+{% endblock %}

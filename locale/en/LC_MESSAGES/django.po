@@ -4300,3 +4300,798 @@ msgid ""
 msgstr ""
 "The Facebook window closed before saving. No problem: try again, and make "
 "sure to press “Save” at the end."
+
+msgid "قيد الاقتراح"
+msgstr "Suggesting"
+
+msgid "مقترح"
+msgstr "Suggested"
+
+msgid "أُنشئ متوقفاً في Meta"
+msgstr "Created paused in Meta"
+
+msgid "تعذّر"
+msgstr "Failed"
+
+msgid "الجميع"
+msgstr "Everyone"
+
+msgid "رجال"
+msgstr "Men"
+
+msgid "نساء"
+msgstr "Women"
+
+msgid "الميزانية اليومية"
+msgstr "Daily budget"
+
+msgid "عدد الأيام"
+msgstr "Number of days"
+
+msgid "العمر من"
+msgstr "Age from"
+
+msgid "العمر إلى"
+msgstr "Age to"
+
+msgid "الجنس"
+msgstr "Gender"
+
+msgid "الدول"
+msgstr "Countries"
+
+msgid "رموز الدول، مثل: QA SA AE"
+msgstr "Country codes, e.g. QA SA AE"
+
+msgid "اقتراح الترويج جاهز."
+msgstr "The promotion suggestion is ready."
+
+msgid "يلزم حساب فيسبوك مربوط بصلاحية الإعلانات، وحساب إعلاني مختار، ومنشور منشور على فيسبوك."
+msgstr "This needs a connected Facebook account with ads permission, a chosen ad account, and a post published on Facebook."
+
+msgid "حدّد دولة واحدة على الأقل."
+msgstr "Choose at least one country."
+
+msgid "بين 1 و%(max)s."
+msgstr "Between 1 and %(max)s."
+
+msgid "بين 1 و%(max)s يوماً."
+msgstr "Between 1 and %(max)s days."
+
+msgid "العمر بين 18 و65، والحد الأعلى لا يقل عن الأدنى."
+msgstr "Age is between 18 and 65, and the upper limit can't be below the lower one."
+
+msgid "تم اختيار الحساب الإعلاني."
+msgstr "Ad account selected."
+
+msgid "تم حفظ الإعدادات."
+msgstr "Settings saved."
+
+msgid "أُنشئ الإعلان متوقفاً في Meta. راجعه وفعّله من مدير الإعلانات حين تكون جاهزاً."
+msgstr "The ad was created paused in Meta. Review it and turn it on in Ads Manager when you're ready."
+
+msgid "اختر اللغة أو اللهجة."
+msgstr "Choose the language or dialect."
+
+msgid "اسم الوكالة"
+msgstr "Agency name"
+
+msgid "شعار الوكالة"
+msgstr "Agency logo"
+
+msgid "لون الوكالة"
+msgstr "Agency colour"
+
+msgid "موقع الوكالة"
+msgstr "Agency website"
+
+msgid "وكالة"
+msgstr "Agency"
+
+msgid "الوكالات"
+msgstr "Agencies"
+
+msgid "واتساب العميل"
+msgstr "Client's WhatsApp"
+
+msgid "يصله كل منشور بزرّي «اعتماد» و«طلب تعديل». مع رمز الدولة، مثل ‎+97455551234."
+msgstr "Each post reaches it with “Approve” and “Request changes” buttons. Include the country code, e.g. +97455551234."
+
+msgid "الرد التلقائي على التعليقات البسيطة"
+msgstr "Auto-reply to simple comments"
+
+msgid "الحساب الإعلاني"
+msgstr "Ad account"
+
+msgid "منشورات دائمة يُعاد نشرها شهرياً"
+msgstr "Evergreen posts reposted each month"
+
+msgid "أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد."
+msgstr "Agency mode is off; your clients see the Wakeel brand again."
+
+msgid "تم حفظ هوية الوكالة."
+msgstr "Agency brand saved."
+
+msgid "اللهجة الخليجية"
+msgstr "Gulf dialect"
+
+msgid "اللهجة السودانية"
+msgstr "Sudanese dialect"
+
+msgid "اللهجة المصرية"
+msgstr "Egyptian dialect"
+
+msgid "اللهجة الشامية"
+msgstr "Levantine dialect"
+
+msgid "وكيل يكتب النسخة…"
+msgstr "Wakeel is writing the version…"
+
+msgid "أُنشئت نسخة %(label)s."
+msgstr "%(label)s version created."
+
+msgid "وكيل يعيد صياغة المنشور…"
+msgstr "Wakeel is rewording the post…"
+
+msgid "جُهّز «%(title)s» لإعادة النشر."
+msgstr "“%(title)s” is ready to be published again."
+
+msgid "تصميم الصورة…"
+msgstr "Designing the image…"
+
+msgid "نظام الألوان"
+msgstr "Colour scheme"
+
+msgid "فارغ = الافتراضي للقالب."
+msgstr "Empty = the layout's default."
+
+msgid "الزخرفة"
+msgstr "Motif"
+
+msgid "فارغ = الافتراضية للقالب."
+msgstr "Empty = the layout's default."
+
+msgid "لغة النسخة"
+msgstr "Version language"
+
+msgid "محتوى دائم"
+msgstr "Evergreen"
+
+msgid "صالح لإعادة النشر بصياغة جديدة بعد مدة."
+msgstr "Fit to be published again, freshly worded, after a while."
+
+msgid "تم الرد"
+msgstr "Replied"
+
+msgid "مُتجاهَل"
+msgstr "Dismissed"
+
+msgid "إيجابي"
+msgstr "Positive"
+
+msgid "محايد"
+msgstr "Neutral"
+
+msgid "سلبي"
+msgstr "Negative"
+
+msgid "سؤال"
+msgstr "Question"
+
+msgid "شكوى"
+msgstr "Complaint"
+
+msgid "إشادة"
+msgstr "Praise"
+
+msgid "مزعج"
+msgstr "Spam"
+
+msgid "أخرى"
+msgstr "Other"
+
+msgid "منخفض"
+msgstr "Low"
+
+msgid "عادي"
+msgstr "Normal"
+
+msgid "عاجل"
+msgstr "Urgent"
+
+msgid "أزمة"
+msgstr "Crisis"
+
+msgid "أزمة محتملة"
+msgstr "Possible crisis"
+
+msgid "تعليق عاجل"
+msgstr "Urgent comment"
+
+msgid "{label} على «{post}»: {text}"
+msgstr "{label} on “{post}”: {text}"
+
+msgid "الحساب غير مربوط. اربطه من «حسابات النشر»."
+msgstr "The account isn't connected. Connect it from “Publishing accounts”."
+
+msgid "وكيل يقرأ التعليقات…"
+msgstr "Wakeel is reading the comments…"
+
+msgid "تعليقات جديدة: %(new)s، قُرئ منها %(read)s."
+msgstr "New comments: %(new)s, %(read)s read."
+
+msgid "اكتب الرد أولاً."
+msgstr "Write the reply first."
+
+msgid "تم إرسال الرد."
+msgstr "Reply sent."
+
+msgid "يقرأ وكيل التعليقات الجديدة الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel is reading new comments now. Reload the page in a moment."
+
+msgid "تم تشغيل الرد التلقائي على الأسئلة البسيطة والإشادات."
+msgstr "Auto-reply to simple questions and praise is on."
+
+msgid "تم إيقاف الرد التلقائي."
+msgstr "Auto-reply is off."
+
+msgid "قراءة مواقع المنافسين…"
+msgstr "Reading the competitors' websites…"
+
+msgid "وكيل يحلّل المنافسين…"
+msgstr "Wakeel is analysing the competitors…"
+
+msgid "اكتمل تحليل المنافسين."
+msgstr "Competitor analysis complete."
+
+msgid "جاهز"
+msgstr "Ready"
+
+msgid "الاسم"
+msgstr "Name"
+
+msgid "روابط أو أسماء حسابات، مفصولة بمسافات."
+msgstr "Links or account names, separated by spaces."
+
+msgid "أمثلة من منشوراتهم"
+msgstr "Examples of their posts"
+
+msgid "الصق نصوص منشورات حديثة لهم أو صف ما ينشرونه؛ يقرأها وكيل في التحليل."
+msgstr "Paste the text of their recent posts or describe what they post; Wakeel reads it in the analysis."
+
+msgid "قيد التحليل"
+msgstr "Analysing"
+
+msgid "تعذّر التحليل"
+msgstr "Analysis failed"
+
+msgid "تعذّر قراءة الأرقام: %(problem)s"
+msgstr "Couldn't read the numbers: %(problem)s"
+
+msgid "تم تحديث أرقام %(count)s منشور."
+msgstr "Numbers updated for %(count)s posts."
+
+msgid "جارٍ قراءة أرقام الشهر…"
+msgstr "Reading the month's numbers…"
+
+msgid "تم إعداد تقرير %(month)s."
+msgstr "The %(month)s report is ready."
+
+msgid "تقرير أداء %(month)s: %(name)s"
+msgstr "%(month)s performance report: %(name)s"
+
+msgid "تقرير أداء %(month)s جاهز."
+msgstr "The %(month)s performance report is ready."
+
+msgid "آخر 30 يوماً"
+msgstr "Last 30 days"
+
+msgid "آخر 90 يوماً"
+msgstr "Last 90 days"
+
+msgid "جارٍ تحديث الأرقام من فيسبوك وإنستغرام. أعد تحميل الصفحة بعد لحظات."
+msgstr "Updating the numbers from Facebook and Instagram. Reload the page in a moment."
+
+msgid "يعيد وكيل صياغة «%(title)s» وتصميمه، وستجده في المنشورات بانتظار المراجعة خلال لحظات."
+msgstr "Wakeel is rewording and redesigning “%(title)s”; you'll find it in Posts awaiting review in a moment."
+
+msgid "تم تحديث رابط التقرير."
+msgstr "Report link updated."
+
+msgid "يمكن إضافة %(n)s منافسين كحد أقصى."
+msgstr "You can add up to %(n)s competitors."
+
+msgid "تم حفظ المنافس."
+msgstr "Competitor saved."
+
+msgid "تم حذف المنافس."
+msgstr "Competitor deleted."
+
+msgid "أضف منافساً واحداً على الأقل."
+msgstr "Add at least one competitor."
+
+msgid "يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة."
+msgstr "Wakeel is analysing the competitors now. Reload the page in a minute."
+
+msgid "تحديث أرقام الأداء"
+msgstr "Update performance numbers"
+
+msgid "إعداد تقرير الأداء"
+msgstr "Write performance report"
+
+msgid "نسخة بلغة أو لهجة أخرى"
+msgstr "Version in another language or dialect"
+
+msgid "إعادة نشر محتوى دائم"
+msgstr "Evergreen repost"
+
+msgid "تحليل المنافسين"
+msgstr "Competitor analysis"
+
+msgid "قراءة التعليقات"
+msgstr "Read comments"
+
+msgid "اقتراح ترويج"
+msgstr "Promotion suggestion"
+
+msgid "ملصق"
+msgstr "Poster"
+
+msgid "رقم بارز"
+msgstr "Big number"
+
+msgid "شريط جانبي"
+msgstr "Sidebar"
+
+msgid "قطري"
+msgstr "Diagonal"
+
+msgid "إطار"
+msgstr "Frame"
+
+msgid "قوس"
+msgstr "Arch"
+
+msgid "بطاقة"
+msgstr "Card"
+
+msgid "أشرطة"
+msgstr "Bands"
+
+msgid "بؤرة"
+msgstr "Spotlight"
+
+msgid "داكن عميق"
+msgstr "Deep"
+
+msgid "فاتح"
+msgstr "Light"
+
+msgid "ناعم"
+msgstr "Soft"
+
+msgid "تدرّج"
+msgstr "Gradient"
+
+msgid "غروب"
+msgstr "Dusk"
+
+msgid "أسود"
+msgstr "Dark"
+
+msgid "بلا زخرفة"
+msgstr "No motif"
+
+msgid "نقاط"
+msgstr "Dots"
+
+msgid "حلقات"
+msgstr "Rings"
+
+msgid "بقع لونية"
+msgstr "Colour blobs"
+
+msgid "موجات"
+msgstr "Waves"
+
+msgid "شبكة"
+msgstr "Grid"
+
+msgid "أشعة"
+msgstr "Rays"
+
+msgid "خطوط مائلة"
+msgstr "Stripes"
+
+msgid "أقواس"
+msgstr "Arcs"
+
+msgid "قصاصات"
+msgstr "Confetti"
+
+msgid "علامات زائد"
+msgstr "Plus signs"
+
+msgid "شمس"
+msgstr "Sun"
+
+msgid "تلقائي"
+msgstr "Auto"
+
+msgid "واتساب غير مفعّل على هذا الخادم."
+msgstr "WhatsApp isn't enabled on this server."
+
+msgid "تعذّر الوصول إلى خوادم واتساب."
+msgstr "Couldn't reach the WhatsApp servers."
+
+msgid "رفض واتساب الرسالة: %(detail)s"
+msgstr "WhatsApp refused the message: %(detail)s"
+
+msgid "أضف رقم واتساب العميل أولاً من إعدادات المخطط الآلي."
+msgstr "Add the client's WhatsApp number first, in the Auto planner settings."
+
+msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
+msgstr "There are no posts awaiting review in this plan. Thank you!"
+
+msgid "سأرسل لك %(count)s منشوراً، واحداً تلو الآخر. اعتمد ما يعجبك أو اطلب التعديل."
+msgstr "I'll send you %(count)s posts, one after another. Approve the ones you like or ask for changes."
+
+msgid "اعتماد ✅"
+msgstr "Approve ✅"
+
+msgid "طلب تعديل ✏️"
+msgstr "Request changes ✏️"
+
+msgid "العميل (واتساب +%(phone)s)"
+msgstr "Client (WhatsApp +%(phone)s)"
+
+msgid "تم اعتماد «%(title)s» ✅"
+msgstr "“%(title)s” approved ✅"
+
+msgid "اكتب ملاحظتك على «%(title)s» في رسالة واحدة، وستصل إلى الفريق."
+msgstr "Write your note on “%(title)s” in one message and it will reach the team."
+
+msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
+msgstr "To review the whole plan, open: %(link)s"
+
+msgid "وصلت ملاحظتك على «%(title)s» إلى الفريق. شكراً!"
+msgstr "Your note on “%(title)s” reached the team. Thank you!"
+
+msgid "أُرسلت دعوة المراجعة إلى واتساب العميل."
+msgstr "The review invitation was sent to the client's WhatsApp."
+
+msgid "ترويج"
+msgstr "Promotion"
+
+msgid "كل الترويجات"
+msgstr "All promotions"
+
+msgid "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel is preparing the suggestion now. Reload the page in a moment."
+
+msgid "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله."
+msgstr "The ad is in Meta and paused. Nothing is spent until you turn it on."
+
+msgid "افتح مدير الإعلانات"
+msgstr "Open Ads Manager"
+
+msgid "لماذا هذا الترويج"
+msgstr "Why this promotion"
+
+msgid "اهتمامات تضيفها في مدير الإعلانات"
+msgstr "Interests to add in Ads Manager"
+
+msgid "الإجمالي الأقصى: %(total)s %(cur)s"
+msgstr "Maximum total: %(total)s %(cur)s"
+
+msgid "إنشاء الإعلان في Meta؟"
+msgstr "Create the ad in Meta?"
+
+msgid "سيُنشأ متوقفاً، ولا يُصرف شيء حتى تفعّله من مدير الإعلانات."
+msgstr "It will be created paused; nothing is spent until you turn it on in Ads Manager."
+
+msgid "إنشاء متوقفاً"
+msgstr "Create paused"
+
+msgid "أنشئه في Meta متوقفاً"
+msgstr "Create it in Meta, paused"
+
+msgid "اختر حساباً إعلانياً من صفحة الترويج أولاً."
+msgstr "Choose an ad account on the promotion page first."
+
+msgid "حذف الاقتراح"
+msgstr "Delete suggestion"
+
+msgid "يقترح وكيل ترويج المنشورات الناجحة بميزانية تجريبية صغيرة، وينشئ الإعلان في Meta متوقفاً. لا يُصرف أي مبلغ حتى تفعّله أنت من مدير الإعلانات."
+msgstr "Wakeel suggests promoting posts that did well with a small test budget, and creates the ad in Meta paused. Nothing is spent until you turn it on in Ads Manager."
+
+msgid "الترويج يحتاج ربط فيسبوك بصلاحية إدارة الإعلانات. إن كانت مفعّلة على الخادم، أعد ربط الحساب من «حسابات النشر» ووافق عليها."
+msgstr "Promotion needs Facebook connected with the ads management permission. If it's enabled on the server, reconnect the account from “Publishing accounts” and allow it."
+
+msgid "لا توجد حسابات إعلانية نشطة"
+msgstr "No active ad accounts"
+
+msgid "منشورات تستحق الترويج"
+msgstr "Posts worth promoting"
+
+msgid "اقترح ترويجاً"
+msgstr "Suggest a promotion"
+
+msgid "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد."
+msgstr "No posts have been published to Facebook through Wakeel yet."
+
+msgid "بانتظار الرد"
+msgstr "Awaiting a reply"
+
+msgid "الأداء"
+msgstr "Performance"
+
+msgid "الترويج المدفوع"
+msgstr "Paid promotion"
+
+msgid "وضع الوكالة"
+msgstr "Agency mode"
+
+msgid "إن كنت وكالة تسويق تدير شركات عملائك هنا، يرى عملاؤك اسم وكالتك وشعارها في صفحات مراجعة الخطط والتقارير والرسائل، بدل علامة وكيل."
+msgstr "If you are a marketing agency running your clients' companies here, your clients see your agency's name and logo on plan review pages, reports and emails instead of the Wakeel brand."
+
+msgid "الشركات التي تظهر لعملائها هوية الوكالة"
+msgstr "Companies whose clients see the agency brand"
+
+msgid "لا توجد شركات تملكها."
+msgstr "You don't own any companies."
+
+msgid "إيقاف وضع الوكالة"
+msgstr "Turn off agency mode"
+
+msgid "أرسل للعميل على واتساب"
+msgstr "Send to the client on WhatsApp"
+
+msgid "نسخة جديدة من هذا المنشور:"
+msgstr "New version of this post:"
+
+msgid "أنشئ النسخة"
+msgstr "Create version"
+
+msgid "أعد نشره بصياغة جديدة"
+msgstr "Repost with fresh wording"
+
+msgid "منسوخ من:"
+msgstr "Copied from:"
+
+msgid "نسخ منه:"
+msgstr "Copies:"
+
+msgid "الألوان والزخرفة"
+msgstr "Colours and motif"
+
+msgid "تصميم جديد"
+msgstr "New design"
+
+msgid "أعدّت هذه الخطة %(name)s"
+msgstr "This plan was prepared by %(name)s"
+
+msgid "تعليقات فيسبوك وإنستغرام على منشوراتك في مكان واحد. يقرأها وكيل، وينبّهك للعاجل منها، ويقترح ردّاً بنبرة علامتك."
+msgstr "Facebook and Instagram comments on your posts in one place. Wakeel reads them, alerts you to urgent ones, and suggests a reply in your brand's voice."
+
+msgid "يرد وكيل وحده على الأسئلة البسيطة والإشادات. الشكاوى والعاجل تبقى لك دائماً."
+msgstr "Wakeel answers simple questions and praise on its own. Complaints and urgent comments always stay with you."
+
+msgid "الرد التلقائي: يعمل"
+msgstr "Auto-reply: on"
+
+msgid "الرد التلقائي: متوقف"
+msgstr "Auto-reply: off"
+
+msgid "تحديث"
+msgstr "Refresh"
+
+msgid "اربط فيسبوك أو إنستغرام"
+msgstr "Connect Facebook or Instagram"
+
+msgid "يقرأ وكيل التعليقات على المنشورات التي نشرها عبر حساباتك المربوطة."
+msgstr "Wakeel reads comments on the posts it published through your connected accounts."
+
+msgid "لم يُقرأ بعد"
+msgstr "Not read yet"
+
+msgid "رد تلقائي من وكيل"
+msgstr "Auto-reply by Wakeel"
+
+msgid "اكتب الرد…"
+msgstr "Write the reply…"
+
+msgid "إرسال الرد"
+msgstr "Send reply"
+
+msgid "إرجاع"
+msgstr "Restore"
+
+msgid "تجاهل"
+msgstr "Dismiss"
+
+msgid "لا توجد تعليقات هنا"
+msgstr "No comments here"
+
+msgid "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة."
+msgstr "Wakeel checks for new comments every half hour."
+
+msgid "لا توجد بيانات كافية بعد."
+msgstr "Not enough data yet."
+
+msgid "منشورات تم قياسها"
+msgstr "Posts measured"
+
+msgid "الوصول"
+msgstr "Reach"
+
+msgid "التفاعل"
+msgstr "Engagement"
+
+msgid "معدل التفاعل"
+msgstr "Engagement rate"
+
+msgid "تفاعل"
+msgstr "interactions"
+
+msgid "ملخص الشهر"
+msgstr "The month in brief"
+
+msgid "الأفضل أداءً"
+msgstr "Best performing"
+
+msgid "ما نجح"
+msgstr "What worked"
+
+msgid "توصيات الشهر القادم"
+msgstr "Recommendations for next month"
+
+msgid "تعذّر إعداد التقرير."
+msgstr "The report couldn't be prepared."
+
+msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
+msgstr "The report is being prepared. Reload the page in a moment."
+
+msgid "يقرأ وكيل مواقع منافسيك وما تلصقه من منشوراتهم، ويستخرج الفجوات التي تميّز علامتك، ثم يستخدمها في خطط الأشهر القادمة."
+msgstr "Wakeel reads your competitors' websites and the posts you paste, finds the gaps that set your brand apart, and uses them in the coming months' plans."
+
+msgid "جارٍ التحليل…"
+msgstr "Analysing…"
+
+msgid "حلّل المنافسين"
+msgstr "Analyse competitors"
+
+msgid "قُرئ الموقع"
+msgstr "Website read"
+
+msgid "تعديل المنافس"
+msgstr "Edit competitor"
+
+msgid "أضف منافساً"
+msgstr "Add a competitor"
+
+msgid "قراءة وكيل"
+msgstr "Wakeel's reading"
+
+msgid "قوة:"
+msgstr "Strengths:"
+
+msgid "ضعف:"
+msgstr "Weaknesses:"
+
+msgid "فجوات يتركونها"
+msgstr "Gaps they leave"
+
+msgid "زوايا تميّزك"
+msgstr "Angles that set you apart"
+
+msgid "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة."
+msgstr "The analysis is being prepared. Reload the page in a minute."
+
+msgid "أضف منافسيك"
+msgstr "Add your competitors"
+
+msgid "أضف حتى 8 منافسين بموقعهم، والصق أمثلة من منشوراتهم إن أمكن، ثم اضغط «حلّل المنافسين»."
+msgstr "Add up to 8 competitors with their websites, paste examples of their posts if you can, then press “Analyse competitors”."
+
+msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
+msgstr "How your posts actually performed, and what Wakeel learns from it."
+
+msgid "تحديث الأرقام"
+msgstr "Update numbers"
+
+msgid "اربط حسابات فيسبوك أو إنستغرام"
+msgstr "Connect Facebook or Instagram accounts"
+
+msgid "يقرأ وكيل أرقام المنشورات التي نشرها عبر حساباتك المربوطة، ثم يستخدمها في خطط الأشهر القادمة."
+msgstr "Wakeel reads the numbers of the posts it published through your connected accounts, and uses them in the coming months' plans."
+
+msgid "آخر تحديث: %(when)s"
+msgstr "Last updated: %(when)s"
+
+msgid "لم تُقرأ أرقام بعد."
+msgstr "No numbers read yet."
+
+msgid "لم تصل أرقام بعد. اضغط «تحديث الأرقام»؛ وإن بقيت فارغة فأعد ربط حساب Meta من «حسابات النشر» ووافق على صلاحية قراءة الإحصاءات."
+msgstr "No numbers yet. Press “Update numbers”; if it stays empty, reconnect the Meta account from “Publishing accounts” and allow reading insights."
+
+msgid "لا توجد منشورات منشورة بعد. تظهر الأرقام هنا بعد نشر أول منشور عبر وكيل."
+msgstr "Nothing published yet. Numbers appear here after the first post is published through Wakeel."
+
+msgid "الأضعف أداءً"
+msgstr "Weakest performing"
+
+msgid "حسب المحور"
+msgstr "By pillar"
+
+msgid "متوسط التفاعل · معدل التفاعل"
+msgstr "Average interactions · engagement rate"
+
+msgid "حسب التصميم"
+msgstr "By layout"
+
+msgid "حسب يوم النشر"
+msgstr "By weekday"
+
+msgid "منشورات تستحق العودة"
+msgstr "Posts worth bringing back"
+
+msgid "إعادة نشر تلقائية كل شهر"
+msgstr "Repost automatically each month"
+
+msgid "أعد نشره"
+msgstr "Repost"
+
+msgid "أفضل ساعات النشر لجمهورك"
+msgstr "Best posting hours for your audience"
+
+msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
+msgstr "Wakeel prefers these hours when scheduling your next posts:"
+
+msgid "تحتاج 3 منشورات على الأقل في الساعة نفسها لتحديد أفضل وقت. يزداد دقة كلما نُشر أكثر."
+msgstr "At least 3 posts at the same hour are needed to find the best time. It gets more accurate the more you publish."
+
+msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
+msgstr "Hello, the %(month)s performance report for %(name)s is ready."
+
+msgid "التقرير الكامل بالأرقام وتوصيات الشهر القادم:"
+msgstr "The full report with the numbers and next month's recommendations:"
+
+msgid "تقرير %(m)s · %(name)s"
+msgstr "%(m)s report · %(name)s"
+
+msgid "تقرير أداء %(m)s"
+msgstr "%(m)s performance report"
+
+msgid "تقرير من %(name)s"
+msgstr "Report by %(name)s"
+
+msgid "تقرير %(m)s"
+msgstr "%(m)s report"
+
+msgid "كل التقارير"
+msgstr "All reports"
+
+msgid "إعادة الإعداد"
+msgstr "Prepare again"
+
+msgid "تفعيل الرابط"
+msgstr "Turn on the link"
+
+msgid "التقارير الشهرية"
+msgstr "Monthly reports"
+
+msgid "تقرير بنهاية كل شهر بالأرقام وتوصيات وكيل للشهر التالي، يمكن إرساله للعميل برابط."
+msgstr "A report at the end of each month with the numbers and Wakeel's recommendations for the next, which you can send to the client by link."
+
+msgid "أعدّ تقريراً لشهر"
+msgstr "Prepare a report for"
+
+msgid "إعداد التقرير"
+msgstr "Prepare report"
+
+msgid "لا توجد تقارير بعد"
+msgstr "No reports yet"
+
+msgid "يُعدّ وكيل تقرير الشهر السابق تلقائياً في أول الشهر عند توفر أرقام الأداء."
+msgstr "Wakeel prepares the previous month's report automatically at the start of each month when performance numbers are available."

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "التقارير الشهرية" %}{% endblock %}
+{% block page_title %}{% translate "التقارير الشهرية" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "تقرير بنهاية كل شهر بالأرقام وتوصيات وكيل للشهر التالي، يمكن إرساله للعميل برابط." %}</div>{% endblock %}
+{% block actions %}<a href="{% url 'insights:dashboard' %}" class="btn btn-light"><i class="bi bi-graph-up"></i> {% translate "الأداء" %}</a>{% endblock %}
+{% block content %}
+{% if membership.can_edit %}
+<form method="post" action="{% url 'insights:report_create' %}" class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-2 align-items-center">
+    {% csrf_token %}
+    <label class="mb-0 fw-semibold" for="rm">{% translate "أعدّ تقريراً لشهر" %}</label>
+    <select name="month" id="rm" class="form-select" style="max-width:220px">{% for m in months %}<option value="{{ m|date:'Y-m-d' }}">{{ m|date:"F Y" }}</option>{% endfor %}</select>
+    <button class="btn btn-ai"><i class="bi bi-magic"></i> {% translate "إعداد التقرير" %}</button>
+</div></form>
+{% endif %}
+<div class="row g-3">
+{% for r in reports %}
+    <div class="col-md-6 col-xl-4"><a href="{% url 'insights:report' r.pk %}" class="wk-card d-block text-reset"><div class="wk-card-body">
+        <div class="d-flex align-items-center gap-2 mb-2"><span class="wk-status {% if r.status == 'ready' %}approved{% elif r.status == 'failed' %}draft{% else %}review{% endif %}">{{ r.get_status_display }}</span><span class="ms-auto small-muted">{{ r.month|date:"F Y" }}</span></div>
+        <p class="small-muted mb-0" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">{{ r.summary|default:"—" }}</p>
+    </div></a></div>
+{% empty %}<div class="col-12"><div class="wk-card"><div class="wk-empty"><div class="icon"><i class="bi bi-file-earmark-text"></i></div><h3>{% translate "لا توجد تقارير بعد" %}</h3><p>{% translate "يُعدّ وكيل تقرير الشهر السابق تلقائياً في أول الشهر عند توفر أرقام الأداء." %}</p></div></div></div>
+{% endfor %}
+</div>
+{% endblock %}

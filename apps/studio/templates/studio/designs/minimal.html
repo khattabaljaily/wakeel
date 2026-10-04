@@ -1,19 +1,16 @@
 {% extends "studio/designs/base.html" %}
 {% block style %}
-.t-minimal { background: #f7f6f2; color: var(--ink); }
-.t-minimal .corner { position: absolute; top: 0; inset-inline-end: 0; width: 300px; height: 300px; background: var(--p);
+.t-minimal .corner { position: absolute; top: 0; inset-inline-end: 0; width: 300px; height: 300px; background: var(--ac);
   border-end-start-radius: 300px; }
-.t-minimal .corner::after { content: ''; position: absolute; width: 120px; height: 120px; border-radius: 50%; background: var(--a);
-  bottom: 40px; inset-inline-start: 40px; }
+.t-minimal .corner::after { content: ''; position: absolute; width: 120px; height: 120px; border-radius: 50%; background: var(--bg-base);
+  bottom: 40px; inset-inline-start: 40px; opacity: .85; }
 .t-minimal .stripe { position: absolute; bottom: 0; inset-inline: 0; height: 18px;
-  background: linear-gradient(to left, var(--p) 0 60%, var(--s) 60% 85%, var(--a) 85%); }
-[dir=ltr] .t-minimal .stripe { background: linear-gradient(to right, var(--p) 0 60%, var(--s) 60% 85%, var(--a) 85%); }
-.t-minimal .badge { background: var(--p-light); color: var(--p-dark); align-self: flex-start; margin-bottom: 36px; }
-.t-minimal .headline { color: var(--ink); }
-.t-minimal .mark { width: 110px; height: 12px; background: var(--p); border-radius: 8px; margin: 36px 0 28px; flex-shrink: 0; }
-.t-minimal .sub { color: #4b5563; }
-.t-minimal .cta { background: var(--p); color: var(--on-p); box-shadow: none; }
-.t-minimal .contact { color: #6b7280; }
+  background: linear-gradient(to left, var(--ac) 0 60%, var(--p) 60% 85%, var(--s) 85%); }
+[dir=ltr] .t-minimal .stripe { background: linear-gradient(to right, var(--ac) 0 60%, var(--p) 60% 85%, var(--s) 85%); }
+.t-minimal .badge { align-self: flex-start; margin-bottom: 36px; }
+.t-minimal .mark { width: 110px; height: 12px; background: var(--ac); border-radius: 8px; margin: 36px 0 28px; flex-shrink: 0; }
+.t-minimal .sub { color: var(--muted); }
+.t-minimal .contact { color: var(--muted); }
 .t-minimal .logo-chip { box-shadow: 0 6px 24px rgba(0,0,0,.08); }
 {% endblock %}
 {% block body %}

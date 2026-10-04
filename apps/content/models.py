@@ -99,6 +99,9 @@ class Post(models.Model):
     cta = models.CharField(_('عبارة الدعوة'), max_length=80, blank=True)
     badge = models.CharField(_('الشارة'), max_length=40, blank=True, help_text=_('نص قصير بارز مثل: جديد، خصم 20%.'))
     template = models.CharField(_('القالب'), max_length=20, default='bold')
+    scheme = models.CharField(_('نظام الألوان'), max_length=20, blank=True, help_text=_('فارغ = الافتراضي للقالب.'))
+    motif = models.CharField(_('الزخرفة'), max_length=20, blank=True, help_text=_('فارغ = الافتراضية للقالب.'))
+    variant = models.PositiveIntegerField(default=0, help_text='Seeds the small random differences between designs.')
     size = models.CharField(_('المقاس'), max_length=10, choices=Size.choices, default=Size.SQUARE)
     background = models.ForeignKey(MediaAsset, null=True, blank=True, on_delete=models.SET_NULL, related_name='+',
                                    verbose_name=_('صورة الخلفية'))
@@ -110,6 +113,11 @@ class Post(models.Model):
     video_script = models.TextField(_('سيناريو الفيديو'), blank=True)
 
     review_note = models.TextField(_('ملاحظات المراجعة'), blank=True)
+    # A post made from another one: a language/dialect version (`language` set) or an evergreen repost.
+    source_post = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL, related_name='copies')
+    language = models.CharField(_('لغة النسخة'), max_length=12, blank=True)
+    evergreen = models.BooleanField(_('محتوى دائم'), default=False,
+                                    help_text=_('صالح لإعادة النشر بصياغة جديدة بعد مدة.'))
     published_at = models.DateTimeField(null=True, blank=True)
     # Direct publishing (apps.social): ids of the published posts per platform, and the last failure.
     external_ids = models.JSONField(default=dict, blank=True)
@@ -121,7 +129,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     # Fields that change what the rendered image looks like.
-    DESIGN_FIELDS = ('headline', 'subheadline', 'cta', 'badge', 'template', 'size', 'background')
+    DESIGN_FIELDS = ('headline', 'subheadline', 'cta', 'badge', 'template', 'scheme', 'motif', 'variant', 'size', 'background')
 
     class Meta:
         verbose_name = _('منشور')

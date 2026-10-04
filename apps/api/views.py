@@ -1,6 +1,7 @@
 import datetime
 
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from rest_framework import status
@@ -39,6 +40,8 @@ def job_detail(request, pk):
         'id': job.pk, 'kind': job.kind, 'status': job.status, 'progress': job.progress,
         'message': job.message, 'error': job.error, 'finished': job.is_finished,
         'worker_alive': worker_alive(),
+        # Jobs that make a post (language versions, reposts) point to it.
+        'result_url': reverse('content:post_edit', args=[job.params['result_post_id']]) if job.params.get('result_post_id') else '',
     })
 
 
@@ -128,6 +131,26 @@ def post_rewrite(request, pk):
         return Response({'error': _('اكتب ما تريد تغييره في المنشور.')}, status=status.HTTP_400_BAD_REQUEST)
     job = Job.enqueue(_company(request), Job.Kind.REWRITE_POST, request.user, post_id=post.pk, instruction=instruction[:1000])
     learning.record_note(post, LearningSignal.Kind.REWRITE, instruction)
+    return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
+
+
+@api_view(['POST'])
+@permission_classes(PERMS)
+def post_variant(request, pk):
+    from apps.content.copies import VARIANTS
+    post = get_object_or_404(Post, pk=pk, company=_company(request))
+    language = request.data.get('language')
+    if language not in VARIANTS:
+        return Response({'error': _('اختر اللغة أو اللهجة.')}, status=status.HTTP_400_BAD_REQUEST)
+    job = Job.enqueue(_company(request), Job.Kind.VARIANT_POST, request.user, post_id=post.pk, language=language)
+    return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
+
+
+@api_view(['POST'])
+@permission_classes(PERMS)
+def post_repost(request, pk):
+    post = get_object_or_404(Post, pk=pk, company=_company(request))
+    job = Job.enqueue(_company(request), Job.Kind.REPOST, request.user, post_id=post.pk)
     return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
 
 

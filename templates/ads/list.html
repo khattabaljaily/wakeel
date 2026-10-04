@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "الترويج المدفوع" %}{% endblock %}
+{% block page_title %}{% translate "الترويج المدفوع" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "يقترح وكيل ترويج المنشورات الناجحة بميزانية تجريبية صغيرة، وينشئ الإعلان في Meta متوقفاً. لا يُصرف أي مبلغ حتى تفعّله أنت من مدير الإعلانات." %}</div>{% endblock %}
+{% block content %}
+{% if not enabled %}
+<div class="alert alert-info">{% translate "الترويج يحتاج ربط فيسبوك بصلاحية إدارة الإعلانات. إن كانت مفعّلة على الخادم، أعد ربط الحساب من «حسابات النشر» ووافق عليها." %}</div>
+{% else %}
+{% if membership.can_manage %}
+<form method="post" action="{% url 'ads:account' %}" class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-2 align-items-center">{% csrf_token %}
+    <label class="fw-semibold mb-0" for="acct">{% translate "الحساب الإعلاني" %}</label>
+    {% if account_error %}<span class="text-danger small">{{ account_error }}</span>{% else %}
+    <select name="account" id="acct" class="form-select" style="max-width:320px">{% for a in accounts %}<option value="{{ a.id }}" {% if a.id == company.ad_account_id %}selected{% endif %}>{{ a.name }} · {{ a.currency }}</option>{% empty %}<option value="">{% translate "لا توجد حسابات إعلانية نشطة" %}</option>{% endfor %}</select>
+    <button class="btn btn-light">{% translate "حفظ" %}</button>{% endif %}
+</div></form>
+{% endif %}
+<div class="wk-card mb-4"><div class="wk-card-head"><h2>{% translate "منشورات تستحق الترويج" %}</h2></div><div class="wk-card-body">
+    {% for post in promotable %}
+    <div class="d-flex align-items-center gap-3 py-2 {% if not forloop.last %}border-bottom{% endif %}">
+        <div class="flex-grow-1 text-truncate"><a href="{% url 'content:post_edit' post.pk %}">{{ post.title }}</a> <span class="small-muted">· {{ post.published_at|date:"j F" }}</span></div>
+        {% if membership.can_edit %}<form method="post" action="{% url 'ads:suggest' post.pk %}">{% csrf_token %}<button class="btn btn-sm btn-soft"><i class="bi bi-megaphone"></i> {% translate "اقترح ترويجاً" %}</button></form>{% endif %}
+    </div>
+    {% empty %}<span class="small-muted">{% translate "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد." %}</span>{% endfor %}
+</div></div>
+{% endif %}
+{% for d in drafts %}
+<a href="{% url 'ads:draft' d.pk %}" class="wk-card d-block text-reset mb-2"><div class="wk-card-body d-flex gap-3 align-items-center">
+    <span class="wk-status {% if d.status == 'created' %}approved{% elif d.status == 'failed' %}draft{% else %}review{% endif %}">{{ d.get_status_display }}</span>
+    <span class="flex-grow-1 text-truncate">{{ d.post.title }}</span>
+    <span class="small-muted">{{ d.daily_budget }} × {{ d.days }}</span>
+</div></a>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% blocktranslate trimmed with m=month_label name=brand.name %}تقرير {{ m }} · {{ name }}{% endblocktranslate %}{% endblock %}
+{% block extra_head %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block body %}
+<div class="wk-review">
+    <header class="wk-review__head">
+        <span class="wk-avatar" style="background: {{ brand.primary_color }}">{% if brand.logo %}<img src="{{ brand.logo.url }}" alt="">{% else %}{{ brand.initials }}{% endif %}</span>
+        <div class="flex-grow-1 overflow-hidden"><div class="small-muted">{{ brand.name }}</div><h1 class="h4 mb-0 text-truncate">{% blocktranslate trimmed with m=month_label %}تقرير أداء {{ m }}{% endblocktranslate %}</h1></div>
+        {% include "_language_switch.html" %}
+    </header>
+    <div class="wk-review__body">{% include "insights/_report_body.html" %}
+        {% if agency %}<p class="text-center small-muted my-4">{% blocktranslate trimmed with name=agency.name %}تقرير من {{ name }}{% endblocktranslate %}</p>{% endif %}</div>
+</div>
+{% endblock %}

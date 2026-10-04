@@ -179,7 +179,10 @@ def _connect(request, page, popup):
 @company_required(manage=True)
 @require_POST
 def disconnect(request, platform):
-    get_object_or_404(SocialAccount, company=request.company, platform=platform).delete()
+    account = get_object_or_404(SocialAccount, company=request.company, platform=platform)
+    if account.platform == SocialAccount.Platform.TIKTOK and settings.TIKTOK_ENABLED:
+        tiktok.revoke(account)
+    account.delete()
     messages.success(request, _('تم فصل الحساب.'))
     return redirect('social:accounts')
 

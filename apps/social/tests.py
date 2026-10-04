@@ -246,6 +246,8 @@ class FakeTikTok:
         self.calls.append((method, path, kwargs))
         if path in self.fail:
             return FakeGraph.reply(self.fail[path], 400)
+        if path == 'oauth/revoke/':
+            return FakeGraph.reply({}, 200)
         if path == 'oauth/token/':
             return FakeGraph.reply({'access_token': 'tt-token', 'refresh_token': 'tt-refresh', 'expires_in': 86400,
                                     'open_id': 'OPEN1', 'scope': self.scope})
@@ -347,3 +349,13 @@ class TikTokPublishTests(TestCase):
             self.publish(fake)
         self.assertIn('أعد ربط الحساب', str(raised.exception))
         self.assertIn('أعد ربط', SocialAccount.objects.get(platform='tiktok').last_error)
+
+    @override_settings(TIKTOK_ENABLED=True)
+    def test_disconnect_revokes_the_token_at_tiktok(self):
+        fake = FakeTikTok()
+        with mock.patch('apps.social.tiktok.requests.request', fake):
+            self.client.force_login(self.owner)
+            self.client.post(reverse('social:disconnect', args=['tiktok']))
+        self.assertFalse(SocialAccount.objects.filter(platform='tiktok').exists())
+        revoke = [c for c in fake.calls if c[1] == 'oauth/revoke/']
+        self.assertEqual(revoke[0][2]['data']['token'], 'old')

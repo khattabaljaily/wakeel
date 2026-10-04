@@ -96,6 +96,15 @@ def fresh_token(account):
     return account.access_token
 
 
+def revoke(account):
+    """Withdraw Wakeel's access on TikTok's side when the account is disconnected. Best effort: never blocks the disconnect."""
+    try:
+        _request('POST', 'oauth/revoke/', data={'client_key': settings.TIKTOK_CLIENT_KEY,
+                                                'client_secret': settings.TIKTOK_CLIENT_SECRET, 'token': account.access_token})
+    except TikTokError:
+        logger.info('TikTok token of %s was already invalid; nothing to revoke', account.external_id)
+
+
 # --- Sending ----------------------------------------------------------------
 
 def send_photo(token, image_url, title, description, wait=60):

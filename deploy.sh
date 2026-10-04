@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Deploy the pushed `main` branch to production (https://wakeel.enjaztechnology.com).
+# Deploy the pushed `main` branch to production (https://wakeelservice.com).
 # Usage: ./deploy.sh   (run from your PC after `git push`)
 set -euo pipefail
 
@@ -23,6 +23,6 @@ git pull --ff-only origin main
 sudo systemctl restart wakeel wakeel-worker
 sleep 3
 systemctl is-active wakeel wakeel-worker
-curl -s -o /dev/null -w "Site: %{http_code}\n" https://wakeel.enjaztechnology.com/accounts/login/
+curl -s -o /dev/null -w "Site: %{http_code}\n" https://wakeelservice.com/accounts/login/
 git log --oneline -1
 REMOTE

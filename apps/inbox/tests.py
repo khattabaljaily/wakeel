@@ -2,7 +2,7 @@ import datetime
 from unittest import mock
 
 from django.core import mail
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -116,6 +116,11 @@ class InboxTests(TestCase):
         self.client.force_login(self.owner)
         self.assertEqual(self.client.post(reverse('inbox:reply', args=[item.pk]), {'text': 'x'}).status_code, 404)
 
+    def test_no_checks_without_the_comment_permissions(self):
+        with self.settings(META_INBOX_SCOPES=[]):
+            self.assertEqual(services.run_due(), 0)
+
+    @override_settings(META_INBOX_SCOPES=['pages_read_user_content'])
     def test_schedule_and_job(self):
         self.assertEqual(services.run_due(), 1)
         self.assertEqual(services.run_due(), 0)  # once per quarter hour

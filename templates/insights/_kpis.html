@@ -4,5 +4,5 @@
     <div class="col-6 col-lg-3"><div class="wk-card h-100"><div class="wk-card-body"><div class="small-muted">{% translate "الوصول" %}</div><div class="h2 mb-0">{{ totals.reach|default:0|intcomma }}</div></div></div></div>
     <div class="col-6 col-lg-3"><div class="wk-card h-100"><div class="wk-card-body"><div class="small-muted">{% translate "التفاعل" %}</div><div class="h2 mb-0">{{ totals.engagement|default:0|intcomma }}</div>
         <div class="small-muted">♥ {{ totals.likes|default:0 }} · 💬 {{ totals.comments|default:0 }} · ↗ {{ totals.shares|default:0 }} · ⌑ {{ totals.saves|default:0 }}</div></div></div></div>
-    <div class="col-6 col-lg-3"><div class="wk-card h-100"><div class="wk-card-body"><div class="small-muted">{% translate "معدل التفاعل" %}</div><div class="h2 mb-0">{% if totals.rate is not None %}{{ totals.rate }}%{% else %}—{% endif %}</div></div></div></div>
+    <div class="col-6 col-lg-3"><div class="wk-card h-100"><div class="wk-card-body"><div class="small-muted">{% translate "معدل التفاعل" %}</div><div class="h2 mb-0">{% if totals.rate is not None %}{{ totals.rate|stringformat:"s" }}%{% else %}—{% endif %}</div></div></div></div>
 </div>

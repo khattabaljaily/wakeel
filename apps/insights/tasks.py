@@ -40,7 +40,7 @@ def share_url(report):
 # --- Jobs -------------------------------------------------------------------
 
 def run_fetch_insights(job):
-    updated, problems = services.collect(job.company)
+    updated, problems = services.collect(job.company, force=bool(job.params.get('force')))
     if problems and not updated:
         job.error_detail = '\n'.join(problems)
         return _('تعذّر قراءة الأرقام: %(problem)s') % {'problem': problems[0]}

@@ -24,7 +24,7 @@ REFRESH_AFTER = datetime.timedelta(hours=6)
 MIN_SAMPLE = 3  # fewer posts than this and a "best time" would be noise
 
 
-def collect(company, now=None):
+def collect(company, now=None, force=False):
     """Fetch insights for the company's recent published posts. Returns (rows updated, problems)."""
     now = now or timezone.now()
     accounts = {a.platform: a for a in SocialAccount.objects.filter(company=company)
@@ -42,7 +42,7 @@ def collect(company, now=None):
             if account is None or platform in dead:
                 continue
             row = PostInsight.objects.filter(post=post, platform=platform).first()
-            if row and now - row.fetched_at < REFRESH_AFTER:
+            if row and not force and now - row.fetched_at < REFRESH_AFTER:
                 continue
             try:
                 if platform == SocialAccount.Platform.FACEBOOK:

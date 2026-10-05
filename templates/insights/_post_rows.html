@@ -3,6 +3,6 @@
 <div class="d-flex align-items-center gap-3 py-2 {% if not forloop.last %}border-bottom{% endif %}">
     <div class="flex-grow-1 overflow-hidden"><div class="fw-semibold text-truncate">{{ c.title }}</div>
         <div class="small-muted text-truncate">{{ c.pillar|default:"—" }}</div></div>
-    <div class="text-end small"><div><strong>{{ c.engagement }}</strong> {% translate "تفاعل" %}</div>{% if c.rate is not None %}<div class="small-muted">{{ c.rate }}%</div>{% endif %}</div>
+    <div class="text-end small"><div><strong>{{ c.engagement }}</strong> {% translate "تفاعل" %}</div>{% if c.rate is not None %}<div class="small-muted">{{ c.rate|stringformat:"s" }}%</div>{% endif %}</div>
 </div>
 {% empty %}<div class="small-muted">{% translate "لا توجد بيانات كافية بعد." %}</div>{% endfor %}

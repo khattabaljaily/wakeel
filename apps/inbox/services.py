@@ -2,6 +2,8 @@
 import datetime
 import logging
 
+from django.conf import settings
+
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 from django.utils.text import format_lazy
@@ -136,6 +138,8 @@ def run_due(now=None):
     from apps.jobs.models import Job
     now = now or timezone.now()
     queued = 0
+    if not settings.META_INBOX_SCOPES:  # without the comment permissions Meta refuses every read
+        return 0
     for company in Company.objects.filter(is_approved=True, is_active=True, social_accounts__isnull=False).distinct():
         if not company.is_usable:
             continue

@@ -33,19 +33,24 @@ def insight(post, platform='facebook', **kwargs):
 
 
 class MetaStatsTests(TestCase):
-    def test_facebook_stats_read_summaries_and_reach(self):
-        replies = [
-            {'reactions': {'summary': {'total_count': 12}}, 'comments': {'summary': {'total_count': 3}}, 'shares': {'count': 2}},
-            {'data': [{'name': 'post_impressions_unique', 'values': [{'value': 480}]}]},
-        ]
-        with mock.patch.object(meta, '_call', side_effect=replies):
+    def test_facebook_stats_from_post_insights(self):
+        # The shape Meta returns (October 2026): lifetime value first, daily values with end_time after.
+        reply = {'data': [
+            {'name': 'post_total_media_view_unique', 'values': [{'value': 480}]},
+            {'name': 'post_total_media_view_unique', 'values': [{'value': 3, 'end_time': '2026-10-01T07:00:00+0000'}]},
+            {'name': 'post_reactions_by_type_total', 'values': [{'value': {'like': 10, 'love': 2}}]},
+            {'name': 'post_activity_by_action_type', 'values': [{'value': {'comment': 3, 'share': 2, 'like': 12}}]},
+        ]}
+        with mock.patch.object(meta, '_call', return_value=reply) as call:
             self.assertEqual(meta.facebook_post_stats('p_1', 't'), {'likes': 12, 'comments': 3, 'shares': 2, 'saves': 0, 'reach': 480})
+        self.assertEqual(call.call_args.args[1], 'p_1/insights')  # never the post object (needs pages_read_user_content)
 
-    def test_facebook_stats_survive_missing_insights_permission(self):
-        replies = [{'reactions': {'summary': {'total_count': 5}}, 'comments': {'summary': {'total_count': 0}}}, MetaError('no permission')]
-        with mock.patch.object(meta, '_call', side_effect=replies):
-            stats = meta.facebook_post_stats('p_1', 't')
-        self.assertEqual((stats['likes'], stats['reach']), (5, None))
+    def test_facebook_stats_with_no_activity(self):
+        reply = {'data': [{'name': 'post_total_media_view_unique', 'values': [{'value': 1}]},
+                          {'name': 'post_reactions_by_type_total', 'values': [{'value': {}}]},
+                          {'name': 'post_activity_by_action_type', 'values': [{'value': {}}]}]}
+        with mock.patch.object(meta, '_call', return_value=reply):
+            self.assertEqual(meta.facebook_post_stats('p_1', 't'), {'likes': 0, 'comments': 0, 'shares': 0, 'saves': 0, 'reach': 1})
 
     def test_instagram_stats(self):
         replies = [
@@ -75,6 +80,13 @@ class CollectTests(TestCase):
         self.assertEqual(call.call_count, 1)
         row = PostInsight.objects.get()
         self.assertEqual((row.engagement, row.rate), (8, 11.43))
+
+    def test_manual_refresh_reads_again_at_once(self):
+        stats = {'likes': 1, 'comments': 0, 'shares': 0, 'saves': 0, 'reach': 9}
+        with mock.patch('apps.social.meta.facebook_post_stats', return_value=stats) as call:
+            services.collect(self.company)
+            services.collect(self.company, force=True)
+        self.assertEqual(call.call_count, 2)
 
     def test_an_expired_connection_stops_after_one_failure(self):
         published_post(self.company, title='ثانٍ', external={'facebook': 'p_2'})
@@ -206,9 +218,9 @@ class ViewTests(TestCase):
         response = self.client.get(reverse('insights:dashboard'), {'range': '90'})
         self.assertContains(response, 'أفضل منشور')
 
-    def test_refresh_queues_a_job(self):
+    def test_refresh_queues_a_forced_job(self):
         self.client.post(reverse('insights:refresh'))
-        self.assertTrue(Job.objects.filter(kind=Job.Kind.FETCH_INSIGHTS).exists())
+        self.assertTrue(Job.objects.get(kind=Job.Kind.FETCH_INSIGHTS).params['force'])
 
     def test_report_create_and_public_link(self):
         month = tasks.previous_month(timezone.localdate())

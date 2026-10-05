@@ -128,21 +128,37 @@ def _total(value):
         return 0
 
 
+def _lifetime(row):
+    """A post insight's lifetime value: the entry without an end_time (the daily ones have one), else the last."""
+    values = row.get('values') or []
+    plain = [v for v in values if 'end_time' not in v]
+    return (plain or values or [{}])[-1].get('value')
+
+
 def facebook_post_stats(post_id, token):
-    """Reactions, comments, shares and (when the token may read insights) reach of a Page post."""
-    body = _call('GET', post_id, params={
+    """Reach and engagement of a Page post, from the post's insights (pages_read_engagement + read_insights).
+
+    Reading reactions and comments off the post object would need pages_read_user_content, so the
+    counts come from the insights too. post_impressions_* were retired by Meta; reach is now the
+    unique viewers of the post (post_total_media_view_unique).
+    """
+    data = _call('GET', f'{post_id}/insights', params={
         'access_token': token,
-        'fields': 'reactions.summary(true).limit(0),comments.summary(true).limit(0),shares',
+        'metric': 'post_total_media_view_unique,post_reactions_by_type_total,post_activity_by_action_type',
     })
-    stats = {'likes': _total(body.get('reactions')), 'comments': _total(body.get('comments')),
-             'shares': _total((body.get('shares') or {}).get('count')), 'saves': 0, 'reach': None}
-    try:
-        data = _call('GET', f'{post_id}/insights', params={'access_token': token, 'metric': 'post_impressions_unique'})
-        for row in data.get('data', []):
-            if row.get('name') == 'post_impressions_unique' and row.get('values'):
-                stats['reach'] = _total(row['values'][0].get('value'))
-    except MetaError:  # no read_insights permission: engagement alone is still useful
-        logger.info('No reach for Facebook post %s', post_id)
+    stats = {'likes': 0, 'comments': 0, 'shares': 0, 'saves': 0, 'reach': None}
+    for row in data.get('data', []):
+        if any('end_time' in v for v in row.get('values') or []):
+            continue  # Meta also sends daily breakdowns of the same metric; the lifetime row is the total
+        name, value = row.get('name'), _lifetime(row)
+        if name == 'post_total_media_view_unique':
+            stats['reach'] = _total(value)
+        elif name == 'post_reactions_by_type_total' and isinstance(value, dict):
+            stats['likes'] = sum(_total(v) for v in value.values())
+        elif name == 'post_activity_by_action_type' and isinstance(value, dict):
+            stats['comments'] = _total(value.get('comment'))
+            stats['shares'] = _total(value.get('share'))
+            stats['likes'] = stats['likes'] or _total(value.get('like'))
     return stats
 
 

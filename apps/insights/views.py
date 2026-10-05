@@ -64,7 +64,7 @@ def dashboard(request):
 def refresh(request):
     if not Job.objects.filter(company=request.company, kind=Job.Kind.FETCH_INSIGHTS,
                               status__in=[Job.Status.PENDING, Job.Status.RUNNING]).exists():
-        Job.enqueue(request.company, Job.Kind.FETCH_INSIGHTS, request.user)
+        Job.enqueue(request.company, Job.Kind.FETCH_INSIGHTS, request.user, force=True)
     messages.success(request, _('جارٍ تحديث الأرقام من فيسبوك وإنستغرام. أعد تحميل الصفحة بعد لحظات.'))
     return redirect('insights:dashboard')
 

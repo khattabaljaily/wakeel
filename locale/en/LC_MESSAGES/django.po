@@ -5095,3 +5095,444 @@ msgstr "No reports yet"
 
 msgid "يُعدّ وكيل تقرير الشهر السابق تلقائياً في أول الشهر عند توفر أرقام الأداء."
 msgstr "Wakeel prepares the previous month's report automatically at the start of each month when performance numbers are available."
+
+msgid "حتى ثلاثة؛ الأول يُرسم أكبر. اتركها فارغة ليختار وكيل حسب الموضوع."
+msgstr "Up to three; the first is drawn biggest. Leave empty and Wakeel picks them from the topic."
+
+msgid "اختر ثلاثة رسوم كحد أقصى."
+msgstr "Choose three drawings at most."
+
+msgid "الرسوم"
+msgstr "Drawings"
+
+msgid "حاسوب"
+msgstr "Laptop"
+
+msgid "جوال"
+msgstr "Mobile"
+
+msgid "برمجة"
+msgstr "Code"
+
+msgid "سحابة"
+msgstr "Cloud"
+
+msgid "خادم"
+msgstr "Server"
+
+msgid "بيانات"
+msgstr "Data"
+
+msgid "معالج"
+msgstr "Chip"
+
+msgid "روبوت"
+msgstr "Robot"
+
+msgid "ذكاء"
+msgstr "Intelligence"
+
+msgid "أمان"
+msgstr "Security"
+
+msgid "موقع"
+msgstr "Location"
+
+msgid "إنترنت"
+msgstr "Internet"
+
+msgid "لوحة تحكم"
+msgstr "Dashboard"
+
+msgid "رمز QR"
+msgstr "QR code"
+
+msgid "بصمة"
+msgstr "Fingerprint"
+
+msgid "إعدادات"
+msgstr "Settings"
+
+msgid "تكامل"
+msgstr "Integration"
+
+msgid "منتج"
+msgstr "Product"
+
+msgid "نمو"
+msgstr "Growth"
+
+msgid "إحصاءات"
+msgstr "Statistics"
+
+msgid "حصة"
+msgstr "Share"
+
+msgid "ارتفاع"
+msgstr "Rise"
+
+msgid "تقرير"
+msgstr "Report"
+
+msgid "عرض تقديمي"
+msgstr "Presentation"
+
+msgid "هدف"
+msgstr "Goal"
+
+msgid "انطلاق"
+msgstr "Launch"
+
+msgid "فكرة"
+msgstr "Idea"
+
+msgid "تميّز"
+msgstr "Sparkle"
+
+msgid "أعمال"
+msgstr "Business"
+
+msgid "خطة"
+msgstr "Plan"
+
+msgid "قائمة مهام"
+msgstr "Checklist"
+
+msgid "إنجاز"
+msgstr "Done"
+
+msgid "مستند"
+msgstr "Document"
+
+msgid "محاسبة"
+msgstr "Accounting"
+
+msgid "عدالة"
+msgstr "Law"
+
+msgid "موظف"
+msgstr "Employee"
+
+msgid "جائزة"
+msgstr "Award"
+
+msgid "فوز"
+msgstr "Trophy"
+
+msgid "ريادة"
+msgstr "Leadership"
+
+msgid "شهادة"
+msgstr "Certificate"
+
+msgid "جودة"
+msgstr "Quality"
+
+msgid "تقييم"
+msgstr "Rating"
+
+msgid "فريق"
+msgstr "Team"
+
+msgid "عميل"
+msgstr "Customer"
+
+msgid "شراكة وخدمة"
+msgstr "Partnership and service"
+
+msgid "دعم فني"
+msgstr "Support"
+
+msgid "محادثة"
+msgstr "Chat"
+
+msgid "بريد"
+msgstr "Email"
+
+msgid "اتصال"
+msgstr "Call"
+
+msgid "إعلان"
+msgstr "Announcement"
+
+msgid "تسويق"
+msgstr "Marketing"
+
+msgid "أخبار"
+msgstr "News"
+
+msgid "بودكاست"
+msgstr "Podcast"
+
+msgid "تصوير"
+msgstr "Photography"
+
+msgid "فيديو"
+msgstr "Video"
+
+msgid "إعجاب"
+msgstr "Like"
+
+msgid "سعادة"
+msgstr "Happiness"
+
+msgid "حب"
+msgstr "Love"
+
+msgid "معلومة"
+msgstr "Fact"
+
+msgid "تنبيه"
+msgstr "Warning"
+
+msgid "صحيح"
+msgstr "Correct"
+
+msgid "منزل"
+msgstr "Home"
+
+msgid "برج"
+msgstr "Tower"
+
+msgid "مجمع"
+msgstr "Compound"
+
+msgid "فيلا"
+msgstr "Villa"
+
+msgid "مفتاح"
+msgstr "Key"
+
+msgid "قياس"
+msgstr "Measure"
+
+msgid "صيانة"
+msgstr "Maintenance"
+
+msgid "بناء"
+msgstr "Construction"
+
+msgid "دهان"
+msgstr "Paint"
+
+msgid "أثاث"
+msgstr "Furniture"
+
+msgid "غرفة نوم"
+msgstr "Bedroom"
+
+msgid "مستودع"
+msgstr "Warehouse"
+
+msgid "متجر"
+msgstr "Store"
+
+msgid "تسوق"
+msgstr "Shopping"
+
+msgid "مشتريات"
+msgstr "Purchases"
+
+msgid "سعر"
+msgstr "Price"
+
+msgid "خصم"
+msgstr "Discount"
+
+msgid "هدية"
+msgstr "Gift"
+
+msgid "فاتورة"
+msgstr "Invoice"
+
+msgid "دفع"
+msgstr "Payment"
+
+msgid "نقد"
+msgstr "Cash"
+
+msgid "عملة"
+msgstr "Coin"
+
+msgid "محفظة"
+msgstr "Wallet"
+
+msgid "بنك"
+msgstr "Bank"
+
+msgid "ادخار"
+msgstr "Savings"
+
+msgid "منتجات"
+msgstr "Products"
+
+msgid "طرد"
+msgstr "Parcel"
+
+msgid "صندوق"
+msgstr "Box"
+
+msgid "توصيل"
+msgstr "Delivery"
+
+msgid "مطعم"
+msgstr "Restaurant"
+
+msgid "طبخ"
+msgstr "Cooking"
+
+msgid "قهوة"
+msgstr "Coffee"
+
+msgid "بيتزا"
+msgstr "Pizza"
+
+msgid "برجر"
+msgstr "Burger"
+
+msgid "صحي"
+msgstr "Healthy"
+
+msgid "حلويات"
+msgstr "Sweets"
+
+msgid "آيس كريم"
+msgstr "Ice cream"
+
+msgid "فواكه"
+msgstr "Fruit"
+
+msgid "طبيب"
+msgstr "Doctor"
+
+msgid "صحة"
+msgstr "Health"
+
+msgid "دواء"
+msgstr "Medicine"
+
+msgid "إسعاف"
+msgstr "First aid"
+
+msgid "أسنان"
+msgstr "Dental"
+
+msgid "عيون"
+msgstr "Eyes"
+
+msgid "رياضة"
+msgstr "Fitness"
+
+msgid "جري"
+msgstr "Running"
+
+msgid "كرة قدم"
+msgstr "Football"
+
+msgid "فخامة"
+msgstr "Luxury"
+
+msgid "عطور"
+msgstr "Perfume"
+
+msgid "صالون"
+msgstr "Salon"
+
+msgid "ملابس"
+msgstr "Clothing"
+
+msgid "أطفال"
+msgstr "Kids"
+
+msgid "تعليم"
+msgstr "Education"
+
+msgid "كتاب"
+msgstr "Book"
+
+msgid "مكتبة"
+msgstr "Library"
+
+msgid "كتابة"
+msgstr "Writing"
+
+msgid "ملاحظات"
+msgstr "Notes"
+
+msgid "طلاب"
+msgstr "Students"
+
+msgid "تدريب"
+msgstr "Training"
+
+msgid "سفر"
+msgstr "Travel"
+
+msgid "سيارة"
+msgstr "Car"
+
+msgid "وقود"
+msgstr "Fuel"
+
+msgid "خريطة"
+msgstr "Map"
+
+msgid "شاطئ"
+msgstr "Beach"
+
+msgid "مغامرة"
+msgstr "Adventure"
+
+msgid "تخييم"
+msgstr "Camping"
+
+msgid "شجرة"
+msgstr "Tree"
+
+msgid "نبات"
+msgstr "Plant"
+
+msgid "بيئة"
+msgstr "Environment"
+
+msgid "استدامة"
+msgstr "Sustainability"
+
+msgid "ماء"
+msgstr "Water"
+
+msgid "طاقة"
+msgstr "Energy"
+
+msgid "حماس"
+msgstr "Excitement"
+
+msgid "موعد"
+msgstr "Appointment"
+
+msgid "وقت"
+msgstr "Time"
+
+msgid "عرض محدود"
+msgstr "Limited offer"
+
+msgid "تذكير"
+msgstr "Reminder"
+
+msgid "رمضان"
+msgstr "Ramadan"
+
+msgid "مسجد"
+msgstr "Mosque"
+
+msgid "احتفال"
+msgstr "Celebration"
+
+msgid "مناسبة"
+msgstr "Occasion"
+
+msgid "اليوم الوطني"
+msgstr "National Day"
+
+msgid "مناسبة خاصة"
+msgstr "Special day"

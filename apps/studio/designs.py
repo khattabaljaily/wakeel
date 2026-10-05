@@ -89,6 +89,10 @@ DEFAULT_MOTIF = {
 # Layouts that show a photo from the media library when the post has one.
 PHOTO_TEMPLATES = ('photo', 'split', 'arch', 'spotlight')
 
+# Layouts with topic vectors in the bottom corner (apps.studio.vectors). Photo layouts have their photo,
+# and the centred ones (quote, frame, stat, offer) keep their single focal point.
+ART_TEMPLATES = ('bold', 'gradient', 'minimal', 'poster', 'sidebar', 'diagonal', 'card', 'bands')
+
 SCHEMES = {
     'primary': {'name': _('اللون الأساسي'), 'hint': 'brand primary colour background'},
     'secondary': {'name': _('اللون الثانوي'), 'hint': 'brand secondary colour background'},

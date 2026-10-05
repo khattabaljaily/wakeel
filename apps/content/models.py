@@ -102,6 +102,8 @@ class Post(models.Model):
     scheme = models.CharField(_('نظام الألوان'), max_length=20, blank=True, help_text=_('فارغ = الافتراضي للقالب.'))
     motif = models.CharField(_('الزخرفة'), max_length=20, blank=True, help_text=_('فارغ = الافتراضية للقالب.'))
     variant = models.PositiveIntegerField(default=0, help_text='Seeds the small random differences between designs.')
+    vectors = models.JSONField(_('الرسوم'), default=list, blank=True,
+                               help_text='Up to three keys of apps.studio.vectors; empty = guessed from the text.')
     size = models.CharField(_('المقاس'), max_length=10, choices=Size.choices, default=Size.SQUARE)
     background = models.ForeignKey(MediaAsset, null=True, blank=True, on_delete=models.SET_NULL, related_name='+',
                                    verbose_name=_('صورة الخلفية'))
@@ -129,7 +131,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     # Fields that change what the rendered image looks like.
-    DESIGN_FIELDS = ('headline', 'subheadline', 'cta', 'badge', 'template', 'scheme', 'motif', 'variant', 'size', 'background')
+    DESIGN_FIELDS = ('headline', 'subheadline', 'cta', 'badge', 'template', 'scheme', 'motif', 'variant', 'vectors', 'size', 'background')
 
     class Meta:
         verbose_name = _('منشور')

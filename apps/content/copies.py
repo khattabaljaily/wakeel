@@ -22,7 +22,7 @@ VARIANTS = {
 }
 
 REPOST_AFTER = datetime.timedelta(days=60)  # a post may come back this long after it went out
-COPIED = ('platforms', 'format', 'pillar', 'objective', 'template', 'scheme', 'motif', 'size', 'background',
+COPIED = ('platforms', 'format', 'pillar', 'objective', 'template', 'scheme', 'motif', 'vectors', 'size', 'background',
           'title', 'headline', 'subheadline', 'cta', 'badge', 'caption', 'hashtags', 'visual_notes', 'video_script')
 
 

@@ -137,3 +137,52 @@ class PreviewViewTests(TestCase):
         self.assertEqual(post_fields(self.post)['variant'], 77)
         self.post.variant = 0
         self.assertEqual(post_fields(self.post)['variant'], self.post.pk)
+
+
+class VectorTests(SimpleTestCase):
+    def test_every_vector_has_a_drawing(self):
+        from .vectors import VECTORS, drawings
+        self.assertEqual(set(VECTORS), set(drawings()))
+
+    def test_guess_reads_arabic_with_prefixes_and_suffixes(self):
+        from .vectors import guess
+        self.assertEqual(guess('تهنئة بمناسبة اليوم الوطني', 'كل عام ووطننا بخير')[0], 'flag')
+        self.assertEqual(guess('رمضان كريم')[0], 'moon-stars')
+        self.assertIn('building-warehouse', guess('نظام إدارة المخزون والمبيعات'))
+        self.assertEqual(guess('شقق للإيجار في الدوحة')[:2], ['home', 'key'])
+        self.assertEqual(len(guess('')), 3)  # nothing matches: the fallback set
+
+    def test_chosen_vectors_win_and_bad_keys_are_dropped(self):
+        from .vectors import for_post
+        self.assertEqual([k for k, _svg in for_post(['rocket', 'nope', 'gift'], 'رمضان')], ['rocket', 'gift'])
+        self.assertEqual(for_post([], 'رمضان كريم')[0][0], 'moon-stars')
+
+    def test_art_only_on_the_general_layouts(self):
+        from .designs import ART_TEMPLATES
+        company = fake_company()
+        for template in TEMPLATES:
+            html = render_html(company, {**COPY, 'template': template, 'size': 'square', 'scheme': '', 'motif': '', 'vectors': ['rocket']})
+            self.assertEqual('<div class="art"' in html, template in ART_TEMPLATES, template)
+
+
+class EditorVectorTests(TestCase):
+    def setUp(self):
+        self.company = make_company()
+        self.user = make_user('e@example.com', self.company)
+        self.post = Post.objects.create(company=self.company, title='م', headline='عنوان', platforms=['facebook'])
+        self.client.force_login(self.user)
+
+    def save(self, **extra):
+        data = {'title': 'م', 'platforms': ['facebook'], 'format': 'image', 'headline': 'عنوان', 'template': 'bold', 'size': 'square', **extra}
+        return self.client.post(reverse('content:post_edit', args=[self.post.pk]), data)
+
+    def test_editor_saves_up_to_three_vectors(self):
+        self.assertEqual(self.save(vectors=['rocket', 'gift']).status_code, 200)
+        self.post.refresh_from_db()
+        self.assertEqual(self.post.vectors, ['rocket', 'gift'])
+        self.assertEqual(self.save(vectors=['rocket', 'gift', 'star', 'heart']).status_code, 400)
+        self.assertEqual(self.save(vectors=['not-a-vector']).status_code, 400)
+
+    def test_preview_takes_vectors(self):
+        html = self.client.get(reverse('studio:preview', args=[self.post.pk]), {'vectors': 'rocket,gift'}).content.decode()
+        self.assertIn('<div class="art"', html)

@@ -139,6 +139,12 @@
                             style="background:{{ sc.bg }}"><i style="background:{{ sc.ac }}"></i></button>
                     {% endfor %}
                 </div>
+                <div class="mt-2" id="vectorsBox">
+                    <label class="form-label small mb-1" for="vectorsInput">{{ form.vectors.label }} <span class="small-muted">· {{ form.vectors.help_text }}</span></label>
+                    <select name="vectors" id="vectorsInput" class="form-select form-select-sm" multiple size="4">
+                        {% for value, label in form.vectors.field.choices %}<option value="{{ value }}" {% if value in form.vectors.value %}selected{% endif %}>{{ label }} · {{ value }}</option>{% endfor %}
+                    </select>
+                </div>
                 <div class="mt-2">
                     <select name="motif" id="motifInput" class="form-select form-select-sm">
                         {% for value, label in form.motif.field.choices %}<option value="{{ value }}" {% if value == form.motif.value|default_if_none:'' %}selected{% endif %}>{% translate "الزخرفة" %}: {{ label }}</option>{% endfor %}
@@ -260,7 +266,8 @@
         var p = new URLSearchParams({
             headline: F.headline.value, subheadline: F.subheadline.value, cta: F.cta.value, badge: F.badge.value,
             template: F.template.value, size: currentSize(), background: F.background.value || '',
-            scheme: F.scheme.value || '', motif: F.motif.value || '', variant: F.variant.value || '0'
+            scheme: F.scheme.value || '', motif: F.motif.value || '', variant: F.variant.value || '0',
+            vectors: Array.prototype.filter.call(F.vectors.options, function (o) { return o.selected; }).map(function (o) { return o.value; }).join(',')
         });
         Object.keys(extra || {}).forEach(function (k) { p.set(k, extra[k]); });
         return p.toString();
@@ -297,6 +304,7 @@
         markDirty(); refreshPreview(); refreshThumbsSoon();
     });
     F.motif.addEventListener('change', function () { markDirty(); refreshPreview(); refreshThumbsSoon(); });
+    F.vectors.addEventListener('change', function () { markDirty(); refreshPreview(); refreshThumbsSoon(); });
     // "New design": a random colour scheme, motif and variation, keeping the layout and the text.
     document.getElementById('shuffleBtn').addEventListener('click', function () {
         var schemes = Array.prototype.slice.call(document.querySelectorAll('.wk-scheme:not(.auto)'));

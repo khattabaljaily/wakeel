@@ -7,6 +7,7 @@ schemas below; `apps.content.services` turns them into model rows.
 import calendar
 
 from apps.studio.designs import MOTIFS, SCHEMES, TEMPLATES
+from apps.studio.vectors import VECTORS
 
 from .client import call_json
 
@@ -46,6 +47,8 @@ _POST_PROPS = {
     'template': {'type': 'string', 'enum': list(TEMPLATES)},
     'scheme': {'type': 'string', 'enum': list(SCHEMES), 'description': 'Colour scheme of the design'},
     'motif': {'type': 'string', 'enum': list(MOTIFS), 'description': 'Background decoration of the design'},
+    'vectors': {'type': 'array', 'items': {'type': 'string', 'enum': list(VECTORS)},
+                'description': '1-3 line drawings about the topic, most fitting first'},
     'caption': {'type': 'string'},
     'hashtags': {'type': 'string'},
     'visual_notes': {'type': 'string', 'description': 'What photo or visual the design needs, in the team language'},
@@ -229,6 +232,7 @@ Art direction (you are also the art director; a feed that repeats one look reads
 {schemes}
 - Motifs:
 {motifs}
+- `vectors`: 1-3 line drawings shown in a corner of the design, chosen for what the post is about (the first is drawn biggest), e.g. a post on inventory software gets building-warehouse, device-laptop, chart-line; an Eid greeting gets building-mosque, moon-stars, confetti. Pick from the names in the schema.
 - `stat` needs a short `badge` (the number or figure) and `offer` needs the offer in `badge`; give other layouts a badge only when it adds something."""
 
     return call_json(SYSTEM_PROMPT, prompt, PLAN_SCHEMA, max_tokens=64000, effort='high')

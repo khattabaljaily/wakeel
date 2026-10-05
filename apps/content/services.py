@@ -11,6 +11,7 @@ from apps.ai import planner
 from apps.ai.client import AIError
 from apps.companies.models import MediaAsset
 from apps.studio import art
+from apps.studio.vectors import VECTORS
 
 from . import events
 from . import learning
@@ -63,6 +64,8 @@ def _post_fields(item, allowed_platforms):
     fields.update(platforms=platforms, format=fmt, size=default_size(fmt, platforms))
     # The AI's art direction; apps.studio.art.direct validates and varies it across the month.
     fields.update({k: str(item.get(k) or '') for k in ('template', 'scheme', 'motif')})
+    raw_vectors = item.get('vectors') if isinstance(item.get('vectors'), list) else []
+    fields['vectors'] = [v for v in dict.fromkeys(map(str, raw_vectors)) if v in VECTORS][:3]
     return fields
 
 

@@ -16,7 +16,8 @@ from django.core.files.base import ContentFile
 from django.template.loader import render_to_string
 from django.templatetags.static import static
 
-from .designs import DEFAULT_MOTIF, FONT_FAMILIES, MOTIFS, SCHEMES, SIZES, TEMPLATES
+from . import vectors as topic_vectors
+from .designs import ART_TEMPLATES, DEFAULT_MOTIF, FONT_FAMILIES, MOTIFS, SCHEMES, SIZES, TEMPLATES
 
 ARABIC_RE = re.compile(r'[\u0600-\u06FF]')
 
@@ -122,6 +123,9 @@ def post_fields(post, overrides=None):
         'motif': post.motif,
         'scheme': post.scheme,
         'variant': post.variant or post.pk or 0,
+        'vectors': post.vectors,
+        'title': post.title,
+        'pillar': post.pillar,
     }
     fields.update(overrides or {})
     if fields['template'] not in TEMPLATES:
@@ -158,7 +162,13 @@ def design_context(company, fields, *, for_file=False):
     except (TypeError, ValueError):
         variant = 0
     first, _, rest = fields['headline'].strip().partition(' ')
+    chosen = fields.get('vectors') or []
+    if isinstance(chosen, str):  # from the editor's preview: "key,key"
+        chosen = [v for v in chosen.split(',') if v]
+    art = topic_vectors.for_post(chosen, fields['headline'], fields['subheadline'], fields.get('title', ''),
+                                 fields.get('pillar', '')) if template in ART_TEMPLATES else []
     return {
+        'art': art,
         **fields,
         'scheme': scheme,
         'motif': motif,

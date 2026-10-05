@@ -35,7 +35,8 @@ PLAN_DATA = {
     'posts': [
         {'day': 5, 'time': '19:30', 'platforms': ['facebook', 'instagram'], 'format': 'image', 'pillar': 'تعليم',
          'objective': 'وعي', 'title': 'أول', 'headline': 'عنوان', 'subheadline': 'فرعي', 'cta': 'اطلب', 'badge': '',
-         'template': 'gradient', 'caption': 'نص', 'hashtags': '#وسم', 'visual_notes': '', 'video_script': ''},
+         'template': 'gradient', 'caption': 'نص', 'hashtags': '#وسم', 'visual_notes': '', 'video_script': '',
+         'vectors': ['rocket', 'rocket', 'nope', 'gift', 'star', 'heart']},
         # Out-of-range day, bad time, unknown template, a platform outside the plan, a script on an image post.
         {'day': 45, 'time': 'late', 'platforms': ['tiktok', 'linkedin'], 'format': 'image', 'pillar': 'تعليم',
          'objective': '', 'title': '', 'headline': 'فيديو', 'subheadline': '', 'cta': '', 'badge': '',
@@ -59,6 +60,7 @@ class ApplyPlanTests(TestCase):
         local = first.scheduled_at.astimezone(self.company.tzinfo)
         self.assertEqual((local.day, local.hour, local.minute), (5, 19, 30))
         self.assertEqual(first.status, Post.Status.REVIEW)
+        self.assertEqual(first.vectors, ['rocket', 'gift', 'star'])  # deduplicated, valid, at most three
         self.assertEqual(first.template, 'gradient')
         self.assertEqual(first.size, Post.Size.PORTRAIT)
 

@@ -141,12 +141,12 @@ Open http://127.0.0.1:8000/, create an account, and follow the onboarding.
 | `DEEPSEEK_API_KEY`, `DEEPSEEK_MODEL` | DeepSeek key and model (default `deepseek-v4-pro`; `deepseek-flash` is cheaper) |
 | `DEEPSEEK_OFF_PEAK_UTC` | DeepSeek's off-peak window in UTC, `["16:30", "00:30"]` by default. DeepSeek prices (per model, cache hit/miss, peak/off-peak) are built into `apps/ai/pricing.py`, and each job's cost is stored when it runs |
 | `AI_PRICE_INPUT_PER_MTOK`, `AI_PRICE_OUTPUT_PER_MTOK` | Flat USD price per million tokens for other models (Claude); without it their jobs show no cost |
-| `META_INBOX_SCOPES` | Permissions for the comments inbox, `["pages_read_user_content", "pages_manage_engagement", "instagram_manage_comments"]` by default; `[]` to leave it out |
+| `META_INBOX_SCOPES` | `[]` by default. `["pages_read_user_content", "pages_manage_engagement", "instagram_manage_comments"]` turns on reading and answering comments. **Add these permissions to the Meta app first**: Meta fails the whole login dialog (“Sorry, something went wrong”) when it asks for one the app hasn't added |
 | `META_ADS_SCOPES` | `[]` by default; `["ads_management"]` turns on paid promotion drafts once the Meta app is approved for it |
 | `WHATSAPP_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID` | WhatsApp Business Cloud API system-user token and sender number id. Empty = WhatsApp approvals off |
 | `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_APP_SECRET` | Webhook verify token you choose, and the app secret that signs deliveries (defaults to `META_APP_SECRET`) |
 | `WHATSAPP_REVIEW_TEMPLATE`, `WHATSAPP_TEMPLATE_LANGUAGE` | The approved review template (`wakeel_plan_review`, `ar` by default) |
-| `META_INSIGHTS_SCOPES` | Extra Meta permissions asked at connect time for analytics, `["read_insights", "instagram_manage_insights"]` by default; set `[]` to ask for publishing permissions only. They need Meta app review for accounts other than the app's testers |
+| `META_INSIGHTS_SCOPES` | `[]` by default. `["read_insights", "instagram_manage_insights"]` adds reach and Instagram insights (engagement is read without them). Same rule: add them to the Meta app first, and they need app review for accounts other than the app's testers |
 | `SITE_URL` | Public address of the site, used in email links and for images Instagram downloads (must be public for Instagram publishing) |
 | `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `EMAIL_USE_TLS`, `DEFAULT_FROM_EMAIL` | SMTP for password reset and notifications. Empty `EMAIL_HOST` prints emails to the console |
 | `META_APP_ID`, `META_APP_SECRET`, `META_GRAPH_VERSION` | Meta app for Facebook/Instagram publishing. Add `SITE_URL/company/social/meta/callback/` as a valid OAuth redirect URI. Publishing to accounts other than the app's testers needs Meta app review for `pages_manage_posts` and `instagram_content_publish` |

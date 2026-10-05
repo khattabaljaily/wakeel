@@ -275,11 +275,13 @@ META_APP_ID = get_secret('META_APP_ID', '')
 META_APP_SECRET = get_secret('META_APP_SECRET', '')
 META_GRAPH_VERSION = get_secret('META_GRAPH_VERSION', 'v23.0')
 META_ENABLED = bool(META_APP_ID and META_APP_SECRET)
-# Extra Meta permissions asked at connect time for analytics (Meta app review needed for non-testers).
-# Without them publishing still works; the insights pages explain that the account must be reconnected.
-META_INSIGHTS_SCOPES = get_secret('META_INSIGHTS_SCOPES', ['read_insights', 'instagram_manage_insights'])
-# Reading and answering comments for the inbox (apps.inbox); also needs Meta app review.
-META_INBOX_SCOPES = get_secret('META_INBOX_SCOPES', ['pages_read_user_content', 'pages_manage_engagement', 'instagram_manage_comments'])
+# Extra Meta permissions asked at connect time, off by default: Meta refuses the whole login dialog when it asks
+# for a permission the app hasn't added. Add them to the Meta app (and pass app review), then list them here:
+# analytics: ["read_insights", "instagram_manage_insights"];
+# inbox: ["pages_read_user_content", "pages_manage_engagement", "instagram_manage_comments"].
+# Without them publishing works, and engagement (likes, comments, shares) is still read.
+META_INSIGHTS_SCOPES = get_secret('META_INSIGHTS_SCOPES', [])
+META_INBOX_SCOPES = get_secret('META_INBOX_SCOPES', [])
 # Paid promotion drafts (apps.ads). Off by default: set ["ads_management"] once the Meta app is approved for it.
 META_ADS_SCOPES = get_secret('META_ADS_SCOPES', [])
 

@@ -56,6 +56,20 @@ def contrast(a, b):
     return (hi + 0.05) / (lo + 0.05)
 
 
+SOFTEN = 0.18  # share of white mixed into coloured grounds, at most
+
+
+def soften(color):
+    """The colour with up to SOFTEN of white mixed in, but only as much as keeps its text readable
+    (contrast 4.5 with the same text colour): amber gets lighter, a mid blue stays close to itself."""
+    text = on_color(color)
+    for amount in (SOFTEN, SOFTEN * 2 / 3, SOFTEN / 3):
+        lighter = mix(color, '#ffffff', amount)
+        if on_color(lighter) == text and contrast(lighter, text) >= 4.5:
+            return lighter
+    return color
+
+
 def palette(scheme, p, s, a):
     """The colours a design uses, for a colour scheme built from the brand's three colours.
 
@@ -63,12 +77,15 @@ def palette(scheme, p, s, a):
     accent for buttons and shapes (the first brand colour that stands out from the
     background, else the text colour), soft a subtle panel colour on the background.
     """
-    p_dark, p_deep, p_light = mix(p, '#000000', 0.45), mix(p, '#000000', 0.7), mix(p, '#ffffff', 0.85)
+    p_dark, p_deep, p_light = mix(p, '#000000', 0.45), mix(p, '#000000', 0.6), mix(p, '#ffffff', 0.85)
     ink = mix(p, '#000000', 0.78)
+    # Coloured grounds are softened with a little white so a full-bleed brand colour isn't harsh;
+    # buttons and shapes (ac) keep the brand's exact colours.
+    tp, ts, ta = (soften(c) for c in (p, s, a))
     if scheme == 'secondary':
-        base, order = s, (a, p)
+        base, order = ts, (a, p)
     elif scheme == 'accent':
-        base, order = a, (p, s)
+        base, order = ta, (p, s)
     elif scheme == 'deep':
         base, order = p_deep, (a, s, p)
     elif scheme == 'light':
@@ -76,16 +93,16 @@ def palette(scheme, p, s, a):
     elif scheme == 'soft':
         base, order = p_light, (p, s, a)
     elif scheme == 'gradient':
-        base, order = mix(p, s, 0.5), (a, '#ffffff')
+        base, order = mix(tp, ts, 0.5), (a, '#ffffff')
     elif scheme == 'dusk':
-        base, order = mix(p_deep, p, 0.5), (a, s, '#ffffff')
+        base, order = mix(p_deep, tp, 0.5), (a, s, '#ffffff')
     elif scheme == 'dark':
         base, order = '#0f1115', (a, s, p)
     else:  # primary
-        base, order = p, (a, s)
+        base, order = tp, (a, s)
     bg = {
-        'gradient': f'linear-gradient(140deg, {p} 0%, {p} 25%, {s} 100%)',
-        'dusk': f'linear-gradient(160deg, {p_deep} 0%, {p} 100%)',
+        'gradient': f'linear-gradient(140deg, {tp} 0%, {tp} 25%, {ts} 100%)',
+        'dusk': f'linear-gradient(160deg, {p_deep} 0%, {tp} 100%)',
     }.get(scheme, base)
     fg = on_color(base)
     if scheme in ('light', 'soft'):

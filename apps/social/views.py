@@ -163,13 +163,13 @@ def _connect(request, page, popup):
     company = request.company
     SocialAccount.objects.update_or_create(company=company, platform=SocialAccount.Platform.FACEBOOK, defaults={
         'external_id': page['id'], 'name': page['name'], 'access_token': page['token'],
-        'user_token': page.get('user_token', ''), 'connected_by': request.user, 'last_error': '',
+        'user_token': page.get('user_token', ''), 'meta_user_id': page.get('meta_user_id', ''), 'connected_by': request.user, 'last_error': '',
     })
     ig = page.get('instagram') or {}
     if ig.get('id'):
         SocialAccount.objects.update_or_create(company=company, platform=SocialAccount.Platform.INSTAGRAM, defaults={
             'external_id': ig['id'], 'name': ig.get('username') or page['name'], 'access_token': page['token'],
-            'connected_by': request.user, 'last_error': '',
+            'meta_user_id': page.get('meta_user_id', ''), 'connected_by': request.user, 'last_error': '',
         })
         return _finish(request, 'connected', popup)
     SocialAccount.objects.filter(company=company, platform=SocialAccount.Platform.INSTAGRAM).delete()

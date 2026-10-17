@@ -12,7 +12,7 @@ from apps.jobs.models import Job
 
 
 # The date the terms and privacy texts last changed; update it with them.
-LEGAL_UPDATED = datetime.date(2026, 10, 1)
+LEGAL_UPDATED = datetime.date(2026, 10, 17)
 
 
 def _public_page(request, template, page, **context):

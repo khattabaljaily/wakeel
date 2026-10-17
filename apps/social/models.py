@@ -24,6 +24,9 @@ class SocialAccount(models.Model):
     # Facebook only: the long-lived user token (about 60 days), needed to reach the user's ad accounts.
     user_token = models.TextField(blank=True)
     token_expires_at = models.DateTimeField(null=True, blank=True)
+    # Meta (Facebook/Instagram) only: the app-scoped id of the person who connected it, so Meta's deauthorize and
+    # data-deletion callbacks, which name only that user, can find the accounts to remove.
+    meta_user_id = models.CharField(max_length=64, blank=True, db_index=True)
     last_error = models.TextField(blank=True)
     connected_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL, related_name='+')
     connected_at = models.DateTimeField(auto_now=True)
@@ -35,3 +38,20 @@ class SocialAccount(models.Model):
 
     def __str__(self):
         return f'{self.get_platform_display()}: {self.name}'
+
+
+class MetaDeletionRequest(models.Model):
+    """A data-deletion request received from Meta; its code lets the person check the status page Meta links to."""
+
+    code = models.CharField(max_length=32, unique=True)
+    meta_user_id = models.CharField(max_length=64)
+    accounts_deleted = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _('طلب حذف بيانات من Meta')
+        verbose_name_plural = _('طلبات حذف البيانات من Meta')
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.code

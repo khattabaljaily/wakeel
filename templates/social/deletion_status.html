@@ -1,0 +1,9 @@
+{% extends "social/popup_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "حالة طلب حذف البيانات" %}{% endblock %}
+{% block page_title %}{% translate "حالة طلب حذف البيانات" %}{% endblock %}
+{% block content %}
+<p><i class="bi bi-check-circle-fill text-success"></i>
+    {% blocktranslate with date=record.created_at|date:"j F Y" %}تم استلام الطلب بتاريخ {{ date }} وحذفنا بيانات الحساب المربوط من Meta.{% endblocktranslate %}</p>
+<p class="text-muted small mb-0">{% translate "رمز التأكيد:" %} <code dir="ltr">{{ record.code }}</code></p>
+{% endblock %}

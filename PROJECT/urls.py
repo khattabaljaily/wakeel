@@ -14,6 +14,7 @@ urlpatterns = [
     path('ops/', include('apps.ops.urls')),
     path('accounts/', include('apps.accounts.urls')),
     path('company/social/', include('apps.social.urls')),
+    path('meta/', include('apps.social.public_urls')),
     path('company/', include('apps.companies.urls')),
     path('app/', include('apps.content.urls')),
     path('app/insights/', include('apps.insights.urls')),

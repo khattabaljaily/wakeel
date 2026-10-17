@@ -67,6 +67,7 @@ def pages_for_code(code, redirect_uri):
     # Page tokens obtained with a long-lived user token don't expire.
     long = _call('GET', 'oauth/access_token', params={**app, 'grant_type': 'fb_exchange_token',
                                                       'fb_exchange_token': short['access_token']})
+    user_id = _call('GET', 'me', params={'access_token': long['access_token'], 'fields': 'id'}).get('id', '')
     pages = _call('GET', 'me/accounts', params={
         'access_token': long['access_token'], 'limit': 100,
         'fields': 'id,name,access_token,instagram_business_account{id,username}',
@@ -74,7 +75,7 @@ def pages_for_code(code, redirect_uri):
     return [{
         'id': p['id'], 'name': p['name'], 'token': p['access_token'],
         'instagram': (p.get('instagram_business_account') or {}),
-        'user_token': long['access_token'],
+        'user_token': long['access_token'], 'meta_user_id': user_id,
     } for p in pages.get('data', []) if p.get('access_token')]
 
 

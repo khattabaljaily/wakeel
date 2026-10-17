@@ -1,5 +1,9 @@
+import base64
 import datetime
+import hashlib
+import hmac
 import io
+import json
 import os
 import shutil
 import tempfile
@@ -18,7 +22,7 @@ from apps.jobs.models import Job
 from apps.jobs.runner import claim_next, run_job
 from apps.notifications.models import Notification
 
-from .models import SocialAccount
+from .models import MetaDeletionRequest, SocialAccount
 from .services import enqueue_due
 
 MEDIA = tempfile.mkdtemp()
@@ -44,6 +48,7 @@ class FakeGraph:
                 return self.reply({'error': error}, 400)
         routes = {
             'oauth/access_token': {'access_token': 'user-token'},
+            'me': {'id': 'U1'},
             'me/accounts': {'data': [{'id': 'P1', 'name': 'صفحة إنجاز', 'access_token': 'page-token',
                                       'instagram_business_account': {'id': 'IG1', 'username': 'enjaz'}}]},
             'P1/photos': {'id': 'PH1', 'post_id': 'P1_99'},
@@ -93,6 +98,7 @@ class ConnectTests(TestCase):
         accounts = {a.platform: a for a in SocialAccount.objects.filter(company=self.company)}
         self.assertEqual((accounts['facebook'].external_id, accounts['facebook'].access_token), ('P1', 'page-token'))
         self.assertEqual((accounts['instagram'].external_id, accounts['instagram'].name), ('IG1', 'enjaz'))
+        self.assertEqual({a.meta_user_id for a in accounts.values()}, {'U1'})
         self.assertNotIn('wakeel_meta_pages', self.client.session)  # tokens don't linger in the session
         self.assertContains(self.result_page(), 'تم الربط بنجاح')
 
@@ -359,3 +365,58 @@ class TikTokPublishTests(TestCase):
         self.assertFalse(SocialAccount.objects.filter(platform='tiktok').exists())
         revoke = [c for c in fake.calls if c[1] == 'oauth/revoke/']
         self.assertEqual(revoke[0][2]['data']['token'], 'old')
+
+
+def signed_request(payload, secret='secret'):
+    def b64(raw):
+        return base64.urlsafe_b64encode(raw).decode().rstrip('=')
+    body = b64(json.dumps({'algorithm': 'HMAC-SHA256', **payload}).encode())
+    return f"{b64(hmac.new(secret.encode(), body.encode(), hashlib.sha256).digest())}.{body}"
+
+
+@override_settings(META_APP_ID='app', META_APP_SECRET='secret', SITE_URL='https://app.wakeel.example')
+class MetaCallbackTests(TestCase):
+    def setUp(self):
+        self.company = make_company()
+        for platform, ext in (('facebook', 'P1'), ('instagram', 'IG1')):
+            SocialAccount.objects.create(company=self.company, platform=platform, external_id=ext, name=ext,
+                                         access_token='t', meta_user_id='U1')
+        self.other = make_company('other')
+        SocialAccount.objects.create(company=self.other, platform='facebook', external_id='P2', name='P2',
+                                     access_token='t', meta_user_id='U2')
+        SocialAccount.objects.create(company=self.company, platform='tiktok', external_id='T1', name='T1',
+                                     access_token='t', meta_user_id='U1')
+
+    def post(self, name, value):
+        return self.client.post(reverse(name), {'signed_request': value})
+
+    def test_deauthorize_removes_only_that_users_meta_accounts(self):
+        response = self.post('meta_public:deauthorize', signed_request({'user_id': 'U1'}))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(set(SocialAccount.objects.values_list('external_id', flat=True)), {'P2', 'T1'})
+
+    def test_data_deletion_returns_status_url_and_code(self):
+        response = self.post('meta_public:data_deletion', signed_request({'user_id': 'U1'}))
+        body = response.json()
+        record = MetaDeletionRequest.objects.get()
+        self.assertEqual(body['confirmation_code'], record.code)
+        self.assertEqual(body['url'], f'https://app.wakeel.example/meta/data-deletion/status/{record.code}/')
+        self.assertEqual(record.accounts_deleted, 2)
+        self.assertFalse(SocialAccount.objects.filter(external_id__in=['P1', 'IG1']).exists())
+        self.assertContains(self.client.get(body['url']), record.code)
+
+    def test_forged_or_malformed_requests_change_nothing(self):
+        for name in ('meta_public:deauthorize', 'meta_public:data_deletion'):
+            for value in (signed_request({'user_id': 'U1'}, secret='wrong'), 'garbage', '', 'a.b',
+                          signed_request({'user_id': ''})):
+                self.assertEqual(self.post(name, value).status_code, 400, (name, value))
+        self.assertEqual(SocialAccount.objects.count(), 4)
+        self.assertFalse(MetaDeletionRequest.objects.exists())
+
+    @override_settings(META_APP_SECRET='')
+    def test_no_secret_configured_rejects_everything(self):
+        self.assertEqual(self.post('meta_public:deauthorize', signed_request({'user_id': 'U1'}, secret='')).status_code, 400)
+
+    def test_instructions_page_and_unknown_status_are_public(self):
+        self.assertContains(self.client.get(reverse('meta_public:data_deletion')), 'wkDoc')
+        self.assertEqual(self.client.get(reverse('meta_public:deletion_status', args=['nope'])).status_code, 404)

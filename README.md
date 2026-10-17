@@ -185,7 +185,7 @@ before they sign in). The browser's language is ignored on purpose.
 
 ## Production
 
-Live at https://wakeelservice.com (Enjaz Information Technology) on `Server` (`/home/general/projects/wakeel`):
+Live at https://wakeelservice.com (Banan for Information Technology W.L.L.) on `Server` (`/home/general/projects/wakeel`):
 
 | | |
 |---|---|

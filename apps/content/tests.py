@@ -3,6 +3,7 @@ from unittest import mock
 
 from django.test import TestCase, override_settings
 from django.urls import reverse
+from django.utils import timezone
 
 from apps.accounts.models import User
 from apps.ai.client import AIError, AIResult
@@ -280,3 +281,36 @@ class CancelJobTests(TestCase):
         self.assertEqual(self.plan.posts.count(), 0)
         self.plan.refresh_from_db()
         self.assertEqual(self.plan.status, ContentPlan.Status.FAILED)
+
+
+class OverdueVisibilityTests(TestCase):
+    """The dashboard's "overdue" alert leads to the posts it counts, and the calendar marks them."""
+
+    def setUp(self):
+        self.company = make_company()
+        self.client.force_login(make_user('o@x.test', self.company))
+        now = timezone.now()
+        self.late = Post.objects.create(company=self.company, title='متأخر', platforms=['facebook'],
+                                        status=Post.Status.APPROVED, scheduled_at=now - datetime.timedelta(days=2))
+        self.future = Post.objects.create(company=self.company, title='قادم', platforms=['facebook'],
+                                          status=Post.Status.APPROVED, scheduled_at=now + datetime.timedelta(days=2))
+        self.done = Post.objects.create(company=self.company, title='منشور', platforms=['facebook'],
+                                        status=Post.Status.PUBLISHED, scheduled_at=now - datetime.timedelta(days=3))
+
+    def test_list_filter_shows_only_overdue_posts(self):
+        response = self.client.get(reverse('content:post_list'), {'overdue': '1'})
+        self.assertEqual([p.title for p in response.context['page'].object_list], ['متأخر'])
+        self.assertEqual(self.client.get(reverse('content:post_list')).context['page'].paginator.count, 3)
+
+    def test_dashboard_alert_links_to_the_overdue_list(self):
+        response = self.client.get(reverse('core:dashboard'))
+        self.assertContains(response, reverse('content:post_list') + '?overdue=1')
+
+    def test_calendar_marks_overdue_chips_only(self):
+        month = timezone.localtime(self.late.scheduled_at).strftime('%Y-%m')
+        response = self.client.get(reverse('content:calendar'), {'month': month})
+        cells = [c for week in response.context['weeks'] for c in week]
+        flags = {p.title: p.is_overdue for c in cells for p in c['posts']}
+        self.assertTrue(flags.get('متأخر'))
+        self.assertFalse(flags.get('منشور', False))
+        self.assertContains(response, 'is-overdue')

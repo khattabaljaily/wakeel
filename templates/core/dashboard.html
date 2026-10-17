@@ -47,7 +47,7 @@
 </div>
 
 {% if overdue %}
-<div class="alert alert-danger d-flex align-items-center gap-2"><i class="bi bi-alarm"></i> {% blocktranslate trimmed with overdue=overdue %}لديك {{ overdue }} منشور تجاوز موعد نشره ولم يُنشر بعد.{% endblocktranslate %} <a href="{% url 'content:calendar' %}" class="alert-link ms-auto">{% translate "عرض التقويم" %}</a></div>
+<div class="alert alert-danger d-flex align-items-center gap-2"><i class="bi bi-alarm"></i> {% blocktranslate trimmed with overdue=overdue %}لديك {{ overdue }} منشور تجاوز موعد نشره ولم يُنشر بعد.{% endblocktranslate %} <a href="{% url 'content:post_list' %}?overdue=1" class="alert-link ms-auto">{% translate "عرض المنشورات المتأخرة" %}</a></div>
 {% endif %}
 
 <div class="row g-4">

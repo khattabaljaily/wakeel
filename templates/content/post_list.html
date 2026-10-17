@@ -19,7 +19,8 @@
         <option value="">{% translate "كل المنصات" %}</option>
         {% for v, l in platforms %}<option value="{{ v }}" {% if v == platform %}selected{% endif %}>{{ l }}</option>{% endfor %}
     </select>
-    {% if q or status or platform %}<a href="{% url 'content:post_list' %}" class="btn btn-link">{% translate "مسح التصفية" %}</a>{% endif %}
+    {% if overdue %}<input type="hidden" name="overdue" value="1"><span class="wk-status review"><i class="bi bi-alarm"></i> {% translate "المتأخرة عن موعدها فقط" %}</span>{% endif %}
+    {% if q or status or platform or overdue %}<a href="{% url 'content:post_list' %}" class="btn btn-link">{% translate "مسح التصفية" %}</a>{% endif %}
     <span class="ms-auto small-muted">{% blocktranslate trimmed with count=page.paginator.count %}{{ count }} منشور{% endblocktranslate %}</span>
 </form>
 {% if page.object_list %}<div class="d-flex mb-3">{% include "content/_bulk_bar.html" %}</div>{% endif %}
@@ -27,9 +28,9 @@
 <div class="wk-post-grid">{% for post in page.object_list %}{% include "content/_post_card.html" with selectable=membership.can_edit %}{% endfor %}</div>
 {% if page.has_other_pages %}
 <nav class="mt-4 d-flex justify-content-center gap-2">
-    {% if page.has_previous %}<a class="btn btn-light" href="?page={{ page.previous_page_number }}&q={{ q|urlencode }}&status={{ status }}&platform={{ platform }}">{% translate "السابق" %}</a>{% endif %}
+    {% if page.has_previous %}<a class="btn btn-light" href="?page={{ page.previous_page_number }}&q={{ q|urlencode }}&status={{ status }}&platform={{ platform }}{% if overdue %}&overdue=1{% endif %}">{% translate "السابق" %}</a>{% endif %}
     <span class="btn btn-soft disabled">{{ page.number }} / {{ page.paginator.num_pages }}</span>
-    {% if page.has_next %}<a class="btn btn-light" href="?page={{ page.next_page_number }}&q={{ q|urlencode }}&status={{ status }}&platform={{ platform }}">{% translate "التالي" %}</a>{% endif %}
+    {% if page.has_next %}<a class="btn btn-light" href="?page={{ page.next_page_number }}&q={{ q|urlencode }}&status={{ status }}&platform={{ platform }}{% if overdue %}&overdue=1{% endif %}">{% translate "التالي" %}</a>{% endif %}
 </nav>
 {% endif %}
 {% else %}

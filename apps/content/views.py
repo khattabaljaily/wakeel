@@ -114,7 +114,9 @@ def calendar_view(request):
         scheduled_at__lt=datetime.datetime.combine(end + datetime.timedelta(days=1), datetime.time.min, tzinfo=tz),
     ).order_by('scheduled_at')
     by_day = {}
+    now = timezone.now()
     for post in posts:
+        post.is_overdue = post.status in OVERDUE_STATUSES and post.scheduled_at < now
         by_day.setdefault(timezone.localtime(post.scheduled_at).date(), []).append(post)
 
     weeks, day = [], start
@@ -140,14 +142,21 @@ def calendar_view(request):
 
 # --- Posts ------------------------------------------------------------------
 
+# Posts that should already have gone out: approved or still in review past their time.
+OVERDUE_STATUSES = [Post.Status.APPROVED, Post.Status.REVIEW]
+
+
 @company_required
 def post_list(request):
     posts = Post.objects.filter(company=request.company).select_related('plan')
     status = request.GET.get('status', '')
     platform = request.GET.get('platform', '')
     q = request.GET.get('q', '').strip()
+    overdue = request.GET.get('overdue') == '1'
     if status in Post.Status.values:
         posts = posts.filter(status=status)
+    if overdue:
+        posts = posts.filter(scheduled_at__lt=timezone.now(), status__in=OVERDUE_STATUSES)
     if platform in Platform.values:
         # JSON "contains" isn't available on every backend; match the serialized list instead.
         posts = posts.annotate(platforms_text=Cast('platforms', CharField())).filter(platforms_text__icontains=f'"{platform}"')
@@ -156,7 +165,7 @@ def post_list(request):
     posts = posts.order_by('-scheduled_at', '-pk')
     page = Paginator(posts, 24).get_page(request.GET.get('page'))
     return render(request, 'content/post_list.html', {
-        'page': page, 'status': status, 'platform': platform, 'q': q,
+        'page': page, 'status': status, 'platform': platform, 'q': q, 'overdue': overdue,
         'statuses': Post.Status.choices, 'platforms': Platform.choices,
     })
 

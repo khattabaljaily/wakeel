@@ -28,9 +28,10 @@
         <form method="post" action="{% url 'content:post_create' %}">{% csrf_token %}<input type="hidden" name="date" value="{{ day.date|date:'Y-m-d' }}"><button class="wk-cal__add" title="{% translate "منشور جديد في هذا اليوم" %}"><i class="bi bi-plus"></i></button></form>
         {% endif %}
         {% for post in day.posts %}
-        <a href="{% url 'content:post_edit' post.pk %}" class="wk-chip st-{{ post.status|status_class }}" draggable="{% if membership.can_edit %}true{% else %}false{% endif %}" data-post="{{ post.pk }}" title="{{ post.title }} — {{ post.get_status_display }}">
+        <a href="{% url 'content:post_edit' post.pk %}" class="wk-chip st-{{ post.status|status_class }}{% if post.is_overdue %} is-overdue{% endif %}" draggable="{% if membership.can_edit %}true{% else %}false{% endif %}" data-post="{{ post.pk }}" title="{{ post.title }} — {{ post.get_status_display }}{% if post.is_overdue %} — {% translate "تجاوز موعد نشره" %}{% endif %}">
             {% if post.image and not post.is_video %}<img src="{{ post.image.url }}?v={{ post.updated_at|date:'U' }}" alt="">{% else %}<span class="ph"><i class="bi {% if post.is_video %}bi-camera-reels{% else %}bi-image{% endif %}"></i></span>{% endif %}
             <span class="t">{{ post.title }}</span>
+            {% if post.is_overdue %}<i class="bi bi-alarm text-danger" aria-hidden="true"></i>{% endif %}
             <span class="time">{{ post.scheduled_at|date:"H:i" }}</span>
         </a>
         {% endfor %}

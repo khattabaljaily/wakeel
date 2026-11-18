@@ -1033,3 +1033,6 @@ html.wk-scroll-lock, html.wk-scroll-lock body { overflow: hidden !important; ove
 .wk-about__who .btn { background: #fff; color: var(--wk-primary-600); border: 0; }
 .wk-auth__legal { font-size: .8rem; text-align: center; margin-top: .5rem; color: var(--wk-muted); }
 .wk-auth__legal a { color: inherit; }
+
+/* Operator credit under every page of the app (enjaz-operators) */
+.wk-credit { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--bs-border-color, #e5e7eb); text-align: center; color: var(--bs-secondary-color, #6b7280); font-size: .78rem; }

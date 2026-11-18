@@ -1,4 +1,4 @@
-{% load static cache_bust wakeel i18n %}<!DOCTYPE html>
+{% load static cache_bust wakeel i18n operators %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
 <head>
     <meta charset="UTF-8">
@@ -180,6 +180,7 @@
         </div>
         {% endfor %}
         {% block content %}{% endblock %}
+        <footer class="wk-credit">{% operator_credit %}</footer>
     </div>
 </main>
 {% endblock %}

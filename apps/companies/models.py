@@ -83,6 +83,10 @@ class Company(models.Model):
     # About the business
     industry = models.CharField(_('المجال'), max_length=150)
     country = models.CharField(_('الدولة'), max_length=80)
+    # The country as an ISO 3166 code and the operator that serves the company there (enjaz-operators). Set from the
+    # country the company wrote, by apps.companies.operators.assign; a change of operator is the console's.
+    country_code = models.CharField(max_length=2, blank=True, editable=False)
+    operator = models.CharField(max_length=20, blank=True, editable=False)
     city = models.CharField(_('المدينة'), max_length=80, blank=True)
     description = models.TextField(_('نبذة عن الشركة'), help_text=_('ماذا تقدم الشركة، ولمن، وما الذي يميزها.'))
     products = models.TextField(_('المنتجات والخدمات'), blank=True)
@@ -178,6 +182,9 @@ class Company(models.Model):
             while Company.objects.filter(slug=slug).exclude(pk=self.pk).exists():
                 slug, n = f'{base}-{n}', n + 1
             self.slug = slug
+        if not self.operator:
+            from . import operators
+            operators.assign(self, operators.code_from_name(self.country))
         super().save(*args, **kwargs)
 
     @property
@@ -226,6 +233,8 @@ class Membership(models.Model):
         ADMIN = 'admin', _('مدير')
         EDITOR = 'editor', _('محرر محتوى')
         VIEWER = 'viewer', _('مشاهد')
+        # An outside client of the company: sees what is shared with them (announcements, forms), never edits.
+        CLIENT = 'client', _('عميل')
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='memberships')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='memberships')
@@ -247,7 +256,7 @@ class Membership(models.Model):
 
     @property
     def can_edit(self):
-        return self.role != self.Role.VIEWER
+        return self.role not in (self.Role.VIEWER, self.Role.CLIENT)
 
 
 class MediaAsset(models.Model):

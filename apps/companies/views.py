@@ -137,7 +137,7 @@ def member_update(request, pk):
     elif request.POST.get('action') == 'remove':
         member.delete()
         messages.success(request, _('تمت إزالة العضو.'))
-    elif request.POST.get('role') in (Membership.Role.ADMIN, Membership.Role.EDITOR, Membership.Role.VIEWER):
+    elif request.POST.get('role') in (Membership.Role.ADMIN, Membership.Role.EDITOR, Membership.Role.VIEWER, Membership.Role.CLIENT):
         member.role = request.POST['role']
         member.save(update_fields=['role'])
         messages.success(request, _('تم تحديث الدور.'))

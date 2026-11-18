@@ -87,6 +87,7 @@ INSTALLED_APPS = [
     'apps.inbox',
     'apps.ads',
     'apps.ops',
+    'enjaz_operators',
 ]
 
 RUNNING_TESTS = 'test' in sys.argv[1:2]
@@ -126,6 +127,7 @@ TEMPLATES = [
                 'apps.companies.context_processors.current_company',
                 'apps.notifications.context_processors.notifications',
                 'apps.ops.context_processors.ops',
+                'enjaz_operators.context_processors.operator',
             ],
         },
     },
@@ -253,6 +255,10 @@ SUPPORT_EMAIL = get_secret('SUPPORT_EMAIL', '')
 PASSWORD_RESET_TIMEOUT = 60 * 60 * 24  # 1 day
 
 # Wakeel is a SaaS: anyone can sign up and create their own company workspace.
+# The operating model (enjaz-operators): Enjaz develops Wakeel, an operator offers it to each company, chosen by the
+# company's country. Each operator's payment keys: secrets.json "GATEWAYS": {"banan": {...}}.
+ENJAZ_OPERATORS = {'PRODUCT': 'wakeel', 'ACCOUNT': 'apps.companies.operators.of_request'}
+
 ALLOW_REGISTRATION = get_secret('ALLOW_REGISTRATION', True)
 
 

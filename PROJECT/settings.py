@@ -354,6 +354,8 @@ TIKTOK_ENABLED = bool(TIKTOK_CLIENT_KEY and TIKTOK_CLIENT_SECRET)
 CHROME_PATH = get_secret('CHROME_PATH', '')
 
 # Web Push (installed app / browser notifications). Generate keys with `manage.py vapid_keys`.
+# Notifications are kept this long (manage.py prune_notifications, once a day): read ones, then the ones nobody read.
+NOTIFICATION_KEEP_READ_DAYS, NOTIFICATION_KEEP_UNREAD_DAYS = 30, 90
 VAPID_PUBLIC_KEY = get_secret('VAPID_PUBLIC_KEY', '')
 VAPID_PRIVATE_KEY = get_secret('VAPID_PRIVATE_KEY', '')
 VAPID_SUBJECT = get_secret('VAPID_SUBJECT', 'mailto:no-reply@example.com')

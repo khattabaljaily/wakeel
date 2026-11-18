@@ -24,7 +24,7 @@
     {% for n in page %}
     <a class="wk-note {% if not n.read_at %}unread{% endif %}" href="{% url 'notifications:open' n.pk %}" {% if forloop.first %}style="border-top:0"{% endif %}>
         <i class="bi {{ n.icon }}"></i>
-        <span><span class="d-block">{{ n.message }}</span><span class="small-muted">{{ n.created_at|date:"j/n/Y · H:i" }} · {{ n.company.name }}</span></span>
+        <span><span class="d-block">{{ n.text }}</span><span class="small-muted">{{ n.created_at|date:"j/n/Y · H:i" }} · {{ n.company.name }}</span></span>
     </a>
     {% empty %}
     <div class="wk-empty"><div class="icon"><i class="bi bi-bell"></i></div><h3>{% translate "لا توجد إشعارات" %}</h3><p>{% translate "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات." %}</p></div>

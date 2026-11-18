@@ -100,3 +100,88 @@ class PlanNotificationTests(TestCase):
         run_job(claim_next())
         self.assertEqual(set(Notification.objects.values_list('user', flat=True)), {owner.pk, editor.pk})
         self.assertEqual(len(mail.outbox), 2)
+
+
+class KindNotificationTests(TestCase):
+    """Notifications by kind (from MyDocHub): the sentence is made when it is read, in the reader's language."""
+
+    def setUp(self):
+        from apps.notifications import registry
+        self.registry = registry
+        self.company = make_company()
+        self.owner = make_user('owner@x.test', self.company)
+        self.editor = make_user('editor@x.test', self.company, Membership.Role.EDITOR)
+        self.viewer = make_user('viewer@x.test', self.company, Membership.Role.VIEWER)
+
+    def test_each_reader_gets_the_sentence_in_their_language(self):
+        from django.utils import translation
+
+        from .services import notify_event
+        self.editor.language = 'en'
+        self.editor.save()
+        notify_event([self.owner, self.editor], 'document_approved', company=self.company, title='Offer letter')
+        owner_note = Notification.objects.get(user=self.owner)
+        self.assertEqual((owner_note.kind, owner_note.params, owner_note.icon), ('document_approved', {'title': 'Offer letter'}, 'bi-check-circle'))
+        with translation.override('en'):
+            self.assertEqual(owner_note.text, 'Your document was approved: Offer letter')
+        with translation.override('ar'):
+            self.assertIn('Offer letter', owner_note.text)
+            self.assertNotIn('Your document', owner_note.text)
+
+    def test_old_marketing_notifications_still_read_as_their_message(self):
+        note = Notification.objects.create(user=self.owner, company=self.company, message='خطة أكتوبر جاهزة')
+        self.assertEqual(note.text, 'خطة أكتوبر جاهزة')
+        self.client.force_login(self.owner)
+        self.assertContains(self.client.get(reverse('notifications:list')), 'خطة أكتوبر جاهزة')
+
+    def test_the_actor_is_not_told_and_a_dedupe_key_tells_a_person_once(self):
+        from .services import notify_event
+        self.assertEqual(notify_event([self.owner, self.editor], 'member_joined', company=self.company, actor=self.owner,
+                                      who='Sara'), 1)
+        self.assertFalse(Notification.objects.filter(user=self.owner).exists())
+        for _ in range(2):
+            notify_event(self.owner, 'expiring', company=self.company, dedupe_key='doc-1-30', title='Licence', date='2026-12-01')
+        self.assertEqual(Notification.objects.filter(user=self.owner, kind='expiring').count(), 1)
+
+    def test_managers_only_and_an_unknown_kind_is_refused(self):
+        from .services import notify_managers_event
+        self.assertEqual(notify_managers_event(self.company, 'wallet_low', balance='$1.50'), 1)
+        self.assertEqual(Notification.objects.get().user, self.owner)
+        with self.assertRaises(AssertionError):
+            from .services import notify_event
+            notify_event(self.owner, 'nonsense', company=self.company)
+
+    def test_collectors_run_when_a_page_is_drawn_and_a_failing_one_is_harmless(self):
+        from .services import notify_event
+        seen = []
+
+        def good(user, company):
+            seen.append((user.pk, company.pk))
+            notify_event(user, 'reminder', company=company, dedupe_key='r1', title='Call the bank')
+
+        def bad(user, company):
+            raise RuntimeError('boom')
+
+        self.registry.COLLECTORS[:] = [bad, good]
+        try:
+            self.client.force_login(self.owner)
+            self.assertEqual(self.client.get(reverse('core:dashboard')).status_code, 200)
+            self.assertEqual(seen, [(self.owner.pk, self.company.pk)])
+            self.assertEqual(Notification.objects.get(kind='reminder').user, self.owner)
+        finally:
+            self.registry.COLLECTORS[:] = []
+
+    def test_prune_deletes_old_read_and_old_unread_ones_only(self):
+        import datetime
+
+        from django.utils import timezone
+
+        from .services import prune
+        now = timezone.now()
+        old_read = Notification.objects.create(user=self.owner, company=self.company, message='a', read_at=now - datetime.timedelta(days=31))
+        fresh_read = Notification.objects.create(user=self.owner, company=self.company, message='b', read_at=now - datetime.timedelta(days=5))
+        old_unread = Notification.objects.create(user=self.owner, company=self.company, message='c')
+        fresh_unread = Notification.objects.create(user=self.owner, company=self.company, message='d')
+        Notification.objects.filter(pk=old_unread.pk).update(created_at=now - datetime.timedelta(days=91))
+        self.assertEqual(prune(now), 2)
+        self.assertEqual(set(Notification.objects.values_list('pk', flat=True)), {fresh_read.pk, fresh_unread.pk})

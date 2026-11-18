@@ -28,6 +28,7 @@ urlpatterns = [
     path('app/ai/presentations/', include('apps.presentations.urls')),
     path('app/forms/', include('apps.forms.urls')),
     path('app/tasks/', include('apps.tasks.urls')),
+    path('app/notes/', include('apps.notes.urls')),
     path('app/ai/', include('apps.docops.urls')),
     path('app/ai/', include('apps.docops.service_urls')),
     path('v/<str:code>/', documents_verify.verify, name='verify'),

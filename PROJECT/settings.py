@@ -99,6 +99,7 @@ INSTALLED_APPS = [
     'apps.presentations',
     'apps.forms',
     'apps.tasks',
+    'apps.notes',
     'enjaz_operators',
 ]
 

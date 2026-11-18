@@ -7538,6 +7538,9 @@ msgstr "أرفق ملفاً بمهمة"
 msgid "Removed a file from a task"
 msgstr "أزال ملفاً من مهمة"
 
+msgid "You receive this because you set this reminder in Wakeel."
+msgstr "وصلتك هذه الرسالة لأنك ضبطت هذا التذكير في وكيل."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

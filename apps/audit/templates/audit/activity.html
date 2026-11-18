@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Activity" %}{% endblock %}
+{% block page_title %}{% translate "Activity" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Who did what with documents, the company mailbox and the team. This list cannot be changed." %}</div>{% endblock %}
+{% block content %}
+<div class="wk-card" style="max-width: 860px">
+    {% for e in page %}
+    <div class="wk-note" {% if forloop.first %}style="border-top:0"{% endif %}>
+        <i class="bi bi-clock-history"></i>
+        <span><span class="d-block">{{ e.label }}{% if e.target %} · <span dir="auto">{{ e.target }}</span>{% endif %}</span>
+            <span class="small-muted"><span dir="auto">{{ e.user_email|default:"—" }}</span> · {{ e.created_at|date:"Y-m-d H:i" }}{% if e.ip %} · <span dir="ltr">{{ e.ip }}</span>{% endif %}</span></span>
+    </div>
+    {% empty %}
+    <div class="wk-empty"><div class="icon"><i class="bi bi-clock-history"></i></div><h3>{% translate "Nothing yet." %}</h3></div>
+    {% endfor %}
+    {% if page.has_other_pages %}
+    <div class="d-flex justify-content-center align-items-center gap-3 p-3 border-top">
+        {% if page.has_previous %}<a class="btn btn-light btn-sm" href="?page={{ page.previous_page_number }}"><i class="bi bi-chevron-right"></i></a>{% endif %}
+        <span class="small-muted">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+        {% if page.has_next %}<a class="btn btn-light btn-sm" href="?page={{ page.next_page_number }}"><i class="bi bi-chevron-left"></i></a>{% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -7541,3 +7541,12 @@ msgstr "سؤال: %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "حُفظت الإجابة كملاحظة."
+
+msgid "Exported all the data of the company"
+msgstr "تم تصدير جميع بيانات الشركة"
+
+msgid "Invited someone to the company"
+msgstr "دعا شخصًا إلى الشركة"
+
+msgid "Joined the company"
+msgstr "انضم إلى الشركة"

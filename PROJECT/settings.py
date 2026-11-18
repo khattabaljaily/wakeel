@@ -87,6 +87,7 @@ INSTALLED_APPS = [
     'apps.inbox',
     'apps.ads',
     'apps.ops',
+    'apps.audit',
     'enjaz_operators',
 ]
 

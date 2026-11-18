@@ -23,6 +23,8 @@ class AuditEvent(CompanyScopedModel):
     PRESENTATION_CREATED, PRESENTATION_DELETED = 'presentation.created', 'presentation.deleted'
     FORM_CREATED, FORM_UPDATED, FORM_DELETED = 'form.created', 'form.updated', 'form.deleted'
     FORM_OPENED, FORM_CLOSED, FORM_EXPORTED = 'form.opened', 'form.closed', 'form.exported'
+    TASK_CREATED, TASK_UPDATED, TASK_STATUS, TASK_DELETED = 'task.created', 'task.updated', 'task.status', 'task.deleted'
+    TASK_ATTACHED, TASK_FILE_REMOVED = 'task.attached', 'task.file_removed'
     ACTIONS = {
         DOC_QR_CHANGED: _('Added or removed the verification QR code of a document'),
         DOC_PRINTED_VERIFIABLE: _('Opened a document with a verification QR code for printing'),
@@ -56,6 +58,12 @@ class AuditEvent(CompanyScopedModel):
         FORM_OPENED: _('Opened a form for answers'),
         FORM_CLOSED: _('Closed a form'),
         FORM_EXPORTED: _('Downloaded the answers of a form'),
+        TASK_CREATED: _('Added a task'),
+        TASK_UPDATED: _('Changed a task'),
+        TASK_STATUS: _('Changed the status of a task'),
+        TASK_DELETED: _('Deleted a task'),
+        TASK_ATTACHED: _('Attached a file to a task'),
+        TASK_FILE_REMOVED: _('Removed a file from a task'),
     }
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')

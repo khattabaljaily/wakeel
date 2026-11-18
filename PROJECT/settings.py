@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'apps.brand',
     'apps.presentations',
     'apps.forms',
+    'apps.tasks',
     'enjaz_operators',
 ]
 

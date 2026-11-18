@@ -7515,6 +7515,29 @@ msgstr "أغلق نموذجاً"
 msgid "Downloaded the answers of a form"
 msgstr "نزّل إجابات نموذج"
 
+msgid ""
+"Any file, up to 10 MB. It is kept encrypted and only members of this company "
+"can open it."
+msgstr "أي ملف حتى 10 ميغابايت. يُحفظ مشفّراً ولا يفتحه إلا أفراد هذه الشركة."
+
+msgid "Added a task"
+msgstr "أضاف مهمة"
+
+msgid "Changed a task"
+msgstr "عدّل مهمة"
+
+msgid "Changed the status of a task"
+msgstr "غيّر حالة مهمة"
+
+msgid "Deleted a task"
+msgstr "حذف مهمة"
+
+msgid "Attached a file to a task"
+msgstr "أرفق ملفاً بمهمة"
+
+msgid "Removed a file from a task"
+msgstr "أزال ملفاً من مهمة"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

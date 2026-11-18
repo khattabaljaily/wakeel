@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ task.title }}{% endblock %}
+{% block page_title %}<span dir="auto">{{ task.title }}</span>{% endblock %}
+{% block subtitle %}<div class="subtitle"><span dir="auto">{% if task.assignee %}{{ task.assignee.first_name|default:task.assignee.email }}{% else %}{% translate "Nobody yet" %}{% endif %}</span>{% if task.due_date %} · <span dir="ltr">{{ task.due_date|date:"Y-m-d" }}</span>{% endif %} · {{ task.get_priority_display }}{% if task.is_overdue %} · <span class="badge text-bg-danger">{% translate "Overdue" %}</span>{% endif %}</div>{% endblock %}
+{% block actions %}
+  <a class="btn btn-light" href="{% url 'tasks:list' %}">← {% translate "Tasks" %}</a>
+  {% if can_edit %}<a class="btn btn-light" href="{% url 'tasks:edit' task.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>{% endif %}
+  {% if can_edit and can_delete %}<form method="post" action="{% url 'tasks:delete' task.pk %}" data-confirm="{% translate 'This task will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}
+{% endblock %}
+{% block content %}
+<div class="wk-card mb-3"><div class="wk-card-head"><h2>{% translate "Status" %}</h2></div><div class="wk-card-body">
+  {% if can_edit %}<form method="post" action="{% url 'tasks:status' task.pk %}" class="d-flex flex-wrap gap-2">{% csrf_token %}
+    {% for value, label in statuses %}<button type="submit" name="status" value="{{ value }}" class="btn {% if task.status == value %}btn-primary{% else %}btn-light{% endif %}"{% if task.status == value %} aria-pressed="true"{% endif %}>{{ label }}</button>{% endfor %}
+  </form>{% else %}<span class="badge text-bg-light border">{{ task.get_status_display }}</span>{% endif %}
+  {% if task.description %}<p class="mt-3 mb-0" dir="auto">{{ task.description|linebreaksbr }}</p>{% endif %}
+</div></div>
+
+<div class="wk-card mb-3"><div class="wk-card-head"><h2>{% translate "Files" %}</h2></div>
+  <div class="list-group list-group-flush">{% for a in attachments %}
+    <div class="list-group-item d-flex justify-content-between align-items-center gap-2">
+      <div class="text-truncate"><a href="{% url 'tasks:file' a.pk %}" dir="auto"><i class="bi bi-paperclip"></i> {{ a.name }}</a> <span class="small-muted text-nowrap">{{ a.size|filesizeformat }}</span></div>
+      {% if can_edit %}<form method="post" action="{% url 'tasks:file_delete' a.pk %}" data-confirm="{% translate 'This file will be removed from the task.' %}" data-confirm-yes="{% translate 'Remove' %}">{% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger btn-sm" aria-label="{% translate 'Remove' %}"><i class="bi bi-x-lg"></i></button></form>{% endif %}
+    </div>
+  {% empty %}<div class="p-3 small-muted">{% translate "No files yet." %}</div>{% endfor %}</div>
+  {% if can_edit %}<div class="wk-card-body border-top"><form method="post" action="{% url 'tasks:attach' task.pk %}" enctype="multipart/form-data" class="d-flex flex-wrap gap-2" data-once>{% csrf_token %}
+    <input class="form-control" style="max-width:420px" type="file" name="file" required aria-label="{% translate 'Attach a file' %}">
+    <button type="submit" class="btn btn-light"><i class="bi bi-upload"></i> {% translate "Attach" %}</button></form>
+  <div class="form-text">{% translate "Any file, up to 10 MB. It is kept encrypted and only members of this company can open it." %}</div></div>{% endif %}
+</div>
+
+<div class="wk-card"><div class="wk-card-head"><h2>{% translate "Follow-up" %}</h2></div>
+  <div class="list-group list-group-flush">{% for c in comments %}
+    <div class="list-group-item"><div class="fw-semibold" dir="auto">{{ c.author.first_name|default:c.author.email }} <span class="small-muted fw-normal" dir="ltr">{{ c.created_at|date:"Y-m-d H:i" }}</span></div>
+      <div dir="auto">{{ c.body|linebreaksbr }}</div></div>
+  {% empty %}<div class="p-3 small-muted">{% translate "No notes yet." %}</div>{% endfor %}</div>
+  {% if can_edit %}<div class="wk-card-body border-top"><form method="post" action="{% url 'tasks:comment' task.pk %}" data-once>{% csrf_token %}
+    <textarea class="form-control mb-2" name="body" rows="3" dir="auto" required aria-label="{% translate 'Write a note' %}"></textarea>
+    <button type="submit" class="btn btn-primary">{% translate "Add the note" %}</button></form></div>{% endif %}
+</div>
+{% endblock %}

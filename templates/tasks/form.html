@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Edit the task" %}{% endblock %}
+{% block page_title %}{% translate "Edit the task" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'tasks:detail' task.pk %}">← <span dir="auto">{{ task.title }}</span></a>{% endblock %}
+{% block content %}
+<form method="post" class="wk-card" style="max-width:860px" novalidate data-once>{% csrf_token %}<div class="wk-card-body">
+  {% include "tasks/_fields.html" %}
+  <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+</div></form>
+{% endblock %}

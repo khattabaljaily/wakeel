@@ -44,7 +44,7 @@ def waiting(company, user, membership):
         if replies:
             marketing.append(_item('bi-chat-dots', 'primary', replies, 'تعليقات بانتظار الرد', reverse('inbox:inbox')))
     if marketing:
-        groups.append({'title': _('التسويق (وكيل)'), 'icon': 'bi-stars', 'items': marketing})
+        groups.append({'title': _('التسويق'), 'icon': 'bi-stars', 'items': marketing})
 
     docs = []
     if membership.can_manage:

@@ -101,25 +101,6 @@
         <nav class="rail-nav" aria-label="{% translate "القائمة الرئيسية" %}">
             <a class="rail-btn" href="{% url 'core:dashboard' %}" data-tip="{% translate "لوحة التحكم" %}"{% if request.path == '/app/' %} aria-current="page"{% endif %}><i class="bi bi-grid-1x2"></i><span class="lbl">{% translate "لوحة التحكم" %}</span></a>
 
-            <div class="rail-grp rail-grp-main {% nav_group '/app/plans/' '/app/calendar/' '/app/posts/' '/app/inbox/' '/app/insights/' '/app/competitors/' '/app/ads/' '/company/autopilot/' '/company/media/' '/company/social/' '/company/agency/' %}" data-grp="marketing">
-                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "التسويق (وكيل)" %}"><i class="bi bi-stars"></i><span class="lbl">{% translate "التسويق (وكيل)" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
-                <div class="rail-grp-body">
-                    <span class="rail-fly-title" aria-hidden="true">{% translate "التسويق (وكيل)" %}</span>
-                    <a class="rail-btn" href="{% url 'content:plan_list' %}"{% nav_current '/app/plans/' %}><i class="bi bi-stars"></i><span class="lbl">{% translate "خطط المحتوى" %}</span></a>
-                    <a class="rail-btn" href="{% url 'content:calendar' %}"{% nav_current '/app/calendar/' %}><i class="bi bi-calendar3"></i><span class="lbl">{% translate "التقويم" %}</span></a>
-                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'companies:autopilot' %}"{% nav_current '/company/autopilot/' %}><i class="bi bi-calendar2-check"></i><span class="lbl">{% translate "المخطط الآلي" %}</span>{% if company.autopilot %}<span class="rail-badge rail-badge--on wk-nav__badge wk-nav__badge--on" title="{% translate "يعمل" %}">●</span>{% endif %}</a>{% endif %}
-                    <a class="rail-btn" href="{% url 'content:post_list' %}"{% nav_current '/app/posts/' %}><i class="bi bi-collection"></i><span class="lbl">{% translate "المنشورات" %}</span></a>
-                    <a class="rail-btn" href="{% url 'inbox:inbox' %}"{% nav_current '/app/inbox/' %}><i class="bi bi-chat-dots"></i><span class="lbl">{% translate "التعليقات" %}</span>
-                        {% inbox_count company as inbox_new %}{% if inbox_new %}<span class="rail-badge wk-nav__badge" title="{% translate "بانتظار الرد" %}">{{ inbox_new }}</span>{% endif %}</a>
-                    <a class="rail-btn" href="{% url 'insights:dashboard' %}"{% nav_current '/app/insights/' %}><i class="bi bi-graph-up"></i><span class="lbl">{% translate "الأداء" %}</span></a>
-                    <a class="rail-btn" href="{% url 'competitors:list' %}"{% nav_current '/app/competitors/' %}><i class="bi bi-binoculars"></i><span class="lbl">{% translate "المنافسون" %}</span></a>
-                    <a class="rail-btn" href="{% url 'ads:list' %}"{% nav_current '/app/ads/' %}><i class="bi bi-megaphone"></i><span class="lbl">{% translate "الترويج المدفوع" %}</span></a>
-                    <a class="rail-btn" href="{% url 'companies:media' %}"{% nav_current '/company/media/' %}><i class="bi bi-images"></i><span class="lbl">{% translate "مكتبة الوسائط" %}</span></a>
-                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'social:accounts' %}"{% nav_current '/company/social/' %}><i class="bi bi-send"></i><span class="lbl">{% translate "حسابات النشر" %}</span></a>{% endif %}
-                    {% if membership.role == 'owner' %}<a class="rail-btn" href="{% url 'companies:agency' %}"{% nav_current '/company/agency/' %}><i class="bi bi-briefcase"></i><span class="lbl">{% translate "وضع الوكالة" %}</span></a>{% endif %}
-                </div>
-            </div>
-
             <div class="rail-grp {% nav_group '/app/documents/' %}" data-grp="docs">
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "Documents and files" context "menu section" %}"><i class="bi bi-layers"></i><span class="lbl">{% translate "Documents and files" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
                 <div class="rail-grp-body">
@@ -160,6 +141,25 @@
                     {% if membership.role != 'client' %}<a class="rail-btn" href="{% url 'tasks:list' %}"{% nav_current '/app/tasks/' %}><i class="bi bi-check2-square"></i><span class="lbl">{% translate "Tasks" %}</span></a>{% endif %}
                     {% if membership.role != 'client' %}<a class="rail-btn" href="{% url 'contacts:list' %}"{% nav_current '/app/contacts/' %}><i class="bi bi-person-lines-fill"></i><span class="lbl">{% translate "Contacts" %}</span></a>{% endif %}
                     <a class="rail-btn" href="{% url 'notes:list' %}"{% nav_current '/app/notes/' %}><i class="bi bi-journal-text"></i><span class="lbl">{% translate "Personal notes" context "navigation" %}</span></a>
+                </div>
+            </div>
+
+            <div class="rail-grp rail-grp-main {% nav_group '/app/plans/' '/app/calendar/' '/app/posts/' '/app/inbox/' '/app/insights/' '/app/competitors/' '/app/ads/' '/company/autopilot/' '/company/media/' '/company/social/' '/company/agency/' %}" data-grp="marketing">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "التسويق" %}"><i class="bi bi-stars"></i><span class="lbl">{% translate "التسويق" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "التسويق" %}</span>
+                    <a class="rail-btn" href="{% url 'content:plan_list' %}"{% nav_current '/app/plans/' %}><i class="bi bi-stars"></i><span class="lbl">{% translate "خطط المحتوى" %}</span></a>
+                    <a class="rail-btn" href="{% url 'content:calendar' %}"{% nav_current '/app/calendar/' %}><i class="bi bi-calendar3"></i><span class="lbl">{% translate "التقويم" %}</span></a>
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'companies:autopilot' %}"{% nav_current '/company/autopilot/' %}><i class="bi bi-calendar2-check"></i><span class="lbl">{% translate "المخطط الآلي" %}</span>{% if company.autopilot %}<span class="rail-badge rail-badge--on wk-nav__badge wk-nav__badge--on" title="{% translate "يعمل" %}">●</span>{% endif %}</a>{% endif %}
+                    <a class="rail-btn" href="{% url 'content:post_list' %}"{% nav_current '/app/posts/' %}><i class="bi bi-collection"></i><span class="lbl">{% translate "المنشورات" %}</span></a>
+                    <a class="rail-btn" href="{% url 'inbox:inbox' %}"{% nav_current '/app/inbox/' %}><i class="bi bi-chat-dots"></i><span class="lbl">{% translate "التعليقات" %}</span>
+                        {% inbox_count company as inbox_new %}{% if inbox_new %}<span class="rail-badge wk-nav__badge" title="{% translate "بانتظار الرد" %}">{{ inbox_new }}</span>{% endif %}</a>
+                    <a class="rail-btn" href="{% url 'insights:dashboard' %}"{% nav_current '/app/insights/' %}><i class="bi bi-graph-up"></i><span class="lbl">{% translate "الأداء" %}</span></a>
+                    <a class="rail-btn" href="{% url 'competitors:list' %}"{% nav_current '/app/competitors/' %}><i class="bi bi-binoculars"></i><span class="lbl">{% translate "المنافسون" %}</span></a>
+                    <a class="rail-btn" href="{% url 'ads:list' %}"{% nav_current '/app/ads/' %}><i class="bi bi-megaphone"></i><span class="lbl">{% translate "الترويج المدفوع" %}</span></a>
+                    <a class="rail-btn" href="{% url 'companies:media' %}"{% nav_current '/company/media/' %}><i class="bi bi-images"></i><span class="lbl">{% translate "مكتبة الوسائط" %}</span></a>
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'social:accounts' %}"{% nav_current '/company/social/' %}><i class="bi bi-send"></i><span class="lbl">{% translate "حسابات النشر" %}</span></a>{% endif %}
+                    {% if membership.role == 'owner' %}<a class="rail-btn" href="{% url 'companies:agency' %}"{% nav_current '/company/agency/' %}><i class="bi bi-briefcase"></i><span class="lbl">{% translate "وضع الوكالة" %}</span></a>{% endif %}
                 </div>
             </div>
 

@@ -44,6 +44,7 @@ def job_detail(request, pk):
         # Jobs that make a post (language versions, reposts) point to it.
         'result_url': reverse('content:post_edit', args=[job.params['result_post_id']]) if job.params.get('result_post_id')
         else job.params.get('result_url', ''),     # a generic job (apps.documents) names the page of what it made
+        'result': job.params.get('result') or {},    # ... or hands back data for the page to use (apps.identity: details read from a paper)
     })
 
 

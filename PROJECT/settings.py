@@ -95,6 +95,7 @@ INSTALLED_APPS = [
     'apps.documents',
     'apps.docops',
     'apps.sharing',
+    'apps.brand',
     'enjaz_operators',
 ]
 

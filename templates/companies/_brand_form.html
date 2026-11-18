@@ -1,4 +1,4 @@
-{% load i18n %}<form method="post" enctype="multipart/form-data" novalidate id="brandForm">{% csrf_token %}
+{% load i18n  credits %}<form method="post" enctype="multipart/form-data" novalidate id="brandForm">{% csrf_token %}
 {% if form.errors %}<div class="alert alert-danger">{% translate "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة." %}</div>{% endif %}
 <div class="wk-steps">
     <div class="wk-step active" data-step="0"><span class="n">1</span> <span class="t">{% translate "الأساسيات" %}</span></div>
@@ -22,6 +22,17 @@
             <div class="small text-primary mt-2 d-none" id="autofillStatus"><span class="spinner-border spinner-border-sm"></span> {% translate "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة." %}</div>
             <div class="d-none mt-2 align-items-center gap-2 small" id="autofillLogo"><img alt="" class="rounded-2 border p-1" style="height:48px; background: repeating-conic-gradient(#eee 0 25%, #fff 0 50%) 50% / 12px 12px"> {% translate "وُجد هذا الشعار في الموقع، وسيُعتمد عند الحفظ ما لم ترفع شعاراً آخر." %}</div>
         </div>
+        {% if company %}{% quote 'detect_identity' as paperQuote %}
+        <div class="wk-ai-box mb-4">
+            <div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-file-earmark-text text-primary fs-5"></i><strong>{% translate "لدى الشركة ورقة رسمية؟" %}</strong></div>
+            <p class="small-muted mb-2">{% translate "ارفع سجلاً تجارياً أو شهادة ضريبية أو بطاقة عمل، وسيقرأ وكيل بياناتها ويملأ الحقول الفارغة. تراجعها بعد ذلك قبل الحفظ، ولا يُخصم منك إلا إذا قُرئت." %}</p>
+            <div class="input-group">
+                <input type="file" class="form-control" id="paperFile" accept="application/pdf,image/png,image/jpeg,image/webp">
+                <button type="button" class="btn btn-ai" id="paperBtn" data-points="{{ paperQuote.total }}"><i class="bi bi-magic"></i> {% translate "املأ من الورقة" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ paperQuote.usd }}</span></button>
+            </div>
+            <div class="small text-primary mt-2 d-none" id="paperStatus"><span class="spinner-border spinner-border-sm"></span> {% translate "وكيل يقرأ الورقة…" %}</div>
+        </div>
+        {% endif %}
         {{ form.logo_url }}
         <p class="text-muted">{% translate "لنبدأ بالمعلومات الأساسية عن الشركة." %}</p>
         <div class="row">
@@ -229,6 +240,23 @@
         el.classList.add('wk-filled');
         return true;
     }
+    var paperBtn = document.getElementById('paperBtn');
+    if (paperBtn) paperBtn.addEventListener('click', function () {
+        var file = document.getElementById('paperFile').files[0], status = document.getElementById('paperStatus');
+        if (!file) { Wakeel.toast('{{ _("اختر ملفاً أولاً.")|escapejs }}', 'error'); return; }
+        var data = new FormData(); data.append('paper', file); data.append('expected_points', paperBtn.dataset.points);
+        paperBtn.disabled = true; status.classList.remove('d-none');
+        fetch('{% url "identity:detect" %}', {method: 'POST', body: data, headers: {'X-CSRFToken': Wakeel.csrf(), 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json'}, credentials: 'same-origin'})
+            .then(function (r) { return r.json().then(function (body) { if (!r.ok) throw body; return body; }); })
+            .then(function (body) { return Wakeel.pollJob(body.job); })
+            .then(function (job) {
+                var n = 0;
+                Object.keys(job.result || {}).forEach(function (k) { if (fill(k, job.result[k])) n++; });
+                Wakeel.toast(n ? '{{ _("قرأ وكيل بيانات الورقة وملأ الحقول الفارغة. راجعها قبل الحفظ.")|escapejs }}' : '{{ _("حقولك ممتلئة أصلاً، فلم يُغيَّر شيء.")|escapejs }}', 'success');
+            })
+            .catch(function (e) { Wakeel.toast((e && (e.error || e.message)) || '{{ _("تعذّرت قراءة الورقة. لم يُخصم منك شيء.")|escapejs }}', 'error'); })
+            .then(function () { paperBtn.disabled = false; status.classList.add('d-none'); });
+    });
     afBtn.addEventListener('click', function () {
         var url = document.getElementById('autofillUrl').value.trim();
         if (!url) { Wakeel.toast('{{ _("أدخل رابط الموقع أولاً.")|escapejs }}', 'error'); return; }

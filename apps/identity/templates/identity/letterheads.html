@@ -47,6 +47,19 @@
                 <button class="btn btn-primary w-100">{% translate "Upload" %}</button>
             </div>
         </form>
+        <form method="post" action="{% url 'identity:letterhead_create' %}" class="wk-card mt-3" data-once>{% csrf_token %}
+            <div class="wk-card-body">
+                <h2 class="wk-section-title"><i class="bi bi-stars text-primary"></i> {% translate "Create it for me" %}</h2>
+                <p class="small-muted">{% translate "The AI designs an A4 letterhead from your company details: a header, a footer and an empty page between them." %}</p>
+                <input type="hidden" name="expected_points" value="{{ create_quote.total }}">
+                <div class="mb-3"><label class="form-label" for="lhNewLang">{% translate "Language" %}</label>
+                    <select id="lhNewLang" name="language" class="form-select">{% for code, name in languages %}<option value="{{ code }}"{% if code == request.company.main_language %} selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
+                <div class="mb-3"><label class="form-label" for="lhNote">{% translate "Anything to tell the designer?" %}</label>
+                    <textarea id="lhNote" name="note" rows="2" maxlength="500" class="form-control" dir="auto"></textarea></div>
+                <button class="btn btn-primary w-100"><i class="bi bi-stars"></i> {% translate "Create" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ create_quote.usd }}</span></button>
+                <div class="form-text">{% translate "You are charged only if the result is delivered." %}</div>
+            </div>
+        </form>
     </div>
     {% endif %}
 </div>

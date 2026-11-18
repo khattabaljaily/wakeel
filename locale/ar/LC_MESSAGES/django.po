@@ -7463,6 +7463,17 @@ msgstr "شورِك عبر وكيل"
 msgid "You were not charged."
 msgstr "لم يُخصم منك شيء."
 
+msgid ""
+"The AI designs an A4 letterhead from your company details: a header, a "
+"footer and an empty page between them."
+msgstr ""
+"يصمّم الذكاء الاصطناعي ورقاً رسمياً بمقاس A4 من بيانات شركتك: رأس وتذييل وصفحة "
+"فارغة بينهما."
+
+msgid ""
+"Today you pay for the logo; the whole kit comes to $%(t)s with the discount."
+msgstr "تدفع اليوم ثمن الشعار فقط، ويبلغ مجموع الحزمة كلها $%(t)s بعد الخصم."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

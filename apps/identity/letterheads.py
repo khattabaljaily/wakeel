@@ -10,7 +10,7 @@ from django.views.decorators.http import require_POST
 
 from apps.companies.decorators import company_required
 
-from . import safearea
+from . import ai, safearea
 from .forms import LetterheadUploadForm
 from .models import LetterheadVariant
 
@@ -79,8 +79,9 @@ def _file_response(field):
 def page(request):
     """The letterheads of the company: every member sees them, owners and administrators change them."""
     company = request.company
+    from apps.credits import quote as quotes
     return render(request, 'identity/letterheads.html', {
-        'rows': rows(company), 'languages': settings.LANGUAGES, 'can_manage': request.membership.can_manage,
+        'create_quote': quotes.make(ai.LETTERHEAD_SERVICE), 'rows': rows(company), 'languages': settings.LANGUAGES, 'can_manage': request.membership.can_manage,
         'main_name': dict(settings.LANGUAGES).get(company.main_language, company.main_language)})
 
 
@@ -97,6 +98,37 @@ def add(request):
     save(request.company, form.cleaned_data['language'], upload, getattr(upload, 'name', 'letterhead.png'), 'uploaded')
     messages.success(request, _('The letterhead is saved.'))
     return redirect('identity:letterheads')
+
+
+@company_required(manage=True)
+@require_POST
+def create(request):
+    """The AI creates a letterhead in a language (a paid job, charged at the price shown)."""
+    from apps.credits.jobs import expected_points
+    language = request.POST.get('language', '')
+    if language not in dict(settings.LANGUAGES):
+        messages.error(request, _('Choose a language.'))
+        return redirect('identity:letterheads')
+    job = ai.queue_letterhead(request.company, request.user, expected_points(request.POST), language, request.POST.get('note', ''))
+    return redirect('documents:working', pk=job.pk)
+
+
+@company_required(manage=True)
+@require_POST
+def detect(request):
+    """Read the company's details from a paper it has (a paid job). Answers with the job to wait for: its result fills the form."""
+    from django.http import JsonResponse
+
+    from apps.credits.jobs import expected_points
+    upload = request.FILES.get('paper')
+    if upload is None:
+        return JsonResponse({'error': _('Choose a file first.')}, status=400)
+    try:
+        block = ai.prepare_paper(upload)
+    except ValueError as exc:
+        return JsonResponse({'error': str(exc)}, status=400)
+    job = ai.queue_detect(request.company, request.user, expected_points(request.POST), block)
+    return JsonResponse({'job': job.pk})
 
 
 @company_required(manage=True)

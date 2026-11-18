@@ -179,3 +179,112 @@ class OfficialDetailsTests(Base):
         fields = r.json()['fields']
         self.assertEqual((fields['legal_name'], fields['address'], fields['official_email']),
                          ('Alpha W.L.L.', 'Doha, West Bay', 'info@alpha.test'))
+
+
+# --- AI work of the identity: a letterhead made by the AI, and the company read from a paper (paid jobs) ---
+from unittest import mock
+
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import TestCase as _TestCase
+
+from apps.ai import client as _ai
+from apps.content.tests import make_company as _make_company
+from apps.content.tests import make_user as _make_user
+from apps.credits import quote as _quotes
+from apps.credits.models import Wallet as _Wallet
+from apps.jobs.models import Job as _Job
+from apps.jobs.runner import run_job as _run_job
+
+SVG = '<svg viewBox="0 0 794 1123" xmlns="http://www.w3.org/2000/svg"><rect width="794" height="90" fill="#123456"/>' \
+      '<script>alert(1)</script><text x="20" y="50" onclick="x()">Alpha</text></svg>'
+
+
+class IdentityAiTests(_TestCase):
+    def setUp(self):
+        self.company = _make_company('Alpha')
+        self.owner = _make_user('o@example.com', self.company)
+        self.client.force_login(self.owner)
+
+    def balance(self):
+        return _Wallet.objects.get(company=self.company).balance
+
+    def work(self, **patches):
+        job = _Job.objects.order_by('-pk').first()
+        with mock.patch.multiple('apps.identity.ai.client', **patches):
+            _run_job(job)
+        job.refresh_from_db()
+        return job
+
+    def create_letterhead(self, shown=None, language='en'):
+        price = _quotes.make('create_letterhead').total if shown is None else shown
+        return self.client.post(reverse('identity:letterhead_create'), {'language': language, 'expected_points': price, 'note': 'blue'})
+
+    def test_the_page_shows_the_price_and_the_charge_equals_it(self):
+        shown = _quotes.make('create_letterhead').total
+        self.assertContains(self.client.get(reverse('identity:letterheads')), f'name="expected_points" value="{shown}"')
+        before = self.balance()
+        self.create_letterhead()
+        self.assertEqual(before - self.balance(), shown)
+
+    def test_the_svg_is_cleaned_and_kept_as_the_letterhead(self):
+        self.create_letterhead(language=self.company.main_language)
+        job = self.work(complete_text=mock.Mock(return_value=_ai.AIResult({'text': 'Here: ' + SVG}, 100, 50, 0, 'claude-opus-5-5')))
+        self.company.refresh_from_db()
+        self.assertEqual((job.status, self.company.asset_sources.get('letterhead')), (_Job.Status.DONE, 'created'))
+        with self.company.letterhead.open('rb') as handle:
+            kept = handle.read().decode()
+        self.assertIn('<rect', kept)
+        self.assertNotIn('script', kept)
+        self.assertNotIn('onclick', kept)
+
+    def test_an_unusable_answer_is_refunded_and_nothing_is_kept(self):
+        before = self.balance()
+        self.create_letterhead()
+        job = self.work(complete_text=mock.Mock(return_value=_ai.AIResult({'text': 'sorry, no'}, 10, 5, 0, 'claude-opus-5-5')))
+        self.company.refresh_from_db()
+        self.assertEqual((job.status, self.balance(), bool(self.company.letterhead)), (_Job.Status.FAILED, before, False))
+
+    def test_a_wrong_price_and_a_viewer_buy_nothing(self):
+        before = self.balance()
+        self.create_letterhead(shown=1)
+        self.assertEqual((self.balance(), _Job.objects.count()), (before, 0))
+        viewer = _make_user('v@example.com', self.company, Membership.Role.VIEWER)
+        self.client.force_login(viewer)
+        self.create_letterhead()
+        self.assertEqual(_Job.objects.count(), 0)
+
+    DETAILS = {'name': 'Alpha', 'legal_name': 'Alpha LLC', 'address': 'Doha', 'cr_number': 'CR-9', 'tax_number': '', 'phone': '+974',
+               'email': '', 'website': '', 'language': 'en'}
+
+    def detect(self, upload=None, shown=None):
+        upload = upload or SimpleUploadedFile('cr.pdf', __import__('apps.library.tests', fromlist=['PDF']).PDF, content_type='application/pdf')
+        price = _quotes.make('detect_identity').total if shown is None else shown
+        return self.client.post(reverse('identity:detect'), {'paper': upload, 'expected_points': price})
+
+    def test_the_paper_is_read_in_a_paid_job_and_the_details_come_back_to_the_page(self):
+        before = self.balance()
+        response = self.detect()
+        self.assertEqual(before - self.balance(), _quotes.make('detect_identity').total)
+        job = self.work(call_json=mock.Mock(return_value=_ai.AIResult(dict(self.DETAILS), 100, 50, 0, 'claude-opus-5-5')))
+        self.assertEqual((job.status, response.json()['job']), (_Job.Status.DONE, job.pk))
+        api = self.client.get(reverse('job_detail', args=[job.pk]) if False else f'/api/jobs/{job.pk}/').json()
+        self.assertEqual((api['result']['name'], api['result']['cr_number'], api['result']['main_language']), ('Alpha', 'CR-9', 'en'))
+        self.assertEqual(job.params['paper'], '')                          # the stored paper is gone
+
+    def test_a_paper_with_nothing_readable_is_refunded(self):
+        before = self.balance()
+        self.detect()
+        empty = {k: '' for k in self.DETAILS}
+        job = self.work(call_json=mock.Mock(return_value=_ai.AIResult(empty, 10, 5, 0, 'claude-opus-5-5')))
+        self.assertEqual((job.status, self.balance()), (_Job.Status.FAILED, before))
+
+    def test_a_bad_file_or_price_is_refused_before_anything_is_charged(self):
+        before = self.balance()
+        self.assertEqual(self.detect(SimpleUploadedFile('x.pdf', b'<html>', content_type='application/pdf')).status_code, 400)
+        self.assertEqual(self.client.post(reverse('identity:detect'), {'expected_points': 1}).status_code, 400)
+        self.detect(shown=1)
+        self.assertEqual((self.balance(), _Job.objects.count()), (before, 0))
+
+    def test_the_brand_page_offers_the_paper_with_its_price(self):
+        shown = _quotes.make('detect_identity').total
+        self.assertContains(self.client.get(reverse('companies:brand')), f'data-points="{shown}"')

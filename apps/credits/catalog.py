@@ -27,6 +27,9 @@ def load() -> dict:
     if clash:
         raise ValueError(f'Priced both here and in enjaz-docai: {sorted(clash)}')
     data['services'] = {**data['services'], **shared}
+    for key, price in (data.get('price_overrides') or {}).items():      # services whose price is a value set by the owner, not cost + profit
+        if key in data['services']:
+            data['services'][key] = {**data['services'][key], 'price': price}
     return data
 
 
@@ -82,7 +85,10 @@ def fixed_points(key: str) -> int:
 
 def page_points(key: str) -> int:
     """The price of one dense page of a page-priced service."""
-    return max(1, _points(Decimal(str(service(key)['measured_cost_usd']))))
+    svc = service(key)
+    if svc.get('price') is not None:              # a price the owner set: it is the price of a design
+        return max(1, int((Decimal(str(svc['price'])) * POINTS_PER_DOLLAR).to_integral_value()))
+    return max(1, _points(Decimal(str(svc['measured_cost_usd']))))
 
 
 def dense_pages(key: str, pages=None, units=None) -> Decimal:

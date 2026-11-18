@@ -7550,6 +7550,18 @@ msgstr "عدّل جهة اتصال"
 msgid "Deleted a contact and its history"
 msgstr "حذف جهة اتصال وسجلّها"
 
+msgid "Nobody else is in this company yet."
+msgstr "لا يوجد أحد آخر في هذه الشركة بعد."
+
+msgid "Published an announcement"
+msgstr "نشر إعلاناً"
+
+msgid "Changed an announcement"
+msgstr "عدّل إعلاناً"
+
+msgid "Deleted an announcement"
+msgstr "حذف إعلاناً"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

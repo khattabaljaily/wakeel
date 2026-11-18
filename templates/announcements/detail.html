@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ announcement.title }}{% endblock %}
+{% block page_title %}<span dir="auto">{{ announcement.title }}</span>{% endblock %}
+{% block subtitle %}<div class="subtitle">{% include "announcements/_kind.html" with a=announcement %} <span dir="ltr">{{ announcement.created_at|date:"Y-m-d H:i" }}</span>{% if announcement.author %} · <span dir="auto">{{ announcement.author.first_name|default:announcement.author.email }}</span>{% endif %}</div>{% endblock %}
+{% block actions %}
+  <a class="btn btn-light" href="{% url 'announcements:list' %}">← {% translate "Company announcements" context "navigation" %}</a>
+  {% if can_manage %}<a class="btn btn-light" href="{% url 'announcements:edit' announcement.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>
+  <form method="post" action="{% url 'announcements:delete' announcement.pk %}" data-confirm="{% translate 'This announcement will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}
+{% endblock %}
+{% block content %}
+<div class="wk-card mb-3{% if announcement.kind == 'alert' %} border border-danger{% endif %}"><div class="wk-card-body">
+  <p class="mb-0" dir="auto" style="white-space:normal;line-height:1.9">{{ announcement.body|linebreaksbr }}</p>
+  {% if announcement.requires_ack and mine %}<div class="mt-3 pt-3 border-top">
+    {% if mine.acknowledged_at %}<span class="badge text-bg-success">{% translate "Confirmed" %}</span> <span class="small-muted" dir="ltr">{{ mine.acknowledged_at|date:"Y-m-d H:i" }}</span>
+    {% else %}<form method="post" action="{% url 'announcements:confirm' announcement.pk %}" data-once>{% csrf_token %}<button type="submit" class="btn btn-primary"><i class="bi bi-check2"></i> {% translate "I have read this" %}</button></form>{% endif %}
+  </div>{% endif %}
+</div></div>
+
+{% if can_manage %}<div class="wk-card"><div class="wk-card-head d-flex flex-wrap justify-content-between gap-2"><h2>{% translate "Who read it" %}</h2>
+  <span class="small-muted">{% blocktranslate with read=read_count total=total %}Read by {{ read }} of {{ total }}{% endblocktranslate %}{% if announcement.requires_ack %} · {% blocktranslate with ack=ack_count %}Confirmed by {{ ack }}{% endblocktranslate %}{% endif %}</span></div>
+  <div class="list-group list-group-flush">{% for user, read in rows %}
+    <div class="list-group-item d-flex justify-content-between align-items-center gap-2">
+      <div class="text-truncate"><div class="fw-semibold" dir="auto">{{ user.first_name|default:user.email }}</div><div class="small-muted" dir="ltr" style="text-align:start">{{ user.email }}</div></div>
+      <div class="text-nowrap">{% if read %}{% if read.acknowledged_at %}<span class="badge text-bg-success">{% translate "Confirmed" %}</span>{% elif announcement.requires_ack %}<span class="badge text-bg-warning">{% translate "Read, not confirmed" %}</span>{% else %}<span class="badge text-bg-success">{% translate "Read" %}</span>{% endif %}
+        <span class="small-muted" dir="ltr">{{ read.read_at|date:"Y-m-d H:i" }}</span>{% else %}<span class="badge text-bg-light border">{% translate "Not read yet" %}</span>{% endif %}</div>
+    </div>
+  {% empty %}<div class="p-3 small-muted">{% translate "Nobody else is in this company yet." %}</div>{% endfor %}</div>
+</div>{% endif %}
+{% endblock %}

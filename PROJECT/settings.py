@@ -101,6 +101,7 @@ INSTALLED_APPS = [
     'apps.tasks',
     'apps.notes',
     'apps.contacts',
+    'apps.announcements',
     'enjaz_operators',
 ]
 

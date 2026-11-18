@@ -98,3 +98,11 @@
 
 .wk-sidebar--rail .wk-sidebar-foot { margin-top: auto; padding: .8rem 0 0; border-top: 1px solid var(--rail-line); display: grid; gap: .2rem; }
 .wk-sidebar--rail .wk-sidebar-foot .btn-link i { color: var(--side-muted) !important; }
+
+/* The "waiting for you" panel on the dashboard (core/attention.py) */
+.wk-wait { display: flex; align-items: center; gap: .75rem; padding: .6rem .8rem; border: 1px solid var(--wk-border); border-radius: 12px; background: var(--wk-card); color: var(--wk-text); text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+.wk-wait:hover { border-color: var(--wk-primary); box-shadow: 0 0 0 3px var(--wk-primary-50); color: var(--wk-ink); }
+.wk-wait__n { min-width: 2.2rem; text-align: center; font-weight: 800; font-size: 1.15rem; border-radius: 8px; padding: .1rem .4rem; background: var(--wk-primary-50); color: var(--wk-primary-600); }
+.wk-wait--late .wk-wait__n { background: #fdecec; color: #c0392b; }
+.wk-wait--review .wk-wait__n { background: #fff4dc; color: #9a6a00; }
+.wk-wait__t { flex: 1; min-width: 0; font-weight: 600; font-size: .92rem; }

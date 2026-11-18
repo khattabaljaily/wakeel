@@ -39,16 +39,34 @@
 </div>
 {% endif %}
 
+<section class="wk-card mb-4" aria-labelledby="waitingTitle">
+    <div class="wk-card-head"><h2 id="waitingTitle"><i class="bi bi-inbox text-primary"></i> {% translate "ينتظرك" %}</h2></div>
+    <div class="wk-card-body">
+    {% if waiting %}
+        <div class="row g-4">
+        {% for group in waiting %}
+            <div class="col-md-6 col-xl-4">
+                <div class="small-muted fw-semibold mb-2"><i class="bi {{ group.icon }}"></i> {{ group.title }}</div>
+                <div class="d-grid gap-2">
+                {% for item in group.items %}
+                    <a href="{{ item.url }}" class="wk-wait wk-wait--{{ item.tone }}"><span class="wk-wait__n">{{ item.count }}</span><span class="wk-wait__t">{{ item.label }}</span><i class="bi bi-chevron-{% if LANGUAGE_BIDI %}left{% else %}right{% endif %}"></i></a>
+                {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <div class="small-muted py-2"><i class="bi bi-check2-circle text-success"></i> {% translate "لا شيء ينتظرك الآن. كل شيء في موضعه." %}</div>
+    {% endif %}
+    </div>
+</section>
+
 <div class="row g-3 mb-4">
     <div class="col-6 col-xl-3"><a href="{% url 'content:calendar' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-collection"></i></div><div><div class="wk-stat__value">{{ counts.total }}</div><div class="wk-stat__label">{% blocktranslate trimmed with month_name=month_name %}منشورات {{ month_name }}{% endblocktranslate %}</div></div></a></div>
     <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=review" class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-hourglass-split"></i></div><div><div class="wk-stat__value">{{ counts.review }}</div><div class="wk-stat__label">{% translate "بانتظار المراجعة" %}</div></div></a></div>
     <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=approved" class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-patch-check"></i></div><div><div class="wk-stat__value">{{ counts.approved }}</div><div class="wk-stat__label">{% translate "معتمدة للنشر" %}</div></div></a></div>
     <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=published" class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-send-check"></i></div><div><div class="wk-stat__value">{{ counts.published }}</div><div class="wk-stat__label">{% translate "تم نشرها" %}</div></div></a></div>
 </div>
-
-{% if overdue %}
-<div class="alert alert-danger d-flex align-items-center gap-2"><i class="bi bi-alarm"></i> {% blocktranslate trimmed with overdue=overdue %}لديك {{ overdue }} منشور تجاوز موعد نشره ولم يُنشر بعد.{% endblocktranslate %} <a href="{% url 'content:post_list' %}?overdue=1" class="alert-link ms-auto">{% translate "عرض المنشورات المتأخرة" %}</a></div>
-{% endif %}
 
 <div class="row g-4">
     <div class="col-xl-8">

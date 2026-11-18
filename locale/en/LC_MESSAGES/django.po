@@ -5725,3 +5725,18 @@ msgstr "Expand menu"
 
 msgid "التسويق (وكيل)"
 msgstr "Marketing (Wakeel)"
+
+msgid "ينتظرك"
+msgstr "Waiting for you"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "Nothing is waiting for you. Everything is in its place."
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "Posts waiting for review"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "Posts past their publishing time"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "Comments waiting for a reply"

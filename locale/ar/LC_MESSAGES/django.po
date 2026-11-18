@@ -7633,6 +7633,18 @@ msgstr "هذا الاقتراح لم يعد متاحاً. اسأل مارد من
 msgid "slide"
 msgstr "شريحة"
 
+msgid "Documents waiting for your approval"
+msgstr "مستندات بانتظار موافقتك"
+
+msgid "Papers expired or expiring within 30 days"
+msgstr "أوراق منتهية أو تنتهي خلال 30 يوماً"
+
+msgid "Tasks of yours are overdue"
+msgstr "مهامك المتأخرة"
+
+msgid "Tasks assigned to you"
+msgstr "مهام مسندة إليك"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

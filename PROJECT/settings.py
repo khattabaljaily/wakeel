@@ -89,6 +89,11 @@ INSTALLED_APPS = [
     'apps.ops',
 ]
 
+RUNNING_TESTS = 'test' in sys.argv[1:2]
+if RUNNING_TESTS:
+    # A company-scoped model used only by the isolation tests (apps/core/tests_tenancy.py).
+    INSTALLED_APPS += ['apps.core.testapp']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

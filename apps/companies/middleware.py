@@ -1,12 +1,15 @@
 from django.utils import timezone
 
+from apps.core.tenancy import reset_current_company, set_current_company
+
 from .models import Membership
 
 SESSION_KEY = 'wakeel_company_id'
 
 
 class CurrentCompanyMiddleware:
-    """Attach the company the user is working in (and their membership) to the request.
+    """Attach the company the user is working in (and their membership) to the request and as the
+    company context that scopes `CompanyScopedModel` queries.
 
     The choice lives in the session; if it's missing or no longer valid we fall
     back to the user's first company. The company's timezone is activated so
@@ -33,7 +36,9 @@ class CurrentCompanyMiddleware:
                 request.membership = membership
                 request.company = membership.company
                 timezone.activate(membership.company.tzinfo)
+        token = set_current_company(request.company)
         try:
             return self.get_response(request)
         finally:
+            reset_current_company(token)
             timezone.deactivate()

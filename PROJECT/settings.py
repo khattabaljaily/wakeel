@@ -213,6 +213,18 @@ if 'test' in sys.argv:
     STORAGES['staticfiles']['BACKEND'] = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+# Private files (company documents, letterheads, the library): NOT under MEDIA, never served by the web server, only by a
+# view that checks access, and encrypted on disk with a key per company derived from FILE_ENCRYPTION_KEY
+# (apps/core/filecrypto.py, apps/core/storage.py).
+PRIVATE_ROOT = BASE_DIR / 'private'
+if RUNNING_TESTS:
+    # Tests write private files to a throwaway folder, never into the real private one.
+    import tempfile
+    PRIVATE_ROOT = Path(tempfile.mkdtemp(prefix='wakeel-test-private-'))
+# Keep a copy of the master key OUTSIDE the server: without it the files cannot be read again. Production refuses to
+# start without one (create it with: manage.py make_file_key).
+from apps.core.filecrypto import load_key  # noqa: E402
+FILE_ENCRYPTION_KEY = load_key(get_secret('FILE_ENCRYPTION_KEY', ''), dev=DEBUG or RUNNING_TESTS, secret_key=SECRET_KEY)
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 

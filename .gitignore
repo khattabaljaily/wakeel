@@ -76,3 +76,4 @@ SYSTEM_BRIEF.md
 deploy
 .run_worker.lock
 .worker_heartbeat
+/private

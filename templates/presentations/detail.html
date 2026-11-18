@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ p.title }}{% endblock %}
+{% block page_title %}<span dir="auto">{{ p.title }}</span>{% endblock %}
+{% block subtitle %}<div class="subtitle">{{ p.get_tier_display }} · {{ p.get_language_display }} · {% blocktranslate count n=p.slides %}{{ n }} slide{% plural %}{{ n }} slides{% endblocktranslate %} · {{ p.created_at|date:"Y-m-d H:i" }}</div>{% endblock %}
+{% block actions %}
+  <a class="btn btn-light" href="{% url 'presentations:list' %}">← {% translate "Smart presentations" context "navigation" %}</a>
+  {% if p.status == 'done' %}<a class="btn btn-primary" href="{% url 'presentations:file' p.pk 'pptx' %}"><i class="bi bi-download"></i> PowerPoint</a>{% endif %}
+  {% if not p.is_working %}<form method="post" action="{% url 'presentations:delete' p.pk %}" data-confirm="{% translate 'This presentation will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash"></i> {% translate "Delete" %}</button></form>{% endif %}
+{% endblock %}
+{% block content %}
+{% if p.is_working %}
+<div class="wk-card" role="status" id="deckWorking" data-job="{{ p.job_id }}"><div class="wk-card-body text-center py-5"><div class="spinner-border mb-3"></div>
+  <h2 class="h5">{% translate "Working on it…" %}</h2>
+  <p class="small-muted">{% translate "Building the slides takes a few minutes. You can leave this page: the result waits in your presentations." %}</p></div></div>
+{% elif p.status == 'failed' %}
+<div class="alert alert-danger" role="alert">{{ p.error|default:_("The service had a problem. You were not charged; please try again.") }} <strong>{% translate "You were not charged." %}</strong></div>
+{% else %}
+<div class="wk-card"><div class="wk-card-body">
+  <object data="{% url 'presentations:file' p.pk 'preview' %}#toolbar=0&navpanes=0" type="application/pdf" style="width:100%;height:70vh"><p class="small-muted">{% translate "Your browser cannot show the preview. Download the PowerPoint." %}</p></object>
+  {% if outline %}<h3 class="h6 mt-3">{% translate "The slides" %}</h3><ol dir="{% if p.is_rtl %}rtl{% else %}auto{% endif %}">{% for t in outline %}<li dir="auto">{{ t }}</li>{% endfor %}</ol>{% endif %}
+  <p class="small-muted">{% translate "Written by AI from what you gave it. Check the facts and figures before you present." %}</p>
+</div></div>
+{% endif %}
+{% endblock %}
+{% block scripts %}{% if p.is_working %}<script>
+(function () { var b = document.getElementById('deckWorking'); if (!b || !b.dataset.job) { setTimeout(function () { location.reload(); }, 5000); return; }
+  Wakeel.pollJob(b.dataset.job).then(function () { location.reload(); }, function () { location.reload(); }); })();
+</script>{% endif %}{% endblock %}

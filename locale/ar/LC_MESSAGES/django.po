@@ -7474,6 +7474,20 @@ msgid ""
 "Today you pay for the logo; the whole kit comes to $%(t)s with the discount."
 msgstr "تدفع اليوم ثمن الشعار فقط، ويبلغ مجموع الحزمة كلها $%(t)s بعد الخصم."
 
+msgid ""
+"Your balance is not enough for this presentation. Top up your wallet and try "
+"again."
+msgstr "رصيدك لا يكفي لهذا العرض. اشحن محفظتك وحاول مرة أخرى."
+
+msgid "The service is busy at the moment. Please try again later."
+msgstr "الخدمة مشغولة حالياً. حاول مرة أخرى لاحقاً."
+
+msgid "Ordered a presentation"
+msgstr "طلب عرضاً تقديمياً"
+
+msgid "Deleted a presentation"
+msgstr "حذف عرضاً تقديمياً"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

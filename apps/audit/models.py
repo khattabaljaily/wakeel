@@ -20,6 +20,7 @@ class AuditEvent(CompanyScopedModel):
     TEAM_INVITED, TEAM_JOINED, TEAM_REMOVED = 'team.invited', 'team.joined', 'team.removed'
     TEAM_ROLE_CHANGED, TEAM_INVITE_REVOKED = 'team.role_changed', 'team.invite_revoked'
     RECORD_UPLOADED, RECORD_CHANGED, RECORD_DELETED = 'record.uploaded', 'record.changed', 'record.deleted'
+    PRESENTATION_CREATED, PRESENTATION_DELETED = 'presentation.created', 'presentation.deleted'
     ACTIONS = {
         DOC_QR_CHANGED: _('Added or removed the verification QR code of a document'),
         DOC_PRINTED_VERIFIABLE: _('Opened a document with a verification QR code for printing'),
@@ -45,6 +46,8 @@ class AuditEvent(CompanyScopedModel):
         RECORD_UPLOADED: _('Uploaded a document to the library'),
         RECORD_CHANGED: _('Changed a document of the library'),
         RECORD_DELETED: _('Deleted a document from the library'),
+        PRESENTATION_CREATED: _('Ordered a presentation'),
+        PRESENTATION_DELETED: _('Deleted a presentation'),
     }
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')

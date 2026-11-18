@@ -24,6 +24,7 @@ urlpatterns = [
     path('app/documents/share/', include('apps.sharing.urls')),
     path('s/', include('apps.sharing.public_urls')),
     path('app/ai/identity/', include('apps.brand.urls')),
+    path('app/ai/presentations/', include('apps.presentations.urls')),
     path('app/ai/', include('apps.docops.urls')),
     path('app/ai/', include('apps.docops.service_urls')),
     path('v/<str:code>/', documents_verify.verify, name='verify'),

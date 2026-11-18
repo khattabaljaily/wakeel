@@ -135,8 +135,9 @@
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "AI studio" context "menu section" %}"><i class="bi bi-palette"></i><span class="lbl">{% translate "AI studio" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
                 <div class="rail-grp-body">
                     <span class="rail-fly-title" aria-hidden="true">{% translate "AI studio" context "menu section" %}</span>
-                    <a class="rail-btn" href="{% url 'services:hub' %}"{% if request.path|slice:':8' == '/app/ai/' and '/app/ai/identity/' not in request.path %} aria-current="page"{% endif %}><i class="bi bi-stars"></i><span class="lbl">{% translate "AI services" context "navigation" %}</span></a>
+                    <a class="rail-btn" href="{% url 'services:hub' %}"{% if request.path|slice:':8' == '/app/ai/' and '/app/ai/identity/' not in request.path and '/app/ai/presentations/' not in request.path %} aria-current="page"{% endif %}><i class="bi bi-stars"></i><span class="lbl">{% translate "AI services" context "navigation" %}</span></a>
                     <a class="rail-btn" href="{% url 'brand:studio' %}"{% nav_current '/app/ai/identity/' %}><i class="bi bi-bezier2"></i><span class="lbl">{% translate "Company identity" context "navigation" %}</span></a>
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'presentations:list' %}"{% nav_current '/app/ai/presentations/' %}><i class="bi bi-easel"></i><span class="lbl">{% translate "Smart presentations" context "navigation" %}</span></a>{% endif %}
                 </div>
             </div>
 

@@ -46,3 +46,23 @@ class MailAccount(CompanyScopedModel):
     def from_header(self):
         from email.utils import formataddr
         return formataddr((self.display_name, self.address))
+
+
+class MailTemplate(CompanyScopedModel):
+    """A look for the company's e-mail (header with the logo, colours, footer with the company details) made once by the AI and
+    used for any message. `html` holds the cleaned design with the blanks {{body}}, {{logo}}, {{company}}, {{address}},
+    {{phone}}, {{email}}, {{website}} and {{subject}}, which are filled in when a message is shown or sent."""
+
+    name = models.CharField(_('name'), max_length=120)
+    language = models.CharField(_('language'), max_length=8, default='en')
+    style = models.CharField(max_length=20, blank=True)
+    html = models.TextField(editable=False)
+    is_default = models.BooleanField(default=False)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL, related_name='+', editable=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-is_default', '-created_at']
+
+    def __str__(self):
+        return self.name

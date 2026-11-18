@@ -5,6 +5,7 @@
 {% block subtitle %}<div class="subtitle"><bdi dir="ltr">{{ account.address }}</bdi></div>{% endblock %}
 {% block extra_head %}{% include "mail/_head.html" %}{% endblock %}
 {% block actions %}<a class="btn btn-primary" href="{% url 'mail:compose' %}" data-compose><i class="bi bi-pencil-square"></i> {% translate "Write" %}</a>
+  <a class="btn btn-light" href="{% url 'mail:templates' %}"><i class="bi bi-stars"></i> {% translate "Templates" %}</a>
   {% if can_manage %}<a class="btn btn-light" href="{% url 'mail:setup' %}"><i class="bi bi-gear"></i> {% translate "Settings" %}</a>{% endif %}{% endblock %}
 {% block content %}
 <div class="wk-mail">

@@ -10,7 +10,7 @@ from urllib.parse import urlencode
 from django.contrib import messages
 from django.core.cache import cache
 from django.http import FileResponse, Http404, HttpResponse, JsonResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -20,12 +20,15 @@ from django.views.decorators.http import require_POST
 from apps.audit import log as audit
 from apps.audit.models import AuditEvent
 from apps.companies.decorators import company_required
+from apps.credits.catalog import format_points
+from apps.credits.charging import get_wallet
+from apps.credits.jobs import expected_points
 
-from . import client, htmlsafe
+from . import client, generate, htmlsafe
 from . import render as mailrender
 from .client import AuthFailed, MailError
-from .forms import SetupForm, split_recipients
-from .models import MailAccount
+from .forms import SetupForm, TemplateForm, split_recipients
+from .models import MailAccount, MailTemplate
 
 SENDS_PER_HOUR = 60
 MAX_RECIPIENTS = 30
@@ -281,31 +284,43 @@ def _is_rtl(text):
     return bool(re.search('[؀-ۿݐ-ݿ]', text or ''))
 
 
-def compose_message(request, subject, raw_html, for_preview=False):
-    """(plain text, the finished page, rtl, logo part) of a message: its body made safe and put into its page."""
+def _template_of(value):
+    return MailTemplate.objects.filter(pk=int(value)).first() if str(value or '').isdigit() else None
+
+
+def compose_message(request, subject, raw_html, template=None, for_preview=False):
+    """(plain text, the finished page, rtl, logo part) of a message: its body made safe, then put into the template (or a plain
+    page). On screen the logo is a data address; in a sent message it travels as an inline attachment (cid:logo)."""
     body, _images = htmlsafe.clean(raw_html)
     text = mailrender.to_text(body)
-    rtl = _is_rtl(text)
-    page = mailrender.document(mailrender.plain_wrapper(body, rtl), rtl)
-    return text, page, rtl, None
+    company = request.company
+    rtl = (template.language in ('ar', 'fa')) if template else _is_rtl(text)
+    if template:
+        logo = mailrender.logo_data_uri(company) if for_preview else ('cid:logo' if mailrender.logo_part(company) else '')
+        inner = mailrender.fill(template.html, body, subject, mailrender.company_values(company, template.language), logo)
+    else:
+        inner = mailrender.plain_wrapper(body, rtl)
+    page = mailrender.document(inner, rtl)
+    return text, page, rtl, (mailrender.logo_part(company) if template and 'cid:logo' in page else None)
 
 
 @editor
 @require_POST
 def preview(request):
-    """The message as the recipient will see it: a page for the preview frame."""
+    """The message as the recipient will see it, in the chosen template: a page for the preview frame."""
     raw = request.POST.get('body_html')
     if raw is None:
         raw = _plain_to_html(request.POST.get('body', ''))
-    _text, page, _rtl, _logo = compose_message(request, request.POST.get('subject', '')[:300], raw, for_preview=True)
+    _text, page, _rtl, _logo = compose_message(request, request.POST.get('subject', '')[:300], raw,
+                                               _template_of(request.POST.get('template')), for_preview=True)
     response = HttpResponse(page)
     response['Content-Security-Policy'] = "default-src 'none'; style-src 'unsafe-inline'; img-src data:"
     return response
 
 
 def compose_extra(request):
-    """What else the composer shows (the e-mail templates, when there are any)."""
-    return {}
+    """The company's e-mail templates for the composer (the default one is chosen)."""
+    return {'templates': list(MailTemplate.objects.all()), 'designs_template': 'mail/_designs.html'}
 
 
 @editor
@@ -313,7 +328,8 @@ def compose(request):
     account = _account()
     if account is None:
         return redirect('mail:home')
-    values = {'to': request.GET.get('to', ''), 'cc': '', 'bcc': '', 'subject': '', 'body_html': ''}
+    default = MailTemplate.objects.filter(is_default=True).first()
+    values = {'to': request.GET.get('to', ''), 'cc': '', 'bcc': '', 'subject': '', 'body_html': '', 'template': str(default.pk) if default else ''}
     source = None
     ref = request.GET.get('reply') or request.GET.get('reply_all') or request.GET.get('forward') or request.POST.get('ref', '')
     mode = ('reply_all' if request.GET.get('reply_all') else 'reply' if request.GET.get('reply') else
@@ -358,7 +374,7 @@ def compose(request):
             values['body_html'] = '<p><br></p>' + signature
         return page()
     # sending
-    for key in ('to', 'cc', 'bcc', 'subject'):
+    for key in ('to', 'cc', 'bcc', 'subject', 'template'):
         values[key] = request.POST.get(key, '')
     raw = request.POST.get('body_html')
     if raw is None:                                        # a plain form (no editor): the text typed becomes paragraphs
@@ -387,7 +403,8 @@ def compose(request):
             error = _('Many messages were sent in the last hour. Try again later.')
     if error:
         return failed(error)
-    text, html_page, _rtl, logo = compose_message(request, values['subject'], values['body_html'])
+    template = _template_of(values['template'])
+    text, html_page, _rtl, logo = compose_message(request, values['subject'], values['body_html'], template)
     attachments = [(f.name, f.content_type, f.read()) for f in files]
     kept, problem = _company_attachments(request, request.POST.getlist('doc'), request.POST.getlist('rec'))
     if problem:
@@ -397,7 +414,7 @@ def compose(request):
         client.send(account, to, cc, bcc, values['subject'], text, attachments, source, html_page, logo)
     except MailError as exc:
         return failed(str(exc))
-    audit.record(request, AuditEvent.MAIL_SENT, account.address, to=', '.join(to)[:200], files=len(attachments))
+    audit.record(request, AuditEvent.MAIL_SENT, account.address, to=', '.join(to)[:200], files=len(attachments), template=bool(template))
     messages.success(request, _('The message was sent.'))
     return JsonResponse({'ok': True, 'url': reverse('mail:box')}) if modal else redirect('mail:box')
 
@@ -474,3 +491,57 @@ def save_attachment(request, uid, index):
     audit.record(request, AuditEvent.RECORD_UPLOADED, record.title, source='mail')
     messages.success(request, _('Saved in your library. Complete its details here.'))
     return redirect('library:edit', pk=record.pk)
+
+
+# -- the company's e-mail templates (designed by the AI, paid) --------------------------------------------------------------------
+
+@editor
+def templates(request):
+    return render(request, 'mail/templates.html', {'templates': MailTemplate.objects.all(), 'quote': generate.quote(),
+                                                   'can_manage': request.membership.can_manage})
+
+
+@editor
+def template_new(request):
+    """The choice of a style, then a paid job at the price on the button; the page that waits opens the templates when done."""
+    company = request.company
+    form = TemplateForm(request.POST or None, initial={'language': company.main_language or request.LANGUAGE_CODE, 'style': 'classic'})
+    if request.method == 'POST' and form.is_valid():
+        # Charged here at the price that was shown (expected_points); a refused payment is answered by the payment middleware.
+        job = generate.start(company, request.user, form.cleaned_data, expected_points(request.POST))
+        return redirect(f"{reverse('documents:working', args=[job.pk])}?{urlencode({'back': reverse('mail:templates')})}")
+    return render(request, 'mail/template_new.html', {'form': form, 'quote': generate.quote(), 'styles': generate.STYLES.items(),
+                                                      'balance': format_points(get_wallet(company).balance)})
+
+
+@editor
+def template_preview(request, pk):
+    """A template filled with sample text and the company's own details: a page for a preview frame."""
+    template = get_object_or_404(MailTemplate, pk=pk)
+    company = request.company
+    body = mailrender.SAMPLE_BODY_AR if template.language in ('ar', 'fa') else mailrender.SAMPLE_BODY
+    page = mailrender.document(mailrender.fill(template.html, body, _('Subject of your message'),
+                                               mailrender.company_values(company, template.language), mailrender.logo_data_uri(company)),
+                               template.language in ('ar', 'fa'))
+    response = HttpResponse(page)
+    response['Content-Security-Policy'] = "default-src 'none'; style-src 'unsafe-inline'; img-src data:"
+    response['X-Frame-Options'] = 'SAMEORIGIN'
+    return response
+
+
+@editor
+@require_POST
+def template_default(request, pk):
+    template = get_object_or_404(MailTemplate, pk=pk)
+    MailTemplate.objects.exclude(pk=template.pk).update(is_default=False)
+    template.is_default = True
+    template.save(update_fields=['is_default'])
+    return redirect('mail:templates')
+
+
+@manager
+@require_POST
+def template_delete(request, pk):
+    get_object_or_404(MailTemplate, pk=pk).delete()
+    messages.success(request, _('Deleted.'))
+    return redirect('mail:templates')

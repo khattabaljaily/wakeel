@@ -7595,6 +7595,9 @@ msgstr "يحذف كلمة المرور المحفوظة من وكيل. تبقى 
 msgid "The mailbox will be disconnected from Wakeel."
 msgstr "سيتم فصل صندوق البريد عن وكيل."
 
+msgid "Your balance: $%(balance)s. It takes about half a minute."
+msgstr "رصيدك: $%(balance)s. يستغرق نحو نصف دقيقة."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

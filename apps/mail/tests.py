@@ -615,3 +615,201 @@ class SnippetTests(MailBase):
         nested = client.parse_structure(b' (("TEXT" "HTML" ("CHARSET" "utf-8") NIL NIL "QUOTED-PRINTABLE" 9 1)(("TEXT" "PLAIN" ("CHARSET" "iso-8859-1") NIL NIL "BASE64" 4 1)("IMAGE" "PNG" NIL NIL NIL "BASE64" 5) "ALTERNATIVE") "MIXED")')
         self.assertEqual(client.text_part(nested), ('2.1', 'plain', 'iso-8859-1', 'base64'))
         self.assertIsNone(client.text_part(client.parse_structure(b' ("IMAGE" "PNG" NIL NIL NIL "BASE64" 5))')))
+
+
+TEMPLATE_HTML = ('<table role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:640px;background-color:#ffffff">'
+                 '<tr><td style="background-color:#7c3aed;padding:20px"><img src="{{logo}}" alt="" height="48" style="height:48px">'
+                 '<span style="color:#ffffff;font-size:20px">{{company}}</span></td></tr>'
+                 '<tr><td style="padding:24px;font-size:16px;line-height:1.6">{{body}}</td></tr>'
+                 '<tr><td style="padding:16px;font-size:13px">{{address}} <a href="{{website}}">{{website}}</a> '
+                 '<script>alert(1)</script><img src="http://track/x.gif"></td></tr></table>')
+
+
+class TemplateHtmlTests(SimpleTestCase):
+    def test_a_template_keeps_its_layout_and_logo_but_nothing_that_loads(self):
+        html, images = htmlsafe.clean(TEMPLATE_HTML, template=True)
+        self.assertIn('cellpadding="0"', html)
+        self.assertIn('<img src="{{logo}}"', html)
+        self.assertIn('<a href="{{website}}"', html)
+        self.assertNotIn('script', html)
+        self.assertNotIn('track', html)
+        self.assertEqual(images, 1)                                 # only the foreign picture was left out
+        plain, _n = htmlsafe.clean(TEMPLATE_HTML)                   # a message body never keeps tables' layout attributes or the logo
+        self.assertNotIn('cellpadding', plain)
+        self.assertNotIn('{{logo}}', plain)
+
+    def test_fill_escapes_company_values_and_drops_an_empty_logo(self):
+        from . import render
+        page = render.fill(TEMPLATE_HTML.split('<script>')[0], '<p>Hi</p>', 'S', {'company': 'A <b>&</b> Co', 'address': 'Doha', 'website': ''}, '')
+        self.assertIn('A &lt;b&gt;&amp;&lt;/b&gt; Co', page)
+        self.assertIn('<p>Hi</p>', page)
+        self.assertNotIn('<img', page)                              # no logo, no broken picture
+        self.assertNotIn('{{', page)
+
+    def test_plain_text_twin(self):
+        from . import render
+        self.assertEqual(render.to_text('<p>Hello</p><ul><li>One</li></ul><p>See <a href="https://a.com">here</a></p>'),
+                         'Hello\n\n• One\n\nSee here (https://a.com)')
+
+
+class MailTemplateViewsTests(MailBase):
+    """The company's e-mail templates: paid at the price on the button, previewed, chosen and used."""
+
+    def ai(self, html=TEMPLATE_HTML, error=None):
+        from apps.ai.client import AIError, AIResult
+        if error:
+            return mock.patch('apps.mail.generate.ai.call_json', side_effect=AIError('Busy'))
+        return mock.patch('apps.mail.generate.ai.call_json', return_value=AIResult({'html': html}, 900, 1800, 0, 'claude-opus-5-5'))
+
+    def balance(self):
+        from apps.credits.models import Wallet
+        return Wallet.objects.get(company=self.company).balance
+
+    def order(self, shown=None, **data):
+        from . import generate
+        data = {'style': 'modern', 'language': 'en', 'name': '', 'notes': 'green',
+                'expected_points': generate.quote().total if shown is None else shown, **data}
+        return self.client.post(reverse('mail:template_new'), data)
+
+    def work(self, **ai):
+        from apps.jobs.models import Job
+        from apps.jobs.runner import run_job
+        job = Job.objects.order_by('-pk').first()
+        with self.ai(**ai):
+            run_job(job)
+        job.refresh_from_db()
+        return job
+
+    def make(self, **kw):
+        from .models import MailTemplate
+        html, _n = htmlsafe.clean(TEMPLATE_HTML, template=True)
+        return MailTemplate.all_companies.create(**{**dict(company=self.company, name='Classic', html=html, language='en'), **kw})
+
+    def test_the_price_on_the_button_is_the_price_charged(self):
+        from apps.credits.models import WalletTransaction
+
+        from . import generate
+        from .models import MailTemplate
+        self.owner.language = 'en'                                              # the job names the template in its maker's language
+        self.owner.save(update_fields=['language'])
+        quote = generate.quote()
+        self.assertEqual(quote.total, 240)                                      # the owner's price: $0.24
+        page = self.client.get(reverse('mail:template_new'))
+        self.assertContains(page, f'name="expected_points" value="{quote.total}"')
+        self.assertContains(page, f'${quote.usd}')
+        before = self.balance()
+        response = self.order()
+        self.assertEqual(before - self.balance(), quote.total)
+        self.assertEqual(WalletTransaction.objects.get(company=self.company, service_key='generate_mail_template').delta, -quote.total)
+        self.assertIn(reverse('documents:working', args=[1]).rsplit('/', 2)[0], response['Location'])
+        job = self.work()
+        template = MailTemplate.all_companies.get()
+        self.assertEqual((job.status, template.name, template.style, template.is_default, template.company), (job.Status.DONE, 'Modern', 'modern', True, self.company))
+        self.assertNotIn('script', template.html)
+        self.assertEqual((job.params['result_url'], job.input_tokens), (reverse('mail:templates'), 900))
+
+    def test_a_different_price_is_refused_without_charging(self):
+        from apps.jobs.models import Job
+        before = self.balance()
+        self.order(shown=1)
+        self.assertEqual((self.balance(), Job.objects.count()), (before, 0))
+
+    def test_a_failed_or_unusable_design_is_refunded_and_keeps_nothing(self):
+        from .models import MailTemplate
+        before = self.balance()
+        self.order()
+        self.assertEqual(self.work(error=True).status, 'failed')
+        self.order()
+        self.assertEqual(self.work(html='<p>no body blank here</p>').status, 'failed')
+        self.assertEqual((self.balance(), MailTemplate.all_companies.count()), (before, 0))
+
+    def test_without_balance_nothing_is_queued(self):
+        from apps.credits.models import Wallet
+        from apps.jobs.models import Job
+        Wallet.objects.filter(company=self.company).update(balance=0)
+        self.order()
+        self.assertEqual(Job.objects.count(), 0)
+
+    def test_viewers_cannot_order_a_template(self):
+        from apps.jobs.models import Job
+        self.client.force_login(self.users[Membership.Role.VIEWER])
+        before = self.balance()
+        self.order()
+        self.assertEqual((Job.objects.count(), self.balance()), (0, before))
+
+    def test_the_list_the_preview_and_who_may_delete(self):
+        self.connect()
+        template = self.make(is_default=True)
+        self.assertContains(self.client.get(reverse('mail:templates')), 'Classic')
+        page = self.client.get(reverse('mail:template_preview', args=[template.pk]))
+        self.assertContains(page, 'Acme')                                    # the company name fills {{company}}
+        self.assertIn("default-src 'none'", page['Content-Security-Policy'])
+        self.client.force_login(self.users[Membership.Role.EDITOR])
+        self.assertEqual(self.client.post(reverse('mail:template_delete', args=[template.pk])).status_code, 403)
+        self.client.force_login(self.owner)
+        self.client.post(reverse('mail:template_delete', args=[template.pk]))
+        self.assertEqual(self.client.get(reverse('mail:template_preview', args=[template.pk])).status_code, 404)
+
+    def test_another_company_cannot_use_my_template(self):
+        self.connect()
+        template = self.make()
+        self.client.force_login(make_user('z@other.com', make_company('Other')))
+        self.assertEqual(self.client.get(reverse('mail:template_preview', args=[template.pk])).status_code, 404)
+        self.assertEqual(self.client.post(reverse('mail:template_default', args=[template.pk])).status_code, 404)
+
+    def test_the_default_changes_and_is_chosen_in_the_composer(self):
+        self.connect()
+        a, b = self.make(name='A', is_default=True), self.make(name='B')
+        self.client.post(reverse('mail:template_default', args=[b.pk]))
+        a.refresh_from_db()
+        b.refresh_from_db()
+        self.assertEqual((a.is_default, b.is_default), (False, True))
+        page = self.client.get(reverse('mail:compose')).content.decode()
+        self.assertRegex(page, rf'name="template" value="{b.pk}" checked')
+
+    def test_preview_shows_the_message_in_the_template(self):
+        self.connect()
+        template = self.make()
+        page = self.client.post(reverse('mail:preview'), {'subject': 'Offer', 'body_html': '<p>Hello <b>Sara</b></p><script>x</script>',
+                                                          'template': template.pk}).content.decode()
+        self.assertIn('Hello <b>Sara</b>', page)
+        self.assertNotIn('<script>x', page)
+        self.assertIn('Acme', page)
+
+    def test_a_message_goes_out_in_the_template_with_a_text_twin_and_the_logo_attached(self):
+        from django.core.files.base import ContentFile
+        self.connect()
+        template = self.make()
+        png = b'\x89PNG\r\n\x1a\n' + b'0' * 40
+        self.company.logo.save('logo.png', ContentFile(png))
+        self.client.post(reverse('mail:compose'), {'to': 'a@client.com', 'subject': 'Offer', 'template': template.pk,
+                                                   'body_html': '<p>مرحبا <b>سارة</b></p><script>x</script>'})
+        msg = self.server.sent[0][0]
+        kinds = [part.get_content_type() for part in msg.walk()]
+        self.assertIn('text/plain', kinds)
+        self.assertIn('text/html', kinds)
+        self.assertIn('image/png', kinds)
+        html = msg.get_body(('html',)).get_content()
+        self.assertIn('cid:logo', html)
+        self.assertIn('<b>سارة</b>', html)
+        self.assertNotIn('script', html)
+        self.assertIn('مرحبا سارة', msg.get_body(('plain',)).get_content())
+
+    def test_a_plain_message_has_no_template_and_an_empty_one_is_refused(self):
+        self.connect()
+        self.client.post(reverse('mail:compose'), {'to': 'a@client.com', 'subject': 'Hi', 'body_html': '<p>Hello</p>', 'template': ''})
+        html = self.server.sent[0][0].get_body(('html',)).get_content()
+        self.assertIn('Hello', html)
+        self.assertNotIn('<table', html)
+        response = self.client.post(reverse('mail:compose'), {'to': 'a@client.com', 'subject': 'Empty', 'body_html': '<p><br></p>'})
+        self.assertContains(response, 'Write a message or attach a file')
+        self.assertEqual(len(self.server.sent), 1)
+
+    def test_the_waiting_page_goes_back_only_to_this_site(self):
+        from apps.jobs.models import Job
+        self.order()
+        job = Job.objects.get()
+        for back in ('javascript:alert(1)', '//evil.example/x', 'https://evil.example/'):
+            page = self.client.get(reverse('documents:working', args=[job.pk]), {'back': back}).content.decode()
+            self.assertNotIn(back, page)
+        self.assertIn('data-back="/app/mail/templates/"', self.client.get(reverse('documents:working', args=[job.pk]), {'back': '/app/mail/templates/'}).content.decode())

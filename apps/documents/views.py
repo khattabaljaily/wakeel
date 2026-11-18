@@ -12,6 +12,7 @@ from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils import timezone, translation
 from django.utils.html import escape
 from django.utils.text import slugify
@@ -191,7 +192,10 @@ def edit(request, pk):
 def working(request, pk):
     """The page of a paid AI job of this section: it shows the progress and opens the result when the job is done."""
     job = get_object_or_404(Job, pk=pk, company=request.company, kind=Job.Kind.CALL)
-    return render(request, 'documents/working.html', {'job': job, 'back': request.GET.get('back') or reverse('library:list')})
+    back = request.GET.get('back', '')
+    if not (back.startswith('/') and url_has_allowed_host_and_scheme(back, allowed_hosts={request.get_host()})):
+        back = reverse('library:list')                 # only a page of this site: never javascript: or another site
+    return render(request, 'documents/working.html', {'job': job, 'back': back})
 
 
 # --- The page of a document: print, PDF, Word, e-mail ---------------------------------------------------------------

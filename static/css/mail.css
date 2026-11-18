@@ -171,3 +171,24 @@
 .wk-mail .pk-t { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
 .wk-mail .pk-foot { padding: .8rem 1rem; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; }
 @media (max-width: 640px) { .wk-mail .compose-dialog { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; border-radius: 0; } .wk-mail .compose.in-modal, .wk-mail #compose-slot { max-height: 100dvh; height: 100%; } }
+
+/* e-mail templates */
+.wk-mail .tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: 1.1rem; }
+.wk-mail .tpl-item { padding: .8rem; display: grid; gap: .7rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.wk-mail .tpl-big { position: relative; height: 16rem; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+.wk-mail .tpl-big iframe { position: absolute; top: 0; left: 0; width: 640px; height: 620px; border: 0; transform: scale(.48); transform-origin: top left; pointer-events: none; }
+.wk-mail .tpl-open { position: absolute; inset: 0; }
+.wk-mail .tpl-meta { display: flex; align-items: center; gap: .5rem; }
+.wk-mail .tpl-meta b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wk-mail .tpl-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+.wk-mail .style-pick { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .8rem; }
+.wk-mail .style-card { position: relative; display: grid; gap: .45rem; justify-items: center; padding: .7rem; border: 2px solid var(--line); border-radius: 14px; cursor: pointer; background: var(--surface); }
+.wk-mail .style-card input { position: absolute; opacity: 0; pointer-events: none; }
+.wk-mail .style-card:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(109, 94, 248, .18); }
+.wk-mail .style-card:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wk-mail .style-art { display: grid; gap: .3rem; align-content: start; width: 100%; height: 5.2rem; padding: .4rem; border-radius: 8px; background: #f1f1f3; }
+.wk-mail .style-art i { display: block; height: .45rem; border-radius: 3px; background: #d4d4d8; }
+.wk-mail .style-art i:first-child { height: 1.2rem; background: var(--accent); }
+.wk-mail .style-modern i:first-child { border-radius: 10px; height: 1.5rem; }
+.wk-mail .style-minimal i:first-child { height: .25rem; width: 40%; }
+.wk-mail .style-elegant i:first-child { height: .3rem; border-block: 2px double var(--accent); background: transparent; }

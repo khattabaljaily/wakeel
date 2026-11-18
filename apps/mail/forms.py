@@ -80,3 +80,19 @@ def split_recipients(text):
             return found, part
         found.append(address.lower())
     return list(dict.fromkeys(found)), ''
+
+
+class TemplateForm(forms.Form):
+    name = forms.CharField(label=_('Template name'), max_length=120, required=False,
+                           help_text=_('Optional. Leave it empty to use the name of the style.'),
+                           widget=forms.TextInput(attrs={'class': 'form-control', 'dir': 'auto'}))
+    style = forms.ChoiceField(label=_('Style'), widget=forms.RadioSelect)
+    language = forms.ChoiceField(label=_('Language of the template'), choices=settings.LANGUAGES, widget=forms.Select(attrs={'class': 'form-select'}))
+    notes = forms.CharField(label=_('Anything you want in it'), required=False, max_length=1000,
+                            widget=forms.Textarea(attrs={'rows': 3, 'class': 'form-control', 'dir': 'auto'}),
+                            help_text=_('For example: a green header, a short line about our opening hours in the footer.'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        from .generate import STYLES
+        self.fields['style'].choices = [(key, label) for key, (label, _d) in STYLES.items()]

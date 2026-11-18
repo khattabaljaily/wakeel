@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Issued documents" %}{% endblock %}
+{% block page_title %}{% translate "Issued documents" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "A record of the documents written from your templates. The text is not shown here: open a document to read it, and each opening is written to the activity log." %}</div>{% endblock %}
+{% block actions %}{% if membership.can_edit %}<a class="btn btn-primary" href="{% url 'documents:new' 'document' %}"><i class="bi bi-stars"></i> {% translate "Create with AI" %}</a>{% endif %}{% endblock %}
+{% block content %}
+<form method="get" class="wk-card mb-3" role="search"><div class="wk-card-body row g-2">
+  <div class="col-md-3"><label class="form-label" for="f-cat">{% translate "Category" %}</label>
+    <select id="f-cat" name="cat" class="form-select" onchange="this.form.submit()"><option value="">{% translate "All" %}</option>{% for key, label in categories %}<option value="{{ key }}"{% if key == cat %} selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+  <div class="col-md-3"><label class="form-label" for="f-st">{% translate "Approval" %}</label>
+    <select id="f-st" name="status" class="form-select" onchange="this.form.submit()"><option value="">{% translate "All" %}</option>{% for key, label in statuses %}<option value="{{ key }}"{% if key == status %} selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+  <div class="col-md-6"><label class="form-label" for="f-q">{% translate "Search" %}</label><input type="search" class="form-control" id="f-q" name="q" value="{{ q }}" autocomplete="off"></div>
+</div></form>
+<div class="wk-card"><div class="list-group list-group-flush">
+  {% for d in page %}
+  <div class="list-group-item d-flex flex-wrap align-items-center gap-2">
+    <div class="me-auto"><div class="fw-semibold" dir="auto">{{ d.doc_type|default:d.title }}</div>
+      <div class="small-muted"><span dir="ltr">{{ d.doc_date|date:"Y-m-d" }}</span>{% if d.recipient %} · <span dir="auto">{{ d.addressed_to }}</span>{% endif %} · {{ d.category_label }}{% if d.created_by %} · <span dir="auto">{{ d.created_by.first_name|default:d.created_by.email }}</span>{% endif %}</div>
+      <div class="mt-1">{% if d.written_by_ai %}<span class="badge text-bg-light border">AI</span> {% endif %}{% if d.is_verifiable %}<span class="badge text-bg-light border">QR</span> {% endif %}{% if d.revoked_at %}<span class="badge text-bg-danger">{% translate "Cancelled" %}</span> {% endif %}{% if d.status != 'approved' %}<span class="badge {% if d.status == 'pending' %}text-bg-warning{% elif d.status == 'rejected' %}text-bg-danger{% else %}text-bg-light border{% endif %}">{{ d.get_status_display }}</span>{% endif %}</div></div>
+    <a class="btn btn-sm btn-light" href="{% url 'documents:print' d.pk %}" target="_blank"><i class="bi bi-printer"></i> {% translate "Open and print" %}</a>
+    {% if pdf_available %}<a class="btn btn-sm btn-light" href="{% url 'documents:pdf' d.pk %}"><i class="bi bi-download"></i> {% translate "PDF" %}</a>{% endif %}
+    {% if membership.can_edit %}<a class="btn btn-sm btn-light" href="{% url 'documents:edit' d.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>{% endif %}
+  </div>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "No documents have been issued yet." %}</div>{% endfor %}
+</div></div>
+{% if page.has_other_pages %}<p class="d-flex gap-2 align-items-center mt-3">{% if page.has_previous %}<a class="btn btn-light btn-sm" href="?page={{ page.previous_page_number }}{% if cat %}&amp;cat={{ cat }}{% endif %}{% if q %}&amp;q={{ q|urlencode }}{% endif %}">←</a>{% endif %}
+  <span class="small-muted">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a class="btn btn-light btn-sm" href="?page={{ page.next_page_number }}{% if cat %}&amp;cat={{ cat }}{% endif %}{% if q %}&amp;q={{ q|urlencode }}{% endif %}">→</a>{% endif %}</p>{% endif %}
+{% endblock %}

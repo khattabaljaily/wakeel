@@ -9,6 +9,26 @@
     "topup_packages_usd": [10, 25, 50]
   },
   "services": {
+    "generate_template": {
+      "name_en": "Design a template of a document", "name_ar": "تصميم قالب مستند", "tier": "premium",
+      "fixed_cost_usd": 0.15,
+      "note": "Measured 2026-11-02 in MyDocHub on Claude Opus: a sales invoice $0.106, an experience certificate $0.109, a cash receipt $0.103, a quotation $0.148, an employment contract $0.159. The figure used is about the 90th percentile; a very long contract can reach $0.20. Not yet measured in Wakeel."
+    },
+    "fill_document": {
+      "name_en": "Fill a template with the details of one document", "name_ar": "تعبئة قالب ببيانات مستند", "tier": "premium",
+      "fixed_cost_usd": 0.04,
+      "note": "Measured 2026-11-02 in MyDocHub: $0.017 (20 blanks), $0.017 (29), $0.035 (47), $0.040 (57). The highest seen is used."
+    },
+    "generate_document": {
+      "name_en": "Create a document from a description", "name_ar": "إنشاء مستند من وصف", "tier": "premium",
+      "fixed_cost_usd": 0.05,
+      "note": "Measured 2026-11-01/02 in MyDocHub: average $0.027, highest $0.037; the figure used is the highest seen plus a margin for long documents. Writes a text template, or revises a text document."
+    },
+    "import_template": {
+      "name_en": "Turn an uploaded document into a template (free for the customer)", "name_ar": "تحويل مستند مرفوع إلى قالب (مجاني للعميل)", "tier": "premium",
+      "free": true, "fixed_cost_usd": 0.15,
+      "note": "A gift of the platform: run, tracked, never charged. Limited per company per day (apps.documents.jobs.FREE_IMPORTS_PER_DAY). The cost is listed only so the spend is tracked."
+    },
     "extract_document": {
       "name_en": "Read a document and fill in its details", "name_ar": "قراءة مستند وتعبئة تفاصيله", "tier": "premium",
       "fixed_cost_usd": 0.0378,

@@ -123,7 +123,10 @@
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "Documents and files" context "menu section" %}"><i class="bi bi-layers"></i><span class="lbl">{% translate "Documents and files" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
                 <div class="rail-grp-body">
                     <span class="rail-fly-title" aria-hidden="true">{% translate "Documents and files" context "menu section" %}</span>
-                    <a class="rail-btn" href="{% url 'library:list' %}"{% nav_current '/app/documents/' %}><i class="bi bi-folder2"></i><span class="lbl">{% translate "Document management" context "navigation" %}</span>{% if library_alerts %}<span class="rail-badge" title="{% translate "Expired or expiring within 30 days" %}">{{ library_alerts }}</span>{% endif %}</a>
+                    <a class="rail-btn" href="{% url 'library:list' %}"{% if request.path == '/app/documents/' or '/app/documents/upload' in request.path or request.resolver_match.app_name == 'library' %} aria-current="page"{% endif %}><i class="bi bi-folder2"></i><span class="lbl">{% translate "Document management" context "navigation" %}</span>{% if library_alerts %}<span class="rail-badge" title="{% translate "Expired or expiring within 30 days" %}">{{ library_alerts }}</span>{% endif %}</a>
+                    <a class="rail-btn" href="{% url 'documents:issued' %}"{% nav_current '/app/documents/d/issued/' %}><i class="bi bi-files"></i><span class="lbl">{% translate "Issued documents" %}</span></a>
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'documents:new' 'document' %}"{% nav_current '/app/documents/d/new/' %}><i class="bi bi-pencil-square"></i><span class="lbl">{% translate "Create a document" context "navigation" %}</span></a>{% endif %}
+                    <a class="rail-btn" href="{% url 'documents:templates' %}"{% nav_current '/app/documents/d/templates/' %}><i class="bi bi-file-earmark-richtext"></i><span class="lbl">{% translate "Document templates" context "navigation" %}</span></a>
                 </div>
             </div>
 

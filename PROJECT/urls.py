@@ -2,6 +2,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+
+from apps.documents import verify as documents_verify
 from django.utils.translation import gettext_lazy as _
 from django.views.i18n import JavaScriptCatalog
 
@@ -18,6 +20,8 @@ urlpatterns = [
     path('company/activity/', include('apps.audit.urls')),
     path('company/wallet/', include('apps.credits.urls')),
     path('app/documents/', include('apps.library.urls')),
+    path('app/documents/d/', include('apps.documents.urls')),
+    path('v/<str:code>/', documents_verify.verify, name='verify'),
     path('company/letterheads/', include('apps.identity.urls')),
     path('billing/', include('apps.billing.urls')),
     path('company/', include('apps.companies.urls')),

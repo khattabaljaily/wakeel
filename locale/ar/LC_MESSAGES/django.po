@@ -7401,6 +7401,59 @@ msgid ""
 "With an expiry date, you are reminded 90, 30, 7 and 1 day before it expires."
 msgstr "مع تاريخ الانتهاء، تصلك تذكيرات قبل 90 و30 و7 ويوم واحد من انتهائه."
 
+msgid "It did not work. You were not charged."
+msgstr "لم تنجح العملية. لم يُخصم منك شيء."
+
+msgid ""
+"It is sent as a PDF file from Wakeel, and your address is the reply address."
+msgstr "يُرسل كملف PDF من وكيل، وعنوانك هو عنوان الرد."
+
+msgid ""
+"No templates yet. Write a document with AI, or open an uploaded paper and "
+"choose «Use as a template»."
+msgstr ""
+"لا توجد قوالب بعد. اكتب مستنداً بالذكاء الاصطناعي، أو افتح ورقة مرفوعة واختر "
+"«استخدمه كقالب»."
+
+msgid "Reading the document… the details will appear here in a moment."
+msgstr "جارٍ قراءة المستند… ستظهر التفاصيل هنا بعد لحظات."
+
+msgid "The AI is writing. This can take up to a minute; you can wait here."
+msgstr "الذكاء الاصطناعي يكتب الآن. قد يستغرق حتى دقيقة، ويمكنك الانتظار هنا."
+
+msgid ""
+"The price above is for a type you already have a template for. A new type "
+"asks you first, with the whole price."
+msgstr ""
+"السعر أعلاه لنوع لديك قالب له. النوع الجديد يُسأل عنه أولاً مع السعر الكامل."
+
+msgid "Verified by Wakeel"
+msgstr "موثَّق بواسطة وكيل"
+
+msgid ""
+"Wakeel places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
+msgstr ""
+"لا يضع وكيل أي أختام أو توقيعات على المستندات: أي ختم أو توقيع على الورقة "
+"أضافته الشركة بعد الطباعة."
+
+msgid "You are charged only if the work is delivered."
+msgstr "لا يُخصم منك إلا إذا سُلِّم العمل."
+
+msgid "free"
+msgstr "مجاناً"
+
+msgid ""
+"Your balance: $%(balance)s. You are charged only if the text is delivered."
+msgstr "رصيدك: $%(balance)s. لا يُخصم منك إلا إذا سُلِّم النص."
+
+msgid ""
+"Shall I make a template of it for your company, in its identity? After that, "
+"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+msgstr ""
+"هل أصمّم لها قالباً لشركتك بهويتها؟ بعد ذلك، كلما احتجت «%(name)s» تدفع $"
+"%(later)s فقط للكتابة."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

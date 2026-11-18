@@ -11,6 +11,9 @@ from django.views.decorators.http import require_POST
 from apps.audit import log as audit
 from apps.audit.models import AuditEvent
 from apps.companies.decorators import company_required
+from apps.documents import jobs as document_jobs
+from apps.documents import pdf as pdf_tools
+from apps.documents.models import DocumentTemplate
 from apps.jobs.models import Job
 
 from apps.credits import quote as quotes
@@ -26,6 +29,7 @@ IMAGE_CSP = "default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; sand
 def record_list(request):
     """The library: the papers the company keeps, by category, with the selected one beside the list."""
     records = Record.objects.select_related('uploaded_by')
+    templates = DocumentTemplate.objects.all()
     # Two independent filters: the category (what kind of paper) and the status (expiring soon or already expired).
     category = request.GET.get('cat', '')
     soon = request.GET.get('status') == 'soon'
@@ -33,26 +37,40 @@ def record_list(request):
         category = ''
     if category:
         records = records.filter(category=category)
+        templates = templates.filter(category=category)
     expiring = folders.expiring().filter(category=category) if category else folders.expiring()
     if soon:
         records = records.filter(pk__in=expiring.values('pk')).order_by('expiry_date')
+        templates = templates.none()                               # a template does not expire
     query = request.GET.get('q', '').strip()[:100]
     if query:
         records = records.filter(Q(title__icontains=query) | Q(doc_type__icontains=query) | Q(issuer__icontains=query) |
                                  Q(reference__icontains=query) | Q(notes__icontains=query))
-    entries = list(records)
+        templates = templates.filter(name__icontains=query)
+    records, templates = list(records), list(templates)
+    for row in records:
+        row.entry = 'record'
+    for row in templates:
+        row.entry = 'template'
+    entries = sorted(records + templates, key=lambda row: row.created_at, reverse=True) if not soon else records
     selected = None
-    if request.GET.get('rec', '').isdigit():
-        selected = next((e for e in entries if e.pk == int(request.GET['rec'])), None)
+    for param, entry in (('tpl', 'template'), ('rec', 'record')):
+        value = request.GET.get(param, '')
+        if value.isdigit():
+            selected = next((e for e in entries if e.pk == int(value) and e.entry == entry), None)
+            if selected:
+                break
     if selected is None and entries:
         selected = entries[0]
-    reading = selected is not None and Job.objects.filter(
+    reading = selected is not None and selected.entry == 'record' and Job.objects.filter(
         company=request.company, kind=Job.Kind.CALL, status__in=[Job.Status.PENDING, Job.Status.RUNNING],
         params__func=extract.FUNC, params__record_id=selected.pk).first()
     return render(request, 'library/list.html', {
         'entries': entries, 'selected': selected, 'cat': category, 'soon': soon, 'q': query,
         'expiring_here': expiring.count(), 'cat_label': dict(Record.CATEGORIES).get(category, ''),
-        'read_quote': quotes.make(extract.SERVICE), 'reading': reading, **folders.folders()})
+        'read_quote': quotes.make(extract.SERVICE), 'reading': reading, 'pdf_available': pdf_tools.available(),
+        'imports_left': document_jobs.imports_left(request.company), 'write_quote': document_jobs.quote_for(['fill_document']),
+        'design_quote': document_jobs.quote_for(['generate_template']), **folders.folders()})
 
 
 def _form(request, record, title):

@@ -1,0 +1,93 @@
+{% load i18n static doc_tags %}<!doctype html>
+<html lang="{{ document.language }}" dir="{% if document.is_rtl %}rtl{% else %}ltr{% endif %}">
+<head>
+<meta charset="utf-8">
+<title>{{ document.title }}</title>
+<style>
+  /* Arabic documents are always set in Almohanad. Only the regular face is shipped: its bold draws the final jeem like a khaa, so bold is synthesised. */
+  @font-face { font-family: "Almohanad"; src: url("{% if font_src %}{{ font_src }}{% else %}{% static 'fonts/Almohanad-Regular.ttf' %}{% endif %}") format("truetype"); font-weight: normal; font-style: normal;
+    unicode-range: U+0020-0021, U+002C, U+002E, U+003A, U+00AB, U+00BB, U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF; }   /* Arabic letters and plain punctuation only: dashes, quotes and Latin digits come from the fallback */
+  @page { size: A4; margin: 0; }
+  body { margin: 0; background: #eee; color: #000; font-family: "Noto Sans", Arial, sans-serif; font-size: 12pt; line-height: 1.8; }
+  {% if document.language == 'ar' %}body { font-family: "Almohanad", "Noto Sans Arabic", "Noto Sans", Arial, sans-serif; font-size: 14.5pt; line-height: 1.75; } .subject { font-size: 1.15em; } .certificate .subject { font-size: 28pt; }{% else %}body { font-family: "Noto Naskh Arabic", "Noto Sans", Arial, sans-serif; }{% endif %}
+  .sheet { position: relative; width: 210mm; min-height: 297mm; margin: 8mm auto; background-color: #fff; box-sizing: border-box; }
+  {% if letterhead %}/* On screen the letterhead is the page background, repeated per A4 page; in print it is fixed, so it is on every page. */
+  .sheet { background-image: url("{% if letterhead.src %}{{ letterhead.src }}{% else %}{{ letterhead.url }}{% endif %}"); background-size: 210mm 297mm; background-repeat: repeat-y; background-position: top center; }{% endif %}
+  img.letterhead { display: none; }
+  table.flow { width: 100%; height: 297mm; border-collapse: collapse; position: relative; z-index: 1; }   /* a short page still reaches the foot of the sheet: the verification code is placed from its bottom */
+  table.flow > thead > tr > td > div { height: {% if letterhead %}{{ letterhead.top }}{% else %}18{% endif %}mm; }
+  table.flow > tfoot > tr > td > div { height: {% if letterhead %}{{ letterhead.bottom }}{% else %}30{% endif %}mm; }
+  table.flow > tbody > tr > td { vertical-align: top; }
+  table.flow > thead { display: table-header-group; } table.flow > tfoot { display: table-footer-group; }
+  .content { padding: 0 24mm; box-sizing: border-box; }
+  .sheet.designed .content { padding: 0 14mm; }
+  .dh { direction: inherit; line-height: 1.55; font-size: 11pt; text-align: start; color: #111; }
+  .dh mark.blank { background: color-mix(in srgb, #7c3aed 14%, #fff); border-bottom: 1.5px dashed #7c3aed; border-radius: 3px; padding: 0 .25em; color: inherit; }
+  .dh table { border-collapse: collapse; } .dh p { margin: 0 0 3mm; }
+  .brand { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid {{ profile.primary_color|default:"#000" }}; padding-bottom: 8px; margin-bottom: 14mm; }
+  .brand img { height: 18mm; }
+  .meta { display: flex; justify-content: space-between; gap: 8mm; margin-bottom: 9mm; }
+  .meta .to { font-weight: bold; }
+  .subject { font-weight: bold; text-align: center; margin: 0 0 9mm; }
+  .letter .subject { text-align: start; }
+  .body { text-align: justify; text-justify: inter-word; hyphens: auto; }
+  .body p { margin: 0 0 4mm; orphans: 3; widows: 3; }
+  .certificate .content { text-align: center; }
+  .certificate .subject { font-size: 24pt; margin: 6mm 0 12mm; }
+  .certificate .body { text-align: center; }
+  .date { margin: 6mm 0 0; }
+  .verify { position: absolute; inset-inline-start: 24mm; bottom: 24mm; display: flex; align-items: center; gap: 3mm; font-size: 7.5pt; line-height: 1.4; color: #000; font-family: "Noto Sans", Arial, sans-serif; }
+  .verify .qr { width: 15mm; height: 15mm; display: block; }
+  .body h3.sec { margin: 5mm 0 2mm; font-size: 1.05em; font-weight: bold; color: {{ profile.primary_color|default:"#000" }}; text-align: start; break-after: avoid; }
+  .body table.grid { width: 100%; border-collapse: collapse; margin: 0 0 4mm; font-size: .86em; line-height: 1.5; break-inside: avoid; }
+  .body table.grid th, .body table.grid td { border: 1px solid #000; padding: 1.1mm 2mm; text-align: start; vertical-align: middle; }
+  .body table.grid th { background: #f2f2f2; }
+  .body ul { margin: 0 0 5mm; padding-inline-start: 6mm; }
+  .body ul.boxes { list-style: none; padding-inline-start: 0; }
+  .body .box { font-family: "DejaVu Sans", "Noto Sans Symbols 2", sans-serif; margin-inline-end: 1.5mm; }
+  .body table.grid.kv td:nth-child(odd) { font-weight: bold; background: #f7f7f7; width: 22%; }
+  .body table.grid.kv:not(.four) td:first-child { width: 36%; }
+  .body table.grid td.num, .body table.grid th.num { text-align: end; }
+  .body table.grid.narrow { width: 52%; margin-inline-start: auto; }
+  .body table.grid.narrow td:first-child { width: 58%; }
+  .body table.grid.plain, .body table.grid.plain td, .body table.grid.plain th, .body table.grid.plain.kv td:nth-child(odd) { border-color: transparent; background: transparent; }
+  .body h2.title { text-align: center; font-size: 1.45em; margin: 2mm 0 6mm; font-weight: bold; }
+  .body p.note { font-size: .82em; margin: 0 0 4mm; color: #000; opacity: .75; }
+  .body p.choices { display: flex; flex-wrap: wrap; gap: 1mm 7mm; }
+  .body .box { margin-inline-end: 2mm; font-family: "DejaVu Sans", "Noto Sans Symbols 2", sans-serif; }
+  .body li { margin: 0 0 1.5mm; text-align: start; }
+  mark.blank { background: color-mix(in srgb, var(--blank, #7c3aed) 14%, #fff); color: inherit; border-bottom: 1.5px dashed #7c3aed; border-radius: 3px; padding: 0 .25em; }
+  .toolbar { text-align: center; padding: 6px; font-family: "Noto Sans", Arial, sans-serif; }
+  body.embed { background: #fff; }
+  body.embed .sheet { margin: 0; }
+  @media print {
+    body { background: #fff; } .sheet { margin: 0; background-image: none !important; } .toolbar { display: none; }
+    img.letterhead { display: block; position: fixed; top: 0; left: 0; width: 210mm; height: 297mm; z-index: 0; }
+  }
+</style>
+</head>
+<body{% if embed %} class="embed"{% endif %}>
+{% if not embed %}<div class="toolbar"><button onclick="window.print()">{% translate "Print" %}</button>{% if pdf_available and document.pk %} <a href="{% url 'documents:pdf' document.pk %}">{% translate "Download PDF" %}</a>{% endif %}{% if letterhead and not letterhead.exact %} <span>{% translate "There is no letterhead in this language, so the main one is used." %} <a href="{% url 'identity:letterheads' %}">{% translate "Add one" %}</a></span>{% endif %}</div>{% endif %}
+<div class="sheet {{ document.kind }}{% if designed_html %} designed{% endif %}">
+  {% if letterhead %}<img class="letterhead" src="{% if letterhead.src %}{{ letterhead.src }}{% else %}{{ letterhead.url }}{% endif %}" alt="">{% endif %}
+  <table class="flow"><thead><tr><td><div></div></td></tr></thead><tfoot><tr><td><div></div></td></tr></tfoot><tbody><tr><td>
+  <div class="content">
+    {% if not letterhead %}
+      <div class="brand">{% if logo_src %}<img src="{{ logo_src }}" alt="">{% elif profile.logo %}<img src="{{ profile.logo.url }}" alt="">{% endif %}
+        <strong>{{ company_name }}</strong></div>
+    {% endif %}
+    {% if designed_html %}<div class="dh">{{ designed_html|safe }}</div>
+    {% else %}
+    {% if show_meta %}
+      <div class="meta">{% if template_mode %}<span class="to"><mark class="blank">{% translate "To" %}</mark></span><span><mark class="blank">{% translate "Date" %}</mark></span>{% else %}<span class="to" dir="auto">{{ document.addressed_to }}</span><span dir="ltr">{{ document.doc_date|date:"Y-m-d" }}</span>{% endif %}</div>
+    {% endif %}
+    {% if document.subject and not document.body|has_title %}<div class="subject">{% if document.kind == 'letter' %}{% translate "Subject:" %} {% endif %}{% if template_mode %}{{ document.subject|blank_inline }}{% else %}{{ document.subject }}{% endif %}</div>{% endif %}
+    <div class="body">{% if template_mode %}{{ document.body|template_body }}{% else %}{{ document.body|document_body }}{% endif %}</div>
+    {% if document.kind == 'certificate' %}<p class="date" dir="ltr">{{ document.doc_date|date:"Y-m-d" }}</p>{% endif %}
+    {% endif %}
+    {% if qr %}<div class="verify"><span class="qr">{{ qr|safe }}</span><span class="vtext">{% translate "Verify this document" %}<br><b dir="ltr">{{ verify_code }}</b></span></div>{% endif %}
+  </div>
+  </td></tr></tbody></table>
+</div>
+</body>
+</html>

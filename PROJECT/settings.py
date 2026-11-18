@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'apps.billing',
     'apps.identity',
     'apps.library',
+    'apps.documents',
     'enjaz_operators',
 ]
 

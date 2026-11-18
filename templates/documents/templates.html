@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Templates" %}{% endblock %}
+{% block page_title %}{% translate "Document templates" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Keep a letter or certificate you write again and again. Write {{like this}} for a blank; each time you use the template you fill the blanks and get a new document." %}</div>{% endblock %}
+{% block content %}
+<div class="wk-card"><div class="list-group list-group-flush">
+  {% for t in templates %}
+  <div class="list-group-item d-flex flex-wrap align-items-center gap-2">
+    <div class="me-auto"><a class="fw-semibold" dir="auto" href="{% url 'documents:template_preview' t.pk %}" target="_blank">{{ t.name }}</a><div class="small-muted">{{ t.category_label }} · {{ t.get_language_display }}</div></div>
+    {% if membership.can_edit %}{% include "documents/_template_actions.html" %}{% endif %}
+  </div>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "No templates yet. Write a document with AI, or open an uploaded paper and choose «Use as a template»." %}</div>{% endfor %}
+</div></div>
+{% endblock %}

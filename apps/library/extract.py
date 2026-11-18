@@ -99,6 +99,14 @@ def apply(record, data, title=False):
         record.reminded_days = None
 
 
+def block_for(record):
+    """The content block (a PDF trimmed to its first pages, or an image scaled down) that carries `record`'s file to the AI.
+    Raises when the file cannot be opened or is not a readable PDF/image."""
+    with record.file.storage.open(record.file.name, 'rb') as handle:
+        raw = handle.read()
+    return _image_block(raw) if record.is_image else _pdf_block(raw)
+
+
 def queue(record, user, expected_points, *, title=False):
     """Queue the reading of `record` as a paid job. Raises InsufficientCredits / PriceChanged (nothing is charged)."""
     from apps.jobs.models import Job
@@ -110,10 +118,8 @@ def run_read(job):
     """The job: read the file and fill in the details. A failure raises, and the charge is given back."""
     from apps.library.models import Record as _Record
     record = _Record.objects.for_company(job.company).get(pk=job.params['record_id'])
-    with record.file.storage.open(record.file.name, 'rb') as handle:
-        raw = handle.read()
     try:
-        block = _image_block(raw) if record.is_image else _pdf_block(raw)
+        block = block_for(record)
     except Exception as exc:
         logger.warning('Could not prepare record %s for reading', record.pk, exc_info=True)
         raise client.AIError(_('This file could not be read. You were not charged.'), f'prepare: {exc}') from exc

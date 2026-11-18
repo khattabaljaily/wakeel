@@ -1,0 +1,16 @@
+{% load i18n %}
+<div class="d-flex flex-wrap gap-1 align-items-center">
+  <a class="btn btn-sm btn-primary" href="{% url 'documents:new' 'document' %}?type={{ t.name|urlencode }}&amp;lang={{ t.language }}&amp;cat={{ t.category }}"><i class="bi bi-stars"></i> {% translate "Write a document" %}</a>
+  <a class="btn btn-sm btn-light" href="{% url 'documents:template_use' t.pk %}"><i class="bi bi-pencil"></i> {% translate "Fill the blanks" %}</a>
+  <div class="dropdown"><button class="btn btn-sm btn-light" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button"><i class="bi bi-brush"></i> {% translate "Redesign" %}</button>
+    <form class="dropdown-menu dropdown-menu-end p-3" style="min-width:300px" method="post" action="{% url 'documents:template_redesign' t.pk %}" data-once>{% csrf_token %}
+      <h6>{% translate "Redesign the template" %}</h6>
+      <p class="small-muted">{% translate "Describe what should change. The template is made again; documents already written from it stay as they are." %}</p>
+      <input type="hidden" name="expected_points" value="{{ design_quote.total }}">
+      <label class="form-label" for="rd-{{ t.pk }}">{% translate "What should change?" %}</label>
+      <textarea class="form-control mb-2" id="rd-{{ t.pk }}" name="notes" rows="4" maxlength="2000"></textarea>
+      <button type="submit" class="btn btn-primary">{% translate "Redesign" %} <span dir="ltr">· ${{ design_quote.usd }}</span></button>
+    </form></div>
+  <form method="post" action="{% url 'documents:template_delete' t.pk %}" data-confirm="{% translate 'This template will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}
+    <button type="submit" class="btn btn-sm btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>
+</div>

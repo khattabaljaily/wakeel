@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n credits %}
+{% block title %}{% translate "Create a document with AI" %}{% endblock %}
+{% block page_title %}{% translate "Create a document with AI" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Tell me what you need. The document is written on your letterhead, and you can review and edit it afterwards." %}</div>{% endblock %}
+{% block content %}
+<form method="post" novalidate class="wk-card" style="max-width:820px" data-once>{% csrf_token %}
+  <div class="wk-card-body">
+    {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+    <div class="row">
+      <div class="col-12">{% include "_field.html" with field=form.doc_type %}</div>
+      <div class="col-md-6">{% include "_field.html" with field=form.category %}</div>
+      <div class="col-md-6">{% include "_field.html" with field=form.language %}</div>
+      <div class="col-12">{% include "_field.html" with field=form.recipient %}</div>
+      <div class="col-12">{% include "_field.html" with field=form.instructions %}</div>
+    </div>
+    <datalist id="template-names">{% for n in template_names %}<option value="{{ n }}">{% endfor %}</datalist>
+    <input type="hidden" name="expected_points_write" value="{{ write_quote.total }}">
+    <input type="hidden" name="expected_points_template" value="{{ first_quote.total }}">
+    {% if needs_template %}
+    <div class="alert alert-warning" role="alert">
+      <p><b>{% blocktranslate with name=needs_template %}You do not have a template for «{{ name }}» yet.{% endblocktranslate %}</b>
+        {% blocktranslate with name=needs_template later=write_quote.usd %}Shall I make a template of it for your company, in its identity? After that, each time you need a «{{ name }}», you pay only ${{ later }} for the writing.{% endblocktranslate %}</p>
+      <ul class="small mb-3">{% for text, usd in first_quote.described %}<li>{{ text }}: <span dir="ltr">${{ usd }}</span></li>{% endfor %}</ul>
+      <button type="submit" name="action" value="write_new_template" class="btn btn-primary">{% translate "Yes, make my template and write the document" %} <span dir="ltr">· ${{ first_quote.usd }}</span></button>
+    </div>
+    {% endif %}
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <button type="submit" name="action" value="write" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Write it for me" %} <span dir="ltr">· ${{ write_quote.usd }}</span></button>
+      <small class="small-muted">{% blocktranslate with balance=wallet_usd %}Your balance: ${{ balance }}. You are charged only if the text is delivered.{% endblocktranslate %}</small>
+    </div>
+    <p class="small-muted mt-3 mb-0">{% translate "The price above is for a type you already have a template for. A new type asks you first, with the whole price." %} <a href="{% url 'documents:new' 'document' %}?manual=1">{% translate "Or write the document yourself" %}</a></p>
+  </div>
+</form>
+{% endblock %}

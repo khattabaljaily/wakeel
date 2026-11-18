@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "This document is not approved yet" %}{% endblock %}
+{% block page_title %}{% translate "This document is not approved yet" %}{% endblock %}
+{% block content %}<div class="wk-card" style="max-width:640px"><div class="wk-card-body text-center py-5">
+  <p>{% translate "It can be printed, downloaded or sent after the owner or an administrator approves it." %}</p>
+  <a class="btn btn-primary" href="{% url 'documents:edit' document.pk %}">{% translate "Open the document" %}</a></div></div>{% endblock %}

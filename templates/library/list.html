@@ -2,11 +2,13 @@
 {% load i18n credits %}
 {% block title %}{% translate "Document management" context "navigation" %}{% endblock %}
 {% block page_title %}{% translate "Document management" context "navigation" %}{% endblock %}
-{% block actions %}{% if membership.can_edit %}<a class="btn btn-primary" href="{% url 'library:upload' %}{% if cat %}?cat={{ cat }}{% endif %}"><i class="bi bi-upload"></i> {% translate "Upload a file" %}</a>{% endif %}{% endblock %}
+{% block actions %}{% if membership.can_edit %}<a class="btn btn-soft" href="{% url 'documents:new' 'document' %}{% if cat %}?cat={{ cat }}{% endif %}"><i class="bi bi-stars"></i> {% translate "Create with AI" %}</a>
+<a class="btn btn-primary" href="{% url 'library:upload' %}{% if cat %}?cat={{ cat }}{% endif %}"><i class="bi bi-upload"></i> {% translate "Upload a file" %}</a>{% endif %}{% endblock %}
 {% block content %}
 <div class="d-flex flex-wrap gap-2 mb-3">
     <a class="btn btn-sm {% if not cat and not soon %}btn-primary{% else %}btn-light{% endif %}" href="{% url 'library:list' %}"><i class="bi bi-folder"></i> {% translate "All" %} <span class="badge text-bg-light">{{ count_records }}</span></a>
     {% for key, label, icon, n in categories %}<a class="btn btn-sm {% if cat == key %}btn-primary{% else %}btn-light{% endif %}" href="?cat={{ key }}"><i class="bi {{ icon }}"></i> {{ label }} <span class="badge text-bg-light">{{ n }}</span></a>{% endfor %}
+    <a class="btn btn-sm btn-light" href="{% url 'documents:issued' %}"><i class="bi bi-files"></i> {% translate "Issued documents" %}</a>
     <a class="btn btn-sm {% if soon %}btn-warning{% else %}btn-light{% endif %}" href="?{% if cat %}cat={{ cat }}&amp;{% endif %}{% if not soon %}status=soon{% endif %}"><i class="bi bi-clock"></i> {% translate "Expiring soon" %}{% if expiring_here %} <span class="badge text-bg-danger">{{ expiring_here }}</span>{% endif %}</a>
 </div>
 <div class="row g-3">
@@ -17,9 +19,14 @@
         </form>
         <div class="wk-card"><div class="list-group list-group-flush">
             {% for r in entries %}
-            <a class="list-group-item list-group-item-action {% if r.pk == selected.pk %}active{% endif %}" href="?{% if cat %}cat={{ cat }}&amp;{% endif %}{% if soon %}status=soon&amp;{% endif %}{% if q %}q={{ q|urlencode }}&amp;{% endif %}rec={{ r.pk }}">
+            <a class="list-group-item list-group-item-action {% if r.pk == selected.pk and r.entry == selected.entry %}active{% endif %}" href="?{% if cat %}cat={{ cat }}&amp;{% endif %}{% if soon %}status=soon&amp;{% endif %}{% if q %}q={{ q|urlencode }}&amp;{% endif %}{% if r.entry == 'template' %}tpl{% else %}rec{% endif %}={{ r.pk }}">
+                {% if r.entry == 'template' %}
+                <div class="d-flex justify-content-between gap-2"><span class="fw-semibold text-truncate" dir="auto">{{ r.name }}</span><span class="badge text-bg-light border">{% translate "Template" %}</span></div>
+                <div class="small opacity-75 text-truncate">{{ r.category_label }}</div>
+                {% else %}
                 <div class="d-flex justify-content-between gap-2"><span class="fw-semibold text-truncate" dir="auto">{{ r.title }}</span>{% include "library/_status.html" %}</div>
                 <div class="small opacity-75 text-truncate" dir="auto">{% if r.doc_type %}{{ r.doc_type }}{% if r.issuer %} · {% endif %}{% endif %}{{ r.issuer }}{% if not r.doc_type and not r.issuer %}{{ r.get_category_display }}{% endif %}{% if r.expiry_date %} · <span dir="ltr">{{ r.expiry_date|date:"Y-m-d" }}</span>{% endif %}</div>
+                {% endif %}
             </a>
             {% empty %}
             <div class="p-4 text-center small-muted">{% if q %}{% translate "Nothing matches your search." %}{% else %}{% translate "No documents yet." %}{% endif %}</div>
@@ -27,11 +34,27 @@
         </div></div>
     </div>
     <div class="col-lg-8">
-        {% if selected %}
+        {% if selected and selected.entry == 'template' %}
+        <div class="wk-card mb-3"><div class="wk-card-body">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                <h2 class="h5 mb-0 me-auto" dir="auto">{{ selected.name }}</h2>
+                {% if membership.can_edit %}{% with t=selected %}{% include "documents/_template_actions.html" %}{% endwith %}{% endif %}
+            </div>
+            <table class="table table-sm table-borderless mb-0 small"><tbody>
+                <tr><th scope="row">{% translate "Category" %}</th><td>{{ selected.category_label }}</td></tr>
+                <tr><th scope="row">{% translate "Language" %}</th><td>{{ selected.get_language_display }}</td></tr>
+            </tbody></table>
+        </div></div>
+        <div class="wk-card overflow-hidden">
+            {% if pdf_available %}<iframe src="{% url 'documents:template_pdf' selected.pk %}#toolbar=0&amp;navpanes=0&amp;view=FitH" title="{{ selected.name }}" loading="lazy" style="width:100%;height:70vh;border:0"></iframe>
+            {% else %}<iframe src="{% url 'documents:template_preview' selected.pk %}" title="{{ selected.name }}" loading="lazy" style="width:100%;height:70vh;border:0"></iframe>{% endif %}
+        </div>
+        {% elif selected %}
         {% if reading %}<div class="alert alert-info d-flex align-items-center gap-2" id="readingBanner" data-job="{{ reading.pk }}"><span class="spinner-border spinner-border-sm"></span> {% translate "Reading the document… the details will appear here in a moment." %}</div>{% endif %}
         <div class="wk-card mb-3"><div class="wk-card-body">
             <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
                 <h2 class="h5 mb-0 me-auto" dir="auto">{{ selected.title }}</h2>
+                {% if membership.can_edit %}<form method="post" action="{% url 'documents:template_import' selected.pk %}" data-once>{% csrf_token %}<button class="btn btn-sm btn-light" {% if not imports_left %}disabled{% endif %} title="{% translate 'Turn this document into a template you can fill again and again. Making the template is free.' %}"><i class="bi bi-file-earmark-richtext"></i> {% translate "Use as a template" %} <span class="badge text-bg-success">{% translate "Free" %}</span></button></form>{% endif %}
                 <a class="btn btn-sm btn-light" href="{% url 'library:file' selected.pk %}?download=1"><i class="bi bi-download"></i> {% translate "Download" %}</a>
                 {% if membership.can_edit and not reading %}<form method="post" action="{% url 'library:read' selected.pk %}" data-once>{% csrf_token %}<input type="hidden" name="expected_points" value="{{ read_quote.total }}"><button class="btn btn-sm btn-soft" title="{% translate 'The AI reads the document and fills in the details that are still empty. You are charged only if it reads them.' %}"><i class="bi bi-stars"></i> {% translate "Read it for me" %} <span dir="ltr">· ${{ read_quote.total|usd }}</span></button></form>{% endif %}
                 {% if membership.can_edit %}<a class="btn btn-sm btn-light" href="{% url 'library:edit' selected.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>{% endif %}

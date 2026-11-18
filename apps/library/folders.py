@@ -4,6 +4,8 @@ import datetime
 from django.db.models import Count
 from django.utils import timezone
 
+from apps.documents.models import DocumentTemplate
+
 from .models import SOON_DAYS, Record
 
 # The category names are already collective ("Letters and certificates"), so a folder is named after its category.
@@ -20,6 +22,8 @@ def expiring():
 def folders():
     """Counts for every folder of the active company, for the category pills."""
     kept = dict(Record.objects.values_list('category').annotate(n=Count('id')))
+    for key, n in DocumentTemplate.objects.values_list('category').annotate(n=Count('id')):   # one list: the papers kept and the templates
+        kept[key] = kept.get(key, 0) + n
     return {
         'count_records': sum(kept.values()),
         'count_expiring': expiring().count(),

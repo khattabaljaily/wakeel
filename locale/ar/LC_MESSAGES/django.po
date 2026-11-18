@@ -7562,6 +7562,39 @@ msgstr "عدّل إعلاناً"
 msgid "Deleted an announcement"
 msgstr "حذف إعلاناً"
 
+msgid "Attach from Wakeel"
+msgstr "إرفاق من وكيل"
+
+msgid ""
+"Once the owner connects the company e-mail address, everyone who can edit "
+"reads and writes company mail here, without leaving Wakeel."
+msgstr ""
+"بمجرد أن يربط المالك البريد الإلكتروني للشركة، يقرأ كل من يملك صلاحية "
+"التعديل بريد الشركة ويكتبه هنا، دون مغادرة وكيل."
+
+msgid ""
+"Add the company e-mail address once, then read and write company mail inside "
+"Wakeel."
+msgstr ""
+"أضف البريد الإلكتروني للشركة مرة واحدة، ثم اقرأ بريد الشركة واكتبه داخل وكيل."
+
+msgid ""
+"Everyone in the company who can edit will be able to read and send mail from "
+"this mailbox. Opening and sending are written in the activity log. The "
+"password is sealed with your company key."
+msgstr ""
+"سيتمكن كل من يملك صلاحية التعديل في الشركة من قراءة البريد وإرساله من هذا "
+"الصندوق. يُسجَّل فتح الرسائل وإرسالها في سجل النشاط، وتُحفظ كلمة المرور مشفّرة "
+"بمفتاح شركتك."
+
+msgid ""
+"Removes the saved password from Wakeel. Your messages stay on your mail "
+"server."
+msgstr "يحذف كلمة المرور المحفوظة من وكيل. تبقى رسائلك على خادم بريدك."
+
+msgid "The mailbox will be disconnected from Wakeel."
+msgstr "سيتم فصل صندوق البريد عن وكيل."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

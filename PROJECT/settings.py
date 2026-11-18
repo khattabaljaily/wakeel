@@ -102,6 +102,7 @@ INSTALLED_APPS = [
     'apps.notes',
     'apps.contacts',
     'apps.announcements',
+    'apps.mail',
     'enjaz_operators',
 ]
 
@@ -349,6 +350,8 @@ AI_MAX_CHARGES_PER_HOUR = get_secret('AI_MAX_CHARGES_PER_HOUR', 120)
 AI_MAX_REFUNDS_PER_DAY = get_secret('AI_MAX_REFUNDS_PER_DAY', 30)
 # A form is paid once when it is made; its answers are free up to this many (keeps the cost of one form bounded).
 FORM_MAX_RESPONSES = int(get_secret('FORM_MAX_RESPONSES', 1000))
+# The company mailbox (apps.mail) connects only to public mail servers; the tests run a local fake server.
+MAIL_ALLOW_PRIVATE_HOSTS = RUNNING_TESTS
 # DeepSeek charges less off-peak. The window, in UTC as [start, end], may cross midnight.
 DEEPSEEK_OFF_PEAK_UTC = get_secret('DEEPSEEK_OFF_PEAK_UTC', ['16:30', '00:30'])
 # Prices (USD per million tokens) for models other than DeepSeek and Claude, whose prices are built in (apps.ai.pricing).

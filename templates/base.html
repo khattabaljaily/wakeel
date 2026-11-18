@@ -141,10 +141,11 @@
                 </div>
             </div>
 
-            {% if membership.role != 'client' %}<div class="rail-grp {% nav_group '/app/announcements/' '/app/forms/' %}" data-grp="comms">
+            {% if membership.role != 'client' %}<div class="rail-grp {% nav_group '/app/mail/' '/app/announcements/' '/app/forms/' %}" data-grp="comms">
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "E-mail and communication" context "menu section" %}"><i class="bi bi-envelope"></i><span class="lbl">{% translate "E-mail and communication" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
                 <div class="rail-grp-body">
                     <span class="rail-fly-title" aria-hidden="true">{% translate "E-mail and communication" context "menu section" %}</span>
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'mail:home' %}"{% nav_current '/app/mail/' %}><i class="bi bi-envelope"></i><span class="lbl">{% translate "E-mail" context "navigation" %}</span></a>{% endif %}
                     <a class="rail-btn" href="{% url 'announcements:list' %}"{% nav_current '/app/announcements/' %}><i class="bi bi-megaphone"></i><span class="lbl">{% translate "Company announcements" context "navigation" %}</span></a>
                     {% if membership.can_edit %}<a class="rail-btn" href="{% url 'forms:list' %}"{% nav_current '/app/forms/' %}><i class="bi bi-ui-checks"></i><span class="lbl">{% translate "Forms and surveys" context "navigation" %}</span></a>{% endif %}
                 </div>

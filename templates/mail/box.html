@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}{% translate "E-mail" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "E-mail" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle"><bdi dir="ltr">{{ account.address }}</bdi></div>{% endblock %}
+{% block extra_head %}{% include "mail/_head.html" %}{% endblock %}
+{% block actions %}<a class="btn btn-primary" href="{% url 'mail:compose' %}" data-compose><i class="bi bi-pencil-square"></i> {% translate "Write" %}</a>
+  {% if can_manage %}<a class="btn btn-light" href="{% url 'mail:setup' %}"><i class="bi bi-gear"></i> {% translate "Settings" %}</a>{% endif %}{% endblock %}
+{% block content %}
+<div class="wk-mail">
+<div class="inbox{% if selected %} has-selected{% endif %}">
+  <section class="list" aria-label="{{ folder.label }}">
+    <div class="list-top">
+      <form method="get" role="search">
+        <input type="hidden" name="f" value="{{ folder.raw }}">
+        <input class="form-control form-control-sm" type="search" name="q" value="{{ q }}" placeholder="{% translate 'Search' %}" aria-label="{% translate 'Search' %}" autocomplete="off">
+      </form>
+    </div>
+    <div class="filter-row">
+      <details class="cat-pick">
+        <summary aria-label="{% translate 'Folder' %}"><span class="cat-ic"><i class="bi {{ folder.bi }}"></i></span>
+          <span class="cat-l">{{ folder.label }}</span>
+          {% if folder.raw == inbox.raw and unread %}<b>{{ unread }}</b>{% endif %}
+          <i class="bi bi-chevron-down"></i></summary>
+        <nav class="cat-menu" aria-label="{% translate 'Folder' %}">
+          {% for f in folders %}<a href="?f={{ f.raw|urlencode }}"{% if f.raw == folder.raw %} aria-current="page"{% endif %}><span class="cat-ic"><i class="bi {{ f.bi }}"></i></span><span class="cat-l">{{ f.label }}</span>{% if f.raw == inbox.raw and unread %}<b>{{ unread }}</b>{% endif %}</a>{% endfor %}
+        </nav>
+      </details>
+    </div>
+    <div class="list-scroll">
+      {% for s in summaries %}
+      <a class="item{% if not s.seen %} unread{% endif %}" href="?f={{ folder.raw|urlencode }}&amp;page={{ page }}{% if q %}&amp;q={{ q|urlencode }}{% endif %}&amp;m={{ s.uid }}"{% if selected and selected.uid == s.uid %} aria-current="true"{% endif %}>
+        <span class="av" style="--h:{{ s.hue }}" aria-hidden="true">{{ s.initial }}</span>
+        <span class="mb">
+          <span class="t1"><span class="nm"><bdi>{{ s.sender }}</bdi></span>{% if s.flagged %}<span class="starred" title="{% translate 'Starred' %}"><i class="bi bi-star-fill"></i></span>{% endif %}<span class="when" dir="ltr">{% if s.local_date %}{% if s.today %}{{ s.local_date|date:"H:i" }}{% else %}{{ s.local_date|date:"Y-m-d" }}{% endif %}{% endif %}</span></span>
+          <span class="who"><bdi>{{ s.subject }}</bdi></span>
+          {% if s.snippet %}<span class="snip"><bdi>{{ s.snippet }}</bdi></span>{% endif %}
+        </span>
+      </a>
+      {% empty %}
+      <div class="p-4 text-center small-muted">{% if q %}{% translate "Nothing matches your search." %}{% else %}{% translate "This folder is empty." %}{% endif %}</div>
+      {% endfor %}
+      {% if pages > 1 %}<nav class="pager" aria-label="{% translate 'Pages' %}">
+        {% if prev %}<a class="btn btn-light btn-sm" href="?f={{ folder.raw|urlencode }}&amp;page={{ prev }}{% if q %}&amp;q={{ q|urlencode }}{% endif %}">{% translate "Newer" %}</a>{% endif %}
+        <span class="small-muted" dir="ltr">{{ page }} / {{ pages }}</span>
+        {% if next %}<a class="btn btn-light btn-sm" href="?f={{ folder.raw|urlencode }}&amp;page={{ next }}{% if q %}&amp;q={{ q|urlencode }}{% endif %}">{% translate "Older" %}</a>{% endif %}
+      </nav>{% endif %}
+    </div>
+  </section>
+
+  <section class="view">
+    {% if selected %}
+    <div class="view-tools mail-tools">
+      <a class="btn btn-light btn-sm d-lg-none" href="?f={{ folder.raw|urlencode }}&amp;page={{ page }}{% if q %}&amp;q={{ q|urlencode }}{% endif %}" aria-label="{% translate 'Back' %}"><i class="bi bi-arrow-right"></i></a>
+      <a class="btn btn-light btn-sm" data-compose href="{% url 'mail:compose' %}?reply={{ selected.uid }}&amp;f={{ folder.raw|urlencode }}" title="{% translate 'Reply' %}" aria-label="{% translate 'Reply' %}"><i class="bi bi-reply"></i> <span class="bl">{% translate "Reply" %}</span></a>
+      <a class="btn btn-light btn-sm" data-compose href="{% url 'mail:compose' %}?reply_all={{ selected.uid }}&amp;f={{ folder.raw|urlencode }}" title="{% translate 'Reply all' %}" aria-label="{% translate 'Reply all' %}"><i class="bi bi-reply-all"></i></a>
+      <a class="btn btn-light btn-sm" data-compose href="{% url 'mail:compose' %}?forward={{ selected.uid }}&amp;f={{ folder.raw|urlencode }}" title="{% translate 'Forward' %}" aria-label="{% translate 'Forward' %}"><i class="bi bi-forward"></i></a>
+      <form method="post" action="{% url 'mail:act' %}">{% csrf_token %}<input type="hidden" name="uid" value="{{ selected.uid }}"><input type="hidden" name="f" value="{{ folder.raw }}">
+        <button class="btn btn-light btn-sm" name="op" value="{% if selected.flagged %}unstar{% else %}star{% endif %}" title="{% translate 'Star' %}" aria-label="{% translate 'Star' %}" aria-pressed="{% if selected.flagged %}true{% else %}false{% endif %}"><i class="bi {% if selected.flagged %}bi-star-fill text-warning{% else %}bi-star{% endif %}"></i></button>
+        <button class="btn btn-light btn-sm" name="op" value="unread" title="{% translate 'Mark as unread' %}" aria-label="{% translate 'Mark as unread' %}"><i class="bi bi-envelope"></i></button>
+        <button class="btn btn-light btn-sm" name="op" value="archive" title="{% translate 'Archive' %}" aria-label="{% translate 'Archive' %}"><i class="bi bi-archive"></i></button>
+        <button class="btn btn-light btn-sm" name="op" value="junk" title="{% translate 'Junk' %}" aria-label="{% translate 'Junk' %}"><i class="bi bi-slash-circle"></i></button>
+        <button class="btn btn-outline-danger btn-sm" name="op" value="delete" title="{% translate 'Delete' %}" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button>
+      </form>
+    </div>
+    <div class="mail-head">
+      <h2><bdi>{{ selected.subject }}</bdi></h2>
+      <div class="mail-from">
+        <span class="av lg" style="--h:{{ selected.hue }}" aria-hidden="true">{{ selected.initial }}</span>
+        <div class="who"><b><bdi>{{ selected.sender }}</bdi></b> <bdi class="small-muted" dir="ltr">&lt;{{ selected.sender_address }}&gt;</bdi>
+          <div class="to"><span>{% translate "To" %}:</span> <bdi>{{ selected.to|join:", " }}</bdi>{% if selected.cc %} · <span>{% translate "Cc" %}:</span> <bdi>{{ selected.cc|join:", " }}</bdi>{% endif %}</div></div>
+        {% if selected.shown_date %}<time dir="ltr">{{ selected.shown_date|date:"Y-m-d H:i" }}</time>{% endif %}
+      </div>
+    </div>
+    {% if selected.hidden_images %}<p class="mail-note">{% translate "Pictures in this message are not loaded, to protect your privacy." %}</p>{% endif %}
+    <div class="mail-body"><iframe sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin" referrerpolicy="no-referrer" title="{{ selected.subject }}" srcdoc="{{ selected.frame }}" data-fit-frame></iframe></div>
+    {% if selected.files %}<div class="mail-files">{% for a in selected.files %}
+      <span class="mail-file-wrap"><a class="mail-file" href="{% url 'mail:attachment' selected.uid a.index %}?f={{ folder.raw|urlencode }}"><i class="bi bi-paperclip"></i><span class="fn"><bdi>{{ a.filename }}</bdi></span><span class="small-muted text-nowrap">{{ a.size|filesizeformat }}</span><i class="bi bi-download"></i></a>
+        {% if a.keepable %}<form method="post" action="{% url 'mail:save_attachment' selected.uid a.index %}">{% csrf_token %}<input type="hidden" name="f" value="{{ folder.raw }}"><button class="btn btn-light btn-sm" title="{% translate 'Save in the library' %}"><i class="bi bi-folder-plus"></i> {% translate "Save to library" %}</button></form>{% endif %}</span>{% endfor %}</div>{% endif %}
+    {% else %}
+    <div class="view-empty"><div><i class="bi bi-envelope-open"></i>
+      <p>{% blocktranslate with address=account.address %}Read and write the mail of {{ address }} here.{% endblocktranslate %}</p>
+      <a class="btn btn-primary btn-lg" href="{% url 'mail:compose' %}" data-compose><i class="bi bi-pencil-square"></i> {% translate "Write a message" %}</a></div></div>
+    {% endif %}
+  </section>
+</div>
+<dialog id="compose-dialog" class="compose-dialog" aria-label="{% translate 'New message' %}"><div id="compose-slot"></div></dialog>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{% static 'js/mail.js' %}" defer></script>
+<script>
+/* The message frame grows to the height of the message (it is sandboxed, same origin, no scripts inside). */
+(function () { var f = document.querySelector('iframe[data-fit-frame]'); if (!f) return;
+  function fit() { try { f.style.height = Math.max(288, f.contentDocument.documentElement.scrollHeight + 8) + 'px'; } catch (e) {} }
+  f.addEventListener('load', fit); setTimeout(fit, 300); })();
+</script>{% endblock %}

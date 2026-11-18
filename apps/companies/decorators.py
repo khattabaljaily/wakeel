@@ -6,12 +6,16 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
 
+from .models import Membership
 
-def company_required(view=None, *, manage=False, edit=False):
+
+def company_required(view=None, *, manage=False, edit=False, client=False):
     """Require a logged-in user working inside a company.
 
     Users with no company yet are sent to the onboarding wizard. `edit` needs a
-    non-viewer role, `manage` needs owner/admin.
+    non-viewer role, `manage` needs owner/admin. An outside client of the company (Membership.Role.CLIENT) is refused unless the
+    view says `client=True`: the company's papers, team, marketing and inbox are not theirs to read, so a new page is closed to them
+    by default and only the few they use (dashboard, personal notes) open the door.
     """
 
     def decorator(fn):
@@ -26,6 +30,8 @@ def company_required(view=None, *, manage=False, edit=False):
             if not request.company.is_usable:
                 # Awaiting approval, suspended or expired: the status page explains.
                 return redirect('companies:status')
+            if request.membership.role == Membership.Role.CLIENT and not client:
+                raise PermissionDenied
             if manage and not request.membership.can_manage:
                 raise PermissionDenied
             if edit and not request.membership.can_edit:

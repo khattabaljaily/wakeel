@@ -57,7 +57,7 @@ def home(request):
     return render(request, 'core/home.html')
 
 
-@company_required
+@company_required(client=True)
 def dashboard(request):
     company = request.company
     now = timezone.localtime()

@@ -10,7 +10,7 @@ from apps.companies.decorators import company_required
 from .forms import NoteForm
 from .models import Note
 
-_member = company_required        # every member keeps their own notes, a viewer and a client too: nobody else sees them
+_member = company_required(client=True)        # every member keeps their own notes, a viewer and a client too: nobody else sees them
 
 
 def _mine(request):

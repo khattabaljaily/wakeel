@@ -7712,6 +7712,9 @@ msgstr "ملفات مختارة"
 msgid "A product of"
 msgstr "منتج من"
 
+msgid "You changed the server or the user name: type the password again."
+msgstr "غيّرت الخادم أو اسم المستخدم: اكتب كلمة السر من جديد."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

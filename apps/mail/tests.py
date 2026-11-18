@@ -322,7 +322,8 @@ class MailViewsTests(MailBase):
         for role in (Membership.Role.VIEWER, Membership.Role.CLIENT):
             self.client.force_login(self.users[role])
             for name in ('mail:box', 'mail:compose', 'mail:picker'):
-                self.assertEqual(self.client.get(reverse(name)).status_code, 302, (role, name))     # sent away, nothing shown
+                # a viewer is sent away; an outside client is refused outright (security review 2026-11-19): nothing is shown to either
+                self.assertEqual(self.client.get(reverse(name)).status_code, 403 if role == Membership.Role.CLIENT else 302, (role, name))
         self.assertEqual(MailAccount.all_companies.count(), 1)
 
     def test_another_company_sees_nothing(self):
@@ -504,6 +505,34 @@ class MailViewsTests(MailBase):
         self.connect()
         Company.objects.filter(pk=self.company.pk).delete()
         self.assertFalse(MailAccount.all_companies.exists())
+
+
+class MailPasswordStaysWithItsServer(MailBase):
+    """Security review 2026-11-19: an administrator must not be able to make the saved password travel to a server they choose."""
+
+    def resave(self, **changes):
+        account = MailAccount.all_companies.get(company=self.company)
+        data = {f: getattr(account, f) for f in ('address', 'display_name', 'username', 'imap_host', 'imap_port', 'imap_security',
+                                                  'smtp_host', 'smtp_port', 'smtp_security', 'signature')}
+        data.update({'password': '', **changes})
+        with mock.patch.object(presets, 'mx_hosts', return_value=[]):
+            return self.client.post(reverse('mail:setup'), data)
+
+    def test_a_changed_server_or_user_name_needs_the_password_typed_again(self):
+        self.connect()
+        before = len(self.server.logins)
+        for change in ({'imap_host': 'evil.example.com'}, {'smtp_host': 'evil.example.com'}, {'username': 'someone@evil.example.com'}):
+            page = self.resave(**change)
+            self.assertContains(page, 'type the password again')
+            self.assertEqual(len(self.server.logins), before, change)              # nothing was sent anywhere
+        account = MailAccount.all_companies.get(company=self.company)
+        self.assertEqual(account.imap_host, 'mail.acme.com')
+
+    def test_the_same_server_keeps_working_without_retyping_and_a_new_password_may_go_to_a_new_server(self):
+        self.connect()
+        self.assertRedirects(self.resave(signature='New signature'), reverse('mail:box'), fetch_redirect_response=False)
+        self.assertRedirects(self.resave(imap_host='imap2.acme.com', password='typed-now'), reverse('mail:box'), fetch_redirect_response=False)
+        self.assertEqual(self.server.logins[-1][1], 'typed-now')
 
 
 class MailLibraryTests(MailBase):

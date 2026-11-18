@@ -82,6 +82,10 @@ def setup(request):
     advanced = bool(account)
     if request.method == 'POST' and form.is_valid():
         data = form.cleaned_data
+        if account and not data['password'] and any(data[k] != getattr(account, k) for k in ('imap_host', 'smtp_host', 'username')):
+            # The saved password is only ever sent to the servers and the user name it was saved for: a changed address needs it typed again.
+            form.add_error('password', _('You changed the server or the user name: type the password again.'))
+            return render(request, 'mail/setup.html', {'form': form, 'account': account, 'advanced': True})
         candidate = account or MailAccount(company=request.company, connected_by=request.user)
         for key in SETUP_FIELDS:
             setattr(candidate, key, data[key])

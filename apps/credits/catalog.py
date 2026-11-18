@@ -118,12 +118,14 @@ def cost_usd(key: str, units: int | None = None) -> Decimal:
 
 def price_points(key: str, units=None, pages: int | None = None) -> int:
     """What a company pays for one run, from the price file. The price is worked out on the whole cost and rounded up once
-    (rounding each part up would overcharge a plan of many posts). 0 for a free service. An admin's change to a stored
-    price row is applied by `models.ServiceCost.get_points`."""
+    (rounding each part up would overcharge a plan of many posts). 0 for a free service. A price set by the owner
+    (`price_overrides`) is the price itself."""
     if is_free(key):
         return 0
     if page_pricing(key):       # a document service: the fixed price plus the price of a dense page for each dense page it is worth
         return fixed_points(key) + max(1, math.ceil(page_points(key) * dense_pages(key, pages, units)))
+    if (owner := service(key).get('price')) is not None:      # a price the owner set for one run (creating a form)
+        return max(1, int((Decimal(str(owner)) * POINTS_PER_DOLLAR).to_integral_value()))
     return max(1, _points(cost_usd(key, units)))
 
 

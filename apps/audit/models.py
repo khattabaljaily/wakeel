@@ -21,6 +21,8 @@ class AuditEvent(CompanyScopedModel):
     TEAM_ROLE_CHANGED, TEAM_INVITE_REVOKED = 'team.role_changed', 'team.invite_revoked'
     RECORD_UPLOADED, RECORD_CHANGED, RECORD_DELETED = 'record.uploaded', 'record.changed', 'record.deleted'
     PRESENTATION_CREATED, PRESENTATION_DELETED = 'presentation.created', 'presentation.deleted'
+    FORM_CREATED, FORM_UPDATED, FORM_DELETED = 'form.created', 'form.updated', 'form.deleted'
+    FORM_OPENED, FORM_CLOSED, FORM_EXPORTED = 'form.opened', 'form.closed', 'form.exported'
     ACTIONS = {
         DOC_QR_CHANGED: _('Added or removed the verification QR code of a document'),
         DOC_PRINTED_VERIFIABLE: _('Opened a document with a verification QR code for printing'),
@@ -48,6 +50,12 @@ class AuditEvent(CompanyScopedModel):
         RECORD_DELETED: _('Deleted a document from the library'),
         PRESENTATION_CREATED: _('Ordered a presentation'),
         PRESENTATION_DELETED: _('Deleted a presentation'),
+        FORM_CREATED: _('Created a form'),
+        FORM_UPDATED: _('Changed the settings of a form'),
+        FORM_DELETED: _('Deleted a form and its answers'),
+        FORM_OPENED: _('Opened a form for answers'),
+        FORM_CLOSED: _('Closed a form'),
+        FORM_EXPORTED: _('Downloaded the answers of a form'),
     }
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')

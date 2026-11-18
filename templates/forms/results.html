@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Answers" %} · {{ f.title }}{% endblock %}
+{% block page_title %}{% translate "Answers" %}{% endblock %}
+{% block subtitle %}<div class="subtitle"><span dir="auto">{{ f.title }}</span> · {% blocktranslate count n=total %}{{ n }} answer{% plural %}{{ n }} answers{% endblocktranslate %}</div>{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'forms:detail' f.pk %}">← <span dir="auto">{{ f.title }}</span></a>
+  {% if total %}<a class="btn btn-primary" href="{% url 'forms:results_csv' f.pk %}"><i class="bi bi-download"></i> {% translate "Download as a spreadsheet" %}</a>{% endif %}{% endblock %}
+{% block content %}
+{% if not total %}<div class="wk-card"><div class="p-4 text-center small-muted">{% translate "Nobody has answered yet." %}</div></div>{% else %}
+{% for s in summary %}
+<div class="wk-card mb-3"><div class="wk-card-head d-flex justify-content-between"><h2 dir="auto">{{ forloop.counter }}. {{ s.question.text }}</h2>
+  <span class="small-muted">{% blocktranslate count n=s.count %}{{ n }} answer{% plural %}{{ n }} answers{% endblocktranslate %}</span></div><div class="wk-card-body">
+  {% if s.bars %}
+    {% if s.average %}<p><b>{{ s.average }}</b> / 5 <span class="small-muted">{% translate "average" %}</span></p>{% endif %}
+    {% for b in s.bars %}
+    <div class="d-flex align-items-center gap-2 mb-2"><span class="text-truncate" style="width:30%" dir="auto">{{ b.label }}</span>
+      <div class="progress flex-grow-1" style="height:.6rem" role="progressbar" aria-valuenow="{{ b.pct }}" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:{{ b.width }}%"></div></div>
+      <span class="small-muted text-nowrap" dir="ltr">{{ b.n }} · {{ b.pct }}%</span></div>
+    {% endfor %}
+  {% else %}
+    <ul class="list-unstyled mb-0">{% for t in s.texts %}<li class="border-bottom py-2" dir="auto">{{ t|linebreaksbr }}</li>{% empty %}<li class="small-muted">{% translate "No answer to this question." %}</li>{% endfor %}</ul>
+  {% endif %}
+</div></div>
+{% endfor %}
+
+<div class="wk-card"><div class="wk-card-head d-flex justify-content-between"><h2>{% translate "Each answer" %}</h2>{% if total > 50 %}<span class="small-muted">{% translate "The latest 50. The spreadsheet has all of them." %}</span>{% endif %}</div>
+  <div class="list-group list-group-flush">{% for r in responses %}
+    <div class="list-group-item d-flex justify-content-between gap-2">
+      <div><div class="fw-semibold"><span dir="ltr">{{ r.created_at|date:"Y-m-d H:i" }}</span>{% if r.user %} · <span dir="auto">{{ r.user.first_name|default:r.user.email }}</span>{% endif %}</div>
+        <div class="small">{% for a in r.answers.all %}<div><b dir="auto">{{ a.question.text }}</b>: <span dir="auto">{{ a.shown }}</span></div>{% endfor %}</div></div>
+      <form method="post" action="{% url 'forms:response_delete' f.pk r.pk %}" data-confirm="{% translate 'This answer will be deleted.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button type="submit" class="btn btn-outline-danger btn-sm" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>
+    </div>
+  {% endfor %}</div>
+</div>
+{% endif %}
+{% endblock %}

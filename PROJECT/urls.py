@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from apps.documents import verify as documents_verify
+from apps.forms.public import fill as form_fill
 from django.utils.translation import gettext_lazy as _
 from django.views.i18n import JavaScriptCatalog
 
@@ -25,9 +26,11 @@ urlpatterns = [
     path('s/', include('apps.sharing.public_urls')),
     path('app/ai/identity/', include('apps.brand.urls')),
     path('app/ai/presentations/', include('apps.presentations.urls')),
+    path('app/forms/', include('apps.forms.urls')),
     path('app/ai/', include('apps.docops.urls')),
     path('app/ai/', include('apps.docops.service_urls')),
     path('v/<str:code>/', documents_verify.verify, name='verify'),
+    path('f/<str:code>/', form_fill, name='fill'),
     path('company/letterheads/', include('apps.identity.urls')),
     path('billing/', include('apps.billing.urls')),
     path('company/', include('apps.companies.urls')),

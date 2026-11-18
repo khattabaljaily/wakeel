@@ -1,0 +1,19 @@
+{% extends "forms/public_base.html" %}
+{% load i18n %}
+{% block title %}{% if f %}{{ f.title }} · {{ company }}{% else %}{% translate "Forms and surveys" context "navigation" %}{% endif %}{% endblock %}
+{% block body %}
+<section class="vp-card vp-center">
+  {% if company %}<p class="vp-from" dir="auto">{{ company }}</p><p class="fp-title" dir="auto">{{ f.title }}</p>{% endif %}
+  {% if kind == 'thanks' %}
+    <div class="vp-status" role="status"><span class="vp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+      <h1>{% translate "Thank you" %}</h1></div>
+    <p class="fp-desc" dir="auto">{% if f.thanks %}{{ f.thanks }}{% else %}{% translate "Your answers were sent." %}{% endif %}</p>
+    {% if f.audience == 'public' %}<p><a class="btn btn-light" href="{% url 'fill' f.code %}">{% translate "Send another answer" %}</a></p>{% endif %}
+  {% elif kind == 'closed' %}<h1>{% translate "This form is closed" %}</h1><p class="fp-desc">{% translate "It is not taking answers any more." %}</p>
+  {% elif kind == 'done_before' %}<h1>{% translate "You already answered" %}</h1><p class="fp-desc">{% translate "Each person answers this form once." %}</p>
+  {% elif kind == 'members' %}<h1>{% translate "For the team only" %}</h1><p class="fp-desc">{% translate "This form is only for the people of the company. Sign in with the account you use in the company." %}</p>
+  {% elif kind == 'full' %}<h1>{% translate "This form is full" %}</h1><p class="fp-desc">{% translate "It has received all the answers it can take." %}</p>
+  {% elif kind == 'busy' %}<h1>{% translate "Too many tries" %}</h1><p class="fp-desc">{% translate "Please wait a few minutes and try again." %}</p>
+  {% else %}<h1>{% translate "This form does not exist" %}</h1><p class="fp-desc">{% translate "The link may be wrong, or the form was deleted." %}</p>{% endif %}
+</section>
+{% endblock %}

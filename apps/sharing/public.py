@@ -25,7 +25,7 @@ WRONG_PASSWORD = (5, 15 * 60)        # per link and address
 def _headers(response):
     response['X-Robots-Tag'] = 'noindex, nofollow'
     response['Cache-Control'] = 'no-store'
-    response['Referrer-Policy'] = 'no-referrer'
+    response['Referrer-Policy'] = 'same-origin'          # not 'no-referrer': with it the browser posts 'Origin: null' and the CSRF check refuses the password
     response['X-Content-Type-Options'] = 'nosniff'
     return response
 

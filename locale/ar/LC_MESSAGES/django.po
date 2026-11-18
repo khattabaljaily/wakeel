@@ -7488,6 +7488,33 @@ msgstr "طلب عرضاً تقديمياً"
 msgid "Deleted a presentation"
 msgstr "حذف عرضاً تقديمياً"
 
+msgid ""
+"This form is only for the people of the company. Sign in with the account "
+"you use in the company."
+msgstr ""
+"هذا النموذج لأفراد الشركة فقط. سجّل الدخول بالحساب الذي تستخدمه في الشركة."
+
+msgid "Only the people of this company, one answer each"
+msgstr "أفراد هذه الشركة فقط، إجابة واحدة لكل شخص"
+
+msgid "Created a form"
+msgstr "أنشأ نموذجاً"
+
+msgid "Changed the settings of a form"
+msgstr "غيّر إعدادات نموذج"
+
+msgid "Deleted a form and its answers"
+msgstr "حذف نموذجاً وإجاباته"
+
+msgid "Opened a form for answers"
+msgstr "فتح نموذجاً لاستقبال الإجابات"
+
+msgid "Closed a form"
+msgstr "أغلق نموذجاً"
+
+msgid "Downloaded the answers of a form"
+msgstr "نزّل إجابات نموذج"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

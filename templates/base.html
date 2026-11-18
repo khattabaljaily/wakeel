@@ -141,6 +141,14 @@
                 </div>
             </div>
 
+            {% if membership.can_edit %}<div class="rail-grp {% nav_group '/app/forms/' %}" data-grp="comms">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "E-mail and communication" context "menu section" %}"><i class="bi bi-envelope"></i><span class="lbl">{% translate "E-mail and communication" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "E-mail and communication" context "menu section" %}</span>
+                    <a class="rail-btn" href="{% url 'forms:list' %}"{% nav_current '/app/forms/' %}><i class="bi bi-ui-checks"></i><span class="lbl">{% translate "Forms and surveys" context "navigation" %}</span></a>
+                </div>
+            </div>{% endif %}
+
             <div class="rail-sep" role="separator"></div>
             <div class="rail-grp {% nav_group '/company/brand/' '/company/team/' '/company/wallet/' '/company/activity/' %}" data-grp="admin">
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "الإدارة" %}"><i class="bi bi-shield-check"></i><span class="lbl">{% translate "الإدارة" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>

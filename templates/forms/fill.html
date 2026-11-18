@@ -1,0 +1,27 @@
+{% extends "forms/public_base.html" %}
+{% load i18n %}
+{% block title %}{{ f.title }} · {{ company }}{% endblock %}
+{% block body %}
+<form class="vp-card" method="post" novalidate>{% csrf_token %}
+  <p class="vp-from" dir="auto">{{ company }}</p>
+  <h1 class="fp-title" dir="auto">{{ f.title }}</h1>
+  {% if f.description %}<p class="fp-desc" dir="auto">{{ f.description|linebreaksbr }}</p>{% endif %}
+  {% if general %}<div class="vp-warn" role="alert">{{ general }}</div>{% endif %}
+  <div class="fp-hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  {% for q in questions %}
+  <fieldset class="fp-q{% if q.error %} fp-bad{% endif %}">
+    <legend dir="auto">{{ q.text }}{% if q.required %} <span class="fp-req" title="{% translate 'required' %}">*</span>{% endif %}</legend>
+    {% if q.kind == 'short' %}<input type="text" name="q{{ q.pk }}" maxlength="300" dir="auto" value="{{ q.answer }}" aria-label="{{ q.text }}">
+    {% elif q.kind == 'long' %}<textarea name="q{{ q.pk }}" rows="4" maxlength="4000" dir="auto" aria-label="{{ q.text }}">{{ q.answer }}</textarea>
+    {% elif q.kind == 'date' %}<input type="date" name="q{{ q.pk }}" value="{{ q.answer }}" aria-label="{{ q.text }}">
+    {% elif q.kind == 'rating' %}<div class="fp-rate">{% for i in '12345' %}<label><input type="radio" name="q{{ q.pk }}" value="{{ i }}"{% if q.answer == i %} checked{% endif %}><span>{{ i }}</span></label>{% endfor %}</div>
+    {% elif q.kind == 'choice' %}{% for c in q.choices %}<label class="fp-opt"><input type="radio" name="q{{ q.pk }}" value="{{ c }}"{% if q.answer == c %} checked{% endif %}><span dir="auto">{{ c }}</span></label>{% endfor %}
+    {% elif q.kind == 'multi' %}{% for c in q.choices %}<label class="fp-opt"><input type="checkbox" name="q{{ q.pk }}" value="{{ c }}"{% if c in q.picked %} checked{% endif %}><span dir="auto">{{ c }}</span></label>{% endfor %}
+    {% endif %}
+    {% if q.error %}<div class="fp-err">{{ q.error }}</div>{% endif %}
+  </fieldset>
+  {% endfor %}
+  <button type="submit" class="btn fp-send">{% translate "Send" %}</button>
+  <p class="vp-note">{% if f.audience == 'team' %}{% translate "Your name is saved with your answer." %}{% else %}{% translate "Nothing is asked about you: your answer is not linked to your name." %}{% endif %}</p>
+</form>
+{% endblock %}

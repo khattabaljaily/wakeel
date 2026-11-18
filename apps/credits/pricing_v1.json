@@ -162,9 +162,16 @@
       "tier": "premium",
       "fixed_cost_usd": 0.05,
       "note": "Measured 2026-11-01 in MyDocHub on Claude Opus (one run). Not yet measured in Wakeel."
+    },
+    "create_form": {
+      "name_en": "Create a form or survey",
+      "name_ar": "إنشاء نموذج أو استبيان",
+      "fixed_cost_usd": 0.01,
+      "note": "No AI: the cost is hosting and storage. Its price is a fixed value set by the owner (price_overrides, 2026-11-06 in MyDocHub), charged once when the form is created; its answers are not charged, a cap per form (FORM_MAX_RESPONSES) keeps the cost bounded."
     }
   },
   "price_overrides": {
+    "create_form": 0.25,
     "brand_logo": 3,
     "brand_logo_premium": 12,
     "brand_logo_variants": 2,
@@ -199,5 +206,5 @@
     "brand_guidelines_premium": 12
   },
   "brand_kit_discount": 0.2,
-  "price_overrides_note": "Fixed prices set by the owner for the brand studio (2026-11, MyDocHub): the price of one design, in USD. Not cost + profit."
+  "price_overrides_note": "Fixed prices set by the owner, in USD, not cost + profit: the brand studio (2026-11, MyDocHub: the price of one design) and creating a form (2026-11-06)."
 }

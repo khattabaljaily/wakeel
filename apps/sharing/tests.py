@@ -1,6 +1,7 @@
 import datetime
 from unittest import mock
 
+from django.conf import settings
 from django.core.cache import cache
 from django.core.files.base import ContentFile
 from django.test import Client, TestCase
@@ -139,6 +140,17 @@ class VisitorTests(Base):
         right = visitor.post(self.url(link), {'password': 'secret1'})
         self.assertContains(right, '<iframe')
         self.assertEqual(visitor.get(self.url(link, 'file/')).status_code, 200)
+
+    def test_a_real_browser_can_send_the_password(self):
+        """A browser posts 'Origin: null' from a page served with 'Referrer-Policy: no-referrer', and the CSRF check then
+        refuses the form (the test client sends no Origin, so only this test sees it)."""
+        link = self.link(password='secret1')
+        browser = Client(enforce_csrf_checks=True)
+        page = browser.get(self.url(link))
+        self.assertNotEqual(page['Referrer-Policy'], 'no-referrer')
+        right = browser.post(self.url(link), {'password': 'secret1', 'csrfmiddlewaretoken': browser.cookies[settings.CSRF_COOKIE_NAME].value},
+                             HTTP_ORIGIN='http://testserver')
+        self.assertContains(right, '<iframe')
 
     def test_too_many_wrong_passwords_block_even_the_right_one(self):
         link = self.link(password='secret1')

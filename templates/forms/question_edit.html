@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Edit the question" %}{% endblock %}
+{% block page_title %}{% translate "Edit the question" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'forms:detail' f.pk %}">← <span dir="auto">{{ f.title }}</span></a>{% endblock %}
+{% block content %}
+<form method="post" class="wk-card" style="max-width:760px" novalidate data-once>{% csrf_token %}<div class="wk-card-body">
+  {% if has_answers %}<div class="alert alert-warning">{% translate "This question already has answers. Changing its type or its choices can make the old answers hard to read." %}</div>{% endif %}
+  {% for field in form %}{% include "forms/_field.html" %}{% endfor %}
+  <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+</div></form>
+{% endblock %}

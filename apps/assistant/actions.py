@@ -394,6 +394,128 @@ def _form_run(request, clean, expected):
     return reverse('forms:detail', args=[form.pk]), _('The form was created. Check its questions.')
 
 
+# ── marketing: plans and posts ───────────────────────────────────────────────────────────────────────────────────────
+def _plan_validate(params, request):
+    from apps.content.forms import month_choices
+    from apps.content.models import Platform
+    months = dict(month_choices())
+    raw = str(params.get('month') or '').strip()[:7]
+    month = f'{raw}-01' if len(raw) == 7 else raw
+    if month not in months:
+        raise Invalid('"month" must be one of (YYYY-MM): ' + ', '.join(m[:7] for m in months))
+    platforms = [str(p).lower() for p in (params.get('platforms') or ['facebook', 'instagram'])]
+    if not platforms or any(p not in Platform.values for p in platforms):
+        raise Invalid('"platforms" must be a list from: ' + ', '.join(Platform.values))
+    per_week = _int(params, 'posts_per_week', 1, 10, 4)
+    if per_week not in (2, 3, 4, 5, 6, 7, 10):
+        raise Invalid('"posts_per_week" must be one of 2, 3, 4, 5, 6, 7, 10.')
+    record = _record(params, required=False)
+    return {'month': month, 'platforms': list(dict.fromkeys(platforms)), 'posts_per_week': per_week, 'brief': _text(params, 'brief', 2000),
+            'document_id': record.pk if record else None}
+
+
+def _plan_of(clean, request):
+    import datetime
+    from apps.content.models import ContentPlan
+    return ContentPlan(company=request.company, month=datetime.date.fromisoformat(clean['month']), platforms=clean['platforms'],
+                       posts_per_week=clean['posts_per_week'], brief=clean['brief'], source=_record(clean, required=False), created_by=request.user)
+
+
+def _plan_price(clean, request):
+    from apps.ai.planner import posts_count
+    return quotes.make('generate_plan', posts_count(_plan_of(clean, request)))
+
+
+def _plan_describe(clean):
+    from apps.content.forms import month_choices
+    rows = [(_('month'), dict(month_choices())[clean['month']]), (_('platforms'), ', '.join(clean['platforms'])),
+            (_('posts per week'), clean['posts_per_week'])]
+    if clean['brief']:
+        rows.append((_('this month\'s brief'), clean['brief'][:300]))
+    if clean['document_id']:
+        record = Record.objects.filter(pk=clean['document_id']).first()
+        rows.append((_('Document'), record.title if record else '—'))
+    return rows
+
+
+def _plan_run(request, clean, expected):
+    from apps.ai.planner import posts_count
+    plan = _plan_of(clean, request)
+    quote = quotes.make('generate_plan', posts_count(plan))
+    try:
+        charging.ensure_can_afford(request.company, request.user, quote, expected)
+        with transaction.atomic():                  # a refused payment leaves no plan stuck in "generating"
+            plan.save()
+            Job.enqueue(request.company, Job.Kind.GENERATE_PLAN, request.user, expected_points=quote.total, plan_id=plan.pk)
+    except (charging.InsufficientCredits, charging.PriceChanged) as exc:
+        raise _refused(exc)
+    audit.record(request, 'assistant.action', 'content plan')
+    return plan.get_absolute_url(), _('Working on it. This page shows the plan as soon as it is ready.')
+
+
+def _postdoc_validate(params, request):
+    return {'document_id': _record(params).pk}
+
+
+def _postdoc_price(clean, request):
+    _record(clean)
+    return quotes.make('rewrite_post')
+
+
+def _postdoc_describe(clean):
+    record = Record.objects.filter(pk=clean['document_id']).first()
+    return [(_('Document'), record.title if record else '—')]
+
+
+def _postdoc_run(request, clean, expected):
+    from apps.content.services import start_post_from_document
+    try:
+        post, _job = start_post_from_document(request.company, request.user, _record(clean), expected)
+    except (charging.InsufficientCredits, charging.PriceChanged) as exc:
+        raise _refused(exc)
+    return reverse('content:post_edit', args=[post.pk]), _('Writing the post from the document. Refresh the page in a moment.')
+
+
+def _post_of(params, request):
+    from apps.content.models import Post
+    try:
+        post = Post.objects.filter(pk=int(params.get('post_id')), company=request.company).first()
+    except (TypeError, ValueError):
+        post = None
+    if post is None:
+        raise Invalid(f'There is no post with id {params.get("post_id")} in this company. Use search_posts to find the right id.')
+    return post
+
+
+def _rewrite_validate(params, request):
+    post = _post_of(params, request)
+    return {'post_id': post.pk, 'instruction': _text(params, 'instruction', 1000, required=True)}
+
+
+def _rewrite_price(clean, request):
+    _post_of(clean, request)
+    return quotes.make('rewrite_post')
+
+
+def _rewrite_describe(clean):
+    from apps.content.models import Post
+    post = Post.objects.filter(pk=clean['post_id']).first()
+    return [(_('Post'), post.title if post else '—'), (_('What to change'), clean['instruction'])]
+
+
+def _rewrite_run(request, clean, expected):
+    from apps.content import learning
+    from apps.content.models import LearningSignal
+    post = _post_of(clean, request)
+    try:
+        Job.enqueue(request.company, Job.Kind.REWRITE_POST, request.user, expected_points=expected, post_id=post.pk,
+                    instruction=clean['instruction'])
+    except (charging.InsufficientCredits, charging.PriceChanged) as exc:
+        raise _refused(exc)
+    learning.record_note(post, LearningSignal.Kind.REWRITE, clean['instruction'])
+    return reverse('content:post_edit', args=[post.pk]), _('Rewriting the post. Refresh the page in a moment.')
+
+
 def _free(clean, request):
     return None
 
@@ -406,6 +528,9 @@ REGISTRY = {a.key: a for a in (
     Action('create_note', gettext_lazy('Add a note'), _note_validate, _note_describe, _free, _note_run),
     Action('create_contact', gettext_lazy('Add a contact'), _contact_validate, _contact_describe, _free, _contact_run),
     Action('create_form', gettext_lazy('Create a form'), _form_validate, _form_describe, _form_price, _form_run),
+    Action('make_content_plan', gettext_lazy('Make a content plan'), _plan_validate, _plan_describe, _plan_price, _plan_run),
+    Action('post_from_document', gettext_lazy('Write a post from a document'), _postdoc_validate, _postdoc_describe, _postdoc_price, _postdoc_run),
+    Action('rewrite_post', gettext_lazy('Rewrite a post'), _rewrite_validate, _rewrite_describe, _rewrite_price, _rewrite_run),
 )}
 
 

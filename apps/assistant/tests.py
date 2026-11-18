@@ -508,3 +508,103 @@ class ToolCallingClient(TestCase):
         with override_settings(DEEPSEEK_API_KEY='', ANTHROPIC_API_KEY='', AI_ENABLED=False):
             with self.assertRaises(ai.AIError):
                 ai.chat_tools('S', self.TURNS[:1], None)
+
+
+class MarketingActions(Base):
+    """Marid works on both halves: plans and posts (marketing) next to documents, with the same rule: price shown = charged."""
+
+    def setUp(self):
+        super().setUp()
+        from apps.content.forms import month_choices
+        self.month = month_choices()[0][0][:7]
+        from apps.content.models import Post
+        self.post = Post.objects.create(company=self.company, title='Ramadan offer', headline='Save big', caption='Visit us', platforms=['facebook'],
+                                        status='review', scheduled_at=timezone.now() + timedelta(days=3))
+        self.theirs = Post.objects.create(company=self.other, title='Beta secret post', platforms=['facebook'], status='draft')
+
+    def plan_params(self, **extra):
+        params = {'month': self.month, 'platforms': ['facebook', 'instagram'], 'posts_per_week': 3, 'brief': 'Launch week'}
+        params.update(extra)
+        return params
+
+    def test_a_plan_card_price_is_the_price_charged_with_and_without_a_source(self):
+        from apps.content.models import ContentPlan
+        for extra in ({}, {'document_id': self.record.pk}):
+            p = self.proposal('make_content_plan', self.plan_params(**extra))
+            card, page = self.card(p)
+            self.assertGreater(card['points'], 0)
+            self.assertContains(page, f'name="expected_points" value="{card["points"]}"')
+            before = self.balance()
+            self.approve(p)
+            p.refresh_from_db()
+            self.assertEqual(p.status, 'done', p.outcome)
+            self.assertEqual(before - self.balance(), card['points'])
+            job = Job.objects.order_by('-pk').first()
+            self.assertEqual((job.kind, job.charge_txn.delta), ('generate_plan', -card['points']))
+            plan = ContentPlan.objects.filter(company=self.company).order_by('-id').first()
+            self.assertEqual((plan.posts_per_week, plan.platforms, plan.source_id), (3, ['facebook', 'instagram'], extra.get('document_id')))
+            self.assertEqual(p.url, plan.get_absolute_url())
+
+    def test_a_plan_with_a_wrong_month_platform_or_frequency_is_sent_back_to_the_model(self):
+        for bad in ({'month': '2019-01'}, {'platforms': ['myspace']}, {'posts_per_week': 9}, {'document_id': 999999}):
+            chat = self.say('x', [says('', tool_call('propose_action', {'action': 'make_content_plan', 'params': self.plan_params(**bad)})), says('?')])
+            back = [m for m in chat.call_args_list[1].args[1] if m['role'] == 'tool'][0]['content']
+            self.assertIn('Not valid', back, bad)
+        self.assertFalse(Proposal.all_companies.exists())
+
+    def test_a_post_from_a_document_and_a_rewrite_are_charged_at_the_card_price(self):
+        from apps.content.models import Post
+        cases = [('post_from_document', {'document_id': self.record.pk}), ('rewrite_post', {'post_id': self.post.pk, 'instruction': 'Shorter'})]
+        for action, params in cases:
+            p = self.proposal(action, params)
+            card, _page = self.card(p)
+            before = self.balance()
+            self.approve(p)
+            p.refresh_from_db()
+            self.assertEqual(p.status, 'done', p.outcome)
+            self.assertEqual(before - self.balance(), card['points'])
+            self.assertEqual(Job.objects.order_by('-pk').first().charge_txn.delta, -card['points'])
+        job = Job.objects.get(kind='rewrite_post', params__post_id=self.post.pk)
+        self.assertEqual(job.params['instruction'], 'Shorter')
+        self.assertEqual(Post.objects.filter(company=self.company).count(), 2)           # the draft written from the document
+
+    def test_a_changed_price_makes_nothing_for_any_marketing_action(self):
+        from apps.content.models import ContentPlan, Post
+        for action, params in (('make_content_plan', self.plan_params()), ('post_from_document', {'document_id': self.record.pk}),
+                               ('rewrite_post', {'post_id': self.post.pk, 'instruction': 'x'})):
+            p = self.proposal(action, params)
+            before = self.balance()
+            self.approve(p, shown=1)
+            p.refresh_from_db()
+            self.assertEqual(p.status, 'failed', action)
+            self.assertEqual(self.balance(), before, action)
+        self.assertEqual((ContentPlan.objects.filter(company=self.company).count(), Post.objects.filter(company=self.company).count(),
+                          Job.objects.count()), (0, 1, 0))
+
+    def test_a_post_of_another_company_cannot_be_rewritten(self):
+        chat = self.say('x', [says('', tool_call('propose_action', {'action': 'rewrite_post', 'params': {'post_id': self.theirs.pk, 'instruction': 'x'}})), says('?')])
+        self.assertIn('Not valid', [m for m in chat.call_args_list[1].args[1] if m['role'] == 'tool'][0]['content'])
+
+    def test_finding_posts_is_company_scoped_and_wrapped_as_data(self):
+        chat = self.say('x', [says('', tool_call('search_posts', {'query': 'ramadan', 'status': 'review'})), says('Found.')])
+        result = [m for m in chat.call_args_list[1].args[1] if m['role'] == 'tool'][0]['content']
+        self.assertIn(f'id {self.post.pk}: Ramadan offer', result)
+        self.assertIn('<untrusted_content', result)
+        chat = self.say('x', [says('', tool_call('search_posts', {'query': 'secret'})), says('None.')])
+        self.assertNotIn('Beta secret', [m for m in chat.call_args_list[1].args[1] if m['role'] == 'tool'][0]['content'])
+
+    def test_whats_waiting_tells_the_model_what_the_dashboard_shows(self):
+        from apps.documents.models import Document
+        Document.all_companies.create(company=self.company, title='d', category='letters', status='pending')
+        chat = self.say('what is pending?', [says('', tool_call('whats_waiting', {})), says('Two things.')])
+        result = [m for m in chat.call_args_list[1].args[1] if m['role'] == 'tool'][0]['content']
+        self.assertIn('Documents waiting for your approval', result)
+        self.assertIn('1', result)
+
+    def test_marid_is_told_it_works_on_both_halves(self):
+        chat = self.say('hi', [says('Hi')])
+        system, tools = chat.call_args.args[0], chat.call_args.args[2]
+        for action in ('make_content_plan', 'post_from_document', 'rewrite_post', 'make_presentation', 'document_service'):
+            self.assertIn(action, system)
+        self.assertEqual({t['function']['name'] for t in tools}, {'search_documents', 'search_posts', 'whats_waiting', 'propose_action'})
+        self.assertIn('make_content_plan', tools[-1]['function']['parameters']['properties']['action']['enum'])

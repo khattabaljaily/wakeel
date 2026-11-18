@@ -175,6 +175,24 @@ def run_generate_plan(job):
     return _('تم إعداد الخطة و%(count)s منشوراً.') % {'count': len(posts)}
 
 
+def start_post_from_document(company, user, record, expected_points):
+    """A new draft post written from a document of the library: one paid rewrite job at the price shown (`expected_points`); the AI
+    reads the document for free. A refused payment keeps no draft (raises InsufficientCredits / PriceChanged)."""
+    from .models import Platform
+    day = timezone.localdate() + datetime.timedelta(days=1)
+    platforms = [Platform.FACEBOOK, Platform.INSTAGRAM]
+    from apps.jobs.models import Job
+    with transaction.atomic():
+        post = Post.objects.create(
+            company=company, created_by=user, title=record.title[:200] or str(_('منشور جديد')), platforms=platforms,
+            status=Post.Status.DRAFT, size=default_size(Post.Format.IMAGE, platforms),
+            scheduled_at=datetime.datetime.combine(day, datetime.time(19, 0), tzinfo=company.tzinfo), headline=company.name)
+        job = Job.enqueue(company, Job.Kind.REWRITE_POST, user, expected_points=expected_points, post_id=post.pk, source_id=record.pk,
+                          instruction='Write this post from the source document: pick the one thing in it most worth telling this '
+                                      'audience, and write the headline, the caption and the design text for it.')
+    return post, job
+
+
 def run_rewrite_post(job):
     post = Post.objects.select_related('company').get(pk=job.params['post_id'], company=job.company)
     job.set_progress(20, _('وكيل يعيد كتابة المنشور…'))

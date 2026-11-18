@@ -30,7 +30,7 @@ from .occasions import between as in_range
 from apps.social.services import PUBLISHABLE_FORMATS, targets as publish_targets
 
 from .review import share_url
-from .services import default_size
+from .services import default_size, start_post_from_document
 
 WEEKDAYS = [_('الأحد'), _('الإثنين'), _('الثلاثاء'), _('الأربعاء'), _('الخميس'), _('الجمعة'), _('السبت')]
 
@@ -208,17 +208,7 @@ def post_from_document(request, pk):
     document for free). A refused payment keeps no draft."""
     from apps.library.models import Record
     record = get_object_or_404(Record, pk=pk)
-    day = timezone.localdate() + datetime.timedelta(days=1)
-    platforms = [Platform.FACEBOOK, Platform.INSTAGRAM]
-    with transaction.atomic():
-        post = Post.objects.create(
-            company=request.company, created_by=request.user, title=record.title[:200] or _('منشور جديد'), platforms=platforms,
-            status=Post.Status.DRAFT, size=default_size(Post.Format.IMAGE, platforms),
-            scheduled_at=datetime.datetime.combine(day, datetime.time(19, 0), tzinfo=request.company.tzinfo), headline=request.company.name)
-        Job.enqueue(request.company, Job.Kind.REWRITE_POST, request.user, expected_points=credit_jobs.expected_points(request.POST),
-                    post_id=post.pk, source_id=record.pk,
-                    instruction='Write this post from the source document: pick the one thing in it most worth telling this audience, '
-                                'and write the headline, the caption and the design text for it.')
+    post, _job = start_post_from_document(request.company, request.user, record, credit_jobs.expected_points(request.POST))
     messages.info(request, _('وكيل يكتب المنشور من المستند، وسيظهر النص هنا خلال لحظات. حدّث الصفحة.'))
     return redirect('content:post_edit', pk=post.pk)
 

@@ -7661,6 +7661,42 @@ msgstr ""
 "يقرأ الذكاء الاصطناعي المستند ويكتب منه منشوراً واحداً. القراءة مجانية وتدفع "
 "سعر منشور واحد مكتوب."
 
+msgid "Make a content plan"
+msgstr "إعداد خطة محتوى"
+
+msgid "Write a post from a document"
+msgstr "كتابة منشور من مستند"
+
+msgid "Rewrite a post"
+msgstr "إعادة كتابة منشور"
+
+msgid "month"
+msgstr "الشهر"
+
+msgid "platforms"
+msgstr "المنصات"
+
+msgid "posts per week"
+msgstr "منشورات أسبوعياً"
+
+msgid "this month's brief"
+msgstr "توجيهات الشهر"
+
+msgid "Post"
+msgstr "المنشور"
+
+msgid "What to change"
+msgstr "المطلوب تغييره"
+
+msgid "Working on it. This page shows the plan as soon as it is ready."
+msgstr "جارٍ العمل عليها. تعرض هذه الصفحة الخطة فور جاهزيتها."
+
+msgid "Writing the post from the document. Refresh the page in a moment."
+msgstr "جارٍ كتابة المنشور من المستند. حدّث الصفحة بعد لحظة."
+
+msgid "Rewriting the post. Refresh the page in a moment."
+msgstr "جارٍ إعادة كتابة المنشور. حدّث الصفحة بعد لحظة."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

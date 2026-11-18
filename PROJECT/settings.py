@@ -298,22 +298,32 @@ ENJAZ_OPERATORS = {'PRODUCT': 'wakeel', 'ACCOUNT': 'apps.companies.operators.of_
 ALLOW_REGISTRATION = get_secret('ALLOW_REGISTRATION', True)
 
 
-# AI: strategy, captions and rewrites all go through apps.ai.
-# AI_PROVIDER picks the model vendor: 'anthropic' (Claude) or 'deepseek'.
-AI_PROVIDER = get_secret('AI_PROVIDER', 'anthropic')
+# AI: strategy, captions and rewrites all go through apps.ai, which routes each call by its tier (apps/ai/client.py):
+#   interactive  a person is waiting (the month plan, a rewrite, brand autofill)  -> Claude Sonnet: fast, same cost as DeepSeek
+#   background   nobody waits (reports, lessons, comment triage)                    -> DeepSeek: the cheapest
+#   premium      the best quality, for a service that asks for it                   -> Claude Opus
+# Measured 2026-11-18 on the same month plans: quality was close, Sonnet took 36-43 s against DeepSeek's 160-177 s and cost the
+# same (about $0.07 a plan), Opus about $0.21. A tier whose provider has no key falls back to the other one.
+AI_PROVIDER = get_secret('AI_PROVIDER', 'anthropic')   # which provider's key is named when no key is set at all
 ANTHROPIC_API_KEY = get_secret('ANTHROPIC_API_KEY', '')
-ANTHROPIC_MODEL = get_secret('ANTHROPIC_MODEL', 'claude-opus-5')
+ANTHROPIC_MODEL = get_secret('ANTHROPIC_MODEL', 'claude-opus-5-5')                 # premium
+ANTHROPIC_MODEL_FAST = get_secret('ANTHROPIC_MODEL_FAST', 'claude-sonnet-5-5')     # interactive
 DEEPSEEK_API_KEY = get_secret('DEEPSEEK_API_KEY', '')
-DEEPSEEK_MODEL = get_secret('DEEPSEEK_MODEL', 'deepseek-v4-pro')
+DEEPSEEK_MODEL = get_secret('DEEPSEEK_MODEL', 'deepseek-v4-pro')                   # background
 DEEPSEEK_BASE_URL = get_secret('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')
+AI_TIERS = get_secret('AI_TIERS', {
+    'interactive': ['anthropic', ANTHROPIC_MODEL_FAST],
+    'background': ['deepseek', DEEPSEEK_MODEL],
+    'premium': ['anthropic', ANTHROPIC_MODEL],
+})
 # DeepSeek charges less off-peak. The window, in UTC as [start, end], may cross midnight.
 DEEPSEEK_OFF_PEAK_UTC = get_secret('DEEPSEEK_OFF_PEAK_UTC', ['16:30', '00:30'])
-# Prices (USD per million tokens) for models other than DeepSeek, whose prices are built in (apps.ai.pricing).
+# Prices (USD per million tokens) for models other than DeepSeek and Claude, whose prices are built in (apps.ai.pricing).
 # 0 means unknown: those calls show no cost.
 AI_PRICE_INPUT_PER_MTOK = get_secret('AI_PRICE_INPUT_PER_MTOK', 0)
 AI_PRICE_OUTPUT_PER_MTOK = get_secret('AI_PRICE_OUTPUT_PER_MTOK', 0)
 AI_KEY_NAME = 'DEEPSEEK_API_KEY' if AI_PROVIDER == 'deepseek' else 'ANTHROPIC_API_KEY'
-AI_ENABLED = bool(DEEPSEEK_API_KEY if AI_PROVIDER == 'deepseek' else ANTHROPIC_API_KEY)
+AI_ENABLED = bool(DEEPSEEK_API_KEY or ANTHROPIC_API_KEY)
 
 
 # Direct publishing to Facebook and Instagram through a Meta app (developers.facebook.com).

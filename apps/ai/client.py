@@ -28,9 +28,12 @@ class AIError(Exception):
     """A failure the user should see. The message is plain Arabic for subscribers; `detail` is the
     technical cause (provider, key, status code) and is shown only in the system admin panel."""
 
-    def __init__(self, message, detail=''):
+    def __init__(self, message, detail='', retry=False):
         super().__init__(message)
         self.detail = detail
+        # True when the reply came back unusable (empty, cut off, not JSON, keys missing): the call is worth repeating on
+        # a stronger model. False for failures a second model cannot fix (no key, rate limit, a refusal).
+        self.retry = retry
 
 
 # Messages for subscribers never name the provider or the server's configuration.
@@ -48,12 +51,42 @@ class AIResult:
     model: str = ''
 
 
-def call_json(system, prompt, schema, *, max_tokens=32000, effort='high'):
+def _has_key(provider):
+    return bool(settings.DEEPSEEK_API_KEY if provider == 'deepseek' else settings.ANTHROPIC_API_KEY)
+
+
+def resolve(tier):
+    """(provider, model) for a tier: what settings.AI_TIERS asks for, or the other provider when that one has no key."""
+    provider, model = settings.AI_TIERS.get(tier) or settings.AI_TIERS['interactive']
+    if _has_key(provider):
+        return provider, model
+    if provider == 'deepseek' and _has_key('anthropic'):
+        return 'anthropic', settings.ANTHROPIC_MODEL_FAST
+    if provider == 'anthropic' and _has_key('deepseek'):
+        return 'deepseek', settings.DEEPSEEK_MODEL
+    raise AIError(UNAVAILABLE, f'No AI key: add {settings.AI_KEY_NAME} to secrets.json.')
+
+
+def _run(provider, model, system, prompt, schema, max_tokens, effort):
+    if provider == 'deepseek':
+        return _deepseek(system, prompt, schema, max_tokens=max_tokens, model=model)
+    return _anthropic(system, prompt, schema, max_tokens=max_tokens, effort=effort, model=model)
+
+
+def call_json(system, prompt, schema, *, max_tokens=32000, effort='high', tier='interactive'):
+    """One structured AI call, routed by `tier` (see settings): 'interactive' (a person waits), 'background', 'premium'.
+    Quality gate: when DeepSeek answers with something unusable (empty, cut off, keys missing) and a Claude key exists, the
+    call is repeated once on the fast Claude model, so a weak answer never reaches the subscriber."""
     if not settings.AI_ENABLED:
         raise AIError(UNAVAILABLE, f'No AI key: add {settings.AI_KEY_NAME} to secrets.json.')
-    if settings.AI_PROVIDER == 'deepseek':
-        return _deepseek(system, prompt, schema, max_tokens=max_tokens)
-    return _anthropic(system, prompt, schema, max_tokens=max_tokens, effort=effort)
+    provider, model = resolve(tier)
+    try:
+        return _run(provider, model, system, prompt, schema, max_tokens, effort)
+    except AIError as exc:
+        if provider == 'deepseek' and exc.retry and _has_key('anthropic'):
+            logger.warning('DeepSeek reply was unusable (%s); repeating the call on Claude', exc.detail or exc)
+            return _run('anthropic', settings.ANTHROPIC_MODEL_FAST, system, prompt, schema, max_tokens, effort)
+        raise
 
 
 def _parse(text, request_id=''):
@@ -61,16 +94,15 @@ def _parse(text, request_id=''):
         data = json.loads(text)
     except json.JSONDecodeError as exc:
         logger.warning('AI returned non-JSON output (request %s)', request_id)
-        raise AIError(_('وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى.')) from exc
+        raise AIError(_('وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'), retry=True) from exc
     if not isinstance(data, dict):
-        raise AIError(_('وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'))
+        raise AIError(_('وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'), retry=True)
     return data
 
 
 # --- Claude -----------------------------------------------------------------
 
-def _anthropic(system, prompt, schema, *, max_tokens, effort):
-    model = settings.ANTHROPIC_MODEL
+def _anthropic(system, prompt, schema, *, max_tokens, effort, model):
     kwargs = {
         'model': model,
         'max_tokens': max_tokens,
@@ -124,14 +156,14 @@ _DEEPSEEK_ERRORS = {
 }
 
 
-def _deepseek(system, prompt, schema, *, max_tokens):
+def _deepseek(system, prompt, schema, *, max_tokens, model):
     # JSON mode needs the word "json" in the prompt and a description of the shape.
     prompt = (
         f'{prompt}\n\nReply with one JSON object only, no other text. It must follow this JSON Schema exactly '
         f'(every required key present, strings may be empty):\n{json.dumps(schema, ensure_ascii=False)}'
     )
     payload = {
-        'model': settings.DEEPSEEK_MODEL,
+        'model': model,
         'messages': [{'role': 'system', 'content': system}, {'role': 'user', 'content': prompt}],
         'response_format': {'type': 'json_object'},
         'max_tokens': max_tokens,
@@ -157,18 +189,18 @@ def _deepseek(system, prompt, schema, *, max_tokens):
         logger.info('DeepSeek %s: in=%s out=%s finish=%s', body.get('model'), usage.get('prompt_tokens'),
                     usage.get('completion_tokens'), choice.get('finish_reason'))
         if choice.get('finish_reason') == 'length':
-            raise AIError(_('كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى.'))
+            raise AIError(_('كان الرد أطول من الحد المسموح. قلّل عدد المنشورات وحاول مرة أخرى.'), retry=True)
         text = (choice.get('message') or {}).get('content') or ''
         if text.strip():
             break
         logger.warning('DeepSeek returned empty content (attempt %s)', attempt + 1)
     else:
-        raise AIError(_('لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'))
+        raise AIError(_('لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'), retry=True)
 
     data = _parse(text, body.get('id', ''))
     missing = [key for key in schema.get('required', []) if key not in data]
     if missing:
         logger.warning('DeepSeek reply is missing keys: %s', missing)
-        raise AIError(_('وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'))
+        raise AIError(_('وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى.'), retry=True)
     return AIResult(data, usage.get('prompt_tokens', 0), usage.get('completion_tokens', 0),
-                    usage.get('prompt_cache_hit_tokens', 0), body.get('model') or settings.DEEPSEEK_MODEL)
+                    usage.get('prompt_cache_hit_tokens', 0), body.get('model') or model)

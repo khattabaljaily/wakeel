@@ -43,14 +43,23 @@ def superuser_required(view):
 
 
 def _system():
-    deepseek = settings.AI_PROVIDER == 'deepseek'
-    model = settings.DEEPSEEK_MODEL if deepseek else settings.ANTHROPIC_MODEL
+    from apps.ai.client import resolve
+
+    def route(tier):
+        try:
+            provider, model = resolve(tier)
+        except Exception:
+            return None
+        return {'provider': 'DeepSeek' if provider == 'deepseek' else 'Claude (Anthropic)', 'model': model}
+
+    routes = {tier: route(tier) for tier in ('interactive', 'background', 'premium')}
+    first = next((r for r in routes.values() if r), {'provider': '—', 'model': ''})
     return {
-        'provider': 'DeepSeek' if deepseek else 'Claude (Anthropic)', 'model': model,
+        'provider': first['provider'], 'model': first['model'], 'routes': routes,
         'ai_enabled': settings.AI_ENABLED, 'ai_key_name': settings.AI_KEY_NAME,
         'worker_alive': worker_alive(), 'email': bool(settings.EMAIL_HOST), 'meta': settings.META_ENABLED,
         'site_url': settings.SITE_URL, 'debug': settings.DEBUG,
-        'prices': DEEPSEEK_PRICES.get(deepseek_tier(model)) if deepseek else None,
+        'prices': DEEPSEEK_PRICES.get(deepseek_tier(settings.DEEPSEEK_MODEL)) if settings.DEEPSEEK_API_KEY else None,
         'off_peak': settings.DEEPSEEK_OFF_PEAK_UTC,
         'flat_prices': (settings.AI_PRICE_INPUT_PER_MTOK, settings.AI_PRICE_OUTPUT_PER_MTOK),
     }

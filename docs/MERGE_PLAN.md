@@ -124,3 +124,21 @@
 - `manage.py check`: بلا مشاكل. `showmigrations`: كل الـ migrations مطبقة.
 - `manage.py test apps`: 242 اختباراً، **فشل واحد موجود مسبقاً**: `content.test_autopilot.AutopilotTests.test_settings_page` يرسل `autopilot_day=31` فيفشل في الأشهر التي أيامها أقل من 31 (`ValueError: day is out of range for month`). ليس من الدمج، ويُصلح عند أول فرصة.
 - بيئة `.env` أُعيد بناؤها بعد النقل (مساراتها القديمة كانت تشير إلى `banan/`).
+
+## التقدم
+
+### المرحلة 1: الأساس (انتهت 2026-11-18، على الفرع `merge-mydochub`، commits محلية)
+
+- **عزل الشركات:** `apps/core/tenancy.py` (`CompanyScopedModel` + `company_context`)، والـ middleware يضبط السياق لكل طلب. التطبيقات المنقولة ترث `CompanyScopedModel` وحقلها `company` (بدل `tenant`)، ويُستعمل `request.company` بدل `request.tenant`. 10 اختبارات عزل في `apps/core/tests_tenancy.py` على نموذج اختبار `apps/core/testapp`.
+- **الأدوار:** أُضيف `client` (عميل) إلى أدوار الشركة: owner / admin / editor / viewer / client. `member` في MyDocHub = `editor` في وكيل.
+- **المشغّلون:** `enjaz-operators` مثبّت (v0.1.0). `Company.country_code` و`Company.operator` يُحددان من الدولة التي كتبتها الشركة، والشركات الحالية رُحّلت. سطر «تم التطوير بواسطة ... يُدار بواسطة ...» في ذيل كل صفحة. `apps/companies/operators.py`.
+- **اللغات:** 16 لغة (ar, en, tr, de, fr, es, pt, it, ru, zh-hans, ja, ko, hi, id, fa, am) بقائمة اختيار بدل زر ع/EN. ترجمات MyDocHub نُسخت إلى `locale/`. `User.language` صار 12 حرفاً.
+- **إصلاح:** يوم الخطة التلقائية لا يقبل أكثر من 28 (كان اليوم 31 يُنهي صفحة المخطط الآلي في الأشهر القصيرة).
+- **الاختبارات:** 259 اختباراً، كلها ناجحة.
+
+### ما تبقى من المرحلة 1 / ملاحظات للمراحل التالية
+
+- **نصوص وكيل الأصلية (عربية) غير مترجمة** إلى اللغات الـ14 الأخرى، فتظهر بالعربية فيها (والإنجليزية مترجمة). الترجمة تُنفَّذ بعد استقرار النصوص، في المرحلة 8.
+- **بوابات الدفع حسب المشغّل** (`GATEWAYS` في `secrets.json`) تُربط في المرحلة 3 مع الفوترة.
+- **لوحة المشغّلين في الإدارة** (تغيير مشغّل شركة بإشعار لها) تُضاف مع دمج `console` في `/ops/`.
+- **تثبيت `enjaz-operators`** في الإنتاج يتطلب `pip install` عبر ssh من github (نفس MyDocHub).

@@ -91,6 +91,13 @@ class AutopilotForm(forms.ModelForm):
         self.fields['autopilot_posts_per_week'] = forms.TypedChoiceField(
             label=_('عدد المنشورات أسبوعياً'), coerce=int, choices=[(n, str(n)) for n in (2, 3, 4, 5, 6, 7, 10)])
 
+    def clean_autopilot_day(self):
+        # Months differ in length: a day after the 28th would not exist every month.
+        day = self.cleaned_data['autopilot_day']
+        if not 1 <= day <= 28:
+            raise forms.ValidationError(_('اختر يوماً بين 1 و28.'))
+        return day
+
     def clean_evergreen_per_month(self):
         return self.cleaned_data.get('evergreen_per_month') or 0
 

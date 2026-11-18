@@ -1,0 +1,12 @@
+{% load i18n %}{% get_current_language as CUR %}
+<details class="wk-langmenu {{ lang_class }}">
+    <summary aria-label="Language / اللغة"><i class="bi bi-translate"></i><span>{% for code, name in LANGUAGES %}{% if code == CUR %}{{ name }}{% endif %}{% endfor %}</span></summary>
+    <div class="wk-langmenu__list" role="menu">
+        {% for code, name in LANGUAGES %}{% get_language_info for code as info %}
+        <form method="post" action="{% url 'core:set_language' %}">{% csrf_token %}
+            <input type="hidden" name="language" value="{{ code }}"><input type="hidden" name="next" value="{{ request.get_full_path }}">
+            <button type="submit" role="menuitem" lang="{{ code }}" dir="{% if info.bidi %}rtl{% else %}ltr{% endif %}"{% if code == CUR %} class="on" aria-current="true"{% endif %}><span>{{ name }}</span><span class="code">{{ code }}</span></button>
+        </form>
+        {% endfor %}
+    </div>
+</details>

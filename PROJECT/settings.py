@@ -156,16 +156,39 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 LANGUAGE_CODE = 'ar'
+# The same 16 languages as MyDocHub and TakeWing (the names are the languages' own). Wakeel's own texts are written in
+# Arabic and translated to English; the texts that came from MyDocHub are written in English. A language without a
+# translation of a text shows it in the language it was written in.
 LANGUAGES = [
     ('ar', 'العربية'),
     ('en', 'English'),
+    ('tr', 'Türkçe'),
+    ('de', 'Deutsch'),
+    ('fr', 'Français'),
+    ('es', 'Español'),
+    ('pt', 'Português'),
+    ('it', 'Italiano'),
+    ('ru', 'Русский'),
+    ('zh-hans', '简体中文'),
+    ('ja', '日本語'),
+    ('ko', '한국어'),
+    ('hi', 'हिन्दी'),
+    ('id', 'Bahasa Indonesia'),
+    ('fa', 'فارسی'),
+    ('am', 'አማርኛ'),
 ]
+# Django ships no Amharic; register it so get_language_info and the language menu know its name.
+from django.conf.locale import LANG_INFO  # noqa: E402
+LANG_INFO.setdefault('am', {'bidi': False, 'code': 'am', 'name': 'Amharic', 'name_local': 'አማርኛ'})
 # Arabic unless the user picked another language (saved on their account, or in this cookie before
 # they sign in). The browser's language is deliberately ignored: many phones in our markets are set
 # to English while their owners expect Arabic. See apps.core.middleware.LanguageMiddleware.
 LANGUAGE_COOKIE_NAME = 'wakeel_lang'
 LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365
-LOCALE_PATHS = [BASE_DIR / 'locale']
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+    BASE_DIR / 'locale_extra',      # Amharic for Django's humanize texts (makemessages leaves this folder alone)
+]
 # Server-side default only: every company works in its own timezone
 # (see CurrentCompanyMiddleware).
 TIME_ZONE = 'Asia/Qatar'

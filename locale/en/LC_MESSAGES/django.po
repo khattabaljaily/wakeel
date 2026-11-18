@@ -5536,3 +5536,6 @@ msgstr "National Day"
 
 msgid "مناسبة خاصة"
 msgstr "Special day"
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "Choose a day between 1 and 28."

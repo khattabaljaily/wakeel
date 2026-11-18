@@ -1036,3 +1036,20 @@ html.wk-scroll-lock, html.wk-scroll-lock body { overflow: hidden !important; ove
 
 /* Operator credit under every page of the app (enjaz-operators) */
 .wk-credit { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--bs-border-color, #e5e7eb); text-align: center; color: var(--bs-secondary-color, #6b7280); font-size: .78rem; }
+
+/* Language menu: the 16 languages (replaces the Arabic / English toggle) */
+.wk-langmenu { position: relative; flex: none; }
+.wk-langmenu > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: .4rem; height: 42px; padding: 0 .8rem;
+  border: 1px solid var(--wk-border); background: #fff; color: var(--wk-ink); border-radius: 12px; font-weight: 600; font-size: .9rem; }
+.wk-langmenu > summary::-webkit-details-marker { display: none; }
+.wk-langmenu > summary:hover, .wk-langmenu[open] > summary { border-color: var(--wk-primary); color: var(--wk-primary-600); }
+.wk-langmenu__list { position: absolute; z-index: 30; inset-inline-end: 0; top: calc(100% + .35rem); min-width: 12rem; max-height: 70vh; overflow-y: auto;
+  background: #fff; border: 1px solid var(--wk-border); border-radius: 12px; padding: .3rem; box-shadow: 0 12px 32px rgba(18, 17, 42, .16); }
+.wk-langmenu__list button { width: 100%; display: flex; justify-content: space-between; gap: 1rem; border: 0; background: transparent; padding: .45rem .7rem;
+  border-radius: 8px; color: var(--wk-ink); font-size: .9rem; text-align: start; }
+.wk-langmenu__list button:hover { background: var(--wk-primary-50); color: var(--wk-primary-600); }
+.wk-langmenu__list button.on { background: var(--wk-primary); color: #fff; }
+.wk-langmenu__list .code { opacity: .55; font-size: .75rem; }
+.wk-langmenu.wk-langtog--float { position: absolute; top: 1rem; inset-inline-end: 1rem; z-index: 3; }
+.wk-langmenu.wk-langtog--float > summary { height: 36px; }
+@media (max-width: 991.98px) { .wk-langmenu.wk-langtog--float { position: fixed; top: calc(.75rem + env(safe-area-inset-top)); inset-inline-end: .75rem; } }

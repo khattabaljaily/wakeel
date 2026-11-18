@@ -1,0 +1,57 @@
+# Amharic for the django.contrib.humanize texts (naturaltime), which Django ships without Amharic.
+# Kept apart from locale/ so `makemessages` does not treat these Django strings as obsolete and drop them.
+msgid ""
+msgstr ""
+"Project-Id-Version: mydochub\n"
+"Language: am\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "now"
+msgstr "አሁን"
+
+#, python-format
+msgid "%(delta)s ago"
+msgstr "ከ%(delta)s በፊት"
+
+#, python-format
+msgid "%(delta)s from now"
+msgstr "ከ%(delta)s በኋላ"
+
+#, python-format
+msgid "a second ago"
+msgid_plural "%(count)s seconds ago"
+msgstr[0] "ከአንድ ሰከንድ በፊት"
+msgstr[1] "ከ%(count)s ሰከንዶች በፊት"
+
+#, python-format
+msgid "a minute ago"
+msgid_plural "%(count)s minutes ago"
+msgstr[0] "ከአንድ ደቂቃ በፊት"
+msgstr[1] "ከ%(count)s ደቂቃዎች በፊት"
+
+#, python-format
+msgid "an hour ago"
+msgid_plural "%(count)s hours ago"
+msgstr[0] "ከአንድ ሰዓት በፊት"
+msgstr[1] "ከ%(count)s ሰዓታት በፊት"
+
+#, python-format
+msgid "a second from now"
+msgid_plural "%(count)s seconds from now"
+msgstr[0] "ከአንድ ሰከንድ በኋላ"
+msgstr[1] "ከ%(count)s ሰከንዶች በኋላ"
+
+#, python-format
+msgid "a minute from now"
+msgid_plural "%(count)s minutes from now"
+msgstr[0] "ከአንድ ደቂቃ በኋላ"
+msgstr[1] "ከ%(count)s ደቂቃዎች በኋላ"
+
+#, python-format
+msgid "an hour from now"
+msgid_plural "%(count)s hours from now"
+msgstr[0] "ከአንድ ሰዓት በኋላ"
+msgstr[1] "ከ%(count)s ሰዓታት በኋላ"

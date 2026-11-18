@@ -10,7 +10,7 @@ class User(AbstractUser):
     # Self sign-ups wait for a system admin; accounts made any other way are approved.
     is_approved = models.BooleanField(_('معتمد'), default=True)
     approved_at = models.DateTimeField(_('تاريخ الاعتماد'), null=True, blank=True)
-    language = models.CharField(_('اللغة'), max_length=5, blank=True, choices=settings.LANGUAGES)
+    language = models.CharField(_('اللغة'), max_length=12, blank=True, choices=settings.LANGUAGES)
     email_notifications = models.BooleanField(_('إشعارات البريد الإلكتروني'), default=True,
                                               help_text=_('رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات.'))
 

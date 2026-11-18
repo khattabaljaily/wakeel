@@ -55,3 +55,30 @@ class LanguageTests(TestCase):
         subjects = {m.to[0]: m.body for m in mail.outbox}
         self.assertIn('Hello', subjects['en@x.test'])
         self.assertIn('مرحباً', subjects['ar@x.test'])
+
+
+class SixteenLanguagesTests(TestCase):
+    """The languages of MyDocHub came with the merge: every one can be picked, saved and shown."""
+    CODES = ['ar', 'en', 'tr', 'de', 'fr', 'es', 'pt', 'it', 'ru', 'zh-hans', 'ja', 'ko', 'hi', 'id', 'fa', 'am']
+
+    def test_the_menu_lists_all_of_them(self):
+        page = self.client.get(reverse('accounts:login')).content.decode()
+        for code in self.CODES:
+            self.assertIn(f'name="language" value="{code}"', page, code)
+
+    def test_every_language_can_be_picked_and_saved_on_the_account(self):
+        user = make_user('u@x.test', make_company())
+        self.client.force_login(user)
+        for code in self.CODES:
+            self.client.post(reverse('core:set_language'), {'language': code})
+            user.refresh_from_db()
+            self.assertEqual(user.language, code)
+            page = self.client.get(reverse('core:dashboard'))
+            self.assertEqual(page.status_code, 200)
+            self.assertContains(page, f'lang="{code}"')
+
+    def test_direction_follows_the_language(self):
+        for code, rtl in (('fa', True), ('ar', True), ('tr', False), ('zh-hans', False)):
+            self.client.post(reverse('core:set_language'), {'language': code})
+            page = self.client.get(reverse('accounts:login'))
+            self.assertContains(page, f'lang="{code}" dir="{"rtl" if rtl else "ltr"}"')

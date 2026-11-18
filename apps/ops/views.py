@@ -25,6 +25,8 @@ from apps.companies import subscriptions as subscriptions_service
 from apps.companies.middleware import SESSION_KEY as COMPANY_SESSION_KEY
 from apps.companies.models import Company, Membership
 from apps.content.models import ContentPlan, Post
+from apps.credits import catalog, charging
+from apps.credits.models import WalletTransaction
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
 
@@ -116,6 +118,7 @@ def overview(request):
             'failed_week': Job.objects.filter(status=Job.Status.FAILED, created_at__gte=week_ago).count(),
             'pending': Job.objects.filter(status__in=[Job.Status.PENDING, Job.Status.RUNNING]).count(),
         },
+        'revenue': charging.revenue_usd(since=stats.year_start()),
         'cost_series': stats.monthly_series(year_jobs, lambda j: j.created_at, lambda j: float(j.cost_usd or 0)),
         'signup_series': stats.monthly_series(Company.objects.filter(created_at__gte=stats.year_start()),
                                               lambda c: c.created_at),
@@ -348,7 +351,42 @@ def company_detail(request, pk):
         'posts_by_status': {Post.Status(s).label: n for s, n in
                             company.posts.order_by().values_list('status').annotate(n=Count('pk'))},
         'accounts': company.social_accounts.all(),
+        'wallet': charging.get_wallet(company), 'wallet_usd': catalog.format_points(charging.get_wallet(company).balance),
+        'wallet_rows': WalletTransaction.objects.filter(company=company)[:10],
+        'revenue': charging.revenue_usd(company=company),
     })
+
+
+@superuser_required
+@require_POST
+def wallet_grant(request, pk):
+    """Add (or take back, with a minus) balance by hand: the way a company is funded until its operator's online payment is open."""
+    from decimal import Decimal, InvalidOperation
+    company = get_object_or_404(Company, pk=pk)
+    try:
+        amount = Decimal(request.POST.get('amount', ''))
+        points = int(amount * 1000)
+        if not points or abs(amount) > 1000:
+            raise ValueError
+    except (InvalidOperation, ValueError):
+        messages.error(request, _('أدخل مبلغاً صحيحاً بالدولار (حتى 1000).'))
+        return redirect('ops:company', pk=pk)
+    charging.add_points(company, points, action=WalletTransaction.ADMIN_GRANT, user=request.user,
+                        description=(request.POST.get('note') or '')[:200] or 'Admin grant')
+    messages.success(request, _('تم تعديل الرصيد.'))
+    return redirect('ops:company', pk=pk)
+
+
+@superuser_required
+@require_POST
+def wallet_exempt(request, pk):
+    """An exempt company is never charged (the owner's own and demo companies)."""
+    company = get_object_or_404(Company, pk=pk)
+    wallet = charging.get_wallet(company)
+    wallet.is_exempt = not wallet.is_exempt
+    wallet.save(update_fields=['is_exempt'])
+    messages.success(request, _('أصبحت الشركة معفاة من الخصم.') if wallet.is_exempt else _('أصبح الخصم من رصيد الشركة يعمل.'))
+    return redirect('ops:company', pk=pk)
 
 
 @superuser_required

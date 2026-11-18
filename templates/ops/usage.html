@@ -7,6 +7,7 @@
 {% block content %}
 <div class="adm-kpis">
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-gold"><i class="bi bi-currency-dollar"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ total.cost|money }}</div><div class="adm-kpi__lbl">{% translate "التكلفة" %}{% if total.unpriced %} {% blocktranslate trimmed with unpriced=total.unpriced %}(دون {{ unpriced }} مهمة بلا سعر){% endblocktranslate %}{% endif %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-wallet2"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ revenue.2|money }}</div><div class="adm-kpi__lbl">{% translate "المخصوم من العملاء (صافي بعد الاسترجاع)" %}</div></div></div>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-box-arrow-in-down"></i></div><div><div class="adm-kpi__num">{{ total.input|thousands }}</div><div class="adm-kpi__lbl">{% translate "رمز مُدخل" %}</div></div></div>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="adm-kpi__num">{{ total.cache_rate }}%</div><div class="adm-kpi__lbl">{% translate "من المدخلات cache hit" %}</div></div></div>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="adm-kpi__num">{{ total.output|thousands }}</div><div class="adm-kpi__lbl">{% translate "رمز مُخرج" %}</div></div></div>

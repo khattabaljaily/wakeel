@@ -66,7 +66,8 @@ def run_due(now=None):
         except InsufficientCredits as exc:
             # The autopilot pays from the wallet like a person does. It never spends what is not there: it waits, and says so.
             logger.info('Autopilot paused for %s: balance %s, plan needs %s', company, exc.balance, exc.cost)
-            _tell_balance_low(company, owner.user if owner else None, exc)
+            if exc.code == 'insufficient_credits':
+                _tell_balance_low(company, owner.user if owner else None, exc)
             continue
         logger.info('Autopilot started plan %s for %s', plan.pk, company)
         started += 1

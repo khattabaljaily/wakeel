@@ -5551,3 +5551,48 @@ msgstr "Wallet"
 
 msgid "سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك. السعر $%(price)s."
 msgstr "Wakeel will write the plan again, and all its current posts, including your edits, will be replaced. Price: $%(price)s."
+
+msgid "معفاة"
+msgstr "Exempt"
+
+msgid "المخصوم (صافي)"
+msgstr "Charged (net)"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "Add balance ($, negative to take back)"
+
+msgid "ملاحظة"
+msgstr "Note"
+
+msgid "تنفيذ"
+msgstr "Apply"
+
+msgid "إلغاء الإعفاء"
+msgstr "Remove the exemption"
+
+msgid "إعفاء من الخصم"
+msgstr "Exempt from charges"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "Charged to customers (net of refunds)"
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "Enter a valid amount in dollars (up to 1000)."
+
+msgid "تم تعديل الرصيد."
+msgstr "The balance was changed."
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "The company is now exempt from charges."
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "Charging the company's balance is on again."
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "AI: interactive (a person is waiting)"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "AI: background"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "AI: best quality"

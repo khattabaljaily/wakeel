@@ -261,3 +261,99 @@ class WalletPageTests(TestCase):
         self.assertIn('$2.38', page)                                 # 2500 - 120 points
         self.assertIn('generate_plan', page)
         self.assertIn('/ 9 post', page)
+
+
+class OpsWalletTests(TestCase):
+    """The system admin funds a company by hand (until its operator's online payment is open) and sees what customers were charged."""
+
+    def setUp(self):
+        self.company = make_company(balance=0)
+        self.owner = make_user(self.company)
+        self.admin = User.objects.create_superuser('root', 'root@x.test', 'a-Strong-pass-77')
+        self.client.cookies['wakeel_lang'] = 'en'
+
+    def test_only_a_superuser_can_grant_and_the_grant_is_in_the_ledger(self):
+        url = reverse('ops:wallet_grant', args=[self.company.pk])
+        self.client.force_login(self.owner)
+        self.assertEqual(self.client.post(url, {'amount': '10'}).status_code, 404)
+        self.client.force_login(self.admin)
+        self.client.post(url, {'amount': '10', 'note': 'pilot'})
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 10000)
+        txn = WalletTransaction.objects.get()
+        self.assertEqual((txn.action, txn.delta, txn.user, txn.description), ('admin_grant', 10000, self.admin, 'pilot'))
+        self.client.post(url, {'amount': '-2.5'})
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 7500)
+        for bad in ('', 'abc', '0', '5000'):
+            self.client.post(url, {'amount': bad})
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 7500)
+
+    def test_an_exempt_company_is_not_charged(self):
+        self.client.force_login(self.admin)
+        self.client.post(reverse('ops:wallet_exempt', args=[self.company.pk]))
+        self.assertTrue(Wallet.objects.get(company=self.company).is_exempt)
+        post = self.company.posts.create(title='x', platforms=['facebook'], created_by=self.owner)
+        job = Job.enqueue(self.company, Job.Kind.REWRITE_POST, self.owner, post_id=post.pk, instruction='x')
+        self.assertIsNone(job.charge_txn)
+
+    def test_revenue_is_what_was_charged_less_what_was_given_back(self):
+        Wallet.objects.filter(company=self.company).update(balance=1000)
+        a = charging.charge(self.company, self.owner, quotes.make('generate_plan', 9))     # 120
+        charging.charge(self.company, self.owner, quotes.make('rewrite_post'))             # 30
+        charging.refund(a)
+        charged, refunded, net = charging.revenue_usd()
+        self.assertEqual((charged, refunded, net), (Decimal('0.150'), Decimal('0.120'), Decimal('0.030')))
+        self.client.force_login(self.admin)
+        self.assertContains(self.client.get(reverse('ops:company', args=[self.company.pk])), '$0.03')
+        self.assertContains(self.client.get(reverse('ops:usage')), 'wk-card adm-kpi')
+
+
+class GuardTests(TestCase):
+    def setUp(self):
+        from . import guards
+        guards.reset_cache()
+        self.guards = guards
+        self.company = make_company(balance=100_000)
+        self.user = make_user(self.company)
+
+    def tearDown(self):
+        self.guards.reset_cache()
+
+    @override_settings(AI_MONTHLY_BUDGET_USD=1)
+    def test_the_platform_budget_stops_paid_jobs_for_everyone_but_superusers(self):
+        post = self.company.posts.create(title='x', platforms=['facebook'], created_by=self.user)
+        Job.objects.create(company=self.company, kind=Job.Kind.REWRITE_POST, cost_usd=Decimal('1.5'))
+        with self.assertRaises(charging.InsufficientCredits) as caught:
+            Job.enqueue(self.company, Job.Kind.REWRITE_POST, self.user, post_id=post.pk, instruction='x')
+        self.assertEqual(caught.exception.code, 'budget_exhausted')
+        admin = User.objects.create_superuser('root', 'root@x.test', 'a-Strong-pass-77')
+        self.assertIsNotNone(Job.enqueue(self.company, Job.Kind.REWRITE_POST, admin, post_id=post.pk, instruction='x'))
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 100_000)         # nothing was charged for the refused one
+
+    @override_settings(AI_MAX_CHARGES_PER_HOUR=2)
+    def test_a_company_cannot_run_unlimited_paid_jobs_in_an_hour(self):
+        post = self.company.posts.create(title='x', platforms=['facebook'], created_by=self.user)
+        for _n in range(2):
+            Job.enqueue(self.company, Job.Kind.REWRITE_POST, self.user, post_id=post.pk, instruction='x')
+        with self.assertRaises(charging.InsufficientCredits) as caught:
+            Job.enqueue(self.company, Job.Kind.REWRITE_POST, self.user, post_id=post.pk, instruction='x')
+        self.assertEqual(caught.exception.code, 'rate_limited')
+
+    @override_settings(AI_MAX_REFUNDS_PER_DAY=2)
+    def test_refunds_are_capped_because_a_refunded_job_still_cost_us(self):
+        for _n in range(2):
+            charging.refund(charging.charge(self.company, self.user, quotes.make('rewrite_post')))
+        with self.assertRaises(charging.InsufficientCredits) as caught:
+            charging.charge(self.company, self.user, quotes.make('rewrite_post'))
+        self.assertEqual(caught.exception.code, 'rate_limited')
+
+    @override_settings(AI_MONTHLY_BUDGET_USD=1)
+    def test_the_message_is_plain_and_says_nothing_was_charged(self):
+        from django.utils import translation
+
+        from .middleware import refusal_message
+        with translation.override('en'):
+            text = refusal_message(charging.InsufficientCredits(30, 100, 'budget_exhausted'))
+        self.assertIn('Nothing was charged', text)
+        self.assertNotIn('budget', text.lower())
+        with translation.override('ar'):
+            self.assertIn('لم يُخصم شيء', refusal_message(charging.InsufficientCredits(30, 100, 'rate_limited')))

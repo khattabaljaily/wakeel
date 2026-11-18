@@ -10,6 +10,7 @@ never go below zero and two runs at once cannot spend the same points."""
 from django.db import transaction
 from django.db.models import F
 
+from . import guards
 from .models import Wallet, WalletTransaction
 
 
@@ -46,6 +47,8 @@ def ensure_can_afford(company, user, quote, expected_total=None):
     """Refuse early (before any work or record is made) when the price changed or the balance is short."""
     if expected_total is not None and int(expected_total) != quote.total:
         raise PriceChanged(int(expected_total), quote.total)
+    if quote.total and (reason := guards.blocked_reason(company, user, quote.total)):
+        raise InsufficientCredits(quote.total, get_wallet(company).balance, reason)
     if not can_afford(company, user, quote):
         raise InsufficientCredits(quote.total, get_wallet(company).balance)
 
@@ -67,6 +70,8 @@ def charge(company, user, quote, *, reference: str = '', expected_total=None):
     if quote.total == 0 or _is_free(company, user):
         return None
     wallet = get_wallet(company)
+    if reason := guards.blocked_reason(company, user, quote.total):
+        raise InsufficientCredits(quote.total, wallet.balance, reason)
     with transaction.atomic():
         # Conditional UPDATE: atomic, and the balance can never go below zero.
         if not Wallet.objects.filter(pk=wallet.pk, balance__gte=quote.total).update(balance=F('balance') - quote.total):
@@ -92,3 +97,20 @@ def refund(txn, reason: str = 'failed'):
             company_id=original.company_id, user_id=original.user_id, delta=-original.delta, action=WalletTransaction.REFUND,
             service_key=original.service_key, units=original.units, reference=original.reference, refund_of=original,
             description=f'Refund: {original.service_key} {reason}')
+
+
+def revenue_usd(since=None, company=None):
+    """(charged, refunded, net) in USD for AI services since a date: what customers were charged against what was given back.
+    The console sets it against the real AI cost of the same period."""
+    from decimal import Decimal
+
+    from django.db.models import Sum
+    rows = WalletTransaction.objects.filter(action__in=[WalletTransaction.AI_SERVICE, WalletTransaction.REFUND])
+    if since is not None:
+        rows = rows.filter(created_at__gte=since)
+    if company is not None:
+        rows = rows.filter(company=company)
+    totals = {a: rows.filter(action=a).aggregate(s=Sum('delta'))['s'] or 0 for a in (WalletTransaction.AI_SERVICE, WalletTransaction.REFUND)}
+    charged = Decimal(-totals[WalletTransaction.AI_SERVICE]) / 1000
+    refunded = Decimal(totals[WalletTransaction.REFUND]) / 1000
+    return charged, refunded, charged - refunded

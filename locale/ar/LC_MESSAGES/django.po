@@ -7592,3 +7592,9 @@ msgstr "يُضاف الرصيد بعد تأكيد الدفع. 1 دولار = 1,0
 
 msgid "Wakeel credit: $%(amount)s"
 msgstr "رصيد وكيل: $%(amount)s"
+
+msgid "This service is paused for now and will be back soon. Nothing was charged."
+msgstr "الخدمة متوقفة مؤقتاً وستعود قريباً. لم يُخصم شيء."
+
+msgid "Too many requests in a short time. Wait a little and try again. Nothing was charged."
+msgstr "طلبات كثيرة في وقت قصير. انتظر قليلاً ثم حاول مرة أخرى. لم يُخصم شيء."

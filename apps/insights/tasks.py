@@ -137,9 +137,10 @@ def run_due(now=None):
                         Job.enqueue(company, Job.Kind.GENERATE_REPORT, None, report_id=rep.pk, deliver=True)
                 except InsufficientCredits as exc:
                     # Not made, and tried again at the next check (the report is only started once the balance covers it).
-                    notify_managers_event(company, 'report_skipped', url='/company/wallet/',
-                                          dedupe_key=f'report-skipped-{company.pk}-{month:%Y-%m}',
-                                          balance=catalog.format_points(exc.balance), needed=catalog.format_points(exc.cost))
+                    if exc.code == 'insufficient_credits':
+                        notify_managers_event(company, 'report_skipped', url='/company/wallet/',
+                                              dedupe_key=f'report-skipped-{company.pk}-{month:%Y-%m}',
+                                              balance=catalog.format_points(exc.balance), needed=catalog.format_points(exc.cost))
                     continue
                 queued += 1
     return queued

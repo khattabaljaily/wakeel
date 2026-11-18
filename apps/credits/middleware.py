@@ -14,6 +14,10 @@ def refusal_message(exc) -> str:
     if isinstance(exc, PriceChanged):
         return _('The price changed to $%(now)s (you were shown $%(shown)s). Nothing was charged: check it and try again.') % {
             'now': catalog.format_points(exc.now), 'shown': catalog.format_points(exc.shown)}
+    if getattr(exc, 'code', '') == 'budget_exhausted':
+        return _('This service is paused for now and will be back soon. Nothing was charged.')
+    if getattr(exc, 'code', '') == 'rate_limited':
+        return _('Too many requests in a short time. Wait a little and try again. Nothing was charged.')
     return _('Your balance is not enough: this needs $%(cost)s and your balance is $%(balance)s. Top up to continue.') % {
         'cost': catalog.format_points(exc.cost), 'balance': catalog.format_points(exc.balance)}
 

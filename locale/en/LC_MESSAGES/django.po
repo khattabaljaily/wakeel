@@ -5761,3 +5761,118 @@ msgid "وكيل يكتب المنشور من المستند، وسيظهر ال�
 msgstr ""
 "Wakeel is writing the post from the document; the text will appear here in a "
 "moment. Refresh the page."
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr "One platform for your company's marketing, documents and team"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "Your marketing, documents and team"
+
+msgid "في منصة واحدة"
+msgstr "in one"
+
+msgid "ذكية"
+msgstr "smart platform"
+
+msgid ""
+"وكيل يضع خطة المحتوى الشهرية ويكتب المنشورات ويصممها وينشرها، ويحفظ مستندات "
+"شركتك ويصدرها بالذكاء الاصطناعي ويترجمها ويلخصها، ويدير مهام فريقك وبريده، "
+"ومساعده مارد ينفّذ ما تطلبه بموافقتك."
+msgstr ""
+"Wakeel plans your monthly content, writes, designs and publishes the posts; "
+"keeps your company's documents, issues them with AI, translates and "
+"summarises them; runs your team's tasks and mail; and its assistant Marid "
+"does what you ask, with your approval."
+
+msgid "خطة شهرية ومنشورات"
+msgstr "A monthly plan and posts"
+
+msgid ""
+"أهداف ومحاور ومناسبات السوق، ونصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم "
+"وأفضل أوقات النشر."
+msgstr ""
+"Goals, content pillars and local occasions, and persuasive copy in Arabic or "
+"English, with hashtags and the best times to publish."
+
+msgid "تصميم بهويتك"
+msgstr "Designs in your identity"
+
+msgid ""
+"صور احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة، وسيناريوهات جاهزة "
+"للفيديو."
+msgstr ""
+"Professional images in your colours, fonts and logo, sized for every "
+"platform, and ready video scripts."
+
+msgid "مكتبة المستندات"
+msgstr "A document library"
+
+msgid ""
+"التراخيص والعقود والمراسلات في مكان واحد مشفّر، مع تنبيهات قبل انتهائها "
+"وقراءة تفاصيلها بالذكاء الاصطناعي."
+msgstr ""
+"Licences, contracts and letters in one encrypted place, with alerts before "
+"they expire and AI that reads their details."
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "Documents on your letterhead"
+
+msgid ""
+"يكتب وكيل المستند بقوالب مصممة لك، بالورق الرسمي، ويصدره PDF أو Word مع رمز "
+"تحقق QR."
+msgstr ""
+"Wakeel writes the document with templates designed for you, on your official "
+"letterhead, and issues it as PDF or Word with a QR verification code."
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "Translate, summarise, extract"
+
+msgid ""
+"ترجمة المستندات وتلخيصها واستخراج بياناتها وتحويلها إلى Word بـ16 لغة، بسعر "
+"معروض قبل التنفيذ."
+msgstr ""
+"Translate documents, summarise them, extract their data and turn them into "
+"Word in 16 languages, at a price shown before it runs."
+
+msgid "هوية وعروض تقديمية"
+msgstr "Identity and presentations"
+
+msgid "شعار وألوان وبطاقات وورق مروّس وعروض تقديمية بهوية شركتك، من وصف قصير."
+msgstr ""
+"A logo, colours, cards, letterhead and presentations in your identity, from "
+"a short description."
+
+msgid "فريقك وبريدك"
+msgstr "Your team and mail"
+
+msgid ""
+"مهام وجهات اتصال وإعلانات داخلية ونماذج واستبيانات، وصندوق بريد الشركة، "
+"بصلاحيات لكل دور."
+msgstr ""
+"Tasks, contacts, internal announcements, forms and surveys, and the company "
+"mailbox, with permissions for every role."
+
+msgid "مارد، مساعدك"
+msgstr "Marid, your assistant"
+
+msgid ""
+"اطلب بجملة: خطة أو منشور أو ترجمة أو مهمة. يقترح مارد ويعرض السعر، ولا ينفّذ "
+"إلا بموافقتك."
+msgstr ""
+"Ask in a sentence: a plan, a post, a translation, a task. Marid suggests it "
+"and shows the price, and runs it only with your approval."
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "Everything your company needs, in one platform"
+
+msgid "من التسويق إلى المستندات إلى الفريق، ويربط بينها مساعد واحد."
+msgstr ""
+"From marketing to documents to your team, tied together by one assistant."
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "You pay for what you use"
+
+msgid "السعر يظهر قبل كل خدمة، ويُخصم من محفظتك كما هو بالضبط."
+msgstr ""
+"The price is shown before every service and charged from your wallet exactly "
+"as shown."

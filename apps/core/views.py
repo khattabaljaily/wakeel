@@ -13,7 +13,16 @@ from apps.jobs.models import Job
 
 
 # The date the terms and privacy texts last changed; update it with them.
-LEGAL_UPDATED = datetime.date(2026, 10, 17)
+LEGAL_UPDATED = datetime.date(2026, 11, 18)
+
+
+def _legal_entity(lang):
+    """Who provides the service, as the public pages name it: the owner's setting if there is one, else the product's default
+    operator (Wakeel is presented as the operator's own product, never as a service of its developer)."""
+    from django.conf import settings
+    from apps.companies import operators
+    configured = settings.LEGAL_ENTITY if lang == 'en' else settings.LEGAL_ENTITY_AR
+    return configured or operators.registry.default(operators.PRODUCT).name(lang)
 
 
 def _public_page(request, template, page, **context):
@@ -24,7 +33,7 @@ def _public_page(request, template, page, **context):
     return render(request, template, {
         'body_template': f'core/legal/{page}_{lang}.html', 'updated': LEGAL_UPDATED,
         'support_email': settings.SUPPORT_EMAIL, 'site_url': settings.SITE_URL,
-        'legal_entity': settings.LEGAL_ENTITY if lang == 'en' else settings.LEGAL_ENTITY_AR, **context,
+        'legal_entity': _legal_entity(lang), **context,
     })
 
 

@@ -22,7 +22,7 @@
     <meta name="apple-mobile-web-app-title" content="{% translate "وكيل" %}">
     {% block extra_head %}{% endblock %}
 </head>
-<body class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% if impersonating %}wk-impersonating{% endif %} {% block body_class %}{% endblock %}">
+<body data-t-file-choose="{% translate 'Choose a file' %}" data-t-file-drop="{% translate 'or drop it here' %}" data-t-file-many="{% translate 'files chosen' %}" class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% if impersonating %}wk-impersonating{% endif %} {% block body_class %}{% endblock %}">
 {% if impersonating %}
 <div class="wk-impersonation" role="status">
     <i class="bi bi-person-badge"></i>
@@ -247,6 +247,7 @@
     </div>
 </main>
 {% endblock %}
+{% operator_card %}
 <div class="wk-toasts" id="wkToasts"></div>
 {% if user.is_authenticated %}
 <div class="wk-appbar" id="wkAppBar" hidden data-vapid="{{ vapid_public_key }}">
@@ -284,6 +285,7 @@
 <script src="{% url 'javascript-catalog' %}"></script>
 <script src="{% static_v 'js/app.js' %}"></script>
 <script src="{% static_v 'js/rail.js' %}"></script>
+<script src="{% static_v 'js/ui.js' %}"></script>
 {% if company and membership.can_edit and not user.is_superuser %}{% include "_marid.html" %}<script src="{% static_v 'js/marid.js' %}" defer></script>{% endif %}
 {% block scripts %}{% endblock %}
 </body>

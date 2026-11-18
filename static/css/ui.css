@@ -54,3 +54,31 @@
 /* The credit line at the bottom: out of the way */
 .wk-credit { opacity: .75; margin-top: 2.5rem; }
 @media (max-width: 991px) { .wk-content { padding-top: 1rem; } .wk-card-body, .wk-card-head, .wk-card > .list-group > .list-group-item { padding-inline: 1.1rem; } }
+
+/* File fields (static/js/ui.js dresses every <input type=file>): one box to click or drop a file on */
+.wk-file { position: relative; display: block; }
+.wk-file__face { display: flex; align-items: center; gap: .75rem; padding: .85rem 1rem; border: 1.5px dashed #cfd3e6; border-radius: 12px; background: #fbfbfe; color: var(--wk-muted); transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.wk-file__icon { font-size: 1.5rem; color: var(--wk-primary); flex: none; }
+.wk-file__text { flex: 1; min-width: 0; font-size: .92rem; }
+.wk-file__choose { color: var(--wk-primary-600); font-weight: 700; }
+.wk-file__name { flex: none; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: ltr; font-size: .85rem; font-weight: 600; color: var(--wk-ink); }
+.wk-file__name:empty { display: none; }
+.wk-file__input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; padding: 0; margin: 0; }
+.wk-file:hover .wk-file__face, .wk-file.is-over .wk-file__face { border-color: var(--wk-primary); background: var(--wk-primary-50); }
+.wk-file:focus-within .wk-file__face { border-color: var(--wk-primary); box-shadow: 0 0 0 4px var(--wk-primary-50); }
+.wk-file.has-file .wk-file__face { border-style: solid; border-color: #b9e3cb; background: #f3fbf6; }
+.wk-file.has-file .wk-file__icon { color: #17803f; }
+.wk-file.has-file .wk-file__icon::before { content: "\f26a"; }       /* bi-check-circle-fill */
+.wk-file__input::file-selector-button { cursor: pointer; }
+@media (max-width: 575px) { .wk-file__face { flex-wrap: wrap; } .wk-file__name { max-width: 100%; } }
+/* A file field that stays a plain control (inside an input-group, or opted out): the same calm button */
+input[type=file].form-control::file-selector-button, .wk-file__input::file-selector-button { margin-inline-end: .85rem; padding: .45rem .95rem; border: 0; border-radius: 8px; background: var(--wk-primary-50); color: var(--wk-primary-600); font-weight: 700; cursor: pointer; transition: background-color .15s; }
+input[type=file].form-control:hover::file-selector-button { background: var(--wk-primary-100); }
+
+/* The operator line at the bottom of every page: the logo and the name, quiet, no box */
+.wk-op { gap: .5rem; font-size: .85rem; color: var(--wk-muted); }
+.wk-op__btn { display: inline-flex; align-items: center; gap: .45rem; padding: .2rem .55rem; border: 0; border-radius: 999px; background: transparent; color: var(--wk-ink); font: inherit; font-weight: 700; cursor: pointer; transition: background-color .15s; }
+.wk-op__btn:hover, .wk-op__btn:focus-visible { background: var(--wk-primary-50); outline: none; }
+.wk-op__btn img { width: 26px; height: 26px; object-fit: contain; border-radius: 0; background: none; }
+.wk-pay { padding: 1rem 1.25rem; border: 1px dashed #d8dcee; border-radius: 14px; background: #fff; color: var(--wk-text); }
+.wk-pay i { color: var(--wk-primary); }

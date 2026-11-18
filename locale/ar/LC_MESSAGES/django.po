@@ -7700,6 +7700,18 @@ msgstr "جارٍ إعادة كتابة المنشور. حدّث الصفحة ب�
 msgid "page"
 msgstr "صفحة"
 
+msgid "Choose a file"
+msgstr "اختر ملفاً"
+
+msgid "or drop it here"
+msgstr "أو أفلته هنا"
+
+msgid "files chosen"
+msgstr "ملفات مختارة"
+
+msgid "A product of"
+msgstr "منتج من"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

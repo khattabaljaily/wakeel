@@ -111,7 +111,7 @@ def _anthropic(system, prompt, schema, *, max_tokens, effort):
     text = ''.join(b.text for b in message.content if b.type == 'text')
     cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
     cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
-    return AIResult(_parse(text, message._request_id), usage.input_tokens + cache_read + cache_write,
+    return AIResult(_parse(text, getattr(message, '_request_id', '') or ''), usage.input_tokens + cache_read + cache_write,
                     usage.output_tokens, cache_read, message.model)
 
 

@@ -136,6 +136,12 @@ class Conversation(Base):
         self.assertIn('You cannot do anything yourself', system)
         self.assertIn('Never state a price', system)
 
+    def test_the_models_thinking_goes_back_with_its_tool_call_on_the_next_round(self):
+        first = ({'content': '', 'reasoning_content': 'search first', 'tool_calls': [tool_call('search_documents', {'query': 'lease'})]}, USAGE)
+        chat = self.say('find my lease', [first, says('Found it.')])
+        sent = [m for m in chat.call_args_list[1].args[1] if m['role'] == 'assistant'][0]
+        self.assertEqual(sent['reasoning_content'], 'search first')
+
     def test_a_search_finds_documents_by_details_and_wraps_them_as_data(self):
         turns = [says('', tool_call('search_documents', {'query': 'lease landlord'})), says('Found it.')]
         chat = self.say('find my lease', turns)
@@ -473,6 +479,15 @@ class ToolCallingClient(TestCase):
         self.assertEqual(sent['tools'], self.TOOLS)
         self.assertEqual(message['tool_calls'][0]['function']['name'], 'search_documents')
         self.assertEqual((usage.input_tokens, usage.output_tokens), (10, 5))
+
+    def test_deepseek_thinking_text_is_returned_and_sent_back_after_a_tool_call(self):
+        # Found with the real API (2026-11-18): thinking mode refuses the next turn unless reasoning_content comes back with its message.
+        body = {'model': 'deepseek-v4-pro', 'usage': {}, 'choices': [{'message': {
+            'content': '', 'reasoning_content': 'I should search first.', 'tool_calls': [tool_call('search_documents', {'query': 'x'})]}}]}
+        response = mock.Mock(status_code=200, json=mock.Mock(return_value=body))
+        with override_settings(DEEPSEEK_API_KEY='k', AI_ENABLED=True), mock.patch('apps.ai.client.requests.post', return_value=response):
+            message, _usage = ai.chat_tools('S', self.TURNS[:1], self.TOOLS)
+        self.assertEqual(message['reasoning_content'], 'I should search first.')
 
     def test_deepseek_errors_become_safe_messages(self):
         response = mock.Mock(status_code=402, text='balance')

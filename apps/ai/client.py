@@ -182,7 +182,11 @@ def _deepseek_chat(system, messages, tools, *, max_tokens, model):
     body = response.json()
     message = (body['choices'][0].get('message') or {})
     usage = body.get('usage', {})
-    return ({'content': message.get('content') or '', 'tool_calls': message.get('tool_calls') or []},
+    out = {'content': message.get('content') or '', 'tool_calls': message.get('tool_calls') or []}
+    if message.get('reasoning_content'):
+        # DeepSeek's thinking mode refuses the next turn of a tool exchange unless this comes back with its own message.
+        out['reasoning_content'] = message['reasoning_content']
+    return (out,
             AIResult({}, usage.get('prompt_tokens', 0), usage.get('completion_tokens', 0), usage.get('prompt_cache_hit_tokens', 0),
                      body.get('model') or model))
 

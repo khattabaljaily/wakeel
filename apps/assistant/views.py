@@ -195,7 +195,8 @@ def converse(request, tz='UTC'):
         reply = (message.get('content') or '').strip()
         if not calls:
             break
-        messages_.append({'role': 'assistant', 'content': message.get('content') or '', 'tool_calls': calls})
+        messages_.append({'role': 'assistant', 'content': message.get('content') or '', 'tool_calls': calls,
+                          **({'reasoning_content': message['reasoning_content']} if message.get('reasoning_content') else {})})
         for call in calls:
             name = (call.get('function') or {}).get('name', '')
             args = _arguments(call)

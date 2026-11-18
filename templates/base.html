@@ -149,11 +149,12 @@
                 </div>
             </div>{% endif %}
 
-            <div class="rail-grp {% nav_group '/app/tasks/' '/app/notes/' %}" data-grp="team">
+            <div class="rail-grp {% nav_group '/app/tasks/' '/app/contacts/' '/app/notes/' %}" data-grp="team">
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "Team workspace" context "menu section" %}"><i class="bi bi-people"></i><span class="lbl">{% translate "Team workspace" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
                 <div class="rail-grp-body">
                     <span class="rail-fly-title" aria-hidden="true">{% translate "Team workspace" context "menu section" %}</span>
                     {% if membership.role != 'client' %}<a class="rail-btn" href="{% url 'tasks:list' %}"{% nav_current '/app/tasks/' %}><i class="bi bi-check2-square"></i><span class="lbl">{% translate "Tasks" %}</span></a>{% endif %}
+                    {% if membership.role != 'client' %}<a class="rail-btn" href="{% url 'contacts:list' %}"{% nav_current '/app/contacts/' %}><i class="bi bi-person-lines-fill"></i><span class="lbl">{% translate "Contacts" %}</span></a>{% endif %}
                     <a class="rail-btn" href="{% url 'notes:list' %}"{% nav_current '/app/notes/' %}><i class="bi bi-journal-text"></i><span class="lbl">{% translate "Personal notes" context "navigation" %}</span></a>
                 </div>
             </div>

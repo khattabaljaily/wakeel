@@ -1,0 +1,11 @@
+{% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+<div class="row">
+  {% for field in form %}{% if field.name != 'address' and field.name != 'notes' %}
+  <div class="col-md-6 mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+    {% for e in field.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}</div>
+  {% endif %}{% endfor %}
+</div>
+{% for field in form %}{% if field.name == 'address' or field.name == 'notes' %}
+<div class="mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+  {% for e in field.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}</div>
+{% endif %}{% endfor %}

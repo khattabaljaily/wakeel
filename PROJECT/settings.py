@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     'apps.forms',
     'apps.tasks',
     'apps.notes',
+    'apps.contacts',
     'enjaz_operators',
 ]
 

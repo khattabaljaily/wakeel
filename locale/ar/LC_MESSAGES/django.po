@@ -7541,6 +7541,15 @@ msgstr "أزال ملفاً من مهمة"
 msgid "You receive this because you set this reminder in Wakeel."
 msgstr "وصلتك هذه الرسالة لأنك ضبطت هذا التذكير في وكيل."
 
+msgid "Added a contact"
+msgstr "أضاف جهة اتصال"
+
+msgid "Changed a contact"
+msgstr "عدّل جهة اتصال"
+
+msgid "Deleted a contact and its history"
+msgstr "حذف جهة اتصال وسجلّها"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

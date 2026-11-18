@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ contact.name }}{% endblock %}
+{% block page_title %}<span dir="auto">{{ contact.name }}</span>{% endblock %}
+{% block subtitle %}<div class="subtitle" dir="auto">{{ contact.get_kind_display }}{% if contact.organization %} · {{ contact.organization }}{% endif %}{% if contact.job_title %} · {{ contact.job_title }}{% endif %}</div>{% endblock %}
+{% block actions %}
+  <a class="btn btn-light" href="{% url 'contacts:list' %}">← {% translate "Contacts" %}</a>
+  {% if can_edit %}<a class="btn btn-light" href="{% url 'contacts:edit' contact.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>{% endif %}
+  {% if can_delete %}<form method="post" action="{% url 'contacts:delete' contact.pk %}" data-confirm="{% translate 'This contact and its history will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}
+{% endblock %}
+{% block content %}
+<div class="wk-card mb-3"><div class="wk-card-head"><h2>{% translate "How to reach them" %}</h2></div><div class="wk-card-body">
+  {% if contact.email or contact.phone or contact.address or contact.notes %}<dl class="row mb-0">
+    {% if contact.email %}<dt class="col-sm-3">{% translate "E-mail" %}</dt><dd class="col-sm-9"><a href="mailto:{{ contact.email }}" dir="ltr">{{ contact.email }}</a></dd>{% endif %}
+    {% if contact.phone %}<dt class="col-sm-3">{% translate "Phone" %}</dt><dd class="col-sm-9"><a href="tel:{{ contact.phone }}" dir="ltr">{{ contact.phone }}</a></dd>{% endif %}
+    {% if contact.address %}<dt class="col-sm-3">{% translate "Address" %}</dt><dd class="col-sm-9" dir="auto">{{ contact.address }}</dd>{% endif %}
+    {% if contact.notes %}<dt class="col-sm-3">{% translate "Notes" %}</dt><dd class="col-sm-9" dir="auto">{{ contact.notes|linebreaksbr }}</dd>{% endif %}
+  </dl>{% else %}<p class="small-muted mb-0">{% translate "No details yet." %}</p>{% endif %}
+</div></div>
+
+<div class="wk-card"><div class="wk-card-head"><h2>{% translate "History" %}</h2></div>
+  <div class="list-group list-group-flush">{% for i in interactions %}
+    <div class="list-group-item d-flex justify-content-between gap-2">
+      <div><div class="fw-semibold">{{ i.get_kind_display }} · <span dir="ltr">{{ i.date|date:"Y-m-d" }}</span> <span class="small-muted fw-normal" dir="auto">{{ i.author.first_name|default:i.author.email }}</span></div>
+        <div dir="auto">{{ i.body|linebreaksbr }}</div></div>
+      {% if can_edit %}{% if can_manage or i.author_id == request.user.pk %}<form method="post" action="{% url 'contacts:log_delete' i.pk %}" data-confirm="{% translate 'This line will be removed from the history.' %}" data-confirm-yes="{% translate 'Remove' %}">{% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger btn-sm" aria-label="{% translate 'Remove' %}"><i class="bi bi-x-lg"></i></button></form>{% endif %}{% endif %}
+    </div>
+  {% empty %}<div class="p-3 small-muted">{% translate "Nothing recorded yet." %}</div>{% endfor %}</div>
+  {% if can_edit %}<div class="wk-card-body border-top"><form method="post" action="{% url 'contacts:log' contact.pk %}" data-once>{% csrf_token %}
+    <div class="row">
+      <div class="col-md-6 mb-3"><label class="form-label" for="{{ form.kind.id_for_label }}">{{ form.kind.label }}</label>{{ form.kind }}</div>
+      <div class="col-md-6 mb-3"><label class="form-label" for="{{ form.date.id_for_label }}">{{ form.date.label }}</label>{{ form.date }}</div>
+    </div>
+    <div class="mb-3"><label class="form-label" for="{{ form.body.id_for_label }}">{{ form.body.label }}</label>{{ form.body }}</div>
+    <button type="submit" class="btn btn-primary">{% translate "Add to the history" %}</button></form></div>{% endif %}
+</div>
+{% endblock %}

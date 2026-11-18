@@ -27,10 +27,14 @@ def units_for(kind, company, params):
 
 def quote_for(kind, company, params=None):
     """The itemised quote of a job kind, or None when the kind is free of AI."""
+    params = params or {}
+    if kind == 'call':         # a generic job names its own service (None: free)
+        service = params.get('service')
+        return quotes.make(service, params.get('units')) if service else None
     service = SERVICES.get(kind)
     if service is None:
         return None
-    return quotes.make(service, units_for(kind, company, params or {}))
+    return quotes.make(service, units_for(kind, company, params))
 
 
 def expected_points(data):

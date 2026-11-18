@@ -55,9 +55,14 @@ def _has_key(provider):
     return bool(settings.DEEPSEEK_API_KEY if provider == 'deepseek' else settings.ANTHROPIC_API_KEY)
 
 
-def resolve(tier):
-    """(provider, model) for a tier: what settings.AI_TIERS asks for, or the other provider when that one has no key."""
+def resolve(tier, vision=False):
+    """(provider, model) for a tier: what settings.AI_TIERS asks for, or the other provider when that one has no key.
+    A call that carries an image or a PDF (`vision`) always runs on Claude: DeepSeek cannot read them."""
     provider, model = settings.AI_TIERS.get(tier) or settings.AI_TIERS['interactive']
+    if vision and provider != 'anthropic':
+        if not _has_key('anthropic'):
+            raise AIError(UNAVAILABLE, 'Reading an image or a PDF needs ANTHROPIC_API_KEY in secrets.json.')
+        return 'anthropic', settings.ANTHROPIC_MODEL_FAST
     if _has_key(provider):
         return provider, model
     if provider == 'deepseek' and _has_key('anthropic'):
@@ -73,13 +78,19 @@ def _run(provider, model, system, prompt, schema, max_tokens, effort):
     return _anthropic(system, prompt, schema, max_tokens=max_tokens, effort=effort, model=model)
 
 
+def is_vision(prompt):
+    """True when the prompt is a list of content blocks that holds an image or a document (not only text)."""
+    return isinstance(prompt, list) and any(isinstance(b, dict) and b.get('type') in ('image', 'document') for b in prompt)
+
+
 def call_json(system, prompt, schema, *, max_tokens=32000, effort='high', tier='interactive'):
     """One structured AI call, routed by `tier` (see settings): 'interactive' (a person waits), 'background', 'premium'.
     Quality gate: when DeepSeek answers with something unusable (empty, cut off, keys missing) and a Claude key exists, the
-    call is repeated once on the fast Claude model, so a weak answer never reaches the subscriber."""
+    call is repeated once on the fast Claude model, so a weak answer never reaches the subscriber.
+    `prompt` is a string, or (Claude only) a list of Anthropic content blocks: text, base64 images, base64 PDFs."""
     if not settings.AI_ENABLED:
         raise AIError(UNAVAILABLE, f'No AI key: add {settings.AI_KEY_NAME} to secrets.json.')
-    provider, model = resolve(tier)
+    provider, model = resolve(tier, vision=is_vision(prompt))
     try:
         return _run(provider, model, system, prompt, schema, max_tokens, effort)
     except AIError as exc:

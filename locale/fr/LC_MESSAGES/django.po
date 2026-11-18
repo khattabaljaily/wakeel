@@ -121,8 +121,7 @@ msgstr "Trop d'inscriptions depuis cette adresse. Réessayez plus tard."
 #: apps/accounts/views.py:60
 msgid "Welcome! We sent a confirmation link to your email."
 msgstr ""
-"Bienvenue ! Nous avons envoyé un lien de confirmation à votre adresse "
-"e-mail."
+"Bienvenue ! Nous avons envoyé un lien de confirmation à votre adresse e-mail."
 
 #: apps/accounts/views.py:62 apps/accounts/views.py:134
 #, python-format
@@ -151,8 +150,8 @@ msgid ""
 "We added %(amount)s of free credit to %(workspace)s so you can try the AI "
 "services."
 msgstr ""
-"Nous avons ajouté %(amount)s de crédit gratuit à %(workspace)s pour que vous"
-" puissiez essayer les services d'IA."
+"Nous avons ajouté %(amount)s de crédit gratuit à %(workspace)s pour que vous "
+"puissiez essayer les services d'IA."
 
 #: apps/accounts/views.py:130
 msgid "Your email is already confirmed."
@@ -573,8 +572,8 @@ msgstr "La tâche a été ajoutée."
 msgid "note"
 msgstr "note"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "me rappeler le"
 
@@ -668,8 +667,8 @@ msgstr "En cours"
 msgid "Done"
 msgstr "Terminé"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -762,20 +761,26 @@ msgstr "Envoyer"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "La conversation est gratuite (jusqu'à %(limit)s messages par jour) ; seuls les services que vous approuvez sont facturés. L'assistant lit ce que vous écrivez et les informations des documents qu'il recherche, jamais leur contenu ; un document n'est lu que lorsque vous approuvez une suggestion, comme une question à son sujet. Il peut se tromper : vérifiez chaque suggestion."
+msgstr ""
+"La conversation est gratuite (jusqu'à %(limit)s messages par jour) ; seuls "
+"les services que vous approuvez sont facturés. L'assistant lit ce que vous "
+"écrivez et les informations des documents qu'il recherche, jamais leur "
+"contenu ; un document n'est lu que lorsque vous approuvez une suggestion, "
+"comme une question à son sujet. Il peut se tromper : vérifiez chaque "
+"suggestion."
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
 "The assistant is for the owner, the administrators and the members. Ask an "
 "administrator if you need it."
 msgstr ""
-"L'assistant est réservé au propriétaire, aux administrateurs et aux membres."
-" Demandez à un administrateur si vous en avez besoin."
+"L'assistant est réservé au propriétaire, aux administrateurs et aux membres. "
+"Demandez à un administrateur si vous en avez besoin."
 
 #: apps/assistant/views.py:50
 msgid "Make a 10-slide presentation about our new product for investors"
@@ -807,8 +812,8 @@ msgstr "Je n'ai pas pu répondre. Reformulez, s'il vous plaît."
 msgid ""
 "You reached today's limit of messages to the assistant. Try again tomorrow."
 msgstr ""
-"Vous avez atteint la limite quotidienne de messages à l'assistant. Réessayez"
-" demain."
+"Vous avez atteint la limite quotidienne de messages à l'assistant. Réessayez "
+"demain."
 
 #: apps/assistant/views.py:203
 msgid "This suggestion is no longer available. Ask the assistant again."
@@ -1089,8 +1094,8 @@ msgstr "En cours de traitement…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
 msgstr ""
 "Un design peut prendre une à deux minutes. Vous pouvez quitter la page : le "
 "résultat vous attend dans le studio."
@@ -1149,8 +1154,8 @@ msgid ""
 "stationery and digital pieces, designed for you in famous, professional "
 "fonts."
 msgstr ""
-"Tout ce qui donne à votre entreprise son identité : logo, couleurs, polices,"
-" papeterie et pièces numériques, conçus pour vous avec des polices célèbres "
+"Tout ce qui donne à votre entreprise son identité : logo, couleurs, polices, "
+"papeterie et pièces numériques, conçus pour vous avec des polices célèbres "
 "et professionnelles."
 
 #: apps/brand/templates/brand/studio.html:7
@@ -1257,9 +1262,8 @@ msgid ""
 "It starts with your logo: three concepts to choose from. Once you choose, "
 "you can make every other piece at %(n)s%% off in one click."
 msgstr ""
-"Tout commence par votre logo : trois concepts au choix. Une fois votre choix"
-" fait, vous créez toutes les autres pièces à %(n)s%% de réduction en un "
-"clic."
+"Tout commence par votre logo : trois concepts au choix. Une fois votre choix "
+"fait, vous créez toutes les autres pièces à %(n)s%% de réduction en un clic."
 
 #: apps/brand/templates/brand/studio.html:87
 msgid "The whole kit, with the discount"
@@ -1272,8 +1276,8 @@ msgstr "Commencer par le logo"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr ""
 "%(n)s pièces seront conçues à partir de votre logo, %(d)s%% de réduction. "
 "Votre solde : %(balance)s $."
@@ -1397,16 +1401,15 @@ msgstr "Un design adapté à votre marque."
 
 #: apps/brand/views.py:35
 msgid "Three designs to choose from, with finer details and more formats."
-msgstr ""
-"Trois designs au choix, avec des détails plus fins et plus de formats."
+msgstr "Trois designs au choix, avec des détails plus fins et plus de formats."
 
 #: apps/brand/views.py:135
 msgid ""
 "The rest of your kit is being designed. Each piece appears in the studio as "
 "soon as it is ready."
 msgstr ""
-"Le reste de votre kit est en cours de conception. Chaque pièce apparaît dans"
-" le studio dès qu'elle est prête."
+"Le reste de votre kit est en cours de conception. Chaque pièce apparaît dans "
+"le studio dès qu'elle est prête."
 
 #: apps/brand/views.py:174
 msgid ""
@@ -1666,8 +1669,8 @@ msgstr "Vous pouvez lire les contacts, mais pas les modifier."
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
 msgstr ""
 "Clients, fournisseurs et partenaires dans un seul carnet, avec leurs "
 "coordonnées et ce qui a été fait avec eux."
@@ -1719,8 +1722,8 @@ msgstr ""
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
 "MyDocHub réunit les documents, l'identité, les e-mails et le travail "
 "quotidien d'une entreprise. Importez ce que vous avez ou laissez l'IA le "
@@ -1851,8 +1854,8 @@ msgstr "Espace d'équipe"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr ""
 "Tâches, contacts et notes personnelles, avec des notifications qui disent à "
 "chacun ce qui est nouveau."
@@ -1887,8 +1890,8 @@ msgstr "Administration"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr ""
 "Un rôle pour chaque membre, un journal de tout ce qui se passe et un solde "
 "que vous rechargez seulement quand il le faut."
@@ -1956,8 +1959,8 @@ msgstr "L'IA la plus performante"
 #: apps/core/templates/core/landing.html:51
 msgid "Writing and design are done by the most capable model available."
 msgstr ""
-"La rédaction et la conception sont assurées par le modèle le plus performant"
-" disponible."
+"La rédaction et la conception sont assurées par le modèle le plus performant "
+"disponible."
 
 #: apps/core/templates/core/about.html:62
 #: apps/core/templates/core/landing.html:53
@@ -1968,8 +1971,7 @@ msgstr "Parle votre langue"
 #: apps/core/templates/core/landing.html:53
 msgid "The app and every document, in 16 languages, including right-to-left."
 msgstr ""
-"L'application et chaque document en 16 langues, y compris de droite à "
-"gauche."
+"L'application et chaque document en 16 langues, y compris de droite à gauche."
 
 #: apps/core/templates/core/about.html:67
 msgid "Who makes it"
@@ -2113,8 +2115,8 @@ msgstr "La bibliothèque"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "Ouvrir"
 
@@ -2284,8 +2286,8 @@ msgid ""
 "Open any document on your own letterhead, with a QR code that lets anyone "
 "check it when you ask for one."
 msgstr ""
-"Ouvrez n'importe quel document sur votre propre papier à en-tête, avec un QR"
-" code qui permet à chacun de le vérifier, quand vous le demandez."
+"Ouvrez n'importe quel document sur votre propre papier à en-tête, avec un QR "
+"code qui permet à chacun de le vérifier, quand vous le demandez."
 
 #: apps/core/templates/core/landing.html:17
 #: apps/team/templates/team/accept.html:16 templates/accounts/login.html:3
@@ -2335,8 +2337,8 @@ msgstr "Lettres et certificats"
 msgid ""
 "Describe what you need and get a finished text, printed on your letterhead."
 msgstr ""
-"Décrivez votre besoin et obtenez un texte finalisé, imprimé sur votre papier"
-" à en-tête."
+"Décrivez votre besoin et obtenez un texte finalisé, imprimé sur votre papier "
+"à en-tête."
 
 #: apps/core/templates/core/legal/privacy.html:3
 #: apps/core/templates/core/legal/terms.html:7
@@ -2366,8 +2368,7 @@ msgstr "Données de l'espace de travail"
 #: apps/core/templates/core/workspace.html:6
 msgid "Your data is yours: keep a copy of everything, or delete it all."
 msgstr ""
-"Vos données vous appartiennent : gardez-en une copie ou supprimez-les "
-"toutes."
+"Vos données vous appartiennent : gardez-en une copie ou supprimez-les toutes."
 
 #: apps/core/templates/core/workspace.html:8
 msgid "Export everything"
@@ -2376,8 +2377,8 @@ msgstr "Tout exporter"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
 "Un seul fichier ZIP avec les informations de l'entreprise, les modèles, "
 "chaque document émis (ses données, une page imprimable et des PDF), les "
@@ -2390,8 +2391,8 @@ msgstr "Télécharger le ZIP"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
 msgstr ""
 "Cela peut prendre une minute s'il y a beaucoup de documents. L'export est "
 "consigné dans le journal d'activité."
@@ -2408,10 +2409,10 @@ msgid ""
 "papers and files, the history, and the balance. Nobody can recover it. "
 "Download the export first if you need a copy."
 msgstr ""
-"Tout le contenu de « %(name)s » est supprimé définitivement : les documents,"
-" les modèles, les papiers et les fichiers, l'historique et le solde. "
-"Personne ne pourra le récupérer. Téléchargez d'abord l'export si vous avez "
-"besoin d'une copie."
+"Tout le contenu de « %(name)s » est supprimé définitivement : les documents, "
+"les modèles, les papiers et les fichiers, l'historique et le solde. Personne "
+"ne pourra le récupérer. Téléchargez d'abord l'export si vous avez besoin "
+"d'une copie."
 
 #: apps/core/templates/core/workspace.html:17
 #, python-format
@@ -2613,8 +2614,7 @@ msgstr "Aucune recharge pour l'instant."
 #: apps/credits/templates/credits/forbidden.html:3
 msgid "Only the owner or an admin can see the balance and top up."
 msgstr ""
-"Seul le propriétaire ou un administrateur peut voir le solde et le "
-"recharger."
+"Seul le propriétaire ou un administrateur peut voir le solde et le recharger."
 
 #: apps/docops/models.py:25
 msgid "Translation"
@@ -2676,8 +2676,7 @@ msgstr ""
 #: apps/mail/generate.py:50
 msgid "This service is not available right now. Please try again later."
 msgstr ""
-"Ce service n'est pas disponible pour le moment. Veuillez réessayer plus "
-"tard."
+"Ce service n'est pas disponible pour le moment. Veuillez réessayer plus tard."
 
 #: apps/docops/ops.py:163 apps/docops/ops.py:165
 msgid "Choose an operation and a language."
@@ -2796,8 +2795,7 @@ msgid ""
 "page: the result is kept in the document's results."
 msgstr ""
 "Cela peut prendre quelques minutes pour le design original. Vous pouvez "
-"quitter cette page : le résultat est conservé dans les résultats du "
-"document."
+"quitter cette page : le résultat est conservé dans les résultats du document."
 
 #: apps/docops/templates/docops/result.html:22
 #, python-format
@@ -2817,8 +2815,8 @@ msgid ""
 "The translated document is ready in its original design. Download the PDF, "
 "or the Word file in the same design."
 msgstr ""
-"Le document traduit est prêt, dans sa mise en page d'origine. Téléchargez le"
-" PDF, ou le fichier Word avec la même mise en page."
+"Le document traduit est prêt, dans sa mise en page d'origine. Téléchargez le "
+"PDF, ou le fichier Word avec la même mise en page."
 
 #: apps/docops/templates/docops/result.html:34 apps/docops/views.py:140
 msgid "Written by AI from the uploaded file. Check it before you rely on it."
@@ -2837,19 +2835,18 @@ msgstr "De quoi il s'agit, ses points clés, ses dates et ses montants."
 #: apps/docops/templates/docops/services/_about.html:1
 msgid "Parties, dates, amounts, duties and reference numbers, as lists."
 msgstr ""
-"Parties, dates, montants, obligations et numéros de référence, sous forme de"
-" listes."
+"Parties, dates, montants, obligations et numéros de référence, sous forme de "
+"listes."
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
 msgstr ""
 "Le texte d'un scan ou d'une photo, lu page par page : en texte, Word ou PDF."
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
 msgstr ""
 "Un fichier Word modifiable : l'IA lit chaque page et rédige son texte, ses "
 "titres et ses tableaux."
@@ -2880,8 +2877,8 @@ msgstr "Le texte traduit, à l'écran et en Word ou en texte."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr ""
 "Un PDF propre et bien organisé, avec de vrais paragraphes, titres et "
 "tableaux, et la même chose en Word."
@@ -2889,8 +2886,7 @@ msgstr ""
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
+"and checked page by page. PDF files only. Stamps and signatures are left out."
 msgstr ""
 "Un PDF fidèle à votre original : même mise en page, mêmes couleurs et même "
 "logo, construit et vérifié page par page. Fichiers PDF uniquement. Les "
@@ -2912,12 +2908,11 @@ msgid ""
 "The most careful summary, every figure checked, on a designed page: PDF and "
 "Word in the same design."
 msgstr ""
-"Le résumé le plus soigné, chaque chiffre vérifié, sur une page mise en forme"
-" : PDF et Word avec le même design."
+"Le résumé le plus soigné, chaque chiffre vérifié, sur une page mise en "
+"forme : PDF et Word avec le même design."
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr ""
 "Un fichier Word modifiable avec le texte, les titres et les tableaux de "
 "chaque page."
@@ -2990,8 +2985,8 @@ msgid ""
 "Upload a document or choose one from your library. You see the price before "
 "anything is charged, and you pay only if the result is delivered."
 msgstr ""
-"Importez un document ou choisissez-en un dans votre bibliothèque. Vous voyez"
-" le prix avant tout débit, et vous ne payez que si le résultat est livré."
+"Importez un document ou choisissez-en un dans votre bibliothèque. Vous voyez "
+"le prix avant tout débit, et vous ne payez que si le résultat est livré."
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
@@ -3014,8 +3009,7 @@ msgstr "À partir de %(p)s $ la page."
 msgid "Choose a file or drag it here"
 msgstr "Choisissez un fichier ou déposez-le ici"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF, PNG, JPG ou WebP, jusqu'à 10 Mo"
 
@@ -3096,8 +3090,8 @@ msgid ""
 "For example: Experience certificate. The first time, a template of it is "
 "made for your company; after that it is reused."
 msgstr ""
-"Par exemple : Attestation d'expérience. La première fois, un modèle est créé"
-" pour votre entreprise ; ensuite, il est réutilisé."
+"Par exemple : Attestation d'expérience. La première fois, un modèle est créé "
+"pour votre entreprise ; ensuite, il est réutilisé."
 
 #: apps/documents/forms.py:50 apps/documents/templates/documents/edit.html:14
 #: apps/documents/templates/documents/print.html:81
@@ -3123,8 +3117,7 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "Décrivez l'objet et les faits ; l'IA rédige le texte pour vous."
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
+msgid "The template could not be read. You were not charged; please try again."
 msgstr ""
 "Le modèle n'a pas pu être lu. Vous n'avez pas été débité ; veuillez "
 "réessayer."
@@ -3132,8 +3125,7 @@ msgstr ""
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
 msgid "The text could not be read. You were not charged; please try again."
 msgstr ""
-"Le texte n'a pas pu être lu. Vous n'avez pas été débité ; veuillez "
-"réessayer."
+"Le texte n'a pas pu être lu. Vous n'avez pas été débité ; veuillez réessayer."
 
 #: apps/documents/generate.py:161 apps/documents/generate.py:300
 msgid ""
@@ -3285,8 +3277,8 @@ msgid ""
 "template and writing this document costs $%(first)s this time. Afterwards, "
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
-"Souhaitez-vous que j'en fasse un modèle pour votre entreprise, à son image ?"
-" Créer le modèle et rédiger ce document coûte %(first)s $ cette fois-ci. "
+"Souhaitez-vous que j'en fasse un modèle pour votre entreprise, à son image ? "
+"Créer le modèle et rédiger ce document coûte %(first)s $ cette fois-ci. "
 "Ensuite, chaque fois que vous aurez besoin d'un « %(name)s », vous ne "
 "paierez que %(later)s $ pour la rédaction."
 
@@ -3458,8 +3450,8 @@ msgstr "Améliorer avec l'IA"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr ""
 "Par exemple : raccourcir, ajouter une clause de confidentialité, changer le "
 "montant à 1 500."
@@ -3554,8 +3546,8 @@ msgid ""
 "If this printed document must no longer be trusted, cancel it: its QR code "
 "will say so."
 msgstr ""
-"Si ce document imprimé ne doit plus être considéré comme fiable, annulez-le "
-": son code QR l'indiquera."
+"Si ce document imprimé ne doit plus être considéré comme fiable, annulez-"
+"le : son code QR l'indiquera."
 
 #: apps/documents/templates/documents/edit.html:105
 #: apps/library/templates/library/list.html:75
@@ -3575,12 +3567,12 @@ msgstr "Vous pouvez lire les documents, mais pas les modifier."
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
-"Historique des documents rédigés à partir de vos modèles. Le texte n'est pas"
-" affiché ici : ouvrez un document pour le lire, et chaque ouverture est "
+"Historique des documents rédigés à partir de vos modèles. Le texte n'est pas "
+"affiché ici : ouvrez un document pour le lire, et chaque ouverture est "
 "enregistrée dans le journal d'activité."
 
 #: apps/documents/templates/documents/issued.html:8
@@ -3640,13 +3632,11 @@ msgstr ""
 msgid "Add one"
 msgstr "En ajouter un"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "Objet :"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "Vérifier ce document"
 
@@ -3714,8 +3704,8 @@ msgstr ""
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
 msgstr ""
 "MyDocHub n'appose aucun cachet ni aucune signature sur les documents : tout "
 "cachet ou signature sur le papier a été ajouté par l'entreprise après "
@@ -3770,8 +3760,7 @@ msgstr ""
 "design du modèle existant."
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
 msgstr ""
 "Enregistré comme modèle. Écrivez {{comme ceci}} pour un champ à remplir à "
 "chaque fois."
@@ -3790,8 +3779,7 @@ msgstr "Le document est de nouveau valide."
 
 #: apps/documents/views.py:504
 msgid "The document was cancelled. Its verification page now says so."
-msgstr ""
-"Le document a été annulé. Sa page de vérification l'indique désormais."
+msgstr "Le document a été annulé. Sa page de vérification l'indique désormais."
 
 #: apps/documents/views.py:527
 msgid "The template was redesigned."
@@ -3806,8 +3794,8 @@ msgid ""
 "The template was made from your document. Writing a document from it costs "
 "only the writing price."
 msgstr ""
-"Le modèle a été créé à partir de votre document. Rédiger un document avec ce"
-" modèle ne coûte que le prix de rédaction."
+"Le modèle a été créé à partir de votre document. Rédiger un document avec ce "
+"modèle ne coûte que le prix de rédaction."
 
 #: apps/documents/views.py:610
 msgid "Tell the AI what should change."
@@ -4014,8 +4002,8 @@ msgid ""
 "Anyone who opens this link or scans the code can answer. Nothing is asked "
 "about them."
 msgstr ""
-"Toute personne qui ouvre ce lien ou scanne le code peut répondre. Rien n'est"
-" demandé sur elle."
+"Toute personne qui ouvre ce lien ou scanne le code peut répondre. Rien n'est "
+"demandé sur elle."
 
 #: apps/forms/templates/forms/detail.html:24
 #: apps/sharing/templates/sharing/detail.html:9
@@ -4190,8 +4178,8 @@ msgstr "Modifier la question"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
 msgstr ""
 "Cette question a déjà des réponses. Changer son type ou ses choix peut "
 "rendre les anciennes réponses difficiles à lire."
@@ -4324,11 +4312,11 @@ msgstr "L'image est trop petite. Utilisez une photo plus nette."
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
 msgstr ""
-"Nous n'avons pas trouvé de logo net dans cette image. Utilisez le fichier du"
-" logo sur un fond uni."
+"Nous n'avons pas trouvé de logo net dans cette image. Utilisez le fichier du "
+"logo sur un fond uni."
 
 #: apps/identity/letterheads.py:92
 msgid "The letterhead is saved."
@@ -4522,8 +4510,8 @@ msgid ""
 "The logo, the letterheads in every language and the guided setup are in the "
 "AI studio, under Company identity."
 msgstr ""
-"Le logo, les papiers à en-tête dans chaque langue et la configuration guidée"
-" sont dans le Studio IA, sous Identité de l'entreprise."
+"Le logo, les papiers à en-tête dans chaque langue et la configuration guidée "
+"sont dans le Studio IA, sous Identité de l'entreprise."
 
 #: apps/identity/templates/identity/profile.html:23 apps/mail/forms.py:86
 msgid "Style"
@@ -4591,8 +4579,7 @@ msgstr "Ignorer pour l'instant"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr ""
 "Le logo et les papiers à en-tête sur lesquels chaque lettre et certificat "
 "est imprimé."
@@ -4755,8 +4742,8 @@ msgstr "Lire pour moi"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
 msgstr ""
 "L'IA lit le document et remplit les informations encore vides. Vous n'êtes "
 "facturé que si elle les lit."
@@ -4767,8 +4754,8 @@ msgstr "Seuls les membres de cet espace de travail peuvent l'ouvrir."
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
 msgstr ""
 "Le type, l'émetteur, le numéro de référence et les dates sont lus dans le "
 "fichier. Vous n'êtes facturé que s'ils sont lus."
@@ -4777,18 +4764,17 @@ msgstr ""
 msgid "Add the details yourself"
 msgstr "Ajouter les informations vous-même"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "Détails"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
 msgstr ""
-"Avec une date d'expiration, vous recevez un rappel par e-mail 90, 30, 7 et 1"
-" jour avant l'expiration."
+"Avec une date d'expiration, vous recevez un rappel par e-mail 90, 30, 7 et 1 "
+"jour avant l'expiration."
 
 #: apps/library/templates/library/list.html:8
 msgid "All documents"
@@ -4847,8 +4833,8 @@ msgstr "Outils IA"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
 msgstr ""
 "Gardez vos licences, contrats et courriers au même endroit, créez de "
 "nouveaux documents avec l'IA et voyez sur le tableau ce qui expire en "
@@ -4881,8 +4867,8 @@ msgid ""
 "port."
 msgstr ""
 "Le serveur de messagerie a mis trop de temps à répondre. Certains "
-"fournisseurs réagissent ainsi quand le mot de passe est incorrect : vérifiez"
-" le mot de passe de la boîte mail, puis le nom du serveur et le port."
+"fournisseurs réagissent ainsi quand le mot de passe est incorrect : vérifiez "
+"le mot de passe de la boîte mail, puis le nom du serveur et le port."
 
 #: apps/mail/client.py:74
 msgid ""
@@ -4955,8 +4941,7 @@ msgstr "Nom de l'expéditeur"
 #: apps/mail/forms.py:19
 msgid "Shown to the people you write to. Usually the company name."
 msgstr ""
-"Affiché aux personnes à qui vous écrivez. En général, le nom de "
-"l'entreprise."
+"Affiché aux personnes à qui vous écrivez. En général, le nom de l'entreprise."
 
 #: apps/mail/forms.py:20
 msgid "Mailbox password"
@@ -5034,8 +5019,8 @@ msgid ""
 "For example: a green header, a short line about our opening hours in the "
 "footer."
 msgstr ""
-"Par exemple : un en-tête vert, une courte ligne sur nos horaires d'ouverture"
-" en pied de page."
+"Par exemple : un en-tête vert, une courte ligne sur nos horaires d'ouverture "
+"en pied de page."
 
 #: apps/mail/generate.py:19
 msgid "Classic"
@@ -5072,8 +5057,7 @@ msgid "signature"
 msgstr "signature"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "Nouveau message"
 
@@ -5362,8 +5346,8 @@ msgstr "Connecter la boîte mail de l'entreprise"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
 msgstr ""
 "Ajoutez une seule fois l'adresse e-mail de l'entreprise, puis lisez et "
 "écrivez le courrier de l'entreprise dans MyDocHub."
@@ -5374,8 +5358,8 @@ msgstr "Détails du serveur"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
 msgstr ""
 "Déduits de l'adresse si vous laissez vide. Ne les modifiez que si la "
 "connexion échoue."
@@ -5383,8 +5367,8 @@ msgstr ""
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
 "Toute personne de l'espace de travail pouvant modifier des documents pourra "
 "lire et envoyer des e-mails depuis cette boîte mail. Les ouvertures et les "
@@ -5431,13 +5415,13 @@ msgstr "Nouveau modèle d’e-mail"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
 "L’IA crée un modèle avec votre logo, les couleurs de votre marque et les "
-"informations de votre entreprise. Vous le voyez avant de l’utiliser, et vous"
-" n’êtes facturé que si un design exploitable est livré."
+"informations de votre entreprise. Vous le voyez avant de l’utiliser, et vous "
+"n’êtes facturé que si un design exploitable est livré."
 
 #: apps/mail/templates/mail/template_new.html:19
 msgid "Design my template"
@@ -5484,8 +5468,8 @@ msgid ""
 "Your messages go out as plain messages. Make a template and every message "
 "will carry your logo, colours and details."
 msgstr ""
-"Vos messages sont envoyés sous forme de messages simples. Créez un modèle et"
-" chaque message portera votre logo, vos couleurs et vos coordonnées."
+"Vos messages sont envoyés sous forme de messages simples. Créez un modèle et "
+"chaque message portera votre logo, vos couleurs et vos coordonnées."
 
 #: apps/mail/templates/mail/templates.html:29
 msgid "Make my first template"
@@ -5500,8 +5484,8 @@ msgid ""
 "The mailbox is disconnected and its password is deleted. Your messages stay "
 "on your mail server."
 msgstr ""
-"La boîte mail est déconnectée et son mot de passe est supprimé. Vos messages"
-" restent sur votre serveur de messagerie."
+"La boîte mail est déconnectée et son mot de passe est supprimé. Vos messages "
+"restent sur votre serveur de messagerie."
 
 #: apps/mail/views.py:118
 msgid "Inbox"
@@ -5776,8 +5760,7 @@ msgstr "Veuillez confirmer que vous avez lu : %(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
 msgstr ""
 "Le solde est bas : il reste %(balance)s. Recharge pour continuer à utiliser "
 "les services"
@@ -5876,8 +5859,7 @@ msgstr "Une bonne présentation, claire, rédigée en une seule passe."
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr ""
 "Relue et affinée lors d'une seconde passe : des titres plus forts et une "
 "histoire plus serrée."
@@ -5932,8 +5914,7 @@ msgstr "La créer pour %(price)s $"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -5951,8 +5932,8 @@ msgstr "Cette présentation sera supprimée définitivement."
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
 msgstr ""
 "La création des diapositives prend quelques minutes. Vous pouvez quitter "
 "cette page : le résultat vous attend dans vos présentations."
@@ -5979,8 +5960,8 @@ msgid ""
 "Presentations are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
 msgstr ""
-"Les présentations sont réservées au propriétaire, aux administrateurs et aux"
-" membres. Demandez à un administrateur si vous voulez en créer une."
+"Les présentations sont réservées au propriétaire, aux administrateurs et aux "
+"membres. Demandez à un administrateur si vous voulez en créer une."
 
 #: apps/presentations/templates/presentations/list.html:6
 msgid ""
@@ -5988,8 +5969,7 @@ msgid ""
 "company's colours and logo that you can still edit."
 msgstr ""
 "Décrivez l'exposé ou choisissez un document : obtenez un PowerPoint conçu "
-"aux couleurs et au logo de votre entreprise, que vous pouvez encore "
-"modifier."
+"aux couleurs et au logo de votre entreprise, que vous pouvez encore modifier."
 
 #: apps/presentations/templates/presentations/list.html:7
 #: apps/presentations/templates/presentations/list.html:23
@@ -6012,11 +5992,11 @@ msgstr "dès %(price)s $"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr ""
-"Le prix affiché est celui de 10 diapositives. Vous voyez le prix exact avant"
-" tout paiement."
+"Le prix affiché est celui de 10 diapositives. Vous voyez le prix exact avant "
+"tout paiement."
 
 #: apps/presentations/templates/presentations/list.html:41
 msgid "See the price"
@@ -6076,8 +6056,8 @@ msgstr "Ce lien n'est pas disponible"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
 msgstr ""
 "Il a peut-être expiré ou été annulé par la personne qui l'a partagé. "
 "Demandez-lui de vous envoyer un nouveau lien."
@@ -6139,8 +6119,7 @@ msgstr "Partagé par"
 #: apps/sharing/templates/sharing/lock.html:8
 msgid "Too many wrong tries. Please wait a while and try again."
 msgstr ""
-"Trop de tentatives incorrectes. Veuillez patienter un moment, puis "
-"réessayer."
+"Trop de tentatives incorrectes. Veuillez patienter un moment, puis réessayer."
 
 #: apps/sharing/templates/sharing/lock.html:11
 msgid "The password is not right."
@@ -6180,8 +6159,8 @@ msgstr "Autoriser l'enregistrement d'une copie"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
 msgstr ""
 "Sans cette option, la personne peut seulement consulter le document sur la "
 "page. Rien ne peut empêcher une photo de l'écran : ne partagez qu'avec des "
@@ -6330,8 +6309,7 @@ msgstr "Vous pouvez lire les tâches, mais pas les modifier."
 #: apps/tasks/templates/tasks/list.html:6
 msgid "Share the work with the team, follow it, and keep its files with it."
 msgstr ""
-"Partagez le travail avec l'équipe, suivez-le et gardez ses fichiers avec "
-"lui."
+"Partagez le travail avec l'équipe, suivez-le et gardez ses fichiers avec lui."
 
 #: apps/tasks/templates/tasks/list.html:7
 #: apps/tasks/templates/tasks/list.html:30
@@ -6467,8 +6445,8 @@ msgstr ""
 #: apps/team/templates/team/invite_invalid.html:7
 msgid "It was cancelled. Ask the person who invited you to send a new one."
 msgstr ""
-"Elle a été annulée. Demandez à la personne qui vous a invité(e) d'en envoyer"
-" une nouvelle."
+"Elle a été annulée. Demandez à la personne qui vous a invité(e) d'en envoyer "
+"une nouvelle."
 
 #: apps/team/templates/team/invite_invalid.html:7
 msgid "The link is not correct. Open it again from the e-mail."
@@ -6553,8 +6531,7 @@ msgstr ""
 
 #: apps/team/views.py:74 apps/team/views.py:94
 msgid "You have sent many invitations today. Please try again tomorrow."
-msgstr ""
-"Vous avez envoyé beaucoup d'invitations aujourd'hui. Réessayez demain."
+msgstr "Vous avez envoyé beaucoup d'invitations aujourd'hui. Réessayez demain."
 
 #: apps/team/views.py:79
 msgid "We sent the invitation."
@@ -6562,8 +6539,8 @@ msgstr "Nous avons envoyé l'invitation."
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
 msgstr ""
 "L'invitation a été créée, mais l'e-mail n'a pas pu être envoyé. Utilisez "
 "Renvoyer dans quelques minutes."
@@ -6628,8 +6605,7 @@ msgstr "Les documents de votre entreprise, au même endroit."
 #: templates/accounts/auth_base.html:10
 msgid "Documents, identity, e-mail and your team's work, in one workspace."
 msgstr ""
-"Documents, identité, e-mails et travail de votre équipe, dans un seul "
-"espace."
+"Documents, identité, e-mails et travail de votre équipe, dans un seul espace."
 
 #: templates/accounts/auth_base.html:24
 msgid "You see the price before anything runs"
@@ -6713,8 +6689,7 @@ msgstr "Si vous ne vous êtes pas inscrit, ignorez ce message."
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
+"Confirm your email address with the link below. The link is valid for 3 days."
 msgstr ""
 "Confirmez votre adresse e-mail avec le lien ci-dessous. Le lien est valable "
 "3 jours."
@@ -6847,8 +6822,8 @@ msgstr "Désactiver"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
 "Scannez cette image avec une application d’authentification (Google "
 "Authenticator, Microsoft Authenticator, Authy…), puis saisissez le code "
@@ -6885,8 +6860,8 @@ msgid ""
 "Enter the six-digit code from your authenticator app. If you lost your "
 "phone, enter one of your backup codes."
 msgstr ""
-"Saisissez le code à six chiffres de votre application d’authentification. Si"
-" vous avez perdu votre téléphone, saisissez l’un de vos codes de secours."
+"Saisissez le code à six chiffres de votre application d’authentification. Si "
+"vous avez perdu votre téléphone, saisissez l’un de vos codes de secours."
 
 #: templates/accounts/two_factor.html:10
 msgid "Verify"
@@ -6957,8 +6932,7 @@ msgid "Account"
 msgstr "Compte"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "Console de la plateforme"
 
@@ -7054,11 +7028,11 @@ msgstr "Budget d'IA mensuel"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
 msgstr ""
-"Lorsque le coût du mois atteint le budget, tous les services d'IA s'arrêtent"
-" jusqu'à ce qu'il soit augmenté ou que le mois se termine."
+"Lorsque le coût du mois atteint le budget, tous les services d'IA s'arrêtent "
+"jusqu'à ce qu'il soit augmenté ou que le mois se termine."
 
 #: templates/console/ai.html:15
 msgid "Monthly budget (USD)"
@@ -7173,8 +7147,8 @@ msgid ""
 "The site is locked: visitors see the Coming Soon page unless they have an "
 "access code."
 msgstr ""
-"Le site est verrouillé : les visiteurs voient la page « Bientôt disponible »"
-" s'ils n'ont pas de code d'accès."
+"Le site est verrouillé : les visiteurs voient la page « Bientôt disponible » "
+"s'ils n'ont pas de code d'accès."
 
 #: templates/console/launch.html:11
 msgid "The site is open to everyone."
@@ -7245,8 +7219,8 @@ msgid ""
 "Every movement of every balance: card top-ups, credit given by the platform "
 "team, AI sales and refunds."
 msgstr ""
-"Tous les mouvements de chaque solde : recharges par carte, crédit offert par"
-" l’équipe de la plateforme, ventes d’IA et remboursements."
+"Tous les mouvements de chaque solde : recharges par carte, crédit offert par "
+"l’équipe de la plateforme, ventes d’IA et remboursements."
 
 #: templates/console/ledger.html:8 templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
@@ -7356,8 +7330,8 @@ msgstr "Dernières écritures du registre"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
 "Ce que coûte réellement chaque service et son prix de vente. Un prix "
 "enregistré peut être modifié dans l'admin Django ; sync_prices aligne les "
@@ -7381,8 +7355,8 @@ msgstr "pas en vente"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
 msgstr ""
 "(n) = nombre d'exécutions réelles derrière le coût ; * = mesuré sur une "
 "exécution plus petite puis extrapolé."
@@ -7468,8 +7442,8 @@ msgid ""
 "Everything in it is deleted for good: documents, templates, papers, files, "
 "wallet and history. Enter your password to confirm."
 msgstr ""
-"Tout son contenu sera définitivement supprimé : documents, modèles, papiers,"
-" fichiers, portefeuille et historique. Saisissez votre mot de passe pour "
+"Tout son contenu sera définitivement supprimé : documents, modèles, papiers, "
+"fichiers, portefeuille et historique. Saisissez votre mot de passe pour "
 "confirmer."
 
 #: templates/console/workspaces.html:5
@@ -7530,242 +7504,6 @@ msgstr "Accès à l'aperçu"
 msgid "Leave"
 msgstr "Quitter"
 
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "Identité, lettres et certificats, sur votre propre papier à en-tête."
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "Importez ce que vous avez, ou laissez-nous le créer"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "BROUILLON — ce texte est une base de travail pour l'avocat de l'entreprise. "
-#~ "Il ne constitue pas un avis juridique et doit être relu avant l'ouverture du"
-#~ " service au public. Les éléments entre [crochets] sont à compléter."
-
-#~ msgid "Open the company identity"
-#~ msgstr "Ouvrir l'identité de l'entreprise"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "Espace IA"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "Studio de design"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "Veille décisionnelle"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "Entreprise"
-
-#~ msgid "Reminders due"
-#~ msgstr "Rappels échus"
-
-#~ msgid "Built by"
-#~ msgstr "Créé par"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr ""
-#~ "Logo, en-tête, cachet et signature. Téléversez ce que vous avez ; nous "
-#~ "pouvons créer le logo et l'en-tête pour vous."
-
-#~ msgid "add the stamp"
-#~ msgstr "ajouter le cachet"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr ""
-#~ "Conservez ce texte pour le réutiliser. Écrivez {{comme ceci}} pour un champ "
-#~ "à remplir à chaque fois. Le tampon et la signature ne sont pas conservés."
-
-#~ msgid "Sealed"
-#~ msgstr "Scellé"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr ""
-#~ "Je confirme que je suis autorisé(e) à utiliser ce cachet pour cette "
-#~ "entreprise."
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr ""
-#~ "Je confirme qu'il s'agit de ma signature, ou que son propriétaire m'autorise"
-#~ " à l'utiliser pour cette entreprise."
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr ""
-#~ "Saisissez à nouveau votre mot de passe pour confirmer que c'est bien vous."
-
-#~ msgid "stamp"
-#~ msgstr "cachet"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "La photo est trop sombre. Utilisez une feuille blanche bien éclairée."
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr ""
-#~ "Nous n'avons pas trouvé de %(what)s net sur cette image. Utilisez une photo "
-#~ "d'une feuille blanche unie sous une lumière uniforme."
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr ""
-#~ "Le dessin est trop pâle ou trop petit. Rapprochez-vous et photographiez sous"
-#~ " une lumière uniforme."
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr ""
-#~ "La feuille n'est pas assez unie. Utilisez une feuille blanche et évitez les "
-#~ "ombres et les motifs."
-
-#~ msgid "Stamp"
-#~ msgstr "Cachet"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "Cachet et signature"
-
-#~ msgid "Kept private"
-#~ msgstr "Privé"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr ""
-#~ "Le cachet et la signature sont réservés au propriétaire de l'entreprise et "
-#~ "aux membres qu'il autorise. Contactez le propriétaire."
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr ""
-#~ "Ils sont réservés au propriétaire et aux membres qu'il autorise. Toute "
-#~ "action effectuée avec eux est enregistrée dans le journal d'activité."
-
-#~ msgid "Replace"
-#~ msgstr "Remplacer"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr ""
-#~ "Ce fichier sera supprimé définitivement. Saisissez votre mot de passe pour "
-#~ "confirmer."
-
-#~ msgid "Who may use them"
-#~ msgstr "Qui peut les utiliser"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr ""
-#~ "Vous, le propriétaire, pouvez toujours le faire. Les autres membres ne "
-#~ "peuvent apposer le cachet ou la signature sur un document que si vous les y "
-#~ "autorisez ici."
-
-#~ msgid "allowed"
-#~ msgstr "autorisé"
-
-#~ msgid "Take back"
-#~ msgstr "Retirer"
-
-#~ msgid "Allow"
-#~ msgstr "Autoriser"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "Il n'y a pas encore d'autres membres."
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr ""
-#~ "Téléversez une image nette du cachet de l'entreprise. Nous ne créons jamais "
-#~ "de cachet."
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr ""
-#~ "Importez une image nette de la signature. Nous ne créons jamais de "
-#~ "signature."
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "Peut utiliser le tampon et la signature"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "peut utiliser le cachet et la signature"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr ""
-#~ "Le résultat n'a pas pu être lu. Vous n'avez pas été débité ; veuillez "
-#~ "réessayer."
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "Traduisez-le, résumez-le, extrayez ses données ou convertissez-le en Word. "
-#~ "Seules les %(pages)s premières pages sont lues. Le prix dépend du nombre de "
-#~ "pages. Vous voyez d'abord le prix et vous n'êtes débité que si le résultat "
-#~ "est livré."
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "Pages dans ce document : %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Télécharger le Word"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "Aucun texte n'a pu être lu dans ce fichier."
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr ""
-#~ "Terminé. Ce fichier contenait du texte, la conversion était donc gratuite."
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr ""
-#~ "Un fichier Word modifiable avec le texte de ce document. Le texte existe "
-#~ "déjà, donc c'est gratuit."
-
-#~ msgid "Something different is coming"
-#~ msgstr "Du nouveau arrive"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "Le site reste ouvert grâce à SITE_LOCKED = false dans secrets.json."
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "Maintenu ouvert par SITE_LOCKED = false dans secrets.json."
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "Quelque chose de nouveau prend forme…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr ""
-#~ "Les documents, courriers et cachets de votre entreprise au même endroit."
-
-#~ msgid "By"
-#~ msgstr "Par"
-
-#~ msgid "Next 6 months"
-#~ msgstr "6 prochains mois"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "Nouvelle lettre ou nouveau certificat"
-
 #, python-format
 msgid "At your command, %(name)s!"
 msgstr "À vos ordres, %(name)s !"
@@ -7819,3 +7557,246 @@ msgstr "Question : %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "La réponse a été enregistrée comme note."
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr ""
+#~ "Identité, lettres et certificats, sur votre propre papier à en-tête."
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "Importez ce que vous avez, ou laissez-nous le créer"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "BROUILLON — ce texte est une base de travail pour l'avocat de "
+#~ "l'entreprise. Il ne constitue pas un avis juridique et doit être relu "
+#~ "avant l'ouverture du service au public. Les éléments entre [crochets] "
+#~ "sont à compléter."
+
+#~ msgid "Open the company identity"
+#~ msgstr "Ouvrir l'identité de l'entreprise"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "Espace IA"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "Studio de design"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "Veille décisionnelle"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "Entreprise"
+
+#~ msgid "Reminders due"
+#~ msgstr "Rappels échus"
+
+#~ msgid "Built by"
+#~ msgstr "Créé par"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "Logo, en-tête, cachet et signature. Téléversez ce que vous avez ; nous "
+#~ "pouvons créer le logo et l'en-tête pour vous."
+
+#~ msgid "add the stamp"
+#~ msgstr "ajouter le cachet"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "Conservez ce texte pour le réutiliser. Écrivez {{comme ceci}} pour un "
+#~ "champ à remplir à chaque fois. Le tampon et la signature ne sont pas "
+#~ "conservés."
+
+#~ msgid "Sealed"
+#~ msgstr "Scellé"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr ""
+#~ "Je confirme que je suis autorisé(e) à utiliser ce cachet pour cette "
+#~ "entreprise."
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr ""
+#~ "Je confirme qu'il s'agit de ma signature, ou que son propriétaire "
+#~ "m'autorise à l'utiliser pour cette entreprise."
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr ""
+#~ "Saisissez à nouveau votre mot de passe pour confirmer que c'est bien vous."
+
+#~ msgid "stamp"
+#~ msgstr "cachet"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr ""
+#~ "La photo est trop sombre. Utilisez une feuille blanche bien éclairée."
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "Nous n'avons pas trouvé de %(what)s net sur cette image. Utilisez une "
+#~ "photo d'une feuille blanche unie sous une lumière uniforme."
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr ""
+#~ "Le dessin est trop pâle ou trop petit. Rapprochez-vous et photographiez "
+#~ "sous une lumière uniforme."
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr ""
+#~ "La feuille n'est pas assez unie. Utilisez une feuille blanche et évitez "
+#~ "les ombres et les motifs."
+
+#~ msgid "Stamp"
+#~ msgstr "Cachet"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "Cachet et signature"
+
+#~ msgid "Kept private"
+#~ msgstr "Privé"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr ""
+#~ "Le cachet et la signature sont réservés au propriétaire de l'entreprise "
+#~ "et aux membres qu'il autorise. Contactez le propriétaire."
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "Ils sont réservés au propriétaire et aux membres qu'il autorise. Toute "
+#~ "action effectuée avec eux est enregistrée dans le journal d'activité."
+
+#~ msgid "Replace"
+#~ msgstr "Remplacer"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr ""
+#~ "Ce fichier sera supprimé définitivement. Saisissez votre mot de passe "
+#~ "pour confirmer."
+
+#~ msgid "Who may use them"
+#~ msgstr "Qui peut les utiliser"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "Vous, le propriétaire, pouvez toujours le faire. Les autres membres ne "
+#~ "peuvent apposer le cachet ou la signature sur un document que si vous les "
+#~ "y autorisez ici."
+
+#~ msgid "allowed"
+#~ msgstr "autorisé"
+
+#~ msgid "Take back"
+#~ msgstr "Retirer"
+
+#~ msgid "Allow"
+#~ msgstr "Autoriser"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "Il n'y a pas encore d'autres membres."
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr ""
+#~ "Téléversez une image nette du cachet de l'entreprise. Nous ne créons "
+#~ "jamais de cachet."
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr ""
+#~ "Importez une image nette de la signature. Nous ne créons jamais de "
+#~ "signature."
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "Peut utiliser le tampon et la signature"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "peut utiliser le cachet et la signature"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr ""
+#~ "Le résultat n'a pas pu être lu. Vous n'avez pas été débité ; veuillez "
+#~ "réessayer."
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "Traduisez-le, résumez-le, extrayez ses données ou convertissez-le en "
+#~ "Word. Seules les %(pages)s premières pages sont lues. Le prix dépend du "
+#~ "nombre de pages. Vous voyez d'abord le prix et vous n'êtes débité que si "
+#~ "le résultat est livré."
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "Pages dans ce document : %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Télécharger le Word"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "Aucun texte n'a pu être lu dans ce fichier."
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr ""
+#~ "Terminé. Ce fichier contenait du texte, la conversion était donc gratuite."
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr ""
+#~ "Un fichier Word modifiable avec le texte de ce document. Le texte existe "
+#~ "déjà, donc c'est gratuit."
+
+#~ msgid "Something different is coming"
+#~ msgstr "Du nouveau arrive"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "Le site reste ouvert grâce à SITE_LOCKED = false dans secrets.json."
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "Maintenu ouvert par SITE_LOCKED = false dans secrets.json."
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "Quelque chose de nouveau prend forme…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr ""
+#~ "Les documents, courriers et cachets de votre entreprise au même endroit."
+
+#~ msgid "By"
+#~ msgstr "Par"
+
+#~ msgid "Next 6 months"
+#~ msgstr "6 prochains mois"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "Nouvelle lettre ou nouveau certificat"

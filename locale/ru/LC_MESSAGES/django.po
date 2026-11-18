@@ -16,7 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: apps/accounts/admin_login.py:11 templates/accounts/security.html:29
 #: templates/accounts/two_factor.html:9 templates/console/launch.html:24
@@ -119,8 +121,7 @@ msgstr "Слишком много регистраций с этого адре�
 
 #: apps/accounts/views.py:60
 msgid "Welcome! We sent a confirmation link to your email."
-msgstr ""
-"Добро пожаловать! Мы отправили ссылку для подтверждения на вашу почту."
+msgstr "Добро пожаловать! Мы отправили ссылку для подтверждения на вашу почту."
 
 #: apps/accounts/views.py:62 apps/accounts/views.py:134
 #, python-format
@@ -166,8 +167,7 @@ msgstr "Слишком много запросов. Повторите попы�
 
 #: apps/accounts/views.py:187
 msgid "Too many wrong codes. Try again in a few minutes."
-msgstr ""
-"Слишком много неверных кодов. Повторите попытку через несколько минут."
+msgstr "Слишком много неверных кодов. Повторите попытку через несколько минут."
 
 #: apps/accounts/views.py:198
 msgid "That code is not correct."
@@ -491,8 +491,8 @@ msgstr "Презентация"
 #: apps/presentations/views.py:63
 msgid "Working on it. This page shows the result as soon as it is ready."
 msgstr ""
-"Уже работаем над этим. Как только результат будет готов, он появится на этой"
-" странице."
+"Уже работаем над этим. Как только результат будет готов, он появится на этой "
+"странице."
 
 #: apps/assistant/actions.py:132
 msgid "Translate a document"
@@ -571,8 +571,8 @@ msgstr "Задача добавлена."
 msgid "note"
 msgstr "заметка"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "напомнить в"
 
@@ -666,8 +666,8 @@ msgstr "Выполняется"
 msgid "Done"
 msgstr "Готово"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -759,12 +759,17 @@ msgstr "Отправить"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "Беседа бесплатна (до %(limit)s сообщений в день); оплачиваются только услуги, которые вы одобряете. Ассистент читает то, что вы пишете, и данные документов, которые ищет, но никогда их содержимое; документ читается только тогда, когда вы одобряете предложение, например вопрос о нём. Он может ошибаться: проверяйте каждое предложение."
+msgstr ""
+"Беседа бесплатна (до %(limit)s сообщений в день); оплачиваются только "
+"услуги, которые вы одобряете. Ассистент читает то, что вы пишете, и данные "
+"документов, которые ищет, но никогда их содержимое; документ читается только "
+"тогда, когда вы одобряете предложение, например вопрос о нём. Он может "
+"ошибаться: проверяйте каждое предложение."
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
@@ -776,8 +781,7 @@ msgstr ""
 
 #: apps/assistant/views.py:50
 msgid "Make a 10-slide presentation about our new product for investors"
-msgstr ""
-"Сделай презентацию из 10 слайдов о нашем новом продукте для инвесторов"
+msgstr "Сделай презентацию из 10 слайдов о нашем новом продукте для инвесторов"
 
 #: apps/assistant/views.py:51
 msgid "Translate the lease contract into Arabic"
@@ -1079,8 +1083,8 @@ msgstr "Работаем над этим…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
 msgstr ""
 "Дизайн может занять минуту-две. Можно покинуть страницу: результат будет "
 "ждать в студии."
@@ -1161,8 +1165,8 @@ msgid ""
 "Add your company name in the company details first: every design is made "
 "from it."
 msgstr ""
-"Сначала добавьте название компании в данных компании: каждый дизайн делается"
-" из него."
+"Сначала добавьте название компании в данных компании: каждый дизайн делается "
+"из него."
 
 #: apps/brand/templates/brand/studio.html:15
 msgid "Your brand kit"
@@ -1261,8 +1265,8 @@ msgstr "Начать с логотипа"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr ""
 "%(n)s элементов будут оформлены по вашему логотипу со скидкой %(d)s%%. Ваш "
 "баланс: $%(balance)s."
@@ -1653,8 +1657,8 @@ msgstr "Вы можете читать контакты, но не изменя�
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
 msgstr ""
 "Клиенты, поставщики и партнёры в одной книге: как с ними связаться и что с "
 "ними сделано."
@@ -1705,8 +1709,8 @@ msgstr ""
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
 "MyDocHub объединяет документы, фирменный стиль, почту и повседневную работу "
 "компании. Загрузите то, что у вас есть, или поручите ИИ создать это — всё "
@@ -1739,8 +1743,8 @@ msgid ""
 "Keep every paper with its dates and get a warning before anything expires. "
 "Share a file with a link you control."
 msgstr ""
-"Храните каждый документ с его датами и получайте предупреждение до истечения"
-" сроков. Делитесь файлом по ссылке, которой управляете вы."
+"Храните каждый документ с его датами и получайте предупреждение до истечения "
+"сроков. Делитесь файлом по ссылке, которой управляете вы."
 
 #: apps/core/templates/core/about.html:23 templates/accounts/auth_base.html:12
 #: templates/base_app.html:16 templates/base_app.html:130
@@ -1837,8 +1841,8 @@ msgstr "Рабочее пространство команды"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr ""
 "Задачи, контакты и личные заметки, а уведомления подскажут каждому, что "
 "нового."
@@ -1873,8 +1877,8 @@ msgstr "Администрирование"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr ""
 "Роль для каждого участника, журнал всех событий и баланс, который вы "
 "пополняете только при необходимости."
@@ -2095,8 +2099,8 @@ msgstr "Библиотека"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "Открыть"
 
@@ -2267,8 +2271,8 @@ msgid ""
 "Open any document on your own letterhead, with a QR code that lets anyone "
 "check it when you ask for one."
 msgstr ""
-"Открывайте любой документ на своём фирменном бланке, с QR-кодом, по которому"
-" любой может его проверить, когда вы этого захотите."
+"Открывайте любой документ на своём фирменном бланке, с QR-кодом, по которому "
+"любой может его проверить, когда вы этого захотите."
 
 #: apps/core/templates/core/landing.html:17
 #: apps/team/templates/team/accept.html:16 templates/accounts/login.html:3
@@ -2356,8 +2360,8 @@ msgstr "Экспортировать всё"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
 "Один ZIP-файл с данными компании, шаблонами, всеми выпущенными документами "
 "(их данные, страница для печати и PDF), хранимыми бумагами, логотипом и "
@@ -2369,11 +2373,11 @@ msgstr "Скачать ZIP"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
 msgstr ""
-"Если документов много, это может занять около минуты. Экспорт записывается в"
-" журнал действий."
+"Если документов много, это может занять около минуты. Экспорт записывается в "
+"журнал действий."
 
 #: apps/core/templates/core/workspace.html:15
 #: apps/core/templates/core/workspace.html:23
@@ -2388,8 +2392,8 @@ msgid ""
 "Download the export first if you need a copy."
 msgstr ""
 "Всё в «%(name)s» будет удалено безвозвратно: документы, шаблоны, бумаги и "
-"файлы, история и баланс. Восстановить это не сможет никто. Если нужна копия,"
-" сначала скачайте экспорт."
+"файлы, история и баланс. Восстановить это не сможет никто. Если нужна копия, "
+"сначала скачайте экспорт."
 
 #: apps/core/templates/core/workspace.html:17
 #, python-format
@@ -2439,8 +2443,8 @@ msgstr ""
 msgid ""
 "The name you typed is not the name of the workspace. Nothing was deleted."
 msgstr ""
-"Введённое название не совпадает с названием рабочего пространства. Ничего не"
-" удалено."
+"Введённое название не совпадает с названием рабочего пространства. Ничего не "
+"удалено."
 
 #: apps/credits/models.py:15
 msgid "balance"
@@ -2764,8 +2768,8 @@ msgid ""
 "This can take a few minutes for the original design. You can leave this "
 "page: the result is kept in the document's results."
 msgstr ""
-"Для оригинального дизайна это может занять несколько минут. Вы можете уйти с"
-" этой страницы: результат сохранится в результатах документа."
+"Для оригинального дизайна это может занять несколько минут. Вы можете уйти с "
+"этой страницы: результат сохранится в результатах документа."
 
 #: apps/docops/templates/docops/result.html:22
 #, python-format
@@ -2785,14 +2789,14 @@ msgid ""
 "The translated document is ready in its original design. Download the PDF, "
 "or the Word file in the same design."
 msgstr ""
-"Переведённый документ готов в оригинальном оформлении. Скачайте PDF или файл"
-" Word в таком же оформлении."
+"Переведённый документ готов в оригинальном оформлении. Скачайте PDF или файл "
+"Word в таком же оформлении."
 
 #: apps/docops/templates/docops/result.html:34 apps/docops/views.py:140
 msgid "Written by AI from the uploaded file. Check it before you rely on it."
 msgstr ""
-"Создано ИИ на основе загруженного файла. Проверьте, прежде чем полагаться на"
-" результат."
+"Создано ИИ на основе загруженного файла. Проверьте, прежде чем полагаться на "
+"результат."
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid "The full text in another language, with the same structure."
@@ -2807,16 +2811,15 @@ msgid "Parties, dates, amounts, duties and reference numbers, as lists."
 msgstr "Стороны, даты, суммы, обязанности и справочные номера в виде списков."
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
 msgstr ""
 "Текст из скана или фото, распознанный постранично: в виде текста, Word или "
 "PDF."
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
 msgstr ""
 "Редактируемый файл Word: ИИ читает каждую страницу и записывает её текст, "
 "заголовки и таблицы."
@@ -2847,17 +2850,16 @@ msgstr "Переведённый текст на странице, а также
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr ""
-"Аккуратный, хорошо структурированный PDF с правильными абзацами, заголовками"
-" и таблицами, а также то же самое в Word."
+"Аккуратный, хорошо структурированный PDF с правильными абзацами, заголовками "
+"и таблицами, а также то же самое в Word."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
+"and checked page by page. PDF files only. Stamps and signatures are left out."
 msgstr ""
 "PDF, который выглядит как ваш оригинал: тот же макет, цвета и логотип, "
 "собранный и проверенный постранично. Только PDF-файлы. Печати и подписи не "
@@ -2883,8 +2885,7 @@ msgstr ""
 "PDF и Word в одном дизайне."
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr ""
 "Редактируемый файл Word с текстом, заголовками и таблицами каждой страницы."
 
@@ -2982,8 +2983,7 @@ msgstr "От $%(p)s за страницу."
 msgid "Choose a file or drag it here"
 msgstr "Выберите файл или перетащите его сюда"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF, PNG, JPG или WebP, до 10 МБ"
 
@@ -3091,8 +3091,7 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "Опишите цель и факты, а ИИ напишет текст за вас."
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
+msgid "The template could not be read. You were not charged; please try again."
 msgstr "Не удалось прочитать шаблон. Плата не списана — попробуйте ещё раз."
 
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
@@ -3163,8 +3162,8 @@ msgid ""
 "Whoever holds the printed paper can scan it and see the original document, "
 "to compare the two."
 msgstr ""
-"Тот, у кого в руках напечатанный документ, может отсканировать код и увидеть"
-" оригинал, чтобы сравнить их."
+"Тот, у кого в руках напечатанный документ, может отсканировать код и увидеть "
+"оригинал, чтобы сравнить их."
 
 #: apps/documents/models.py:37
 msgid "Draft"
@@ -3209,8 +3208,8 @@ msgid ""
 "Describe what should change. The template is made again; documents already "
 "written from it stay as they are."
 msgstr ""
-"Опишите, что нужно изменить. Шаблон будет создан заново; уже составленные по"
-" нему документы останутся без изменений."
+"Опишите, что нужно изменить. Шаблон будет создан заново; уже составленные по "
+"нему документы останутся без изменений."
 
 #: apps/documents/templates/documents/_template_actions.html:10
 #: apps/documents/templates/documents/edit.html:78
@@ -3231,8 +3230,8 @@ msgid ""
 "Tell me what you need. The document is written on your letterhead, and you "
 "can review and edit it afterwards."
 msgstr ""
-"Расскажите, что вам нужно. Документ будет написан на вашем фирменном бланке,"
-" а потом вы сможете проверить и отредактировать его."
+"Расскажите, что вам нужно. Документ будет написан на вашем фирменном бланке, "
+"а потом вы сможете проверить и отредактировать его."
 
 #: apps/documents/templates/documents/ai_new.html:19
 #, python-format
@@ -3247,8 +3246,8 @@ msgid ""
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
 "Создать для вашей компании шаблон в её фирменном стиле? В этот раз создание "
-"шаблона и написание документа обойдутся в $%(first)s. В дальнейшем за каждый"
-" документ «%(name)s» вы будете платить только $%(later)s за написание."
+"шаблона и написание документа обойдутся в $%(first)s. В дальнейшем за каждый "
+"документ «%(name)s» вы будете платить только $%(later)s за написание."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3262,8 +3261,7 @@ msgstr "Напиши за меня"
 #, python-format
 msgid ""
 "Your balance: %(balance)s. You are charged only if the text is delivered."
-msgstr ""
-"Ваш баланс: %(balance)s. Плата списывается, только если текст получен."
+msgstr "Ваш баланс: %(balance)s. Плата списывается, только если текст получен."
 
 #: apps/documents/templates/documents/ai_new.html:28
 msgid "Or write the document yourself"
@@ -3417,8 +3415,8 @@ msgstr "Улучшить с помощью ИИ"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr ""
 "Например: сократи текст, добавь пункт о конфиденциальности, измени сумму на "
 "1 500."
@@ -3534,8 +3532,8 @@ msgstr "Вы можете читать документы, но не измен�
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
 "Список документов, составленных по вашим шаблонам. Текст здесь не "
@@ -3597,13 +3595,11 @@ msgstr "Для этого языка нет фирменного бланка, �
 msgid "Add one"
 msgstr "Добавить"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "Тема:"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "Проверить документ"
 
@@ -3670,8 +3666,8 @@ msgstr ""
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
 msgstr ""
 "MyDocHub не ставит на документы печати и подписи: любая печать или подпись "
 "на бумаге добавлена компанией после печати."
@@ -3724,8 +3720,7 @@ msgstr ""
 "существующий."
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
 msgstr ""
 "Сохранено как шаблон. Пишите {{так}}, чтобы оставить пропуск, который нужно "
 "заполнять каждый раз."
@@ -4144,8 +4139,8 @@ msgstr "Изменить вопрос"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
 msgstr ""
 "У этого вопроса уже есть ответы. Если изменить тип или варианты, старые "
 "ответы могут стать трудночитаемыми."
@@ -4226,8 +4221,8 @@ msgid ""
 "This PDF could not be read. Save it again without a password, or upload an "
 "image."
 msgstr ""
-"Не удалось прочитать этот PDF. Сохраните его заново без пароля или загрузите"
-" изображение."
+"Не удалось прочитать этот PDF. Сохраните его заново без пароля или загрузите "
+"изображение."
 
 #: apps/identity/forms.py:53 apps/identity/forms.py:158
 #, python-format
@@ -4277,8 +4272,8 @@ msgstr "Изображение слишком маленькое. Использ
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
 msgstr ""
 "Нам не удалось найти чёткий логотип на этом изображении. Используйте файл "
 "логотипа на однотонном фоне."
@@ -4406,8 +4401,7 @@ msgid ""
 "language is %(language)s; add one for every other language you write in."
 msgstr ""
 "Письмо печатается на фирменном бланке своего языка. Ваш основной язык — "
-"%(language)s; добавьте бланк для каждого другого языка, на котором вы "
-"пишете."
+"%(language)s; добавьте бланк для каждого другого языка, на котором вы пишете."
 
 #: apps/identity/templates/identity/_letterheads.html:11
 msgid "This letterhead will be deleted for good."
@@ -4473,8 +4467,8 @@ msgid ""
 "The logo, the letterheads in every language and the guided setup are in the "
 "AI studio, under Company identity."
 msgstr ""
-"Логотип, бланки на каждом языке и пошаговая настройка находятся в Студии ИИ,"
-" в разделе «Фирменный стиль компании»."
+"Логотип, бланки на каждом языке и пошаговая настройка находятся в Студии ИИ, "
+"в разделе «Фирменный стиль компании»."
 
 #: apps/identity/templates/identity/profile.html:23 apps/mail/forms.py:86
 msgid "Style"
@@ -4540,8 +4534,7 @@ msgstr "Пропустить"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr "Логотип и бланки, на которых печатается каждое письмо и сертификат."
 
 #: apps/identity/templates/identity/studio.html:15
@@ -4657,8 +4650,8 @@ msgid ""
 "These documents of %(company)s expire soon or have expired. Renew them in "
 "time."
 msgstr ""
-"У этих документов %(company)s скоро истекает или уже истёк срок. Продлите их"
-" вовремя."
+"У этих документов %(company)s скоро истекает или уже истёк срок. Продлите их "
+"вовремя."
 
 #: apps/library/templates/library/emails/expiry_reminder.html:6
 #: apps/library/templates/library/emails/expiry_reminder.txt:3
@@ -4691,8 +4684,8 @@ msgid ""
 "Keep your licences, contracts and invoices in one place, and see on the "
 "board what expires next."
 msgstr ""
-"Храните лицензии, договоры и счета в одном месте и смотрите на доске, у чего"
-" скоро истекает срок."
+"Храните лицензии, договоры и счета в одном месте и смотрите на доске, у чего "
+"скоро истекает срок."
 
 #: apps/library/templates/library/form.html:11
 #: apps/library/templates/library/form.html:13
@@ -4701,8 +4694,8 @@ msgstr "Прочитать за меня"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
 msgstr ""
 "ИИ читает документ и заполняет пустые поля. Оплата списывается, только если "
 "он их прочитает."
@@ -4713,8 +4706,8 @@ msgstr "Открыть его могут только участники это�
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
 msgstr ""
 "Тип, кем выдан, номер и даты считываются из файла. Оплата списывается, "
 "только если они прочитаны."
@@ -4723,18 +4716,17 @@ msgstr ""
 msgid "Add the details yourself"
 msgstr "Указать данные самостоятельно"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "Подробности"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
 msgstr ""
-"Если указан срок действия, мы напомним вам по электронной почте за 90, 30, 7"
-" и 1 день до его окончания."
+"Если указан срок действия, мы напомним вам по электронной почте за 90, 30, 7 "
+"и 1 день до его окончания."
 
 #: apps/library/templates/library/list.html:8
 msgid "All documents"
@@ -4793,8 +4785,8 @@ msgstr "ИИ-инструменты"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
 msgstr ""
 "Храните лицензии, договоры и письма в одном месте, создавайте новые "
 "документы с помощью ИИ и следите на доске, что истекает следующим."
@@ -4909,8 +4901,8 @@ msgid ""
 "Kept sealed and never shown again. Gmail, Outlook and Yahoo need an app "
 "password, not the normal one."
 msgstr ""
-"Хранится в зашифрованном виде и больше не отображается. Для Gmail, Outlook и"
-" Yahoo нужен пароль приложения, а не обычный."
+"Хранится в зашифрованном виде и больше не отображается. Для Gmail, Outlook и "
+"Yahoo нужен пароль приложения, а не обычный."
 
 #: apps/mail/forms.py:23
 msgid "User name"
@@ -4956,8 +4948,8 @@ msgstr "Введите только имя сервера, например mail
 msgid ""
 "Use the usual mail ports (993 or 143 to read, 465, 587, 25 or 2525 to send)."
 msgstr ""
-"Используйте стандартные почтовые порты (993 или 143 для чтения, 465, 587, 25"
-" или 2525 для отправки)."
+"Используйте стандартные почтовые порты (993 или 143 для чтения, 465, 587, 25 "
+"или 2525 для отправки)."
 
 #: apps/mail/forms.py:85
 msgid "Optional. Leave it empty to use the name of the style."
@@ -4977,8 +4969,7 @@ msgid ""
 "For example: a green header, a short line about our opening hours in the "
 "footer."
 msgstr ""
-"Например: зелёная шапка, короткая строка о часах работы в нижнем "
-"колонтитуле."
+"Например: зелёная шапка, короткая строка о часах работы в нижнем колонтитуле."
 
 #: apps/mail/generate.py:19
 msgid "Classic"
@@ -5013,8 +5004,7 @@ msgid "signature"
 msgstr "подпись"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "Новое сообщение"
 
@@ -5303,8 +5293,8 @@ msgstr "Подключите корпоративную почту"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
 msgstr ""
 "Добавьте корпоративный адрес электронной почты один раз, и читайте и пишите "
 "письма компании прямо в MyDocHub."
@@ -5315,8 +5305,8 @@ msgstr "Данные сервера"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
 msgstr ""
 "Если оставить пустым, они будут определены по адресу. Меняйте их, только "
 "если не удаётся подключиться."
@@ -5324,8 +5314,8 @@ msgstr ""
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
 "Все участники рабочего пространства, которые могут редактировать документы, "
 "смогут читать и отправлять письма из этого ящика. Открытие и отправка "
@@ -5372,9 +5362,9 @@ msgstr "Новый шаблон письма"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
 "ИИ создаст шаблон с вашим логотипом, фирменными цветами и данными компании. "
 "Вы увидите его до использования, а оплата списывается, только если дизайн "
@@ -5424,8 +5414,8 @@ msgid ""
 "Your messages go out as plain messages. Make a template and every message "
 "will carry your logo, colours and details."
 msgstr ""
-"Ваши сообщения уходят как обычные. Создайте шаблон, и каждое сообщение будет"
-" содержать ваш логотип, цвета и реквизиты."
+"Ваши сообщения уходят как обычные. Создайте шаблон, и каждое сообщение будет "
+"содержать ваш логотип, цвета и реквизиты."
 
 #: apps/mail/templates/mail/templates.html:29
 msgid "Make my first template"
@@ -5511,8 +5501,7 @@ msgstr "Прикрепите не более %(n)d файлов."
 #: apps/mail/views.py:400
 msgid "Many messages were sent in the last hour. Try again later."
 msgstr ""
-"За последний час отправлено слишком много сообщений. Повторите попытку "
-"позже."
+"За последний час отправлено слишком много сообщений. Повторите попытку позже."
 
 #: apps/mail/views.py:415
 msgid "The message was sent."
@@ -5715,8 +5704,7 @@ msgstr "Подтвердите, что прочитали: %(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
 msgstr ""
 "Баланс мал: осталось %(balance)s. Пополни его, чтобы пользоваться сервисами"
 
@@ -5814,8 +5802,7 @@ msgstr "Хорошая, понятная презентация, написан�
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr ""
 "Проверяется и дорабатывается вторым проходом: сильнее заголовки, плотнее "
 "сюжет."
@@ -5860,8 +5847,8 @@ msgid ""
 "It takes a few minutes. You can leave the page: the result waits in your "
 "presentations. If it fails, the price goes back to your balance."
 msgstr ""
-"Это займёт несколько минут. Можно покинуть страницу: результат будет ждать в"
-" ваших презентациях. В случае сбоя сумма вернётся на баланс."
+"Это займёт несколько минут. Можно покинуть страницу: результат будет ждать в "
+"ваших презентациях. В случае сбоя сумма вернётся на баланс."
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
@@ -5871,8 +5858,7 @@ msgstr "Создать за $%(price)s"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -5892,8 +5878,8 @@ msgstr "Эта презентация будет удалена безвозвр
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
 msgstr ""
 "Создание слайдов займёт несколько минут. Можно покинуть страницу: результат "
 "будет ждать в ваших презентациях."
@@ -5927,8 +5913,8 @@ msgid ""
 "Describe the talk, or choose a document: get a designed PowerPoint in your "
 "company's colours and logo that you can still edit."
 msgstr ""
-"Опишите выступление или выберите документ: получите оформленный PowerPoint в"
-" цветах и с логотипом вашей компании, который можно редактировать."
+"Опишите выступление или выберите документ: получите оформленный PowerPoint в "
+"цветах и с логотипом вашей компании, который можно редактировать."
 
 #: apps/presentations/templates/presentations/list.html:7
 #: apps/presentations/templates/presentations/list.html:23
@@ -5951,8 +5937,8 @@ msgstr "от <bdi dir=\"ltr\">$%(price)s</bdi>"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr "Показана цена для 10 слайдов. Точную цену вы увидите до списания."
 
 #: apps/presentations/templates/presentations/list.html:41
@@ -6013,8 +5999,8 @@ msgstr "Эта ссылка недоступна"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
 msgstr ""
 "Срок её действия мог истечь, или человек, который ею поделился, мог её "
 "отменить. Попросите отправить новую ссылку."
@@ -6114,12 +6100,12 @@ msgstr "Разрешить сохранение копии"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
 msgstr ""
 "Без этого человек сможет только просматривать документ на странице. "
-"Сфотографировать экран всё равно можно, поэтому делитесь только с теми, кому"
-" доверяете."
+"Сфотографировать экран всё равно можно, поэтому делитесь только с теми, кому "
+"доверяете."
 
 #: apps/sharing/templates/sharing/new.html:18
 msgid "Make the link"
@@ -6377,8 +6363,7 @@ msgstr "Вас приглашают присоединиться к %(name)s в 
 #: apps/team/templates/team/forbidden.html:3
 msgid "You are not allowed to do this. Ask the owner of the workspace."
 msgstr ""
-"У вас нет прав на это действие. Обратитесь к владельцу рабочего "
-"пространства."
+"У вас нет прав на это действие. Обратитесь к владельцу рабочего пространства."
 
 #: apps/team/templates/team/invite_invalid.html:6
 msgid "This invitation is not valid"
@@ -6485,8 +6470,8 @@ msgstr "Мы отправили приглашение."
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
 msgstr ""
 "Приглашение создано, но письмо отправить не удалось. Нажмите «Отправить "
 "повторно» через несколько минут."
@@ -6633,8 +6618,7 @@ msgstr "Если вы не регистрировались, проигнори�
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
+"Confirm your email address with the link below. The link is valid for 3 days."
 msgstr "Подтвердите адрес эл. почты по ссылке ниже. Ссылка действует 3 дня."
 
 #: templates/accounts/emails/verify_email_subject.txt:1
@@ -6764,8 +6748,8 @@ msgstr "Отключить"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
 "Отсканируйте это изображение в приложении-аутентификаторе (Google "
 "Authenticator, Microsoft Authenticator, Authy…), затем введите показанный "
@@ -6872,8 +6856,7 @@ msgid "Account"
 msgstr "Аккаунт"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "Консоль платформы"
 
@@ -6967,8 +6950,8 @@ msgstr "Месячный бюджет ИИ"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
 msgstr ""
 "Когда расходы за месяц достигают бюджета, все ИИ-сервисы останавливаются, "
 "пока бюджет не увеличат или не начнётся новый месяц."
@@ -7266,8 +7249,8 @@ msgstr "Последние записи журнала"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
 "Сколько каждый сервис стоит на самом деле и по какой цене продаётся. "
 "Сохранённую цену можно изменить в админке Django; sync_prices приводит "
@@ -7291,8 +7274,8 @@ msgstr "не продаётся"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
 msgstr ""
 "(n) = число реальных запусков, на которых основана стоимость; * = измерено "
 "на меньшем запуске и пересчитано."
@@ -7437,229 +7420,6 @@ msgstr "Предварительный доступ"
 msgid "Leave"
 msgstr "Выйти"
 
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "Фирменный стиль, письма и сертификаты на вашем бланке."
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "Загрузите готовое или доверьте создание нам"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "ЧЕРНОВИК — этот текст является основой для юриста компании. Это не "
-#~ "юридическая консультация, и его необходимо проверить до открытия сервиса для"
-#~ " всех. Пункты в [скобках] нужно заполнить."
-
-#~ msgid "Open the company identity"
-#~ msgstr "Открыть фирменный стиль компании"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "Рабочее пространство ИИ"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "Студия дизайна"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "Бизнес-аналитика"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "Компания"
-
-#~ msgid "Reminders due"
-#~ msgstr "Наступившие напоминания"
-
-#~ msgid "Built by"
-#~ msgstr "Разработано"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr ""
-#~ "Логотип, бланк, печать и подпись. Загрузите то, что у вас есть; логотип и "
-#~ "бланк мы можем создать для вас."
-
-#~ msgid "add the stamp"
-#~ msgstr "добавить печать"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr ""
-#~ "Сохраните этот текст, чтобы использовать его снова. Пишите {{так}}, чтобы "
-#~ "оставить пропуск, который нужно заполнять каждый раз. Печать и подпись не "
-#~ "сохраняются."
-
-#~ msgid "Sealed"
-#~ msgstr "Скреплён печатью"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr ""
-#~ "Подтверждаю, что имею право использовать эту печать для этой компании."
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr ""
-#~ "Подтверждаю, что это моя подпись или что её владелец разрешил мне "
-#~ "использовать её для этой компании."
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr "Введите пароль ещё раз, чтобы подтвердить, что это вы."
-
-#~ msgid "stamp"
-#~ msgstr "печать"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "Фото слишком тёмное. Используйте белый лист при хорошем освещении."
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr ""
-#~ "Мы не нашли чёткую %(what)s на этом изображении. Используйте фото чистого "
-#~ "белого листа при ровном свете."
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr ""
-#~ "Рисунок слишком бледный или маленький. Снимайте ближе и при ровном свете."
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr ""
-#~ "Лист недостаточно ровный. Используйте белый лист и избегайте теней и узоров."
-
-#~ msgid "Stamp"
-#~ msgstr "Печать"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "Печать и подпись"
-
-#~ msgid "Kept private"
-#~ msgstr "Скрыто"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr ""
-#~ "Печать и подпись доступны владельцу компании и участникам, которым он "
-#~ "разрешил. Обратитесь к владельцу."
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr ""
-#~ "Они доступны владельцу и участникам, которым он разрешил. Всё, что с ними "
-#~ "делается, записывается в журнал активности."
-
-#~ msgid "Replace"
-#~ msgstr "Заменить"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr "Этот файл будет удалён навсегда. Введите пароль для подтверждения."
-
-#~ msgid "Who may use them"
-#~ msgstr "Кто может использовать"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr ""
-#~ "Вы как владелец можете всегда. Другие участники смогут ставить печать или "
-#~ "подпись на документ, только если вы разрешите это здесь."
-
-#~ msgid "allowed"
-#~ msgstr "разрешено"
-
-#~ msgid "Take back"
-#~ msgstr "Отозвать"
-
-#~ msgid "Allow"
-#~ msgstr "Разрешить"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "Других участников пока нет."
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr ""
-#~ "Загрузите чёткое изображение печати компании. Мы никогда не создаём печать."
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr "Загрузите чёткое изображение подписи. Мы никогда не создаём подписи."
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "Может использовать печать и подпись"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "может использовать печать и подпись"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr ""
-#~ "Не удалось прочитать результат. Плата не списана — попробуйте ещё раз."
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "Переведите, сократите, извлеките данные или преобразуйте в Word. Читаются "
-#~ "только первые %(pages)s стр. Цена зависит от количества страниц. Сначала вы "
-#~ "видите цену, а оплата списывается, только если результат получен."
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "Страниц в документе: %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Скачать Word"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "Не удалось прочитать текст в этом файле."
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "Готово. В файле был текст, поэтому конвертация бесплатна."
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr ""
-#~ "Редактируемый файл Word с текстом этого документа. Текст уже есть, поэтому "
-#~ "это бесплатно."
-
-#~ msgid "Something different is coming"
-#~ msgstr "Скоро будет кое-что новое"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "Сайт остаётся открытым благодаря SITE_LOCKED = false в secrets.json."
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "Остаётся открытым из-за SITE_LOCKED = false в secrets.json."
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "Скоро здесь появится что-то новое…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "Документы, письма и печати вашей компании в одном месте."
-
-#~ msgid "By"
-#~ msgstr "От"
-
-#~ msgid "Next 6 months"
-#~ msgstr "Ближайшие 6 месяцев"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "Новое письмо или сертификат"
-
 #, python-format
 msgid "At your command, %(name)s!"
 msgstr "К вашим услугам, %(name)s!"
@@ -7713,3 +7473,233 @@ msgstr "Вопрос: %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "Ответ сохранён как заметка."
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "Фирменный стиль, письма и сертификаты на вашем бланке."
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "Загрузите готовое или доверьте создание нам"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "ЧЕРНОВИК — этот текст является основой для юриста компании. Это не "
+#~ "юридическая консультация, и его необходимо проверить до открытия сервиса "
+#~ "для всех. Пункты в [скобках] нужно заполнить."
+
+#~ msgid "Open the company identity"
+#~ msgstr "Открыть фирменный стиль компании"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "Рабочее пространство ИИ"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "Студия дизайна"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "Бизнес-аналитика"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "Компания"
+
+#~ msgid "Reminders due"
+#~ msgstr "Наступившие напоминания"
+
+#~ msgid "Built by"
+#~ msgstr "Разработано"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "Логотип, бланк, печать и подпись. Загрузите то, что у вас есть; логотип и "
+#~ "бланк мы можем создать для вас."
+
+#~ msgid "add the stamp"
+#~ msgstr "добавить печать"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "Сохраните этот текст, чтобы использовать его снова. Пишите {{так}}, чтобы "
+#~ "оставить пропуск, который нужно заполнять каждый раз. Печать и подпись не "
+#~ "сохраняются."
+
+#~ msgid "Sealed"
+#~ msgstr "Скреплён печатью"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr ""
+#~ "Подтверждаю, что имею право использовать эту печать для этой компании."
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr ""
+#~ "Подтверждаю, что это моя подпись или что её владелец разрешил мне "
+#~ "использовать её для этой компании."
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr "Введите пароль ещё раз, чтобы подтвердить, что это вы."
+
+#~ msgid "stamp"
+#~ msgstr "печать"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "Фото слишком тёмное. Используйте белый лист при хорошем освещении."
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "Мы не нашли чёткую %(what)s на этом изображении. Используйте фото чистого "
+#~ "белого листа при ровном свете."
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr ""
+#~ "Рисунок слишком бледный или маленький. Снимайте ближе и при ровном свете."
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr ""
+#~ "Лист недостаточно ровный. Используйте белый лист и избегайте теней и "
+#~ "узоров."
+
+#~ msgid "Stamp"
+#~ msgstr "Печать"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "Печать и подпись"
+
+#~ msgid "Kept private"
+#~ msgstr "Скрыто"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr ""
+#~ "Печать и подпись доступны владельцу компании и участникам, которым он "
+#~ "разрешил. Обратитесь к владельцу."
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "Они доступны владельцу и участникам, которым он разрешил. Всё, что с ними "
+#~ "делается, записывается в журнал активности."
+
+#~ msgid "Replace"
+#~ msgstr "Заменить"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr "Этот файл будет удалён навсегда. Введите пароль для подтверждения."
+
+#~ msgid "Who may use them"
+#~ msgstr "Кто может использовать"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "Вы как владелец можете всегда. Другие участники смогут ставить печать или "
+#~ "подпись на документ, только если вы разрешите это здесь."
+
+#~ msgid "allowed"
+#~ msgstr "разрешено"
+
+#~ msgid "Take back"
+#~ msgstr "Отозвать"
+
+#~ msgid "Allow"
+#~ msgstr "Разрешить"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "Других участников пока нет."
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr ""
+#~ "Загрузите чёткое изображение печати компании. Мы никогда не создаём "
+#~ "печать."
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr ""
+#~ "Загрузите чёткое изображение подписи. Мы никогда не создаём подписи."
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "Может использовать печать и подпись"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "может использовать печать и подпись"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr ""
+#~ "Не удалось прочитать результат. Плата не списана — попробуйте ещё раз."
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "Переведите, сократите, извлеките данные или преобразуйте в Word. Читаются "
+#~ "только первые %(pages)s стр. Цена зависит от количества страниц. Сначала "
+#~ "вы видите цену, а оплата списывается, только если результат получен."
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "Страниц в документе: %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Скачать Word"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "Не удалось прочитать текст в этом файле."
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr "Готово. В файле был текст, поэтому конвертация бесплатна."
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr ""
+#~ "Редактируемый файл Word с текстом этого документа. Текст уже есть, "
+#~ "поэтому это бесплатно."
+
+#~ msgid "Something different is coming"
+#~ msgstr "Скоро будет кое-что новое"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr ""
+#~ "Сайт остаётся открытым благодаря SITE_LOCKED = false в secrets.json."
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "Остаётся открытым из-за SITE_LOCKED = false в secrets.json."
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "Скоро здесь появится что-то новое…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "Документы, письма и печати вашей компании в одном месте."
+
+#~ msgid "By"
+#~ msgstr "От"
+
+#~ msgid "Next 6 months"
+#~ msgstr "Ближайшие 6 месяцев"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "Новое письмо или сертификат"

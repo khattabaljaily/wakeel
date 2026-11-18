@@ -68,9 +68,7 @@ msgstr "आपकी कंपनी का देश"
 #: apps/accounts/forms.py:29
 msgid ""
 "The company that serves you, its terms and its payment methods depend on it."
-msgstr ""
-"आपको सेवा देने वाली कंपनी, उसकी शर्तें और भुगतान के तरीके इसी पर निर्भर करते"
-" हैं।"
+msgstr "आपको सेवा देने वाली कंपनी, उसकी शर्तें और भुगतान के तरीके इसी पर निर्भर करते हैं।"
 
 #: apps/accounts/forms.py:33
 msgid "I agree to the Terms of Use and the Privacy Policy"
@@ -115,8 +113,7 @@ msgstr "शर्तें स्वीकार की गईं"
 
 #: apps/accounts/views.py:44
 msgid "Too many sign-ups from this address. Try again later."
-msgstr ""
-"इस पते से बहुत ज़्यादा साइन-अप हो चुके हैं। कृपया बाद में फिर कोशिश करें।"
+msgstr "इस पते से बहुत ज़्यादा साइन-अप हो चुके हैं। कृपया बाद में फिर कोशिश करें।"
 
 #: apps/accounts/views.py:60
 msgid "Welcome! We sent a confirmation link to your email."
@@ -127,8 +124,7 @@ msgstr "स्वागत है! हमने आपके ईमेल पर
 msgid ""
 "We could not send the confirmation email. Please use “%(action)s” in a few "
 "minutes."
-msgstr ""
-"हम पुष्टि ईमेल नहीं भेज सके। कृपया कुछ मिनट बाद “%(action)s” का उपयोग करें।"
+msgstr "हम पुष्टि ईमेल नहीं भेज सके। कृपया कुछ मिनट बाद “%(action)s” का उपयोग करें।"
 
 #: apps/accounts/views.py:63 apps/accounts/views.py:135
 msgid "Send the link again"
@@ -148,8 +144,7 @@ msgid ""
 "We added %(amount)s of free credit to %(workspace)s so you can try the AI "
 "services."
 msgstr ""
-"हमने %(workspace)s में %(amount)s का मुफ़्त क्रेडिट जोड़ा है, ताकि आप AI "
-"सेवाएँ आज़मा सकें।"
+"हमने %(workspace)s में %(amount)s का मुफ़्त क्रेडिट जोड़ा है, ताकि आप AI सेवाएँ आज़मा सकें।"
 
 #: apps/accounts/views.py:130
 msgid "Your email is already confirmed."
@@ -210,8 +205,7 @@ msgstr "इस कार्रवाई के लिए AI सेवा उप�
 #: apps/ai/gateway.py:129
 msgid ""
 "The input is too long for this service. Please shorten it and try again."
-msgstr ""
-"इस सेवा के लिए इनपुट बहुत लंबा है। कृपया उसे छोटा करके फिर कोशिश करें।"
+msgstr "इस सेवा के लिए इनपुट बहुत लंबा है। कृपया उसे छोटा करके फिर कोशिश करें।"
 
 #: apps/ai/gateway.py:133
 msgid "This request needs more AI calls than it was charged for."
@@ -566,8 +560,8 @@ msgstr "कार्य जोड़ा गया।"
 msgid "note"
 msgstr "नोट"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "मुझे याद दिलाएँ"
 
@@ -661,8 +655,8 @@ msgstr "चल रहा है"
 msgid "Done"
 msgstr "पूरा हुआ"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -688,8 +682,8 @@ msgid ""
 "Tell it what you need. It finds your documents and suggests what to do; "
 "nothing runs until you approve it."
 msgstr ""
-"बताइए आपको क्या चाहिए। यह आपके दस्तावेज़ ढूँढता है और सुझाव देता है; आपकी "
-"मंज़ूरी के बिना कुछ नहीं चलता।"
+"बताइए आपको क्या चाहिए। यह आपके दस्तावेज़ ढूँढता है और सुझाव देता है; आपकी मंज़ूरी के बिना "
+"कुछ नहीं चलता।"
 
 #: apps/assistant/templates/assistant/chat.html:7
 msgid "The whole conversation will be deleted for good."
@@ -753,20 +747,22 @@ msgstr "भेजें"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "बातचीत मुफ़्त है (प्रतिदिन %(limit)s संदेश तक); केवल वही सेवाएँ शुल्कित होती हैं जिन्हें आप मंज़ूर करते हैं। सहायक आपके लिखे को और खोजे गए दस्तावेज़ों के विवरण को पढ़ता है, उनकी सामग्री को कभी नहीं; कोई दस्तावेज़ तभी पढ़ा जाता है जब आप उसके बारे में प्रश्न जैसा कोई सुझाव मंज़ूर करते हैं। वह गलती कर सकता है: हर सुझाव जाँच लें।"
+msgstr ""
+"बातचीत मुफ़्त है (प्रतिदिन %(limit)s संदेश तक); केवल वही सेवाएँ शुल्कित होती हैं जिन्हें आप "
+"मंज़ूर करते हैं। सहायक आपके लिखे को और खोजे गए दस्तावेज़ों के विवरण को पढ़ता है, उनकी सामग्री "
+"को कभी नहीं; कोई दस्तावेज़ तभी पढ़ा जाता है जब आप उसके बारे में प्रश्न जैसा कोई सुझाव मंज़ूर "
+"करते हैं। वह गलती कर सकता है: हर सुझाव जाँच लें।"
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
 "The assistant is for the owner, the administrators and the members. Ask an "
 "administrator if you need it."
-msgstr ""
-"सहायक मालिक, प्रशासकों और सदस्यों के लिए है। ज़रूरत हो तो किसी प्रशासक से "
-"कहें।"
+msgstr "सहायक मालिक, प्रशासकों और सदस्यों के लिए है। ज़रूरत हो तो किसी प्रशासक से कहें।"
 
 #: apps/assistant/views.py:50
 msgid "Make a 10-slide presentation about our new product for investors"
@@ -795,8 +791,7 @@ msgstr "मैं इसका उत्तर नहीं दे सका। 
 #: apps/assistant/views.py:184
 msgid ""
 "You reached today's limit of messages to the assistant. Try again tomorrow."
-msgstr ""
-"आप आज की सहायक को संदेश भेजने की सीमा तक पहुँच गए हैं। कल फिर कोशिश करें।"
+msgstr "आप आज की सहायक को संदेश भेजने की सीमा तक पहुँच गए हैं। कल फिर कोशिश करें।"
 
 #: apps/assistant/views.py:203
 msgid "This suggestion is no longer available. Ask the assistant again."
@@ -813,9 +808,7 @@ msgstr "यह सुझाव अब उपलब्ध नहीं है। 
 #: apps/presentations/service.py:187
 #: apps/presentations/templates/presentations/detail.html:18
 msgid "The service had a problem. You were not charged; please try again."
-msgstr ""
-"सेवा में कोई समस्या आई। आपसे कोई शुल्क नहीं लिया गया; कृपया फिर से कोशिश "
-"करें।"
+msgstr "सेवा में कोई समस्या आई। आपसे कोई शुल्क नहीं लिया गया; कृपया फिर से कोशिश करें।"
 
 #: apps/assistant/views.py:231
 msgid "The conversation was deleted."
@@ -951,8 +944,8 @@ msgid ""
 "Who did what with documents, the company mailbox and the team. This list "
 "cannot be changed."
 msgstr ""
-"दस्तावेज़ों, कंपनी मेलबॉक्स और टीम से जुड़ी गतिविधियों का रिकॉर्ड: किसने "
-"क्या किया। इस सूची को बदला नहीं जा सकता।"
+"दस्तावेज़ों, कंपनी मेलबॉक्स और टीम से जुड़ी गतिविधियों का रिकॉर्ड: किसने क्या किया। इस सूची "
+"को बदला नहीं जा सकता।"
 
 #: apps/audit/templates/audit/activity.html:13
 #: apps/credits/templates/credits/balance.html:53
@@ -1074,11 +1067,10 @@ msgstr "प्रोसेस हो रहा है…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
 msgstr ""
-"डिज़ाइन में एक-दो मिनट लग सकते हैं। आप पेज छोड़ सकते हैं: नतीजा स्टूडियो में"
-" इंतज़ार करेगा।"
+"डिज़ाइन में एक-दो मिनट लग सकते हैं। आप पेज छोड़ सकते हैं: नतीजा स्टूडियो में इंतज़ार करेगा।"
 
 #: apps/brand/templates/brand/detail.html:20
 #: apps/brand/templates/brand/detail.html:28
@@ -1094,8 +1086,8 @@ msgid ""
 "Each concept is a different idea. Choosing one makes it your logo and its "
 "colours your brand colours; everything you make next is built from it."
 msgstr ""
-"हर कॉन्सेप्ट एक अलग विचार है। एक चुनने पर वह आपका लोगो बन जाता है और उसके "
-"रंग आपके ब्रांड के रंग; आगे आप जो भी बनाएँगे वह उसी पर आधारित होगा।"
+"हर कॉन्सेप्ट एक अलग विचार है। एक चुनने पर वह आपका लोगो बन जाता है और उसके रंग आपके "
+"ब्रांड के रंग; आगे आप जो भी बनाएँगे वह उसी पर आधारित होगा।"
 
 #: apps/brand/templates/brand/detail.html:29
 msgid "Choose this logo"
@@ -1124,8 +1116,7 @@ msgid ""
 "The brand studio is for the owner, the administrators and the members. Ask "
 "an administrator if you need it."
 msgstr ""
-"ब्रांड स्टूडियो मालिक, प्रशासकों और सदस्यों के लिए है। ज़रूरत हो तो किसी "
-"प्रशासक से कहें।"
+"ब्रांड स्टूडियो मालिक, प्रशासकों और सदस्यों के लिए है। ज़रूरत हो तो किसी प्रशासक से कहें।"
 
 #: apps/brand/templates/brand/studio.html:6
 msgid ""
@@ -1133,8 +1124,8 @@ msgid ""
 "stationery and digital pieces, designed for you in famous, professional "
 "fonts."
 msgstr ""
-"वह सब कुछ जो आपकी कंपनी को अपनी पहचान देता है: लोगो, रंग, फ़ॉन्ट, स्टेशनरी "
-"और डिजिटल सामग्री, आपके लिए प्रसिद्ध, पेशेवर फ़ॉन्ट में डिज़ाइन किए गए।"
+"वह सब कुछ जो आपकी कंपनी को अपनी पहचान देता है: लोगो, रंग, फ़ॉन्ट, स्टेशनरी और डिजिटल "
+"सामग्री, आपके लिए प्रसिद्ध, पेशेवर फ़ॉन्ट में डिज़ाइन किए गए।"
 
 #: apps/brand/templates/brand/studio.html:7
 #: apps/identity/templates/identity/profile.html:3
@@ -1220,8 +1211,7 @@ msgstr "डिज़ाइनर को कुछ बताना है?"
 #: apps/brand/templates/brand/studio.html:65
 msgid ""
 "Optional: what your company does, the feeling you want, things to avoid."
-msgstr ""
-"वैकल्पिक: आपकी कंपनी क्या करती है, कैसा एहसास चाहिए, किन चीज़ों से बचना है।"
+msgstr "वैकल्पिक: आपकी कंपनी क्या करती है, कैसा एहसास चाहिए, किन चीज़ों से बचना है।"
 
 #: apps/brand/templates/brand/studio.html:67
 msgid "Full name"
@@ -1237,8 +1227,8 @@ msgid ""
 "It starts with your logo: three concepts to choose from. Once you choose, "
 "you can make every other piece at %(n)s%% off in one click."
 msgstr ""
-"यह आपके लोगो से शुरू होता है: चुनने के लिए तीन कॉन्सेप्ट। चुनने के बाद आप एक"
-" क्लिक में बाकी सभी तत्व %(n)s%% छूट पर बना सकते हैं।"
+"यह आपके लोगो से शुरू होता है: चुनने के लिए तीन कॉन्सेप्ट। चुनने के बाद आप एक क्लिक में बाकी "
+"सभी तत्व %(n)s%% छूट पर बना सकते हैं।"
 
 #: apps/brand/templates/brand/studio.html:87
 msgid "The whole kit, with the discount"
@@ -1251,11 +1241,11 @@ msgstr "लोगो से शुरू करें"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr ""
-"%(n)s तत्व आपके लोगो से डिज़ाइन होंगे, %(d)s%% छूट के साथ। आपकी शेष राशि: "
-"$%(balance)s।"
+"%(n)s तत्व आपके लोगो से डिज़ाइन होंगे, %(d)s%% छूट के साथ। आपकी शेष राशि: $"
+"%(balance)s।"
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -1366,9 +1356,7 @@ msgstr "एक लोगो कॉन्सेप्ट, आपकी कंप�
 msgid ""
 "Three different concepts; an art director checks each one by eye and "
 "corrects it. You choose."
-msgstr ""
-"तीन अलग कॉन्सेप्ट; एक आर्ट डायरेक्टर हर एक को आँख से जाँचकर सुधारता है। आप "
-"चुनते हैं।"
+msgstr "तीन अलग कॉन्सेप्ट; एक आर्ट डायरेक्टर हर एक को आँख से जाँचकर सुधारता है। आप चुनते हैं।"
 
 #: apps/brand/views.py:35
 msgid "One design that suits your brand."
@@ -1383,16 +1371,15 @@ msgid ""
 "The rest of your kit is being designed. Each piece appears in the studio as "
 "soon as it is ready."
 msgstr ""
-"आपके किट का बाकी हिस्सा डिज़ाइन हो रहा है। हर तत्व तैयार होते ही स्टूडियो "
-"में दिखेगा।"
+"आपके किट का बाकी हिस्सा डिज़ाइन हो रहा है। हर तत्व तैयार होते ही स्टूडियो में दिखेगा।"
 
 #: apps/brand/views.py:174
 msgid ""
 "This is now your logo. Its colours are your brand colours, and everything "
 "you make next is built from it."
 msgstr ""
-"यह अब आपका लोगो है। इसके रंग आपके ब्रांड के रंग हैं, और आगे आप जो भी बनाएँगे"
-" वह इसी पर आधारित होगा।"
+"यह अब आपका लोगो है। इसके रंग आपके ब्रांड के रंग हैं, और आगे आप जो भी बनाएँगे वह इसी पर "
+"आधारित होगा।"
 
 #: apps/console/forms.py:12 templates/console/base_console.html:49
 #: templates/console/base_console.html:52
@@ -1474,9 +1461,7 @@ msgstr "%(name)s में %(amount)s जोड़े गए।"
 #: apps/console/views.py:188
 msgid ""
 "Too many wrong passwords. Try again in a few minutes. Nothing was deleted."
-msgstr ""
-"बहुत ज़्यादा गलत पासवर्ड। कुछ मिनट बाद फिर कोशिश करें। कुछ भी नहीं हटाया "
-"गया।"
+msgstr "बहुत ज़्यादा गलत पासवर्ड। कुछ मिनट बाद फिर कोशिश करें। कुछ भी नहीं हटाया गया।"
 
 #: apps/console/views.py:194
 msgid "The password is wrong. Nothing was deleted."
@@ -1642,11 +1627,11 @@ msgstr "आप संपर्क पढ़ सकते हैं, बदल �
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
 msgstr ""
-"ग्राहक, आपूर्तिकर्ता और साझेदार एक ही बही में, उनसे संपर्क के तरीके और उनके "
-"साथ हुए कामों के साथ।"
+"ग्राहक, आपूर्तिकर्ता और साझेदार एक ही बही में, उनसे संपर्क के तरीके और उनके साथ हुए कामों के "
+"साथ।"
 
 #: apps/contacts/templates/contacts/list.html:7
 #: apps/contacts/templates/contacts/list.html:30
@@ -1693,12 +1678,12 @@ msgstr "आपकी कंपनी के <em>कागज़ी काम औ
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
-"MyDocHub किसी कंपनी के दस्तावेज़, पहचान, ई-मेल और रोज़ का काम एक साथ रखता "
-"है। जो आपके पास है उसे अपलोड करें या AI से बनवाएँ, और सब कुछ आपके अपने "
-"लेटरहेड पर, आपकी भाषा में तैयार होता है।"
+"MyDocHub किसी कंपनी के दस्तावेज़, पहचान, ई-मेल और रोज़ का काम एक साथ रखता है। जो आपके "
+"पास है उसे अपलोड करें या AI से बनवाएँ, और सब कुछ आपके अपने लेटरहेड पर, आपकी भाषा में तैयार "
+"होता है।"
 
 #: apps/core/templates/core/about.html:10
 msgid "languages, right-to-left included"
@@ -1727,8 +1712,8 @@ msgid ""
 "Keep every paper with its dates and get a warning before anything expires. "
 "Share a file with a link you control."
 msgstr ""
-"हर कागज़ को उसकी तारीख़ों के साथ रखें और किसी भी चीज़ की अवधि ख़त्म होने से "
-"पहले चेतावनी पाएँ। अपने नियंत्रण वाले लिंक से फ़ाइल साझा करें।"
+"हर कागज़ को उसकी तारीख़ों के साथ रखें और किसी भी चीज़ की अवधि ख़त्म होने से पहले चेतावनी "
+"पाएँ। अपने नियंत्रण वाले लिंक से फ़ाइल साझा करें।"
 
 #: apps/core/templates/core/about.html:23 templates/accounts/auth_base.html:12
 #: templates/base_app.html:16 templates/base_app.html:130
@@ -1753,8 +1738,8 @@ msgid ""
 "Your logo and visual identity, documents written on your letterhead, "
 "presentations, and an assistant for everyday work."
 msgstr ""
-"आपका लोगो और विज़ुअल पहचान, आपके लेटरहेड पर लिखे दस्तावेज़, प्रेज़ेंटेशन और "
-"रोज़ के काम के लिए एक सहायक।"
+"आपका लोगो और विज़ुअल पहचान, आपके लेटरहेड पर लिखे दस्तावेज़, प्रेज़ेंटेशन और रोज़ के काम के लिए "
+"एक सहायक।"
 
 #: apps/core/templates/core/about.html:29 templates/base_app.html:27
 #: templates/base_app.html:79
@@ -1793,8 +1778,7 @@ msgid ""
 "Write company e-mails, publish announcements to your team, and collect "
 "answers with forms and surveys."
 msgstr ""
-"कंपनी के ई-मेल लिखें, टीम के लिए घोषणाएँ प्रकाशित करें और फ़ॉर्म व सर्वे से "
-"जवाब इकट्ठा करें।"
+"कंपनी के ई-मेल लिखें, टीम के लिए घोषणाएँ प्रकाशित करें और फ़ॉर्म व सर्वे से जवाब इकट्ठा करें।"
 
 #: apps/core/templates/core/about.html:35 apps/mail/templates/mail/box.html:3
 #: apps/mail/templates/mail/box.html:8 apps/mail/templates/mail/compose.html:5
@@ -1825,11 +1809,10 @@ msgstr "टीम वर्कस्पेस"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr ""
-"काम, संपर्क और निजी नोट्स, ऐसी सूचनाओं के साथ जो हर व्यक्ति को बताती हैं कि "
-"नया क्या है।"
+"काम, संपर्क और निजी नोट्स, ऐसी सूचनाओं के साथ जो हर व्यक्ति को बताती हैं कि नया क्या है।"
 
 #: apps/core/templates/core/about.html:41 templates/accounts/auth_base.html:19
 #: templates/base_app.html:46 templates/base_app.html:130
@@ -1861,11 +1844,11 @@ msgstr "प्रशासन"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr ""
-"हर सदस्य के लिए एक भूमिका, हर गतिविधि का लॉग और एक बैलेंस जिसे आप ज़रूरत "
-"होने पर ही टॉप अप करते हैं।"
+"हर सदस्य के लिए एक भूमिका, हर गतिविधि का लॉग और एक बैलेंस जिसे आप ज़रूरत होने पर ही "
+"टॉप अप करते हैं।"
 
 #: apps/core/templates/core/about.html:47 templates/base_app.html:57
 #: templates/base_app.html:98 templates/base_app.html:130
@@ -1904,8 +1887,8 @@ msgid ""
 "No subscriptions. Every AI service shows its price before it runs, and a "
 "failed run costs nothing."
 msgstr ""
-"कोई सब्सक्रिप्शन नहीं। हर AI सेवा चलने से पहले अपनी कीमत दिखाती है, और विफल "
-"रन का कोई शुल्क नहीं।"
+"कोई सब्सक्रिप्शन नहीं। हर AI सेवा चलने से पहले अपनी कीमत दिखाती है, और विफल रन का कोई "
+"शुल्क नहीं।"
 
 #: apps/core/templates/core/about.html:58
 #: apps/core/templates/core/landing.html:49
@@ -1918,8 +1901,8 @@ msgid ""
 "Each company has its own workspace, and its files are encrypted. The app "
 "keeps no stamps or signatures."
 msgstr ""
-"हर कंपनी का अपना वर्कस्पेस होता है, और उसकी फ़ाइलें एन्क्रिप्ट रहती हैं। ऐप "
-"कोई स्टैम्प या हस्ताक्षर नहीं रखता।"
+"हर कंपनी का अपना वर्कस्पेस होता है, और उसकी फ़ाइलें एन्क्रिप्ट रहती हैं। ऐप कोई स्टैम्प या "
+"हस्ताक्षर नहीं रखता।"
 
 #: apps/core/templates/core/about.html:60
 #: apps/core/templates/core/landing.html:51
@@ -1939,8 +1922,7 @@ msgstr "आपकी भाषा में"
 #: apps/core/templates/core/about.html:62
 #: apps/core/templates/core/landing.html:53
 msgid "The app and every document, in 16 languages, including right-to-left."
-msgstr ""
-"ऐप और हर दस्तावेज़ 16 भाषाओं में, दाएँ से बाएँ लिखी जाने वाली भाषाओं सहित।"
+msgstr "ऐप और हर दस्तावेज़ 16 भाषाओं में, दाएँ से बाएँ लिखी जाने वाली भाषाओं सहित।"
 
 #: apps/core/templates/core/about.html:67
 msgid "Who makes it"
@@ -1953,9 +1935,9 @@ msgid ""
 "local company that serves the workspaces there and takes their payments; "
 "yours is chosen by your company's country."
 msgstr ""
-"MyDocHub को %(developer)s विकसित करता है। हर देश में इसे एक स्थानीय कंपनी "
-"पेश करती है, जो वहाँ के वर्कस्पेस को सेवा देती है और उनके भुगतान लेती है; "
-"आपकी कंपनी का देश तय करता है कि आपको कौन सेवा देगा।"
+"MyDocHub को %(developer)s विकसित करता है। हर देश में इसे एक स्थानीय कंपनी पेश करती "
+"है, जो वहाँ के वर्कस्पेस को सेवा देती है और उनके भुगतान लेती है; आपकी कंपनी का देश तय करता "
+"है कि आपको कौन सेवा देगा।"
 
 #: apps/core/templates/core/about.html:73
 #: apps/core/templates/core/landing.html:58
@@ -2083,8 +2065,8 @@ msgstr "लाइब्रेरी"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "खोलें"
 
@@ -2217,9 +2199,8 @@ msgid ""
 "document in seconds, from templates made for your company, on your own "
 "identity."
 msgstr ""
-"अपना लोगो और लेटरहेड अपलोड करें, या हमसे डिज़ाइन करवाएँ। फिर अपनी कंपनी के "
-"लिए बने टेम्पलेट से, अपनी पहचान के साथ, कुछ ही सेकंड में कोई भी दस्तावेज़ "
-"बनाएँ।"
+"अपना लोगो और लेटरहेड अपलोड करें, या हमसे डिज़ाइन करवाएँ। फिर अपनी कंपनी के लिए बने "
+"टेम्पलेट से, अपनी पहचान के साथ, कुछ ही सेकंड में कोई भी दस्तावेज़ बनाएँ।"
 
 #: apps/core/templates/core/landing.html:11
 msgid "Upload or ask"
@@ -2230,9 +2211,8 @@ msgid ""
 "Upload what you have, or describe a document and the AI creates it on your "
 "letterhead, then keeps it as a template you can reuse."
 msgstr ""
-"जो आपके पास है उसे अपलोड करें, या दस्तावेज़ का विवरण लिखें और AI उसे आपके "
-"लेटरहेड पर बना देगा, फिर उसे दोबारा इस्तेमाल करने योग्य टेम्पलेट के रूप में "
-"सहेज लेगा।"
+"जो आपके पास है उसे अपलोड करें, या दस्तावेज़ का विवरण लिखें और AI उसे आपके लेटरहेड पर बना "
+"देगा, फिर उसे दोबारा इस्तेमाल करने योग्य टेम्पलेट के रूप में सहेज लेगा।"
 
 #: apps/core/templates/core/landing.html:12
 msgid "Follow it on the board"
@@ -2243,8 +2223,8 @@ msgid ""
 "Every document in one place, with a timeline that warns you before anything "
 "expires."
 msgstr ""
-"हर दस्तावेज़ एक ही जगह, और एक टाइमलाइन जो किसी भी चीज़ की समय-सीमा खत्म होने"
-" से पहले आपको सचेत करती है।"
+"हर दस्तावेज़ एक ही जगह, और एक टाइमलाइन जो किसी भी चीज़ की समय-सीमा खत्म होने से पहले "
+"आपको सचेत करती है।"
 
 #: apps/core/templates/core/landing.html:13
 msgid "Print on your letterhead"
@@ -2255,8 +2235,8 @@ msgid ""
 "Open any document on your own letterhead, with a QR code that lets anyone "
 "check it when you ask for one."
 msgstr ""
-"कोई भी दस्तावेज़ अपने लेटरहेड पर खोलें, और चाहें तो एक QR कोड के साथ जिससे "
-"कोई भी उसकी जाँच कर सके।"
+"कोई भी दस्तावेज़ अपने लेटरहेड पर खोलें, और चाहें तो एक QR कोड के साथ जिससे कोई भी उसकी "
+"जाँच कर सके।"
 
 #: apps/core/templates/core/landing.html:17
 #: apps/team/templates/team/accept.html:16 templates/accounts/login.html:3
@@ -2294,8 +2274,7 @@ msgstr "पहले आपकी पहचान"
 #: apps/core/templates/core/landing.html:43
 msgid ""
 "Logo and letterhead. Upload what you have, or let us create them for you."
-msgstr ""
-"लोगो और लेटरहेड। जो आपके पास है उसे अपलोड करें, या हमें आपके लिए बनाने दें।"
+msgstr "लोगो और लेटरहेड। जो आपके पास है उसे अपलोड करें, या हमें आपके लिए बनाने दें।"
 
 #: apps/core/templates/core/landing.html:45 apps/library/models.py:34
 msgid "Letters and certificates"
@@ -2342,12 +2321,12 @@ msgstr "सब कुछ एक्सपोर्ट करें"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
-"एक ZIP फ़ाइल जिसमें कंपनी की जानकारी, टेम्पलेट, जारी किया गया हर दस्तावेज़ "
-"(उसका डेटा, प्रिंट करने लायक पेज और PDF), आपके सहेजे हुए कागज़ात, लोगो और "
-"लेटरहेड, गतिविधि लॉग और बही-खाता शामिल हैं।"
+"एक ZIP फ़ाइल जिसमें कंपनी की जानकारी, टेम्पलेट, जारी किया गया हर दस्तावेज़ (उसका डेटा, "
+"प्रिंट करने लायक पेज और PDF), आपके सहेजे हुए कागज़ात, लोगो और लेटरहेड, गतिविधि लॉग और "
+"बही-खाता शामिल हैं।"
 
 #: apps/core/templates/core/workspace.html:11
 msgid "Download the ZIP"
@@ -2355,11 +2334,11 @@ msgstr "ZIP डाउनलोड करें"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
 msgstr ""
-"अगर दस्तावेज़ बहुत ज़्यादा हों तो एक मिनट लग सकता है। एक्सपोर्ट गतिविधि लॉग "
-"में दर्ज किया जाता है।"
+"अगर दस्तावेज़ बहुत ज़्यादा हों तो एक मिनट लग सकता है। एक्सपोर्ट गतिविधि लॉग में दर्ज किया "
+"जाता है।"
 
 #: apps/core/templates/core/workspace.html:15
 #: apps/core/templates/core/workspace.html:23
@@ -2373,9 +2352,9 @@ msgid ""
 "papers and files, the history, and the balance. Nobody can recover it. "
 "Download the export first if you need a copy."
 msgstr ""
-"«%(name)s» में मौजूद सब कुछ हमेशा के लिए हटा दिया जाएगा: दस्तावेज़, "
-"टेम्पलेट, कागज़ात और फ़ाइलें, इतिहास और बैलेंस। इसे कोई वापस नहीं ला सकता। "
-"कॉपी चाहिए तो पहले एक्सपोर्ट डाउनलोड करें।"
+"«%(name)s» में मौजूद सब कुछ हमेशा के लिए हटा दिया जाएगा: दस्तावेज़, टेम्पलेट, कागज़ात और "
+"फ़ाइलें, इतिहास और बैलेंस। इसे कोई वापस नहीं ला सकता। कॉपी चाहिए तो पहले एक्सपोर्ट "
+"डाउनलोड करें।"
 
 #: apps/core/templates/core/workspace.html:17
 #, python-format
@@ -2413,9 +2392,7 @@ msgstr[1] "%(n)s उत्तर"
 
 #: apps/core/workspace.py:49
 msgid "You exported several times in the last hour. Try again later."
-msgstr ""
-"आपने पिछले एक घंटे में कई बार एक्सपोर्ट किया है। कृपया बाद में फिर कोशिश "
-"करें।"
+msgstr "आपने पिछले एक घंटे में कई बार एक्सपोर्ट किया है। कृपया बाद में फिर कोशिश करें।"
 
 #: apps/core/workspace.py:66
 msgid ""
@@ -2479,16 +2456,15 @@ msgid ""
 "You pay only when an AI service delivers its result; a failed run is "
 "refunded."
 msgstr ""
-"आप तभी भुगतान करते हैं जब कोई AI सेवा अपना परिणाम देती है; असफल रन का पैसा "
-"वापस कर दिया जाता है।"
+"आप तभी भुगतान करते हैं जब कोई AI सेवा अपना परिणाम देती है; असफल रन का पैसा वापस कर "
+"दिया जाता है।"
 
 #: apps/credits/templates/credits/balance.html:7
 msgid ""
 "Thank you. Your balance is updated as soon as the payment is confirmed, "
 "usually within a minute."
 msgstr ""
-"धन्यवाद। भुगतान की पुष्टि होते ही आपका बैलेंस अपडेट हो जाएगा, आमतौर पर एक "
-"मिनट के भीतर।"
+"धन्यवाद। भुगतान की पुष्टि होते ही आपका बैलेंस अपडेट हो जाएगा, आमतौर पर एक मिनट के भीतर।"
 
 #: apps/credits/templates/credits/balance.html:10
 msgid "Current balance"
@@ -2523,9 +2499,7 @@ msgstr "भुगतान करें"
 msgid ""
 "Online payment is not open yet. Your balance will be topped up here as soon "
 "as it is."
-msgstr ""
-"ऑनलाइन भुगतान अभी शुरू नहीं हुआ है। शुरू होते ही आपका बैलेंस यहीं टॉप अप हो "
-"सकेगा।"
+msgstr "ऑनलाइन भुगतान अभी शुरू नहीं हुआ है। शुरू होते ही आपका बैलेंस यहीं टॉप अप हो सकेगा।"
 
 #: apps/credits/templates/credits/balance.html:31
 msgid "Top-up history"
@@ -2618,8 +2592,7 @@ msgstr "मशीन अनुवाद – यह प्रमाणित य�
 #: apps/identity/letterheads.py:117 apps/library/extract.py:122
 #: apps/mail/generate.py:49
 msgid "Your balance is not enough for this service. Top up and try again."
-msgstr ""
-"इस सेवा के लिए आपका बैलेंस पर्याप्त नहीं है। टॉप-अप करके फिर कोशिश करें।"
+msgstr "इस सेवा के लिए आपका बैलेंस पर्याप्त नहीं है। टॉप-अप करके फिर कोशिश करें।"
 
 #: apps/docops/ops.py:155 apps/documents/generate.py:70 apps/forms/views.py:63
 #: apps/identity/detect.py:73 apps/identity/generate.py:70
@@ -2654,16 +2627,14 @@ msgstr "हो गया।"
 
 #: apps/docops/ops.py:297 apps/docops/ops.py:334 apps/docops/ops.py:371
 msgid "No text could be read from this file. You were not charged."
-msgstr ""
-"इस फ़ाइल से कोई टेक्स्ट नहीं पढ़ा जा सका। आपसे कोई शुल्क नहीं लिया गया।"
+msgstr "इस फ़ाइल से कोई टेक्स्ट नहीं पढ़ा जा सका। आपसे कोई शुल्क नहीं लिया गया।"
 
 #: apps/docops/ops.py:306 apps/docops/ops.py:318
 msgid ""
 "The page design could not be produced. You were not charged; please try "
 "again."
 msgstr ""
-"पेज का डिज़ाइन तैयार नहीं हो सका। आपसे कोई शुल्क नहीं लिया गया; कृपया फिर से"
-" कोशिश करें।"
+"पेज का डिज़ाइन तैयार नहीं हो सका। आपसे कोई शुल्क नहीं लिया गया; कृपया फिर से कोशिश करें।"
 
 #: apps/docops/services.py:37 apps/library/forms.py:58 apps/tasks/forms.py:36
 msgid "The file must be smaller than 10 MB."
@@ -2705,8 +2676,8 @@ msgid ""
 "Choose a service: you see its options and their prices for this document "
 "before anything is charged."
 msgstr ""
-"कोई सेवा चुनें: कोई भी शुल्क लगने से पहले आपको इस दस्तावेज़ के लिए उसके "
-"विकल्प और उनकी कीमतें दिखाई देंगी।"
+"कोई सेवा चुनें: कोई भी शुल्क लगने से पहले आपको इस दस्तावेज़ के लिए उसके विकल्प और उनकी कीमतें "
+"दिखाई देंगी।"
 
 #: apps/docops/templates/docops/panel.html:9
 msgid "Results"
@@ -2743,8 +2714,8 @@ msgid ""
 "This can take a few minutes for the original design. You can leave this "
 "page: the result is kept in the document's results."
 msgstr ""
-"मूल डिज़ाइन के लिए इसमें कुछ मिनट लग सकते हैं। आप इस पेज से जा सकते हैं: "
-"नतीजा दस्तावेज़ के नतीजों में सुरक्षित रहेगा।"
+"मूल डिज़ाइन के लिए इसमें कुछ मिनट लग सकते हैं। आप इस पेज से जा सकते हैं: नतीजा दस्तावेज़ के "
+"नतीजों में सुरक्षित रहेगा।"
 
 #: apps/docops/templates/docops/result.html:22
 #, python-format
@@ -2756,16 +2727,15 @@ msgid ""
 "The Word file is ready. Download it and edit it in Word or any word "
 "processor."
 msgstr ""
-"Word फ़ाइल तैयार है। इसे डाउनलोड करें और Word या किसी भी वर्ड प्रोसेसर में "
-"एडिट करें।"
+"Word फ़ाइल तैयार है। इसे डाउनलोड करें और Word या किसी भी वर्ड प्रोसेसर में एडिट करें।"
 
 #: apps/docops/templates/docops/result.html:29
 msgid ""
 "The translated document is ready in its original design. Download the PDF, "
 "or the Word file in the same design."
 msgstr ""
-"अनुवादित दस्तावेज़ अपने मूल डिज़ाइन में तैयार है। PDF डाउनलोड करें, या उसी "
-"डिज़ाइन में Word फ़ाइल डाउनलोड करें।"
+"अनुवादित दस्तावेज़ अपने मूल डिज़ाइन में तैयार है। PDF डाउनलोड करें, या उसी डिज़ाइन में Word "
+"फ़ाइल डाउनलोड करें।"
 
 #: apps/docops/templates/docops/result.html:34 apps/docops/views.py:140
 msgid "Written by AI from the uploaded file. Check it before you rely on it."
@@ -2784,19 +2754,15 @@ msgid "Parties, dates, amounts, duties and reference numbers, as lists."
 msgstr "पक्ष, तारीखें, रकम, कर्तव्य और संदर्भ संख्याएँ, सूचियों के रूप में।"
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
-msgstr ""
-"स्कैन या फ़ोटो का टेक्स्ट, पेज दर पेज पढ़ा हुआ: टेक्स्ट, Word या PDF के रूप "
-"में।"
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgstr "स्कैन या फ़ोटो का टेक्स्ट, पेज दर पेज पढ़ा हुआ: टेक्स्ट, Word या PDF के रूप में।"
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
 msgstr ""
-"संपादन योग्य Word फ़ाइल: AI हर पेज को पढ़ता है और उसका टेक्स्ट, हेडिंग और "
-"टेबल लिखता है।"
+"संपादन योग्य Word फ़ाइल: AI हर पेज को पढ़ता है और उसका टेक्स्ट, हेडिंग और टेबल लिखता है।"
 
 #: apps/docops/templates/docops/services/_name.html:1
 msgid "Translate"
@@ -2824,20 +2790,18 @@ msgstr "अनुवादित टेक्स्ट, पेज पर और 
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr ""
-"सही अनुच्छेदों, शीर्षकों और तालिकाओं के साथ एक साफ़, व्यवस्थित PDF, और वही "
-"Word में भी।"
+"सही अनुच्छेदों, शीर्षकों और तालिकाओं के साथ एक साफ़, व्यवस्थित PDF, और वही Word में भी।"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
+"and checked page by page. PDF files only. Stamps and signatures are left out."
 msgstr ""
-"आपके मूल जैसा दिखने वाला PDF: वही लेआउट, रंग और लोगो, पेज दर पेज बनाया और "
-"जाँचा गया। केवल PDF फ़ाइलें। मुहरें और हस्ताक्षर शामिल नहीं किए जाते।"
+"आपके मूल जैसा दिखने वाला PDF: वही लेआउट, रंग और लोगो, पेज दर पेज बनाया और जाँचा गया। "
+"केवल PDF फ़ाइलें। मुहरें और हस्ताक्षर शामिल नहीं किए जाते।"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid "The summary on the page and as Word or text."
@@ -2846,32 +2810,27 @@ msgstr "सारांश पेज पर और Word या टेक्स�
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "The summary as a clean report PDF with headings and tables, and in Word."
-msgstr ""
-"शीर्षकों और तालिकाओं के साथ एक साफ़ रिपोर्ट PDF के रूप में सारांश, और Word "
-"में भी।"
+msgstr "शीर्षकों और तालिकाओं के साथ एक साफ़ रिपोर्ट PDF के रूप में सारांश, और Word में भी।"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "The most careful summary, every figure checked, on a designed page: PDF and "
 "Word in the same design."
 msgstr ""
-"सबसे सावधानी से तैयार किया गया सारांश, हर आँकड़ा जाँचा हुआ, डिज़ाइन किए गए "
-"पेज पर: PDF और Word एक ही डिज़ाइन में।"
+"सबसे सावधानी से तैयार किया गया सारांश, हर आँकड़ा जाँचा हुआ, डिज़ाइन किए गए पेज पर: PDF "
+"और Word एक ही डिज़ाइन में।"
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
-msgstr ""
-"एक संपादन योग्य Word फ़ाइल, जिसमें हर पेज का टेक्स्ट, शीर्षक और टेबल शामिल "
-"हैं।"
+msgid "An editable Word file with the text, headings and tables of every page."
+msgstr "एक संपादन योग्य Word फ़ाइल, जिसमें हर पेज का टेक्स्ट, शीर्षक और टेबल शामिल हैं।"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "An editable Word file that looks like the original: every page rebuilt with "
 "its layout. PDF files only."
 msgstr ""
-"मूल जैसी दिखने वाली संपादन योग्य Word फ़ाइल: हर पेज उसके लेआउट के साथ दोबारा"
-" बनाया गया। केवल PDF फ़ाइलों के लिए।"
+"मूल जैसी दिखने वाली संपादन योग्य Word फ़ाइल: हर पेज उसके लेआउट के साथ दोबारा बनाया "
+"गया। केवल PDF फ़ाइलों के लिए।"
 
 #: apps/docops/templates/docops/services/confirm.html:7
 #, python-format
@@ -2933,8 +2892,8 @@ msgid ""
 "Upload a document or choose one from your library. You see the price before "
 "anything is charged, and you pay only if the result is delivered."
 msgstr ""
-"कोई दस्तावेज़ अपलोड करें या अपनी लाइब्रेरी से चुनें। कुछ भी चार्ज होने से "
-"पहले आपको कीमत दिखेगी, और भुगतान तभी करना होगा जब नतीजा मिल जाएगा।"
+"कोई दस्तावेज़ अपलोड करें या अपनी लाइब्रेरी से चुनें। कुछ भी चार्ज होने से पहले आपको कीमत "
+"दिखेगी, और भुगतान तभी करना होगा जब नतीजा मिल जाएगा।"
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
@@ -2957,8 +2916,7 @@ msgstr "$%(p)s प्रति पृष्ठ से शुरू।"
 msgid "Choose a file or drag it here"
 msgstr "फ़ाइल चुनें या यहाँ खींचकर लाएँ"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF, PNG, JPG या WebP, 10 MB तक"
 
@@ -2967,16 +2925,16 @@ msgid ""
 "The file is kept in your library under «Other documents», encrypted, with "
 "its result."
 msgstr ""
-"फ़ाइल आपकी लाइब्रेरी में «अन्य दस्तावेज़» के अंतर्गत, परिणाम के साथ "
-"एन्क्रिप्टेड रूप में सुरक्षित रहती है।"
+"फ़ाइल आपकी लाइब्रेरी में «अन्य दस्तावेज़» के अंतर्गत, परिणाम के साथ एन्क्रिप्टेड रूप में सुरक्षित "
+"रहती है।"
 
 #: apps/docops/templates/docops/services/start.html:15
 msgid ""
 "Stamps, seals, signatures and personal photos in your file are never copied "
 "into the result."
 msgstr ""
-"आपकी फ़ाइल में मौजूद मुहरें, स्टैम्प, हस्ताक्षर और व्यक्तिगत फ़ोटो परिणाम "
-"में कभी कॉपी नहीं किए जाते।"
+"आपकी फ़ाइल में मौजूद मुहरें, स्टैम्प, हस्ताक्षर और व्यक्तिगत फ़ोटो परिणाम में कभी कॉपी नहीं "
+"किए जाते।"
 
 #: apps/docops/templates/docops/services/start.html:16
 #: apps/docops/templates/docops/services/start.html:22
@@ -3039,8 +2997,8 @@ msgid ""
 "For example: Experience certificate. The first time, a template of it is "
 "made for your company; after that it is reused."
 msgstr ""
-"उदाहरण के लिए: अनुभव प्रमाण पत्र। पहली बार आपकी कंपनी के लिए इसका एक "
-"टेम्पलेट बनाया जाता है; इसके बाद वही दोबारा इस्तेमाल होता है।"
+"उदाहरण के लिए: अनुभव प्रमाण पत्र। पहली बार आपकी कंपनी के लिए इसका एक टेम्पलेट बनाया "
+"जाता है; इसके बाद वही दोबारा इस्तेमाल होता है।"
 
 #: apps/documents/forms.py:50 apps/documents/templates/documents/edit.html:14
 #: apps/documents/templates/documents/print.html:81
@@ -3054,8 +3012,8 @@ msgid ""
 "For example: Whom it may concern, or the name of the bank. It is printed "
 "above the text."
 msgstr ""
-"उदाहरण के लिए: जिस किसी से भी संबंधित हो, या बैंक का नाम। यह टेक्स्ट के ऊपर "
-"प्रिंट होता है।"
+"उदाहरण के लिए: जिस किसी से भी संबंधित हो, या बैंक का नाम। यह टेक्स्ट के ऊपर प्रिंट होता "
+"है।"
 
 #: apps/documents/forms.py:53
 msgid "What should it say?"
@@ -3066,22 +3024,17 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "उद्देश्य और तथ्य बताइए; AI आपके लिए टेक्स्ट लिख देगा।"
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
-msgstr ""
-"टेम्पलेट पढ़ा नहीं जा सका। आपसे कोई शुल्क नहीं लिया गया; कृपया फिर से कोशिश "
-"करें।"
+msgid "The template could not be read. You were not charged; please try again."
+msgstr "टेम्पलेट पढ़ा नहीं जा सका। आपसे कोई शुल्क नहीं लिया गया; कृपया फिर से कोशिश करें।"
 
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
 msgid "The text could not be read. You were not charged; please try again."
-msgstr ""
-"टेक्स्ट पढ़ा नहीं जा सका। आपसे शुल्क नहीं लिया गया; कृपया फिर कोशिश करें।"
+msgstr "टेक्स्ट पढ़ा नहीं जा सका। आपसे शुल्क नहीं लिया गया; कृपया फिर कोशिश करें।"
 
 #: apps/documents/generate.py:161 apps/documents/generate.py:300
 msgid ""
 "You have imported the free templates allowed for today. Try again tomorrow."
-msgstr ""
-"आज के लिए अनुमत मुफ़्त टेम्पलेट आप इंपोर्ट कर चुके हैं। कल फिर कोशिश करें।"
+msgstr "आज के लिए अनुमत मुफ़्त टेम्पलेट आप इंपोर्ट कर चुके हैं। कल फिर कोशिश करें।"
 
 #: apps/documents/generate.py:166 apps/documents/generate.py:305
 #: apps/identity/detect.py:55
@@ -3095,14 +3048,11 @@ msgstr "टेम्पलेट पढ़ा नहीं जा सका। �
 #: apps/documents/generate.py:287 apps/identity/generate.py:62
 #: apps/identity/letterheads.py:112
 msgid "The design could not be read. You were not charged; please try again."
-msgstr ""
-"डिज़ाइन पढ़ा नहीं जा सका। आपसे शुल्क नहीं लिया गया; कृपया फिर कोशिश करें।"
+msgstr "डिज़ाइन पढ़ा नहीं जा सका। आपसे शुल्क नहीं लिया गया; कृपया फिर कोशिश करें।"
 
 #: apps/documents/generate.py:375
 msgid "The details could not be read. You were not charged; please try again."
-msgstr ""
-"विवरण पढ़े नहीं जा सके। आपसे कोई शुल्क नहीं लिया गया; कृपया दोबारा कोशिश "
-"करें।"
+msgstr "विवरण पढ़े नहीं जा सके। आपसे कोई शुल्क नहीं लिया गया; कृपया दोबारा कोशिश करें।"
 
 #: apps/documents/generate.py:381
 msgid "Written. Review it and edit anything you like."
@@ -3142,8 +3092,8 @@ msgid ""
 "Whoever holds the printed paper can scan it and see the original document, "
 "to compare the two."
 msgstr ""
-"जिसके हाथ में छपा हुआ कागज़ है, वह इसे स्कैन करके मूल दस्तावेज़ देख सकता है "
-"और दोनों की तुलना कर सकता है।"
+"जिसके हाथ में छपा हुआ कागज़ है, वह इसे स्कैन करके मूल दस्तावेज़ देख सकता है और दोनों की तुलना "
+"कर सकता है।"
 
 #: apps/documents/models.py:37
 msgid "Draft"
@@ -3188,8 +3138,8 @@ msgid ""
 "Describe what should change. The template is made again; documents already "
 "written from it stay as they are."
 msgstr ""
-"बताएं कि क्या बदलना है। टेम्पलेट दोबारा बनाया जाएगा; इससे पहले लिखे जा चुके "
-"दस्तावेज़ जैसे हैं वैसे ही रहेंगे।"
+"बताएं कि क्या बदलना है। टेम्पलेट दोबारा बनाया जाएगा; इससे पहले लिखे जा चुके दस्तावेज़ जैसे हैं "
+"वैसे ही रहेंगे।"
 
 #: apps/documents/templates/documents/_template_actions.html:10
 #: apps/documents/templates/documents/edit.html:78
@@ -3210,8 +3160,8 @@ msgid ""
 "Tell me what you need. The document is written on your letterhead, and you "
 "can review and edit it afterwards."
 msgstr ""
-"बताइए आपको क्या चाहिए। दस्तावेज़ आपके लेटरहेड पर लिखा जाएगा, और आप बाद में "
-"उसे देख और संपादित कर सकते हैं।"
+"बताइए आपको क्या चाहिए। दस्तावेज़ आपके लेटरहेड पर लिखा जाएगा, और आप बाद में उसे देख और "
+"संपादित कर सकते हैं।"
 
 #: apps/documents/templates/documents/ai_new.html:19
 #, python-format
@@ -3225,10 +3175,9 @@ msgid ""
 "template and writing this document costs $%(first)s this time. Afterwards, "
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
-"क्या मैं आपकी कंपनी के लिए, उसकी पहचान के अनुसार, इसका एक टेम्पलेट बना दूँ? "
-"इस बार टेम्पलेट बनाने और यह दस्तावेज़ लिखने का शुल्क $%(first)s है। इसके "
-"बाद, जब भी आपको «%(name)s» चाहिए होगा, लिखने के लिए आप केवल $%(later)s का "
-"भुगतान करेंगे।"
+"क्या मैं आपकी कंपनी के लिए, उसकी पहचान के अनुसार, इसका एक टेम्पलेट बना दूँ? इस बार टेम्पलेट "
+"बनाने और यह दस्तावेज़ लिखने का शुल्क $%(first)s है। इसके बाद, जब भी आपको «%(name)s» "
+"चाहिए होगा, लिखने के लिए आप केवल $%(later)s का भुगतान करेंगे।"
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3270,8 +3219,7 @@ msgid ""
 "It is sent as a PDF file from MyDocHub, and your address is the reply "
 "address."
 msgstr ""
-"इसे MyDocHub से PDF फ़ाइल के रूप में भेजा जाता है, और आपका पता जवाब का पता "
-"होता है।"
+"इसे MyDocHub से PDF फ़ाइल के रूप में भेजा जाता है, और आपका पता जवाब का पता होता है।"
 
 #: apps/documents/templates/documents/edit.html:15
 #: apps/mail/templates/mail/_compose_form.html:71
@@ -3295,8 +3243,7 @@ msgstr "विवरण"
 msgid ""
 "Each field is a blank of the design. An empty field prints as a dotted line."
 msgstr ""
-"हर फ़ील्ड डिज़ाइन का एक खाली स्थान है। खाली फ़ील्ड बिंदीदार रेखा के रूप में "
-"प्रिंट होती है।"
+"हर फ़ील्ड डिज़ाइन का एक खाली स्थान है। खाली फ़ील्ड बिंदीदार रेखा के रूप में प्रिंट होती है।"
 
 #: apps/documents/templates/documents/edit.html:29
 msgid "Save the details"
@@ -3361,8 +3308,8 @@ msgid ""
 "This document cannot be printed, downloaded or sent until the owner or an "
 "administrator approves it."
 msgstr ""
-"जब तक मालिक या कोई एडमिन इसे स्वीकृत नहीं करता, यह दस्तावेज़ प्रिंट, डाउनलोड"
-" या भेजा नहीं जा सकता।"
+"जब तक मालिक या कोई एडमिन इसे स्वीकृत नहीं करता, यह दस्तावेज़ प्रिंट, डाउनलोड या भेजा "
+"नहीं जा सकता।"
 
 #: apps/documents/templates/documents/edit.html:63
 msgid "Send for approval"
@@ -3395,10 +3342,9 @@ msgstr "AI से बेहतर बनाएँ"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
-msgstr ""
-"उदाहरण: इसे छोटा करें, गोपनीयता पर एक खंड जोड़ें, राशि बदलकर 1,500 करें।"
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
+msgstr "उदाहरण: इसे छोटा करें, गोपनीयता पर एक खंड जोड़ें, राशि बदलकर 1,500 करें।"
 
 #: apps/documents/templates/documents/edit.html:81
 msgid "Rewrite it"
@@ -3409,8 +3355,8 @@ msgid ""
 "Save your edits first: the AI works on the saved text. You are charged only "
 "if the new text is delivered."
 msgstr ""
-"पहले अपने बदलाव सहेजें: AI सहेजे गए पाठ पर काम करता है। शुल्क तभी लगेगा जब "
-"नया पाठ मिल जाए।"
+"पहले अपने बदलाव सहेजें: AI सहेजे गए पाठ पर काम करता है। शुल्क तभी लगेगा जब नया पाठ मिल "
+"जाए।"
 
 #: apps/documents/templates/documents/edit.html:85
 #: apps/documents/templates/documents/edit.html:88
@@ -3422,8 +3368,8 @@ msgid ""
 "Keep this text to use again. Write {{like this}} for a blank to fill each "
 "time."
 msgstr ""
-"इस टेक्स्ट को दोबारा इस्तेमाल के लिए सहेजें। हर बार भरने के लिए खाली जगह को "
-"{{इस तरह}} लिखें।"
+"इस टेक्स्ट को दोबारा इस्तेमाल के लिए सहेजें। हर बार भरने के लिए खाली जगह को {{इस तरह}} "
+"लिखें।"
 
 #: apps/documents/templates/documents/edit.html:87 apps/mail/forms.py:84
 msgid "Template name"
@@ -3438,8 +3384,8 @@ msgid ""
 "Give someone outside the company a link to look at this document, for a "
 "limited time and with an optional password."
 msgstr ""
-"कंपनी के बाहर किसी व्यक्ति को यह दस्तावेज़ देखने के लिए एक लिंक दें। लिंक "
-"सीमित समय के लिए होगा और चाहें तो पासवर्ड भी जोड़ सकते हैं।"
+"कंपनी के बाहर किसी व्यक्ति को यह दस्तावेज़ देखने के लिए एक लिंक दें। लिंक सीमित समय के लिए "
+"होगा और चाहें तो पासवर्ड भी जोड़ सकते हैं।"
 
 #: apps/documents/templates/documents/edit.html:93
 #: apps/sharing/templates/sharing/new.html:6
@@ -3482,16 +3428,16 @@ msgid ""
 "This document was cancelled on %(date)s. Anyone who scans its QR code sees "
 "that."
 msgstr ""
-"यह दस्तावेज़ %(date)s को रद्द किया गया था। जो भी इसका QR कोड स्कैन करेगा, "
-"उसे यह दिखेगा।"
+"यह दस्तावेज़ %(date)s को रद्द किया गया था। जो भी इसका QR कोड स्कैन करेगा, उसे यह "
+"दिखेगा।"
 
 #: apps/documents/templates/documents/edit.html:101
 msgid ""
 "If this printed document must no longer be trusted, cancel it: its QR code "
 "will say so."
 msgstr ""
-"अगर इस प्रिंट किए गए दस्तावेज़ पर अब भरोसा नहीं किया जाना चाहिए, तो इसे रद्द"
-" करें: इसका QR कोड यही बताएगा।"
+"अगर इस प्रिंट किए गए दस्तावेज़ पर अब भरोसा नहीं किया जाना चाहिए, तो इसे रद्द करें: "
+"इसका QR कोड यही बताएगा।"
 
 #: apps/documents/templates/documents/edit.html:105
 #: apps/library/templates/library/list.html:75
@@ -3511,13 +3457,12 @@ msgstr "आप दस्तावेज़ पढ़ सकते हैं, ब
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
-"आपके टेम्पलेट से लिखे गए दस्तावेज़ों का रिकॉर्ड। टेक्स्ट यहां नहीं दिखाया "
-"जाता: पढ़ने के लिए दस्तावेज़ खोलें, और हर बार खोलना गतिविधि लॉग में दर्ज "
-"होता है।"
+"आपके टेम्पलेट से लिखे गए दस्तावेज़ों का रिकॉर्ड। टेक्स्ट यहां नहीं दिखाया जाता: पढ़ने के लिए "
+"दस्तावेज़ खोलें, और हर बार खोलना गतिविधि लॉग में दर्ज होता है।"
 
 #: apps/documents/templates/documents/issued.html:8
 #: apps/library/templates/library/list.html:17
@@ -3558,9 +3503,7 @@ msgstr "यह दस्तावेज़ अभी स्वीकृत न�
 msgid ""
 "It can be printed, downloaded or sent after the owner or an administrator "
 "approves it."
-msgstr ""
-"मालिक या एडमिन के स्वीकृत करने के बाद इसे प्रिंट, डाउनलोड या भेजा जा सकता "
-"है।"
+msgstr "मालिक या एडमिन के स्वीकृत करने के बाद इसे प्रिंट, डाउनलोड या भेजा जा सकता है।"
 
 #: apps/documents/templates/documents/not_approved.html:5
 msgid "Open the document"
@@ -3568,20 +3511,17 @@ msgstr "दस्तावेज़ खोलें"
 
 #: apps/documents/templates/documents/print.html:69
 msgid "There is no letterhead in this language, so the main one is used."
-msgstr ""
-"इस भाषा में कोई लेटरहेड नहीं है, इसलिए मुख्य लेटरहेड इस्तेमाल किया जाएगा।"
+msgstr "इस भाषा में कोई लेटरहेड नहीं है, इसलिए मुख्य लेटरहेड इस्तेमाल किया जाएगा।"
 
 #: apps/documents/templates/documents/print.html:69
 msgid "Add one"
 msgstr "एक जोड़ें"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "विषय:"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "इस दस्तावेज़ को सत्यापित करें"
 
@@ -3599,14 +3539,12 @@ msgid ""
 "for a blank; each time you use the template you fill the blanks and get a "
 "new document."
 msgstr ""
-"जो पत्र या प्रमाणपत्र आप बार-बार लिखते हैं, उसे सहेजें। खाली जगह को {{इस "
-"तरह}} लिखें; टेम्पलेट इस्तेमाल करते समय खाली जगह भरें और नया दस्तावेज़ पाएँ।"
+"जो पत्र या प्रमाणपत्र आप बार-बार लिखते हैं, उसे सहेजें। खाली जगह को {{इस तरह}} लिखें; "
+"टेम्पलेट इस्तेमाल करते समय खाली जगह भरें और नया दस्तावेज़ पाएँ।"
 
 #: apps/documents/templates/documents/templates.html:13
 msgid "No templates yet. Open a document and choose «Save as a template»."
-msgstr ""
-"अभी कोई टेम्पलेट नहीं है। कोई दस्तावेज़ खोलें और «टेम्पलेट के रूप में "
-"सहेजें» चुनें।"
+msgstr "अभी कोई टेम्पलेट नहीं है। कोई दस्तावेज़ खोलें और «टेम्पलेट के रूप में सहेजें» चुनें।"
 
 #: apps/documents/templates/documents/verify.html:3
 #: apps/documents/templates/documents/verify.html:9
@@ -3623,8 +3561,7 @@ msgid ""
 "This document has been cancelled by the company that issued it. Do not rely "
 "on it."
 msgstr ""
-"इस दस्तावेज़ को इसे जारी करने वाली कंपनी ने रद्द कर दिया है। कृपया इस पर "
-"भरोसा न करें।"
+"इस दस्तावेज़ को इसे जारी करने वाली कंपनी ने रद्द कर दिया है। कृपया इस पर भरोसा न करें।"
 
 #: apps/documents/templates/documents/verify.html:12
 #: apps/library/templates/library/list.html:81
@@ -3644,16 +3581,16 @@ msgid ""
 "Compare the document below with the paper in your hands, word for word. If "
 "anything differs, the paper is not genuine."
 msgstr ""
-"नीचे दिए दस्तावेज़ को अपने हाथ के कागज़ से शब्द-दर-शब्द मिलाएँ। अगर कुछ भी "
-"अलग है, तो वह कागज़ असली नहीं है।"
+"नीचे दिए दस्तावेज़ को अपने हाथ के कागज़ से शब्द-दर-शब्द मिलाएँ। अगर कुछ भी अलग है, तो वह "
+"कागज़ असली नहीं है।"
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
 msgstr ""
-"MyDocHub दस्तावेज़ों पर कोई मुहर या हस्ताक्षर नहीं लगाता: कागज़ पर मौजूद हर "
-"मुहर या हस्ताक्षर कंपनी ने प्रिंट करने के बाद जोड़ा है।"
+"MyDocHub दस्तावेज़ों पर कोई मुहर या हस्ताक्षर नहीं लगाता: कागज़ पर मौजूद हर मुहर या "
+"हस्ताक्षर कंपनी ने प्रिंट करने के बाद जोड़ा है।"
 
 #: apps/documents/templates/documents/verify.html:23
 msgid "The document as it was issued"
@@ -3673,8 +3610,7 @@ msgstr "मान्य ई-मेल पता दर्ज करें।"
 
 #: apps/documents/views.py:399
 msgid "You have sent many documents in the last hour. Try again later."
-msgstr ""
-"आपने पिछले एक घंटे में बहुत दस्तावेज़ भेजे हैं। बाद में फिर कोशिश करें।"
+msgstr "आपने पिछले एक घंटे में बहुत दस्तावेज़ भेजे हैं। बाद में फिर कोशिश करें।"
 
 #: apps/documents/views.py:409
 #, python-format
@@ -3699,15 +3635,12 @@ msgid ""
 "You already have a template of this type. Choose another name, or redesign "
 "the existing one."
 msgstr ""
-"इस प्रकार का टेम्पलेट आपके पास पहले से है। कोई दूसरा नाम चुनें, या मौजूदा "
-"टेम्पलेट का नया डिज़ाइन बनाएँ।"
+"इस प्रकार का टेम्पलेट आपके पास पहले से है। कोई दूसरा नाम चुनें, या मौजूदा टेम्पलेट का नया "
+"डिज़ाइन बनाएँ।"
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
-msgstr ""
-"टेम्पलेट के रूप में सहेजा गया। हर बार भरने के लिए खाली जगह को {{इस तरह}} "
-"लिखें।"
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
+msgstr "टेम्पलेट के रूप में सहेजा गया। हर बार भरने के लिए खाली जगह को {{इस तरह}} लिखें।"
 
 #: apps/documents/views.py:470 apps/documents/views.py:477
 msgid "Document created from the template."
@@ -3738,8 +3671,7 @@ msgid ""
 "The template was made from your document. Writing a document from it costs "
 "only the writing price."
 msgstr ""
-"यह टेम्पलेट आपके दस्तावेज़ से बनाया गया है। इससे दस्तावेज़ लिखने पर केवल "
-"लिखने का शुल्क लगता है।"
+"यह टेम्पलेट आपके दस्तावेज़ से बनाया गया है। इससे दस्तावेज़ लिखने पर केवल लिखने का शुल्क लगता है।"
 
 #: apps/documents/views.py:610
 msgid "Tell the AI what should change."
@@ -3928,8 +3860,8 @@ msgid ""
 "This form has reached the limit of %(limit)s answers and takes no more. "
 "Download the answers, or delete some, to make room."
 msgstr ""
-"इस फ़ॉर्म में %(limit)s उत्तरों की सीमा पूरी हो गई है और यह और नहीं लेगा। "
-"जगह बनाने के लिए उत्तर डाउनलोड करें या कुछ हटा दें।"
+"इस फ़ॉर्म में %(limit)s उत्तरों की सीमा पूरी हो गई है और यह और नहीं लेगा। जगह बनाने के "
+"लिए उत्तर डाउनलोड करें या कुछ हटा दें।"
 
 #: apps/forms/templates/forms/detail.html:20
 msgid "Share the form"
@@ -3938,16 +3870,14 @@ msgstr "फ़ॉर्म साझा करें"
 #: apps/forms/templates/forms/detail.html:23
 msgid ""
 "Send this link to your team. They sign in, and each person answers once."
-msgstr ""
-"यह लिंक अपनी टीम को भेजें। हर व्यक्ति साइन इन करके एक बार उत्तर देता है।"
+msgstr "यह लिंक अपनी टीम को भेजें। हर व्यक्ति साइन इन करके एक बार उत्तर देता है।"
 
 #: apps/forms/templates/forms/detail.html:23
 msgid ""
 "Anyone who opens this link or scans the code can answer. Nothing is asked "
 "about them."
 msgstr ""
-"जो भी यह लिंक खोले या कोड स्कैन करे, उत्तर दे सकता है। उसके बारे में कुछ "
-"नहीं पूछा जाता।"
+"जो भी यह लिंक खोले या कोड स्कैन करे, उत्तर दे सकता है। उसके बारे में कुछ नहीं पूछा जाता।"
 
 #: apps/forms/templates/forms/detail.html:24
 #: apps/sharing/templates/sharing/detail.html:9
@@ -4006,8 +3936,7 @@ msgstr "आपका नाम आपके उत्तर के साथ स
 
 #: apps/forms/templates/forms/fill.html:27
 msgid "Nothing is asked about you: your answer is not linked to your name."
-msgstr ""
-"आपके बारे में कुछ नहीं पूछा जाता: आपका उत्तर आपके नाम से जुड़ा नहीं है।"
+msgstr "आपके बारे में कुछ नहीं पूछा जाता: आपका उत्तर आपके नाम से जुड़ा नहीं है।"
 
 #: apps/forms/templates/forms/fill_message.html:10
 msgid "Thank you"
@@ -4046,8 +3975,8 @@ msgid ""
 "This form is only for the people of the company. Sign in with the account "
 "you use in the company's workspace."
 msgstr ""
-"यह फ़ॉर्म केवल कंपनी के लोगों के लिए है। कंपनी के वर्कस्पेस में जिस खाते का "
-"उपयोग करते हैं उससे साइन इन करें।"
+"यह फ़ॉर्म केवल कंपनी के लोगों के लिए है। कंपनी के वर्कस्पेस में जिस खाते का उपयोग करते हैं उससे "
+"साइन इन करें।"
 
 #: apps/forms/templates/forms/fill_message.html:16
 msgid "This form is full"
@@ -4077,9 +4006,7 @@ msgstr "हो सकता है लिंक गलत हो, या फ़�
 msgid ""
 "Forms are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
-msgstr ""
-"फ़ॉर्म मालिक, एडमिन और सदस्यों के लिए हैं। फ़ॉर्म बनाना हो तो किसी एडमिन से "
-"कहें।"
+msgstr "फ़ॉर्म मालिक, एडमिन और सदस्यों के लिए हैं। फ़ॉर्म बनाना हो तो किसी एडमिन से कहें।"
 
 #: apps/forms/templates/forms/list.html:6
 msgid ""
@@ -4108,8 +4035,8 @@ msgid ""
 "Creating a form costs $%(price)s from the balance, once. Its answers are "
 "free (up to %(limit)s answers)."
 msgstr ""
-"फ़ॉर्म बनाने पर बैलेंस से एक बार $%(price)s लगता है। इसके उत्तर मुफ़्त हैं "
-"(%(limit)s उत्तरों तक)।"
+"फ़ॉर्म बनाने पर बैलेंस से एक बार $%(price)s लगता है। इसके उत्तर मुफ़्त हैं (%(limit)s उत्तरों "
+"तक)।"
 
 #: apps/forms/templates/forms/list.html:33
 msgid "Create the form"
@@ -4122,11 +4049,11 @@ msgstr "प्रश्न संपादित करें"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
 msgstr ""
-"इस प्रश्न के उत्तर पहले से हैं। इसका प्रकार या विकल्प बदलने से पुराने उत्तर "
-"पढ़ना कठिन हो सकता है।"
+"इस प्रश्न के उत्तर पहले से हैं। इसका प्रकार या विकल्प बदलने से पुराने उत्तर पढ़ना कठिन हो "
+"सकता है।"
 
 #: apps/forms/templates/forms/results.html:8
 msgid "Download as a spreadsheet"
@@ -4176,17 +4103,13 @@ msgstr "PDF या इमेज (PNG, JPG या WebP) अपलोड करे
 msgid ""
 "Nothing about the company could be read from this paper. You were not "
 "charged."
-msgstr ""
-"इस कागज़ से कंपनी के बारे में कुछ भी पढ़ा नहीं जा सका। आपसे कोई शुल्क नहीं "
-"लिया गया।"
+msgstr "इस कागज़ से कंपनी के बारे में कुछ भी पढ़ा नहीं जा सका। आपसे कोई शुल्क नहीं लिया गया।"
 
 #: apps/identity/detect.py:74
 msgid ""
 "Done. Check the details below, correct anything that is wrong, then press "
 "Continue."
-msgstr ""
-"हो गया। नीचे दी गई जानकारी देखें, जो गलत हो उसे सुधारें, फिर जारी रखें "
-"दबाएँ।"
+msgstr "हो गया। नीचे दी गई जानकारी देखें, जो गलत हो उसे सुधारें, फिर जारी रखें दबाएँ।"
 
 #: apps/identity/forms.py:23
 msgid "PNG, JPG or WebP, up to 2 MB"
@@ -4206,8 +4129,7 @@ msgid ""
 "This PDF could not be read. Save it again without a password, or upload an "
 "image."
 msgstr ""
-"यह PDF पढ़ी नहीं जा सकी। इसे बिना पासवर्ड के दोबारा सेव करें या कोई इमेज "
-"अपलोड करें।"
+"यह PDF पढ़ी नहीं जा सकी। इसे बिना पासवर्ड के दोबारा सेव करें या कोई इमेज अपलोड करें।"
 
 #: apps/identity/forms.py:53 apps/identity/forms.py:158
 #, python-format
@@ -4256,11 +4178,10 @@ msgstr "चित्र बहुत छोटा है। ज़्याद�
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
 msgstr ""
-"हमें इस चित्र में कोई साफ़ लोगो नहीं मिला। सादे बैकग्राउंड वाली लोगो फ़ाइल "
-"का उपयोग करें।"
+"हमें इस चित्र में कोई साफ़ लोगो नहीं मिला। सादे बैकग्राउंड वाली लोगो फ़ाइल का उपयोग करें।"
 
 #: apps/identity/letterheads.py:92
 msgid "The letterhead is saved."
@@ -4355,8 +4276,7 @@ msgid ""
 "Optional. A document written in one of these languages uses this name and "
 "address instead."
 msgstr ""
-"वैकल्पिक। इनमें से किसी भाषा में लिखा दस्तावेज़ इसके बजाय यही नाम और पता "
-"इस्तेमाल करता है।"
+"वैकल्पिक। इनमें से किसी भाषा में लिखा दस्तावेज़ इसके बजाय यही नाम और पता इस्तेमाल करता है।"
 
 #: apps/identity/templates/identity/_basics.html:16
 msgid "Add a language"
@@ -4384,8 +4304,8 @@ msgid ""
 "A letter is printed on the letterhead of its own language. Your main "
 "language is %(language)s; add one for every other language you write in."
 msgstr ""
-"पत्र उसी की भाषा के लेटरहेड पर प्रिंट होता है। आपकी मुख्य भाषा %(language)s "
-"है; आप जिन अन्य भाषाओं में लिखते हैं, उनमें से हर एक के लिए लेटरहेड जोड़ें।"
+"पत्र उसी की भाषा के लेटरहेड पर प्रिंट होता है। आपकी मुख्य भाषा %(language)s है; आप जिन "
+"अन्य भाषाओं में लिखते हैं, उनमें से हर एक के लिए लेटरहेड जोड़ें।"
 
 #: apps/identity/templates/identity/_letterheads.html:11
 msgid "This letterhead will be deleted for good."
@@ -4450,8 +4370,7 @@ msgid ""
 "The logo, the letterheads in every language and the guided setup are in the "
 "AI studio, under Company identity."
 msgstr ""
-"लोगो, हर भाषा के लेटरहेड और गाइडेड सेटअप AI स्टूडियो में, कंपनी की पहचान के "
-"अंतर्गत हैं।"
+"लोगो, हर भाषा के लेटरहेड और गाइडेड सेटअप AI स्टूडियो में, कंपनी की पहचान के अंतर्गत हैं।"
 
 #: apps/identity/templates/identity/profile.html:23 apps/mail/forms.py:86
 msgid "Style"
@@ -4480,8 +4399,8 @@ msgid ""
 "Upload the commercial registration, the tax certificate or a business card "
 "and we fill in the details for you to check."
 msgstr ""
-"कमर्शियल रजिस्ट्रेशन, टैक्स सर्टिफ़िकेट या बिज़नेस कार्ड अपलोड करें। हम "
-"जानकारी भर देंगे, आप उसे जाँच लें।"
+"कमर्शियल रजिस्ट्रेशन, टैक्स सर्टिफ़िकेट या बिज़नेस कार्ड अपलोड करें। हम जानकारी भर देंगे, आप "
+"उसे जाँच लें।"
 
 #: apps/identity/templates/identity/setup.html:25
 msgid "Read it"
@@ -4515,8 +4434,7 @@ msgstr "अभी छोड़ें"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr "लोगो और लेटरहेड जिन पर हर पत्र और प्रमाणपत्र छपता है।"
 
 #: apps/identity/templates/identity/studio.html:15
@@ -4632,8 +4550,8 @@ msgid ""
 "These documents of %(company)s expire soon or have expired. Renew them in "
 "time."
 msgstr ""
-"%(company)s के ये दस्तावेज़ जल्द समाप्त हो रहे हैं या समाप्त हो चुके हैं। "
-"इन्हें समय पर नवीनीकृत करें।"
+"%(company)s के ये दस्तावेज़ जल्द समाप्त हो रहे हैं या समाप्त हो चुके हैं। इन्हें समय पर "
+"नवीनीकृत करें।"
 
 #: apps/library/templates/library/emails/expiry_reminder.html:6
 #: apps/library/templates/library/emails/expiry_reminder.txt:3
@@ -4665,8 +4583,8 @@ msgid ""
 "Keep your licences, contracts and invoices in one place, and see on the "
 "board what expires next."
 msgstr ""
-"अपने लाइसेंस, अनुबंध और चालान एक ही जगह रखें, और बोर्ड पर देखें कि आगे क्या "
-"समाप्त हो रहा है।"
+"अपने लाइसेंस, अनुबंध और चालान एक ही जगह रखें, और बोर्ड पर देखें कि आगे क्या समाप्त हो रहा "
+"है।"
 
 #: apps/library/templates/library/form.html:11
 #: apps/library/templates/library/form.html:13
@@ -4675,11 +4593,9 @@ msgstr "मेरे लिए पढ़ें"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
-msgstr ""
-"AI दस्तावेज़ पढ़कर खाली विवरण भरता है। शुल्क तभी लगता है जब वह उन्हें पढ़ "
-"ले।"
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
+msgstr "AI दस्तावेज़ पढ़कर खाली विवरण भरता है। शुल्क तभी लगता है जब वह उन्हें पढ़ ले।"
 
 #: apps/library/templates/library/form.html:22
 msgid "Only members of this workspace can open it."
@@ -4687,28 +4603,27 @@ msgstr "इसे केवल इस वर्कस्पेस के सद�
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
 msgstr ""
-"फ़ाइल से प्रकार, जारीकर्ता, संदर्भ संख्या और तिथियाँ पढ़ी जाती हैं। शुल्क "
-"तभी लगता है जब वे पढ़ी जाएँ।"
+"फ़ाइल से प्रकार, जारीकर्ता, संदर्भ संख्या और तिथियाँ पढ़ी जाती हैं। शुल्क तभी लगता है जब वे "
+"पढ़ी जाएँ।"
 
 #: apps/library/templates/library/form.html:37
 msgid "Add the details yourself"
 msgstr "विवरण स्वयं जोड़ें"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "विवरण"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
 msgstr ""
-"समाप्ति तिथि होने पर, समाप्त होने से 90, 30, 7 और 1 दिन पहले आपको ईमेल से "
-"याद दिलाया जाएगा।"
+"समाप्ति तिथि होने पर, समाप्त होने से 90, 30, 7 और 1 दिन पहले आपको ईमेल से याद दिलाया "
+"जाएगा।"
 
 #: apps/library/templates/library/list.html:8
 msgid "All documents"
@@ -4737,9 +4652,7 @@ msgstr "टेम्पलेट"
 msgid ""
 "Turn this document into a template you can fill again and again. Making the "
 "template is free."
-msgstr ""
-"इस दस्तावेज़ को ऐसे टेम्पलेट में बदलें जिसे आप बार-बार भर सकें। टेम्पलेट "
-"बनाना मुफ़्त है।"
+msgstr "इस दस्तावेज़ को ऐसे टेम्पलेट में बदलें जिसे आप बार-बार भर सकें। टेम्पलेट बनाना मुफ़्त है।"
 
 #: apps/library/templates/library/list.html:72
 msgid "Use as a template"
@@ -4767,11 +4680,11 @@ msgstr "एआई टूल्स"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
 msgstr ""
-"अपने लाइसेंस, अनुबंध और पत्र एक ही जगह रखें, AI से नए दस्तावेज़ बनाएँ, और "
-"बोर्ड पर देखें कि आगे कौन-सा दस्तावेज़ समाप्त होने वाला है।"
+"अपने लाइसेंस, अनुबंध और पत्र एक ही जगह रखें, AI से नए दस्तावेज़ बनाएँ, और बोर्ड पर देखें कि "
+"आगे कौन-सा दस्तावेज़ समाप्त होने वाला है।"
 
 #: apps/library/views.py:135
 msgid "Edit the document"
@@ -4786,8 +4699,8 @@ msgid ""
 "The mail server refused the user name or password. Gmail, Outlook and Yahoo "
 "need an app password."
 msgstr ""
-"मेल सर्वर ने यूज़र नाम या पासवर्ड स्वीकार नहीं किया। Gmail, Outlook और Yahoo"
-" के लिए ऐप पासवर्ड चाहिए।"
+"मेल सर्वर ने यूज़र नाम या पासवर्ड स्वीकार नहीं किया। Gmail, Outlook और Yahoo के लिए "
+"ऐप पासवर्ड चाहिए।"
 
 #: apps/mail/client.py:69
 msgid "The mail server answered with an error."
@@ -4799,16 +4712,14 @@ msgid ""
 "password is wrong: check the mailbox password, then the server name and the "
 "port."
 msgstr ""
-"मेल सर्वर ने जवाब देने में बहुत देर लगा दी। कुछ प्रोवाइडर पासवर्ड गलत होने "
-"पर ऐसा करते हैं: पहले मेलबॉक्स का पासवर्ड जाँचें, फिर सर्वर का नाम और पोर्ट "
-"देखें।"
+"मेल सर्वर ने जवाब देने में बहुत देर लगा दी। कुछ प्रोवाइडर पासवर्ड गलत होने पर ऐसा करते हैं: "
+"पहले मेलबॉक्स का पासवर्ड जाँचें, फिर सर्वर का नाम और पोर्ट देखें।"
 
 #: apps/mail/client.py:74
 msgid ""
 "The secure connection to the mail server failed. Check the port and the "
 "security type."
-msgstr ""
-"मेल सर्वर से सुरक्षित कनेक्शन नहीं बन सका। पोर्ट और सुरक्षा प्रकार जाँचें।"
+msgstr "मेल सर्वर से सुरक्षित कनेक्शन नहीं बन सका। पोर्ट और सुरक्षा प्रकार जाँचें।"
 
 #: apps/mail/client.py:76
 msgid "Could not reach the mail server. Check the server name and the port."
@@ -4881,8 +4792,8 @@ msgid ""
 "Kept sealed and never shown again. Gmail, Outlook and Yahoo need an app "
 "password, not the normal one."
 msgstr ""
-"सुरक्षित रखा जाता है और दोबारा नहीं दिखाया जाएगा। Gmail, Outlook और Yahoo के"
-" लिए सामान्य पासवर्ड नहीं, ऐप पासवर्ड चाहिए।"
+"सुरक्षित रखा जाता है और दोबारा नहीं दिखाया जाएगा। Gmail, Outlook और Yahoo के लिए "
+"सामान्य पासवर्ड नहीं, ऐप पासवर्ड चाहिए।"
 
 #: apps/mail/forms.py:23
 msgid "User name"
@@ -4928,8 +4839,8 @@ msgstr "केवल सर्वर का नाम दर्ज करें,
 msgid ""
 "Use the usual mail ports (993 or 143 to read, 465, 587, 25 or 2525 to send)."
 msgstr ""
-"सामान्य मेल पोर्ट इस्तेमाल करें (पढ़ने के लिए 993 या 143, भेजने के लिए 465, "
-"587, 25 या 2525)।"
+"सामान्य मेल पोर्ट इस्तेमाल करें (पढ़ने के लिए 993 या 143, भेजने के लिए 465, 587, 25 या "
+"2525)।"
 
 #: apps/mail/forms.py:85
 msgid "Optional. Leave it empty to use the name of the style."
@@ -4947,9 +4858,7 @@ msgstr "इसमें जो भी आप चाहें"
 msgid ""
 "For example: a green header, a short line about our opening hours in the "
 "footer."
-msgstr ""
-"उदाहरण: हरे रंग का हेडर, फ़ूटर में हमारे खुलने के समय के बारे में एक छोटी "
-"पंक्ति।"
+msgstr "उदाहरण: हरे रंग का हेडर, फ़ूटर में हमारे खुलने के समय के बारे में एक छोटी पंक्ति।"
 
 #: apps/mail/generate.py:19
 msgid "Classic"
@@ -4966,8 +4875,7 @@ msgstr "मिनिमल"
 #: apps/mail/generate.py:70
 msgid "The design could not be used. You were not charged; please try again."
 msgstr ""
-"यह डिज़ाइन इस्तेमाल नहीं किया जा सका। आपसे शुल्क नहीं लिया गया; कृपया दोबारा"
-" कोशिश करें।"
+"यह डिज़ाइन इस्तेमाल नहीं किया जा सका। आपसे शुल्क नहीं लिया गया; कृपया दोबारा कोशिश करें।"
 
 #: apps/mail/models.py:17
 msgid "e-mail address"
@@ -4986,8 +4894,7 @@ msgid "signature"
 msgstr "हस्ताक्षर"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "नया संदेश"
 
@@ -5209,8 +5116,7 @@ msgstr "जंक"
 
 #: apps/mail/templates/mail/box.html:74
 msgid "Pictures in this message are not loaded, to protect your privacy."
-msgstr ""
-"आपकी गोपनीयता की सुरक्षा के लिए इस संदेश की तस्वीरें लोड नहीं की गई हैं।"
+msgstr "आपकी गोपनीयता की सुरक्षा के लिए इस संदेश की तस्वीरें लोड नहीं की गई हैं।"
 
 #: apps/mail/templates/mail/box.html:77
 msgid "Save in the library"
@@ -5261,8 +5167,8 @@ msgid ""
 "Once the owner connects the company e-mail address, everyone who works on "
 "documents can read and write company mail here, without leaving MyDocHub."
 msgstr ""
-"जैसे ही मालिक कंपनी का ई-मेल पता कनेक्ट करेंगे, दस्तावेज़ों पर काम करने वाला"
-" हर व्यक्ति MyDocHub छोड़े बिना यहीं कंपनी का मेल पढ़ और लिख सकेगा।"
+"जैसे ही मालिक कंपनी का ई-मेल पता कनेक्ट करेंगे, दस्तावेज़ों पर काम करने वाला हर व्यक्ति "
+"MyDocHub छोड़े बिना यहीं कंपनी का मेल पढ़ और लिख सकेगा।"
 
 #: apps/mail/templates/mail/not_connected.html:9
 msgid "Connect the mailbox"
@@ -5274,11 +5180,9 @@ msgstr "कंपनी मेलबॉक्स कनेक्ट करें
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
-msgstr ""
-"कंपनी का ई-मेल पता एक बार जोड़ें, फिर MyDocHub में ही कंपनी का मेल पढ़ें और "
-"लिखें।"
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
+msgstr "कंपनी का ई-मेल पता एक बार जोड़ें, फिर MyDocHub में ही कंपनी का मेल पढ़ें और लिखें।"
 
 #: apps/mail/templates/mail/setup.html:15
 msgid "Server details"
@@ -5286,21 +5190,19 @@ msgstr "सर्वर विवरण"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
-msgstr ""
-"खाली छोड़ने पर पते से अनुमान लगाया जाता है। कनेक्शन विफल होने पर ही इन्हें "
-"बदलें।"
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
+msgstr "खाली छोड़ने पर पते से अनुमान लगाया जाता है। कनेक्शन विफल होने पर ही इन्हें बदलें।"
 
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
-"वर्कस्पेस में दस्तावेज़ संपादित कर सकने वाला हर व्यक्ति इस मेलबॉक्स से मेल "
-"पढ़ और भेज सकेगा। खोलना और भेजना गतिविधि लॉग में दर्ज होता है। पासवर्ड आपकी "
-"वर्कस्पेस कुंजी से सुरक्षित रहता है।"
+"वर्कस्पेस में दस्तावेज़ संपादित कर सकने वाला हर व्यक्ति इस मेलबॉक्स से मेल पढ़ और भेज सकेगा। "
+"खोलना और भेजना गतिविधि लॉग में दर्ज होता है। पासवर्ड आपकी वर्कस्पेस कुंजी से सुरक्षित रहता "
+"है।"
 
 #: apps/mail/templates/mail/setup.html:30
 msgid "Save and test"
@@ -5323,9 +5225,7 @@ msgstr "डिस्कनेक्ट करें"
 msgid ""
 "Removes the saved password from MyDocHub. Your messages stay on your mail "
 "server."
-msgstr ""
-"MyDocHub से सहेजा हुआ पासवर्ड हटा देता है। आपके संदेश आपके मेल सर्वर पर ही "
-"रहेंगे।"
+msgstr "MyDocHub से सहेजा हुआ पासवर्ड हटा देता है। आपके संदेश आपके मेल सर्वर पर ही रहेंगे।"
 
 #: apps/mail/templates/mail/setup.html:39
 msgid "The mailbox will be disconnected from MyDocHub."
@@ -5342,13 +5242,13 @@ msgstr "नया ईमेल टेम्पलेट"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
-"AI आपके लोगो, ब्रांड रंगों और कंपनी की जानकारी के साथ एक टेम्पलेट डिज़ाइन "
-"करता है। इस्तेमाल करने से पहले आप उसे देख सकते हैं, और शुल्क केवल तभी लगता "
-"है जब उपयोग योग्य डिज़ाइन मिल जाए।"
+"AI आपके लोगो, ब्रांड रंगों और कंपनी की जानकारी के साथ एक टेम्पलेट डिज़ाइन करता है। "
+"इस्तेमाल करने से पहले आप उसे देख सकते हैं, और शुल्क केवल तभी लगता है जब उपयोग योग्य डिज़ाइन "
+"मिल जाए।"
 
 #: apps/mail/templates/mail/template_new.html:19
 msgid "Design my template"
@@ -5365,8 +5265,8 @@ msgid ""
 "logo, colours and a footer with your details. Make one with AI, then choose "
 "it when you write."
 msgstr ""
-"टेम्पलेट आपकी कंपनी के हर संदेश को एक जैसा पेशेवर रूप देता है: लोगो, रंग और "
-"आपकी जानकारी वाला फ़ूटर। AI से एक बनाएँ, फिर संदेश लिखते समय उसे चुनें।"
+"टेम्पलेट आपकी कंपनी के हर संदेश को एक जैसा पेशेवर रूप देता है: लोगो, रंग और आपकी जानकारी "
+"वाला फ़ूटर। AI से एक बनाएँ, फिर संदेश लिखते समय उसे चुनें।"
 
 #: apps/mail/templates/mail/templates.html:14
 msgid "Open the preview"
@@ -5382,8 +5282,7 @@ msgstr "डिफ़ॉल्ट बनाएँ"
 
 #: apps/mail/templates/mail/templates.html:19
 msgid "This template will be deleted. Messages already sent are not affected."
-msgstr ""
-"यह टेम्पलेट हटा दिया जाएगा। पहले से भेजे गए संदेशों पर कोई असर नहीं पड़ेगा।"
+msgstr "यह टेम्पलेट हटा दिया जाएगा। पहले से भेजे गए संदेशों पर कोई असर नहीं पड़ेगा।"
 
 #: apps/mail/templates/mail/templates.html:27
 msgid "No template yet"
@@ -5394,8 +5293,8 @@ msgid ""
 "Your messages go out as plain messages. Make a template and every message "
 "will carry your logo, colours and details."
 msgstr ""
-"आपके संदेश सादे संदेश के रूप में जाते हैं। एक टेम्पलेट बनाएँ और हर संदेश में"
-" आपका लोगो, रंग और विवरण होंगे।"
+"आपके संदेश सादे संदेश के रूप में जाते हैं। एक टेम्पलेट बनाएँ और हर संदेश में आपका लोगो, रंग और "
+"विवरण होंगे।"
 
 #: apps/mail/templates/mail/templates.html:29
 msgid "Make my first template"
@@ -5410,8 +5309,8 @@ msgid ""
 "The mailbox is disconnected and its password is deleted. Your messages stay "
 "on your mail server."
 msgstr ""
-"मेलबॉक्स डिस्कनेक्ट हो गया है और उसका पासवर्ड हटा दिया गया है। आपके संदेश "
-"आपके मेल सर्वर पर ही रहेंगे।"
+"मेलबॉक्स डिस्कनेक्ट हो गया है और उसका पासवर्ड हटा दिया गया है। आपके संदेश आपके मेल सर्वर "
+"पर ही रहेंगे।"
 
 #: apps/mail/views.py:118
 msgid "Inbox"
@@ -5480,8 +5379,7 @@ msgstr "अधिकतम %(n)d फ़ाइलें संलग्न कर
 
 #: apps/mail/views.py:400
 msgid "Many messages were sent in the last hour. Try again later."
-msgstr ""
-"पिछले एक घंटे में बहुत सारे संदेश भेजे गए। कृपया बाद में पुनः प्रयास करें।"
+msgstr "पिछले एक घंटे में बहुत सारे संदेश भेजे गए। कृपया बाद में पुनः प्रयास करें।"
 
 #: apps/mail/views.py:415
 msgid "The message was sent."
@@ -5491,9 +5389,7 @@ msgstr "संदेश भेज दिया गया।"
 msgid ""
 "PDF files cannot be made on this server right now, so documents cannot be "
 "attached."
-msgstr ""
-"इस सर्वर पर अभी PDF फ़ाइलें नहीं बन सकतीं, इसलिए दस्तावेज़ संलग्न नहीं किए "
-"जा सकते।"
+msgstr "इस सर्वर पर अभी PDF फ़ाइलें नहीं बन सकतीं, इसलिए दस्तावेज़ संलग्न नहीं किए जा सकते।"
 
 #: apps/mail/views.py:438
 #, python-format
@@ -5510,8 +5406,7 @@ msgid ""
 "Only PDF files and pictures (PNG, JPG, WebP) up to 10 MB can be kept in the "
 "library."
 msgstr ""
-"लाइब्रेरी में केवल 10 MB तक की PDF फ़ाइलें और चित्र (PNG, JPG, WebP) रखे जा "
-"सकते हैं।"
+"लाइब्रेरी में केवल 10 MB तक की PDF फ़ाइलें और चित्र (PNG, JPG, WebP) रखे जा सकते हैं।"
 
 #: apps/mail/views.py:487
 msgid "Attachment"
@@ -5525,9 +5420,7 @@ msgstr "आपकी लाइब्रेरी में सहेज लि�
 msgid ""
 "Your e-mail template is ready. Preview it and choose it when you write a "
 "message."
-msgstr ""
-"आपका ई-मेल टेम्पलेट तैयार है। उसका पूर्वावलोकन देखें और संदेश लिखते समय उसे "
-"चुनें।"
+msgstr "आपका ई-मेल टेम्पलेट तैयार है। उसका पूर्वावलोकन देखें और संदेश लिखते समय उसे चुनें।"
 
 #: apps/mail/views.py:537
 msgid "Subject of your message"
@@ -5573,8 +5466,7 @@ msgstr "नोट खोलें"
 #: apps/notes/templates/notes/emails/reminder.html:7
 #: apps/notes/templates/notes/emails/reminder.txt:7
 msgid "You receive this because you set this reminder in MyDocHub."
-msgstr ""
-"आपको यह इसलिए मिला क्योंकि आपने MyDocHub में यह अनुस्मारक सेट किया था।"
+msgstr "आपको यह इसलिए मिला क्योंकि आपने MyDocHub में यह अनुस्मारक सेट किया था।"
 
 #: apps/notes/templates/notes/emails/reminder.txt:1
 #, python-format
@@ -5685,10 +5577,8 @@ msgstr "कृपया पुष्टि करें कि आपने प�
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
-msgstr ""
-"बैलेंस कम है: %(balance)s बचा है। सेवाएँ चलाते रहने के लिए रिचार्ज करें"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
+msgstr "बैलेंस कम है: %(balance)s बचा है। सेवाएँ चलाते रहने के लिए रिचार्ज करें"
 
 #: apps/notifications/registry.py:21
 msgid "The balance is finished. Top up to keep using the services"
@@ -5745,8 +5635,8 @@ msgid ""
 "The topic, the goal, the facts and figures to use. The more you write, the "
 "better it is."
 msgstr ""
-"विषय, लक्ष्य, और उपयोग करने योग्य तथ्य व आँकड़े। जितना अधिक लिखेंगे, परिणाम "
-"उतना बेहतर होगा।"
+"विषय, लक्ष्य, और उपयोग करने योग्य तथ्य व आँकड़े। जितना अधिक लिखेंगे, परिणाम उतना बेहतर "
+"होगा।"
 
 #: apps/presentations/forms.py:30
 msgid "Optional. Left empty, it is taken from what you write below."
@@ -5783,8 +5673,7 @@ msgstr "एक अच्छा, स्पष्ट प्रेज़ेंट�
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr "दूसरे चरण में जाँचा और निखारा गया: मज़बूत शीर्षक और कसी हुई कहानी।"
 
 #: apps/presentations/service.py:52
@@ -5792,8 +5681,8 @@ msgid ""
 "The best we can build: your audience is analysed first, then every designed "
 "slide is checked by eye and corrected."
 msgstr ""
-"हमारा सर्वश्रेष्ठ: पहले आपके दर्शकों का विश्लेषण होता है, फिर हर डिज़ाइन की "
-"गई स्लाइड को आँख से जाँचकर सुधारा जाता है।"
+"हमारा सर्वश्रेष्ठ: पहले आपके दर्शकों का विश्लेषण होता है, फिर हर डिज़ाइन की गई स्लाइड को "
+"आँख से जाँचकर सुधारा जाता है।"
 
 #: apps/presentations/templates/presentations/confirm.html:6
 msgid "Confirm the presentation"
@@ -5825,8 +5714,8 @@ msgid ""
 "It takes a few minutes. You can leave the page: the result waits in your "
 "presentations. If it fails, the price goes back to your balance."
 msgstr ""
-"इसमें कुछ मिनट लगते हैं। आप पेज छोड़ सकते हैं: नतीजा आपके प्रेज़ेंटेशन में "
-"इंतज़ार करेगा। विफल होने पर कीमत आपकी शेष राशि में लौट जाती है।"
+"इसमें कुछ मिनट लगते हैं। आप पेज छोड़ सकते हैं: नतीजा आपके प्रेज़ेंटेशन में इंतज़ार करेगा। विफल होने "
+"पर कीमत आपकी शेष राशि में लौट जाती है।"
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
@@ -5836,8 +5725,7 @@ msgstr "$%(price)s में बनाएँ"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "रद्द करें"
 
@@ -5855,11 +5743,10 @@ msgstr "यह प्रेज़ेंटेशन हमेशा के ल�
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
 msgstr ""
-"स्लाइड बनने में कुछ मिनट लगते हैं। आप यह पेज छोड़ सकते हैं: नतीजा आपके "
-"प्रेज़ेंटेशन में इंतज़ार करेगा।"
+"स्लाइड बनने में कुछ मिनट लगते हैं। आप यह पेज छोड़ सकते हैं: नतीजा आपके प्रेज़ेंटेशन में इंतज़ार करेगा।"
 
 #: apps/presentations/templates/presentations/detail.html:21
 msgid "Your browser cannot show the preview. Download the PowerPoint."
@@ -5873,25 +5760,21 @@ msgstr "स्लाइड"
 msgid ""
 "Written by AI from what you gave it. Check the facts and figures before you "
 "present."
-msgstr ""
-"आपकी दी गई सामग्री से AI ने लिखा है। प्रस्तुत करने से पहले तथ्य और आँकड़े "
-"जाँच लें।"
+msgstr "आपकी दी गई सामग्री से AI ने लिखा है। प्रस्तुत करने से पहले तथ्य और आँकड़े जाँच लें।"
 
 #: apps/presentations/templates/presentations/forbidden.html:6
 msgid ""
 "Presentations are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
-msgstr ""
-"प्रेज़ेंटेशन मालिक, प्रशासकों और सदस्यों के लिए हैं। बनाना हो तो किसी "
-"प्रशासक से कहें।"
+msgstr "प्रेज़ेंटेशन मालिक, प्रशासकों और सदस्यों के लिए हैं। बनाना हो तो किसी प्रशासक से कहें।"
 
 #: apps/presentations/templates/presentations/list.html:6
 msgid ""
 "Describe the talk, or choose a document: get a designed PowerPoint in your "
 "company's colours and logo that you can still edit."
 msgstr ""
-"प्रस्तुति का वर्णन करें या कोई दस्तावेज़ चुनें: अपनी कंपनी के रंगों और लोगो "
-"वाला डिज़ाइन किया हुआ PowerPoint पाएँ, जिसे आप अब भी संपादित कर सकते हैं।"
+"प्रस्तुति का वर्णन करें या कोई दस्तावेज़ चुनें: अपनी कंपनी के रंगों और लोगो वाला डिज़ाइन किया "
+"हुआ PowerPoint पाएँ, जिसे आप अब भी संपादित कर सकते हैं।"
 
 #: apps/presentations/templates/presentations/list.html:7
 #: apps/presentations/templates/presentations/list.html:23
@@ -5914,11 +5797,10 @@ msgstr "<bdi dir=\"ltr\">$%(price)s</bdi> से"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr ""
-"दिखाई गई कीमत 10 स्लाइड की है। कुछ भी चार्ज होने से पहले आपको सटीक कीमत "
-"दिखेगी।"
+"दिखाई गई कीमत 10 स्लाइड की है। कुछ भी चार्ज होने से पहले आपको सटीक कीमत दिखेगी।"
 
 #: apps/presentations/templates/presentations/list.html:41
 msgid "See the price"
@@ -5978,17 +5860,16 @@ msgstr "यह लिंक उपलब्ध नहीं है"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
 msgstr ""
-"हो सकता है कि यह समाप्त हो गया हो या इसे साझा करने वाले व्यक्ति ने रद्द कर "
-"दिया हो। उनसे नया लिंक भेजने के लिए कहें।"
+"हो सकता है कि यह समाप्त हो गया हो या इसे साझा करने वाले व्यक्ति ने रद्द कर दिया हो। "
+"उनसे नया लिंक भेजने के लिए कहें।"
 
 #: apps/sharing/templates/sharing/list.html:6
 msgid ""
 "Documents you shared with people outside the company, and who opened them."
-msgstr ""
-"कंपनी के बाहर के लोगों के साथ साझा किए गए दस्तावेज़ और किसने उन्हें खोला।"
+msgstr "कंपनी के बाहर के लोगों के साथ साझा किए गए दस्तावेज़ और किसने उन्हें खोला।"
 
 #: apps/sharing/templates/sharing/list.html:8
 msgid "Your link"
@@ -6029,8 +5910,8 @@ msgstr "यह लिंक रद्द करें? यह तुरंत �
 msgid ""
 "Nothing shared yet. Open a paper or an issued document and choose Share."
 msgstr ""
-"अभी तक कुछ साझा नहीं किया गया। कोई पेपर या जारी किया गया दस्तावेज़ खोलें और "
-"साझा करें चुनें।"
+"अभी तक कुछ साझा नहीं किया गया। कोई पेपर या जारी किया गया दस्तावेज़ खोलें और साझा करें "
+"चुनें।"
 
 #: apps/sharing/templates/sharing/lock.html:6
 #: apps/sharing/templates/sharing/view.html:7
@@ -6039,9 +5920,7 @@ msgstr "साझा करने वाले"
 
 #: apps/sharing/templates/sharing/lock.html:8
 msgid "Too many wrong tries. Please wait a while and try again."
-msgstr ""
-"बहुत ज़्यादा गलत प्रयास हुए। कृपया कुछ देर प्रतीक्षा करें और फिर से कोशिश "
-"करें।"
+msgstr "बहुत ज़्यादा गलत प्रयास हुए। कृपया कुछ देर प्रतीक्षा करें और फिर से कोशिश करें।"
 
 #: apps/sharing/templates/sharing/lock.html:11
 msgid "The password is not right."
@@ -6079,11 +5958,11 @@ msgstr "कॉपी सेव करने की अनुमति दें"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
 msgstr ""
-"इसके बिना व्यक्ति इसे केवल पेज पर देख सकता है। स्क्रीन की फ़ोटो लेने से कोई "
-"नहीं रोक सकता, इसलिए इसे केवल भरोसेमंद लोगों के साथ साझा करें।"
+"इसके बिना व्यक्ति इसे केवल पेज पर देख सकता है। स्क्रीन की फ़ोटो लेने से कोई नहीं रोक सकता, "
+"इसलिए इसे केवल भरोसेमंद लोगों के साथ साझा करें।"
 
 #: apps/sharing/templates/sharing/new.html:18
 msgid "Make the link"
@@ -6127,9 +6006,7 @@ msgstr "MyDocHub के साथ साझा किया गया"
 #: apps/sharing/views.py:51
 msgid ""
 "This document cannot be shared: it is not approved, or it was cancelled."
-msgstr ""
-"यह दस्तावेज़ साझा नहीं किया जा सकता: यह स्वीकृत नहीं है या रद्द कर दिया गया "
-"है।"
+msgstr "यह दस्तावेज़ साझा नहीं किया जा सकता: यह स्वीकृत नहीं है या रद्द कर दिया गया है।"
 
 #: apps/sharing/views.py:61
 msgid "Choose how long the link works."
@@ -6206,8 +6083,8 @@ msgid ""
 "Any file, up to 10 MB. It is kept encrypted and only members of this "
 "workspace can open it."
 msgstr ""
-"कोई भी फ़ाइल, 10 MB तक। यह एन्क्रिप्टेड रखी जाती है और केवल इस कार्यक्षेत्र "
-"के सदस्य ही इसे खोल सकते हैं।"
+"कोई भी फ़ाइल, 10 MB तक। यह एन्क्रिप्टेड रखी जाती है और केवल इस कार्यक्षेत्र के सदस्य ही "
+"इसे खोल सकते हैं।"
 
 #: apps/tasks/templates/tasks/detail.html:37
 msgid "Follow-up"
@@ -6227,8 +6104,7 @@ msgstr "आप कार्य पढ़ सकते हैं, बदल न�
 
 #: apps/tasks/templates/tasks/list.html:6
 msgid "Share the work with the team, follow it, and keep its files with it."
-msgstr ""
-"काम को टीम के साथ साझा करें, उसे ट्रैक करें और उसकी फ़ाइलें उसी के साथ रखें।"
+msgstr "काम को टीम के साथ साझा करें, उसे ट्रैक करें और उसकी फ़ाइलें उसी के साथ रखें।"
 
 #: apps/tasks/templates/tasks/list.html:7
 #: apps/tasks/templates/tasks/list.html:30
@@ -6292,8 +6168,8 @@ msgid ""
 "This invitation is for %(email)s, but you are signed in with another "
 "address. Sign out and open the link again."
 msgstr ""
-"यह आमंत्रण %(email)s के लिए है, लेकिन आप किसी दूसरे पते से साइन इन हैं। साइन"
-" आउट करें और लिंक दोबारा खोलें।"
+"यह आमंत्रण %(email)s के लिए है, लेकिन आप किसी दूसरे पते से साइन इन हैं। साइन आउट करें और "
+"लिंक दोबारा खोलें।"
 
 #: apps/team/templates/team/accept.html:13 templates/base_app.html:111
 #: templates/base_app.html:119 templates/console/base_console.html:25
@@ -6317,8 +6193,8 @@ msgstr "खाता बनाएं और जुड़ें"
 #, python-format
 msgid "%(inviter)s invited you to join %(name)s on MyDocHub as %(role)s."
 msgstr ""
-"%(inviter)s ने आपको MyDocHub पर %(name)s से %(role)s के रूप में जुड़ने के "
-"लिए आमंत्रित किया है।"
+"%(inviter)s ने आपको MyDocHub पर %(name)s से %(role)s के रूप में जुड़ने के लिए आमंत्रित "
+"किया है।"
 
 #: apps/team/templates/team/emails/invite.html:6
 #: apps/team/templates/team/emails/invite.txt:6
@@ -6327,8 +6203,8 @@ msgid ""
 "The link works once and for %(days)s days. If you did not expect this "
 "invitation, ignore this message."
 msgstr ""
-"यह लिंक एक बार और %(days)s दिनों तक काम करता है। अगर आपको इस आमंत्रण की "
-"उम्मीद नहीं थी, तो इस संदेश को अनदेखा करें।"
+"यह लिंक एक बार और %(days)s दिनों तक काम करता है। अगर आपको इस आमंत्रण की उम्मीद नहीं "
+"थी, तो इस संदेश को अनदेखा करें।"
 
 #: apps/team/templates/team/emails/invite.txt:3
 msgid "Open this link to accept:"
@@ -6353,13 +6229,11 @@ msgstr "इसका उपयोग पहले ही हो चुका ह
 
 #: apps/team/templates/team/invite_invalid.html:7
 msgid "It has expired. Ask the person who invited you to send a new one."
-msgstr ""
-"इसकी अवधि समाप्त हो गई है। आमंत्रित करने वाले व्यक्ति से नया भेजने को कहें।"
+msgstr "इसकी अवधि समाप्त हो गई है। आमंत्रित करने वाले व्यक्ति से नया भेजने को कहें।"
 
 #: apps/team/templates/team/invite_invalid.html:7
 msgid "It was cancelled. Ask the person who invited you to send a new one."
-msgstr ""
-"इसे रद्द कर दिया गया था। आमंत्रित करने वाले व्यक्ति से नया भेजने को कहें।"
+msgstr "इसे रद्द कर दिया गया था। आमंत्रित करने वाले व्यक्ति से नया भेजने को कहें।"
 
 #: apps/team/templates/team/invite_invalid.html:7
 msgid "The link is not correct. Open it again from the e-mail."
@@ -6367,8 +6241,7 @@ msgstr "लिंक सही नहीं है। इसे ईमेल स
 
 #: apps/team/templates/team/team.html:6
 msgid "Invite the people who work with you and choose what each one may do."
-msgstr ""
-"अपने साथ काम करने वालों को आमंत्रित करें और चुनें कि हर कोई क्या कर सकता है।"
+msgstr "अपने साथ काम करने वालों को आमंत्रित करें और चुनें कि हर कोई क्या कर सकता है।"
 
 #: apps/team/templates/team/team.html:10
 msgid "Invite someone"
@@ -6383,8 +6256,8 @@ msgid ""
 "Owner: everything. Admin: manages the company and the team. Member: writes "
 "and uploads. Viewer: reads. Client: reads what is shared."
 msgstr ""
-"स्वामी: सब कुछ। एडमिन: कंपनी और टीम का प्रबंधन। सदस्य: लिखता और अपलोड करता "
-"है। दर्शक: पढ़ता है। क्लाइंट: साझा की गई चीज़ें पढ़ता है।"
+"स्वामी: सब कुछ। एडमिन: कंपनी और टीम का प्रबंधन। सदस्य: लिखता और अपलोड करता है। "
+"दर्शक: पढ़ता है। क्लाइंट: साझा की गई चीज़ें पढ़ता है।"
 
 #: apps/team/templates/team/team.html:20
 msgid "Approval of documents"
@@ -6394,9 +6267,7 @@ msgstr "दस्तावेज़ों का अनुमोदन"
 msgid ""
 "Documents written by members must be approved before they can be printed, "
 "downloaded or sent"
-msgstr ""
-"सदस्यों के लिखे दस्तावेज़ प्रिंट, डाउनलोड या भेजे जाने से पहले स्वीकृत होने "
-"चाहिए"
+msgstr "सदस्यों के लिखे दस्तावेज़ प्रिंट, डाउनलोड या भेजे जाने से पहले स्वीकृत होने चाहिए"
 
 #: apps/team/templates/team/team.html:23
 msgid "The owner and the administrators' own documents are approved at once."
@@ -6448,11 +6319,10 @@ msgstr "हमने आमंत्रण भेज दिया है।"
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
 msgstr ""
-"आमंत्रण बन गया, लेकिन ईमेल नहीं भेजा जा सका। कुछ मिनट बाद \"दोबारा भेजें\" "
-"का उपयोग करें।"
+"आमंत्रण बन गया, लेकिन ईमेल नहीं भेजा जा सका। कुछ मिनट बाद \"दोबारा भेजें\" का उपयोग करें।"
 
 #: apps/team/views.py:101
 msgid "We sent the invitation again."
@@ -6545,8 +6415,7 @@ msgstr "अपना पासवर्ड रीसेट करें"
 msgid ""
 "Use the button below to choose a new password. The link is valid for one "
 "hour."
-msgstr ""
-"नया पासवर्ड चुनने के लिए नीचे दिया बटन उपयोग करें। लिंक एक घंटे तक मान्य है।"
+msgstr "नया पासवर्ड चुनने के लिए नीचे दिया बटन उपयोग करें। लिंक एक घंटे तक मान्य है।"
 
 #: templates/accounts/emails/password_reset.html:5
 #: templates/accounts/password_reset_confirm.html:3
@@ -6562,9 +6431,7 @@ msgstr "अगर आपने यह अनुरोध नहीं किय�
 #: templates/accounts/emails/password_reset.txt:1
 msgid ""
 "Use the link below to choose a new password. The link is valid for one hour."
-msgstr ""
-"नया पासवर्ड चुनने के लिए नीचे दिया लिंक उपयोग करें। लिंक एक घंटे तक मान्य "
-"है।"
+msgstr "नया पासवर्ड चुनने के लिए नीचे दिया लिंक उपयोग करें। लिंक एक घंटे तक मान्य है।"
 
 #: templates/accounts/emails/password_reset_subject.txt:1
 msgid "Reset your MyDocHub password"
@@ -6594,10 +6461,8 @@ msgstr "अगर आपने साइन अप नहीं किया, �
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
-msgstr ""
-"नीचे दिए लिंक से अपने ईमेल पते की पुष्टि करें। लिंक 3 दिन तक मान्य है।"
+"Confirm your email address with the link below. The link is valid for 3 days."
+msgstr "नीचे दिए लिंक से अपने ईमेल पते की पुष्टि करें। लिंक 3 दिन तक मान्य है।"
 
 #: templates/accounts/emails/verify_email_subject.txt:1
 msgid "Confirm your email for MyDocHub"
@@ -6677,8 +6542,8 @@ msgid ""
 "Protect your account with a second step: a code from an authenticator app, "
 "asked every time you sign in."
 msgstr ""
-"दूसरे चरण से अपने खाते को सुरक्षित रखें: ऑथेंटिकेटर ऐप का एक कोड, जो हर बार "
-"साइन इन करते समय माँगा जाएगा।"
+"दूसरे चरण से अपने खाते को सुरक्षित रखें: ऑथेंटिकेटर ऐप का एक कोड, जो हर बार साइन इन करते "
+"समय माँगा जाएगा।"
 
 #: templates/accounts/security.html:8
 msgid "Your backup codes"
@@ -6689,8 +6554,8 @@ msgid ""
 "Keep these codes somewhere safe, apart from your phone. Each one works once "
 "if you lose access to the app. They are shown only now."
 msgstr ""
-"इन कोड को अपने फ़ोन से अलग किसी सुरक्षित जगह रखें। अगर ऐप तक आपकी पहुँच चली "
-"जाए, तो हर कोड एक बार काम करेगा। ये सिर्फ़ अभी दिखाए जा रहे हैं।"
+"इन कोड को अपने फ़ोन से अलग किसी सुरक्षित जगह रखें। अगर ऐप तक आपकी पहुँच चली जाए, तो "
+"हर कोड एक बार काम करेगा। ये सिर्फ़ अभी दिखाए जा रहे हैं।"
 
 #: templates/accounts/security.html:13 templates/accounts/two_factor.html:3
 #: templates/accounts/two_factor.html:5
@@ -6724,8 +6589,8 @@ msgstr "बंद करें"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
 "इस तस्वीर को ऑथेंटिकेटर ऐप (Google Authenticator, Microsoft Authenticator, "
 "Authy…) से स्कैन करें, फिर ऐप में दिखा कोड डालें।"
@@ -6759,8 +6624,8 @@ msgid ""
 "Enter the six-digit code from your authenticator app. If you lost your "
 "phone, enter one of your backup codes."
 msgstr ""
-"अपने ऑथेंटिकेटर ऐप का छह अंकों का कोड डालें। अगर आपका फ़ोन खो गया है, तो "
-"अपना कोई एक बैकअप कोड डालें।"
+"अपने ऑथेंटिकेटर ऐप का छह अंकों का कोड डालें। अगर आपका फ़ोन खो गया है, तो अपना कोई एक "
+"बैकअप कोड डालें।"
 
 #: templates/accounts/two_factor.html:10
 msgid "Verify"
@@ -6787,8 +6652,8 @@ msgid ""
 "This can take up to a minute. Keep this page open: the result appears here "
 "as soon as it is ready, and you are charged only if it is delivered."
 msgstr ""
-"इसमें एक मिनट तक लग सकता है। इस पेज को खुला रखें: नतीजा तैयार होते ही यहीं "
-"दिखाई देगा, और शुल्क केवल तभी लिया जाएगा जब वह आपको मिल जाएगा।"
+"इसमें एक मिनट तक लग सकता है। इस पेज को खुला रखें: नतीजा तैयार होते ही यहीं दिखाई देगा, "
+"और शुल्क केवल तभी लिया जाएगा जब वह आपको मिल जाएगा।"
 
 #: templates/base.html:21
 msgctxt "seconds"
@@ -6828,8 +6693,7 @@ msgid "Account"
 msgstr "खाता"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "प्लेटफ़ॉर्म कंसोल"
 
@@ -6923,11 +6787,11 @@ msgstr "मासिक AI बजट"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
 msgstr ""
-"जब महीने की लागत बजट तक पहुँच जाती है, तो बजट बढ़ाने या महीना खत्म होने तक "
-"हर AI सेवा बंद हो जाती है।"
+"जब महीने की लागत बजट तक पहुँच जाती है, तो बजट बढ़ाने या महीना खत्म होने तक हर AI सेवा "
+"बंद हो जाती है।"
 
 #: templates/console/ai.html:15
 msgid "Monthly budget (USD)"
@@ -7025,8 +6889,8 @@ msgid ""
 "While the site is locked, visitors see the Coming Soon page. Superusers and "
 "people with an access code get in."
 msgstr ""
-"साइट लॉक होने पर विज़िटर को Coming Soon पेज दिखता है। सुपरयूज़र और एक्सेस "
-"कोड वाले लोग अंदर जा सकते हैं।"
+"साइट लॉक होने पर विज़िटर को Coming Soon पेज दिखता है। सुपरयूज़र और एक्सेस कोड वाले लोग "
+"अंदर जा सकते हैं।"
 
 #: templates/console/launch.html:10
 msgid "Coming Soon lock"
@@ -7053,8 +6917,7 @@ msgstr "अंतिम बदलाव %(when)s को %(who)s द्वार�
 
 #: templates/console/launch.html:14
 msgid "Open the site to everyone? Search engines may start to index it."
-msgstr ""
-"साइट को सभी के लिए खोलें? सर्च इंजन इसे इंडेक्स करना शुरू कर सकते हैं।"
+msgstr "साइट को सभी के लिए खोलें? सर्च इंजन इसे इंडेक्स करना शुरू कर सकते हैं।"
 
 #: templates/console/launch.html:14 templates/console/launch.html:15
 msgid "Open the site"
@@ -7110,8 +6973,8 @@ msgid ""
 "Every movement of every balance: card top-ups, credit given by the platform "
 "team, AI sales and refunds."
 msgstr ""
-"हर बैलेंस का हर लेन-देन: कार्ड टॉप-अप, प्लेटफ़ॉर्म टीम द्वारा दिया गया "
-"क्रेडिट, AI बिक्री और रिफ़ंड।"
+"हर बैलेंस का हर लेन-देन: कार्ड टॉप-अप, प्लेटफ़ॉर्म टीम द्वारा दिया गया क्रेडिट, AI बिक्री "
+"और रिफ़ंड।"
 
 #: templates/console/ledger.html:8 templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
@@ -7221,12 +7084,11 @@ msgstr "हाल की बही प्रविष्टियाँ"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
-"हर सेवा की असली लागत और उसकी बिक्री कीमत। संग्रहीत कीमत Django एडमिन में "
-"बदली जा सकती है; sync_prices संग्रहीत कीमतों को मूल्य फ़ाइल के अनुरूप कर "
-"देता है।"
+"हर सेवा की असली लागत और उसकी बिक्री कीमत। संग्रहीत कीमत Django एडमिन में बदली जा "
+"सकती है; sync_prices संग्रहीत कीमतों को मूल्य फ़ाइल के अनुरूप कर देता है।"
 
 #: templates/console/prices.html:7
 msgid "Worst case"
@@ -7246,10 +7108,9 @@ msgstr "बिक्री पर नहीं"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
-msgstr ""
-"(n) = लागत के पीछे असली रनों की संख्या; * = छोटे रन पर मापा और बढ़ाया गया।"
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
+msgstr "(n) = लागत के पीछे असली रनों की संख्या; * = छोटे रन पर मापा और बढ़ाया गया।"
 
 #: templates/console/user_grant.html:3 templates/console/user_grant.html:6
 #: templates/console/users.html:20
@@ -7295,8 +7156,7 @@ msgstr "अनब्लॉक करें"
 #: templates/console/users.html:22
 #, python-format
 msgid "%(email)s and the workspaces they own will be deleted for good."
-msgstr ""
-"%(email)s और उनके स्वामित्व वाले वर्कस्पेस हमेशा के लिए हटा दिए जाएँगे।"
+msgstr "%(email)s और उनके स्वामित्व वाले वर्कस्पेस हमेशा के लिए हटा दिए जाएँगे।"
 
 #: templates/console/users.html:25
 msgid "No users."
@@ -7331,14 +7191,12 @@ msgid ""
 "Everything in it is deleted for good: documents, templates, papers, files, "
 "wallet and history. Enter your password to confirm."
 msgstr ""
-"इसमें मौजूद सब कुछ हमेशा के लिए हट जाएगा: दस्तावेज़, टेम्पलेट, कागज़ात, "
-"फ़ाइलें, वॉलेट और इतिहास। पुष्टि के लिए अपना पासवर्ड दर्ज करें।"
+"इसमें मौजूद सब कुछ हमेशा के लिए हट जाएगा: दस्तावेज़, टेम्पलेट, कागज़ात, फ़ाइलें, वॉलेट और "
+"इतिहास। पुष्टि के लिए अपना पासवर्ड दर्ज करें।"
 
 #: templates/console/workspaces.html:5
 msgid "Every company using the platform. Add credit to any of them from here."
-msgstr ""
-"प्लेटफ़ॉर्म इस्तेमाल करने वाली हर कंपनी। यहीं से किसी भी कंपनी में क्रेडिट "
-"जोड़ें।"
+msgstr "प्लेटफ़ॉर्म इस्तेमाल करने वाली हर कंपनी। यहीं से किसी भी कंपनी में क्रेडिट जोड़ें।"
 
 #: templates/console/workspaces.html:7
 msgid "Name, short name or owner e-mail"
@@ -7382,9 +7240,7 @@ msgstr "यह कोड काम नहीं किया। इसे जा
 
 #: templates/launch/coming_soon.html:23
 msgid "Too many attempts. Please wait a few minutes and try again."
-msgstr ""
-"बहुत अधिक प्रयास हो चुके हैं। कृपया कुछ मिनट प्रतीक्षा करें और फिर से कोशिश "
-"करें।"
+msgstr "बहुत अधिक प्रयास हो चुके हैं। कृपया कुछ मिनट प्रतीक्षा करें और फिर से कोशिश करें।"
 
 #: templates/partials/preview_pill.html:1
 msgid "Preview access"
@@ -7393,228 +7249,6 @@ msgstr "पूर्वावलोकन एक्सेस"
 #: templates/partials/preview_pill.html:1
 msgid "Leave"
 msgstr "बाहर निकलें"
-
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "पहचान, पत्र और प्रमाणपत्र, आपके अपने लेटरहेड पर।"
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "जो आपके पास है अपलोड करें, या हमसे बनवाएँ"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "मसौदा — यह पाठ कंपनी के वकील के लिए एक शुरुआती आधार है। यह कानूनी सलाह नहीं "
-#~ "है और सेवा सार्वजनिक रूप से शुरू होने से पहले इसकी समीक्षा ज़रूरी है। "
-#~ "[ब्रैकेट] वाली चीज़ें भरी जानी हैं।"
-
-#~ msgid "Open the company identity"
-#~ msgstr "कंपनी की पहचान खोलें"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "AI वर्कस्पेस"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "डिज़ाइन स्टूडियो"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "बिज़नेस इंटेलिजेंस"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "कंपनी"
-
-#~ msgid "Reminders due"
-#~ msgstr "देय अनुस्मारक"
-
-#~ msgid "Built by"
-#~ msgstr "निर्माता"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr ""
-#~ "लोगो, लेटरहेड, मुहर और हस्ताक्षर। जो आपके पास है उसे अपलोड करें; लोगो और "
-#~ "लेटरहेड हम आपके लिए बना सकते हैं।"
-
-#~ msgid "add the stamp"
-#~ msgstr "मुहर जोड़ें"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr ""
-#~ "इस टेक्स्ट को दोबारा इस्तेमाल करने के लिए सहेजें। हर बार भरने के लिए खाली "
-#~ "जगह को {{इस तरह}} लिखें। स्टांप और हस्ताक्षर सहेजे नहीं जाते।"
-
-#~ msgid "Sealed"
-#~ msgstr "मुहर लगा"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr ""
-#~ "मैं पुष्टि करता/करती हूँ कि मुझे इस कंपनी के लिए यह स्टैंप इस्तेमाल करने का "
-#~ "अधिकार है।"
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr ""
-#~ "मैं पुष्टि करता/करती हूँ कि यह मेरा हस्ताक्षर है, या इसके मालिक ने मुझे इसे "
-#~ "इस कंपनी के लिए इस्तेमाल करने की अनुमति दी है।"
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr "यह पुष्टि करने के लिए कि यह आप ही हैं, अपना पासवर्ड फिर से दर्ज करें।"
-
-#~ msgid "stamp"
-#~ msgstr "मुहर"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "फ़ोटो बहुत अँधेरी है। अच्छी रोशनी में सफ़ेद कागज़ इस्तेमाल करें।"
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr ""
-#~ "हमें इस चित्र में कोई साफ़ %(what)s नहीं मिला। समान रोशनी में सादे सफ़ेद "
-#~ "कागज़ की फ़ोटो इस्तेमाल करें।"
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr "आकृति बहुत फीकी या छोटी है। पास से, समान रोशनी में फ़ोटो लें।"
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr ""
-#~ "कागज़ पर्याप्त सादा नहीं है। सफ़ेद कागज़ इस्तेमाल करें और छाया व डिज़ाइन से "
-#~ "बचें।"
-
-#~ msgid "Stamp"
-#~ msgstr "मुहर"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "स्टैंप और हस्ताक्षर"
-
-#~ msgid "Kept private"
-#~ msgstr "निजी रखा गया"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr ""
-#~ "स्टैंप और हस्ताक्षर कंपनी के मालिक और मालिक द्वारा अनुमति प्राप्त सदस्यों के"
-#~ " लिए हैं। कृपया मालिक से पूछें।"
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr ""
-#~ "ये मालिक और मालिक द्वारा अनुमति प्राप्त सदस्यों के लिए हैं। इनके साथ किया "
-#~ "गया हर काम गतिविधि लॉग में दर्ज होता है।"
-
-#~ msgid "Replace"
-#~ msgstr "बदलें"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr "यह फ़ाइल हमेशा के लिए हटा दी जाएगी। पुष्टि के लिए अपना पासवर्ड डालें।"
-
-#~ msgid "Who may use them"
-#~ msgstr "इनका उपयोग कौन कर सकता है"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr ""
-#~ "आप, मालिक के रूप में, हमेशा कर सकते हैं। अन्य सदस्य दस्तावेज़ पर स्टैंप या "
-#~ "हस्ताक्षर तभी लगा सकते हैं जब आप यहाँ अनुमति दें।"
-
-#~ msgid "allowed"
-#~ msgstr "अनुमति मिली है"
-
-#~ msgid "Take back"
-#~ msgstr "वापस लें"
-
-#~ msgid "Allow"
-#~ msgstr "अनुमति दें"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "अभी कोई और सदस्य नहीं है।"
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr "कंपनी की मुहर की साफ़ तस्वीर अपलोड करें। हम कभी मुहर नहीं बनाते।"
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr "हस्ताक्षर की साफ़ तस्वीर अपलोड करें। हम कभी हस्ताक्षर नहीं बनाते।"
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "स्टैम्प और हस्ताक्षर इस्तेमाल कर सकता है"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "स्टैंप और हस्ताक्षर इस्तेमाल कर सकते हैं"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr ""
-#~ "नतीजा पढ़ा नहीं जा सका। आपसे शुल्क नहीं लिया गया; कृपया दोबारा कोशिश करें।"
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "इसका अनुवाद करें, सारांश बनाएँ, डेटा निकालें या इसे Word में बदलें। केवल "
-#~ "पहले %(pages)s पेज पढ़े जाते हैं। कीमत पेजों की संख्या पर निर्भर करती है। "
-#~ "आपको पहले कीमत दिखेगी और शुल्क तभी लगेगा जब परिणाम मिल जाएगा।"
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "इस दस्तावेज़ में पेज: %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Word डाउनलोड करें"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "इस फ़ाइल से कोई टेक्स्ट नहीं पढ़ा जा सका।"
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "हो गया। इस फ़ाइल में टेक्स्ट था, इसलिए कन्वर्ज़न मुफ़्त रहा।"
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr ""
-#~ "इस दस्तावेज़ के टेक्स्ट वाली एडिट करने योग्य Word फ़ाइल। इसमें पहले से "
-#~ "टेक्स्ट है, इसलिए यह मुफ़्त है।"
-
-#~ msgid "Something different is coming"
-#~ msgstr "कुछ अलग आने वाला है"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "साइट को secrets.json में SITE_LOCKED = false द्वारा खुला रखा गया है।"
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "secrets.json में SITE_LOCKED = false होने के कारण खुली रखी गई है।"
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "कुछ नया आकार ले रहा है…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "आपकी कंपनी के दस्तावेज़, पत्र और मुहरें, सब एक ही जगह।"
-
-#~ msgid "By"
-#~ msgstr "द्वारा"
-
-#~ msgid "Next 6 months"
-#~ msgstr "अगले 6 महीने"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "नया पत्र या प्रमाणपत्र"
 
 #, python-format
 msgid "At your command, %(name)s!"
@@ -7669,3 +7303,224 @@ msgstr "प्रश्न: %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "उत्तर नोट के रूप में सहेजा गया।"
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "पहचान, पत्र और प्रमाणपत्र, आपके अपने लेटरहेड पर।"
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "जो आपके पास है अपलोड करें, या हमसे बनवाएँ"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "मसौदा — यह पाठ कंपनी के वकील के लिए एक शुरुआती आधार है। यह कानूनी सलाह नहीं है और "
+#~ "सेवा सार्वजनिक रूप से शुरू होने से पहले इसकी समीक्षा ज़रूरी है। [ब्रैकेट] वाली चीज़ें भरी "
+#~ "जानी हैं।"
+
+#~ msgid "Open the company identity"
+#~ msgstr "कंपनी की पहचान खोलें"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "AI वर्कस्पेस"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "डिज़ाइन स्टूडियो"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "बिज़नेस इंटेलिजेंस"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "कंपनी"
+
+#~ msgid "Reminders due"
+#~ msgstr "देय अनुस्मारक"
+
+#~ msgid "Built by"
+#~ msgstr "निर्माता"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "लोगो, लेटरहेड, मुहर और हस्ताक्षर। जो आपके पास है उसे अपलोड करें; लोगो और लेटरहेड हम "
+#~ "आपके लिए बना सकते हैं।"
+
+#~ msgid "add the stamp"
+#~ msgstr "मुहर जोड़ें"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "इस टेक्स्ट को दोबारा इस्तेमाल करने के लिए सहेजें। हर बार भरने के लिए खाली जगह को {{इस "
+#~ "तरह}} लिखें। स्टांप और हस्ताक्षर सहेजे नहीं जाते।"
+
+#~ msgid "Sealed"
+#~ msgstr "मुहर लगा"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr ""
+#~ "मैं पुष्टि करता/करती हूँ कि मुझे इस कंपनी के लिए यह स्टैंप इस्तेमाल करने का अधिकार है।"
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr ""
+#~ "मैं पुष्टि करता/करती हूँ कि यह मेरा हस्ताक्षर है, या इसके मालिक ने मुझे इसे इस कंपनी के "
+#~ "लिए इस्तेमाल करने की अनुमति दी है।"
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr "यह पुष्टि करने के लिए कि यह आप ही हैं, अपना पासवर्ड फिर से दर्ज करें।"
+
+#~ msgid "stamp"
+#~ msgstr "मुहर"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "फ़ोटो बहुत अँधेरी है। अच्छी रोशनी में सफ़ेद कागज़ इस्तेमाल करें।"
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "हमें इस चित्र में कोई साफ़ %(what)s नहीं मिला। समान रोशनी में सादे सफ़ेद कागज़ की फ़ोटो "
+#~ "इस्तेमाल करें।"
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr "आकृति बहुत फीकी या छोटी है। पास से, समान रोशनी में फ़ोटो लें।"
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr "कागज़ पर्याप्त सादा नहीं है। सफ़ेद कागज़ इस्तेमाल करें और छाया व डिज़ाइन से बचें।"
+
+#~ msgid "Stamp"
+#~ msgstr "मुहर"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "स्टैंप और हस्ताक्षर"
+
+#~ msgid "Kept private"
+#~ msgstr "निजी रखा गया"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr ""
+#~ "स्टैंप और हस्ताक्षर कंपनी के मालिक और मालिक द्वारा अनुमति प्राप्त सदस्यों के लिए हैं। "
+#~ "कृपया मालिक से पूछें।"
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "ये मालिक और मालिक द्वारा अनुमति प्राप्त सदस्यों के लिए हैं। इनके साथ किया गया हर काम "
+#~ "गतिविधि लॉग में दर्ज होता है।"
+
+#~ msgid "Replace"
+#~ msgstr "बदलें"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr "यह फ़ाइल हमेशा के लिए हटा दी जाएगी। पुष्टि के लिए अपना पासवर्ड डालें।"
+
+#~ msgid "Who may use them"
+#~ msgstr "इनका उपयोग कौन कर सकता है"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "आप, मालिक के रूप में, हमेशा कर सकते हैं। अन्य सदस्य दस्तावेज़ पर स्टैंप या हस्ताक्षर तभी "
+#~ "लगा सकते हैं जब आप यहाँ अनुमति दें।"
+
+#~ msgid "allowed"
+#~ msgstr "अनुमति मिली है"
+
+#~ msgid "Take back"
+#~ msgstr "वापस लें"
+
+#~ msgid "Allow"
+#~ msgstr "अनुमति दें"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "अभी कोई और सदस्य नहीं है।"
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr "कंपनी की मुहर की साफ़ तस्वीर अपलोड करें। हम कभी मुहर नहीं बनाते।"
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr "हस्ताक्षर की साफ़ तस्वीर अपलोड करें। हम कभी हस्ताक्षर नहीं बनाते।"
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "स्टैम्प और हस्ताक्षर इस्तेमाल कर सकता है"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "स्टैंप और हस्ताक्षर इस्तेमाल कर सकते हैं"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr "नतीजा पढ़ा नहीं जा सका। आपसे शुल्क नहीं लिया गया; कृपया दोबारा कोशिश करें।"
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "इसका अनुवाद करें, सारांश बनाएँ, डेटा निकालें या इसे Word में बदलें। केवल पहले %(pages)s "
+#~ "पेज पढ़े जाते हैं। कीमत पेजों की संख्या पर निर्भर करती है। आपको पहले कीमत दिखेगी और शुल्क "
+#~ "तभी लगेगा जब परिणाम मिल जाएगा।"
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "इस दस्तावेज़ में पेज: %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Word डाउनलोड करें"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "इस फ़ाइल से कोई टेक्स्ट नहीं पढ़ा जा सका।"
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr "हो गया। इस फ़ाइल में टेक्स्ट था, इसलिए कन्वर्ज़न मुफ़्त रहा।"
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr ""
+#~ "इस दस्तावेज़ के टेक्स्ट वाली एडिट करने योग्य Word फ़ाइल। इसमें पहले से टेक्स्ट है, इसलिए यह "
+#~ "मुफ़्त है।"
+
+#~ msgid "Something different is coming"
+#~ msgstr "कुछ अलग आने वाला है"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "साइट को secrets.json में SITE_LOCKED = false द्वारा खुला रखा गया है।"
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "secrets.json में SITE_LOCKED = false होने के कारण खुली रखी गई है।"
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "कुछ नया आकार ले रहा है…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "आपकी कंपनी के दस्तावेज़, पत्र और मुहरें, सब एक ही जगह।"
+
+#~ msgid "By"
+#~ msgstr "द्वारा"
+
+#~ msgid "Next 6 months"
+#~ msgstr "अगले 6 महीने"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "नया पत्र या प्रमाणपत्र"

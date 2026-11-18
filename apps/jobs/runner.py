@@ -45,6 +45,18 @@ HANDLERS = {
 }
 
 
+def run_call(job):
+    """Run the function a generic job names. Only functions inside this project's apps can be named."""
+    from django.utils.module_loading import import_string
+    path = job.params.get('func', '')
+    if not path.startswith('apps.'):
+        raise ValueError(f'Not an allowed job function: {path!r}')
+    return import_string(path)(job)
+
+
+HANDLERS[Job.Kind.CALL] = run_call
+
+
 def claim_next():
     with transaction.atomic():
         job = (Job.objects.select_for_update(skip_locked=True)

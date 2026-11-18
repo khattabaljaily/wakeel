@@ -148,8 +148,8 @@ msgid ""
 "We added %(amount)s of free credit to %(workspace)s so you can try the AI "
 "services."
 msgstr ""
-"Kami menambahkan kredit gratis sebesar %(amount)s ke %(workspace)s agar Anda"
-" bisa mencoba layanan AI."
+"Kami menambahkan kredit gratis sebesar %(amount)s ke %(workspace)s agar Anda "
+"bisa mencoba layanan AI."
 
 #: apps/accounts/views.py:130
 msgid "Your email is already confirmed."
@@ -391,8 +391,8 @@ msgid ""
 "Circulars, announcements and alerts for the whole team, and who has read "
 "them."
 msgstr ""
-"Surat edaran, pengumuman, dan peringatan untuk seluruh tim, serta siapa yang"
-" sudah membacanya."
+"Surat edaran, pengumuman, dan peringatan untuk seluruh tim, serta siapa yang "
+"sudah membacanya."
 
 #: apps/announcements/templates/announcements/list.html:7
 #: apps/announcements/templates/announcements/list.html:27
@@ -571,8 +571,8 @@ msgstr "Tugas ditambahkan."
 msgid "note"
 msgstr "catatan"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "ingatkan saya pada"
 
@@ -666,8 +666,8 @@ msgstr "Sedang berjalan"
 msgid "Done"
 msgstr "Selesai"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -693,8 +693,8 @@ msgid ""
 "Tell it what you need. It finds your documents and suggests what to do; "
 "nothing runs until you approve it."
 msgstr ""
-"Katakan apa yang Anda butuhkan. Asisten mencari dokumen Anda dan menyarankan"
-" langkahnya; tidak ada yang berjalan sebelum Anda menyetujui."
+"Katakan apa yang Anda butuhkan. Asisten mencari dokumen Anda dan menyarankan "
+"langkahnya; tidak ada yang berjalan sebelum Anda menyetujui."
 
 #: apps/assistant/templates/assistant/chat.html:7
 msgid "The whole conversation will be deleted for good."
@@ -739,8 +739,7 @@ msgstr "Buka"
 msgid ""
 "Ask for a presentation, a translation, a task, a reminder, a contact or a "
 "form."
-msgstr ""
-"Minta presentasi, terjemahan, tugas, pengingat, kontak, atau formulir."
+msgstr "Minta presentasi, terjemahan, tugas, pengingat, kontak, atau formulir."
 
 #: apps/assistant/templates/assistant/chat.html:36
 msgid "Write what you need…"
@@ -759,12 +758,17 @@ msgstr "Kirim"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "Percakapan ini gratis (hingga %(limit)s pesan per hari); hanya layanan yang Anda setujui yang dikenai biaya. Asisten membaca apa yang Anda tulis dan rincian dokumen yang dicarinya, tidak pernah isinya; sebuah dokumen hanya dibaca bila Anda menyetujui saran seperti pertanyaan tentangnya. Asisten bisa salah: periksa setiap saran."
+msgstr ""
+"Percakapan ini gratis (hingga %(limit)s pesan per hari); hanya layanan yang "
+"Anda setujui yang dikenai biaya. Asisten membaca apa yang Anda tulis dan "
+"rincian dokumen yang dicarinya, tidak pernah isinya; sebuah dokumen hanya "
+"dibaca bila Anda menyetujui saran seperti pertanyaan tentangnya. Asisten "
+"bisa salah: periksa setiap saran."
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
@@ -851,8 +855,7 @@ msgstr "Mengubah stempel atau tanda tangan pada dokumen"
 
 #: apps/audit/models.py:33
 msgid "Opened a stamped or signed document for printing"
-msgstr ""
-"Membuka dokumen yang sudah distempel atau ditandatangani untuk dicetak"
+msgstr "Membuka dokumen yang sudah distempel atau ditandatangani untuk dicetak"
 
 #: apps/audit/models.py:34
 msgid "Added or removed the verification QR code of a document"
@@ -1079,8 +1082,8 @@ msgstr "Sedang diproses…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
 msgstr ""
 "Satu desain bisa memakan satu atau dua menit. Anda boleh meninggalkan "
 "halaman: hasilnya menunggu di studio."
@@ -1261,11 +1264,11 @@ msgstr "Mulai dengan logo"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr ""
-"%(n)s bagian akan dirancang dari logo Anda, diskon %(d)s%%. Saldo Anda: "
-"$%(balance)s."
+"%(n)s bagian akan dirancang dari logo Anda, diskon %(d)s%%. Saldo Anda: $"
+"%(balance)s."
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -1387,8 +1390,7 @@ msgstr "Satu desain yang cocok untuk merek Anda."
 #: apps/brand/views.py:35
 msgid "Three designs to choose from, with finer details and more formats."
 msgstr ""
-"Tiga desain untuk dipilih, dengan detail lebih halus dan lebih banyak "
-"format."
+"Tiga desain untuk dipilih, dengan detail lebih halus dan lebih banyak format."
 
 #: apps/brand/views.py:135
 msgid ""
@@ -1653,8 +1655,8 @@ msgstr "Anda dapat membaca kontak tetapi tidak mengubahnya."
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
 msgstr ""
 "Klien, pemasok, dan mitra dalam satu buku, beserta cara menghubungi mereka "
 "dan apa yang dilakukan bersama mereka."
@@ -1705,8 +1707,8 @@ msgstr ""
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
 "MyDocHub menyatukan dokumen, identitas, email, dan pekerjaan harian "
 "perusahaan. Unggah yang Anda punya atau biarkan AI membuatnya, dan semuanya "
@@ -1739,8 +1741,8 @@ msgid ""
 "Keep every paper with its dates and get a warning before anything expires. "
 "Share a file with a link you control."
 msgstr ""
-"Simpan setiap dokumen beserta tanggalnya dan dapatkan peringatan sebelum ada"
-" yang kedaluwarsa. Bagikan file dengan tautan yang Anda kendalikan."
+"Simpan setiap dokumen beserta tanggalnya dan dapatkan peringatan sebelum ada "
+"yang kedaluwarsa. Bagikan file dengan tautan yang Anda kendalikan."
 
 #: apps/core/templates/core/about.html:23 templates/accounts/auth_base.html:12
 #: templates/base_app.html:16 templates/base_app.html:130
@@ -1837,8 +1839,8 @@ msgstr "Ruang kerja tim"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr ""
 "Tugas, kontak, dan catatan pribadi, dengan notifikasi yang memberi tahu "
 "setiap orang apa yang baru."
@@ -1873,8 +1875,8 @@ msgstr "Administrasi"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr ""
 "Peran untuk setiap anggota, log semua yang terjadi, dan saldo yang Anda isi "
 "hanya saat diperlukan."
@@ -2098,8 +2100,8 @@ msgstr "Pustaka"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "Buka"
 
@@ -2246,8 +2248,8 @@ msgid ""
 "letterhead, then keeps it as a template you can reuse."
 msgstr ""
 "Unggah dokumen yang Anda punya, atau jelaskan dokumen yang diinginkan, dan "
-"AI akan membuatnya di atas kop surat Anda, lalu menyimpannya sebagai templat"
-" yang bisa dipakai lagi."
+"AI akan membuatnya di atas kop surat Anda, lalu menyimpannya sebagai templat "
+"yang bisa dipakai lagi."
 
 #: apps/core/templates/core/landing.html:12
 msgid "Follow it on the board"
@@ -2258,8 +2260,8 @@ msgid ""
 "Every document in one place, with a timeline that warns you before anything "
 "expires."
 msgstr ""
-"Semua dokumen di satu tempat, dengan linimasa yang mengingatkan Anda sebelum"
-" ada yang kedaluwarsa."
+"Semua dokumen di satu tempat, dengan linimasa yang mengingatkan Anda sebelum "
+"ada yang kedaluwarsa."
 
 #: apps/core/templates/core/landing.html:13
 msgid "Print on your letterhead"
@@ -2359,8 +2361,8 @@ msgstr "Ekspor semuanya"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
 "Satu file ZIP berisi detail perusahaan, templat, semua dokumen yang "
 "diterbitkan (datanya, halaman yang bisa dicetak, dan PDF), berkas yang Anda "
@@ -2372,11 +2374,11 @@ msgstr "Unduh ZIP"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
 msgstr ""
-"Bisa memakan waktu semenit jika dokumennya banyak. Ekspor ini dicatat di log"
-" aktivitas."
+"Bisa memakan waktu semenit jika dokumennya banyak. Ekspor ini dicatat di log "
+"aktivitas."
 
 #: apps/core/templates/core/workspace.html:15
 #: apps/core/templates/core/workspace.html:23
@@ -2433,8 +2435,7 @@ msgstr[0] "%(n)s jawaban"
 #: apps/core/workspace.py:49
 msgid "You exported several times in the last hour. Try again later."
 msgstr ""
-"Anda sudah beberapa kali mengekspor dalam satu jam terakhir. Coba lagi "
-"nanti."
+"Anda sudah beberapa kali mengekspor dalam satu jam terakhir. Coba lagi nanti."
 
 #: apps/core/workspace.py:66
 msgid ""
@@ -2580,8 +2581,7 @@ msgstr "Jumlah"
 msgid ""
 "The latest top-ups are shown. Every top-up is also in the history below."
 msgstr ""
-"Isi ulang terbaru ditampilkan. Setiap isi ulang juga ada di riwayat di "
-"bawah."
+"Isi ulang terbaru ditampilkan. Setiap isi ulang juga ada di riwayat di bawah."
 
 #: apps/credits/templates/credits/balance.html:43
 msgid "No top-ups yet."
@@ -2727,8 +2727,8 @@ msgid ""
 "Choose a service: you see its options and their prices for this document "
 "before anything is charged."
 msgstr ""
-"Pilih layanan: Anda akan melihat opsi dan harganya untuk dokumen ini sebelum"
-" ada biaya yang dikenakan."
+"Pilih layanan: Anda akan melihat opsi dan harganya untuk dokumen ini sebelum "
+"ada biaya yang dikenakan."
 
 #: apps/docops/templates/docops/panel.html:9
 msgid "Results"
@@ -2809,19 +2809,18 @@ msgstr ""
 "Pihak, tanggal, jumlah, kewajiban, dan nomor referensi, dalam bentuk daftar."
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
 msgstr ""
-"Teks dari hasil pindai atau foto, dibaca halaman demi halaman: sebagai teks,"
-" Word, atau PDF."
+"Teks dari hasil pindai atau foto, dibaca halaman demi halaman: sebagai teks, "
+"Word, atau PDF."
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
 msgstr ""
-"File Word yang dapat diedit: AI membaca setiap halaman lalu menuliskan teks,"
-" judul, dan tabelnya."
+"File Word yang dapat diedit: AI membaca setiap halaman lalu menuliskan teks, "
+"judul, dan tabelnya."
 
 #: apps/docops/templates/docops/services/_name.html:1
 msgid "Translate"
@@ -2849,8 +2848,8 @@ msgstr "Teks terjemahan, di halaman dan sebagai Word atau teks."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr ""
 "PDF yang rapi dan tertata dengan paragraf, judul, dan tabel yang tepat, "
 "serta versi Word yang sama."
@@ -2858,12 +2857,11 @@ msgstr ""
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
+"and checked page by page. PDF files only. Stamps and signatures are left out."
 msgstr ""
 "PDF yang tampak seperti aslinya: tata letak, warna, dan logo yang sama, "
-"dibuat dan diperiksa halaman demi halaman. Hanya untuk file PDF. Stempel dan"
-" tanda tangan tidak disertakan."
+"dibuat dan diperiksa halaman demi halaman. Hanya untuk file PDF. Stempel dan "
+"tanda tangan tidak disertakan."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid "The summary on the page and as Word or text."
@@ -2885,8 +2883,7 @@ msgstr ""
 "dirancang: PDF dan Word dengan desain yang sama."
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr ""
 "File Word yang dapat diedit berisi teks, judul, dan tabel dari setiap "
 "halaman."
@@ -2983,8 +2980,7 @@ msgstr "Mulai $%(p)s per halaman."
 msgid "Choose a file or drag it here"
 msgstr "Pilih file atau seret ke sini"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF, PNG, JPG, atau WebP, maksimal 10 MB"
 
@@ -3092,8 +3088,7 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "Jelaskan tujuan dan faktanya; AI akan menulis teksnya untuk Anda."
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
+msgid "The template could not be read. You were not charged; please try again."
 msgstr ""
 "Template tidak dapat dibaca. Anda tidak dikenai biaya; silakan coba lagi."
 
@@ -3251,8 +3246,8 @@ msgid ""
 msgstr ""
 "Mau saya buatkan templatenya untuk perusahaan Anda, sesuai identitasnya? "
 "Membuat template dan menulis dokumen ini dikenai biaya $%(first)s kali ini. "
-"Selanjutnya, setiap kali Anda membutuhkan «%(name)s», Anda hanya membayar "
-"$%(later)s untuk penulisannya."
+"Selanjutnya, setiap kali Anda membutuhkan «%(name)s», Anda hanya membayar $"
+"%(later)s untuk penulisannya."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3421,8 +3416,8 @@ msgstr "Perbaiki dengan AI"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr ""
 "Contoh: buat lebih singkat, tambahkan klausul kerahasiaan, ubah jumlahnya "
 "menjadi 1.500."
@@ -3538,8 +3533,8 @@ msgstr "Anda dapat membaca dokumen tetapi tidak dapat mengubahnya."
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
 "Catatan dokumen yang dibuat dari templat Anda. Teksnya tidak ditampilkan di "
@@ -3602,13 +3597,11 @@ msgstr ""
 msgid "Add one"
 msgstr "Tambahkan satu"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "Perihal:"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "Verifikasi dokumen ini"
 
@@ -3627,8 +3620,8 @@ msgid ""
 "new document."
 msgstr ""
 "Simpan surat atau sertifikat yang sering Anda tulis. Tulis {{seperti ini}} "
-"untuk bagian kosong; setiap kali memakai templat, Anda mengisi bagian kosong"
-" dan mendapatkan dokumen baru."
+"untuk bagian kosong; setiap kali memakai templat, Anda mengisi bagian kosong "
+"dan mendapatkan dokumen baru."
 
 #: apps/documents/templates/documents/templates.html:13
 msgid "No templates yet. Open a document and choose «Save as a template»."
@@ -3670,13 +3663,13 @@ msgid ""
 "Compare the document below with the paper in your hands, word for word. If "
 "anything differs, the paper is not genuine."
 msgstr ""
-"Bandingkan dokumen di bawah ini dengan kertas di tangan Anda kata demi kata."
-" Jika ada yang berbeda, kertas tersebut tidak asli."
+"Bandingkan dokumen di bawah ini dengan kertas di tangan Anda kata demi kata. "
+"Jika ada yang berbeda, kertas tersebut tidak asli."
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
 msgstr ""
 "MyDocHub tidak membubuhkan stempel atau tanda tangan pada dokumen: setiap "
 "stempel atau tanda tangan pada kertas ditambahkan oleh perusahaan setelah "
@@ -3730,8 +3723,7 @@ msgstr ""
 "ulang template yang ada."
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
 msgstr ""
 "Disimpan sebagai templat. Tulis {{seperti ini}} untuk bagian kosong yang "
 "diisi setiap kali."
@@ -3955,8 +3947,8 @@ msgid ""
 "This form has reached the limit of %(limit)s answers and takes no more. "
 "Download the answers, or delete some, to make room."
 msgstr ""
-"Formulir ini mencapai batas %(limit)s jawaban dan tidak menerima lagi. Unduh"
-" jawabannya, atau hapus beberapa, untuk memberi ruang."
+"Formulir ini mencapai batas %(limit)s jawaban dan tidak menerima lagi. Unduh "
+"jawabannya, atau hapus beberapa, untuk memberi ruang."
 
 #: apps/forms/templates/forms/detail.html:20
 msgid "Share the form"
@@ -3973,8 +3965,8 @@ msgid ""
 "Anyone who opens this link or scans the code can answer. Nothing is asked "
 "about them."
 msgstr ""
-"Siapa pun yang membuka tautan ini atau memindai kodenya bisa menjawab. Tidak"
-" ada yang ditanyakan tentang mereka."
+"Siapa pun yang membuka tautan ini atau memindai kodenya bisa menjawab. Tidak "
+"ada yang ditanyakan tentang mereka."
 
 #: apps/forms/templates/forms/detail.html:24
 #: apps/sharing/templates/sharing/detail.html:9
@@ -4034,8 +4026,7 @@ msgstr "Namamu disimpan bersama jawabanmu."
 #: apps/forms/templates/forms/fill.html:27
 msgid "Nothing is asked about you: your answer is not linked to your name."
 msgstr ""
-"Tidak ada yang ditanyakan tentangmu: jawabanmu tidak terhubung dengan "
-"namamu."
+"Tidak ada yang ditanyakan tentangmu: jawabanmu tidak terhubung dengan namamu."
 
 #: apps/forms/templates/forms/fill_message.html:10
 msgid "Thank you"
@@ -4106,8 +4097,8 @@ msgid ""
 "Forms are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
 msgstr ""
-"Formulir untuk pemilik, administrator, dan anggota. Minta administrator jika"
-" kamu perlu membuatnya."
+"Formulir untuk pemilik, administrator, dan anggota. Minta administrator jika "
+"kamu perlu membuatnya."
 
 #: apps/forms/templates/forms/list.html:6
 msgid ""
@@ -4151,8 +4142,8 @@ msgstr "Ubah pertanyaan"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
 msgstr ""
 "Pertanyaan ini sudah punya jawaban. Mengubah tipe atau pilihannya bisa "
 "membuat jawaban lama sulit dibaca."
@@ -4285,11 +4276,11 @@ msgstr "Gambar terlalu kecil. Gunakan foto yang lebih tajam."
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
 msgstr ""
-"Kami tidak menemukan logo yang jelas di gambar ini. Gunakan file logo dengan"
-" latar polos."
+"Kami tidak menemukan logo yang jelas di gambar ini. Gunakan file logo dengan "
+"latar polos."
 
 #: apps/identity/letterheads.py:92
 msgid "The letterhead is saved."
@@ -4546,8 +4537,7 @@ msgstr "Lewati dulu"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr "Logo dan kop surat tempat setiap surat dan sertifikat dicetak."
 
 #: apps/identity/templates/identity/studio.html:15
@@ -4697,8 +4687,8 @@ msgid ""
 "Keep your licences, contracts and invoices in one place, and see on the "
 "board what expires next."
 msgstr ""
-"Simpan izin, kontrak, dan faktur Anda di satu tempat, dan lihat di papan apa"
-" yang akan kedaluwarsa berikutnya."
+"Simpan izin, kontrak, dan faktur Anda di satu tempat, dan lihat di papan apa "
+"yang akan kedaluwarsa berikutnya."
 
 #: apps/library/templates/library/form.html:11
 #: apps/library/templates/library/form.html:13
@@ -4707,8 +4697,8 @@ msgstr "Bacakan untuk saya"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
 msgstr ""
 "AI membaca dokumen dan mengisi detail yang masih kosong. Biaya hanya "
 "dikenakan jika berhasil dibaca."
@@ -4719,8 +4709,8 @@ msgstr "Hanya anggota ruang kerja ini yang dapat membukanya."
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
 msgstr ""
 "Jenis, penerbit, nomor referensi, dan tanggal dibaca dari file. Biaya hanya "
 "dikenakan jika berhasil dibaca."
@@ -4729,15 +4719,14 @@ msgstr ""
 msgid "Add the details yourself"
 msgstr "Tambahkan detail sendiri"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "Detail"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
 msgstr ""
 "Jika ada tanggal kedaluwarsa, Anda akan diingatkan lewat email 90, 30, 7, "
 "dan 1 hari sebelum tautan kedaluwarsa."
@@ -4799,8 +4788,8 @@ msgstr "Alat AI"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
 msgstr ""
 "Simpan lisensi, kontrak, dan surat Anda di satu tempat, buat dokumen baru "
 "dengan AI, dan lihat di papan apa yang akan segera kedaluwarsa."
@@ -4831,9 +4820,9 @@ msgid ""
 "password is wrong: check the mailbox password, then the server name and the "
 "port."
 msgstr ""
-"Server email terlalu lama merespons. Beberapa penyedia layanan melakukan ini"
-" saat kata sandi salah: periksa kata sandi kotak surat, lalu nama server dan"
-" port."
+"Server email terlalu lama merespons. Beberapa penyedia layanan melakukan ini "
+"saat kata sandi salah: periksa kata sandi kotak surat, lalu nama server dan "
+"port."
 
 #: apps/mail/client.py:74
 msgid ""
@@ -4960,8 +4949,8 @@ msgstr "Masukkan nama server saja, misalnya mail.example.com."
 msgid ""
 "Use the usual mail ports (993 or 143 to read, 465, 587, 25 or 2525 to send)."
 msgstr ""
-"Gunakan port email yang umum (993 atau 143 untuk membaca; 465, 587, 25, atau"
-" 2525 untuk mengirim)."
+"Gunakan port email yang umum (993 atau 143 untuk membaca; 465, 587, 25, atau "
+"2525 untuk mengirim)."
 
 #: apps/mail/forms.py:85
 msgid "Optional. Leave it empty to use the name of the style."
@@ -5016,8 +5005,7 @@ msgid "signature"
 msgstr "tanda tangan"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "Pesan baru"
 
@@ -5304,8 +5292,8 @@ msgstr "Hubungkan kotak surat perusahaan"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
 msgstr ""
 "Tambahkan alamat email perusahaan sekali saja, lalu baca dan tulis email "
 "perusahaan di dalam MyDocHub."
@@ -5316,20 +5304,20 @@ msgstr "Detail server"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
 msgstr ""
 "Diisi otomatis dari alamat jika dikosongkan. Ubah hanya jika koneksi gagal."
 
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
 "Semua orang di ruang kerja yang dapat mengedit dokumen akan dapat membaca "
-"dan mengirim email dari kotak surat ini. Pembukaan dan pengiriman dicatat di"
-" log aktivitas. Kata sandi diamankan dengan kunci ruang kerja Anda."
+"dan mengirim email dari kotak surat ini. Pembukaan dan pengiriman dicatat di "
+"log aktivitas. Kata sandi diamankan dengan kunci ruang kerja Anda."
 
 #: apps/mail/templates/mail/setup.html:30
 msgid "Save and test"
@@ -5353,8 +5341,8 @@ msgid ""
 "Removes the saved password from MyDocHub. Your messages stay on your mail "
 "server."
 msgstr ""
-"Menghapus kata sandi tersimpan dari MyDocHub. Pesan Anda tetap ada di server"
-" email Anda."
+"Menghapus kata sandi tersimpan dari MyDocHub. Pesan Anda tetap ada di server "
+"email Anda."
 
 #: apps/mail/templates/mail/setup.html:39
 msgid "The mailbox will be disconnected from MyDocHub."
@@ -5371,9 +5359,9 @@ msgstr "Template email baru"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
 "AI merancang template dengan logo, warna merek, dan detail perusahaan Anda. "
 "Anda bisa melihatnya sebelum menggunakannya, dan Anda hanya dikenai biaya "
@@ -5412,8 +5400,7 @@ msgstr "Jadikan default"
 
 #: apps/mail/templates/mail/templates.html:19
 msgid "This template will be deleted. Messages already sent are not affected."
-msgstr ""
-"Templat ini akan dihapus. Pesan yang sudah terkirim tidak terpengaruh."
+msgstr "Templat ini akan dihapus. Pesan yang sudah terkirim tidak terpengaruh."
 
 #: apps/mail/templates/mail/templates.html:27
 msgid "No template yet"
@@ -5440,8 +5427,8 @@ msgid ""
 "The mailbox is disconnected and its password is deleted. Your messages stay "
 "on your mail server."
 msgstr ""
-"Kotak surat telah diputuskan dan kata sandinya dihapus. Pesan Anda tetap ada"
-" di server email Anda."
+"Kotak surat telah diputuskan dan kata sandinya dihapus. Pesan Anda tetap ada "
+"di server email Anda."
 
 #: apps/mail/views.py:118
 msgid "Inbox"
@@ -5714,8 +5701,7 @@ msgstr "Harap konfirmasi bahwa Anda sudah membaca: %(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
 msgstr ""
 "Saldo menipis: sisa %(balance)s. Isi saldo agar layanan tetap bisa dipakai"
 
@@ -5812,8 +5798,7 @@ msgstr "Presentasi yang bagus dan jelas, ditulis dalam satu tahap."
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr ""
 "Ditinjau dan dipertajam pada tahap kedua: judul lebih kuat dan alur lebih "
 "rapat."
@@ -5866,8 +5851,7 @@ msgstr "Buat seharga $%(price)s"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "Batal"
 
@@ -5884,16 +5868,15 @@ msgstr "Presentasi ini akan dihapus permanen."
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
 msgstr ""
 "Membuat slide butuh beberapa menit. Anda boleh meninggalkan halaman ini: "
 "hasilnya menunggu di presentasi Anda."
 
 #: apps/presentations/templates/presentations/detail.html:21
 msgid "Your browser cannot show the preview. Download the PowerPoint."
-msgstr ""
-"Browser Anda tidak dapat menampilkan pratinjau. Unduh file PowerPoint."
+msgstr "Browser Anda tidak dapat menampilkan pratinjau. Unduh file PowerPoint."
 
 #: apps/presentations/templates/presentations/detail.html:22
 msgid "The slides"
@@ -5944,8 +5927,8 @@ msgstr "mulai <bdi dir=\"ltr\">$%(price)s</bdi>"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr ""
 "Harga yang ditampilkan untuk 10 slide. Anda melihat harga pastinya sebelum "
 "ada biaya."
@@ -6008,11 +5991,11 @@ msgstr "Tautan ini tidak tersedia"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
 msgstr ""
-"Tautan mungkin sudah berakhir atau dibatalkan oleh orang yang membagikannya."
-" Minta mereka mengirim tautan baru."
+"Tautan mungkin sudah berakhir atau dibatalkan oleh orang yang membagikannya. "
+"Minta mereka mengirim tautan baru."
 
 #: apps/sharing/templates/sharing/list.html:6
 msgid ""
@@ -6110,8 +6093,8 @@ msgstr "Izinkan menyimpan salinan"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
 msgstr ""
 "Tanpa ini, penerima hanya dapat melihatnya di halaman. Tidak ada yang bisa "
 "mencegah foto layar, jadi bagikan hanya kepada orang yang Anda percaya."
@@ -6257,8 +6240,7 @@ msgstr "Anda dapat membaca tugas tetapi tidak mengubahnya."
 
 #: apps/tasks/templates/tasks/list.html:6
 msgid "Share the work with the team, follow it, and keep its files with it."
-msgstr ""
-"Bagikan pekerjaan dengan tim, pantau, dan simpan berkasnya bersamanya."
+msgstr "Bagikan pekerjaan dengan tim, pantau, dan simpan berkasnya bersamanya."
 
 #: apps/tasks/templates/tasks/list.html:7
 #: apps/tasks/templates/tasks/list.html:30
@@ -6417,8 +6399,8 @@ msgid ""
 "Owner: everything. Admin: manages the company and the team. Member: writes "
 "and uploads. Viewer: reads. Client: reads what is shared."
 msgstr ""
-"Pemilik: semuanya. Admin: mengelola perusahaan dan tim. Anggota: menulis dan"
-" mengunggah. Pembaca: membaca. Klien: membaca yang dibagikan."
+"Pemilik: semuanya. Admin: mengelola perusahaan dan tim. Anggota: menulis dan "
+"mengunggah. Pembaca: membaca. Klien: membaca yang dibagikan."
 
 #: apps/team/templates/team/team.html:20
 msgid "Approval of documents"
@@ -6429,8 +6411,8 @@ msgid ""
 "Documents written by members must be approved before they can be printed, "
 "downloaded or sent"
 msgstr ""
-"Dokumen yang ditulis anggota harus disetujui sebelum dapat dicetak, diunduh,"
-" atau dikirim"
+"Dokumen yang ditulis anggota harus disetujui sebelum dapat dicetak, diunduh, "
+"atau dikirim"
 
 #: apps/team/templates/team/team.html:23
 msgid "The owner and the administrators' own documents are approved at once."
@@ -6476,8 +6458,7 @@ msgstr ""
 
 #: apps/team/views.py:74 apps/team/views.py:94
 msgid "You have sent many invitations today. Please try again tomorrow."
-msgstr ""
-"Anda sudah mengirim banyak undangan hari ini. Silakan coba lagi besok."
+msgstr "Anda sudah mengirim banyak undangan hari ini. Silakan coba lagi besok."
 
 #: apps/team/views.py:79
 msgid "We sent the invitation."
@@ -6485,8 +6466,8 @@ msgstr "Undangan telah kami kirim."
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
 msgstr ""
 "Undangan dibuat, tetapi e-mail tidak dapat dikirim. Gunakan Kirim ulang "
 "beberapa menit lagi."
@@ -6584,8 +6565,8 @@ msgid ""
 "Use the button below to choose a new password. The link is valid for one "
 "hour."
 msgstr ""
-"Gunakan tombol di bawah untuk memilih kata sandi baru. Tautan berlaku selama"
-" satu jam."
+"Gunakan tombol di bawah untuk memilih kata sandi baru. Tautan berlaku selama "
+"satu jam."
 
 #: templates/accounts/emails/password_reset.html:5
 #: templates/accounts/password_reset_confirm.html:3
@@ -6602,8 +6583,8 @@ msgstr "Jika Anda tidak memintanya, abaikan pesan ini."
 msgid ""
 "Use the link below to choose a new password. The link is valid for one hour."
 msgstr ""
-"Gunakan tautan di bawah untuk memilih kata sandi baru. Tautan berlaku selama"
-" satu jam."
+"Gunakan tautan di bawah untuk memilih kata sandi baru. Tautan berlaku selama "
+"satu jam."
 
 #: templates/accounts/emails/password_reset_subject.txt:1
 msgid "Reset your MyDocHub password"
@@ -6625,8 +6606,8 @@ msgid ""
 "Confirm your email address with the button below. The link is valid for 3 "
 "days."
 msgstr ""
-"Konfirmasi alamat email Anda dengan tombol di bawah. Tautan berlaku selama 3"
-" hari."
+"Konfirmasi alamat email Anda dengan tombol di bawah. Tautan berlaku selama 3 "
+"hari."
 
 #: templates/accounts/emails/verify_email.html:6
 #: templates/accounts/emails/verify_email.txt:6
@@ -6635,11 +6616,10 @@ msgstr "Jika Anda tidak mendaftar, abaikan pesan ini."
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
+"Confirm your email address with the link below. The link is valid for 3 days."
 msgstr ""
-"Konfirmasi alamat email Anda dengan tautan di bawah. Tautan berlaku selama 3"
-" hari."
+"Konfirmasi alamat email Anda dengan tautan di bawah. Tautan berlaku selama 3 "
+"hari."
 
 #: templates/accounts/emails/verify_email_subject.txt:1
 msgid "Confirm your email for MyDocHub"
@@ -6733,8 +6713,8 @@ msgid ""
 "Keep these codes somewhere safe, apart from your phone. Each one works once "
 "if you lose access to the app. They are shown only now."
 msgstr ""
-"Simpan kode ini di tempat aman, terpisah dari ponsel Anda. Setiap kode hanya"
-" berlaku sekali jika Anda kehilangan akses ke aplikasi. Kode hanya "
+"Simpan kode ini di tempat aman, terpisah dari ponsel Anda. Setiap kode hanya "
+"berlaku sekali jika Anda kehilangan akses ke aplikasi. Kode hanya "
 "ditampilkan sekarang."
 
 #: templates/accounts/security.html:13 templates/accounts/two_factor.html:3
@@ -6769,8 +6749,8 @@ msgstr "Nonaktifkan"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
 "Pindai gambar ini dengan aplikasi autentikator (Google Authenticator, "
 "Microsoft Authenticator, Authy…), lalu masukkan kode yang ditampilkan."
@@ -6789,8 +6769,7 @@ msgstr "Siapkan"
 
 #: templates/accounts/signup.html:6
 msgid "Free to start. You pay only when you run an AI service."
-msgstr ""
-"Gratis untuk memulai. Anda hanya membayar saat menjalankan layanan AI."
+msgstr "Gratis untuk memulai. Anda hanya membayar saat menjalankan layanan AI."
 
 #: templates/accounts/signup.html:21
 msgid "Create account"
@@ -6875,8 +6854,7 @@ msgid "Account"
 msgstr "Akun"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "Konsol platform"
 
@@ -6970,8 +6948,8 @@ msgstr "Anggaran AI bulanan"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
 msgstr ""
 "Saat biaya bulan ini mencapai anggaran, semua layanan AI berhenti sampai "
 "anggaran dinaikkan atau bulan berakhir."
@@ -7270,11 +7248,11 @@ msgstr "Entri buku besar terbaru"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
-"Biaya riil setiap layanan dan harga jualnya. Harga tersimpan dapat diubah di"
-" admin Django; sync_prices menyelaraskan harga tersimpan dengan file harga."
+"Biaya riil setiap layanan dan harga jualnya. Harga tersimpan dapat diubah di "
+"admin Django; sync_prices menyelaraskan harga tersimpan dengan file harga."
 
 #: templates/console/prices.html:7
 msgid "Worst case"
@@ -7294,8 +7272,8 @@ msgstr "tidak dijual"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
 msgstr ""
 "(n) = jumlah proses nyata di balik biaya; * = diukur pada proses yang lebih "
 "kecil lalu diskalakan."
@@ -7440,235 +7418,6 @@ msgstr "Akses pratinjau"
 msgid "Leave"
 msgstr "Keluar"
 
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "Unggah yang Anda punya, atau biarkan kami membuatnya"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "DRAF — teks ini adalah titik awal untuk pengacara perusahaan. Ini bukan "
-#~ "nasihat hukum dan harus ditinjau sebelum layanan dibuka untuk umum. Bagian "
-#~ "dalam [tanda kurung] harus diisi."
-
-#~ msgid "Open the company identity"
-#~ msgstr "Buka identitas perusahaan"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "Ruang kerja AI"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "Studio desain"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "Kecerdasan bisnis"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "Perusahaan"
-
-#~ msgid "Reminders due"
-#~ msgstr "Pengingat jatuh tempo"
-
-#~ msgid "Built by"
-#~ msgstr "Dibuat oleh"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr ""
-#~ "Logo, kop surat, stempel, dan tanda tangan. Unggah yang Anda punya; kami "
-#~ "dapat membuat logo dan kop surat untuk Anda."
-
-#~ msgid "add the stamp"
-#~ msgstr "tambahkan stempel"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr ""
-#~ "Simpan teks ini untuk digunakan lagi. Tulis {{seperti ini}} untuk bagian "
-#~ "kosong yang diisi setiap kali. Stempel dan tanda tangan tidak disimpan."
-
-#~ msgid "Sealed"
-#~ msgstr "Disegel"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr ""
-#~ "Saya menyatakan bahwa saya berwenang menggunakan stempel ini untuk "
-#~ "perusahaan ini."
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr ""
-#~ "Saya menyatakan bahwa ini adalah tanda tangan saya, atau pemiliknya "
-#~ "mengizinkan saya menggunakannya untuk perusahaan ini."
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr ""
-#~ "Masukkan kembali kata sandi Anda untuk memastikan ini benar-benar Anda."
-
-#~ msgid "stamp"
-#~ msgstr "stempel"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "Foto terlalu gelap. Gunakan kertas putih dengan cahaya yang baik."
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr ""
-#~ "Kami tidak menemukan %(what)s yang jelas pada gambar ini. Gunakan foto "
-#~ "kertas putih polos dengan cahaya merata."
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr ""
-#~ "Gambar terlalu pudar atau kecil. Foto lebih dekat dengan cahaya merata."
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr ""
-#~ "Kertas kurang polos. Gunakan kertas putih dan hindari bayangan serta motif."
-
-#~ msgid "Stamp"
-#~ msgstr "Stempel"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "Stempel dan tanda tangan"
-
-#~ msgid "Kept private"
-#~ msgstr "Dirahasiakan"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr ""
-#~ "Stempel dan tanda tangan hanya untuk pemilik perusahaan dan anggota yang "
-#~ "diizinkan pemilik. Hubungi pemilik."
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr ""
-#~ "Hanya untuk pemilik dan anggota yang diizinkan pemilik. Semua tindakan yang "
-#~ "dilakukan dengannya dicatat di log aktivitas."
-
-#~ msgid "Replace"
-#~ msgstr "Ganti"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr ""
-#~ "File ini akan dihapus secara permanen. Masukkan kata sandi Anda untuk "
-#~ "mengonfirmasi."
-
-#~ msgid "Who may use them"
-#~ msgstr "Siapa yang boleh menggunakannya"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr ""
-#~ "Anda sebagai pemilik selalu boleh. Anggota lain hanya dapat membubuhkan "
-#~ "stempel atau tanda tangan pada dokumen jika Anda mengizinkannya di sini."
-
-#~ msgid "allowed"
-#~ msgstr "diizinkan"
-
-#~ msgid "Take back"
-#~ msgstr "Cabut"
-
-#~ msgid "Allow"
-#~ msgstr "Izinkan"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "Belum ada anggota lain."
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr ""
-#~ "Unggah gambar stempel perusahaan yang jelas. Kami tidak pernah membuat "
-#~ "stempel."
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr ""
-#~ "Unggah gambar tanda tangan yang jelas. Kami tidak pernah membuat tanda "
-#~ "tangan."
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "Boleh menggunakan stempel dan tanda tangan"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "boleh menggunakan stempel dan tanda tangan"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr "Hasil tidak dapat dibaca. Anda tidak ditagih; silakan coba lagi."
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "Terjemahkan, ringkas, ambil datanya, atau ubah menjadi Word. Hanya %(pages)s"
-#~ " halaman pertama yang dibaca. Harga bergantung pada jumlah halaman. Anda "
-#~ "melihat harganya lebih dulu dan hanya dikenai biaya jika hasilnya berhasil "
-#~ "dikirim."
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "Jumlah halaman dalam dokumen ini: %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Unduh Word"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "Tidak ada teks yang dapat dibaca dari file ini."
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "Selesai. File ini berisi teks, jadi konversinya gratis."
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr ""
-#~ "File Word yang bisa diedit berisi teks dokumen ini. Teksnya sudah ada, jadi "
-#~ "gratis."
-
-#~ msgid "Something different is coming"
-#~ msgstr "Sesuatu yang berbeda segera hadir"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "Situs tetap dibuka oleh SITE_LOCKED = false di secrets.json."
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "Tetap terbuka karena SITE_LOCKED = false di secrets.json."
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "Sesuatu yang baru sedang terbentuk…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "Dokumen, surat, dan stempel perusahaan Anda di satu tempat."
-
-#~ msgid "By"
-#~ msgstr "Oleh"
-
-#~ msgid "Next 6 months"
-#~ msgstr "6 bulan ke depan"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "Surat atau sertifikat baru"
-
 #, python-format
 msgid "At your command, %(name)s!"
 msgstr "Siap melaksanakan, %(name)s!"
@@ -7722,3 +7471,236 @@ msgstr "Pertanyaan: %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "Jawaban disimpan sebagai catatan."
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "Unggah yang Anda punya, atau biarkan kami membuatnya"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "DRAF — teks ini adalah titik awal untuk pengacara perusahaan. Ini bukan "
+#~ "nasihat hukum dan harus ditinjau sebelum layanan dibuka untuk umum. "
+#~ "Bagian dalam [tanda kurung] harus diisi."
+
+#~ msgid "Open the company identity"
+#~ msgstr "Buka identitas perusahaan"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "Ruang kerja AI"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "Studio desain"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "Kecerdasan bisnis"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "Perusahaan"
+
+#~ msgid "Reminders due"
+#~ msgstr "Pengingat jatuh tempo"
+
+#~ msgid "Built by"
+#~ msgstr "Dibuat oleh"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "Logo, kop surat, stempel, dan tanda tangan. Unggah yang Anda punya; kami "
+#~ "dapat membuat logo dan kop surat untuk Anda."
+
+#~ msgid "add the stamp"
+#~ msgstr "tambahkan stempel"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "Simpan teks ini untuk digunakan lagi. Tulis {{seperti ini}} untuk bagian "
+#~ "kosong yang diisi setiap kali. Stempel dan tanda tangan tidak disimpan."
+
+#~ msgid "Sealed"
+#~ msgstr "Disegel"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr ""
+#~ "Saya menyatakan bahwa saya berwenang menggunakan stempel ini untuk "
+#~ "perusahaan ini."
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr ""
+#~ "Saya menyatakan bahwa ini adalah tanda tangan saya, atau pemiliknya "
+#~ "mengizinkan saya menggunakannya untuk perusahaan ini."
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr ""
+#~ "Masukkan kembali kata sandi Anda untuk memastikan ini benar-benar Anda."
+
+#~ msgid "stamp"
+#~ msgstr "stempel"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "Foto terlalu gelap. Gunakan kertas putih dengan cahaya yang baik."
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "Kami tidak menemukan %(what)s yang jelas pada gambar ini. Gunakan foto "
+#~ "kertas putih polos dengan cahaya merata."
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr ""
+#~ "Gambar terlalu pudar atau kecil. Foto lebih dekat dengan cahaya merata."
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr ""
+#~ "Kertas kurang polos. Gunakan kertas putih dan hindari bayangan serta "
+#~ "motif."
+
+#~ msgid "Stamp"
+#~ msgstr "Stempel"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "Stempel dan tanda tangan"
+
+#~ msgid "Kept private"
+#~ msgstr "Dirahasiakan"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr ""
+#~ "Stempel dan tanda tangan hanya untuk pemilik perusahaan dan anggota yang "
+#~ "diizinkan pemilik. Hubungi pemilik."
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "Hanya untuk pemilik dan anggota yang diizinkan pemilik. Semua tindakan "
+#~ "yang dilakukan dengannya dicatat di log aktivitas."
+
+#~ msgid "Replace"
+#~ msgstr "Ganti"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr ""
+#~ "File ini akan dihapus secara permanen. Masukkan kata sandi Anda untuk "
+#~ "mengonfirmasi."
+
+#~ msgid "Who may use them"
+#~ msgstr "Siapa yang boleh menggunakannya"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "Anda sebagai pemilik selalu boleh. Anggota lain hanya dapat membubuhkan "
+#~ "stempel atau tanda tangan pada dokumen jika Anda mengizinkannya di sini."
+
+#~ msgid "allowed"
+#~ msgstr "diizinkan"
+
+#~ msgid "Take back"
+#~ msgstr "Cabut"
+
+#~ msgid "Allow"
+#~ msgstr "Izinkan"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "Belum ada anggota lain."
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr ""
+#~ "Unggah gambar stempel perusahaan yang jelas. Kami tidak pernah membuat "
+#~ "stempel."
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr ""
+#~ "Unggah gambar tanda tangan yang jelas. Kami tidak pernah membuat tanda "
+#~ "tangan."
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "Boleh menggunakan stempel dan tanda tangan"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "boleh menggunakan stempel dan tanda tangan"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr "Hasil tidak dapat dibaca. Anda tidak ditagih; silakan coba lagi."
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "Terjemahkan, ringkas, ambil datanya, atau ubah menjadi Word. Hanya "
+#~ "%(pages)s halaman pertama yang dibaca. Harga bergantung pada jumlah "
+#~ "halaman. Anda melihat harganya lebih dulu dan hanya dikenai biaya jika "
+#~ "hasilnya berhasil dikirim."
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "Jumlah halaman dalam dokumen ini: %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Unduh Word"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "Tidak ada teks yang dapat dibaca dari file ini."
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr "Selesai. File ini berisi teks, jadi konversinya gratis."
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr ""
+#~ "File Word yang bisa diedit berisi teks dokumen ini. Teksnya sudah ada, "
+#~ "jadi gratis."
+
+#~ msgid "Something different is coming"
+#~ msgstr "Sesuatu yang berbeda segera hadir"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "Situs tetap dibuka oleh SITE_LOCKED = false di secrets.json."
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "Tetap terbuka karena SITE_LOCKED = false di secrets.json."
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "Sesuatu yang baru sedang terbentuk…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "Dokumen, surat, dan stempel perusahaan Anda di satu tempat."
+
+#~ msgid "By"
+#~ msgstr "Oleh"
+
+#~ msgid "Next 6 months"
+#~ msgstr "6 bulan ke depan"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "Surat atau sertifikat baru"

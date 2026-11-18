@@ -9,6 +9,11 @@
     "topup_packages_usd": [10, 25, 50]
   },
   "services": {
+    "extract_document": {
+      "name_en": "Read a document and fill in its details", "name_ar": "قراءة مستند وتعبئة تفاصيله", "tier": "premium",
+      "fixed_cost_usd": 0.0378,
+      "note": "Measured 2026-11-01 in MyDocHub on Claude Opus: a 2-page PDF licence $0.018, an invoice image $0.013; about 1,600 input tokens per PDF page, so the cost is scaled to the worst case the service allows (the first 5 pages): about $0.0378. Not yet measured in Wakeel."
+    },
     "generate_plan": {
       "name_en": "Write the month plan", "name_ar": "إعداد خطة الشهر", "tier": "interactive", "unit": "post",
       "fixed_cost_usd": 0.012, "unit_cost_usd": 0.0056, "max_units": 40,

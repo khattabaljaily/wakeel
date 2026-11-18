@@ -559,8 +559,8 @@ msgstr "任务已添加。"
 msgid "note"
 msgstr "备忘"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "提醒时间"
 
@@ -654,8 +654,8 @@ msgstr "运行中"
 msgid "Done"
 msgstr "已完成"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -680,7 +680,8 @@ msgstr "AI 助手"
 msgid ""
 "Tell it what you need. It finds your documents and suggests what to do; "
 "nothing runs until you approve it."
-msgstr "告诉它您的需求。它会找到您的文档并给出建议；在您批准之前不会执行任何操作。"
+msgstr ""
+"告诉它您的需求。它会找到您的文档并给出建议；在您批准之前不会执行任何操作。"
 
 #: apps/assistant/templates/assistant/chat.html:7
 msgid "The whole conversation will be deleted for good."
@@ -744,12 +745,15 @@ msgstr "发送"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "对话免费（每天最多 %(limit)s 条消息）；只有您批准的服务才会收费。助手会读取您输入的内容和它所搜索文档的详细信息，但绝不会读取文档内容；只有当您批准诸如针对某份文档提问之类的建议时，才会读取该文档。它可能出错：请检查每一条建议。"
+msgstr ""
+"对话免费（每天最多 %(limit)s 条消息）；只有您批准的服务才会收费。助手会读取您"
+"输入的内容和它所搜索文档的详细信息，但绝不会读取文档内容；只有当您批准诸如针"
+"对某份文档提问之类的建议时，才会读取该文档。它可能出错：请检查每一条建议。"
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
@@ -1058,8 +1062,8 @@ msgstr "处理中…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
 msgstr "一个设计可能需要一两分钟。您可以离开此页面：结果会保存在工作室中。"
 
 #: apps/brand/templates/brand/detail.html:20
@@ -1075,7 +1079,9 @@ msgstr "选择您的标志"
 msgid ""
 "Each concept is a different idea. Choosing one makes it your logo and its "
 "colours your brand colours; everything you make next is built from it."
-msgstr "每个方案都是不同的创意。选定后它就是您的标志，它的颜色就是您的品牌色；之后制作的一切都以它为基础。"
+msgstr ""
+"每个方案都是不同的创意。选定后它就是您的标志，它的颜色就是您的品牌色；之后制"
+"作的一切都以它为基础。"
 
 #: apps/brand/templates/brand/detail.html:29
 msgid "Choose this logo"
@@ -1110,7 +1116,9 @@ msgid ""
 "Everything that makes your company look like itself: logo, colours, fonts, "
 "stationery and digital pieces, designed for you in famous, professional "
 "fonts."
-msgstr "让公司成为自己的一切：标志、颜色、字体、办公用品和数字物料，用知名的专业字体为您设计。"
+msgstr ""
+"让公司成为自己的一切：标志、颜色、字体、办公用品和数字物料，用知名的专业字体"
+"为您设计。"
 
 #: apps/brand/templates/brand/studio.html:7
 #: apps/identity/templates/identity/profile.html:3
@@ -1211,7 +1219,9 @@ msgstr "职位"
 msgid ""
 "It starts with your logo: three concepts to choose from. Once you choose, "
 "you can make every other piece at %(n)s%% off in one click."
-msgstr "先从您的标志开始：三个方案任选。选定后，可一键以 %(n)s%% 折扣制作其余所有项目。"
+msgstr ""
+"先从您的标志开始：三个方案任选。选定后，可一键以 %(n)s%% 折扣制作其余所有项"
+"目。"
 
 #: apps/brand/templates/brand/studio.html:87
 msgid "The whole kit, with the discount"
@@ -1224,8 +1234,8 @@ msgstr "从标志开始"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr "将根据您的标志设计 %(n)s 项，享 %(d)s%% 折扣。您的余额：$%(balance)s。"
 
 #: apps/brand/templates/brand/studio.html:103
@@ -1605,9 +1615,10 @@ msgstr "您可以查看联系人，但不能修改。"
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
-msgstr "客户、供应商和合作伙伴集中在一本通讯录里，包含联系方式以及与他们的往来记录。"
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
+msgstr ""
+"客户、供应商和合作伙伴集中在一本通讯录里，包含联系方式以及与他们的往来记录。"
 
 #: apps/contacts/templates/contacts/list.html:7
 #: apps/contacts/templates/contacts/list.html:30
@@ -1654,10 +1665,11 @@ msgstr "一个工作区，搞定公司的<em>文书与团队协作</em>"
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
-"MyDocHub 把公司的文件、品牌形象、邮件和日常工作集中在一起。上传您已有的内容，或让 AI 来创建，一切都会以您自己的信笺、用您的语言呈现。"
+"MyDocHub 把公司的文件、品牌形象、邮件和日常工作集中在一起。上传您已有的内容，"
+"或让 AI 来创建，一切都会以您自己的信笺、用您的语言呈现。"
 
 #: apps/core/templates/core/about.html:10
 msgid "languages, right-to-left included"
@@ -1709,7 +1721,9 @@ msgstr "AI 工作室"
 msgid ""
 "Your logo and visual identity, documents written on your letterhead, "
 "presentations, and an assistant for everyday work."
-msgstr "您的标志和视觉形象、写在您信笺上的文件、演示文稿，以及帮您处理日常工作的助手。"
+msgstr ""
+"您的标志和视觉形象、写在您信笺上的文件、演示文稿，以及帮您处理日常工作的助"
+"手。"
 
 #: apps/core/templates/core/about.html:29 templates/base_app.html:27
 #: templates/base_app.html:79
@@ -1778,8 +1792,8 @@ msgstr "团队工作区"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr "任务、联系人和个人笔记，并通过通知告诉每个人有什么新动态。"
 
 #: apps/core/templates/core/about.html:41 templates/accounts/auth_base.html:19
@@ -1812,8 +1826,8 @@ msgstr "管理"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr "每位成员都有角色，所有操作都有记录，余额只在需要时充值。"
 
 #: apps/core/templates/core/about.html:47 templates/base_app.html:57
@@ -1897,8 +1911,8 @@ msgid ""
 "local company that serves the workspaces there and takes their payments; "
 "yours is chosen by your company's country."
 msgstr ""
-"MyDocHub 由 %(developer)s "
-"开发。在每个国家，由当地公司提供服务，负责当地的工作区并收取付款；为您服务的公司取决于贵公司所在的国家。"
+"MyDocHub 由 %(developer)s 开发。在每个国家，由当地公司提供服务，负责当地的工"
+"作区并收取付款；为您服务的公司取决于贵公司所在的国家。"
 
 #: apps/core/templates/core/about.html:73
 #: apps/core/templates/core/landing.html:58
@@ -2026,8 +2040,8 @@ msgstr "文档库"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "打开"
 
@@ -2159,7 +2173,9 @@ msgid ""
 "Upload your logo and letterhead, or let us design them. Then create any "
 "document in seconds, from templates made for your company, on your own "
 "identity."
-msgstr "上传您的 Logo 和信笺抬头,或交给我们来设计。然后即可基于专为贵公司打造的模板,以您自己的品牌形象在几秒钟内创建任何文档。"
+msgstr ""
+"上传您的 Logo 和信笺抬头,或交给我们来设计。然后即可基于专为贵公司打造的模板,"
+"以您自己的品牌形象在几秒钟内创建任何文档。"
 
 #: apps/core/templates/core/landing.html:11
 msgid "Upload or ask"
@@ -2169,7 +2185,9 @@ msgstr "上传或提出需求"
 msgid ""
 "Upload what you have, or describe a document and the AI creates it on your "
 "letterhead, then keeps it as a template you can reuse."
-msgstr "上传您已有的文件,或描述所需文档,AI 会将其生成在您的信笺抬头上,并保存为可重复使用的模板。"
+msgstr ""
+"上传您已有的文件,或描述所需文档,AI 会将其生成在您的信笺抬头上,并保存为可重复"
+"使用的模板。"
 
 #: apps/core/templates/core/landing.html:12
 msgid "Follow it on the board"
@@ -2274,10 +2292,11 @@ msgstr "导出全部数据"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
-"一个 ZIP 文件,包含公司信息、模板、所有已生成的文档(其数据、可打印的页面和 PDF)、您保存的文件、徽标和信笺抬头、活动日志以及账本。"
+"一个 ZIP 文件,包含公司信息、模板、所有已生成的文档(其数据、可打印的页面和 "
+"PDF)、您保存的文件、徽标和信笺抬头、活动日志以及账本。"
 
 #: apps/core/templates/core/workspace.html:11
 msgid "Download the ZIP"
@@ -2285,8 +2304,8 @@ msgstr "下载 ZIP"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
 msgstr "文档较多时可能需要一分钟。导出记录会写入活动日志。"
 
 #: apps/core/templates/core/workspace.html:15
@@ -2300,7 +2319,9 @@ msgid ""
 "Everything in «%(name)s» is deleted for good: the documents, templates, "
 "papers and files, the history, and the balance. Nobody can recover it. "
 "Download the export first if you need a copy."
-msgstr "«%(name)s»中的所有内容都将被永久删除:文档、模板、文件和资料、历史记录以及余额。删除后无法恢复。如需副本,请先下载导出文件。"
+msgstr ""
+"«%(name)s»中的所有内容都将被永久删除:文档、模板、文件和资料、历史记录以及余"
+"额。删除后无法恢复。如需副本,请先下载导出文件。"
 
 #: apps/core/templates/core/workspace.html:17
 #, python-format
@@ -2688,14 +2709,13 @@ msgid "Parties, dates, amounts, duties and reference numbers, as lists."
 msgstr "当事方、日期、金额、职责和编号,以列表形式呈现。"
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
 msgstr "逐页识别扫描件或照片中的文字,可输出为文本、Word 或 PDF。"
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
 msgstr "可编辑的 Word 文件:AI 会读取每一页,并生成其中的文字、标题和表格。"
 
 #: apps/docops/templates/docops/services/_name.html:1
@@ -2724,16 +2744,17 @@ msgstr "译文可在页面上查看,也可导出为 Word 或文本。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr "整洁、条理清晰的 PDF,段落、标题和表格规范,也可导出为相同排版的 Word。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
-msgstr "外观与原件一致的 PDF:布局、颜色和徽标都相同,并逐页生成和检查。仅支持 PDF 文件。印章和签名不会保留。"
+"and checked page by page. PDF files only. Stamps and signatures are left out."
+msgstr ""
+"外观与原件一致的 PDF:布局、颜色和徽标都相同,并逐页生成和检查。仅支持 PDF 文"
+"件。印章和签名不会保留。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid "The summary on the page and as Word or text."
@@ -2751,15 +2772,15 @@ msgid ""
 msgstr "最细致的摘要,每个数字都经过核对,排版精美:PDF 和 Word 采用相同设计。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr "可编辑的 Word 文件,包含每一页的文字、标题和表格。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "An editable Word file that looks like the original: every page rebuilt with "
 "its layout. PDF files only."
-msgstr "外观与原件一致的可编辑 Word 文件:每一页都按原版式重建。仅支持 PDF 文件。"
+msgstr ""
+"外观与原件一致的可编辑 Word 文件:每一页都按原版式重建。仅支持 PDF 文件。"
 
 #: apps/docops/templates/docops/services/confirm.html:7
 #, python-format
@@ -2819,7 +2840,8 @@ msgstr "服务"
 msgid ""
 "Upload a document or choose one from your library. You see the price before "
 "anything is charged, and you pay only if the result is delivered."
-msgstr "上传文档或从文档库中选择一份。扣费前您会先看到价格,且仅在结果交付后才需付款。"
+msgstr ""
+"上传文档或从文档库中选择一份。扣费前您会先看到价格,且仅在结果交付后才需付款。"
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
@@ -2842,8 +2864,7 @@ msgstr "每页 $%(p)s 起。"
 msgid "Choose a file or drag it here"
 msgstr "选择文件或拖到此处"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF、PNG、JPG 或 WebP，最大 10 MB"
 
@@ -2919,7 +2940,8 @@ msgstr "类别"
 msgid ""
 "For example: Experience certificate. The first time, a template of it is "
 "made for your company; after that it is reused."
-msgstr "例如:工作经历证明。首次使用时,会为您的公司制作一个模板;之后将重复使用。"
+msgstr ""
+"例如:工作经历证明。首次使用时,会为您的公司制作一个模板;之后将重复使用。"
 
 #: apps/documents/forms.py:50 apps/documents/templates/documents/edit.html:14
 #: apps/documents/templates/documents/print.html:81
@@ -2943,8 +2965,7 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "描述目的和事实,AI 会为您撰写文本。"
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
+msgid "The template could not be read. You were not charged; please try again."
 msgstr "无法读取该模板。您未被扣费,请重试。"
 
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
@@ -3055,7 +3076,8 @@ msgstr "重新设计模板"
 msgid ""
 "Describe what should change. The template is made again; documents already "
 "written from it stay as they are."
-msgstr "请描述需要修改的内容。系统会重新生成模板;已根据该模板写好的文档不会改变。"
+msgstr ""
+"请描述需要修改的内容。系统会重新生成模板;已根据该模板写好的文档不会改变。"
 
 #: apps/documents/templates/documents/_template_actions.html:10
 #: apps/documents/templates/documents/edit.html:78
@@ -3089,8 +3111,8 @@ msgid ""
 "template and writing this document costs $%(first)s this time. Afterwards, "
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
-"要为贵公司按其品牌形象制作一个模板吗?本次制作模板并撰写此文档需花费 $%(first)s。之后每次需要「%(name)s」时,撰写费用仅需 "
-"$%(later)s。"
+"要为贵公司按其品牌形象制作一个模板吗?本次制作模板并撰写此文档需花费 $"
+"%(first)s。之后每次需要「%(name)s」时,撰写费用仅需 $%(later)s。"
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3251,8 +3273,8 @@ msgstr "用 AI 优化"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr "例如:缩短一点、添加保密条款、把金额改为 1,500。"
 
 #: apps/documents/templates/documents/edit.html:81
@@ -3263,7 +3285,8 @@ msgstr "重写"
 msgid ""
 "Save your edits first: the AI works on the saved text. You are charged only "
 "if the new text is delivered."
-msgstr "请先保存您的修改:AI 会处理已保存的文本。只有在新文本生成成功后才会收费。"
+msgstr ""
+"请先保存您的修改:AI 会处理已保存的文本。只有在新文本生成成功后才会收费。"
 
 #: apps/documents/templates/documents/edit.html:85
 #: apps/documents/templates/documents/edit.html:88
@@ -3288,7 +3311,8 @@ msgstr "共享"
 msgid ""
 "Give someone outside the company a link to look at this document, for a "
 "limited time and with an optional password."
-msgstr "向公司外部的人发送链接,让对方在限定时间内查看此文档,还可设置密码(可选)。"
+msgstr ""
+"向公司外部的人发送链接,让对方在限定时间内查看此文档,还可设置密码(可选)。"
 
 #: apps/documents/templates/documents/edit.html:93
 #: apps/sharing/templates/sharing/new.html:6
@@ -3356,10 +3380,12 @@ msgstr "您可以查看文档,但不能修改。"
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
-msgstr "根据您的模板生成的文档记录。此处不显示正文:请打开文档查看,每次打开都会记入活动日志。"
+msgstr ""
+"根据您的模板生成的文档记录。此处不显示正文:请打开文档查看,每次打开都会记入活"
+"动日志。"
 
 #: apps/documents/templates/documents/issued.html:8
 #: apps/library/templates/library/list.html:17
@@ -3414,13 +3440,11 @@ msgstr "此语言暂无信笺抬头，将使用主信笺抬头。"
 msgid "Add one"
 msgstr "添加"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "主题:"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "验证此文档"
 
@@ -3437,7 +3461,9 @@ msgid ""
 "Keep a letter or certificate you write again and again. Write {{like this}} "
 "for a blank; each time you use the template you fill the blanks and get a "
 "new document."
-msgstr "保存您经常撰写的信函或证书。用 {{像这样}} 表示空白处;每次使用模板时,填写空白处即可生成新文档。"
+msgstr ""
+"保存您经常撰写的信函或证书。用 {{像这样}} 表示空白处;每次使用模板时,填写空白"
+"处即可生成新文档。"
 
 #: apps/documents/templates/documents/templates.html:13
 msgid "No templates yet. Open a document and choose «Save as a template»."
@@ -3476,13 +3502,16 @@ msgstr "验证码"
 msgid ""
 "Compare the document below with the paper in your hands, word for word. If "
 "anything differs, the paper is not genuine."
-msgstr "请将下方的文档与您手中的纸质文件逐字核对。如有任何不同,则该文件不是真品。"
+msgstr ""
+"请将下方的文档与您手中的纸质文件逐字核对。如有任何不同,则该文件不是真品。"
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
-msgstr "MyDocHub 不会在文档上加盖印章或签名:纸上的任何印章或签名都是公司在打印后自行添加的。"
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
+msgstr ""
+"MyDocHub 不会在文档上加盖印章或签名:纸上的任何印章或签名都是公司在打印后自行"
+"添加的。"
 
 #: apps/documents/templates/documents/verify.html:23
 msgid "The document as it was issued"
@@ -3529,8 +3558,7 @@ msgid ""
 msgstr "您已有此类型的模板。请选择其他名称,或重新设计现有模板。"
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
 msgstr "已保存为模板。用 {{像这样}} 表示每次需要填写的空白处。"
 
 #: apps/documents/views.py:470 apps/documents/views.py:477
@@ -3749,7 +3777,9 @@ msgstr "表单及其所有回答将被永久删除。"
 msgid ""
 "This form has reached the limit of %(limit)s answers and takes no more. "
 "Download the answers, or delete some, to make room."
-msgstr "此表单已达到 %(limit)s 条回答的上限，不再接受回答。请下载回答，或删除一些以腾出空间。"
+msgstr ""
+"此表单已达到 %(limit)s 条回答的上限，不再接受回答。请下载回答，或删除一些以腾"
+"出空间。"
 
 #: apps/forms/templates/forms/detail.html:20
 msgid "Share the form"
@@ -3918,7 +3948,8 @@ msgstr "还没有表单。"
 msgid ""
 "Creating a form costs $%(price)s from the balance, once. Its answers are "
 "free (up to %(limit)s answers)."
-msgstr "创建一个表单会从余额中一次性扣除 $%(price)s。回答免费（最多 %(limit)s 条）。"
+msgstr ""
+"创建一个表单会从余额中一次性扣除 $%(price)s。回答免费（最多 %(limit)s 条）。"
 
 #: apps/forms/templates/forms/list.html:33
 msgid "Create the form"
@@ -3931,8 +3962,8 @@ msgstr "编辑问题"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
 msgstr "此问题已有回答。更改类型或选项可能会让旧回答难以阅读。"
 
 #: apps/forms/templates/forms/results.html:8
@@ -4057,8 +4088,8 @@ msgstr "图片太小。请使用更清晰的照片。"
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
 msgstr "我们在这张图片中找不到清晰的标志。请使用纯色背景的标志文件。"
 
 #: apps/identity/letterheads.py:92
@@ -4180,7 +4211,9 @@ msgstr "按语言设置信笺抬头"
 msgid ""
 "A letter is printed on the letterhead of its own language. Your main "
 "language is %(language)s; add one for every other language you write in."
-msgstr "信件会打印在对应语言的信笺抬头上。您的主语言是%(language)s；其他书写语言也请各添加一个。"
+msgstr ""
+"信件会打印在对应语言的信笺抬头上。您的主语言是%(language)s；其他书写语言也请"
+"各添加一个。"
 
 #: apps/identity/templates/identity/_letterheads.html:11
 msgid "This letterhead will be deleted for good."
@@ -4306,8 +4339,7 @@ msgstr "暂时跳过"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr "每封信和每份证书所印的标志与信笺抬头。"
 
 #: apps/identity/templates/identity/studio.html:15
@@ -4462,8 +4494,8 @@ msgstr "帮我读取"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
 msgstr "AI 会读取文档并填写仍为空的信息。只有读取成功才收费。"
 
 #: apps/library/templates/library/form.html:22
@@ -4472,24 +4504,24 @@ msgstr "只有此工作区的成员可以打开。"
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
 msgstr "将从文件中读取类型、签发机构、编号和日期。只有读取成功才收费。"
 
 #: apps/library/templates/library/form.html:37
 msgid "Add the details yourself"
 msgstr "自行填写信息"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "详细信息"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
-msgstr "设置到期日期后,我们会在到期前 90 天、30 天、7 天和 1 天通过邮件提醒您。"
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
+msgstr ""
+"设置到期日期后,我们会在到期前 90 天、30 天、7 天和 1 天通过邮件提醒您。"
 
 #: apps/library/templates/library/list.html:8
 msgid "All documents"
@@ -4546,9 +4578,11 @@ msgstr "AI 工具"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
-msgstr "将您的执照、合同和信函集中保存，用 AI 创建新文档，并在看板上查看接下来即将到期的内容。"
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
+msgstr ""
+"将您的执照、合同和信函集中保存，用 AI 创建新文档，并在看板上查看接下来即将到"
+"期的内容。"
 
 #: apps/library/views.py:135
 msgid "Edit the document"
@@ -4562,7 +4596,9 @@ msgstr "不允许使用该邮件服务器名称或端口。"
 msgid ""
 "The mail server refused the user name or password. Gmail, Outlook and Yahoo "
 "need an app password."
-msgstr "邮件服务器拒绝了该用户名或密码。Gmail、Outlook 和 Yahoo 需要使用应用专用密码。"
+msgstr ""
+"邮件服务器拒绝了该用户名或密码。Gmail、Outlook 和 Yahoo 需要使用应用专用密"
+"码。"
 
 #: apps/mail/client.py:69
 msgid "The mail server answered with an error."
@@ -4573,7 +4609,9 @@ msgid ""
 "The mail server took too long to answer. Some providers do this when the "
 "password is wrong: check the mailbox password, then the server name and the "
 "port."
-msgstr "邮件服务器响应超时。有些服务商在密码错误时也会出现这种情况:请先检查邮箱密码,再检查服务器名称和端口。"
+msgstr ""
+"邮件服务器响应超时。有些服务商在密码错误时也会出现这种情况:请先检查邮箱密码,"
+"再检查服务器名称和端口。"
 
 #: apps/mail/client.py:74
 msgid ""
@@ -4651,7 +4689,9 @@ msgstr "邮箱密码"
 msgid ""
 "Kept sealed and never shown again. Gmail, Outlook and Yahoo need an app "
 "password, not the normal one."
-msgstr "密码会加密保存,不会再次显示。Gmail、Outlook 和 Yahoo 需要使用应用专用密码,而不是常规密码。"
+msgstr ""
+"密码会加密保存,不会再次显示。Gmail、Outlook 和 Yahoo 需要使用应用专用密码,而"
+"不是常规密码。"
 
 #: apps/mail/forms.py:23
 msgid "User name"
@@ -4749,8 +4789,7 @@ msgid "signature"
 msgstr "签名"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "新邮件"
 
@@ -5022,7 +5061,9 @@ msgstr "公司邮箱尚未连接"
 msgid ""
 "Once the owner connects the company e-mail address, everyone who works on "
 "documents can read and write company mail here, without leaving MyDocHub."
-msgstr "所有者连接公司电子邮箱地址后,所有处理文档的成员都可以在此收发公司邮件,无需离开 MyDocHub。"
+msgstr ""
+"所有者连接公司电子邮箱地址后,所有处理文档的成员都可以在此收发公司邮件,无需离"
+"开 MyDocHub。"
 
 #: apps/mail/templates/mail/not_connected.html:9
 msgid "Connect the mailbox"
@@ -5034,8 +5075,8 @@ msgstr "连接公司邮箱"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
 msgstr "添加一次公司电子邮箱地址,即可在 MyDocHub 中收发公司邮件。"
 
 #: apps/mail/templates/mail/setup.html:15
@@ -5044,16 +5085,18 @@ msgstr "服务器详情"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
 msgstr "留空时将根据邮箱地址自动推测。仅在连接失败时才需修改。"
 
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
-msgstr "工作区中所有可编辑文档的成员都可以通过此邮箱收发邮件。打开和发送操作会记录在活动日志中。密码使用您的工作区密钥加密。"
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
+msgstr ""
+"工作区中所有可编辑文档的成员都可以通过此邮箱收发邮件。打开和发送操作会记录在"
+"活动日志中。密码使用您的工作区密钥加密。"
 
 #: apps/mail/templates/mail/setup.html:30
 msgid "Save and test"
@@ -5093,10 +5136,12 @@ msgstr "新建邮件模板"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
-msgstr "AI 会根据您的徽标、品牌色和公司信息设计模板。使用前您可以先预览,只有在交付可用的设计时才会收费。"
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
+msgstr ""
+"AI 会根据您的徽标、品牌色和公司信息设计模板。使用前您可以先预览,只有在交付可"
+"用的设计时才会收费。"
 
 #: apps/mail/templates/mail/template_new.html:19
 msgid "Design my template"
@@ -5112,7 +5157,9 @@ msgid ""
 "A template gives every message of your company the same professional look: "
 "logo, colours and a footer with your details. Make one with AI, then choose "
 "it when you write."
-msgstr "模板能让贵公司的每封邮件都拥有统一的专业外观:徽标、色彩,以及包含您的信息的页脚。用 AI 制作一个,写邮件时选择它即可。"
+msgstr ""
+"模板能让贵公司的每封邮件都拥有统一的专业外观:徽标、色彩,以及包含您的信息的页"
+"脚。用 AI 制作一个,写邮件时选择它即可。"
 
 #: apps/mail/templates/mail/templates.html:14
 msgid "Open the preview"
@@ -5138,7 +5185,9 @@ msgstr "暂无模板"
 msgid ""
 "Your messages go out as plain messages. Make a template and every message "
 "will carry your logo, colours and details."
-msgstr "你的消息目前以纯文本形式发送。创建模板后，每条消息都会带上你的徽标、品牌色和详细信息。"
+msgstr ""
+"你的消息目前以纯文本形式发送。创建模板后，每条消息都会带上你的徽标、品牌色和"
+"详细信息。"
 
 #: apps/mail/templates/mail/templates.html:29
 msgid "Make my first template"
@@ -5418,8 +5467,7 @@ msgstr "请确认您已阅读：%(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
 msgstr "余额不足：剩余 %(balance)s。请充值以继续使用服务"
 
 #: apps/notifications/registry.py:21
@@ -5513,15 +5561,15 @@ msgstr "一次完成的清晰、优质的演示文稿。"
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr "经第二轮审阅润色：标题更有力，叙事更紧凑。"
 
 #: apps/presentations/service.py:52
 msgid ""
 "The best we can build: your audience is analysed first, then every designed "
 "slide is checked by eye and corrected."
-msgstr "我们能做到的最好：先分析您的受众，再逐张目视检查并修正每张设计好的幻灯片。"
+msgstr ""
+"我们能做到的最好：先分析您的受众，再逐张目视检查并修正每张设计好的幻灯片。"
 
 #: apps/presentations/templates/presentations/confirm.html:6
 msgid "Confirm the presentation"
@@ -5551,7 +5599,9 @@ msgstr "您的余额：<bdi dir=\"ltr\">$%(balance)s</bdi>"
 msgid ""
 "It takes a few minutes. You can leave the page: the result waits in your "
 "presentations. If it fails, the price goes back to your balance."
-msgstr "需要几分钟。您可以离开此页面：结果会保存在您的演示文稿中。如果失败，费用会退回余额。"
+msgstr ""
+"需要几分钟。您可以离开此页面：结果会保存在您的演示文稿中。如果失败，费用会退"
+"回余额。"
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
@@ -5561,8 +5611,7 @@ msgstr "花费 $%(price)s 创建"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "取消"
 
@@ -5579,8 +5628,8 @@ msgstr "此演示文稿将被永久删除。"
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
 msgstr "制作幻灯片需要几分钟。您可以离开此页面：结果会保存在您的演示文稿中。"
 
 #: apps/presentations/templates/presentations/detail.html:21
@@ -5607,7 +5656,9 @@ msgstr "演示文稿面向所有者、管理员和成员。如需制作，请联
 msgid ""
 "Describe the talk, or choose a document: get a designed PowerPoint in your "
 "company's colours and logo that you can still edit."
-msgstr "描述演讲内容或选择文档：获得采用贵公司配色和标志、仍可编辑的 PowerPoint 文件。"
+msgstr ""
+"描述演讲内容或选择文档：获得采用贵公司配色和标志、仍可编辑的 PowerPoint 文"
+"件。"
 
 #: apps/presentations/templates/presentations/list.html:7
 #: apps/presentations/templates/presentations/list.html:23
@@ -5630,8 +5681,8 @@ msgstr "<bdi dir=\"ltr\">$%(price)s</bdi> 起"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr "显示的价格按 10 张幻灯片计算。扣费前您会看到确切价格。"
 
 #: apps/presentations/templates/presentations/list.html:41
@@ -5692,8 +5743,8 @@ msgstr "此链接不可用"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
 msgstr "链接可能已过期，或已被分享者取消。请让对方重新发送一个链接。"
 
 #: apps/sharing/templates/sharing/list.html:6
@@ -5786,9 +5837,11 @@ msgstr "允许保存副本"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
-msgstr "如果不开启，对方只能在页面上查看。无法阻止对方拍摄屏幕，因此请仅分享给您信任的人。"
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
+msgstr ""
+"如果不开启，对方只能在页面上查看。无法阻止对方拍摄屏幕，因此请仅分享给您信任"
+"的人。"
 
 #: apps/sharing/templates/sharing/new.html:18
 msgid "Make the link"
@@ -5991,7 +6044,8 @@ msgstr "接受邀请"
 msgid ""
 "This invitation is for %(email)s, but you are signed in with another "
 "address. Sign out and open the link again."
-msgstr "此邀请发给 %(email)s，但你当前登录的是其他邮箱。请退出登录后重新打开链接。"
+msgstr ""
+"此邀请发给 %(email)s，但你当前登录的是其他邮箱。请退出登录后重新打开链接。"
 
 #: apps/team/templates/team/accept.html:13 templates/base_app.html:111
 #: templates/base_app.html:119 templates/console/base_console.html:25
@@ -6022,7 +6076,9 @@ msgstr "%(inviter)s 邀请你以%(role)s身份在 MyDocHub 上加入 %(name)s。
 msgid ""
 "The link works once and for %(days)s days. If you did not expect this "
 "invitation, ignore this message."
-msgstr "此链接仅可使用一次，有效期 %(days)s 天。如果你并未预期收到此邀请，请忽略这封邮件。"
+msgstr ""
+"此链接仅可使用一次，有效期 %(days)s 天。如果你并未预期收到此邀请，请忽略这封"
+"邮件。"
 
 #: apps/team/templates/team/emails/invite.txt:3
 msgid "Open this link to accept:"
@@ -6073,7 +6129,9 @@ msgstr "发送邀请"
 msgid ""
 "Owner: everything. Admin: manages the company and the team. Member: writes "
 "and uploads. Viewer: reads. Client: reads what is shared."
-msgstr "所有者：拥有全部权限。管理员：管理公司和团队。成员：撰写和上传。查看者：只读。客户：只能查看共享内容。"
+msgstr ""
+"所有者：拥有全部权限。管理员：管理公司和团队。成员：撰写和上传。查看者：只"
+"读。客户：只能查看共享内容。"
 
 #: apps/team/templates/team/team.html:20
 msgid "Approval of documents"
@@ -6135,8 +6193,8 @@ msgstr "我们已发送邀请。"
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
 msgstr "邀请已创建，但邮件发送失败。请几分钟后点击“重新发送”。"
 
 #: apps/team/views.py:101
@@ -6276,8 +6334,7 @@ msgstr "如果您没有注册,请忽略此邮件。"
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
+"Confirm your email address with the link below. The link is valid for 3 days."
 msgstr "使用下方链接确认您的邮箱地址。链接有效期为 3 天。"
 
 #: templates/accounts/emails/verify_email_subject.txt:1
@@ -6367,7 +6424,9 @@ msgstr "您的备用验证码"
 msgid ""
 "Keep these codes somewhere safe, apart from your phone. Each one works once "
 "if you lose access to the app. They are shown only now."
-msgstr "请将这些验证码保存在安全的地方,不要与手机放在一起。如果您无法使用验证器应用,每个验证码可使用一次。它们仅在此时显示。"
+msgstr ""
+"请将这些验证码保存在安全的地方,不要与手机放在一起。如果您无法使用验证器应用,"
+"每个验证码可使用一次。它们仅在此时显示。"
 
 #: templates/accounts/security.html:13 templates/accounts/two_factor.html:3
 #: templates/accounts/two_factor.html:5
@@ -6401,11 +6460,11 @@ msgstr "关闭"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
-"请用验证器应用(Google Authenticator、Microsoft Authenticator、Authy "
-"等)扫描此图片,然后输入应用显示的验证码。"
+"请用验证器应用(Google Authenticator、Microsoft Authenticator、Authy 等)扫描此"
+"图片,然后输入应用显示的验证码。"
 
 #: templates/accounts/security.html:27
 msgid "Or type this key into the app:"
@@ -6461,7 +6520,9 @@ msgstr "登录"
 msgid ""
 "This can take up to a minute. Keep this page open: the result appears here "
 "as soon as it is ready, and you are charged only if it is delivered."
-msgstr "这可能需要最多一分钟。请保持此页面打开:结果一准备好就会显示在这里,且仅在成功交付后才会扣费。"
+msgstr ""
+"这可能需要最多一分钟。请保持此页面打开:结果一准备好就会显示在这里,且仅在成功"
+"交付后才会扣费。"
 
 #: templates/base.html:21
 msgctxt "seconds"
@@ -6501,8 +6562,7 @@ msgid "Account"
 msgstr "账号"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "平台控制台"
 
@@ -6596,8 +6656,8 @@ msgstr "每月 AI 预算"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
 msgstr "当月成本达到预算时,所有 AI 服务将停止,直到提高预算或本月结束。"
 
 #: templates/console/ai.html:15
@@ -6695,7 +6755,8 @@ msgstr "手动充值"
 msgid ""
 "While the site is locked, visitors see the Coming Soon page. Superusers and "
 "people with an access code get in."
-msgstr "网站锁定期间,访客只能看到“即将上线”页面。超级用户和持有访问码的用户可以进入。"
+msgstr ""
+"网站锁定期间,访客只能看到“即将上线”页面。超级用户和持有访问码的用户可以进入。"
 
 #: templates/console/launch.html:10
 msgid "Coming Soon lock"
@@ -6777,7 +6838,8 @@ msgstr "创建访问码"
 msgid ""
 "Every movement of every balance: card top-ups, credit given by the platform "
 "team, AI sales and refunds."
-msgstr "所有余额的每一笔变动:银行卡充值、平台团队发放的额度、AI 服务消费和退款。"
+msgstr ""
+"所有余额的每一笔变动:银行卡充值、平台团队发放的额度、AI 服务消费和退款。"
 
 #: templates/console/ledger.html:8 templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
@@ -6887,9 +6949,11 @@ msgstr "最新账本记录"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
-msgstr "每项服务的实际成本和销售价格。已存储的价格可在 Django 管理后台修改;sync_prices 会让已存储的价格与价格文件保持一致。"
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
+msgstr ""
+"每项服务的实际成本和销售价格。已存储的价格可在 Django 管理后台修改;"
+"sync_prices 会让已存储的价格与价格文件保持一致。"
 
 #: templates/console/prices.html:7
 msgid "Worst case"
@@ -6909,8 +6973,8 @@ msgstr "未上架"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
 msgstr "(n) = 成本所依据的实际运行次数;* = 基于较小规模运行测得并按比例放大。"
 
 #: templates/console/user_grant.html:3 templates/console/user_grant.html:6
@@ -6991,7 +7055,8 @@ msgstr "删除此工作区"
 msgid ""
 "Everything in it is deleted for good: documents, templates, papers, files, "
 "wallet and history. Enter your password to confirm."
-msgstr "其中的所有内容将被永久删除:文档、模板、文件、钱包和历史记录。请输入密码确认。"
+msgstr ""
+"其中的所有内容将被永久删除:文档、模板、文件、钱包和历史记录。请输入密码确认。"
 
 #: templates/console/workspaces.html:5
 msgid "Every company using the platform. Add credit to any of them from here."
@@ -7049,202 +7114,6 @@ msgstr "预览访问"
 msgid "Leave"
 msgstr "退出"
 
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "标识、信函和证书,都用您自己的信笺。"
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "上传现有的,或让我们为您创建"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr "草稿——本文仅供公司律师参考起草,不构成法律意见,在服务向公众开放前必须经过审核。[方括号]中的内容需要填写。"
-
-#~ msgid "Open the company identity"
-#~ msgstr "打开公司标识"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "AI 工作区"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "设计工作室"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "商业智能"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "公司"
-
-#~ msgid "Reminders due"
-#~ msgstr "已到期的提醒"
-
-#~ msgid "Built by"
-#~ msgstr "开发者:"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr "标志、信头、印章和签名。上传您已有的；我们可以为您创建标志和信头。"
-
-#~ msgid "add the stamp"
-#~ msgstr "添加印章"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr "保存此文本以便重复使用。用 {{像这样}} 表示每次需要填写的空白处。印章和签名不会被保存。"
-
-#~ msgid "Sealed"
-#~ msgstr "已盖章"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr "我确认我已获授权为此公司使用该印章。"
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr "我确认这是我本人的签名,或其所有者已允许我为此公司使用。"
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr "请再次输入密码以确认是您本人。"
-
-#~ msgid "stamp"
-#~ msgstr "印章"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "照片太暗。请在良好光线下使用白纸。"
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr "我们没有在这张图片中找到清晰的%(what)s。请使用光线均匀、纯白纸张的照片。"
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr "图案太淡或太小。请靠近一些，在均匀光线下拍摄。"
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr "纸面不够平整纯净。请使用白纸，避免阴影和花纹。"
-
-#~ msgid "Stamp"
-#~ msgstr "印章"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "印章和签名"
-
-#~ msgid "Kept private"
-#~ msgstr "私密保存"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr "印章和签名仅供公司所有者及其允许的成员使用。请联系所有者。"
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr "仅供所有者及其允许的成员使用。所有相关操作都会记录在动态中。"
-
-#~ msgid "Replace"
-#~ msgstr "替换"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr "此文件将被永久删除。请输入密码确认。"
-
-#~ msgid "Who may use them"
-#~ msgstr "谁可以使用"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr "您作为所有者始终可以使用。其他成员只有在您在此允许后,才能在文档上使用印章或签名。"
-
-#~ msgid "allowed"
-#~ msgstr "已允许"
-
-#~ msgid "Take back"
-#~ msgstr "收回"
-
-#~ msgid "Allow"
-#~ msgstr "允许"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "暂时还没有其他成员。"
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr "请上传清晰的公司印章图片。我们绝不会创建印章。"
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr "请上传清晰的签名图片。我们从不代为创建签名。"
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "可使用印章和签名"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "可以使用印章和签名"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr "无法读取结果。您未被扣费,请重试。"
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "可翻译、总结、提取数据，或转换为 Word。仅读取前 %(pages)s 页。价格取决于页数。您会先看到价格，只有在结果成功交付后才会扣费。"
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "本文档页数:%(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "下载 Word"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "无法从此文件中读取任何文字。"
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "完成。此文件包含文字，因此转换免费。"
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr "可编辑的 Word 文件,包含此文档的文字。文档已有文字,因此免费。"
-
-#~ msgid "Something different is coming"
-#~ msgstr "新功能即将到来"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "网站由 secrets.json 中的 SITE_LOCKED = false 保持开放。"
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "由 secrets.json 中的 SITE_LOCKED = false 保持开放。"
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "新功能正在酝酿中……"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "公司文件、信函和印章,尽在一处。"
-
-#~ msgid "By"
-#~ msgstr "作者"
-
-#~ msgid "Next 6 months"
-#~ msgstr "未来 6 个月"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "新建信函或证书"
-
 #, python-format
 msgid "At your command, %(name)s!"
 msgstr "遵命，%(name)s！"
@@ -7298,3 +7167,210 @@ msgstr "问题：%(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "答案已保存为笔记。"
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "标识、信函和证书,都用您自己的信笺。"
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "上传现有的,或让我们为您创建"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "草稿——本文仅供公司律师参考起草,不构成法律意见,在服务向公众开放前必须经过审"
+#~ "核。[方括号]中的内容需要填写。"
+
+#~ msgid "Open the company identity"
+#~ msgstr "打开公司标识"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "AI 工作区"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "设计工作室"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "商业智能"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "公司"
+
+#~ msgid "Reminders due"
+#~ msgstr "已到期的提醒"
+
+#~ msgid "Built by"
+#~ msgstr "开发者:"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr "标志、信头、印章和签名。上传您已有的；我们可以为您创建标志和信头。"
+
+#~ msgid "add the stamp"
+#~ msgstr "添加印章"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "保存此文本以便重复使用。用 {{像这样}} 表示每次需要填写的空白处。印章和签名"
+#~ "不会被保存。"
+
+#~ msgid "Sealed"
+#~ msgstr "已盖章"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr "我确认我已获授权为此公司使用该印章。"
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr "我确认这是我本人的签名,或其所有者已允许我为此公司使用。"
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr "请再次输入密码以确认是您本人。"
+
+#~ msgid "stamp"
+#~ msgstr "印章"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "照片太暗。请在良好光线下使用白纸。"
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "我们没有在这张图片中找到清晰的%(what)s。请使用光线均匀、纯白纸张的照片。"
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr "图案太淡或太小。请靠近一些，在均匀光线下拍摄。"
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr "纸面不够平整纯净。请使用白纸，避免阴影和花纹。"
+
+#~ msgid "Stamp"
+#~ msgstr "印章"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "印章和签名"
+
+#~ msgid "Kept private"
+#~ msgstr "私密保存"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr "印章和签名仅供公司所有者及其允许的成员使用。请联系所有者。"
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr "仅供所有者及其允许的成员使用。所有相关操作都会记录在动态中。"
+
+#~ msgid "Replace"
+#~ msgstr "替换"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr "此文件将被永久删除。请输入密码确认。"
+
+#~ msgid "Who may use them"
+#~ msgstr "谁可以使用"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "您作为所有者始终可以使用。其他成员只有在您在此允许后,才能在文档上使用印章"
+#~ "或签名。"
+
+#~ msgid "allowed"
+#~ msgstr "已允许"
+
+#~ msgid "Take back"
+#~ msgstr "收回"
+
+#~ msgid "Allow"
+#~ msgstr "允许"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "暂时还没有其他成员。"
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr "请上传清晰的公司印章图片。我们绝不会创建印章。"
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr "请上传清晰的签名图片。我们从不代为创建签名。"
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "可使用印章和签名"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "可以使用印章和签名"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr "无法读取结果。您未被扣费,请重试。"
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "可翻译、总结、提取数据，或转换为 Word。仅读取前 %(pages)s 页。价格取决于页"
+#~ "数。您会先看到价格，只有在结果成功交付后才会扣费。"
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "本文档页数:%(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "下载 Word"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "无法从此文件中读取任何文字。"
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr "完成。此文件包含文字，因此转换免费。"
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr "可编辑的 Word 文件,包含此文档的文字。文档已有文字,因此免费。"
+
+#~ msgid "Something different is coming"
+#~ msgstr "新功能即将到来"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "网站由 secrets.json 中的 SITE_LOCKED = false 保持开放。"
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "由 secrets.json 中的 SITE_LOCKED = false 保持开放。"
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "新功能正在酝酿中……"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "公司文件、信函和印章,尽在一处。"
+
+#~ msgid "By"
+#~ msgstr "作者"
+
+#~ msgid "Next 6 months"
+#~ msgstr "未来 6 个月"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "新建信函或证书"

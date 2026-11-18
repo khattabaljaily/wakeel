@@ -1053,3 +1053,7 @@ html.wk-scroll-lock, html.wk-scroll-lock body { overflow: hidden !important; ove
 .wk-langmenu.wk-langtog--float { position: absolute; top: 1rem; inset-inline-end: 1rem; z-index: 3; }
 .wk-langmenu.wk-langtog--float > summary { height: 36px; }
 @media (max-width: 991.98px) { .wk-langmenu.wk-langtog--float { position: fixed; top: calc(.75rem + env(safe-area-inset-top)); inset-inline-end: .75rem; } }
+
+/* The selected row of a master-detail list (documents): tinted like the active sidebar link, not Bootstrap's blue. */
+.list-group-item.active { background: var(--wk-primary-50); color: var(--wk-ink); border-color: var(--wk-border); }
+.list-group-item.active .opacity-75 { opacity: .7 !important; }

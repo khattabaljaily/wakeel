@@ -7380,6 +7380,27 @@ msgstr ""
 msgid "Letterheads"
 msgstr "الورق الرسمي"
 
+msgid "Changed a document of the library"
+msgstr "عدّل مستنداً في المكتبة"
+
+msgid "Deleted a document from the library"
+msgstr "حذف مستنداً من المكتبة"
+
+msgid "Uploaded a document to the library"
+msgstr "رفع مستنداً إلى المكتبة"
+
+msgid ""
+"Keep your licences, contracts and letters in one place, and see what expires "
+"next."
+msgstr "احفظ تراخيصك وعقودك ومراسلاتك في مكان واحد، وتابع ما ينتهي قريباً."
+
+msgid "Only members of this company can open it."
+msgstr "لا يفتحه إلا أعضاء هذه الشركة."
+
+msgid ""
+"With an expiry date, you are reminded 90, 30, 7 and 1 day before it expires."
+msgstr "مع تاريخ الانتهاء، تصلك تذكيرات قبل 90 و30 و7 ويوم واحد من انتهائه."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

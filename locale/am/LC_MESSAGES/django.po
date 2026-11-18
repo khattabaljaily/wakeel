@@ -559,8 +559,8 @@ msgstr "ተግባሩ ተጨምሯል።"
 msgid "note"
 msgstr "ማስታወሻ"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "አስታውሰኝ በ"
 
@@ -654,8 +654,8 @@ msgstr "በመሥራት ላይ"
 msgid "Done"
 msgstr "ተጠናቋል"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -745,12 +745,15 @@ msgstr "ላክ"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "ውይይቱ ነፃ ነው (በቀን እስከ %(limit)s መልዕክቶች)፤ የሚከፈለው ለሚያጸድቋቸው አገልግሎቶች ብቻ ነው። ረዳቱ የሚጽፉትንና የሚፈልጋቸውን ሰነዶች ዝርዝር ያነባል፤ ይዘታቸውን ግን በፍጹም አያነብም፤ ሰነድ የሚነበበው ስለ እሱ እንደ ጥያቄ ያለ ጥቆማ ሲያጸድቁ ብቻ ነው። ሊሳሳት ይችላል፤ እያንዳንዱን ጥቆማ ያረጋግጡ።"
+msgstr ""
+"ውይይቱ ነፃ ነው (በቀን እስከ %(limit)s መልዕክቶች)፤ የሚከፈለው ለሚያጸድቋቸው አገልግሎቶች ብቻ ነው። ረዳቱ "
+"የሚጽፉትንና የሚፈልጋቸውን ሰነዶች ዝርዝር ያነባል፤ ይዘታቸውን ግን በፍጹም አያነብም፤ ሰነድ የሚነበበው ስለ እሱ እንደ "
+"ጥያቄ ያለ ጥቆማ ሲያጸድቁ ብቻ ነው። ሊሳሳት ይችላል፤ እያንዳንዱን ጥቆማ ያረጋግጡ።"
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
@@ -1059,8 +1062,8 @@ msgstr "በሂደት ላይ ነው…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
 msgstr "ንድፍ አንድ ወይም ሁለት ደቂቃ ሊወስድ ይችላል። ገጹን መልቀቅ ይችላሉ፤ ውጤቱ በስቱዲዮ ውስጥ ይጠብቅዎታል።"
 
 #: apps/brand/templates/brand/detail.html:20
@@ -1114,8 +1117,8 @@ msgid ""
 "stationery and digital pieces, designed for you in famous, professional "
 "fonts."
 msgstr ""
-"ኩባንያዎን ራሱን እንዲመስል የሚያደርገው ሁሉ፦ አርማ፣ ቀለም፣ ፊደል፣ ጽህፈት ቁሳቁስና ዲጂታል ክፍሎች፤ በታዋቂና ሙያዊ"
-" ፊደላት ለእርስዎ የተነደፉ።"
+"ኩባንያዎን ራሱን እንዲመስል የሚያደርገው ሁሉ፦ አርማ፣ ቀለም፣ ፊደል፣ ጽህፈት ቁሳቁስና ዲጂታል ክፍሎች፤ በታዋቂና ሙያዊ "
+"ፊደላት ለእርስዎ የተነደፉ።"
 
 #: apps/brand/templates/brand/studio.html:7
 #: apps/identity/templates/identity/profile.html:3
@@ -1231,8 +1234,8 @@ msgstr "በአርማ ጀምር"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr "%(n)s ክፍሎች ከአርማዎ ይነደፋሉ፣ %(d)s%% ቅናሽ። ቀሪ ሂሳብዎ፦ $%(balance)s።"
 
 #: apps/brand/templates/brand/studio.html:103
@@ -1612,8 +1615,8 @@ msgstr "እውቂያዎችን ማንበብ ይችላሉ፣ ግን መቀየር �
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
 msgstr ""
 "ደንበኞች፣ አቅራቢዎች እና አጋሮች በአንድ መጽሐፍ፣ እነሱን ለማግኘት የሚያስችሉ መንገዶች እና ከእነሱ ጋር የተደረገው "
 "ሁሉ።"
@@ -1663,8 +1666,8 @@ msgstr "ለድርጅትዎ <em>የወረቀት ሥራ እና የቡድን ሥራ
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
 "MyDocHub የድርጅትን ሰነዶች፣ መለያ፣ ኢሜይል እና የዕለት ሥራ በአንድ ላይ ይይዛል። ያለዎትን ይስቀሉ ወይም AI "
 "እንዲፈጥረው ያድርጉ፤ ሁሉም በራስዎ ደብዳቤ ራስጌ ላይ፣ በቋንቋዎ ይወጣል።"
@@ -1791,8 +1794,8 @@ msgstr "የቡድን የሥራ ቦታ"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr "ተግባራት፣ እውቂያዎች እና የግል ማስታወሻዎች፣ ለእያንዳንዱ ሰው አዲሱን የሚነግሩ ማሳወቂያዎች ጋር።"
 
 #: apps/core/templates/core/about.html:41 templates/accounts/auth_base.html:19
@@ -1825,8 +1828,8 @@ msgstr "አስተዳደር"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr "ለእያንዳንዱ አባል ሚና፣ የሚሆነውን ሁሉ የሚመዘግብ መዝገብ እና ሲያስፈልግዎ ብቻ የሚሞሉት ሂሳብ።"
 
 #: apps/core/templates/core/about.html:47 templates/base_app.html:57
@@ -1865,8 +1868,7 @@ msgstr "ዋጋውን አስቀድመው ያያሉ"
 msgid ""
 "No subscriptions. Every AI service shows its price before it runs, and a "
 "failed run costs nothing."
-msgstr ""
-"ምዝገባ የለም። እያንዳንዱ የAI አገልግሎት ከመሥራቱ በፊት ዋጋውን ያሳያል፤ ያልተሳካ ሩጫ ምንም አያስከፍልም።"
+msgstr "ምዝገባ የለም። እያንዳንዱ የAI አገልግሎት ከመሥራቱ በፊት ዋጋውን ያሳያል፤ ያልተሳካ ሩጫ ምንም አያስከፍልም።"
 
 #: apps/core/templates/core/about.html:58
 #: apps/core/templates/core/landing.html:49
@@ -2042,8 +2044,8 @@ msgstr "ቤተ-መጻሕፍቱ"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "ክፈት"
 
@@ -2294,8 +2296,8 @@ msgstr "ሁሉንም ወደ ውጭ ላክ"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
 "አንድ ZIP ፋይል፦ የኩባንያው ዝርዝሮች፣ አብነቶች፣ ሁሉም የተሰጡ ሰነዶች (ውሂባቸው፣ ሊታተም የሚችል ገጽ እና "
 "PDF)፣ የሚያስቀምጧቸው ወረቀቶች፣ አርማ እና ደብዳቤ ራስጌዎች፣ የእንቅስቃሴ ምዝግብ እና የሒሳብ መዝገብ።"
@@ -2306,8 +2308,8 @@ msgstr "ZIP ያውርዱ"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
 msgstr "ብዙ ሰነዶች ካሉ ደቂቃ ሊወስድ ይችላል። ወደ ውጭ መላኩ በእንቅስቃሴ ምዝግብ ውስጥ ይመዘገባል።"
 
 #: apps/core/templates/core/workspace.html:15
@@ -2713,14 +2715,13 @@ msgid "Parties, dates, amounts, duties and reference numbers, as lists."
 msgstr "ተዋዋዮች፣ ቀኖች፣ መጠኖች፣ ግዴታዎችና ማጣቀሻ ቁጥሮች፣ በዝርዝር።"
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
 msgstr "የስካን ወይም የፎቶ ጽሑፍ፣ ገጽ በገጽ ተነብቦ፦ እንደ ጽሑፍ፣ Word ወይም PDF።"
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
 msgstr ""
 "ሊስተካከል የሚችል የWord ፋይል፦ AI እያንዳንዱን ገጽ ያነባል፣ ጽሁፉን፣ ርዕሶቹን እና ሰንጠረዦቹን ይጽፋል።"
 
@@ -2750,16 +2751,15 @@ msgstr "የተተረጎመው ጽሑፍ፣ በገጹ ላይ እና እንደ Wor
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr ""
 "ንጹሕ እና በሚገባ የተደራጀ PDF፣ ትክክለኛ አንቀጾች፣ ርዕሶች እና ሰንጠረዦች ያሉት፤ በ Word ደግሞ ተመሳሳዩ።"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
+"and checked page by page. PDF files only. Stamps and signatures are left out."
 msgstr ""
 "ከመጀመሪያው ሰነድዎ ጋር የሚመሳሰል PDF፦ ተመሳሳይ አቀማመጥ፣ ቀለሞች እና አርማ፣ ገጽ በገጽ ተሠርቶ እና ተፈትሾ። "
 "PDF ፋይሎች ብቻ። ማኅተሞች እና ፊርማዎች አይካተቱም።"
@@ -2782,8 +2782,7 @@ msgstr ""
 "ዲዛይን።"
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr "የእያንዳንዱን ገጽ ጽሑፍ፣ ርዕሶች እና ሰንጠረዦች የያዘ ሊስተካከል የሚችል የWord ፋይል።"
 
 #: apps/docops/templates/docops/services/_tier.html:1
@@ -2791,8 +2790,8 @@ msgid ""
 "An editable Word file that looks like the original: every page rebuilt with "
 "its layout. PDF files only."
 msgstr ""
-"ከዋናው ጋር የሚመሳሰል ሊስተካከል የሚችል የWord ፋይል፦ እያንዳንዱ ገጽ በአቀማመጡ ተመልሶ ተሠርቷል። ለPDF ፋይሎች"
-" ብቻ።"
+"ከዋናው ጋር የሚመሳሰል ሊስተካከል የሚችል የWord ፋይል፦ እያንዳንዱ ገጽ በአቀማመጡ ተመልሶ ተሠርቷል። ለPDF ፋይሎች "
+"ብቻ።"
 
 #: apps/docops/templates/docops/services/confirm.html:7
 #, python-format
@@ -2854,8 +2853,8 @@ msgid ""
 "Upload a document or choose one from your library. You see the price before "
 "anything is charged, and you pay only if the result is delivered."
 msgstr ""
-"ሰነድ ይስቀሉ ወይም ከቤተ-መጻሕፍትዎ ይምረጡ። ምንም ከመከፈሉ በፊት ዋጋውን ያያሉ፤ ክፍያ የሚከፍሉትም ውጤቱ ከደረሰዎት"
-" ብቻ ነው።"
+"ሰነድ ይስቀሉ ወይም ከቤተ-መጻሕፍትዎ ይምረጡ። ምንም ከመከፈሉ በፊት ዋጋውን ያያሉ፤ ክፍያ የሚከፍሉትም ውጤቱ ከደረሰዎት "
+"ብቻ ነው።"
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
@@ -2878,8 +2877,7 @@ msgstr "ከ$%(p)s በገጽ።"
 msgid "Choose a file or drag it here"
 msgstr "ፋይል ይምረጡ ወይም ወደዚህ ይጎትቱ"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF፣ PNG፣ JPG ወይም WebP፣ እስከ 10 ሜባ"
 
@@ -2980,8 +2978,7 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "ዓላማውንና እውነታዎችን ይግለጹ፤ AI ጽሑፉን ይጽፍልዎታል።"
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
+msgid "The template could not be read. You were not charged; please try again."
 msgstr "አብነቱን ማንበብ አልተቻለም። ክፍያ አልተፈጸመብዎትም፤ እባክዎ እንደገና ይሞክሩ።"
 
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
@@ -3113,8 +3110,7 @@ msgid ""
 "Tell me what you need. The document is written on your letterhead, and you "
 "can review and edit it afterwards."
 msgstr ""
-"የሚፈልጉትን ይንገሩኝ። ሰነዱ በደብዳቤ ራስዎ (letterhead) ላይ ይጻፋል፤ ከዚያም መገምገም እና ማስተካከል "
-"ይችላሉ።"
+"የሚፈልጉትን ይንገሩኝ። ሰነዱ በደብዳቤ ራስዎ (letterhead) ላይ ይጻፋል፤ ከዚያም መገምገም እና ማስተካከል ይችላሉ።"
 
 #: apps/documents/templates/documents/ai_new.html:19
 #, python-format
@@ -3128,8 +3124,8 @@ msgid ""
 "template and writing this document costs $%(first)s this time. Afterwards, "
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
-"ለድርጅትዎ በማንነቱ መሠረት አብነት (template) ላዘጋጅ? አብነቱን ማዘጋጀትና ይህን ሰነድ መጻፍ በዚህ ጊዜ "
-"$%(first)s ያስከፍላል። ከዚያ በኋላ «%(name)s» በፈለጉ ቁጥር ለጽሑፉ $%(later)s ብቻ ይከፍላሉ።"
+"ለድርጅትዎ በማንነቱ መሠረት አብነት (template) ላዘጋጅ? አብነቱን ማዘጋጀትና ይህን ሰነድ መጻፍ በዚህ ጊዜ $"
+"%(first)s ያስከፍላል። ከዚያ በኋላ «%(name)s» በፈለጉ ቁጥር ለጽሑፉ $%(later)s ብቻ ይከፍላሉ።"
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3290,8 +3286,8 @@ msgstr "በAI አሻሽለው"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr "ለምሳሌ፦ አሳጥረው፣ ስለምስጢራዊነት አንቀጽ ጨምር፣ መጠኑን ወደ 1,500 ቀይር።"
 
 #: apps/documents/templates/documents/edit.html:81
@@ -3397,8 +3393,8 @@ msgstr "ሰነዶችን ማንበብ ይችላሉ እንጂ መቀየር አይ�
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
 "ከአብነቶችዎ የተጻፉ ሰነዶች መዝገብ። ጽሑፉ እዚህ አይታይም፤ ለማንበብ ሰነዱን ይክፈቱ፤ እያንዳንዱ መክፈት በእንቅስቃሴ "
@@ -3457,13 +3453,11 @@ msgstr "በዚህ ቋንቋ ደብዳቤ ራስጌ የለም፤ ስለዚህ ዋ
 msgid "Add one"
 msgstr "አንድ ጨምር"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "ርዕስ፦"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "ይህን ሰነድ ያረጋግጡ"
 
@@ -3481,8 +3475,8 @@ msgid ""
 "for a blank; each time you use the template you fill the blanks and get a "
 "new document."
 msgstr ""
-"ደጋግመው የሚጽፉትን ደብዳቤ ወይም የምስክር ወረቀት ያስቀምጡ። ባዶ ቦታ ለማስቀመጥ {{እንዲህ}} ብለው ይጻፉ፤ አብነቱን"
-" በተጠቀሙ ቁጥር ባዶ ቦታዎቹን ሞልተው አዲስ ሰነድ ያገኛሉ።"
+"ደጋግመው የሚጽፉትን ደብዳቤ ወይም የምስክር ወረቀት ያስቀምጡ። ባዶ ቦታ ለማስቀመጥ {{እንዲህ}} ብለው ይጻፉ፤ አብነቱን "
+"በተጠቀሙ ቁጥር ባዶ ቦታዎቹን ሞልተው አዲስ ሰነድ ያገኛሉ።"
 
 #: apps/documents/templates/documents/templates.html:13
 msgid "No templates yet. Open a document and choose «Save as a template»."
@@ -3526,11 +3520,11 @@ msgstr ""
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
 msgstr ""
-"MyDocHub በሰነዶች ላይ ማኅተም ወይም ፊርማ አያስቀምጥም፦ በወረቀቱ ላይ ያለ ማንኛውም ማኅተም ወይም ፊርማ ኩባንያው"
-" ከታተመ በኋላ ያከለው ነው።"
+"MyDocHub በሰነዶች ላይ ማኅተም ወይም ፊርማ አያስቀምጥም፦ በወረቀቱ ላይ ያለ ማንኛውም ማኅተም ወይም ፊርማ ኩባንያው "
+"ከታተመ በኋላ ያከለው ነው።"
 
 #: apps/documents/templates/documents/verify.html:23
 msgid "The document as it was issued"
@@ -3577,8 +3571,7 @@ msgid ""
 msgstr "የዚህ ዓይነት አብነት አስቀድሞ አለዎት። ሌላ ስም ይምረጡ ወይም ያለውን እንደገና ይንድፉ።"
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
 msgstr "እንደ አብነት ተቀምጧል። በየጊዜው የሚሞላ ባዶ ቦታ ለማስቀመጥ {{እንዲህ}} ብለው ይጻፉ።"
 
 #: apps/documents/views.py:470 apps/documents/views.py:477
@@ -3984,8 +3977,8 @@ msgstr "ጥያቄውን አርትዕ"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
 msgstr ""
 "ይህ ጥያቄ አስቀድሞ መልሶች አሉት። ዓይነቱን ወይም አማራጮቹን መቀየር የድሮ መልሶችን ለማንበብ ሊያስቸግር ይችላል።"
 
@@ -4111,8 +4104,8 @@ msgstr "ምስሉ በጣም ትንሽ ነው። ይበልጥ ግልጽ ፎቶ �
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
 msgstr "በዚህ ምስል ውስጥ ግልጽ አርማ ማግኘት አልቻልንም። ግልጽ ዳራ ያለውን የአርማ ፋይል ይጠቀሙ።"
 
 #: apps/identity/letterheads.py:92
@@ -4235,8 +4228,8 @@ msgid ""
 "A letter is printed on the letterhead of its own language. Your main "
 "language is %(language)s; add one for every other language you write in."
 msgstr ""
-"ደብዳቤ የሚታተመው በራሱ ቋንቋ ደብዳቤ ራስጌ ላይ ነው። ዋና ቋንቋዎ %(language)s ነው፤ በሚጽፉባቸው ለእያንዳንዱ"
-" ሌላ ቋንቋ አንድ ይጨምሩ።"
+"ደብዳቤ የሚታተመው በራሱ ቋንቋ ደብዳቤ ራስጌ ላይ ነው። ዋና ቋንቋዎ %(language)s ነው፤ በሚጽፉባቸው ለእያንዳንዱ "
+"ሌላ ቋንቋ አንድ ይጨምሩ።"
 
 #: apps/identity/templates/identity/_letterheads.html:11
 msgid "This letterhead will be deleted for good."
@@ -4365,8 +4358,7 @@ msgstr "ለአሁን ዝለል"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr "እያንዳንዱ ደብዳቤና የምስክር ወረቀት የሚታተምበት አርማና የደብዳቤ ራስጌዎች።"
 
 #: apps/identity/templates/identity/studio.html:15
@@ -4522,8 +4514,8 @@ msgstr "አንብብልኝ"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
 msgstr "AI ሰነዱን አንብቦ ባዶ የሆኑትን ዝርዝሮች ይሞላል። የሚከፈለው ካነበባቸው ብቻ ነው።"
 
 #: apps/library/templates/library/form.html:22
@@ -4532,23 +4524,22 @@ msgstr "ይህን የሥራ ቦታ አባላት ብቻ ሊከፍቱት ይችላ
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
 msgstr "ዓይነቱ፣ ሰጪው አካል፣ የማጣቀሻ ቁጥሩ እና ቀናቱ ከፋይሉ ይነበባሉ። የሚከፈለው ከተነበቡ ብቻ ነው።"
 
 #: apps/library/templates/library/form.html:37
 msgid "Add the details yourself"
 msgstr "ዝርዝሮቹን ራስዎ ያክሉ"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "ዝርዝሮች"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
 msgstr "የማብቂያ ቀን ካለው፣ ከማብቃቱ 90፣ 30፣ 7 እና 1 ቀን በፊት በኢሜይል ያስታውሰዎታል።"
 
 #: apps/library/templates/library/list.html:8
@@ -4606,8 +4597,8 @@ msgstr "የAI መሳሪያዎች"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
 msgstr ""
 "ፈቃዶችዎን፣ ውሎችዎን እና ደብዳቤዎችዎን በአንድ ቦታ ያስቀምጡ፣ በAI አዲስ ሰነዶችን ይፍጠሩ፣ እና በቦርዱ ላይ ቀጥሎ "
 "የሚያበቃውን ይመልከቱ።"
@@ -4625,8 +4616,8 @@ msgid ""
 "The mail server refused the user name or password. Gmail, Outlook and Yahoo "
 "need an app password."
 msgstr ""
-"የመልዕክት አገልጋዩ የተጠቃሚ ስሙን ወይም የይለፍ ቃሉን አልተቀበለም። Gmail፣ Outlook እና Yahoo የመተግበሪያ"
-" የይለፍ ቃል ያስፈልጋቸዋል።"
+"የመልዕክት አገልጋዩ የተጠቃሚ ስሙን ወይም የይለፍ ቃሉን አልተቀበለም። Gmail፣ Outlook እና Yahoo የመተግበሪያ "
+"የይለፍ ቃል ያስፈልጋቸዋል።"
 
 #: apps/mail/client.py:69
 msgid "The mail server answered with an error."
@@ -4819,8 +4810,7 @@ msgid "signature"
 msgstr "ፊርማ"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "አዲስ መልዕክት"
 
@@ -5106,8 +5096,8 @@ msgstr "የኩባንያውን የመልእክት ሳጥን ያገናኙ"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
 msgstr ""
 "የኩባንያውን ኢሜይል አድራሻ አንድ ጊዜ ይጨምሩ፣ ከዚያ በMyDocHub ውስጥ የኩባንያ ኢሜይል ያንብቡ እና ይጻፉ።"
 
@@ -5117,15 +5107,15 @@ msgstr "የአገልጋይ ዝርዝሮች"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
 msgstr "ባዶ ቢተው ከአድራሻው ይገመታል። ግንኙነቱ ካልተሳካ ብቻ ይቀይሯቸው።"
 
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
 "በስራ ቦታው ሰነዶችን ማስተካከል የሚችል ሁሉ ከዚህ የመልእክት ሳጥን ኢሜይል ማንበብና መላክ ይችላል። መክፈትና መላክ "
 "በእንቅስቃሴ መዝገብ ውስጥ ይመዘገባል። የይለፍ ቃሉ በስራ ቦታዎ ቁልፍ ታሽጓል።"
@@ -5168,9 +5158,9 @@ msgstr "አዲስ የኢሜይል አብነት"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
 "AI የእርስዎን ሎጎ፣ የብራንድ ቀለሞች እና የኩባንያ ዝርዝሮች ያካተተ አብነት ይቀርጻል። ከመጠቀምዎ በፊት ያዩታል፤ "
 "ክፍያ የሚፈጸመው ጥቅም ላይ የሚውል ንድፍ ከደረሰዎት ብቻ ነው።"
@@ -5500,8 +5490,7 @@ msgstr "እባክዎ ማንበብዎን ያረጋግጡ፦ %(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
 msgstr "ቀሪ ሂሳቡ ዝቅተኛ ነው፦ %(balance)s ቀርቷል። አገልግሎቶቹን መጠቀም ለመቀጠል ሙላ"
 
 #: apps/notifications/registry.py:21
@@ -5595,8 +5584,7 @@ msgstr "ጥሩና ግልጽ ገለጻ፣ በአንድ ጊዜ የሚጻፍ።"
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr "በሁለተኛ ዙር ተገምግሞ ይሻሻላል፤ ጠንካራ ርዕሶችና የተጣበቀ ታሪክ።"
 
 #: apps/presentations/service.py:52
@@ -5648,8 +5636,7 @@ msgstr "በ$%(price)s ይፍጠሩት"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "ተው"
 
@@ -5667,8 +5654,8 @@ msgstr "ይህ ገለጻ ለዘላለም ይሰረዛል።"
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
 msgstr ""
 "ስላይዶቹን ማዘጋጀት ጥቂት ደቂቃዎች ይወስዳል። ይህን ገጽ መልቀቅ ይችላሉ፤ ውጤቱ በገለጻዎችዎ ውስጥ ይጠብቅዎታል።"
 
@@ -5721,8 +5708,8 @@ msgstr "ከ<bdi dir=\"ltr\">$%(price)s</bdi>"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr "የሚታየው ዋጋ ለ10 ስላይዶች ነው። ምንም ከመከፈሉ በፊት ትክክለኛውን ዋጋ ያያሉ።"
 
 #: apps/presentations/templates/presentations/list.html:41
@@ -5783,8 +5770,8 @@ msgstr "ይህ አገናኝ አይገኝም"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
 msgstr "ጊዜው አልፎበት ወይም የላከው ሰው ሰርዞት ሊሆን ይችላል። አዲስ አገናኝ እንዲልክልዎ ይጠይቁት።"
 
 #: apps/sharing/templates/sharing/list.html:6
@@ -5877,8 +5864,8 @@ msgstr "ቅጂ ማስቀመጥ ፍቀድ"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
 msgstr ""
 "ይህ ካልተፈቀደ ሰውየው በገጹ ላይ ማየት ብቻ ይችላል። የስክሪን ፎቶ እንዳይነሳ ማገድ አይቻልም፣ ስለዚህ ለሚያምኗቸው "
 "ሰዎች ብቻ ያጋሩ።"
@@ -6230,8 +6217,8 @@ msgstr "ግብዣውን ልከናል።"
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
 msgstr "ግብዣው ተፈጥሯል ነገር ግን ኢሜይሉ መላክ አልተቻለም። ከጥቂት ደቂቃዎች በኋላ «እንደገና ላክ» ይጠቀሙ።"
 
 #: apps/team/views.py:101
@@ -6371,8 +6358,7 @@ msgstr "ካልተመዘገቡ ይህን መልእክት ችላ ይበሉ።"
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
+"Confirm your email address with the link below. The link is valid for 3 days."
 msgstr "የኢሜይል አድራሻዎን ከታች ባለው አገናኝ ያረጋግጡ። አገናኙ ለ3 ቀናት ያገለግላል።"
 
 #: templates/accounts/emails/verify_email_subject.txt:1
@@ -6498,8 +6484,8 @@ msgstr "አጥፋ"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
 "ይህን ምስል በማረጋገጫ መተግበሪያ (Google Authenticator፣ Microsoft Authenticator፣ "
 "Authy…) ይቃኙ፣ ከዚያ የሚያሳየውን ኮድ ያስገቡ።"
@@ -6532,8 +6518,7 @@ msgstr "አስቀድሞ መለያ አለዎት?"
 msgid ""
 "Enter the six-digit code from your authenticator app. If you lost your "
 "phone, enter one of your backup codes."
-msgstr ""
-"ከማረጋገጫ መተግበሪያዎ ባለ ስድስት አኃዝ ኮዱን ያስገቡ። ስልክዎ ከጠፋ፣ ከመጠባበቂያ ኮዶችዎ አንዱን ያስገቡ።"
+msgstr "ከማረጋገጫ መተግበሪያዎ ባለ ስድስት አኃዝ ኮዱን ያስገቡ። ስልክዎ ከጠፋ፣ ከመጠባበቂያ ኮዶችዎ አንዱን ያስገቡ።"
 
 #: templates/accounts/two_factor.html:10
 msgid "Verify"
@@ -6601,8 +6586,7 @@ msgid "Account"
 msgstr "መለያ"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "የመድረክ ኮንሶል"
 
@@ -6696,10 +6680,9 @@ msgstr "ወርሃዊ የAI በጀት"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
-msgstr ""
-"የወሩ ወጪ በጀቱ ላይ ሲደርስ፣ በጀቱ እስኪጨመር ወይም ወሩ እስኪያልቅ ድረስ ሁሉም የAI አገልግሎቶች ይቆማሉ።"
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
+msgstr "የወሩ ወጪ በጀቱ ላይ ሲደርስ፣ በጀቱ እስኪጨመር ወይም ወሩ እስኪያልቅ ድረስ ሁሉም የAI አገልግሎቶች ይቆማሉ።"
 
 #: templates/console/ai.html:15
 msgid "Monthly budget (USD)"
@@ -6992,8 +6975,8 @@ msgstr "የቅርብ ጊዜ የመዝገብ ግቤቶች"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
 "እያንዳንዱ አገልግሎት በእውነት ምን ያህል እንደሚያስወጣና በምን ዋጋ እንደሚሸጥ። የተቀመጠ ዋጋ በDjango አስተዳዳሪ "
 "ውስጥ ሊቀየር ይችላል፤ sync_prices የተቀመጡትን ዋጋዎች ከዋጋ ፋይሉ ጋር ያመሳስላል።"
@@ -7016,8 +6999,8 @@ msgstr "ለሽያጭ አልቀረበም"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
 msgstr "(n) = ከወጪው በስተጀርባ ያሉ እውነተኛ ሩጫዎች ብዛት፤ * = በትንሽ ሩጫ ተለክቶ የተለጠጠ።"
 
 #: templates/console/user_grant.html:3 templates/console/user_grant.html:6
@@ -7158,213 +7141,6 @@ msgstr "ቅድመ እይታ መዳረሻ"
 msgid "Leave"
 msgstr "ውጣ"
 
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "መለያ፣ ደብዳቤዎችና ሰርተፍኬቶች በራስዎ የደብዳቤ ራስጌ።"
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "ያለዎትን ይስቀሉ፣ ወይም እኛ እንፍጠርልዎ"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "ረቂቅ — ይህ ጽሑፍ ለኩባንያው ሕግ አማካሪ መነሻ ነው። የሕግ ምክር አይደለም፤ አገልግሎቱ ለሕዝብ ከመከፈቱ በፊት "
-#~ "መመርመር አለበት። በ[ቅንፍ] ውስጥ ያሉት መሞላት አለባቸው።"
-
-#~ msgid "Open the company identity"
-#~ msgstr "የድርጅቱን መለያ ክፈት"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "የAI የሥራ ቦታ"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "የንድፍ ስቱዲዮ"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "የንግድ ብልህነት"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "ድርጅት"
-
-#~ msgid "Reminders due"
-#~ msgstr "ጊዜያቸው የደረሱ አስታዋሾች"
-
-#~ msgid "Built by"
-#~ msgstr "የሠራው"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr ""
-#~ "አርማ፣ የደብዳቤ ራስጌ፣ ማህተም እና ፊርማ። ያለዎትን ይስቀሉ፤ አርማውን እና የደብዳቤ ራስጌውን ልንፈጥርልዎ "
-#~ "እንችላለን።"
-
-#~ msgid "add the stamp"
-#~ msgstr "ማኅተም ጨምር"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr ""
-#~ "ይህን ጽሑፍ እንደገና ለመጠቀም ያስቀምጡት። በየጊዜው የሚሞላ ባዶ ቦታ ለማስቀመጥ {{እንዲህ}} ብለው ይጻፉ። ማህተሙና "
-#~ "ፊርማው አይቀመጡም።"
-
-#~ msgid "Sealed"
-#~ msgstr "በማኅተም የተረጋገጠ"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr "ይህን ማኅተም ለዚህ ድርጅት ለመጠቀም ሥልጣን እንዳለኝ አረጋግጣለሁ።"
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr "ይህ የእኔ ፊርማ እንደሆነ ወይም ባለቤቱ ለዚህ ድርጅት እንድጠቀም እንደፈቀደልኝ አረጋግጣለሁ።"
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr "እርስዎ መሆንዎን ለማረጋገጥ የይለፍ ቃልዎን እንደገና ያስገቡ።"
-
-#~ msgid "stamp"
-#~ msgstr "ማኅተም"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "ፎቶው በጣም ጨለማ ነው። በጥሩ ብርሃን ነጭ ወረቀት ይጠቀሙ።"
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr ""
-#~ "በዚህ ምስል ውስጥ ግልጽ %(what)s አላገኘንም። በተመሳሳይ ብርሃን የተነሳ ንጹሕ ነጭ ወረቀት ፎቶ ይጠቀሙ።"
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr "ሥዕሉ በጣም ደብዛዛ ወይም ትንሽ ነው። ቀረብ ብለው በተመሳሳይ ብርሃን ያንሱ።"
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr "ወረቀቱ በቂ ንጹሕ አይደለም። ነጭ ወረቀት ይጠቀሙ፣ ጥላና ንድፍ ያስወግዱ።"
-
-#~ msgid "Stamp"
-#~ msgstr "ማኅተም"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "ማኅተም እና ፊርማ"
-
-#~ msgid "Kept private"
-#~ msgstr "በግል የተያዘ"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr "ማኅተሙ እና ፊርማው ለድርጅቱ ባለቤት እና ባለቤቱ ለሚፈቅድላቸው አባላት ናቸው። ባለቤቱን ይጠይቁ።"
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr ""
-#~ "ለባለቤቱ እና ባለቤቱ ለሚፈቅድላቸው አባላት ናቸው። በእነርሱ የሚደረግ ሁሉ በእንቅስቃሴ መዝገብ ውስጥ ይመዘገባል።"
-
-#~ msgid "Replace"
-#~ msgstr "ተካ"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr "ይህ ፋይል ለዘላለም ይሰረዛል። ለማረጋገጥ የይለፍ ቃልዎን ያስገቡ።"
-
-#~ msgid "Who may use them"
-#~ msgstr "ማን ሊጠቀም ይችላል"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr ""
-#~ "እርስዎ ባለቤቱ ሁልጊዜ ይችላሉ። ሌሎች አባላት ማኅተሙን ወይም ፊርማውን በሰነድ ላይ ማድረግ የሚችሉት እዚህ ሲፈቅዱላቸው"
-#~ " ብቻ ነው።"
-
-#~ msgid "allowed"
-#~ msgstr "ተፈቅዷል"
-
-#~ msgid "Take back"
-#~ msgstr "መልስ"
-
-#~ msgid "Allow"
-#~ msgstr "ፍቀድ"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "እስካሁን ሌሎች አባላት የሉም።"
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr "የድርጅቱን ማህተም ግልጽ ምስል ይስቀሉ። ማህተም በፍጹም አንፈጥርም።"
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr "የፊርማውን ግልጽ ምስል ይስቀሉ። ፊርማ በፍጹም አንፈጥርም።"
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "ማህተም እና ፊርማ መጠቀም ይችላል"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "ማኅተሙን እና ፊርማውን መጠቀም ይችላል"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr "ውጤቱን ማንበብ አልተቻለም። ክፍያ አልተፈጸመብዎትም፤ እባክዎ እንደገና ይሞክሩ።"
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "ይተርጉሙት፣ ያጠቃልሉት፣ መረጃውን ያውጡ ወይም ወደ Word ይቀይሩት። የሚነበቡት የመጀመሪያዎቹ %(pages)s ገጾች "
-#~ "ብቻ ናቸው። ዋጋው እንደ ገጾቹ ብዛት ይወሰናል። ዋጋውን መጀመሪያ ያያሉ፤ ውጤቱ ከደረሰዎት ብቻ ይከፍላሉ።"
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "በዚህ ሰነድ ውስጥ ያሉ ገጾች፦ %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Word አውርድ"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "ከዚህ ፋይል ምንም ጽሑፍ ማንበብ አልተቻለም።"
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "ተጠናቋል። ይህ ፋይል ጽሑፍ ስለነበረው ለውጡ ነፃ ነበር።"
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr "የዚህ ሰነድ ጽሑፍ ያለው ሊስተካከል የሚችል Word ፋይል። ጽሑፉ አስቀድሞ ስላለ ይህ ነፃ ነው።"
-
-#~ msgid "Something different is coming"
-#~ msgstr "የተለየ ነገር በመምጣት ላይ ነው"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "ድር ጣቢያው በsecrets.json ውስጥ SITE_LOCKED = false በሚል ቅንብር ክፍት ሆኖ ተቀምጧል።"
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "በsecrets.json ውስጥ በSITE_LOCKED = false ክፍት ሆኖ ተይዟል።"
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "አዲስ ነገር በመዘጋጀት ላይ ነው…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "የኩባንያዎ ሰነዶች፣ ደብዳቤዎች እና ማኅተሞች በአንድ ቦታ።"
-
-#~ msgid "By"
-#~ msgstr "በ"
-
-#~ msgid "Next 6 months"
-#~ msgstr "ቀጣይ 6 ወራት"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "አዲስ ደብዳቤ ወይም ሰርተፊኬት"
-
 #, python-format
 msgid "At your command, %(name)s!"
 msgstr "ትእዛዝዎ ይፈጸማል፣ %(name)s!"
@@ -7418,3 +7194,214 @@ msgstr "ጥያቄ፡ %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "መልሱ እንደ ማስታወሻ ተቀምጧል።"
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "መለያ፣ ደብዳቤዎችና ሰርተፍኬቶች በራስዎ የደብዳቤ ራስጌ።"
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "ያለዎትን ይስቀሉ፣ ወይም እኛ እንፍጠርልዎ"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "ረቂቅ — ይህ ጽሑፍ ለኩባንያው ሕግ አማካሪ መነሻ ነው። የሕግ ምክር አይደለም፤ አገልግሎቱ ለሕዝብ ከመከፈቱ በፊት "
+#~ "መመርመር አለበት። በ[ቅንፍ] ውስጥ ያሉት መሞላት አለባቸው።"
+
+#~ msgid "Open the company identity"
+#~ msgstr "የድርጅቱን መለያ ክፈት"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "የAI የሥራ ቦታ"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "የንድፍ ስቱዲዮ"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "የንግድ ብልህነት"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "ድርጅት"
+
+#~ msgid "Reminders due"
+#~ msgstr "ጊዜያቸው የደረሱ አስታዋሾች"
+
+#~ msgid "Built by"
+#~ msgstr "የሠራው"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "አርማ፣ የደብዳቤ ራስጌ፣ ማህተም እና ፊርማ። ያለዎትን ይስቀሉ፤ አርማውን እና የደብዳቤ ራስጌውን ልንፈጥርልዎ "
+#~ "እንችላለን።"
+
+#~ msgid "add the stamp"
+#~ msgstr "ማኅተም ጨምር"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "ይህን ጽሑፍ እንደገና ለመጠቀም ያስቀምጡት። በየጊዜው የሚሞላ ባዶ ቦታ ለማስቀመጥ {{እንዲህ}} ብለው ይጻፉ። "
+#~ "ማህተሙና ፊርማው አይቀመጡም።"
+
+#~ msgid "Sealed"
+#~ msgstr "በማኅተም የተረጋገጠ"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr "ይህን ማኅተም ለዚህ ድርጅት ለመጠቀም ሥልጣን እንዳለኝ አረጋግጣለሁ።"
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr "ይህ የእኔ ፊርማ እንደሆነ ወይም ባለቤቱ ለዚህ ድርጅት እንድጠቀም እንደፈቀደልኝ አረጋግጣለሁ።"
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr "እርስዎ መሆንዎን ለማረጋገጥ የይለፍ ቃልዎን እንደገና ያስገቡ።"
+
+#~ msgid "stamp"
+#~ msgstr "ማኅተም"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "ፎቶው በጣም ጨለማ ነው። በጥሩ ብርሃን ነጭ ወረቀት ይጠቀሙ።"
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "በዚህ ምስል ውስጥ ግልጽ %(what)s አላገኘንም። በተመሳሳይ ብርሃን የተነሳ ንጹሕ ነጭ ወረቀት ፎቶ ይጠቀሙ።"
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr "ሥዕሉ በጣም ደብዛዛ ወይም ትንሽ ነው። ቀረብ ብለው በተመሳሳይ ብርሃን ያንሱ።"
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr "ወረቀቱ በቂ ንጹሕ አይደለም። ነጭ ወረቀት ይጠቀሙ፣ ጥላና ንድፍ ያስወግዱ።"
+
+#~ msgid "Stamp"
+#~ msgstr "ማኅተም"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "ማኅተም እና ፊርማ"
+
+#~ msgid "Kept private"
+#~ msgstr "በግል የተያዘ"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr "ማኅተሙ እና ፊርማው ለድርጅቱ ባለቤት እና ባለቤቱ ለሚፈቅድላቸው አባላት ናቸው። ባለቤቱን ይጠይቁ።"
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "ለባለቤቱ እና ባለቤቱ ለሚፈቅድላቸው አባላት ናቸው። በእነርሱ የሚደረግ ሁሉ በእንቅስቃሴ መዝገብ ውስጥ ይመዘገባል።"
+
+#~ msgid "Replace"
+#~ msgstr "ተካ"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr "ይህ ፋይል ለዘላለም ይሰረዛል። ለማረጋገጥ የይለፍ ቃልዎን ያስገቡ።"
+
+#~ msgid "Who may use them"
+#~ msgstr "ማን ሊጠቀም ይችላል"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "እርስዎ ባለቤቱ ሁልጊዜ ይችላሉ። ሌሎች አባላት ማኅተሙን ወይም ፊርማውን በሰነድ ላይ ማድረግ የሚችሉት እዚህ "
+#~ "ሲፈቅዱላቸው ብቻ ነው።"
+
+#~ msgid "allowed"
+#~ msgstr "ተፈቅዷል"
+
+#~ msgid "Take back"
+#~ msgstr "መልስ"
+
+#~ msgid "Allow"
+#~ msgstr "ፍቀድ"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "እስካሁን ሌሎች አባላት የሉም።"
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr "የድርጅቱን ማህተም ግልጽ ምስል ይስቀሉ። ማህተም በፍጹም አንፈጥርም።"
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr "የፊርማውን ግልጽ ምስል ይስቀሉ። ፊርማ በፍጹም አንፈጥርም።"
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "ማህተም እና ፊርማ መጠቀም ይችላል"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "ማኅተሙን እና ፊርማውን መጠቀም ይችላል"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr "ውጤቱን ማንበብ አልተቻለም። ክፍያ አልተፈጸመብዎትም፤ እባክዎ እንደገና ይሞክሩ።"
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "ይተርጉሙት፣ ያጠቃልሉት፣ መረጃውን ያውጡ ወይም ወደ Word ይቀይሩት። የሚነበቡት የመጀመሪያዎቹ %(pages)s "
+#~ "ገጾች ብቻ ናቸው። ዋጋው እንደ ገጾቹ ብዛት ይወሰናል። ዋጋውን መጀመሪያ ያያሉ፤ ውጤቱ ከደረሰዎት ብቻ ይከፍላሉ።"
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "በዚህ ሰነድ ውስጥ ያሉ ገጾች፦ %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Word አውርድ"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "ከዚህ ፋይል ምንም ጽሑፍ ማንበብ አልተቻለም።"
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr "ተጠናቋል። ይህ ፋይል ጽሑፍ ስለነበረው ለውጡ ነፃ ነበር።"
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr "የዚህ ሰነድ ጽሑፍ ያለው ሊስተካከል የሚችል Word ፋይል። ጽሑፉ አስቀድሞ ስላለ ይህ ነፃ ነው።"
+
+#~ msgid "Something different is coming"
+#~ msgstr "የተለየ ነገር በመምጣት ላይ ነው"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr ""
+#~ "ድር ጣቢያው በsecrets.json ውስጥ SITE_LOCKED = false በሚል ቅንብር ክፍት ሆኖ ተቀምጧል።"
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "በsecrets.json ውስጥ በSITE_LOCKED = false ክፍት ሆኖ ተይዟል።"
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "አዲስ ነገር በመዘጋጀት ላይ ነው…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "የኩባንያዎ ሰነዶች፣ ደብዳቤዎች እና ማኅተሞች በአንድ ቦታ።"
+
+#~ msgid "By"
+#~ msgstr "በ"
+
+#~ msgid "Next 6 months"
+#~ msgstr "ቀጣይ 6 ወራት"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "አዲስ ደብዳቤ ወይም ሰርተፊኬት"

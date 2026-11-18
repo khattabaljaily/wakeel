@@ -113,7 +113,8 @@ msgstr "規約に同意済み"
 
 #: apps/accounts/views.py:44
 msgid "Too many sign-ups from this address. Try again later."
-msgstr "このアドレスからの登録が多すぎます。しばらくしてからもう一度お試しください。"
+msgstr ""
+"このアドレスからの登録が多すぎます。しばらくしてからもう一度お試しください。"
 
 #: apps/accounts/views.py:60
 msgid "Welcome! We sent a confirmation link to your email."
@@ -124,7 +125,8 @@ msgstr "ようこそ!確認用リンクをメールで送信しました。"
 msgid ""
 "We could not send the confirmation email. Please use “%(action)s” in a few "
 "minutes."
-msgstr "確認メールを送信できませんでした。数分後に「%(action)s」をご利用ください。"
+msgstr ""
+"確認メールを送信できませんでした。数分後に「%(action)s」をご利用ください。"
 
 #: apps/accounts/views.py:63 apps/accounts/views.py:135
 msgid "Send the link again"
@@ -143,7 +145,9 @@ msgstr "メールアドレスを確認しました。"
 msgid ""
 "We added %(amount)s of free credit to %(workspace)s so you can try the AI "
 "services."
-msgstr "AIサービスをお試しいただけるよう、%(workspace)s に %(amount)s の無料クレジットを追加しました。"
+msgstr ""
+"AIサービスをお試しいただけるよう、%(workspace)s に %(amount)s の無料クレジッ"
+"トを追加しました。"
 
 #: apps/accounts/views.py:130
 msgid "Your email is already confirmed."
@@ -171,7 +175,9 @@ msgstr "正しくありません。変更は行われていません。"
 
 #: apps/accounts/views.py:220
 msgid "That code is not correct. Check the time on your phone and try again."
-msgstr "コードが正しくありません。スマートフォンの時刻を確認して、もう一度お試しください。"
+msgstr ""
+"コードが正しくありません。スマートフォンの時刻を確認して、もう一度お試しくだ"
+"さい。"
 
 #: apps/accounts/views.py:236
 msgid "Two-step verification is off."
@@ -179,7 +185,8 @@ msgstr "2段階認証はオフです。"
 
 #: apps/ai/gateway.py:98
 msgid "The AI service is busy. Please try again in a minute."
-msgstr "AIサービスが混み合っています。1分ほど待ってからもう一度お試しください。"
+msgstr ""
+"AIサービスが混み合っています。1分ほど待ってからもう一度お試しください。"
 
 #: apps/ai/gateway.py:100
 msgid "The AI service could not be reached. Please try again."
@@ -559,8 +566,8 @@ msgstr "タスクを追加しました。"
 msgid "note"
 msgstr "メモ"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "通知する日時"
 
@@ -654,8 +661,8 @@ msgstr "実行中"
 msgid "Done"
 msgstr "完了"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -680,7 +687,9 @@ msgstr "AIアシスタント"
 msgid ""
 "Tell it what you need. It finds your documents and suggests what to do; "
 "nothing runs until you approve it."
-msgstr "必要なことを伝えてください。文書を探して提案します。承認するまで何も実行されません。"
+msgstr ""
+"必要なことを伝えてください。文書を探して提案します。承認するまで何も実行され"
+"ません。"
 
 #: apps/assistant/templates/assistant/chat.html:7
 msgid "The whole conversation will be deleted for good."
@@ -744,18 +753,25 @@ msgstr "送信"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "会話は無料です（1日あたり最大 %(limit)s メッセージ）。課金されるのは、あなたが承認したサービスのみです。アシスタントが読むのは、あなたが書いた内容と、検索した書類の詳細情報であり、書類の内容は読みません。書類が読まれるのは、その書類についての質問のような提案をあなたが承認したときだけです。誤りがある場合があります。各提案を確認してください。"
+msgstr ""
+"会話は無料です（1日あたり最大 %(limit)s メッセージ）。課金されるのは、あなた"
+"が承認したサービスのみです。アシスタントが読むのは、あなたが書いた内容と、検"
+"索した書類の詳細情報であり、書類の内容は読みません。書類が読まれるのは、その"
+"書類についての質問のような提案をあなたが承認したときだけです。誤りがある場合"
+"があります。各提案を確認してください。"
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
 "The assistant is for the owner, the administrators and the members. Ask an "
 "administrator if you need it."
-msgstr "アシスタントはオーナー、管理者、メンバー向けです。必要な場合は管理者に依頼してください。"
+msgstr ""
+"アシスタントはオーナー、管理者、メンバー向けです。必要な場合は管理者に依頼し"
+"てください。"
 
 #: apps/assistant/views.py:50
 msgid "Make a 10-slide presentation about our new product for investors"
@@ -784,7 +800,9 @@ msgstr "お答えできませんでした。別の言い方でお願いします
 #: apps/assistant/views.py:184
 msgid ""
 "You reached today's limit of messages to the assistant. Try again tomorrow."
-msgstr "本日のアシスタントへのメッセージ上限に達しました。明日もう一度お試しください。"
+msgstr ""
+"本日のアシスタントへのメッセージ上限に達しました。明日もう一度お試しくださ"
+"い。"
 
 #: apps/assistant/views.py:203
 msgid "This suggestion is no longer available. Ask the assistant again."
@@ -801,7 +819,9 @@ msgstr "この提案はもう利用できません。アシスタントにもう
 #: apps/presentations/service.py:187
 #: apps/presentations/templates/presentations/detail.html:18
 msgid "The service had a problem. You were not charged; please try again."
-msgstr "サービスで問題が発生しました。料金は請求されていません。もう一度お試しください。"
+msgstr ""
+"サービスで問題が発生しました。料金は請求されていません。もう一度お試しくださ"
+"い。"
 
 #: apps/assistant/views.py:231
 msgid "The conversation was deleted."
@@ -936,7 +956,9 @@ msgstr "会社プロフィール"
 msgid ""
 "Who did what with documents, the company mailbox and the team. This list "
 "cannot be changed."
-msgstr "書類、会社のメールボックス、チームに関する操作の履歴です。この一覧は変更できません。"
+msgstr ""
+"書類、会社のメールボックス、チームに関する操作の履歴です。この一覧は変更でき"
+"ません。"
 
 #: apps/audit/templates/audit/activity.html:13
 #: apps/credits/templates/credits/balance.html:53
@@ -1058,9 +1080,11 @@ msgstr "処理中です…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
-msgstr "デザインには1〜2分かかることがあります。ページを離れても構いません。結果はスタジオに保存されます。"
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
+msgstr ""
+"デザインには1〜2分かかることがあります。ページを離れても構いません。結果はス"
+"タジオに保存されます。"
 
 #: apps/brand/templates/brand/detail.html:20
 #: apps/brand/templates/brand/detail.html:28
@@ -1076,7 +1100,8 @@ msgid ""
 "Each concept is a different idea. Choosing one makes it your logo and its "
 "colours your brand colours; everything you make next is built from it."
 msgstr ""
-"それぞれのコンセプトは異なるアイデアです。選ぶとそれがロゴになり、その色がブランドカラーになります。以降に作るものはすべてこれを基に作られます。"
+"それぞれのコンセプトは異なるアイデアです。選ぶとそれがロゴになり、その色がブ"
+"ランドカラーになります。以降に作るものはすべてこれを基に作られます。"
 
 #: apps/brand/templates/brand/detail.html:29
 msgid "Choose this logo"
@@ -1104,14 +1129,18 @@ msgstr "ファイル"
 msgid ""
 "The brand studio is for the owner, the administrators and the members. Ask "
 "an administrator if you need it."
-msgstr "ブランドスタジオはオーナー、管理者、メンバー向けです。必要な場合は管理者に依頼してください。"
+msgstr ""
+"ブランドスタジオはオーナー、管理者、メンバー向けです。必要な場合は管理者に依"
+"頼してください。"
 
 #: apps/brand/templates/brand/studio.html:6
 msgid ""
 "Everything that makes your company look like itself: logo, colours, fonts, "
 "stationery and digital pieces, designed for you in famous, professional "
 "fonts."
-msgstr "御社らしさをつくるすべて：ロゴ、色、フォント、ステーショナリー、デジタル素材を、有名でプロフェッショナルなフォントでデザインします。"
+msgstr ""
+"御社らしさをつくるすべて：ロゴ、色、フォント、ステーショナリー、デジタル素材"
+"を、有名でプロフェッショナルなフォントでデザインします。"
 
 #: apps/brand/templates/brand/studio.html:7
 #: apps/identity/templates/identity/profile.html:3
@@ -1130,7 +1159,9 @@ msgstr "自分のファイル"
 msgid ""
 "Add your company name in the company details first: every design is made "
 "from it."
-msgstr "まず会社情報に会社名を追加してください。すべてのデザインはそこから作られます。"
+msgstr ""
+"まず会社情報に会社名を追加してください。すべてのデザインはそこから作られま"
+"す。"
 
 #: apps/brand/templates/brand/studio.html:15
 msgid "Your brand kit"
@@ -1212,7 +1243,9 @@ msgstr "役職"
 msgid ""
 "It starts with your logo: three concepts to choose from. Once you choose, "
 "you can make every other piece at %(n)s%% off in one click."
-msgstr "まずロゴから始めます。3つのコンセプトから選べます。選んだ後は、残りのすべてを%(n)s%%オフでワンクリックで作成できます。"
+msgstr ""
+"まずロゴから始めます。3つのコンセプトから選べます。選んだ後は、残りのすべて"
+"を%(n)s%%オフでワンクリックで作成できます。"
 
 #: apps/brand/templates/brand/studio.html:87
 msgid "The whole kit, with the discount"
@@ -1225,8 +1258,8 @@ msgstr "ロゴから始める"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr "ロゴを基に%(n)s点をデザインします（%(d)s%%オフ）。残高：$%(balance)s。"
 
 #: apps/brand/templates/brand/studio.html:103
@@ -1338,7 +1371,9 @@ msgstr "あなたの会社のために描かれた1つのロゴコンセプト�
 msgid ""
 "Three different concepts; an art director checks each one by eye and "
 "corrects it. You choose."
-msgstr "3つの異なるコンセプト。アートディレクターがそれぞれを目で確認して修正します。選ぶのはあなたです。"
+msgstr ""
+"3つの異なるコンセプト。アートディレクターがそれぞれを目で確認して修正します。"
+"選ぶのはあなたです。"
 
 #: apps/brand/views.py:35
 msgid "One design that suits your brand."
@@ -1352,13 +1387,16 @@ msgstr "3つのデザインから選べます。より細やかなディテー�
 msgid ""
 "The rest of your kit is being designed. Each piece appears in the studio as "
 "soon as it is ready."
-msgstr "キットの残りをデザイン中です。完成したものから順にスタジオに表示されます。"
+msgstr ""
+"キットの残りをデザイン中です。完成したものから順にスタジオに表示されます。"
 
 #: apps/brand/views.py:174
 msgid ""
 "This is now your logo. Its colours are your brand colours, and everything "
 "you make next is built from it."
-msgstr "これがあなたのロゴになりました。その色はブランドカラーであり、これから作るものはすべてこれを基に作られます。"
+msgstr ""
+"これがあなたのロゴになりました。その色はブランドカラーであり、これから作るも"
+"のはすべてこれを基に作られます。"
 
 #: apps/console/forms.py:12 templates/console/base_console.html:49
 #: templates/console/base_console.html:52
@@ -1440,7 +1478,9 @@ msgstr "%(name)s に %(amount)s を追加しました。"
 #: apps/console/views.py:188
 msgid ""
 "Too many wrong passwords. Try again in a few minutes. Nothing was deleted."
-msgstr "パスワードの間違いが多すぎます。数分後にもう一度お試しください。削除はされていません。"
+msgstr ""
+"パスワードの間違いが多すぎます。数分後にもう一度お試しください。削除はされて"
+"いません。"
 
 #: apps/console/views.py:194
 msgid "The password is wrong. Nothing was deleted."
@@ -1481,7 +1521,8 @@ msgstr "新しいアクセスコード:%(code)s"
 
 #: apps/console/views.py:360
 msgid "The site is locked again. Visitors see the Coming Soon page."
-msgstr "サイトを再びロックしました。訪問者には「近日公開」ページが表示されます。"
+msgstr ""
+"サイトを再びロックしました。訪問者には「近日公開」ページが表示されます。"
 
 #: apps/console/views.py:361
 msgid "The site is open. Everyone can visit it now."
@@ -1606,9 +1647,11 @@ msgstr "連絡先は閲覧のみで、変更はできません。"
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
-msgstr "顧客・仕入先・パートナーを一冊にまとめ、連絡方法とこれまでのやり取りを記録します。"
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
+msgstr ""
+"顧客・仕入先・パートナーを一冊にまとめ、連絡方法とこれまでのやり取りを記録し"
+"ます。"
 
 #: apps/contacts/templates/contacts/list.html:7
 #: apps/contacts/templates/contacts/list.html:30
@@ -1655,11 +1698,12 @@ msgstr "会社の<em>書類とチームワーク</em>をひとつのワークス
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
-"MyDocHub は、会社の書類、ブランド、メール、日々の業務をひとつにまとめます。手持ちのものをアップロードするか AI "
-"に作成させれば、すべてが自社のレターヘッドに、あなたの言語で仕上がります。"
+"MyDocHub は、会社の書類、ブランド、メール、日々の業務をひとつにまとめます。手"
+"持ちのものをアップロードするか AI に作成させれば、すべてが自社のレターヘッド"
+"に、あなたの言語で仕上がります。"
 
 #: apps/core/templates/core/about.html:10
 msgid "languages, right-to-left included"
@@ -1687,7 +1731,9 @@ msgstr "書類とファイル"
 msgid ""
 "Keep every paper with its dates and get a warning before anything expires. "
 "Share a file with a link you control."
-msgstr "すべての書類を日付とともに保管し、期限切れの前に通知を受け取れます。自分で管理できるリンクでファイルを共有できます。"
+msgstr ""
+"すべての書類を日付とともに保管し、期限切れの前に通知を受け取れます。自分で管"
+"理できるリンクでファイルを共有できます。"
 
 #: apps/core/templates/core/about.html:23 templates/accounts/auth_base.html:12
 #: templates/base_app.html:16 templates/base_app.html:130
@@ -1711,7 +1757,9 @@ msgstr "AIスタジオ"
 msgid ""
 "Your logo and visual identity, documents written on your letterhead, "
 "presentations, and an assistant for everyday work."
-msgstr "ロゴとビジュアルアイデンティティ、レターヘッドに書かれる書類、プレゼンテーション、そして日々の仕事を助けるアシスタント。"
+msgstr ""
+"ロゴとビジュアルアイデンティティ、レターヘッドに書かれる書類、プレゼンテー"
+"ション、そして日々の仕事を助けるアシスタント。"
 
 #: apps/core/templates/core/about.html:29 templates/base_app.html:27
 #: templates/base_app.html:79
@@ -1749,7 +1797,9 @@ msgstr "メールとコミュニケーション"
 msgid ""
 "Write company e-mails, publish announcements to your team, and collect "
 "answers with forms and surveys."
-msgstr "会社のメールを書き、チームにお知らせを発信し、フォームやアンケートで回答を集められます。"
+msgstr ""
+"会社のメールを書き、チームにお知らせを発信し、フォームやアンケートで回答を集"
+"められます。"
 
 #: apps/core/templates/core/about.html:35 apps/mail/templates/mail/box.html:3
 #: apps/mail/templates/mail/box.html:8 apps/mail/templates/mail/compose.html:5
@@ -1780,8 +1830,8 @@ msgstr "チームワークスペース"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr "タスク、連絡先、個人メモ。新しいことは通知で一人ひとりに届きます。"
 
 #: apps/core/templates/core/about.html:41 templates/accounts/auth_base.html:19
@@ -1814,9 +1864,11 @@ msgstr "管理"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
-msgstr "メンバーごとの役割、すべての操作の記録、そして必要なときだけチャージする残高。"
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
+msgstr ""
+"メンバーごとの役割、すべての操作の記録、そして必要なときだけチャージする残"
+"高。"
 
 #: apps/core/templates/core/about.html:47 templates/base_app.html:57
 #: templates/base_app.html:98 templates/base_app.html:130
@@ -1854,7 +1906,9 @@ msgstr "料金は先に表示"
 msgid ""
 "No subscriptions. Every AI service shows its price before it runs, and a "
 "failed run costs nothing."
-msgstr "サブスクリプションはありません。AIサービスは実行前に料金を表示し、失敗した場合は無料です。"
+msgstr ""
+"サブスクリプションはありません。AIサービスは実行前に料金を表示し、失敗した場"
+"合は無料です。"
 
 #: apps/core/templates/core/about.html:58
 #: apps/core/templates/core/landing.html:49
@@ -1866,7 +1920,9 @@ msgstr "プライバシー重視の設計"
 msgid ""
 "Each company has its own workspace, and its files are encrypted. The app "
 "keeps no stamps or signatures."
-msgstr "会社ごとに専用のワークスペースがあり、ファイルは暗号化されます。アプリはスタンプや署名を一切保存しません。"
+msgstr ""
+"会社ごとに専用のワークスペースがあり、ファイルは暗号化されます。アプリはスタ"
+"ンプや署名を一切保存しません。"
 
 #: apps/core/templates/core/about.html:60
 #: apps/core/templates/core/landing.html:51
@@ -1899,8 +1955,9 @@ msgid ""
 "local company that serves the workspaces there and takes their payments; "
 "yours is chosen by your company's country."
 msgstr ""
-"MyDocHub は %(developer)s "
-"が開発しています。各国では現地の会社が提供し、その国のワークスペースを担当して支払いを受け付けます。担当会社はあなたの会社の国によって決まります。"
+"MyDocHub は %(developer)s が開発しています。各国では現地の会社が提供し、その"
+"国のワークスペースを担当して支払いを受け付けます。担当会社はあなたの会社の国"
+"によって決まります。"
 
 #: apps/core/templates/core/about.html:73
 #: apps/core/templates/core/landing.html:58
@@ -2028,8 +2085,8 @@ msgstr "ライブラリ"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "開く"
 
@@ -2162,7 +2219,9 @@ msgid ""
 "document in seconds, from templates made for your company, on your own "
 "identity."
 msgstr ""
-"ロゴとレターヘッドをアップロードするか、デザインをお任せください。あとは、御社専用のテンプレートから、御社のアイデンティティで、あらゆる書類を数秒で作成できます。"
+"ロゴとレターヘッドをアップロードするか、デザインをお任せください。あとは、御"
+"社専用のテンプレートから、御社のアイデンティティで、あらゆる書類を数秒で作成"
+"できます。"
 
 #: apps/core/templates/core/landing.html:11
 msgid "Upload or ask"
@@ -2173,7 +2232,8 @@ msgid ""
 "Upload what you have, or describe a document and the AI creates it on your "
 "letterhead, then keeps it as a template you can reuse."
 msgstr ""
-"お手持ちのファイルをアップロードするか、書類の内容を入力してください。AIがレターヘッド付きで作成し、再利用できるテンプレートとして保存します。"
+"お手持ちのファイルをアップロードするか、書類の内容を入力してください。AIがレ"
+"ターヘッド付きで作成し、再利用できるテンプレートとして保存します。"
 
 #: apps/core/templates/core/landing.html:12
 msgid "Follow it on the board"
@@ -2193,7 +2253,9 @@ msgstr "レターヘッドに印刷"
 msgid ""
 "Open any document on your own letterhead, with a QR code that lets anyone "
 "check it when you ask for one."
-msgstr "どの書類も自社のレターヘッドで開けます。必要なときは、誰でも確認できるQRコードを付けられます。"
+msgstr ""
+"どの書類も自社のレターヘッドで開けます。必要なときは、誰でも確認できるQRコー"
+"ドを付けられます。"
 
 #: apps/core/templates/core/landing.html:17
 #: apps/team/templates/team/accept.html:16 templates/accounts/login.html:3
@@ -2231,7 +2293,8 @@ msgstr "まずは会社のアイデンティティから"
 #: apps/core/templates/core/landing.html:43
 msgid ""
 "Logo and letterhead. Upload what you have, or let us create them for you."
-msgstr "ロゴとレターヘッド。お持ちのものをアップロードするか、作成をお任せください。"
+msgstr ""
+"ロゴとレターヘッド。お持ちのものをアップロードするか、作成をお任せください。"
 
 #: apps/core/templates/core/landing.html:45 apps/library/models.py:34
 msgid "Letters and certificates"
@@ -2269,7 +2332,9 @@ msgstr "ワークスペースのデータ"
 
 #: apps/core/templates/core/workspace.html:6
 msgid "Your data is yours: keep a copy of everything, or delete it all."
-msgstr "データはあなたのものです。すべてのコピーを保存することも、すべて削除することもできます。"
+msgstr ""
+"データはあなたのものです。すべてのコピーを保存することも、すべて削除すること"
+"もできます。"
 
 #: apps/core/templates/core/workspace.html:8
 msgid "Export everything"
@@ -2278,10 +2343,12 @@ msgstr "すべてをエクスポート"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
-"会社情報、テンプレート、発行したすべての書類(データ、印刷用ページ、PDF)、保管している書類、ロゴとレターヘッド、アクティビティログ、台帳を1つのZIPファイルにまとめます。"
+"会社情報、テンプレート、発行したすべての書類(データ、印刷用ページ、PDF)、保管"
+"している書類、ロゴとレターヘッド、アクティビティログ、台帳を1つのZIPファイル"
+"にまとめます。"
 
 #: apps/core/templates/core/workspace.html:11
 msgid "Download the ZIP"
@@ -2289,9 +2356,11 @@ msgstr "ZIPをダウンロード"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
-msgstr "書類が多い場合は1分ほどかかることがあります。エクスポートはアクティビティログに記録されます。"
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
+msgstr ""
+"書類が多い場合は1分ほどかかることがあります。エクスポートはアクティビティログ"
+"に記録されます。"
 
 #: apps/core/templates/core/workspace.html:15
 #: apps/core/templates/core/workspace.html:23
@@ -2305,7 +2374,9 @@ msgid ""
 "papers and files, the history, and the balance. Nobody can recover it. "
 "Download the export first if you need a copy."
 msgstr ""
-"「%(name)s」内のすべてが完全に削除されます。書類、テンプレート、保管書類、ファイル、履歴、残高が対象です。復元はできません。コピーが必要な場合は、先にエクスポートをダウンロードしてください。"
+"「%(name)s」内のすべてが完全に削除されます。書類、テンプレート、保管書類、"
+"ファイル、履歴、残高が対象です。復元はできません。コピーが必要な場合は、先に"
+"エクスポートをダウンロードしてください。"
 
 #: apps/core/templates/core/workspace.html:17
 #, python-format
@@ -2329,7 +2400,8 @@ msgstr "パスワード"
 
 #: apps/core/templates/core/workspace_forbidden.html:3
 msgid "Only the owner of the workspace can export or delete its data."
-msgstr "ワークスペースのデータをエクスポートまたは削除できるのは、オーナーのみです。"
+msgstr ""
+"ワークスペースのデータをエクスポートまたは削除できるのは、オーナーのみです。"
 
 #: apps/core/tests_amharic.py:15 apps/core/tests_amharic.py:17
 #: apps/forms/templates/forms/list.html:15
@@ -2342,7 +2414,9 @@ msgstr[0] "%(n)s件の回答"
 
 #: apps/core/workspace.py:49
 msgid "You exported several times in the last hour. Try again later."
-msgstr "過去1時間に何度もエクスポートしました。しばらくしてからもう一度お試しください。"
+msgstr ""
+"過去1時間に何度もエクスポートしました。しばらくしてからもう一度お試しくださ"
+"い。"
 
 #: apps/core/workspace.py:66
 msgid ""
@@ -2405,13 +2479,16 @@ msgstr "月間AI予算"
 msgid ""
 "You pay only when an AI service delivers its result; a failed run is "
 "refunded."
-msgstr "AI サービスが結果を届けたときだけ支払います。失敗した実行は返金されます。"
+msgstr ""
+"AI サービスが結果を届けたときだけ支払います。失敗した実行は返金されます。"
 
 #: apps/credits/templates/credits/balance.html:7
 msgid ""
 "Thank you. Your balance is updated as soon as the payment is confirmed, "
 "usually within a minute."
-msgstr "ありがとうございます。支払いが確認されるとすぐに残高が更新されます(通常1分以内)。"
+msgstr ""
+"ありがとうございます。支払いが確認されるとすぐに残高が更新されます(通常1分以"
+"内)。"
 
 #: apps/credits/templates/credits/balance.html:10
 msgid "Current balance"
@@ -2446,7 +2523,9 @@ msgstr "支払う"
 msgid ""
 "Online payment is not open yet. Your balance will be topped up here as soon "
 "as it is."
-msgstr "オンライン決済はまだご利用いただけません。開始され次第、こちらから残高をチャージできます。"
+msgstr ""
+"オンライン決済はまだご利用いただけません。開始され次第、こちらから残高を"
+"チャージできます。"
 
 #: apps/credits/templates/credits/balance.html:31
 msgid "Top-up history"
@@ -2480,7 +2559,8 @@ msgstr "金額"
 #: apps/credits/templates/credits/balance.html:42
 msgid ""
 "The latest top-ups are shown. Every top-up is also in the history below."
-msgstr "最新のチャージを表示しています。すべてのチャージは下の履歴にもあります。"
+msgstr ""
+"最新のチャージを表示しています。すべてのチャージは下の履歴にもあります。"
 
 #: apps/credits/templates/credits/balance.html:43
 msgid "No top-ups yet."
@@ -2546,7 +2626,8 @@ msgstr "残高が足りません。チャージしてからもう一度お試し
 #: apps/identity/letterheads.py:118 apps/library/extract.py:123
 #: apps/mail/generate.py:50
 msgid "This service is not available right now. Please try again later."
-msgstr "このサービスは現在ご利用できません。しばらくしてからもう一度お試しください。"
+msgstr ""
+"このサービスは現在ご利用できません。しばらくしてからもう一度お試しください。"
 
 #: apps/docops/ops.py:163 apps/docops/ops.py:165
 msgid "Choose an operation and a language."
@@ -2564,7 +2645,8 @@ msgstr "このファイルを読み取れませんでした。料金はかかっ
 #: apps/docops/ops.py:194
 #, python-format
 msgid "Done. Only the first %(read)d of %(total)d pages were read."
-msgstr "完了しました。%(total)dページ中、最初の%(read)dページのみ読み取りました。"
+msgstr ""
+"完了しました。%(total)dページ中、最初の%(read)dページのみ読み取りました。"
 
 #: apps/docops/ops.py:196 apps/documents/generate.py:120
 #: apps/documents/generate.py:212 apps/documents/generate.py:402
@@ -2574,13 +2656,16 @@ msgstr "完了しました。"
 
 #: apps/docops/ops.py:297 apps/docops/ops.py:334 apps/docops/ops.py:371
 msgid "No text could be read from this file. You were not charged."
-msgstr "このファイルからテキストを読み取れませんでした。料金は請求されていません。"
+msgstr ""
+"このファイルからテキストを読み取れませんでした。料金は請求されていません。"
 
 #: apps/docops/ops.py:306 apps/docops/ops.py:318
 msgid ""
 "The page design could not be produced. You were not charged; please try "
 "again."
-msgstr "ページデザインを作成できませんでした。料金は請求されていません。もう一度お試しください。"
+msgstr ""
+"ページデザインを作成できませんでした。料金は請求されていません。もう一度お試"
+"しください。"
 
 #: apps/docops/services.py:37 apps/library/forms.py:58 apps/tasks/forms.py:36
 msgid "The file must be smaller than 10 MB."
@@ -2621,7 +2706,9 @@ msgstr "この書類のAIツール"
 msgid ""
 "Choose a service: you see its options and their prices for this document "
 "before anything is charged."
-msgstr "サービスを選んでください。料金が発生する前に、この書類で使えるオプションと料金が表示されます。"
+msgstr ""
+"サービスを選んでください。料金が発生する前に、この書類で使えるオプションと料"
+"金が表示されます。"
 
 #: apps/docops/templates/docops/panel.html:9
 msgid "Results"
@@ -2657,7 +2744,9 @@ msgstr "この結果は完全に削除されます。"
 msgid ""
 "This can take a few minutes for the original design. You can leave this "
 "page: the result is kept in the document's results."
-msgstr "元のデザインの場合、数分かかることがあります。このページを離れても大丈夫です。結果は書類の結果に保存されます。"
+msgstr ""
+"元のデザインの場合、数分かかることがあります。このページを離れても大丈夫で"
+"す。結果は書類の結果に保存されます。"
 
 #: apps/docops/templates/docops/result.html:22
 #, python-format
@@ -2668,17 +2757,23 @@ msgstr "%(total)sページ中、最初の%(read)sページのみ読み取りま�
 msgid ""
 "The Word file is ready. Download it and edit it in Word or any word "
 "processor."
-msgstr "Wordファイルの準備ができました。ダウンロードして、Wordや他のワープロソフトで編集できます。"
+msgstr ""
+"Wordファイルの準備ができました。ダウンロードして、Wordや他のワープロソフトで"
+"編集できます。"
 
 #: apps/docops/templates/docops/result.html:29
 msgid ""
 "The translated document is ready in its original design. Download the PDF, "
 "or the Word file in the same design."
-msgstr "翻訳された書類が元のデザインのまま完成しました。PDFをダウンロードするか、同じデザインのWordファイルをダウンロードしてください。"
+msgstr ""
+"翻訳された書類が元のデザインのまま完成しました。PDFをダウンロードするか、同じ"
+"デザインのWordファイルをダウンロードしてください。"
 
 #: apps/docops/templates/docops/result.html:34 apps/docops/views.py:140
 msgid "Written by AI from the uploaded file. Check it before you rely on it."
-msgstr "アップロードされたファイルをもとにAIが作成しました。ご利用前に内容をご確認ください。"
+msgstr ""
+"アップロードされたファイルをもとにAIが作成しました。ご利用前に内容をご確認く"
+"ださい。"
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid "The full text in another language, with the same structure."
@@ -2693,15 +2788,18 @@ msgid "Parties, dates, amounts, duties and reference numbers, as lists."
 msgstr "当事者、日付、金額、義務、参照番号をリストで抽出します。"
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
-msgstr "スキャンや写真の文字をページごとに読み取り、テキスト、Word、PDFで受け取れます。"
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgstr ""
+"スキャンや写真の文字をページごとに読み取り、テキスト、Word、PDFで受け取れま"
+"す。"
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
-msgstr "編集可能なWordファイル:AIが全ページを読み取り、テキスト、見出し、表を書き出します。"
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
+msgstr ""
+"編集可能なWordファイル:AIが全ページを読み取り、テキスト、見出し、表を書き出し"
+"ます。"
 
 #: apps/docops/templates/docops/services/_name.html:1
 msgid "Translate"
@@ -2725,20 +2823,25 @@ msgstr "Wordに変換"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid "The translated text, on the page and as Word or text."
-msgstr "翻訳されたテキストを、ページ上で確認できるほか、Wordまたはテキストでも受け取れます。"
+msgstr ""
+"翻訳されたテキストを、ページ上で確認できるほか、Wordまたはテキストでも受け取"
+"れます。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
-msgstr "見出し、段落、表がきちんと整理された見やすいPDFと、同じ内容のWordファイルを作成します。"
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
+msgstr ""
+"見出し、段落、表がきちんと整理された見やすいPDFと、同じ内容のWordファイルを作"
+"成します。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
-msgstr "レイアウト、色、ロゴまで元のままのPDFを、ページごとに作成して確認します。PDFファイルのみ対応。スタンプと署名は含まれません。"
+"and checked page by page. PDF files only. Stamps and signatures are left out."
+msgstr ""
+"レイアウト、色、ロゴまで元のままのPDFを、ページごとに作成して確認します。PDF"
+"ファイルのみ対応。スタンプと署名は含まれません。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid "The summary on the page and as Word or text."
@@ -2753,18 +2856,21 @@ msgstr "要約を、見出しや表つきの見やすいレポートPDFとWord�
 msgid ""
 "The most careful summary, every figure checked, on a designed page: PDF and "
 "Word in the same design."
-msgstr "すべての数値を確認した、最も丁寧な要約をデザイン済みのページで。PDFとWordを同じデザインで作成します。"
+msgstr ""
+"すべての数値を確認した、最も丁寧な要約をデザイン済みのページで。PDFとWordを同"
+"じデザインで作成します。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr "全ページの本文、見出し、表を含む編集可能なWordファイル。"
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "An editable Word file that looks like the original: every page rebuilt with "
 "its layout. PDF files only."
-msgstr "元のレイアウトを再現した編集可能なWordファイル。全ページをレイアウトごと再構築します。PDFファイルのみ対応。"
+msgstr ""
+"元のレイアウトを再現した編集可能なWordファイル。全ページをレイアウトごと再構"
+"築します。PDFファイルのみ対応。"
 
 #: apps/docops/templates/docops/services/confirm.html:7
 #, python-format
@@ -2824,7 +2930,9 @@ msgstr "サービス"
 msgid ""
 "Upload a document or choose one from your library. You see the price before "
 "anything is charged, and you pay only if the result is delivered."
-msgstr "ドキュメントをアップロードするか、ライブラリから選択してください。料金は請求前に確認でき、結果が届いた場合のみお支払いいただきます。"
+msgstr ""
+"ドキュメントをアップロードするか、ライブラリから選択してください。料金は請求"
+"前に確認でき、結果が届いた場合のみお支払いいただきます。"
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
@@ -2847,8 +2955,7 @@ msgstr "1ページあたり$%(p)sから。"
 msgid "Choose a file or drag it here"
 msgstr "ファイルを選択するか、ここにドラッグ"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF・PNG・JPG・WebP、10 MB まで"
 
@@ -2856,13 +2963,15 @@ msgstr "PDF・PNG・JPG・WebP、10 MB まで"
 msgid ""
 "The file is kept in your library under «Other documents», encrypted, with "
 "its result."
-msgstr "ファイルと結果は暗号化され、ライブラリの「その他の書類」に保存されます。"
+msgstr ""
+"ファイルと結果は暗号化され、ライブラリの「その他の書類」に保存されます。"
 
 #: apps/docops/templates/docops/services/start.html:15
 msgid ""
 "Stamps, seals, signatures and personal photos in your file are never copied "
 "into the result."
-msgstr "ファイル内の印鑑、スタンプ、署名、人物写真が結果に写されることはありません。"
+msgstr ""
+"ファイル内の印鑑、スタンプ、署名、人物写真が結果に写されることはありません。"
 
 #: apps/docops/templates/docops/services/start.html:16
 #: apps/docops/templates/docops/services/start.html:22
@@ -2924,7 +3033,9 @@ msgstr "カテゴリ"
 msgid ""
 "For example: Experience certificate. The first time, a template of it is "
 "made for your company; after that it is reused."
-msgstr "例:在職証明書。初回のみ会社用のテンプレートが作成され、2回目以降はそれを再利用します。"
+msgstr ""
+"例:在職証明書。初回のみ会社用のテンプレートが作成され、2回目以降はそれを再利"
+"用します。"
 
 #: apps/documents/forms.py:50 apps/documents/templates/documents/edit.html:14
 #: apps/documents/templates/documents/print.html:81
@@ -2948,18 +3059,22 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "目的と事実を入力すると、AIが文章を作成します。"
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
-msgstr "テンプレートを読み取れませんでした。料金は発生していません。もう一度お試しください。"
+msgid "The template could not be read. You were not charged; please try again."
+msgstr ""
+"テンプレートを読み取れませんでした。料金は発生していません。もう一度お試しく"
+"ださい。"
 
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
 msgid "The text could not be read. You were not charged; please try again."
-msgstr "文章を読み取れませんでした。課金されていません。もう一度お試しください。"
+msgstr ""
+"文章を読み取れませんでした。課金されていません。もう一度お試しください。"
 
 #: apps/documents/generate.py:161 apps/documents/generate.py:300
 msgid ""
 "You have imported the free templates allowed for today. Try again tomorrow."
-msgstr "本日インポートできる無料テンプレートの上限に達しました。明日もう一度お試しください。"
+msgstr ""
+"本日インポートできる無料テンプレートの上限に達しました。明日もう一度お試しく"
+"ださい。"
 
 #: apps/documents/generate.py:166 apps/documents/generate.py:305
 #: apps/identity/detect.py:55
@@ -2973,11 +3088,13 @@ msgstr "テンプレートを読み込めませんでした。もう一度お試
 #: apps/documents/generate.py:287 apps/identity/generate.py:62
 #: apps/identity/letterheads.py:112
 msgid "The design could not be read. You were not charged; please try again."
-msgstr "デザインを読み取れませんでした。課金されていません。もう一度お試しください。"
+msgstr ""
+"デザインを読み取れませんでした。課金されていません。もう一度お試しください。"
 
 #: apps/documents/generate.py:375
 msgid "The details could not be read. You were not charged; please try again."
-msgstr "詳細を読み取れませんでした。料金は発生していません。もう一度お試しください。"
+msgstr ""
+"詳細を読み取れませんでした。料金は発生していません。もう一度お試しください。"
 
 #: apps/documents/generate.py:381
 msgid "Written. Review it and edit anything you like."
@@ -3016,7 +3133,9 @@ msgstr "確認用QRコードを付ける"
 msgid ""
 "Whoever holds the printed paper can scan it and see the original document, "
 "to compare the two."
-msgstr "印刷された書面を持っている人はこれを読み取り、元の書類を見て両者を比べられます。"
+msgstr ""
+"印刷された書面を持っている人はこれを読み取り、元の書類を見て両者を比べられま"
+"す。"
 
 #: apps/documents/models.py:37
 msgid "Draft"
@@ -3061,7 +3180,8 @@ msgid ""
 "Describe what should change. The template is made again; documents already "
 "written from it stay as they are."
 msgstr ""
-"変更したい内容を入力してください。テンプレートは新しく作り直されます。すでにこのテンプレートから作成したドキュメントは、そのまま変わりません。"
+"変更したい内容を入力してください。テンプレートは新しく作り直されます。すでに"
+"このテンプレートから作成したドキュメントは、そのまま変わりません。"
 
 #: apps/documents/templates/documents/_template_actions.html:10
 #: apps/documents/templates/documents/edit.html:78
@@ -3081,7 +3201,9 @@ msgstr "AIでドキュメントを作成"
 msgid ""
 "Tell me what you need. The document is written on your letterhead, and you "
 "can review and edit it afterwards."
-msgstr "必要な内容を教えてください。レターヘッド付きでドキュメントを作成します。作成後に内容を確認して編集することもできます。"
+msgstr ""
+"必要な内容を教えてください。レターヘッド付きでドキュメントを作成します。作成"
+"後に内容を確認して編集することもできます。"
 
 #: apps/documents/templates/documents/ai_new.html:19
 #, python-format
@@ -3095,8 +3217,9 @@ msgid ""
 "template and writing this document costs $%(first)s this time. Afterwards, "
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
-"御社のアイデンティティに合わせたテンプレートも作成しましょうか?テンプレートの作成とこのドキュメントの作成には、今回 $%(first)s "
-"かかります。次回以降「%(name)s」が必要なときは、作成料金の $%(later)s だけでご利用いただけます。"
+"御社のアイデンティティに合わせたテンプレートも作成しましょうか?テンプレートの"
+"作成とこのドキュメントの作成には、今回 $%(first)s かかります。次回以降"
+"「%(name)s」が必要なときは、作成料金の $%(later)s だけでご利用いただけます。"
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3137,7 +3260,8 @@ msgstr "このドキュメントを送信"
 msgid ""
 "It is sent as a PDF file from MyDocHub, and your address is the reply "
 "address."
-msgstr "MyDocHubからPDFファイルとして送信され、返信先はあなたのアドレスになります。"
+msgstr ""
+"MyDocHubからPDFファイルとして送信され、返信先はあなたのアドレスになります。"
 
 #: apps/documents/templates/documents/edit.html:15
 #: apps/mail/templates/mail/_compose_form.html:71
@@ -3224,7 +3348,9 @@ msgstr "承認"
 msgid ""
 "This document cannot be printed, downloaded or sent until the owner or an "
 "administrator approves it."
-msgstr "オーナーまたは管理者が承認するまで、このドキュメントは印刷・ダウンロード・送信できません。"
+msgstr ""
+"オーナーまたは管理者が承認するまで、このドキュメントは印刷・ダウンロード・送"
+"信できません。"
 
 #: apps/documents/templates/documents/edit.html:63
 msgid "Send for approval"
@@ -3257,8 +3383,8 @@ msgstr "AIで改善"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr "例:短くする、機密保持の条項を追加する、金額を1,500に変更する。"
 
 #: apps/documents/templates/documents/edit.html:81
@@ -3269,7 +3395,9 @@ msgstr "書き直す"
 msgid ""
 "Save your edits first: the AI works on the saved text. You are charged only "
 "if the new text is delivered."
-msgstr "先に編集内容を保存してください。AIは保存済みのテキストを処理します。新しいテキストが届いた場合のみ課金されます。"
+msgstr ""
+"先に編集内容を保存してください。AIは保存済みのテキストを処理します。新しいテ"
+"キストが届いた場合のみ課金されます。"
 
 #: apps/documents/templates/documents/edit.html:85
 #: apps/documents/templates/documents/edit.html:88
@@ -3280,7 +3408,9 @@ msgstr "テンプレートとして保存"
 msgid ""
 "Keep this text to use again. Write {{like this}} for a blank to fill each "
 "time."
-msgstr "このテキストを保存して再利用できます。毎回入力する空欄は {{このように}} 書いてください。"
+msgstr ""
+"このテキストを保存して再利用できます。毎回入力する空欄は {{このように}} 書い"
+"てください。"
 
 #: apps/documents/templates/documents/edit.html:87 apps/mail/forms.py:84
 msgid "Template name"
@@ -3294,7 +3424,9 @@ msgstr "共有"
 msgid ""
 "Give someone outside the company a link to look at this document, for a "
 "limited time and with an optional password."
-msgstr "社外の人に、期間限定でこのドキュメントを閲覧できるリンクを共有できます。パスワードの設定も可能です。"
+msgstr ""
+"社外の人に、期間限定でこのドキュメントを閲覧できるリンクを共有できます。パス"
+"ワードの設定も可能です。"
 
 #: apps/documents/templates/documents/edit.html:93
 #: apps/sharing/templates/sharing/new.html:6
@@ -3336,13 +3468,17 @@ msgstr "有効性"
 msgid ""
 "This document was cancelled on %(date)s. Anyone who scans its QR code sees "
 "that."
-msgstr "この書類は%(date)sに取り消されました。QRコードをスキャンした人には、その旨が表示されます。"
+msgstr ""
+"この書類は%(date)sに取り消されました。QRコードをスキャンした人には、その旨が"
+"表示されます。"
 
 #: apps/documents/templates/documents/edit.html:101
 msgid ""
 "If this printed document must no longer be trusted, cancel it: its QR code "
 "will say so."
-msgstr "印刷した書類を今後信用できない場合は、取り消してください。QRコードにその旨が表示されます。"
+msgstr ""
+"印刷した書類を今後信用できない場合は、取り消してください。QRコードにその旨が"
+"表示されます。"
 
 #: apps/documents/templates/documents/edit.html:105
 #: apps/library/templates/library/list.html:75
@@ -3362,11 +3498,13 @@ msgstr "書類の閲覧のみ可能で、変更はできません。"
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
-"テンプレートから作成したドキュメントの記録です。本文はここには表示されません。ドキュメントを開くと読むことができ、開くたびにアクティビティログに記録されます。"
+"テンプレートから作成したドキュメントの記録です。本文はここには表示されませ"
+"ん。ドキュメントを開くと読むことができ、開くたびにアクティビティログに記録さ"
+"れます。"
 
 #: apps/documents/templates/documents/issued.html:8
 #: apps/library/templates/library/list.html:17
@@ -3421,13 +3559,11 @@ msgstr "この言語のレターヘッドがないため、メインのレター
 msgid "Add one"
 msgstr "追加する"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "件名:"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "この書類を検証"
 
@@ -3445,12 +3581,14 @@ msgid ""
 "for a blank; each time you use the template you fill the blanks and get a "
 "new document."
 msgstr ""
-"何度も書く手紙や証明書を保存できます。空欄は {{このように}} "
-"書いてください。テンプレートを使うたびに空欄を埋めて、新しいドキュメントを作成できます。"
+"何度も書く手紙や証明書を保存できます。空欄は {{このように}} 書いてください。"
+"テンプレートを使うたびに空欄を埋めて、新しいドキュメントを作成できます。"
 
 #: apps/documents/templates/documents/templates.html:13
 msgid "No templates yet. Open a document and choose «Save as a template»."
-msgstr "テンプレートはまだありません。ドキュメントを開いて「テンプレートとして保存」を選んでください。"
+msgstr ""
+"テンプレートはまだありません。ドキュメントを開いて「テンプレートとして保存」"
+"を選んでください。"
 
 #: apps/documents/templates/documents/verify.html:3
 #: apps/documents/templates/documents/verify.html:9
@@ -3485,13 +3623,17 @@ msgstr "確認コード"
 msgid ""
 "Compare the document below with the paper in your hands, word for word. If "
 "anything differs, the paper is not genuine."
-msgstr "下の書類とお手元の書面を一語ずつ照らし合わせてください。少しでも違いがあれば、その書面は正規のものではありません。"
+msgstr ""
+"下の書類とお手元の書面を一語ずつ照らし合わせてください。少しでも違いがあれ"
+"ば、その書面は正規のものではありません。"
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
-msgstr "MyDocHub は書類にスタンプや署名を付けません。書面上のスタンプや署名は、印刷後に会社が付けたものです。"
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
+msgstr ""
+"MyDocHub は書類にスタンプや署名を付けません。書面上のスタンプや署名は、印刷後"
+"に会社が付けたものです。"
 
 #: apps/documents/templates/documents/verify.html:23
 msgid "The document as it was issued"
@@ -3511,7 +3653,9 @@ msgstr "有効なメールアドレスを入力してください。"
 
 #: apps/documents/views.py:399
 msgid "You have sent many documents in the last hour. Try again later."
-msgstr "この1時間に多くのドキュメントを送信しました。しばらくしてからもう一度お試しください。"
+msgstr ""
+"この1時間に多くのドキュメントを送信しました。しばらくしてからもう一度お試しく"
+"ださい。"
 
 #: apps/documents/views.py:409
 #, python-format
@@ -3535,12 +3679,15 @@ msgstr "ドキュメントを %(to)s に送信しました。"
 msgid ""
 "You already have a template of this type. Choose another name, or redesign "
 "the existing one."
-msgstr "このタイプのテンプレートはすでにあります。別の名前を選ぶか、既存のテンプレートを再デザインしてください。"
+msgstr ""
+"このタイプのテンプレートはすでにあります。別の名前を選ぶか、既存のテンプレー"
+"トを再デザインしてください。"
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
-msgstr "テンプレートとして保存しました。毎回入力する空欄は {{このように}} 書いてください。"
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
+msgstr ""
+"テンプレートとして保存しました。毎回入力する空欄は {{このように}} 書いてくだ"
+"さい。"
 
 #: apps/documents/views.py:470 apps/documents/views.py:477
 msgid "Document created from the template."
@@ -3570,7 +3717,9 @@ msgstr "テンプレートはあなたのドキュメントから更新されま
 msgid ""
 "The template was made from your document. Writing a document from it costs "
 "only the writing price."
-msgstr "このテンプレートはあなたのドキュメントから作成されました。テンプレートからドキュメントを作成する場合、料金は作成料金のみです。"
+msgstr ""
+"このテンプレートはあなたのドキュメントから作成されました。テンプレートからド"
+"キュメントを作成する場合、料金は作成料金のみです。"
 
 #: apps/documents/views.py:610
 msgid "Tell the AI what should change."
@@ -3759,7 +3908,8 @@ msgid ""
 "This form has reached the limit of %(limit)s answers and takes no more. "
 "Download the answers, or delete some, to make room."
 msgstr ""
-"このフォームは回答数の上限（%(limit)s件）に達し、これ以上受け付けません。回答をダウンロードするか、一部を削除して空きを作ってください。"
+"このフォームは回答数の上限（%(limit)s件）に達し、これ以上受け付けません。回答"
+"をダウンロードするか、一部を削除して空きを作ってください。"
 
 #: apps/forms/templates/forms/detail.html:20
 msgid "Share the form"
@@ -3774,7 +3924,9 @@ msgstr "このリンクをチームに送ってください。サインインし
 msgid ""
 "Anyone who opens this link or scans the code can answer. Nothing is asked "
 "about them."
-msgstr "このリンクを開いた人やコードを読み取った人は誰でも回答できます。本人についての情報は尋ねません。"
+msgstr ""
+"このリンクを開いた人やコードを読み取った人は誰でも回答できます。本人について"
+"の情報は尋ねません。"
 
 #: apps/forms/templates/forms/detail.html:24
 #: apps/sharing/templates/sharing/detail.html:9
@@ -3871,7 +4023,9 @@ msgstr "チーム専用"
 msgid ""
 "This form is only for the people of the company. Sign in with the account "
 "you use in the company's workspace."
-msgstr "このフォームは会社の人専用です。会社のワークスペースで使っているアカウントでサインインしてください。"
+msgstr ""
+"このフォームは会社の人専用です。会社のワークスペースで使っているアカウントで"
+"サインインしてください。"
 
 #: apps/forms/templates/forms/fill_message.html:16
 msgid "This form is full"
@@ -3901,7 +4055,9 @@ msgstr "リンクが間違っているか、フォームが削除された可能
 msgid ""
 "Forms are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
-msgstr "フォームはオーナー、管理者、メンバー向けです。作成したい場合は管理者に依頼してください。"
+msgstr ""
+"フォームはオーナー、管理者、メンバー向けです。作成したい場合は管理者に依頼し"
+"てください。"
 
 #: apps/forms/templates/forms/list.html:6
 msgid ""
@@ -3928,7 +4084,9 @@ msgstr "まだフォームがありません。"
 msgid ""
 "Creating a form costs $%(price)s from the balance, once. Its answers are "
 "free (up to %(limit)s answers)."
-msgstr "フォームの作成には残高から一度だけ$%(price)sかかります。回答は無料です（%(limit)s件まで）。"
+msgstr ""
+"フォームの作成には残高から一度だけ$%(price)sかかります。回答は無料です"
+"（%(limit)s件まで）。"
 
 #: apps/forms/templates/forms/list.html:33
 msgid "Create the form"
@@ -3941,9 +4099,11 @@ msgstr "質問を編集"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
-msgstr "この質問にはすでに回答があります。タイプや選択肢を変えると、以前の回答が読みにくくなることがあります。"
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
+msgstr ""
+"この質問にはすでに回答があります。タイプや選択肢を変えると、以前の回答が読み"
+"にくくなることがあります。"
 
 #: apps/forms/templates/forms/results.html:8
 msgid "Download as a spreadsheet"
@@ -3999,7 +4159,9 @@ msgstr "この書類から会社情報を読み取れませんでした。料金
 msgid ""
 "Done. Check the details below, correct anything that is wrong, then press "
 "Continue."
-msgstr "完了しました。下の内容を確認し、間違いがあれば修正して「続ける」を押してください。"
+msgstr ""
+"完了しました。下の内容を確認し、間違いがあれば修正して「続ける」を押してくだ"
+"さい。"
 
 #: apps/identity/forms.py:23
 msgid "PNG, JPG or WebP, up to 2 MB"
@@ -4018,7 +4180,9 @@ msgstr "ファイルサイズは5 MB未満にしてください。"
 msgid ""
 "This PDF could not be read. Save it again without a password, or upload an "
 "image."
-msgstr "このPDFを読み込めませんでした。パスワードなしで保存し直すか、画像をアップロードしてください。"
+msgstr ""
+"このPDFを読み込めませんでした。パスワードなしで保存し直すか、画像をアップロー"
+"ドしてください。"
 
 #: apps/identity/forms.py:53 apps/identity/forms.py:158
 #, python-format
@@ -4067,9 +4231,11 @@ msgstr "画像が小さすぎます。より鮮明な写真を使ってくださ
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
-msgstr "この画像にはっきりしたロゴが見つかりませんでした。無地の背景のロゴファイルを使ってください。"
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
+msgstr ""
+"この画像にはっきりしたロゴが見つかりませんでした。無地の背景のロゴファイルを"
+"使ってください。"
 
 #: apps/identity/letterheads.py:92
 msgid "The letterhead is saved."
@@ -4163,7 +4329,8 @@ msgstr "他の言語"
 msgid ""
 "Optional. A document written in one of these languages uses this name and "
 "address instead."
-msgstr "任意です。これらの言語で書かれた書類には、こちらの名前と住所が使われます。"
+msgstr ""
+"任意です。これらの言語で書かれた書類には、こちらの名前と住所が使われます。"
 
 #: apps/identity/templates/identity/_basics.html:16
 msgid "Add a language"
@@ -4191,7 +4358,8 @@ msgid ""
 "A letter is printed on the letterhead of its own language. Your main "
 "language is %(language)s; add one for every other language you write in."
 msgstr ""
-"レターは、その言語のレターヘッドで印刷されます。メイン言語は%(language)sです。ほかに使用する言語ごとにレターヘッドを追加してください。"
+"レターは、その言語のレターヘッドで印刷されます。メイン言語は%(language)sで"
+"す。ほかに使用する言語ごとにレターヘッドを追加してください。"
 
 #: apps/identity/templates/identity/_letterheads.html:11
 msgid "This letterhead will be deleted for good."
@@ -4255,7 +4423,9 @@ msgstr "スタジオで作成"
 msgid ""
 "The logo, the letterheads in every language and the guided setup are in the "
 "AI studio, under Company identity."
-msgstr "ロゴ、各言語のレターヘッド、ガイド付きセットアップは、AIスタジオの「会社のアイデンティティ」にあります。"
+msgstr ""
+"ロゴ、各言語のレターヘッド、ガイド付きセットアップは、AIスタジオの「会社のア"
+"イデンティティ」にあります。"
 
 #: apps/identity/templates/identity/profile.html:23 apps/mail/forms.py:86
 msgid "Style"
@@ -4283,7 +4453,9 @@ msgstr "会社情報が載った書類をお持ちですか?"
 msgid ""
 "Upload the commercial registration, the tax certificate or a business card "
 "and we fill in the details for you to check."
-msgstr "商業登記簿、税務証明書、または名刺をアップロードすると、内容を自動で入力します。確認してください。"
+msgstr ""
+"商業登記簿、税務証明書、または名刺をアップロードすると、内容を自動で入力しま"
+"す。確認してください。"
 
 #: apps/identity/templates/identity/setup.html:25
 msgid "Read it"
@@ -4317,8 +4489,7 @@ msgstr "今はスキップ"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr "すべての手紙と証明書が印刷されるロゴとレターヘッドです。"
 
 #: apps/identity/templates/identity/studio.html:15
@@ -4433,7 +4604,9 @@ msgstr "%(company)s の更新が必要な書類"
 msgid ""
 "These documents of %(company)s expire soon or have expired. Renew them in "
 "time."
-msgstr "%(company)s のこれらの書類は期限が近いか、期限切れです。早めに更新してください。"
+msgstr ""
+"%(company)s のこれらの書類は期限が近いか、期限切れです。早めに更新してくださ"
+"い。"
 
 #: apps/library/templates/library/emails/expiry_reminder.html:6
 #: apps/library/templates/library/emails/expiry_reminder.txt:3
@@ -4464,7 +4637,9 @@ msgstr "公式書類"
 msgid ""
 "Keep your licences, contracts and invoices in one place, and see on the "
 "board what expires next."
-msgstr "許可証・契約書・請求書を一か所にまとめ、次に期限が来るものをボードで確認できます。"
+msgstr ""
+"許可証・契約書・請求書を一か所にまとめ、次に期限が来るものをボードで確認でき"
+"ます。"
 
 #: apps/library/templates/library/form.html:11
 #: apps/library/templates/library/form.html:13
@@ -4473,9 +4648,11 @@ msgstr "読み取ってもらう"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
-msgstr "AIが書類を読み取り、空欄の項目を入力します。読み取れた場合のみ料金がかかります。"
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
+msgstr ""
+"AIが書類を読み取り、空欄の項目を入力します。読み取れた場合のみ料金がかかりま"
+"す。"
 
 #: apps/library/templates/library/form.html:22
 msgid "Only members of this workspace can open it."
@@ -4483,24 +4660,27 @@ msgstr "このワークスペースのメンバーだけが開けます。"
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
-msgstr "種類・発行元・番号・日付をファイルから読み取ります。読み取れた場合のみ料金がかかります。"
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
+msgstr ""
+"種類・発行元・番号・日付をファイルから読み取ります。読み取れた場合のみ料金が"
+"かかります。"
 
 #: apps/library/templates/library/form.html:37
 msgid "Add the details yourself"
 msgstr "詳細を自分で入力"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "詳細"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
-msgstr "有効期限を設定すると、期限の90日前、30日前、7日前、1日前にメールでお知らせします。"
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
+msgstr ""
+"有効期限を設定すると、期限の90日前、30日前、7日前、1日前にメールでお知らせし"
+"ます。"
 
 #: apps/library/templates/library/list.html:8
 msgid "All documents"
@@ -4529,7 +4709,9 @@ msgstr "テンプレート"
 msgid ""
 "Turn this document into a template you can fill again and again. Making the "
 "template is free."
-msgstr "このドキュメントを、何度でも入力して使えるテンプレートにしましょう。テンプレートの作成は無料です。"
+msgstr ""
+"このドキュメントを、何度でも入力して使えるテンプレートにしましょう。テンプ"
+"レートの作成は無料です。"
 
 #: apps/library/templates/library/list.html:72
 msgid "Use as a template"
@@ -4557,9 +4739,11 @@ msgstr "AIツール"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
-msgstr "許可証、契約書、レターを1か所にまとめて管理。AIで新しい書類を作成でき、次に期限が切れるものもボードで確認できます。"
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
+msgstr ""
+"許可証、契約書、レターを1か所にまとめて管理。AIで新しい書類を作成でき、次に期"
+"限が切れるものもボードで確認できます。"
 
 #: apps/library/views.py:135
 msgid "Edit the document"
@@ -4573,7 +4757,9 @@ msgstr "このメールサーバー名またはポートは使用できません
 msgid ""
 "The mail server refused the user name or password. Gmail, Outlook and Yahoo "
 "need an app password."
-msgstr "メールサーバーがユーザー名またはパスワードを拒否しました。Gmail、Outlook、Yahooではアプリパスワードが必要です。"
+msgstr ""
+"メールサーバーがユーザー名またはパスワードを拒否しました。Gmail、Outlook、"
+"Yahooではアプリパスワードが必要です。"
 
 #: apps/mail/client.py:69
 msgid "The mail server answered with an error."
@@ -4585,17 +4771,22 @@ msgid ""
 "password is wrong: check the mailbox password, then the server name and the "
 "port."
 msgstr ""
-"メールサーバーからの応答に時間がかかりすぎました。パスワードが間違っている場合、このような状態になるプロバイダーもあります。メールボックスのパスワード、サーバー名、ポートの順に確認してください。"
+"メールサーバーからの応答に時間がかかりすぎました。パスワードが間違っている場"
+"合、このような状態になるプロバイダーもあります。メールボックスのパスワード、"
+"サーバー名、ポートの順に確認してください。"
 
 #: apps/mail/client.py:74
 msgid ""
 "The secure connection to the mail server failed. Check the port and the "
 "security type."
-msgstr "メールサーバーへの安全な接続に失敗しました。ポートとセキュリティの種類を確認してください。"
+msgstr ""
+"メールサーバーへの安全な接続に失敗しました。ポートとセキュリティの種類を確認"
+"してください。"
 
 #: apps/mail/client.py:76
 msgid "Could not reach the mail server. Check the server name and the port."
-msgstr "メールサーバーに接続できませんでした。サーバー名とポートを確認してください。"
+msgstr ""
+"メールサーバーに接続できませんでした。サーバー名とポートを確認してください。"
 
 #: apps/mail/client.py:77
 msgid "The mail server did not answer as expected."
@@ -4664,7 +4855,8 @@ msgid ""
 "Kept sealed and never shown again. Gmail, Outlook and Yahoo need an app "
 "password, not the normal one."
 msgstr ""
-"暗号化して保管され、再表示されることはありません。Gmail、Outlook、Yahooでは通常のパスワードではなくアプリパスワードが必要です。"
+"暗号化して保管され、再表示されることはありません。Gmail、Outlook、Yahooでは通"
+"常のパスワードではなくアプリパスワードが必要です。"
 
 #: apps/mail/forms.py:23
 msgid "User name"
@@ -4709,7 +4901,9 @@ msgstr "サーバー名のみを入力してください(例:mail.example.com)�
 #: apps/mail/forms.py:62
 msgid ""
 "Use the usual mail ports (993 or 143 to read, 465, 587, 25 or 2525 to send)."
-msgstr "一般的なメールポートを使用してください(受信は993または143、送信は465、587、25、2525)。"
+msgstr ""
+"一般的なメールポートを使用してください(受信は993または143、送信は465、587、"
+"25、2525)。"
 
 #: apps/mail/forms.py:85
 msgid "Optional. Leave it empty to use the name of the style."
@@ -4743,7 +4937,9 @@ msgstr "ミニマル"
 
 #: apps/mail/generate.py:70
 msgid "The design could not be used. You were not charged; please try again."
-msgstr "このデザインは使用できませんでした。料金は発生していません。もう一度お試しください。"
+msgstr ""
+"このデザインは使用できませんでした。料金は発生していません。もう一度お試しく"
+"ださい。"
 
 #: apps/mail/models.py:17
 msgid "e-mail address"
@@ -4762,8 +4958,7 @@ msgid "signature"
 msgstr "署名"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "新規メッセージ"
 
@@ -5035,7 +5230,9 @@ msgstr "会社のメールボックスが接続されていません"
 msgid ""
 "Once the owner connects the company e-mail address, everyone who works on "
 "documents can read and write company mail here, without leaving MyDocHub."
-msgstr "オーナーが会社のメールアドレスを接続すると、書類を扱う全員が MyDocHub を離れることなく、ここで会社のメールを読み書きできます。"
+msgstr ""
+"オーナーが会社のメールアドレスを接続すると、書類を扱う全員が MyDocHub を離れ"
+"ることなく、ここで会社のメールを読み書きできます。"
 
 #: apps/mail/templates/mail/not_connected.html:9
 msgid "Connect the mailbox"
@@ -5047,9 +5244,11 @@ msgstr "会社のメールボックスを接続"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
-msgstr "会社のメールアドレスを一度追加すれば、MyDocHub 内で会社のメールを読み書きできます。"
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
+msgstr ""
+"会社のメールアドレスを一度追加すれば、MyDocHub 内で会社のメールを読み書きでき"
+"ます。"
 
 #: apps/mail/templates/mail/setup.html:15
 msgid "Server details"
@@ -5057,17 +5256,21 @@ msgstr "サーバー詳細"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
-msgstr "空欄の場合はアドレスから推測されます。接続に失敗した場合のみ変更してください。"
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
+msgstr ""
+"空欄の場合はアドレスから推測されます。接続に失敗した場合のみ変更してくださ"
+"い。"
 
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
-"ワークスペースで書類を編集できる全員が、このメールボックスのメールを読んだり送信したりできます。開封と送信はアクティビティログに記録されます。パスワードはワークスペースキーで暗号化されます。"
+"ワークスペースで書類を編集できる全員が、このメールボックスのメールを読んだり"
+"送信したりできます。開封と送信はアクティビティログに記録されます。パスワード"
+"はワークスペースキーで暗号化されます。"
 
 #: apps/mail/templates/mail/setup.html:30
 msgid "Save and test"
@@ -5090,7 +5293,9 @@ msgstr "接続を解除"
 msgid ""
 "Removes the saved password from MyDocHub. Your messages stay on your mail "
 "server."
-msgstr "保存されたパスワードを MyDocHub から削除します。メッセージはメールサーバーに残ります。"
+msgstr ""
+"保存されたパスワードを MyDocHub から削除します。メッセージはメールサーバーに"
+"残ります。"
 
 #: apps/mail/templates/mail/setup.html:39
 msgid "The mailbox will be disconnected from MyDocHub."
@@ -5107,11 +5312,12 @@ msgstr "新しいメールテンプレート"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
-"AIがロゴ、ブランドカラー、会社情報を使ってテンプレートをデザインします。使う前に内容を確認でき、使えるデザインが届いた場合のみ料金が発生します。"
+"AIがロゴ、ブランドカラー、会社情報を使ってテンプレートをデザインします。使う"
+"前に内容を確認でき、使えるデザインが届いた場合のみ料金が発生します。"
 
 #: apps/mail/templates/mail/template_new.html:19
 msgid "Design my template"
@@ -5128,7 +5334,9 @@ msgid ""
 "logo, colours and a footer with your details. Make one with AI, then choose "
 "it when you write."
 msgstr ""
-"テンプレートを使えば、ロゴ、色、会社情報入りのフッターなど、会社のすべてのメッセージに統一感のあるプロらしい見た目を与えられます。AIで作成して、作成時に選ぶだけです。"
+"テンプレートを使えば、ロゴ、色、会社情報入りのフッターなど、会社のすべての"
+"メッセージに統一感のあるプロらしい見た目を与えられます。AIで作成して、作成時"
+"に選ぶだけです。"
 
 #: apps/mail/templates/mail/templates.html:14
 msgid "Open the preview"
@@ -5154,7 +5362,9 @@ msgstr "テンプレートはまだありません"
 msgid ""
 "Your messages go out as plain messages. Make a template and every message "
 "will carry your logo, colours and details."
-msgstr "現在、メッセージはシンプルな形式で送信されます。テンプレートを作成すると、すべてのメッセージにロゴ、カラー、詳細情報が入ります。"
+msgstr ""
+"現在、メッセージはシンプルな形式で送信されます。テンプレートを作成すると、す"
+"べてのメッセージにロゴ、カラー、詳細情報が入ります。"
 
 #: apps/mail/templates/mail/templates.html:29
 msgid "Make my first template"
@@ -5168,7 +5378,9 @@ msgstr "メールボックスを接続しました。"
 msgid ""
 "The mailbox is disconnected and its password is deleted. Your messages stay "
 "on your mail server."
-msgstr "メールボックスの接続を解除し、パスワードを削除しました。メッセージはメールサーバーに残ります。"
+msgstr ""
+"メールボックスの接続を解除し、パスワードを削除しました。メッセージはメール"
+"サーバーに残ります。"
 
 #: apps/mail/views.py:118
 msgid "Inbox"
@@ -5237,7 +5449,9 @@ msgstr "添付できるのは最大%(n)d ファイルです。"
 
 #: apps/mail/views.py:400
 msgid "Many messages were sent in the last hour. Try again later."
-msgstr "過去1時間に多くのメッセージが送信されました。しばらくしてからもう一度お試しください。"
+msgstr ""
+"過去1時間に多くのメッセージが送信されました。しばらくしてからもう一度お試しく"
+"ださい。"
 
 #: apps/mail/views.py:415
 msgid "The message was sent."
@@ -5247,7 +5461,8 @@ msgstr "メッセージを送信しました。"
 msgid ""
 "PDF files cannot be made on this server right now, so documents cannot be "
 "attached."
-msgstr "現在このサーバーではPDFファイルを作成できないため、書類を添付できません。"
+msgstr ""
+"現在このサーバーではPDFファイルを作成できないため、書類を添付できません。"
 
 #: apps/mail/views.py:438
 #, python-format
@@ -5263,7 +5478,9 @@ msgstr "「%(title)s」のPDFを作成できませんでした。もう一度お
 msgid ""
 "Only PDF files and pictures (PNG, JPG, WebP) up to 10 MB can be kept in the "
 "library."
-msgstr "ライブラリに保存できるのは、10 MBまでのPDFファイルと画像(PNG、JPG、WebP)のみです。"
+msgstr ""
+"ライブラリに保存できるのは、10 MBまでのPDFファイルと画像(PNG、JPG、WebP)のみ"
+"です。"
 
 #: apps/mail/views.py:487
 msgid "Attachment"
@@ -5277,7 +5494,9 @@ msgstr "ライブラリに保存しました。ここで詳細を入力してく
 msgid ""
 "Your e-mail template is ready. Preview it and choose it when you write a "
 "message."
-msgstr "メールテンプレートの準備ができました。プレビューを確認して、メッセージ作成時に選択してください。"
+msgstr ""
+"メールテンプレートの準備ができました。プレビューを確認して、メッセージ作成時"
+"に選択してください。"
 
 #: apps/mail/views.py:537
 msgid "Subject of your message"
@@ -5434,9 +5653,10 @@ msgstr "読んだことを確認してください：%(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
-msgstr "残高が少なくなっています：残り%(balance)s。サービスを使い続けるにはチャージしてください"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
+msgstr ""
+"残高が少なくなっています：残り%(balance)s。サービスを使い続けるにはチャージし"
+"てください"
 
 #: apps/notifications/registry.py:21
 msgid "The balance is finished. Top up to keep using the services"
@@ -5492,7 +5712,8 @@ msgstr "文書なし：上に書いた内容のみ"
 msgid ""
 "The topic, the goal, the facts and figures to use. The more you write, the "
 "better it is."
-msgstr "テーマ、目的、使いたい事実や数字。詳しく書くほど良い仕上がりになります。"
+msgstr ""
+"テーマ、目的、使いたい事実や数字。詳しく書くほど良い仕上がりになります。"
 
 #: apps/presentations/forms.py:30
 msgid "Optional. Left empty, it is taken from what you write below."
@@ -5529,15 +5750,18 @@ msgstr "一度の作成で仕上げる、分かりやすい良質なプレゼン
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
-msgstr "2回目の工程で見直して磨き上げます。タイトルは力強く、ストーリーは引き締まります。"
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
+msgstr ""
+"2回目の工程で見直して磨き上げます。タイトルは力強く、ストーリーは引き締まりま"
+"す。"
 
 #: apps/presentations/service.py:52
 msgid ""
 "The best we can build: your audience is analysed first, then every designed "
 "slide is checked by eye and corrected."
-msgstr "私たちが作れる最高品質：まず視聴者を分析し、デザインした全スライドを目で確認して修正します。"
+msgstr ""
+"私たちが作れる最高品質：まず視聴者を分析し、デザインした全スライドを目で確認"
+"して修正します。"
 
 #: apps/presentations/templates/presentations/confirm.html:6
 msgid "Confirm the presentation"
@@ -5567,7 +5791,9 @@ msgstr "残高：<bdi dir=\"ltr\">$%(balance)s</bdi>"
 msgid ""
 "It takes a few minutes. You can leave the page: the result waits in your "
 "presentations. If it fails, the price goes back to your balance."
-msgstr "数分かかります。ページを離れても構いません。結果はプレゼン一覧に保存されます。失敗した場合は料金が残高に戻ります。"
+msgstr ""
+"数分かかります。ページを離れても構いません。結果はプレゼン一覧に保存されま"
+"す。失敗した場合は料金が残高に戻ります。"
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
@@ -5577,8 +5803,7 @@ msgstr "$%(price)sで作成"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -5595,13 +5820,17 @@ msgstr "このプレゼンテーションは完全に削除されます。"
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
-msgstr "スライドの作成には数分かかります。このページを離れても構いません。結果はプレゼン一覧に保存されます。"
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
+msgstr ""
+"スライドの作成には数分かかります。このページを離れても構いません。結果はプレ"
+"ゼン一覧に保存されます。"
 
 #: apps/presentations/templates/presentations/detail.html:21
 msgid "Your browser cannot show the preview. Download the PowerPoint."
-msgstr "お使いのブラウザではプレビューを表示できません。PowerPointをダウンロードしてください。"
+msgstr ""
+"お使いのブラウザではプレビューを表示できません。PowerPointをダウンロードして"
+"ください。"
 
 #: apps/presentations/templates/presentations/detail.html:22
 msgid "The slides"
@@ -5611,19 +5840,25 @@ msgstr "スライド"
 msgid ""
 "Written by AI from what you gave it. Check the facts and figures before you "
 "present."
-msgstr "お渡しいただいた内容からAIが作成しました。発表前に事実と数字を確認してください。"
+msgstr ""
+"お渡しいただいた内容からAIが作成しました。発表前に事実と数字を確認してくださ"
+"い。"
 
 #: apps/presentations/templates/presentations/forbidden.html:6
 msgid ""
 "Presentations are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
-msgstr "プレゼンテーションはオーナー、管理者、メンバー向けです。作成が必要な場合は管理者に依頼してください。"
+msgstr ""
+"プレゼンテーションはオーナー、管理者、メンバー向けです。作成が必要な場合は管"
+"理者に依頼してください。"
 
 #: apps/presentations/templates/presentations/list.html:6
 msgid ""
 "Describe the talk, or choose a document: get a designed PowerPoint in your "
 "company's colours and logo that you can still edit."
-msgstr "発表内容を説明するか文書を選ぶと、会社のカラーとロゴを使ったデザイン済みのPowerPointが手に入ります。編集も可能です。"
+msgstr ""
+"発表内容を説明するか文書を選ぶと、会社のカラーとロゴを使ったデザイン済みの"
+"PowerPointが手に入ります。編集も可能です。"
 
 #: apps/presentations/templates/presentations/list.html:7
 #: apps/presentations/templates/presentations/list.html:23
@@ -5646,8 +5881,8 @@ msgstr "<bdi dir=\"ltr\">$%(price)s</bdi>〜"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr "表示価格は10枚の場合です。料金が発生する前に正確な金額が表示されます。"
 
 #: apps/presentations/templates/presentations/list.html:41
@@ -5708,9 +5943,11 @@ msgstr "このリンクは利用できません"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
-msgstr "期限が切れたか、共有した人によって取り消された可能性があります。新しいリンクを送ってもらってください。"
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
+msgstr ""
+"期限が切れたか、共有した人によって取り消された可能性があります。新しいリンク"
+"を送ってもらってください。"
 
 #: apps/sharing/templates/sharing/list.html:6
 msgid ""
@@ -5755,7 +5992,9 @@ msgstr "このリンクをキャンセルしますか?すぐに開けなくな�
 #: apps/sharing/templates/sharing/list.html:24
 msgid ""
 "Nothing shared yet. Open a paper or an issued document and choose Share."
-msgstr "共有されたものはまだありません。書類または発行済みドキュメントを開いて、「共有」を選んでください。"
+msgstr ""
+"共有されたものはまだありません。書類または発行済みドキュメントを開いて、「共"
+"有」を選んでください。"
 
 #: apps/sharing/templates/sharing/lock.html:6
 #: apps/sharing/templates/sharing/view.html:7
@@ -5802,9 +6041,11 @@ msgstr "コピーの保存を許可"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
-msgstr "許可しない場合、相手はページ上で閲覧のみできます。画面の撮影は防げないため、信頼できる相手とだけ共有してください。"
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
+msgstr ""
+"許可しない場合、相手はページ上で閲覧のみできます。画面の撮影は防げないため、"
+"信頼できる相手とだけ共有してください。"
 
 #: apps/sharing/templates/sharing/new.html:18
 msgid "Make the link"
@@ -5924,7 +6165,9 @@ msgstr "添付"
 msgid ""
 "Any file, up to 10 MB. It is kept encrypted and only members of this "
 "workspace can open it."
-msgstr "任意のファイル（10 MBまで）。暗号化して保管され、このワークスペースのメンバーだけが開けます。"
+msgstr ""
+"任意のファイル（10 MBまで）。暗号化して保管され、このワークスペースのメンバー"
+"だけが開けます。"
 
 #: apps/tasks/templates/tasks/detail.html:37
 msgid "Follow-up"
@@ -6007,7 +6250,9 @@ msgstr "招待を承諾"
 msgid ""
 "This invitation is for %(email)s, but you are signed in with another "
 "address. Sign out and open the link again."
-msgstr "この招待は %(email)s 宛てですが、別のアドレスでサインインしています。サインアウトしてから、もう一度リンクを開いてください。"
+msgstr ""
+"この招待は %(email)s 宛てですが、別のアドレスでサインインしています。サインア"
+"ウトしてから、もう一度リンクを開いてください。"
 
 #: apps/team/templates/team/accept.html:13 templates/base_app.html:111
 #: templates/base_app.html:119 templates/console/base_console.html:25
@@ -6016,11 +6261,13 @@ msgstr "ログアウト"
 
 #: apps/team/templates/team/accept.html:15
 msgid "You already have an account with this address. Sign in to accept."
-msgstr "このアドレスのアカウントはすでにあります。サインインして承諾してください。"
+msgstr ""
+"このアドレスのアカウントはすでにあります。サインインして承諾してください。"
 
 #: apps/team/templates/team/accept.html:18
 msgid "Create your account to join. Your e-mail is already confirmed."
-msgstr "アカウントを作成して参加しましょう。メールアドレスはすでに確認済みです。"
+msgstr ""
+"アカウントを作成して参加しましょう。メールアドレスはすでに確認済みです。"
 
 #: apps/team/templates/team/accept.html:22
 msgid "Create account and join"
@@ -6030,7 +6277,8 @@ msgstr "アカウントを作成して参加"
 #: apps/team/templates/team/emails/invite.txt:1
 #, python-format
 msgid "%(inviter)s invited you to join %(name)s on MyDocHub as %(role)s."
-msgstr "%(inviter)s さんが、MyDocHub の %(name)s に %(role)s として招待しました。"
+msgstr ""
+"%(inviter)s さんが、MyDocHub の %(name)s に %(role)s として招待しました。"
 
 #: apps/team/templates/team/emails/invite.html:6
 #: apps/team/templates/team/emails/invite.txt:6
@@ -6038,7 +6286,9 @@ msgstr "%(inviter)s さんが、MyDocHub の %(name)s に %(role)s として招�
 msgid ""
 "The link works once and for %(days)s days. If you did not expect this "
 "invitation, ignore this message."
-msgstr "このリンクは1回のみ、%(days)s日間有効です。心当たりのない招待の場合は、このメッセージを無視してください。"
+msgstr ""
+"このリンクは1回のみ、%(days)s日間有効です。心当たりのない招待の場合は、この"
+"メッセージを無視してください。"
 
 #: apps/team/templates/team/emails/invite.txt:3
 msgid "Open this link to accept:"
@@ -6051,7 +6301,9 @@ msgstr "MyDocHub の %(name)s に招待されました"
 
 #: apps/team/templates/team/forbidden.html:3
 msgid "You are not allowed to do this. Ask the owner of the workspace."
-msgstr "この操作を行う権限がありません。ワークスペースのオーナーにお問い合わせください。"
+msgstr ""
+"この操作を行う権限がありません。ワークスペースのオーナーにお問い合わせくださ"
+"い。"
 
 #: apps/team/templates/team/invite_invalid.html:6
 msgid "This invitation is not valid"
@@ -6089,7 +6341,9 @@ msgstr "招待を送信"
 msgid ""
 "Owner: everything. Admin: manages the company and the team. Member: writes "
 "and uploads. Viewer: reads. Client: reads what is shared."
-msgstr "オーナー:すべての操作。管理者:会社とチームの管理。メンバー:作成とアップロード。閲覧者:閲覧のみ。クライアント:共有された内容の閲覧。"
+msgstr ""
+"オーナー:すべての操作。管理者:会社とチームの管理。メンバー:作成とアップロー"
+"ド。閲覧者:閲覧のみ。クライアント:共有された内容の閲覧。"
 
 #: apps/team/templates/team/team.html:20
 msgid "Approval of documents"
@@ -6099,7 +6353,9 @@ msgstr "ドキュメントの承認"
 msgid ""
 "Documents written by members must be approved before they can be printed, "
 "downloaded or sent"
-msgstr "メンバーが作成したドキュメントは、承認されるまで印刷・ダウンロード・送信できません"
+msgstr ""
+"メンバーが作成したドキュメントは、承認されるまで印刷・ダウンロード・送信でき"
+"ません"
 
 #: apps/team/templates/team/team.html:23
 msgid "The owner and the administrators' own documents are approved at once."
@@ -6151,9 +6407,11 @@ msgstr "招待を送信しました。"
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
-msgstr "招待は作成されましたが、メールを送信できませんでした。数分後に「再送信」をお試しください。"
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
+msgstr ""
+"招待は作成されましたが、メールを送信できませんでした。数分後に「再送信」をお"
+"試しください。"
 
 #: apps/team/views.py:101
 msgid "We sent the invitation again."
@@ -6246,7 +6504,8 @@ msgstr "パスワードをリセット"
 msgid ""
 "Use the button below to choose a new password. The link is valid for one "
 "hour."
-msgstr "下のボタンから新しいパスワードを設定してください。リンクは1時間有効です。"
+msgstr ""
+"下のボタンから新しいパスワードを設定してください。リンクは1時間有効です。"
 
 #: templates/accounts/emails/password_reset.html:5
 #: templates/accounts/password_reset_confirm.html:3
@@ -6262,7 +6521,8 @@ msgstr "心当たりがない場合は、このメッセージを無視してく
 #: templates/accounts/emails/password_reset.txt:1
 msgid ""
 "Use the link below to choose a new password. The link is valid for one hour."
-msgstr "下のリンクから新しいパスワードを設定してください。リンクは1時間有効です。"
+msgstr ""
+"下のリンクから新しいパスワードを設定してください。リンクは1時間有効です。"
 
 #: templates/accounts/emails/password_reset_subject.txt:1
 msgid "Reset your MyDocHub password"
@@ -6283,7 +6543,8 @@ msgstr "メールアドレスを確認"
 msgid ""
 "Confirm your email address with the button below. The link is valid for 3 "
 "days."
-msgstr "下のボタンからメールアドレスを確認してください。リンクは3日間有効です。"
+msgstr ""
+"下のボタンからメールアドレスを確認してください。リンクは3日間有効です。"
 
 #: templates/accounts/emails/verify_email.html:6
 #: templates/accounts/emails/verify_email.txt:6
@@ -6292,9 +6553,9 @@ msgstr "登録に心当たりがない場合は、このメッセージを無視
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
-msgstr "下のリンクからメールアドレスを確認してください。リンクは3日間有効です。"
+"Confirm your email address with the link below. The link is valid for 3 days."
+msgstr ""
+"下のリンクからメールアドレスを確認してください。リンクは3日間有効です。"
 
 #: templates/accounts/emails/verify_email_subject.txt:1
 msgid "Confirm your email for MyDocHub"
@@ -6361,7 +6622,9 @@ msgstr "メールをご確認ください"
 
 #: templates/accounts/password_reset_done.html:7
 msgid "If the address has an account, we sent a link to reset the password."
-msgstr "このアドレスのアカウントがある場合、パスワードをリセットするためのリンクを送信しました。"
+msgstr ""
+"このアドレスのアカウントがある場合、パスワードをリセットするためのリンクを送"
+"信しました。"
 
 #: templates/accounts/security.html:3 templates/accounts/security.html:5
 #: templates/base_app.html:105 templates/base_app.html:122
@@ -6373,7 +6636,9 @@ msgstr "アカウントのセキュリティ"
 msgid ""
 "Protect your account with a second step: a code from an authenticator app, "
 "asked every time you sign in."
-msgstr "2段階目でアカウントを守りましょう。サインインのたびに、認証アプリのコードが必要になります。"
+msgstr ""
+"2段階目でアカウントを守りましょう。サインインのたびに、認証アプリのコードが必"
+"要になります。"
 
 #: templates/accounts/security.html:8
 msgid "Your backup codes"
@@ -6384,7 +6649,8 @@ msgid ""
 "Keep these codes somewhere safe, apart from your phone. Each one works once "
 "if you lose access to the app. They are shown only now."
 msgstr ""
-"これらのコードは、スマートフォンとは別の安全な場所に保管してください。アプリを使えなくなった場合、各コードを1回ずつ使えます。表示されるのは今回だけです。"
+"これらのコードは、スマートフォンとは別の安全な場所に保管してください。アプリ"
+"を使えなくなった場合、各コードを1回ずつ使えます。表示されるのは今回だけです。"
 
 #: templates/accounts/security.html:13 templates/accounts/two_factor.html:3
 #: templates/accounts/two_factor.html:5
@@ -6418,11 +6684,11 @@ msgstr "オフにする"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
-"認証アプリ(Google Authenticator、Microsoft Authenticator、Authy "
-"など)でこの画像をスキャンし、表示されたコードを入力してください。"
+"認証アプリ(Google Authenticator、Microsoft Authenticator、Authy など)でこの画"
+"像をスキャンし、表示されたコードを入力してください。"
 
 #: templates/accounts/security.html:27
 msgid "Or type this key into the app:"
@@ -6452,7 +6718,9 @@ msgstr "すでにアカウントをお持ちですか?"
 msgid ""
 "Enter the six-digit code from your authenticator app. If you lost your "
 "phone, enter one of your backup codes."
-msgstr "認証アプリの6桁のコードを入力してください。スマートフォンを紛失した場合は、バックアップコードを入力してください。"
+msgstr ""
+"認証アプリの6桁のコードを入力してください。スマートフォンを紛失した場合は、"
+"バックアップコードを入力してください。"
 
 #: templates/accounts/two_factor.html:10
 msgid "Verify"
@@ -6460,7 +6728,9 @@ msgstr "確認"
 
 #: templates/accounts/verify_failed.html:5
 msgid "It may have expired. Sign in and ask for a new confirmation link."
-msgstr "期限が切れた可能性があります。ログインして、新しい確認リンクを請求してください。"
+msgstr ""
+"期限が切れた可能性があります。ログインして、新しい確認リンクを請求してくださ"
+"い。"
 
 #: templates/admin/login.html:11
 msgid "Please correct the errors below."
@@ -6479,7 +6749,8 @@ msgid ""
 "This can take up to a minute. Keep this page open: the result appears here "
 "as soon as it is ready, and you are charged only if it is delivered."
 msgstr ""
-"最大1分ほどかかる場合があります。このページは開いたままにしてください。結果が出ると、すぐにここに表示されます。料金は結果が届いた場合にのみ発生します。"
+"最大1分ほどかかる場合があります。このページは開いたままにしてください。結果が"
+"出ると、すぐにここに表示されます。料金は結果が届いた場合にのみ発生します。"
 
 #: templates/base.html:21
 msgctxt "seconds"
@@ -6519,8 +6790,7 @@ msgid "Account"
 msgstr "アカウント"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "プラットフォームコンソール"
 
@@ -6614,9 +6884,11 @@ msgstr "月間AI予算"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
-msgstr "月のコストが予算に達すると、予算を引き上げるか月が変わるまで、すべてのAIサービスが停止します。"
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
+msgstr ""
+"月のコストが予算に達すると、予算を引き上げるか月が変わるまで、すべてのAIサー"
+"ビスが停止します。"
 
 #: templates/console/ai.html:15
 msgid "Monthly budget (USD)"
@@ -6713,7 +6985,9 @@ msgstr "手動チャージ"
 msgid ""
 "While the site is locked, visitors see the Coming Soon page. Superusers and "
 "people with an access code get in."
-msgstr "サイトがロックされている間、訪問者には「近日公開」ページが表示されます。スーパーユーザーとアクセスコードをお持ちの方は入れます。"
+msgstr ""
+"サイトがロックされている間、訪問者には「近日公開」ページが表示されます。スー"
+"パーユーザーとアクセスコードをお持ちの方は入れます。"
 
 #: templates/console/launch.html:10
 msgid "Coming Soon lock"
@@ -6727,7 +7001,9 @@ msgstr "ロック中"
 msgid ""
 "The site is locked: visitors see the Coming Soon page unless they have an "
 "access code."
-msgstr "サイトはロックされています。アクセスコードがない訪問者には「近日公開」ページが表示されます。"
+msgstr ""
+"サイトはロックされています。アクセスコードがない訪問者には「近日公開」ページ"
+"が表示されます。"
 
 #: templates/console/launch.html:11
 msgid "The site is open to everyone."
@@ -6740,7 +7016,8 @@ msgstr "最終変更: %(when)s、変更者: %(who)s"
 
 #: templates/console/launch.html:14
 msgid "Open the site to everyone? Search engines may start to index it."
-msgstr "サイトを一般公開しますか?検索エンジンにインデックスされる可能性があります。"
+msgstr ""
+"サイトを一般公開しますか?検索エンジンにインデックスされる可能性があります。"
 
 #: templates/console/launch.html:14 templates/console/launch.html:15
 msgid "Open the site"
@@ -6795,7 +7072,9 @@ msgstr "コードを作成"
 msgid ""
 "Every movement of every balance: card top-ups, credit given by the platform "
 "team, AI sales and refunds."
-msgstr "すべての残高の動き:カードでのチャージ、プラットフォームチームによるクレジット付与、AIの販売、返金。"
+msgstr ""
+"すべての残高の動き:カードでのチャージ、プラットフォームチームによるクレジット"
+"付与、AIの販売、返金。"
 
 #: templates/console/ledger.html:8 templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
@@ -6905,10 +7184,11 @@ msgstr "最新の台帳エントリ"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
-"各サービスの実費と販売価格です。保存済みの価格はDjango管理画面で変更できます。sync_pricesは保存済みの価格を価格ファイルに合わせます。"
+"各サービスの実費と販売価格です。保存済みの価格はDjango管理画面で変更できま"
+"す。sync_pricesは保存済みの価格を価格ファイルに合わせます。"
 
 #: templates/console/prices.html:7
 msgid "Worst case"
@@ -6928,9 +7208,10 @@ msgstr "販売なし"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
-msgstr "(n) = コストの基になった実際の実行回数、* = 小規模な実行で測定し拡大した値。"
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
+msgstr ""
+"(n) = コストの基になった実際の実行回数、* = 小規模な実行で測定し拡大した値。"
 
 #: templates/console/user_grant.html:3 templates/console/user_grant.html:6
 #: templates/console/users.html:20
@@ -7010,11 +7291,15 @@ msgstr "このワークスペースを削除"
 msgid ""
 "Everything in it is deleted for good: documents, templates, papers, files, "
 "wallet and history. Enter your password to confirm."
-msgstr "ドキュメント、テンプレート、書類、ファイル、ウォレット、履歴など、中のすべてが完全に削除されます。確認のためパスワードを入力してください。"
+msgstr ""
+"ドキュメント、テンプレート、書類、ファイル、ウォレット、履歴など、中のすべて"
+"が完全に削除されます。確認のためパスワードを入力してください。"
 
 #: templates/console/workspaces.html:5
 msgid "Every company using the platform. Add credit to any of them from here."
-msgstr "プラットフォームを利用しているすべての企業です。ここからどの企業にもクレジットを追加できます。"
+msgstr ""
+"プラットフォームを利用しているすべての企業です。ここからどの企業にもクレジッ"
+"トを追加できます。"
 
 #: templates/console/workspaces.html:7
 msgid "Name, short name or owner e-mail"
@@ -7067,203 +7352,6 @@ msgstr "プレビューアクセス"
 #: templates/partials/preview_pill.html:1
 msgid "Leave"
 msgstr "退出"
-
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "アイデンティティ、レター、証明書を、あなた専用のレターヘッドで。"
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "お持ちのものをアップロード、または私たちにお任せ"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "下書き — この文章は会社の弁護士向けのたたき台です。法的助言ではなく、サービスを一般公開する前に確認が必要です。[ ]内の項目は記入してください。"
-
-#~ msgid "Open the company identity"
-#~ msgstr "会社のアイデンティティを開く"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "AIワークスペース"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "デザインスタジオ"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "ビジネスインテリジェンス"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "会社"
-
-#~ msgid "Reminders due"
-#~ msgstr "期限が来たリマインダー"
-
-#~ msgid "Built by"
-#~ msgstr "開発元"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr "ロゴ、レターヘッド、印、署名。お持ちのものをアップロードしてください。ロゴとレターヘッドは作成できます。"
-
-#~ msgid "add the stamp"
-#~ msgstr "スタンプを追加"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr "このテキストを保存して再利用できます。毎回入力する空欄は {{このように}} 書いてください。スタンプと署名は保存されません。"
-
-#~ msgid "Sealed"
-#~ msgstr "封印済み"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr "この会社の印章を使用する権限があることを確認します。"
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr "これが自分の署名であること、または署名の持ち主がこの会社での使用を許可していることを確認します。"
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr "本人確認のため、パスワードをもう一度入力してください。"
-
-#~ msgid "stamp"
-#~ msgstr "スタンプ"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "写真が暗すぎます。明るい場所で白い紙を使ってください。"
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr "この画像から鮮明な%(what)sを見つけられませんでした。均一な光で撮った無地の白い紙の写真を使ってください。"
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr "描かれたものが薄すぎるか小さすぎます。近づいて、均一な光で撮影してください。"
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr "紙が十分に無地ではありません。白い紙を使い、影や模様を避けてください。"
-
-#~ msgid "Stamp"
-#~ msgstr "スタンプ"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "印章と署名"
-
-#~ msgid "Kept private"
-#~ msgstr "非公開"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr "印章と署名は、会社のオーナーとオーナーが許可したメンバーのためのものです。オーナーにお問い合わせください。"
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr "オーナーと、オーナーが許可したメンバーのみ使用できます。使用した操作はすべてアクティビティログに記録されます。"
-
-#~ msgid "Replace"
-#~ msgstr "置き換える"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr "このファイルは完全に削除されます。確認のためパスワードを入力してください。"
-
-#~ msgid "Who may use them"
-#~ msgstr "使用できる人"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr "オーナーであるあなたはいつでも使用できます。他のメンバーが書類に印章や署名を付けるには、ここで許可する必要があります。"
-
-#~ msgid "allowed"
-#~ msgstr "許可済み"
-
-#~ msgid "Take back"
-#~ msgstr "取り消す"
-
-#~ msgid "Allow"
-#~ msgstr "許可する"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "他のメンバーはまだいません。"
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr "会社の印の鮮明な画像をアップロードしてください。印を作成することはありません。"
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr "署名のはっきりした画像をアップロードしてください。署名を作成することはありません。"
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "スタンプと署名を使用可能"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "印章と署名を使用できます"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr "結果を読み取れませんでした。料金は請求されていません。もう一度お試しください。"
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "翻訳、要約、データの抽出、Wordへの変換ができます。読み取るのは最初の%(pages)sページのみです。料金はページ数によって決まります。先に料金が表示され、結果が届いた場合のみ請求されます。"
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "このドキュメントのページ数: %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Wordをダウンロード"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "このファイルからテキストを読み取れませんでした。"
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "完了しました。このファイルにはテキストがあったため、変換は無料です。"
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr "この文書のテキストを含む編集可能なWordファイルです。すでにテキストがあるため、無料です。"
-
-#~ msgid "Something different is coming"
-#~ msgstr "これまでとは違う何かが、もうすぐ登場します"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "サイトは secrets.json の SITE_LOCKED = false により公開状態が維持されています。"
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "secrets.json の SITE_LOCKED = false により、公開状態が維持されています。"
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "新しい何かが形になりつつあります…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "会社の書類、レター、印鑑をひとつにまとめて管理。"
-
-#~ msgid "By"
-#~ msgstr "作成者"
-
-#~ msgid "Next 6 months"
-#~ msgstr "今後6か月"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "新しいレターまたは証明書"
 
 #, python-format
 msgid "At your command, %(name)s!"
@@ -7318,3 +7406,236 @@ msgstr "質問: %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "回答はメモとして保存されました。"
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "アイデンティティ、レター、証明書を、あなた専用のレターヘッドで。"
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "お持ちのものをアップロード、または私たちにお任せ"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "下書き — この文章は会社の弁護士向けのたたき台です。法的助言ではなく、サー"
+#~ "ビスを一般公開する前に確認が必要です。[ ]内の項目は記入してください。"
+
+#~ msgid "Open the company identity"
+#~ msgstr "会社のアイデンティティを開く"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "AIワークスペース"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "デザインスタジオ"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "ビジネスインテリジェンス"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "会社"
+
+#~ msgid "Reminders due"
+#~ msgstr "期限が来たリマインダー"
+
+#~ msgid "Built by"
+#~ msgstr "開発元"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "ロゴ、レターヘッド、印、署名。お持ちのものをアップロードしてください。ロゴ"
+#~ "とレターヘッドは作成できます。"
+
+#~ msgid "add the stamp"
+#~ msgstr "スタンプを追加"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "このテキストを保存して再利用できます。毎回入力する空欄は {{このように}} 書"
+#~ "いてください。スタンプと署名は保存されません。"
+
+#~ msgid "Sealed"
+#~ msgstr "封印済み"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr "この会社の印章を使用する権限があることを確認します。"
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr ""
+#~ "これが自分の署名であること、または署名の持ち主がこの会社での使用を許可して"
+#~ "いることを確認します。"
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr "本人確認のため、パスワードをもう一度入力してください。"
+
+#~ msgid "stamp"
+#~ msgstr "スタンプ"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "写真が暗すぎます。明るい場所で白い紙を使ってください。"
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "この画像から鮮明な%(what)sを見つけられませんでした。均一な光で撮った無地の"
+#~ "白い紙の写真を使ってください。"
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr ""
+#~ "描かれたものが薄すぎるか小さすぎます。近づいて、均一な光で撮影してくださ"
+#~ "い。"
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr ""
+#~ "紙が十分に無地ではありません。白い紙を使い、影や模様を避けてください。"
+
+#~ msgid "Stamp"
+#~ msgstr "スタンプ"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "印章と署名"
+
+#~ msgid "Kept private"
+#~ msgstr "非公開"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr ""
+#~ "印章と署名は、会社のオーナーとオーナーが許可したメンバーのためのものです。"
+#~ "オーナーにお問い合わせください。"
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "オーナーと、オーナーが許可したメンバーのみ使用できます。使用した操作はすべ"
+#~ "てアクティビティログに記録されます。"
+
+#~ msgid "Replace"
+#~ msgstr "置き換える"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr ""
+#~ "このファイルは完全に削除されます。確認のためパスワードを入力してください。"
+
+#~ msgid "Who may use them"
+#~ msgstr "使用できる人"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "オーナーであるあなたはいつでも使用できます。他のメンバーが書類に印章や署名"
+#~ "を付けるには、ここで許可する必要があります。"
+
+#~ msgid "allowed"
+#~ msgstr "許可済み"
+
+#~ msgid "Take back"
+#~ msgstr "取り消す"
+
+#~ msgid "Allow"
+#~ msgstr "許可する"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "他のメンバーはまだいません。"
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr ""
+#~ "会社の印の鮮明な画像をアップロードしてください。印を作成することはありませ"
+#~ "ん。"
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr ""
+#~ "署名のはっきりした画像をアップロードしてください。署名を作成することはあり"
+#~ "ません。"
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "スタンプと署名を使用可能"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "印章と署名を使用できます"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr ""
+#~ "結果を読み取れませんでした。料金は請求されていません。もう一度お試しくださ"
+#~ "い。"
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "翻訳、要約、データの抽出、Wordへの変換ができます。読み取るのは最初"
+#~ "の%(pages)sページのみです。料金はページ数によって決まります。先に料金が表"
+#~ "示され、結果が届いた場合のみ請求されます。"
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "このドキュメントのページ数: %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Wordをダウンロード"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "このファイルからテキストを読み取れませんでした。"
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr ""
+#~ "完了しました。このファイルにはテキストがあったため、変換は無料です。"
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr ""
+#~ "この文書のテキストを含む編集可能なWordファイルです。すでにテキストがあるた"
+#~ "め、無料です。"
+
+#~ msgid "Something different is coming"
+#~ msgstr "これまでとは違う何かが、もうすぐ登場します"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr ""
+#~ "サイトは secrets.json の SITE_LOCKED = false により公開状態が維持されてい"
+#~ "ます。"
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr ""
+#~ "secrets.json の SITE_LOCKED = false により、公開状態が維持されています。"
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "新しい何かが形になりつつあります…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "会社の書類、レター、印鑑をひとつにまとめて管理。"
+
+#~ msgid "By"
+#~ msgstr "作成者"
+
+#~ msgid "Next 6 months"
+#~ msgstr "今後6か月"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "新しいレターまたは証明書"

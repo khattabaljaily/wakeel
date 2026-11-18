@@ -1,4 +1,5 @@
 from django import template
+from django.utils.safestring import mark_safe
 
 from apps.content.models import Post
 
@@ -21,6 +22,20 @@ def status_class(status):
 def nav_active(context, *prefixes):
     path = context['request'].path
     return 'active' if any(path.startswith(p) for p in prefixes) else ''
+
+
+@register.simple_tag(takes_context=True)
+def nav_current(context, *prefixes):
+    """aria-current for a sidebar link whose page is one of the prefixes."""
+    path = context['request'].path
+    return mark_safe(' aria-current="page"') if any(path.startswith(p) for p in prefixes) else ''
+
+
+@register.simple_tag(takes_context=True)
+def nav_group(context, *prefixes):
+    """Classes that open the sidebar group holding the page being shown."""
+    path = context['request'].path
+    return 'open is-current' if any(path.startswith(p) for p in prefixes) else ''
 
 
 @register.filter

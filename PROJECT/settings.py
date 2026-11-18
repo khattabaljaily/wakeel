@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     'apps.credits',
     'apps.billing',
     'apps.identity',
+    'apps.library',
     'enjaz_operators',
 ]
 
@@ -133,6 +134,7 @@ TEMPLATES = [
                 'apps.notifications.context_processors.notifications',
                 'apps.ops.context_processors.ops',
                 'apps.credits.context_processors.wallet',
+                'apps.library.context_processors.library_alerts',
                 'enjaz_operators.context_processors.operator',
             ],
         },

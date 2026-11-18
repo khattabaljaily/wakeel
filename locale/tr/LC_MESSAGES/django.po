@@ -68,8 +68,7 @@ msgstr "Şirketinizin ülkesi"
 #: apps/accounts/forms.py:29
 msgid ""
 "The company that serves you, its terms and its payment methods depend on it."
-msgstr ""
-"Size hizmet veren şirket, koşulları ve ödeme yöntemleri buna bağlıdır."
+msgstr "Size hizmet veren şirket, koşulları ve ödeme yöntemleri buna bağlıdır."
 
 #: apps/accounts/forms.py:33
 msgid "I agree to the Terms of Use and the Privacy Policy"
@@ -114,8 +113,7 @@ msgstr "koşullar kabul edildi"
 
 #: apps/accounts/views.py:44
 msgid "Too many sign-ups from this address. Try again later."
-msgstr ""
-"Bu adresten çok fazla kayıt yapıldı. Lütfen daha sonra tekrar deneyin."
+msgstr "Bu adresten çok fazla kayıt yapıldı. Lütfen daha sonra tekrar deneyin."
 
 #: apps/accounts/views.py:60
 msgid "Welcome! We sent a confirmation link to your email."
@@ -177,8 +175,7 @@ msgstr "Bu doğru değil. Hiçbir şey değiştirilmedi."
 
 #: apps/accounts/views.py:220
 msgid "That code is not correct. Check the time on your phone and try again."
-msgstr ""
-"Bu kod doğru değil. Telefonunuzun saatini kontrol edip tekrar deneyin."
+msgstr "Bu kod doğru değil. Telefonunuzun saatini kontrol edip tekrar deneyin."
 
 #: apps/accounts/views.py:236
 msgid "Two-step verification is off."
@@ -567,8 +564,8 @@ msgstr "Görev eklendi."
 msgid "note"
 msgstr "not"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "beni şu zamanda hatırlat"
 
@@ -662,8 +659,8 @@ msgstr "Çalışıyor"
 msgid "Done"
 msgstr "Tamamlandı"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -689,8 +686,8 @@ msgid ""
 "Tell it what you need. It finds your documents and suggests what to do; "
 "nothing runs until you approve it."
 msgstr ""
-"Ne istediğinizi söyleyin. Belgelerinizi bulur ve ne yapılacağını önerir; siz"
-" onaylamadan hiçbir şey çalışmaz."
+"Ne istediğinizi söyleyin. Belgelerinizi bulur ve ne yapılacağını önerir; siz "
+"onaylamadan hiçbir şey çalışmaz."
 
 #: apps/assistant/templates/assistant/chat.html:7
 msgid "The whole conversation will be deleted for good."
@@ -754,12 +751,17 @@ msgstr "Gönder"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "Sohbet ücretsizdir (günde en fazla %(limit)s mesaj); yalnızca onayladığınız hizmetler ücretlendirilir. Asistan yazdıklarınızı ve aradığı belgelerin bilgilerini okur, içeriklerini asla okumaz; bir belge yalnızca, hakkındaki bir soru gibi bir öneriyi onayladığınızda okunur. Hata yapabilir: her öneriyi kontrol edin."
+msgstr ""
+"Sohbet ücretsizdir (günde en fazla %(limit)s mesaj); yalnızca onayladığınız "
+"hizmetler ücretlendirilir. Asistan yazdıklarınızı ve aradığı belgelerin "
+"bilgilerini okur, içeriklerini asla okumaz; bir belge yalnızca, hakkındaki "
+"bir soru gibi bir öneriyi onayladığınızda okunur. Hata yapabilir: her "
+"öneriyi kontrol edin."
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
@@ -771,8 +773,7 @@ msgstr ""
 
 #: apps/assistant/views.py:50
 msgid "Make a 10-slide presentation about our new product for investors"
-msgstr ""
-"Yatırımcılar için yeni ürünümüz hakkında 10 slaytlık bir sunum hazırla"
+msgstr "Yatırımcılar için yeni ürünümüz hakkında 10 slaytlık bir sunum hazırla"
 
 #: apps/assistant/views.py:51
 msgid "Translate the lease contract into Arabic"
@@ -1073,8 +1074,8 @@ msgstr "Üzerinde çalışıyoruz…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
 msgstr ""
 "Bir tasarım bir iki dakika sürebilir. Sayfadan ayrılabilirsiniz: sonuç "
 "stüdyoda sizi bekler."
@@ -1132,8 +1133,8 @@ msgid ""
 "stationery and digital pieces, designed for you in famous, professional "
 "fonts."
 msgstr ""
-"Şirketinizi kendisi yapan her şey: logo, renkler, yazı tipleri, kırtasiye ve"
-" dijital parçalar; sizin için ünlü, profesyonel yazı tipleriyle tasarlanır."
+"Şirketinizi kendisi yapan her şey: logo, renkler, yazı tipleri, kırtasiye ve "
+"dijital parçalar; sizin için ünlü, profesyonel yazı tipleriyle tasarlanır."
 
 #: apps/brand/templates/brand/studio.html:7
 #: apps/identity/templates/identity/profile.html:3
@@ -1250,11 +1251,11 @@ msgstr "Logoyla başla"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
 msgstr ""
-"Logonuzdan %(n)s parça tasarlanacak, %%%(d)s indirimle. Bakiyeniz: "
-"$%(balance)s."
+"Logonuzdan %(n)s parça tasarlanacak, %%%(d)s indirimle. Bakiyeniz: $"
+"%(balance)s."
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -1390,8 +1391,8 @@ msgid ""
 "This is now your logo. Its colours are your brand colours, and everything "
 "you make next is built from it."
 msgstr ""
-"Bu artık logonuz. Renkleri marka renkleriniz ve bundan sonra yapacağınız her"
-" şey buna dayanır."
+"Bu artık logonuz. Renkleri marka renkleriniz ve bundan sonra yapacağınız her "
+"şey buna dayanır."
 
 #: apps/console/forms.py:12 templates/console/base_console.html:49
 #: templates/console/base_console.html:52
@@ -1641,8 +1642,8 @@ msgstr "Kişileri okuyabilirsiniz ama değiştiremezsiniz."
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
 msgstr ""
 "Müşteriler, tedarikçiler ve ortaklar tek defterde; nasıl ulaşılacağı ve "
 "onlarla neler yapıldığı ile birlikte."
@@ -1694,8 +1695,8 @@ msgstr ""
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
 "MyDocHub bir şirketin belgelerini, kimliğini, e-postasını ve günlük işini "
 "bir arada tutar. Elinizdekini yükleyin ya da yapay zekâya oluşturtun; her "
@@ -1826,8 +1827,8 @@ msgstr "Ekip çalışma alanı"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr ""
 "Görevler, kişiler ve kişisel notlar; herkese neyin yeni olduğunu söyleyen "
 "bildirimlerle."
@@ -1862,8 +1863,8 @@ msgstr "Yönetim"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr ""
 "Her üyeye bir rol, olan her şeyin kaydı ve yalnızca gerektiğinde "
 "yüklediğiniz bir bakiye."
@@ -2083,8 +2084,8 @@ msgstr "Kitaplık"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "Aç"
 
@@ -2218,8 +2219,8 @@ msgid ""
 "identity."
 msgstr ""
 "Logonuzu ve antetli kağıdınızı yükleyin ya da sizin için tasarlayalım. "
-"Ardından şirketinize özel şablonlarla, kendi kurumsal kimliğinizle saniyeler"
-" içinde istediğiniz belgeyi oluşturun."
+"Ardından şirketinize özel şablonlarla, kendi kurumsal kimliğinizle saniyeler "
+"içinde istediğiniz belgeyi oluşturun."
 
 #: apps/core/templates/core/landing.html:11
 msgid "Upload or ask"
@@ -2345,8 +2346,8 @@ msgstr "Her şeyi dışa aktar"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
 "Şirket bilgilerini, şablonları, düzenlenen tüm belgeleri (verileri, "
 "yazdırabileceğiniz bir sayfa ve PDF'ler), sakladığınız evrakları, logoyu ve "
@@ -2359,8 +2360,8 @@ msgstr "ZIP'i indir"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
 msgstr ""
 "Çok sayıda belge varsa bir dakika sürebilir. Dışa aktarma işlemi etkinlik "
 "günlüğüne kaydedilir."
@@ -2531,8 +2532,7 @@ msgid ""
 "Online payment is not open yet. Your balance will be topped up here as soon "
 "as it is."
 msgstr ""
-"Çevrimiçi ödeme henüz açık değil. Açıldığı anda bakiyeniz buradan "
-"yüklenecek."
+"Çevrimiçi ödeme henüz açık değil. Açıldığı anda bakiyeniz buradan yüklenecek."
 
 #: apps/credits/templates/credits/balance.html:31
 msgid "Top-up history"
@@ -2794,16 +2794,15 @@ msgstr ""
 "halinde."
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
 msgstr ""
-"Taranmış bir belgenin veya fotoğrafın metni, sayfa sayfa okunur: metin, Word"
-" veya PDF olarak."
+"Taranmış bir belgenin veya fotoğrafın metni, sayfa sayfa okunur: metin, Word "
+"veya PDF olarak."
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
 msgstr ""
 "Düzenlenebilir bir Word dosyası: Yapay zekâ her sayfayı okur ve metni, "
 "başlıkları ve tabloları yazar."
@@ -2834,8 +2833,8 @@ msgstr "Çevrilen metin, sayfada ve Word veya metin olarak."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr ""
 "Düzgün paragraflar, başlıklar ve tablolarla temiz, iyi düzenlenmiş bir PDF "
 "ve aynısı Word olarak."
@@ -2843,12 +2842,11 @@ msgstr ""
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
+"and checked page by page. PDF files only. Stamps and signatures are left out."
 msgstr ""
 "Orijinaline benzeyen bir PDF: aynı yerleşim, renkler ve logo, sayfa sayfa "
-"oluşturulur ve kontrol edilir. Yalnızca PDF dosyaları. Kaşe ve imzalar dahil"
-" edilmez."
+"oluşturulur ve kontrol edilir. Yalnızca PDF dosyaları. Kaşe ve imzalar dahil "
+"edilmez."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid "The summary on the page and as Word or text."
@@ -2870,8 +2868,7 @@ msgstr ""
 "Word aynı tasarımda."
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr ""
 "Her sayfanın metnini, başlıklarını ve tablolarını içeren düzenlenebilir bir "
 "Word dosyası."
@@ -2969,8 +2966,7 @@ msgstr "Sayfa başına $%(p)s'den başlayan fiyatlarla."
 msgid "Choose a file or drag it here"
 msgstr "Bir dosya seçin veya buraya sürükleyin"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF, PNG, JPG veya WebP, en fazla 10 MB"
 
@@ -2979,8 +2975,8 @@ msgid ""
 "The file is kept in your library under «Other documents», encrypted, with "
 "its result."
 msgstr ""
-"Dosya, sonucuyla birlikte şifrelenmiş olarak kütüphanenizde «Diğer belgeler»"
-" altında saklanır."
+"Dosya, sonucuyla birlikte şifrelenmiş olarak kütüphanenizde «Diğer belgeler» "
+"altında saklanır."
 
 #: apps/docops/templates/docops/services/start.html:15
 msgid ""
@@ -3076,8 +3072,7 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "Amacı ve bilgileri anlatın; yapay zekâ metni sizin için yazsın."
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
+msgid "The template could not be read. You were not charged; please try again."
 msgstr "Şablon okunamadı. Ücret alınmadı; lütfen tekrar deneyin."
 
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
@@ -3230,9 +3225,9 @@ msgid ""
 "template and writing this document costs $%(first)s this time. Afterwards, "
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
-"Şirketin için, kendi kurumsal kimliğiyle bir şablon hazırlayayım mı? Şablonu"
-" hazırlamak ve bu belgeyi yazmak bu seferlik $%(first)s tutar. Sonrasında "
-"her «%(name)s» ihtiyacında yalnızca yazım için $%(later)s ödersin."
+"Şirketin için, kendi kurumsal kimliğiyle bir şablon hazırlayayım mı? Şablonu "
+"hazırlamak ve bu belgeyi yazmak bu seferlik $%(first)s tutar. Sonrasında her "
+"«%(name)s» ihtiyacında yalnızca yazım için $%(later)s ödersin."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3300,8 +3295,8 @@ msgstr "Bilgiler"
 msgid ""
 "Each field is a blank of the design. An empty field prints as a dotted line."
 msgstr ""
-"Her alan, tasarımdaki bir boşluğa karşılık gelir. Boş bırakılan alan noktalı"
-" çizgi olarak yazdırılır."
+"Her alan, tasarımdaki bir boşluğa karşılık gelir. Boş bırakılan alan noktalı "
+"çizgi olarak yazdırılır."
 
 #: apps/documents/templates/documents/edit.html:29
 msgid "Save the details"
@@ -3400,8 +3395,8 @@ msgstr "Yapay zekâyla geliştir"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr "Örneğin: kısalt, gizlilikle ilgili bir madde ekle, tutarı 1.500 yap."
 
 #: apps/documents/templates/documents/edit.html:81
@@ -3515,8 +3510,8 @@ msgstr "Belgeleri okuyabilir ancak değiştiremezsiniz."
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
 "Şablonlarınızdan oluşturulan belgelerin kaydı. Metin burada gösterilmez: "
@@ -3577,13 +3572,11 @@ msgstr "Bu dilde antetli kağıt yok, bu yüzden ana antetli kağıt kullanılı
 msgid "Add one"
 msgstr "Ekle"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "Konu:"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "Bu belgeyi doğrula"
 
@@ -3602,8 +3595,8 @@ msgid ""
 "new document."
 msgstr ""
 "Sık sık yazdığınız bir mektubu veya sertifikayı saklayın. Boşluk için "
-"{{böyle}} yazın; şablonu her kullandığınızda boşlukları doldurur ve yeni bir"
-" belge alırsınız."
+"{{böyle}} yazın; şablonu her kullandığınızda boşlukları doldurur ve yeni bir "
+"belge alırsınız."
 
 #: apps/documents/templates/documents/templates.html:13
 msgid "No templates yet. Open a document and choose «Save as a template»."
@@ -3651,8 +3644,8 @@ msgstr ""
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
 msgstr ""
 "MyDocHub belgelere kaşe veya imza koymaz: kâğıttaki her kaşe veya imza, "
 "baskıdan sonra şirket tarafından eklenmiştir."
@@ -3675,8 +3668,7 @@ msgstr "Geçerli bir e-posta adresi girin."
 
 #: apps/documents/views.py:399
 msgid "You have sent many documents in the last hour. Try again later."
-msgstr ""
-"Son bir saatte çok fazla belge gönderdiniz. Daha sonra tekrar deneyin."
+msgstr "Son bir saatte çok fazla belge gönderdiniz. Daha sonra tekrar deneyin."
 
 #: apps/documents/views.py:409
 #, python-format
@@ -3705,8 +3697,7 @@ msgstr ""
 "yeniden tasarlayın."
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
 msgstr ""
 "Şablon olarak kaydedildi. Her seferinde doldurulacak boşluk için {{böyle}} "
 "yazın."
@@ -4123,8 +4114,8 @@ msgstr "Soruyu düzenle"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
 msgstr ""
 "Bu sorunun zaten yanıtları var. Türünü veya seçeneklerini değiştirmek eski "
 "yanıtların okunmasını zorlaştırabilir."
@@ -4184,8 +4175,8 @@ msgid ""
 "Done. Check the details below, correct anything that is wrong, then press "
 "Continue."
 msgstr ""
-"Tamam. Aşağıdaki bilgileri kontrol edin, yanlış olanları düzeltin ve Devam'a"
-" basın."
+"Tamam. Aşağıdaki bilgileri kontrol edin, yanlış olanları düzeltin ve Devam'a "
+"basın."
 
 #: apps/identity/forms.py:23
 msgid "PNG, JPG or WebP, up to 2 MB"
@@ -4205,8 +4196,7 @@ msgid ""
 "This PDF could not be read. Save it again without a password, or upload an "
 "image."
 msgstr ""
-"Bu PDF okunamadı. Parolasız olarak yeniden kaydedin veya bir görsel "
-"yükleyin."
+"Bu PDF okunamadı. Parolasız olarak yeniden kaydedin veya bir görsel yükleyin."
 
 #: apps/identity/forms.py:53 apps/identity/forms.py:158
 #, python-format
@@ -4255,8 +4245,8 @@ msgstr "Görsel çok küçük. Daha net bir fotoğraf kullan."
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
 msgstr ""
 "Bu resimde net bir logo bulamadık. Logo dosyasını düz bir arka planla "
 "kullanın."
@@ -4518,8 +4508,7 @@ msgstr "Şimdilik atla"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr ""
 "Her mektubun ve sertifikanın üzerine basıldığı logo ve antetli kâğıtlar."
 
@@ -4679,8 +4668,8 @@ msgstr "Benim için oku"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
 msgstr ""
 "Yapay zekâ belgeyi okur ve boş kalan ayrıntıları doldurur. Yalnızca "
 "okuyabilirse ücret alınır."
@@ -4691,8 +4680,8 @@ msgstr "Bu dosyayı yalnızca bu çalışma alanının üyeleri açabilir."
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
 msgstr ""
 "Belgenin türü, düzenleyen kurumu, referans numarası ve tarihleri dosyadan "
 "okunur. Yalnızca okunursa ücret alınır."
@@ -4701,18 +4690,17 @@ msgstr ""
 msgid "Add the details yourself"
 msgstr "Ayrıntıları kendiniz ekleyin"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "Ayrıntılar"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
 msgstr ""
-"Son kullanma tarihi belirlerseniz, süre dolmadan 90, 30, 7 ve 1 gün önce "
-"e-posta ile hatırlatılırsınız."
+"Son kullanma tarihi belirlerseniz, süre dolmadan 90, 30, 7 ve 1 gün önce e-"
+"posta ile hatırlatılırsınız."
 
 #: apps/library/templates/library/list.html:8
 msgid "All documents"
@@ -4771,8 +4759,8 @@ msgstr "Yapay zeka araçları"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
 msgstr ""
 "Ruhsatlarınızı, sözleşmelerinizi ve yazılarınızı tek bir yerde saklayın, "
 "yapay zekâ ile yeni belgeler oluşturun ve panoda sıradaki süresi dolacak "
@@ -4813,8 +4801,8 @@ msgid ""
 "The secure connection to the mail server failed. Check the port and the "
 "security type."
 msgstr ""
-"Posta sunucusuna güvenli bağlantı kurulamadı. Bağlantı noktasını ve güvenlik"
-" türünü kontrol edin."
+"Posta sunucusuna güvenli bağlantı kurulamadı. Bağlantı noktasını ve güvenlik "
+"türünü kontrol edin."
 
 #: apps/mail/client.py:76
 msgid "Could not reach the mail server. Check the server name and the port."
@@ -4992,8 +4980,7 @@ msgid "signature"
 msgstr "imza"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "Yeni ileti"
 
@@ -5266,8 +5253,8 @@ msgid ""
 "Once the owner connects the company e-mail address, everyone who works on "
 "documents can read and write company mail here, without leaving MyDocHub."
 msgstr ""
-"Sahip şirket e-posta adresini bağladığında, belgeler üzerinde çalışan herkes"
-" MyDocHub'dan çıkmadan şirket postalarını burada okuyup yazabilir."
+"Sahip şirket e-posta adresini bağladığında, belgeler üzerinde çalışan herkes "
+"MyDocHub'dan çıkmadan şirket postalarını burada okuyup yazabilir."
 
 #: apps/mail/templates/mail/not_connected.html:9
 msgid "Connect the mailbox"
@@ -5279,8 +5266,8 @@ msgstr "Şirket posta kutusunu bağla"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
 msgstr ""
 "Şirket e-posta adresini bir kez ekleyin, ardından şirket postalarını "
 "MyDocHub içinde okuyup yazın."
@@ -5291,8 +5278,8 @@ msgstr "Sunucu bilgileri"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
 msgstr ""
 "Boş bırakılırsa adresten tahmin edilir. Yalnızca bağlantı başarısız olursa "
 "değiştirin."
@@ -5300,8 +5287,8 @@ msgstr ""
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
 "Çalışma alanında belgeleri düzenleyebilen herkes bu posta kutusundan posta "
 "okuyabilir ve gönderebilir. Açma ve gönderme işlemleri etkinlik günlüğüne "
@@ -5346,9 +5333,9 @@ msgstr "Yeni e-posta şablonu"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
 "Yapay zeka, logonuzla, marka renklerinizle ve şirket bilgilerinizle bir "
 "şablon tasarlar. Kullanmadan önce şablonu görürsünüz ve yalnızca "
@@ -5485,8 +5472,7 @@ msgstr "En fazla %(n)d dosya ekleyin."
 #: apps/mail/views.py:400
 msgid "Many messages were sent in the last hour. Try again later."
 msgstr ""
-"Son bir saatte çok sayıda mesaj gönderildi. Lütfen daha sonra tekrar "
-"deneyin."
+"Son bir saatte çok sayıda mesaj gönderildi. Lütfen daha sonra tekrar deneyin."
 
 #: apps/mail/views.py:415
 msgid "The message was sent."
@@ -5516,8 +5502,8 @@ msgid ""
 "Only PDF files and pictures (PNG, JPG, WebP) up to 10 MB can be kept in the "
 "library."
 msgstr ""
-"Kitaplıkta yalnızca 10 MB'a kadar PDF dosyaları ve resimler (PNG, JPG, WebP)"
-" saklanabilir."
+"Kitaplıkta yalnızca 10 MB'a kadar PDF dosyaları ve resimler (PNG, JPG, WebP) "
+"saklanabilir."
 
 #: apps/mail/views.py:487
 msgid "Attachment"
@@ -5688,11 +5674,9 @@ msgstr "Lütfen okuduğunuzu onaylayın: %(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
 msgstr ""
-"Bakiye düşük: %(balance)s kaldı. Hizmetleri kullanmaya devam etmek için "
-"yükle"
+"Bakiye düşük: %(balance)s kaldı. Hizmetleri kullanmaya devam etmek için yükle"
 
 #: apps/notifications/registry.py:21
 msgid "The balance is finished. Top up to keep using the services"
@@ -5749,8 +5733,8 @@ msgid ""
 "The topic, the goal, the facts and figures to use. The more you write, the "
 "better it is."
 msgstr ""
-"Konu, hedef, kullanılacak olgular ve rakamlar. Ne kadar çok yazarsanız sonuç"
-" o kadar iyi olur."
+"Konu, hedef, kullanılacak olgular ve rakamlar. Ne kadar çok yazarsanız sonuç "
+"o kadar iyi olur."
 
 #: apps/presentations/forms.py:30
 msgid "Optional. Left empty, it is taken from what you write below."
@@ -5787,8 +5771,7 @@ msgstr "Tek geçişte yazılan iyi ve anlaşılır bir sunum."
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr ""
 "İkinci bir geçişte gözden geçirilip keskinleştirilir: daha güçlü başlıklar "
 "ve daha sıkı bir hikâye."
@@ -5842,8 +5825,7 @@ msgstr "$%(price)s karşılığında oluştur"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "İptal"
 
@@ -5861,8 +5843,8 @@ msgstr "Bu sunum kalıcı olarak silinecek."
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
 msgstr ""
 "Slaytları hazırlamak birkaç dakika sürer. Bu sayfadan ayrılabilirsiniz: "
 "sonuç sunumlarınızda sizi bekler."
@@ -5920,8 +5902,8 @@ msgstr "<bdi dir=\"ltr\">$%(price)s</bdi>'dan"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
 msgstr ""
 "Gösterilen fiyat 10 slayt içindir. Ücret alınmadan önce kesin fiyatı "
 "görürsünüz."
@@ -5984,8 +5966,8 @@ msgstr "Bu bağlantı kullanılamıyor"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
 msgstr ""
 "Süresi dolmuş ya da bağlantıyı paylaşan kişi tarafından iptal edilmiş "
 "olabilir. Ondan yeni bir bağlantı göndermesini isteyin."
@@ -5994,8 +5976,7 @@ msgstr ""
 msgid ""
 "Documents you shared with people outside the company, and who opened them."
 msgstr ""
-"Şirket dışındaki kişilerle paylaştığınız belgeler ve bunları kimlerin "
-"açtığı."
+"Şirket dışındaki kişilerle paylaştığınız belgeler ve bunları kimlerin açtığı."
 
 #: apps/sharing/templates/sharing/list.html:8
 msgid "Your link"
@@ -6084,8 +6065,8 @@ msgstr "Kopya kaydetmeye izin ver"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
 msgstr ""
 "Bu seçenek kapalıyken kişi belgeyi yalnızca sayfada görüntüleyebilir. Ekran "
 "fotoğrafı çekilmesini hiçbir şey engelleyemez, bu yüzden yalnızca "
@@ -6453,8 +6434,8 @@ msgstr "Daveti gönderdik."
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
 msgstr ""
 "Davet oluşturuldu ancak e-posta gönderilemedi. Birkaç dakika sonra Yeniden "
 "gönder'i kullanın."
@@ -6569,8 +6550,8 @@ msgstr "Bunu siz istemediyseniz bu mesajı yok sayın."
 msgid ""
 "Use the link below to choose a new password. The link is valid for one hour."
 msgstr ""
-"Yeni bir parola seçmek için aşağıdaki bağlantıyı kullanın. Bağlantı bir saat"
-" geçerlidir."
+"Yeni bir parola seçmek için aşağıdaki bağlantıyı kullanın. Bağlantı bir saat "
+"geçerlidir."
 
 #: templates/accounts/emails/password_reset_subject.txt:1
 msgid "Reset your MyDocHub password"
@@ -6601,8 +6582,7 @@ msgstr "Kaydolmadıysanız bu mesajı yok sayın."
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
+"Confirm your email address with the link below. The link is valid for 3 days."
 msgstr ""
 "E-posta adresinizi aşağıdaki bağlantıyla onaylayın. Bağlantı 3 gün "
 "geçerlidir."
@@ -6699,8 +6679,8 @@ msgid ""
 "if you lose access to the app. They are shown only now."
 msgstr ""
 "Bu kodları telefonunuzdan ayrı, güvenli bir yerde saklayın. Uygulamaya "
-"erişiminizi kaybederseniz her biri yalnızca bir kez kullanılabilir. Yalnızca"
-" şimdi gösterilirler."
+"erişiminizi kaybederseniz her biri yalnızca bir kez kullanılabilir. Yalnızca "
+"şimdi gösterilirler."
 
 #: templates/accounts/security.html:13 templates/accounts/two_factor.html:3
 #: templates/accounts/two_factor.html:5
@@ -6734,8 +6714,8 @@ msgstr "Kapat"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
 "Bu görseli bir doğrulama uygulamasıyla (Google Authenticator, Microsoft "
 "Authenticator, Authy…) tarayın, ardından gösterilen kodu girin."
@@ -6841,8 +6821,7 @@ msgid "Account"
 msgstr "Hesap"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "Platform konsolu"
 
@@ -6936,8 +6915,8 @@ msgstr "Aylık yapay zekâ bütçesi"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
 msgstr ""
 "Ayın maliyeti bütçeye ulaşınca, bütçe artırılana veya ay bitene kadar tüm "
 "yapay zekâ hizmetleri durur."
@@ -7068,8 +7047,7 @@ msgstr "Son değişiklik: %(when)s, yapan: %(who)s"
 #: templates/console/launch.html:14
 msgid "Open the site to everyone? Search engines may start to index it."
 msgstr ""
-"Site herkese açılsın mı? Arama motorları siteyi dizine eklemeye "
-"başlayabilir."
+"Site herkese açılsın mı? Arama motorları siteyi dizine eklemeye başlayabilir."
 
 #: templates/console/launch.html:14 templates/console/launch.html:15
 msgid "Open the site"
@@ -7236,8 +7214,8 @@ msgstr "Son defter kayıtları"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
 "Her hizmetin gerçek maliyeti ve satış fiyatı. Kayıtlı bir fiyat Django "
 "yönetiminden değiştirilebilir; sync_prices kayıtlı fiyatları fiyat "
@@ -7261,8 +7239,8 @@ msgstr "satışta değil"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
 msgstr ""
 "(n) = maliyetin dayandığı gerçek çalıştırma sayısı; * = daha küçük bir "
 "çalıştırmada ölçülüp ölçeklendi."
@@ -7408,227 +7386,6 @@ msgstr "Önizleme erişimi"
 msgid "Leave"
 msgstr "Ayrıl"
 
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "Elinizde olanı yükleyin ya da biz oluşturalım"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "TASLAK — Bu metin, şirketin avukatı için bir başlangıç noktasıdır. Hukuki "
-#~ "tavsiye değildir ve hizmet herkese açılmadan önce incelenmelidir. [Köşeli "
-#~ "parantez] içindeki yerler doldurulacaktır."
-
-#~ msgid "Open the company identity"
-#~ msgstr "Şirket kimliğini aç"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "Yapay zekâ çalışma alanı"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "Tasarım stüdyosu"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "İş zekâsı"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "Şirket"
-
-#~ msgid "Reminders due"
-#~ msgstr "Zamanı gelen hatırlatmalar"
-
-#~ msgid "Built by"
-#~ msgstr "Geliştiren:"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr ""
-#~ "Logo, antetli kâğıt, kaşe ve imza. Elinizdekini yükleyin; logoyu ve antetli "
-#~ "kâğıdı sizin için oluşturabiliriz."
-
-#~ msgid "add the stamp"
-#~ msgstr "kaşe ekle"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr ""
-#~ "Bu metni tekrar kullanmak için saklayın. Her seferinde doldurulacak boşluk "
-#~ "için {{böyle}} yazın. Kaşe ve imza saklanmaz."
-
-#~ msgid "Sealed"
-#~ msgstr "Mühürlendi"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr "Bu kaşeyi bu şirket için kullanmaya yetkili olduğumu onaylıyorum."
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr ""
-#~ "Bunun benim imzam olduğunu veya sahibinin bu şirket için kullanmama izin "
-#~ "verdiğini onaylıyorum."
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr "Siz olduğunuzu doğrulamak için şifrenizi tekrar girin."
-
-#~ msgid "stamp"
-#~ msgstr "kaşe"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "Fotoğraf çok karanlık. İyi ışıkta beyaz bir kâğıt kullan."
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr ""
-#~ "Bu görselde net bir %(what)s bulamadık. Düzgün ışıkta düz beyaz bir kâğıdın "
-#~ "fotoğrafını kullan."
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr "Çizim çok soluk veya küçük. Yaklaşıp düzgün ışıkta çek."
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr ""
-#~ "Kâğıt yeterince düz değil. Beyaz bir kâğıt kullan, gölge ve desenden kaçın."
-
-#~ msgid "Stamp"
-#~ msgstr "Kaşe"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "Kaşe ve imza"
-
-#~ msgid "Kept private"
-#~ msgstr "Gizli tutulur"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr ""
-#~ "Kaşe ve imza, şirketin sahibi ile sahibinin izin verdiği üyeler içindir. "
-#~ "Lütfen sahibe danışın."
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr ""
-#~ "Bunlar sahip ve sahibin izin verdiği üyeler içindir. Bunlarla yapılan her "
-#~ "işlem etkinlik günlüğüne kaydedilir."
-
-#~ msgid "Replace"
-#~ msgstr "Değiştir"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr "Bu dosya kalıcı olarak silinecek. Onaylamak için şifrenizi girin."
-
-#~ msgid "Who may use them"
-#~ msgstr "Kimler kullanabilir"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr ""
-#~ "Sahip olarak siz her zaman kullanabilirsiniz. Diğer üyeler kaşeyi veya "
-#~ "imzayı bir belgeye ancak burada izin verirseniz ekleyebilir."
-
-#~ msgid "allowed"
-#~ msgstr "izin verildi"
-
-#~ msgid "Take back"
-#~ msgstr "Geri al"
-
-#~ msgid "Allow"
-#~ msgstr "İzin ver"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "Henüz başka üye yok."
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr "Şirket kaşesinin net bir resmini yükleyin. Asla kaşe oluşturmayız."
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr "İmzanın net bir görüntüsünü yükleyin. Asla imza oluşturmayız."
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "Kaşe ve imzayı kullanabilir"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "kaşe ve imzayı kullanabilir"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr "Sonuç okunamadı. Ücret alınmadı; lütfen tekrar deneyin."
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "Çevirin, özetleyin, verilerini çıkarın veya Word'e dönüştürün. Yalnızca ilk "
-#~ "%(pages)s sayfa okunur. Fiyat sayfa sayısına göre değişir. Önce fiyatı "
-#~ "görürsünüz ve ücret yalnızca sonuç teslim edilirse alınır."
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "Bu belgedeki sayfa sayısı: %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Word'ü indir"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "Bu dosyadan metin okunamadı."
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "Tamamlandı. Bu dosyada metin olduğu için dönüştürme ücretsizdi."
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr ""
-#~ "Bu belgenin metnini içeren düzenlenebilir bir Word dosyası. Belgede zaten "
-#~ "metin olduğu için ücretsizdir."
-
-#~ msgid "Something different is coming"
-#~ msgstr "Farklı bir şey geliyor"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr ""
-#~ "Site, secrets.json içindeki SITE_LOCKED = false ayarıyla açık tutuluyor."
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr ""
-#~ "secrets.json dosyasındaki SITE_LOCKED = false ayarı nedeniyle açık "
-#~ "tutuluyor."
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "Yeni bir şey şekilleniyor…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "Şirketinizin belgeleri, yazıları ve mühürleri tek bir yerde."
-
-#~ msgid "By"
-#~ msgstr "Gönderen"
-
-#~ msgid "Next 6 months"
-#~ msgstr "Önümüzdeki 6 ay"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "Yeni mektup veya sertifika"
-
 #, python-format
 msgid "At your command, %(name)s!"
 msgstr "Emrinize amadeyim, %(name)s!"
@@ -7682,3 +7439,228 @@ msgstr "Soru: %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "Yanıt not olarak kaydedildi."
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "Elinizde olanı yükleyin ya da biz oluşturalım"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "TASLAK — Bu metin, şirketin avukatı için bir başlangıç noktasıdır. Hukuki "
+#~ "tavsiye değildir ve hizmet herkese açılmadan önce incelenmelidir. [Köşeli "
+#~ "parantez] içindeki yerler doldurulacaktır."
+
+#~ msgid "Open the company identity"
+#~ msgstr "Şirket kimliğini aç"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "Yapay zekâ çalışma alanı"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "Tasarım stüdyosu"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "İş zekâsı"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "Şirket"
+
+#~ msgid "Reminders due"
+#~ msgstr "Zamanı gelen hatırlatmalar"
+
+#~ msgid "Built by"
+#~ msgstr "Geliştiren:"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "Logo, antetli kâğıt, kaşe ve imza. Elinizdekini yükleyin; logoyu ve "
+#~ "antetli kâğıdı sizin için oluşturabiliriz."
+
+#~ msgid "add the stamp"
+#~ msgstr "kaşe ekle"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "Bu metni tekrar kullanmak için saklayın. Her seferinde doldurulacak "
+#~ "boşluk için {{böyle}} yazın. Kaşe ve imza saklanmaz."
+
+#~ msgid "Sealed"
+#~ msgstr "Mühürlendi"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr "Bu kaşeyi bu şirket için kullanmaya yetkili olduğumu onaylıyorum."
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr ""
+#~ "Bunun benim imzam olduğunu veya sahibinin bu şirket için kullanmama izin "
+#~ "verdiğini onaylıyorum."
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr "Siz olduğunuzu doğrulamak için şifrenizi tekrar girin."
+
+#~ msgid "stamp"
+#~ msgstr "kaşe"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "Fotoğraf çok karanlık. İyi ışıkta beyaz bir kâğıt kullan."
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "Bu görselde net bir %(what)s bulamadık. Düzgün ışıkta düz beyaz bir "
+#~ "kâğıdın fotoğrafını kullan."
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr "Çizim çok soluk veya küçük. Yaklaşıp düzgün ışıkta çek."
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr ""
+#~ "Kâğıt yeterince düz değil. Beyaz bir kâğıt kullan, gölge ve desenden "
+#~ "kaçın."
+
+#~ msgid "Stamp"
+#~ msgstr "Kaşe"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "Kaşe ve imza"
+
+#~ msgid "Kept private"
+#~ msgstr "Gizli tutulur"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr ""
+#~ "Kaşe ve imza, şirketin sahibi ile sahibinin izin verdiği üyeler içindir. "
+#~ "Lütfen sahibe danışın."
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "Bunlar sahip ve sahibin izin verdiği üyeler içindir. Bunlarla yapılan her "
+#~ "işlem etkinlik günlüğüne kaydedilir."
+
+#~ msgid "Replace"
+#~ msgstr "Değiştir"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr "Bu dosya kalıcı olarak silinecek. Onaylamak için şifrenizi girin."
+
+#~ msgid "Who may use them"
+#~ msgstr "Kimler kullanabilir"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "Sahip olarak siz her zaman kullanabilirsiniz. Diğer üyeler kaşeyi veya "
+#~ "imzayı bir belgeye ancak burada izin verirseniz ekleyebilir."
+
+#~ msgid "allowed"
+#~ msgstr "izin verildi"
+
+#~ msgid "Take back"
+#~ msgstr "Geri al"
+
+#~ msgid "Allow"
+#~ msgstr "İzin ver"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "Henüz başka üye yok."
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr "Şirket kaşesinin net bir resmini yükleyin. Asla kaşe oluşturmayız."
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr "İmzanın net bir görüntüsünü yükleyin. Asla imza oluşturmayız."
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "Kaşe ve imzayı kullanabilir"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "kaşe ve imzayı kullanabilir"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr "Sonuç okunamadı. Ücret alınmadı; lütfen tekrar deneyin."
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "Çevirin, özetleyin, verilerini çıkarın veya Word'e dönüştürün. Yalnızca "
+#~ "ilk %(pages)s sayfa okunur. Fiyat sayfa sayısına göre değişir. Önce "
+#~ "fiyatı görürsünüz ve ücret yalnızca sonuç teslim edilirse alınır."
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "Bu belgedeki sayfa sayısı: %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Word'ü indir"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "Bu dosyadan metin okunamadı."
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr "Tamamlandı. Bu dosyada metin olduğu için dönüştürme ücretsizdi."
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr ""
+#~ "Bu belgenin metnini içeren düzenlenebilir bir Word dosyası. Belgede zaten "
+#~ "metin olduğu için ücretsizdir."
+
+#~ msgid "Something different is coming"
+#~ msgstr "Farklı bir şey geliyor"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr ""
+#~ "Site, secrets.json içindeki SITE_LOCKED = false ayarıyla açık tutuluyor."
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr ""
+#~ "secrets.json dosyasındaki SITE_LOCKED = false ayarı nedeniyle açık "
+#~ "tutuluyor."
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "Yeni bir şey şekilleniyor…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "Şirketinizin belgeleri, yazıları ve mühürleri tek bir yerde."
+
+#~ msgid "By"
+#~ msgstr "Gönderen"
+
+#~ msgid "Next 6 months"
+#~ msgstr "Önümüzdeki 6 ay"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "Yeni mektup veya sertifika"

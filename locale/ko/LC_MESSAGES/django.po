@@ -143,7 +143,9 @@ msgstr "이메일이 확인되었습니다."
 msgid ""
 "We added %(amount)s of free credit to %(workspace)s so you can try the AI "
 "services."
-msgstr "AI 서비스를 체험해 보실 수 있도록 %(workspace)s에 %(amount)s의 무료 크레딧을 추가했어요."
+msgstr ""
+"AI 서비스를 체험해 보실 수 있도록 %(workspace)s에 %(amount)s의 무료 크레딧을 "
+"추가했어요."
 
 #: apps/accounts/views.py:130
 msgid "Your email is already confirmed."
@@ -171,7 +173,8 @@ msgstr "올바르지 않습니다. 변경된 내용은 없습니다."
 
 #: apps/accounts/views.py:220
 msgid "That code is not correct. Check the time on your phone and try again."
-msgstr "코드가 올바르지 않습니다. 휴대폰의 시간을 확인한 후 다시 시도해 주세요."
+msgstr ""
+"코드가 올바르지 않습니다. 휴대폰의 시간을 확인한 후 다시 시도해 주세요."
 
 #: apps/accounts/views.py:236
 msgid "Two-step verification is off."
@@ -204,7 +207,8 @@ msgstr "이 작업에는 AI 서비스를 사용할 수 없습니다."
 #: apps/ai/gateway.py:129
 msgid ""
 "The input is too long for this service. Please shorten it and try again."
-msgstr "입력이 너무 길어 이 서비스에서 처리할 수 없습니다. 줄여서 다시 시도해 주세요."
+msgstr ""
+"입력이 너무 길어 이 서비스에서 처리할 수 없습니다. 줄여서 다시 시도해 주세요."
 
 #: apps/ai/gateway.py:133
 msgid "This request needs more AI calls than it was charged for."
@@ -559,8 +563,8 @@ msgstr "작업이 추가되었습니다."
 msgid "note"
 msgstr "메모"
 
-#: apps/assistant/actions.py:255 apps/notes/forms.py:15
-#: apps/notes/models.py:20 apps/notes/templates/notes/_remind.html:8
+#: apps/assistant/actions.py:255 apps/notes/forms.py:15 apps/notes/models.py:20
+#: apps/notes/templates/notes/_remind.html:8
 msgid "remind me at"
 msgstr "알림 시간"
 
@@ -654,8 +658,8 @@ msgstr "실행 중"
 msgid "Done"
 msgstr "완료"
 
-#: apps/assistant/models.py:31 apps/brand/models.py:40
-#: apps/docops/models.py:30 apps/presentations/models.py:26
+#: apps/assistant/models.py:31 apps/brand/models.py:40 apps/docops/models.py:30
+#: apps/presentations/models.py:26
 #: apps/presentations/templates/presentations/list.html:13
 #: templates/console/_services.html:3
 msgid "Failed"
@@ -680,7 +684,9 @@ msgstr "AI 어시스턴트"
 msgid ""
 "Tell it what you need. It finds your documents and suggests what to do; "
 "nothing runs until you approve it."
-msgstr "필요한 것을 말해 주세요. 문서를 찾아 할 일을 제안하며, 승인하기 전에는 아무것도 실행되지 않습니다."
+msgstr ""
+"필요한 것을 말해 주세요. 문서를 찾아 할 일을 제안하며, 승인하기 전에는 아무것"
+"도 실행되지 않습니다."
 
 #: apps/assistant/templates/assistant/chat.html:7
 msgid "The whole conversation will be deleted for good."
@@ -744,18 +750,23 @@ msgstr "보내기"
 
 #, python-format
 msgid ""
-"The conversation is free (up to %(limit)s messages a day); only the services"
-" you approve are charged. The assistant reads what you write and the details "
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged. The assistant reads what you write and the details "
 "of the documents it searches, never their content; a document is read only "
 "when you approve a suggestion such as a question about it. It can make "
 "mistakes: check each suggestion."
-msgstr "대화는 무료입니다(하루 최대 %(limit)s개 메시지). 승인한 서비스에만 요금이 부과됩니다. 어시스턴트는 사용자가 작성한 내용과 검색한 문서의 세부 정보를 읽으며, 문서의 내용은 읽지 않습니다. 문서는 그에 대한 질문 같은 제안을 승인했을 때만 읽습니다. 실수할 수 있으니 각 제안을 확인하세요."
+msgstr ""
+"대화는 무료입니다(하루 최대 %(limit)s개 메시지). 승인한 서비스에만 요금이 부"
+"과됩니다. 어시스턴트는 사용자가 작성한 내용과 검색한 문서의 세부 정보를 읽으"
+"며, 문서의 내용은 읽지 않습니다. 문서는 그에 대한 질문 같은 제안을 승인했을 "
+"때만 읽습니다. 실수할 수 있으니 각 제안을 확인하세요."
 
 #: apps/assistant/templates/assistant/forbidden.html:6
 msgid ""
 "The assistant is for the owner, the administrators and the members. Ask an "
 "administrator if you need it."
-msgstr "어시스턴트는 소유자, 관리자, 멤버용입니다. 필요하면 관리자에게 요청하세요."
+msgstr ""
+"어시스턴트는 소유자, 관리자, 멤버용입니다. 필요하면 관리자에게 요청하세요."
 
 #: apps/assistant/views.py:50
 msgid "Make a 10-slide presentation about our new product for investors"
@@ -784,7 +795,9 @@ msgstr "답변하지 못했습니다. 다른 방식으로 말씀해 주세요."
 #: apps/assistant/views.py:184
 msgid ""
 "You reached today's limit of messages to the assistant. Try again tomorrow."
-msgstr "오늘 어시스턴트에게 보낼 수 있는 메시지 한도에 도달했습니다. 내일 다시 시도하세요."
+msgstr ""
+"오늘 어시스턴트에게 보낼 수 있는 메시지 한도에 도달했습니다. 내일 다시 시도하"
+"세요."
 
 #: apps/assistant/views.py:203
 msgid "This suggestion is no longer available. Ask the assistant again."
@@ -801,7 +814,8 @@ msgstr "이 제안은 더 이상 사용할 수 없습니다. 어시스턴트에�
 #: apps/presentations/service.py:187
 #: apps/presentations/templates/presentations/detail.html:18
 msgid "The service had a problem. You were not charged; please try again."
-msgstr "서비스에 문제가 발생했어요. 요금은 청구되지 않았으니 다시 시도해 주세요."
+msgstr ""
+"서비스에 문제가 발생했어요. 요금은 청구되지 않았으니 다시 시도해 주세요."
 
 #: apps/assistant/views.py:231
 msgid "The conversation was deleted."
@@ -936,7 +950,9 @@ msgstr "회사 프로필"
 msgid ""
 "Who did what with documents, the company mailbox and the team. This list "
 "cannot be changed."
-msgstr "문서, 회사 메일함, 팀과 관련해 누가 무엇을 했는지 보여줍니다. 이 목록은 변경할 수 없습니다."
+msgstr ""
+"문서, 회사 메일함, 팀과 관련해 누가 무엇을 했는지 보여줍니다. 이 목록은 변경"
+"할 수 없습니다."
 
 #: apps/audit/templates/audit/activity.html:13
 #: apps/credits/templates/credits/balance.html:53
@@ -1058,9 +1074,11 @@ msgstr "처리 중입니다…"
 
 #: apps/brand/templates/brand/detail.html:14
 msgid ""
-"A design can take a minute or two. You can leave this page: the result waits"
-" in the studio."
-msgstr "디자인에는 1~2분이 걸릴 수 있습니다. 페이지를 떠나도 됩니다. 결과는 스튜디오에 보관됩니다."
+"A design can take a minute or two. You can leave this page: the result waits "
+"in the studio."
+msgstr ""
+"디자인에는 1~2분이 걸릴 수 있습니다. 페이지를 떠나도 됩니다. 결과는 스튜디오"
+"에 보관됩니다."
 
 #: apps/brand/templates/brand/detail.html:20
 #: apps/brand/templates/brand/detail.html:28
@@ -1076,8 +1094,8 @@ msgid ""
 "Each concept is a different idea. Choosing one makes it your logo and its "
 "colours your brand colours; everything you make next is built from it."
 msgstr ""
-"각 콘셉트는 서로 다른 아이디어입니다. 하나를 선택하면 그것이 로고가 되고 그 색상이 브랜드 색상이 되며, 이후 만드는 모든 것이 이를 "
-"바탕으로 만들어집니다."
+"각 콘셉트는 서로 다른 아이디어입니다. 하나를 선택하면 그것이 로고가 되고 그 "
+"색상이 브랜드 색상이 되며, 이후 만드는 모든 것이 이를 바탕으로 만들어집니다."
 
 #: apps/brand/templates/brand/detail.html:29
 msgid "Choose this logo"
@@ -1105,14 +1123,18 @@ msgstr "파일"
 msgid ""
 "The brand studio is for the owner, the administrators and the members. Ask "
 "an administrator if you need it."
-msgstr "브랜드 스튜디오는 소유자, 관리자, 멤버용입니다. 필요하면 관리자에게 요청하세요."
+msgstr ""
+"브랜드 스튜디오는 소유자, 관리자, 멤버용입니다. 필요하면 관리자에게 요청하세"
+"요."
 
 #: apps/brand/templates/brand/studio.html:6
 msgid ""
 "Everything that makes your company look like itself: logo, colours, fonts, "
 "stationery and digital pieces, designed for you in famous, professional "
 "fonts."
-msgstr "회사를 회사답게 만드는 모든 것: 로고, 색상, 글꼴, 문구류, 디지털 자료를 유명하고 전문적인 글꼴로 디자인해 드립니다."
+msgstr ""
+"회사를 회사답게 만드는 모든 것: 로고, 색상, 글꼴, 문구류, 디지털 자료를 유명"
+"하고 전문적인 글꼴로 디자인해 드립니다."
 
 #: apps/brand/templates/brand/studio.html:7
 #: apps/identity/templates/identity/profile.html:3
@@ -1131,7 +1153,8 @@ msgstr "내 파일"
 msgid ""
 "Add your company name in the company details first: every design is made "
 "from it."
-msgstr "먼저 회사 정보에 회사 이름을 추가하세요. 모든 디자인이 그것으로 만들어집니다."
+msgstr ""
+"먼저 회사 정보에 회사 이름을 추가하세요. 모든 디자인이 그것으로 만들어집니다."
 
 #: apps/brand/templates/brand/studio.html:15
 msgid "Your brand kit"
@@ -1214,8 +1237,8 @@ msgid ""
 "It starts with your logo: three concepts to choose from. Once you choose, "
 "you can make every other piece at %(n)s%% off in one click."
 msgstr ""
-"로고부터 시작합니다. 세 가지 콘셉트 중에서 고르세요. 선택한 뒤에는 나머지 모든 것을 %(n)s%% 할인된 가격으로 한 번에 만들 수 "
-"있습니다."
+"로고부터 시작합니다. 세 가지 콘셉트 중에서 고르세요. 선택한 뒤에는 나머지 모"
+"든 것을 %(n)s%% 할인된 가격으로 한 번에 만들 수 있습니다."
 
 #: apps/brand/templates/brand/studio.html:87
 msgid "The whole kit, with the discount"
@@ -1228,9 +1251,10 @@ msgstr "로고로 시작"
 #: apps/brand/templates/brand/studio.html:99
 #, python-format
 msgid ""
-"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: "
-"$%(balance)s."
-msgstr "로고를 바탕으로 %(n)s개를 디자인합니다(%(d)s%% 할인). 잔액: $%(balance)s."
+"%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
+"%(balance)s."
+msgstr ""
+"로고를 바탕으로 %(n)s개를 디자인합니다(%(d)s%% 할인). 잔액: $%(balance)s."
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -1341,7 +1365,9 @@ msgstr "회사를 위해 그린 로고 콘셉트 하나."
 msgid ""
 "Three different concepts; an art director checks each one by eye and "
 "corrects it. You choose."
-msgstr "서로 다른 세 가지 콘셉트. 아트 디렉터가 각각을 눈으로 확인하고 수정합니다. 선택은 여러분의 몫입니다."
+msgstr ""
+"서로 다른 세 가지 콘셉트. 아트 디렉터가 각각을 눈으로 확인하고 수정합니다. 선"
+"택은 여러분의 몫입니다."
 
 #: apps/brand/views.py:35
 msgid "One design that suits your brand."
@@ -1355,13 +1381,16 @@ msgstr "세 가지 디자인 중에서 선택, 더 섬세한 디테일과 더 �
 msgid ""
 "The rest of your kit is being designed. Each piece appears in the studio as "
 "soon as it is ready."
-msgstr "키트의 나머지를 디자인하는 중입니다. 완성되는 대로 스튜디오에 표시됩니다."
+msgstr ""
+"키트의 나머지를 디자인하는 중입니다. 완성되는 대로 스튜디오에 표시됩니다."
 
 #: apps/brand/views.py:174
 msgid ""
 "This is now your logo. Its colours are your brand colours, and everything "
 "you make next is built from it."
-msgstr "이제 이것이 여러분의 로고입니다. 이 색상이 브랜드 색상이며, 이후 만드는 모든 것이 이를 바탕으로 만들어집니다."
+msgstr ""
+"이제 이것이 여러분의 로고입니다. 이 색상이 브랜드 색상이며, 이후 만드는 모든 "
+"것이 이를 바탕으로 만들어집니다."
 
 #: apps/console/forms.py:12 templates/console/base_console.html:49
 #: templates/console/base_console.html:52
@@ -1443,7 +1472,9 @@ msgstr "%(name)s에 %(amount)s이(가) 추가되었습니다."
 #: apps/console/views.py:188
 msgid ""
 "Too many wrong passwords. Try again in a few minutes. Nothing was deleted."
-msgstr "비밀번호를 너무 많이 틀렸습니다. 몇 분 후에 다시 시도하세요. 삭제된 항목은 없습니다."
+msgstr ""
+"비밀번호를 너무 많이 틀렸습니다. 몇 분 후에 다시 시도하세요. 삭제된 항목은 없"
+"습니다."
 
 #: apps/console/views.py:194
 msgid "The password is wrong. Nothing was deleted."
@@ -1609,9 +1640,10 @@ msgstr "연락처를 읽을 수는 있지만 변경할 수는 없습니다."
 
 #: apps/contacts/templates/contacts/list.html:6
 msgid ""
-"Clients, suppliers and partners in one book, with how to reach them and what"
-" was done with them."
-msgstr "고객, 공급업체, 파트너를 한곳에 모아 연락 방법과 그들과 한 일을 기록합니다."
+"Clients, suppliers and partners in one book, with how to reach them and what "
+"was done with them."
+msgstr ""
+"고객, 공급업체, 파트너를 한곳에 모아 연락 방법과 그들과 한 일을 기록합니다."
 
 #: apps/contacts/templates/contacts/list.html:7
 #: apps/contacts/templates/contacts/list.html:30
@@ -1658,11 +1690,12 @@ msgstr "회사의 <em>서류 업무와 팀워크</em>를 위한 하나의 작업
 #: apps/core/templates/core/about.html:8
 msgid ""
 "MyDocHub keeps a company's documents, identity, e-mail and daily work "
-"together. Upload what you have or let the AI create it, and everything comes"
-" out on your own letterhead, in your language."
+"together. Upload what you have or let the AI create it, and everything comes "
+"out on your own letterhead, in your language."
 msgstr ""
-"MyDocHub는 회사의 문서, 아이덴티티, 이메일, 일상 업무를 한곳에 모읍니다. 가진 것을 업로드하거나 AI에게 만들게 하면, 모든 "
-"것이 회사 레터헤드 위에 원하는 언어로 완성됩니다."
+"MyDocHub는 회사의 문서, 아이덴티티, 이메일, 일상 업무를 한곳에 모읍니다. 가"
+"진 것을 업로드하거나 AI에게 만들게 하면, 모든 것이 회사 레터헤드 위에 원하는 "
+"언어로 완성됩니다."
 
 #: apps/core/templates/core/about.html:10
 msgid "languages, right-to-left included"
@@ -1690,7 +1723,9 @@ msgstr "문서 및 파일"
 msgid ""
 "Keep every paper with its dates and get a warning before anything expires. "
 "Share a file with a link you control."
-msgstr "모든 서류를 날짜와 함께 보관하고 만료되기 전에 알림을 받으세요. 직접 관리하는 링크로 파일을 공유하세요."
+msgstr ""
+"모든 서류를 날짜와 함께 보관하고 만료되기 전에 알림을 받으세요. 직접 관리하"
+"는 링크로 파일을 공유하세요."
 
 #: apps/core/templates/core/about.html:23 templates/accounts/auth_base.html:12
 #: templates/base_app.html:16 templates/base_app.html:130
@@ -1714,7 +1749,9 @@ msgstr "AI 스튜디오"
 msgid ""
 "Your logo and visual identity, documents written on your letterhead, "
 "presentations, and an assistant for everyday work."
-msgstr "로고와 비주얼 아이덴티티, 레터헤드 위에 작성되는 문서, 프레젠테이션, 그리고 일상 업무를 돕는 어시스턴트."
+msgstr ""
+"로고와 비주얼 아이덴티티, 레터헤드 위에 작성되는 문서, 프레젠테이션, 그리고 "
+"일상 업무를 돕는 어시스턴트."
 
 #: apps/core/templates/core/about.html:29 templates/base_app.html:27
 #: templates/base_app.html:79
@@ -1752,7 +1789,9 @@ msgstr "이메일 및 커뮤니케이션"
 msgid ""
 "Write company e-mails, publish announcements to your team, and collect "
 "answers with forms and surveys."
-msgstr "회사 이메일을 작성하고, 팀에 공지를 게시하고, 양식과 설문으로 답변을 모으세요."
+msgstr ""
+"회사 이메일을 작성하고, 팀에 공지를 게시하고, 양식과 설문으로 답변을 모으세"
+"요."
 
 #: apps/core/templates/core/about.html:35 apps/mail/templates/mail/box.html:3
 #: apps/mail/templates/mail/box.html:8 apps/mail/templates/mail/compose.html:5
@@ -1783,8 +1822,8 @@ msgstr "팀 워크스페이스"
 
 #: apps/core/templates/core/about.html:40
 msgid ""
-"Tasks, contacts and personal notes, with notifications that tell each person"
-" what is new."
+"Tasks, contacts and personal notes, with notifications that tell each person "
+"what is new."
 msgstr "작업, 연락처, 개인 메모와 함께, 각자에게 새로운 소식을 알려 주는 알림."
 
 #: apps/core/templates/core/about.html:41 templates/accounts/auth_base.html:19
@@ -1817,8 +1856,8 @@ msgstr "관리"
 
 #: apps/core/templates/core/about.html:46
 msgid ""
-"A role for every member, a log of everything that happens, and a balance you"
-" top up only when you need it."
+"A role for every member, a log of everything that happens, and a balance you "
+"top up only when you need it."
 msgstr "구성원마다 역할, 모든 활동의 기록, 그리고 필요할 때만 충전하는 잔액."
 
 #: apps/core/templates/core/about.html:47 templates/base_app.html:57
@@ -1857,7 +1896,9 @@ msgstr "가격을 먼저 확인"
 msgid ""
 "No subscriptions. Every AI service shows its price before it runs, and a "
 "failed run costs nothing."
-msgstr "구독이 없습니다. 모든 AI 서비스는 실행 전에 가격을 보여 주며, 실패한 실행은 비용이 들지 않습니다."
+msgstr ""
+"구독이 없습니다. 모든 AI 서비스는 실행 전에 가격을 보여 주며, 실패한 실행은 "
+"비용이 들지 않습니다."
 
 #: apps/core/templates/core/about.html:58
 #: apps/core/templates/core/landing.html:49
@@ -1869,7 +1910,9 @@ msgstr "기본부터 비공개"
 msgid ""
 "Each company has its own workspace, and its files are encrypted. The app "
 "keeps no stamps or signatures."
-msgstr "회사마다 전용 작업 공간이 있고 파일은 암호화됩니다. 앱은 도장이나 서명을 보관하지 않습니다."
+msgstr ""
+"회사마다 전용 작업 공간이 있고 파일은 암호화됩니다. 앱은 도장이나 서명을 보관"
+"하지 않습니다."
 
 #: apps/core/templates/core/about.html:60
 #: apps/core/templates/core/landing.html:51
@@ -1889,7 +1932,8 @@ msgstr "나의 언어로"
 #: apps/core/templates/core/about.html:62
 #: apps/core/templates/core/landing.html:53
 msgid "The app and every document, in 16 languages, including right-to-left."
-msgstr "앱과 모든 문서를 16개 언어로, 오른쪽에서 왼쪽으로 쓰는 언어도 지원합니다."
+msgstr ""
+"앱과 모든 문서를 16개 언어로, 오른쪽에서 왼쪽으로 쓰는 언어도 지원합니다."
 
 #: apps/core/templates/core/about.html:67
 msgid "Who makes it"
@@ -1902,8 +1946,9 @@ msgid ""
 "local company that serves the workspaces there and takes their payments; "
 "yours is chosen by your company's country."
 msgstr ""
-"MyDocHub는 %(developer)s에서 개발합니다. 각 나라에서는 현지 회사가 제공하며, 그곳의 작업 공간을 지원하고 결제를 "
-"받습니다. 담당 회사는 귀사의 국가에 따라 정해집니다."
+"MyDocHub는 %(developer)s에서 개발합니다. 각 나라에서는 현지 회사가 제공하며, "
+"그곳의 작업 공간을 지원하고 결제를 받습니다. 담당 회사는 귀사의 국가에 따라 "
+"정해집니다."
 
 #: apps/core/templates/core/about.html:73
 #: apps/core/templates/core/landing.html:58
@@ -2031,8 +2076,8 @@ msgstr "라이브러리"
 
 #: apps/core/templates/core/dashboard.html:59
 #: apps/docops/templates/docops/panel.html:14
-#: apps/sharing/templates/sharing/lock.html:12
-#: templates/console/launch.html:10 templates/console/workspaces.html:22
+#: apps/sharing/templates/sharing/lock.html:12 templates/console/launch.html:10
+#: templates/console/workspaces.html:22
 msgid "Open"
 msgstr "열기"
 
@@ -2165,8 +2210,9 @@ msgid ""
 "document in seconds, from templates made for your company, on your own "
 "identity."
 msgstr ""
-"로고와 레터헤드를 업로드하거나 저희가 디자인해 드립니다. 그런 다음 회사에 맞춘 템플릿으로 우리 회사만의 아이덴티티를 담아 어떤 문서든 "
-"몇 초 만에 만들어 보세요."
+"로고와 레터헤드를 업로드하거나 저희가 디자인해 드립니다. 그런 다음 회사에 맞"
+"춘 템플릿으로 우리 회사만의 아이덴티티를 담아 어떤 문서든 몇 초 만에 만들어 "
+"보세요."
 
 #: apps/core/templates/core/landing.html:11
 msgid "Upload or ask"
@@ -2177,8 +2223,8 @@ msgid ""
 "Upload what you have, or describe a document and the AI creates it on your "
 "letterhead, then keeps it as a template you can reuse."
 msgstr ""
-"가지고 계신 문서를 업로드하거나 원하는 문서를 설명해 주세요. AI가 레터헤드에 맞춰 문서를 만들고, 다시 쓸 수 있는 템플릿으로 저장해"
-" 드립니다."
+"가지고 계신 문서를 업로드하거나 원하는 문서를 설명해 주세요. AI가 레터헤드에 "
+"맞춰 문서를 만들고, 다시 쓸 수 있는 템플릿으로 저장해 드립니다."
 
 #: apps/core/templates/core/landing.html:12
 msgid "Follow it on the board"
@@ -2198,7 +2244,9 @@ msgstr "레터헤드에 인쇄하기"
 msgid ""
 "Open any document on your own letterhead, with a QR code that lets anyone "
 "check it when you ask for one."
-msgstr "어떤 문서든 회사 레터헤드로 열 수 있고, 원할 때는 누구나 확인할 수 있는 QR 코드를 넣을 수 있습니다."
+msgstr ""
+"어떤 문서든 회사 레터헤드로 열 수 있고, 원할 때는 누구나 확인할 수 있는 QR 코"
+"드를 넣을 수 있습니다."
 
 #: apps/core/templates/core/landing.html:17
 #: apps/team/templates/team/accept.html:16 templates/accounts/login.html:3
@@ -2236,7 +2284,8 @@ msgstr "아이덴티티부터"
 #: apps/core/templates/core/landing.html:43
 msgid ""
 "Logo and letterhead. Upload what you have, or let us create them for you."
-msgstr "로고와 레터헤드. 가지고 있는 것을 업로드하거나 저희가 만들어 드리게 하세요."
+msgstr ""
+"로고와 레터헤드. 가지고 있는 것을 업로드하거나 저희가 만들어 드리게 하세요."
 
 #: apps/core/templates/core/landing.html:45 apps/library/models.py:34
 msgid "Letters and certificates"
@@ -2274,7 +2323,9 @@ msgstr "워크스페이스 데이터"
 
 #: apps/core/templates/core/workspace.html:6
 msgid "Your data is yours: keep a copy of everything, or delete it all."
-msgstr "데이터는 회원님의 것입니다. 모든 내용을 사본으로 보관하거나 전부 삭제할 수 있습니다."
+msgstr ""
+"데이터는 회원님의 것입니다. 모든 내용을 사본으로 보관하거나 전부 삭제할 수 있"
+"습니다."
 
 #: apps/core/templates/core/workspace.html:8
 msgid "Export everything"
@@ -2283,11 +2334,11 @@ msgstr "전체 내보내기"
 #: apps/core/templates/core/workspace.html:9
 msgid ""
 "One ZIP file with the company details, the templates, every issued document "
-"(its data, a page you can print and PDFs), the papers you keep, the logo and"
-" letterheads, the activity log and the ledger."
+"(its data, a page you can print and PDFs), the papers you keep, the logo and "
+"letterheads, the activity log and the ledger."
 msgstr ""
-"회사 정보, 템플릿, 발급된 모든 문서(데이터, 인쇄용 페이지, PDF), 보관 중인 서류, 로고와 레터헤드, 활동 기록, 원장이 담긴 "
-"ZIP 파일 하나입니다."
+"회사 정보, 템플릿, 발급된 모든 문서(데이터, 인쇄용 페이지, PDF), 보관 중인 서"
+"류, 로고와 레터헤드, 활동 기록, 원장이 담긴 ZIP 파일 하나입니다."
 
 #: apps/core/templates/core/workspace.html:11
 msgid "Download the ZIP"
@@ -2295,9 +2346,10 @@ msgstr "ZIP 다운로드"
 
 #: apps/core/templates/core/workspace.html:12
 msgid ""
-"It may take a minute when there are many documents. The export is written in"
-" the activity log."
-msgstr "문서가 많으면 1분 정도 걸릴 수 있습니다. 내보내기는 활동 기록에 남습니다."
+"It may take a minute when there are many documents. The export is written in "
+"the activity log."
+msgstr ""
+"문서가 많으면 1분 정도 걸릴 수 있습니다. 내보내기는 활동 기록에 남습니다."
 
 #: apps/core/templates/core/workspace.html:15
 #: apps/core/templates/core/workspace.html:23
@@ -2311,8 +2363,8 @@ msgid ""
 "papers and files, the history, and the balance. Nobody can recover it. "
 "Download the export first if you need a copy."
 msgstr ""
-"«%(name)s»의 모든 항목(문서, 템플릿, 서류, 파일, 기록, 잔액)이 영구적으로 삭제됩니다. 복구할 수 없습니다. 사본이 "
-"필요하면 먼저 내보내기를 다운로드하세요."
+"«%(name)s»의 모든 항목(문서, 템플릿, 서류, 파일, 기록, 잔액)이 영구적으로 삭"
+"제됩니다. 복구할 수 없습니다. 사본이 필요하면 먼저 내보내기를 다운로드하세요."
 
 #: apps/core/templates/core/workspace.html:17
 #, python-format
@@ -2354,7 +2406,8 @@ msgstr "최근 1시간 동안 여러 번 내보냈습니다. 나중에 다시 �
 #: apps/core/workspace.py:66
 msgid ""
 "The name you typed is not the name of the workspace. Nothing was deleted."
-msgstr "입력한 이름이 워크스페이스 이름과 다릅니다. 아무것도 삭제되지 않았습니다."
+msgstr ""
+"입력한 이름이 워크스페이스 이름과 다릅니다. 아무것도 삭제되지 않았습니다."
 
 #: apps/credits/models.py:15
 msgid "balance"
@@ -2418,7 +2471,9 @@ msgstr "AI 서비스가 결과를 전달할 때만 결제됩니다. 실패한 �
 msgid ""
 "Thank you. Your balance is updated as soon as the payment is confirmed, "
 "usually within a minute."
-msgstr "감사합니다. 결제가 확인되는 대로 잔액이 업데이트됩니다. 보통 1분 이내에 완료됩니다."
+msgstr ""
+"감사합니다. 결제가 확인되는 대로 잔액이 업데이트됩니다. 보통 1분 이내에 완료"
+"됩니다."
 
 #: apps/credits/templates/credits/balance.html:10
 msgid "Current balance"
@@ -2453,7 +2508,9 @@ msgstr "결제"
 msgid ""
 "Online payment is not open yet. Your balance will be topped up here as soon "
 "as it is."
-msgstr "온라인 결제는 아직 열리지 않았습니다. 열리는 대로 여기에서 잔액을 충전할 수 있습니다."
+msgstr ""
+"온라인 결제는 아직 열리지 않았습니다. 열리는 대로 여기에서 잔액을 충전할 수 "
+"있습니다."
 
 #: apps/credits/templates/credits/balance.html:31
 msgid "Top-up history"
@@ -2546,7 +2603,8 @@ msgstr "기계 번역입니다. 공식 인증이나 법적 효력이 있는 번�
 #: apps/identity/letterheads.py:117 apps/library/extract.py:122
 #: apps/mail/generate.py:49
 msgid "Your balance is not enough for this service. Top up and try again."
-msgstr "잔액이 부족하여 이 서비스를 이용할 수 없습니다. 충전 후 다시 시도해 주세요."
+msgstr ""
+"잔액이 부족하여 이 서비스를 이용할 수 없습니다. 충전 후 다시 시도해 주세요."
 
 #: apps/docops/ops.py:155 apps/documents/generate.py:70 apps/forms/views.py:63
 #: apps/identity/detect.py:73 apps/identity/generate.py:70
@@ -2571,7 +2629,8 @@ msgstr "이 파일을 읽을 수 없습니다. 요금이 청구되지 않았습�
 #: apps/docops/ops.py:194
 #, python-format
 msgid "Done. Only the first %(read)d of %(total)d pages were read."
-msgstr "완료되었습니다. 전체 %(total)d페이지 중 처음 %(read)d페이지만 읽었습니다."
+msgstr ""
+"완료되었습니다. 전체 %(total)d페이지 중 처음 %(read)d페이지만 읽었습니다."
 
 #: apps/docops/ops.py:196 apps/documents/generate.py:120
 #: apps/documents/generate.py:212 apps/documents/generate.py:402
@@ -2587,7 +2646,9 @@ msgstr "이 파일에서 텍스트를 읽을 수 없습니다. 요금은 청구�
 msgid ""
 "The page design could not be produced. You were not charged; please try "
 "again."
-msgstr "페이지 디자인을 만들 수 없었어요. 요금은 청구되지 않았으니 다시 시도해 주세요."
+msgstr ""
+"페이지 디자인을 만들 수 없었어요. 요금은 청구되지 않았으니 다시 시도해 주세"
+"요."
 
 #: apps/docops/services.py:37 apps/library/forms.py:58 apps/tasks/forms.py:36
 msgid "The file must be smaller than 10 MB."
@@ -2628,7 +2689,9 @@ msgstr "이 문서용 AI 도구"
 msgid ""
 "Choose a service: you see its options and their prices for this document "
 "before anything is charged."
-msgstr "서비스를 선택하세요. 요금이 청구되기 전에 이 문서에 적용되는 옵션과 가격을 확인할 수 있어요."
+msgstr ""
+"서비스를 선택하세요. 요금이 청구되기 전에 이 문서에 적용되는 옵션과 가격을 확"
+"인할 수 있어요."
 
 #: apps/docops/templates/docops/panel.html:9
 msgid "Results"
@@ -2664,7 +2727,9 @@ msgstr "이 결과는 영구적으로 삭제됩니다."
 msgid ""
 "This can take a few minutes for the original design. You can leave this "
 "page: the result is kept in the document's results."
-msgstr "원본 디자인은 몇 분 정도 걸릴 수 있어요. 이 페이지를 나가도 괜찮아요. 결과는 문서의 결과 목록에 보관돼요."
+msgstr ""
+"원본 디자인은 몇 분 정도 걸릴 수 있어요. 이 페이지를 나가도 괜찮아요. 결과는 "
+"문서의 결과 목록에 보관돼요."
 
 #: apps/docops/templates/docops/result.html:22
 #, python-format
@@ -2675,17 +2740,22 @@ msgstr "전체 %(total)s페이지 중 처음 %(read)s페이지만 읽었습니�
 msgid ""
 "The Word file is ready. Download it and edit it in Word or any word "
 "processor."
-msgstr "Word 파일이 준비되었습니다. 다운로드해서 Word나 다른 워드 프로세서에서 편집하세요."
+msgstr ""
+"Word 파일이 준비되었습니다. 다운로드해서 Word나 다른 워드 프로세서에서 편집하"
+"세요."
 
 #: apps/docops/templates/docops/result.html:29
 msgid ""
 "The translated document is ready in its original design. Download the PDF, "
 "or the Word file in the same design."
-msgstr "번역된 문서가 원본 디자인 그대로 준비되었습니다. PDF 또는 같은 디자인의 Word 파일로 다운로드하세요."
+msgstr ""
+"번역된 문서가 원본 디자인 그대로 준비되었습니다. PDF 또는 같은 디자인의 Word "
+"파일로 다운로드하세요."
 
 #: apps/docops/templates/docops/result.html:34 apps/docops/views.py:140
 msgid "Written by AI from the uploaded file. Check it before you rely on it."
-msgstr "업로드한 파일을 바탕으로 AI가 작성했습니다. 사용하기 전에 꼭 확인하세요."
+msgstr ""
+"업로드한 파일을 바탕으로 AI가 작성했습니다. 사용하기 전에 꼭 확인하세요."
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid "The full text in another language, with the same structure."
@@ -2700,15 +2770,17 @@ msgid "Parties, dates, amounts, duties and reference numbers, as lists."
 msgstr "당사자, 날짜, 금액, 의무, 참조 번호를 목록으로 제공합니다."
 
 #: apps/docops/templates/docops/services/_about.html:1
-msgid ""
-"The text of a scan or a photo, read page by page: as text, Word or PDF."
-msgstr "스캔본이나 사진의 텍스트를 페이지별로 읽어 텍스트, Word 또는 PDF로 제공합니다."
+msgid "The text of a scan or a photo, read page by page: as text, Word or PDF."
+msgstr ""
+"스캔본이나 사진의 텍스트를 페이지별로 읽어 텍스트, Word 또는 PDF로 제공합니"
+"다."
 
 #: apps/docops/templates/docops/services/_about.html:1
 msgid ""
-"An editable Word file: the AI reads every page and writes its text, headings"
-" and tables."
-msgstr "편집 가능한 Word 파일: AI가 모든 페이지를 읽고 텍스트, 제목, 표를 작성합니다."
+"An editable Word file: the AI reads every page and writes its text, headings "
+"and tables."
+msgstr ""
+"편집 가능한 Word 파일: AI가 모든 페이지를 읽고 텍스트, 제목, 표를 작성합니다."
 
 #: apps/docops/templates/docops/services/_name.html:1
 msgid "Translate"
@@ -2736,18 +2808,17 @@ msgstr "번역된 텍스트를 화면에서 보거나 Word 또는 텍스트로 �
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
-"A clean, well-organised PDF with proper paragraphs, headings and tables, and"
-" the same in Word."
+"A clean, well-organised PDF with proper paragraphs, headings and tables, and "
+"the same in Word."
 msgstr "문단, 제목, 표가 깔끔하게 정리된 PDF와 같은 내용의 Word 파일입니다."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid ""
 "A PDF that looks like your original: same layout, colours and logo, built "
-"and checked page by page. PDF files only. Stamps and signatures are left "
-"out."
+"and checked page by page. PDF files only. Stamps and signatures are left out."
 msgstr ""
-"레이아웃, 색상, 로고가 원본과 똑같은 PDF로, 페이지별로 제작하고 검수합니다. PDF 파일만 지원합니다. 도장과 서명은 포함되지 "
-"않습니다."
+"레이아웃, 색상, 로고가 원본과 똑같은 PDF로, 페이지별로 제작하고 검수합니다. "
+"PDF 파일만 지원합니다. 도장과 서명은 포함되지 않습니다."
 
 #: apps/docops/templates/docops/services/_tier.html:1
 msgid "The summary on the page and as Word or text."
@@ -2762,11 +2833,12 @@ msgstr "제목과 표가 포함된 깔끔한 보고서 PDF와 Word 파일로 요
 msgid ""
 "The most careful summary, every figure checked, on a designed page: PDF and "
 "Word in the same design."
-msgstr "가장 꼼꼼한 요약, 모든 수치를 확인했습니다. 디자인된 페이지로 제공되며 PDF와 Word가 같은 디자인입니다."
+msgstr ""
+"가장 꼼꼼한 요약, 모든 수치를 확인했습니다. 디자인된 페이지로 제공되며 PDF와 "
+"Word가 같은 디자인입니다."
 
 #: apps/docops/templates/docops/services/_tier.html:1
-msgid ""
-"An editable Word file with the text, headings and tables of every page."
+msgid "An editable Word file with the text, headings and tables of every page."
 msgstr "모든 페이지의 텍스트, 제목, 표가 담긴 편집 가능한 Word 파일입니다."
 
 #: apps/docops/templates/docops/services/_tier.html:1
@@ -2774,7 +2846,8 @@ msgid ""
 "An editable Word file that looks like the original: every page rebuilt with "
 "its layout. PDF files only."
 msgstr ""
-"원본과 똑같이 보이는 편집 가능한 Word 파일입니다. 모든 페이지를 레이아웃 그대로 다시 만들어 드려요. PDF 파일만 가능합니다."
+"원본과 똑같이 보이는 편집 가능한 Word 파일입니다. 모든 페이지를 레이아웃 그대"
+"로 다시 만들어 드려요. PDF 파일만 가능합니다."
 
 #: apps/docops/templates/docops/services/confirm.html:7
 #, python-format
@@ -2835,7 +2908,8 @@ msgid ""
 "Upload a document or choose one from your library. You see the price before "
 "anything is charged, and you pay only if the result is delivered."
 msgstr ""
-"문서를 업로드하거나 라이브러리에서 선택하세요. 요금이 청구되기 전에 가격을 확인할 수 있으며, 결과가 전달된 경우에만 결제됩니다."
+"문서를 업로드하거나 라이브러리에서 선택하세요. 요금이 청구되기 전에 가격을 확"
+"인할 수 있으며, 결과가 전달된 경우에만 결제됩니다."
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
@@ -2858,8 +2932,7 @@ msgstr "페이지당 $%(p)s부터."
 msgid "Choose a file or drag it here"
 msgstr "파일을 선택하거나 여기로 끌어 놓으세요"
 
-#: apps/docops/templates/docops/services/start.html:13
-#: apps/library/forms.py:34
+#: apps/docops/templates/docops/services/start.html:13 apps/library/forms.py:34
 msgid "PDF, PNG, JPG or WebP, up to 10 MB"
 msgstr "PDF, PNG, JPG 또는 WebP, 최대 10MB"
 
@@ -2873,7 +2946,8 @@ msgstr "파일은 결과와 함께 암호화되어 라이브러리의 «기타 �
 msgid ""
 "Stamps, seals, signatures and personal photos in your file are never copied "
 "into the result."
-msgstr "파일에 있는 도장, 인감, 서명, 인물 사진은 결과물에 절대 복사되지 않습니다."
+msgstr ""
+"파일에 있는 도장, 인감, 서명, 인물 사진은 결과물에 절대 복사되지 않습니다."
 
 #: apps/docops/templates/docops/services/start.html:16
 #: apps/docops/templates/docops/services/start.html:22
@@ -2935,7 +3009,9 @@ msgstr "분류"
 msgid ""
 "For example: Experience certificate. The first time, a template of it is "
 "made for your company; after that it is reused."
-msgstr "예: 경력 증명서. 처음에는 회사에 맞는 템플릿이 만들어지고, 이후에는 그 템플릿을 다시 사용합니다."
+msgstr ""
+"예: 경력 증명서. 처음에는 회사에 맞는 템플릿이 만들어지고, 이후에는 그 템플릿"
+"을 다시 사용합니다."
 
 #: apps/documents/forms.py:50 apps/documents/templates/documents/edit.html:14
 #: apps/documents/templates/documents/print.html:81
@@ -2959,18 +3035,20 @@ msgid "Describe the purpose and the facts; the AI writes the text for you."
 msgstr "목적과 사실을 설명하면 AI가 글을 작성해 드립니다."
 
 #: apps/documents/generate.py:91
-msgid ""
-"The template could not be read. You were not charged; please try again."
-msgstr "템플릿을 읽을 수 없습니다. 요금은 청구되지 않았습니다. 다시 시도해 주세요."
+msgid "The template could not be read. You were not charged; please try again."
+msgstr ""
+"템플릿을 읽을 수 없습니다. 요금은 청구되지 않았습니다. 다시 시도해 주세요."
 
 #: apps/documents/generate.py:113 apps/documents/generate.py:205
 msgid "The text could not be read. You were not charged; please try again."
-msgstr "텍스트를 읽을 수 없습니다. 요금은 청구되지 않았습니다. 다시 시도해 주세요."
+msgstr ""
+"텍스트를 읽을 수 없습니다. 요금은 청구되지 않았습니다. 다시 시도해 주세요."
 
 #: apps/documents/generate.py:161 apps/documents/generate.py:300
 msgid ""
 "You have imported the free templates allowed for today. Try again tomorrow."
-msgstr "오늘 가져올 수 있는 무료 템플릿을 모두 가져왔습니다. 내일 다시 시도해 주세요."
+msgstr ""
+"오늘 가져올 수 있는 무료 템플릿을 모두 가져왔습니다. 내일 다시 시도해 주세요."
 
 #: apps/documents/generate.py:166 apps/documents/generate.py:305
 #: apps/identity/detect.py:55
@@ -2984,11 +3062,13 @@ msgstr "템플릿을 읽을 수 없습니다. 다시 시도해 주세요."
 #: apps/documents/generate.py:287 apps/identity/generate.py:62
 #: apps/identity/letterheads.py:112
 msgid "The design could not be read. You were not charged; please try again."
-msgstr "디자인을 읽을 수 없습니다. 요금은 청구되지 않았습니다. 다시 시도해 주세요."
+msgstr ""
+"디자인을 읽을 수 없습니다. 요금은 청구되지 않았습니다. 다시 시도해 주세요."
 
 #: apps/documents/generate.py:375
 msgid "The details could not be read. You were not charged; please try again."
-msgstr "세부 정보를 읽을 수 없습니다. 요금은 청구되지 않았으니 다시 시도해 주세요."
+msgstr ""
+"세부 정보를 읽을 수 없습니다. 요금은 청구되지 않았으니 다시 시도해 주세요."
 
 #: apps/documents/generate.py:381
 msgid "Written. Review it and edit anything you like."
@@ -3027,7 +3107,9 @@ msgstr "확인용 QR 코드 추가"
 msgid ""
 "Whoever holds the printed paper can scan it and see the original document, "
 "to compare the two."
-msgstr "인쇄된 문서를 가진 사람은 이를 스캔해 원본 문서를 보고 둘을 비교할 수 있습니다."
+msgstr ""
+"인쇄된 문서를 가진 사람은 이를 스캔해 원본 문서를 보고 둘을 비교할 수 있습니"
+"다."
 
 #: apps/documents/models.py:37
 msgid "Draft"
@@ -3071,7 +3153,9 @@ msgstr "템플릿 다시 디자인"
 msgid ""
 "Describe what should change. The template is made again; documents already "
 "written from it stay as they are."
-msgstr "변경할 내용을 설명해 주세요. 템플릿이 새로 만들어지며, 이미 이 템플릿으로 작성된 문서는 그대로 유지됩니다."
+msgstr ""
+"변경할 내용을 설명해 주세요. 템플릿이 새로 만들어지며, 이미 이 템플릿으로 작"
+"성된 문서는 그대로 유지됩니다."
 
 #: apps/documents/templates/documents/_template_actions.html:10
 #: apps/documents/templates/documents/edit.html:78
@@ -3091,7 +3175,9 @@ msgstr "AI로 문서 만들기"
 msgid ""
 "Tell me what you need. The document is written on your letterhead, and you "
 "can review and edit it afterwards."
-msgstr "필요한 내용을 알려 주세요. 문서는 회사 레터헤드에 맞춰 작성되며, 작성 후 검토하고 수정할 수 있어요."
+msgstr ""
+"필요한 내용을 알려 주세요. 문서는 회사 레터헤드에 맞춰 작성되며, 작성 후 검토"
+"하고 수정할 수 있어요."
 
 #: apps/documents/templates/documents/ai_new.html:19
 #, python-format
@@ -3105,8 +3191,9 @@ msgid ""
 "template and writing this document costs $%(first)s this time. Afterwards, "
 "each time you need a «%(name)s», you pay only $%(later)s for the writing."
 msgstr ""
-"회사 고유의 스타일로 템플릿을 만들어 드릴까요? 이번에는 템플릿 제작과 문서 작성에 $%(first)s가 들어요. 이후 "
-"«%(name)s»이(가) 필요할 때마다 문서 작성 비용 $%(later)s만 내시면 돼요."
+"회사 고유의 스타일로 템플릿을 만들어 드릴까요? 이번에는 템플릿 제작과 문서 작"
+"성에 $%(first)s가 들어요. 이후 «%(name)s»이(가) 필요할 때마다 문서 작성 비용 "
+"$%(later)s만 내시면 돼요."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3170,7 +3257,8 @@ msgstr "세부 정보"
 #: apps/documents/templates/documents/edit.html:24
 msgid ""
 "Each field is a blank of the design. An empty field prints as a dotted line."
-msgstr "각 입력란은 디자인의 빈칸입니다. 비어 있는 입력란은 점선으로 인쇄됩니다."
+msgstr ""
+"각 입력란은 디자인의 빈칸입니다. 비어 있는 입력란은 점선으로 인쇄됩니다."
 
 #: apps/documents/templates/documents/edit.html:29
 msgid "Save the details"
@@ -3234,7 +3322,9 @@ msgstr "승인"
 msgid ""
 "This document cannot be printed, downloaded or sent until the owner or an "
 "administrator approves it."
-msgstr "소유자나 관리자가 승인하기 전에는 이 문서를 인쇄, 다운로드, 발송할 수 없습니다."
+msgstr ""
+"소유자나 관리자가 승인하기 전에는 이 문서를 인쇄, 다운로드, 발송할 수 없습니"
+"다."
 
 #: apps/documents/templates/documents/edit.html:63
 msgid "Send for approval"
@@ -3267,8 +3357,8 @@ msgstr "AI로 개선하기"
 
 #: apps/documents/templates/documents/edit.html:80
 msgid ""
-"For example: make it shorter, add a clause about confidentiality, change the"
-" amount to 1,500."
+"For example: make it shorter, add a clause about confidentiality, change the "
+"amount to 1,500."
 msgstr "예: 더 짧게 만들기, 기밀 유지 조항 추가, 금액을 1,500으로 변경."
 
 #: apps/documents/templates/documents/edit.html:81
@@ -3279,7 +3369,9 @@ msgstr "다시 쓰기"
 msgid ""
 "Save your edits first: the AI works on the saved text. You are charged only "
 "if the new text is delivered."
-msgstr "먼저 수정 내용을 저장하세요. AI는 저장된 텍스트로 작업합니다. 새 텍스트가 제공된 경우에만 요금이 부과됩니다."
+msgstr ""
+"먼저 수정 내용을 저장하세요. AI는 저장된 텍스트로 작업합니다. 새 텍스트가 제"
+"공된 경우에만 요금이 부과됩니다."
 
 #: apps/documents/templates/documents/edit.html:85
 #: apps/documents/templates/documents/edit.html:88
@@ -3290,7 +3382,8 @@ msgstr "템플릿으로 저장"
 msgid ""
 "Keep this text to use again. Write {{like this}} for a blank to fill each "
 "time."
-msgstr "이 텍스트를 저장해 다시 사용하세요. 매번 채울 빈칸은 {{이렇게}} 써 주세요."
+msgstr ""
+"이 텍스트를 저장해 다시 사용하세요. 매번 채울 빈칸은 {{이렇게}} 써 주세요."
 
 #: apps/documents/templates/documents/edit.html:87 apps/mail/forms.py:84
 msgid "Template name"
@@ -3305,7 +3398,8 @@ msgid ""
 "Give someone outside the company a link to look at this document, for a "
 "limited time and with an optional password."
 msgstr ""
-"회사 외부 사용자에게 이 문서를 볼 수 있는 링크를 제공하세요. 제한된 기간 동안만 유효하며, 비밀번호를 설정할 수도 있습니다."
+"회사 외부 사용자에게 이 문서를 볼 수 있는 링크를 제공하세요. 제한된 기간 동안"
+"만 유효하며, 비밀번호를 설정할 수도 있습니다."
 
 #: apps/documents/templates/documents/edit.html:93
 #: apps/sharing/templates/sharing/new.html:6
@@ -3347,13 +3441,17 @@ msgstr "유효성"
 msgid ""
 "This document was cancelled on %(date)s. Anyone who scans its QR code sees "
 "that."
-msgstr "이 문서는 %(date)s에 취소되었습니다. QR 코드를 스캔하는 사람은 누구나 이 사실을 확인할 수 있습니다."
+msgstr ""
+"이 문서는 %(date)s에 취소되었습니다. QR 코드를 스캔하는 사람은 누구나 이 사실"
+"을 확인할 수 있습니다."
 
 #: apps/documents/templates/documents/edit.html:101
 msgid ""
 "If this printed document must no longer be trusted, cancel it: its QR code "
 "will say so."
-msgstr "인쇄된 이 문서를 더 이상 신뢰할 수 없다면 취소하세요. QR 코드에 취소 상태가 표시됩니다."
+msgstr ""
+"인쇄된 이 문서를 더 이상 신뢰할 수 없다면 취소하세요. QR 코드에 취소 상태가 "
+"표시됩니다."
 
 #: apps/documents/templates/documents/edit.html:105
 #: apps/library/templates/library/list.html:75
@@ -3373,12 +3471,12 @@ msgstr "문서를 읽을 수만 있고 변경할 수는 없습니다."
 
 #: apps/documents/templates/documents/issued.html:7
 msgid ""
-"A record of the documents written from your templates. The text is not shown"
-" here: open a document to read it, and each opening is written to the "
+"A record of the documents written from your templates. The text is not shown "
+"here: open a document to read it, and each opening is written to the "
 "activity log."
 msgstr ""
-"템플릿으로 작성된 문서의 기록입니다. 본문은 여기에 표시되지 않습니다. 문서를 열어 내용을 확인하세요. 문서를 열 때마다 활동 로그에 "
-"기록됩니다."
+"템플릿으로 작성된 문서의 기록입니다. 본문은 여기에 표시되지 않습니다. 문서를 "
+"열어 내용을 확인하세요. 문서를 열 때마다 활동 로그에 기록됩니다."
 
 #: apps/documents/templates/documents/issued.html:8
 #: apps/library/templates/library/list.html:17
@@ -3433,13 +3531,11 @@ msgstr "이 언어의 레터헤드가 없어 기본 레터헤드를 사용합니
 msgid "Add one"
 msgstr "추가하기"
 
-#: apps/documents/templates/documents/print.html:83
-#: apps/documents/views.py:341
+#: apps/documents/templates/documents/print.html:83 apps/documents/views.py:341
 msgid "Subject:"
 msgstr "제목:"
 
-#: apps/documents/templates/documents/print.html:87
-#: apps/documents/views.py:348
+#: apps/documents/templates/documents/print.html:87 apps/documents/views.py:348
 msgid "Verify this document"
 msgstr "이 문서 확인하기"
 
@@ -3457,8 +3553,8 @@ msgid ""
 "for a blank; each time you use the template you fill the blanks and get a "
 "new document."
 msgstr ""
-"자주 쓰는 편지나 증명서를 저장해 두세요. 빈칸은 {{이렇게}} 쓰면 됩니다. 템플릿을 사용할 때마다 빈칸을 채워 새 문서를 만들 수 "
-"있습니다."
+"자주 쓰는 편지나 증명서를 저장해 두세요. 빈칸은 {{이렇게}} 쓰면 됩니다. 템플"
+"릿을 사용할 때마다 빈칸을 채워 새 문서를 만들 수 있습니다."
 
 #: apps/documents/templates/documents/templates.html:13
 msgid "No templates yet. Open a document and choose «Save as a template»."
@@ -3497,13 +3593,17 @@ msgstr "인증 코드"
 msgid ""
 "Compare the document below with the paper in your hands, word for word. If "
 "anything differs, the paper is not genuine."
-msgstr "아래 문서를 가지고 계신 종이 문서와 한 단어씩 비교해 보세요. 조금이라도 다르면 정식 문서가 아닙니다."
+msgstr ""
+"아래 문서를 가지고 계신 종이 문서와 한 단어씩 비교해 보세요. 조금이라도 다르"
+"면 정식 문서가 아닙니다."
 
 #: apps/documents/templates/documents/verify.html:21
 msgid ""
-"MyDocHub places no stamps or signatures on documents: any stamp or signature"
-" on the paper was added by the company after printing."
-msgstr "MyDocHub는 문서에 도장이나 서명을 넣지 않습니다. 종이에 있는 도장이나 서명은 인쇄 후 회사가 직접 추가한 것입니다."
+"MyDocHub places no stamps or signatures on documents: any stamp or signature "
+"on the paper was added by the company after printing."
+msgstr ""
+"MyDocHub는 문서에 도장이나 서명을 넣지 않습니다. 종이에 있는 도장이나 서명은 "
+"인쇄 후 회사가 직접 추가한 것입니다."
 
 #: apps/documents/templates/documents/verify.html:23
 msgid "The document as it was issued"
@@ -3547,11 +3647,12 @@ msgstr "문서를 %(to)s에게 보냈습니다."
 msgid ""
 "You already have a template of this type. Choose another name, or redesign "
 "the existing one."
-msgstr "이미 이 유형의 템플릿이 있습니다. 다른 이름을 선택하거나 기존 템플릿을 다시 디자인하세요."
+msgstr ""
+"이미 이 유형의 템플릿이 있습니다. 다른 이름을 선택하거나 기존 템플릿을 다시 "
+"디자인하세요."
 
 #: apps/documents/views.py:452
-msgid ""
-"Saved as a template. Write {{like this}} for a blank to fill each time."
+msgid "Saved as a template. Write {{like this}} for a blank to fill each time."
 msgstr "템플릿으로 저장되었습니다. 매번 채울 빈칸은 {{이렇게}} 써 주세요."
 
 #: apps/documents/views.py:470 apps/documents/views.py:477
@@ -3582,7 +3683,9 @@ msgstr "문서의 내용으로 템플릿이 업데이트되었습니다."
 msgid ""
 "The template was made from your document. Writing a document from it costs "
 "only the writing price."
-msgstr "내 문서로 템플릿을 만들었습니다. 이 템플릿으로 문서를 작성하면 작성 요금만 청구됩니다."
+msgstr ""
+"내 문서로 템플릿을 만들었습니다. 이 템플릿으로 문서를 작성하면 작성 요금만 청"
+"구됩니다."
 
 #: apps/documents/views.py:610
 msgid "Tell the AI what should change."
@@ -3770,7 +3873,9 @@ msgstr "양식과 모든 답변이 영구적으로 삭제됩니다."
 msgid ""
 "This form has reached the limit of %(limit)s answers and takes no more. "
 "Download the answers, or delete some, to make room."
-msgstr "이 양식은 답변 한도(%(limit)s개)에 도달해 더 받지 않습니다. 답변을 다운로드하거나 일부를 삭제해 공간을 만드세요."
+msgstr ""
+"이 양식은 답변 한도(%(limit)s개)에 도달해 더 받지 않습니다. 답변을 다운로드하"
+"거나 일부를 삭제해 공간을 만드세요."
 
 #: apps/forms/templates/forms/detail.html:20
 msgid "Share the form"
@@ -3785,7 +3890,9 @@ msgstr "이 링크를 팀에 보내세요. 로그인한 뒤 한 사람이 한 �
 msgid ""
 "Anyone who opens this link or scans the code can answer. Nothing is asked "
 "about them."
-msgstr "이 링크를 열거나 코드를 스캔한 누구나 답변할 수 있습니다. 그 사람에 대해서는 아무것도 묻지 않습니다."
+msgstr ""
+"이 링크를 열거나 코드를 스캔한 누구나 답변할 수 있습니다. 그 사람에 대해서는 "
+"아무것도 묻지 않습니다."
 
 #: apps/forms/templates/forms/detail.html:24
 #: apps/sharing/templates/sharing/detail.html:9
@@ -3844,7 +3951,8 @@ msgstr "이름이 답변과 함께 저장됩니다."
 
 #: apps/forms/templates/forms/fill.html:27
 msgid "Nothing is asked about you: your answer is not linked to your name."
-msgstr "당신에 대해서는 아무것도 묻지 않습니다. 답변은 이름과 연결되지 않습니다."
+msgstr ""
+"당신에 대해서는 아무것도 묻지 않습니다. 답변은 이름과 연결되지 않습니다."
 
 #: apps/forms/templates/forms/fill_message.html:10
 msgid "Thank you"
@@ -3882,7 +3990,9 @@ msgstr "팀 전용"
 msgid ""
 "This form is only for the people of the company. Sign in with the account "
 "you use in the company's workspace."
-msgstr "이 양식은 회사 사람들 전용입니다. 회사 워크스페이스에서 쓰는 계정으로 로그인하세요."
+msgstr ""
+"이 양식은 회사 사람들 전용입니다. 회사 워크스페이스에서 쓰는 계정으로 로그인"
+"하세요."
 
 #: apps/forms/templates/forms/fill_message.html:16
 msgid "This form is full"
@@ -3912,7 +4022,8 @@ msgstr "링크가 잘못되었거나 양식이 삭제되었을 수 있습니다.
 msgid ""
 "Forms are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
-msgstr "양식은 소유자, 관리자, 구성원용입니다. 만들어야 한다면 관리자에게 요청하세요."
+msgstr ""
+"양식은 소유자, 관리자, 구성원용입니다. 만들어야 한다면 관리자에게 요청하세요."
 
 #: apps/forms/templates/forms/list.html:6
 msgid ""
@@ -3939,7 +4050,9 @@ msgstr "아직 양식이 없습니다."
 msgid ""
 "Creating a form costs $%(price)s from the balance, once. Its answers are "
 "free (up to %(limit)s answers)."
-msgstr "양식을 만들면 잔액에서 한 번 $%(price)s가 차감됩니다. 답변은 무료입니다(최대 %(limit)s개)."
+msgstr ""
+"양식을 만들면 잔액에서 한 번 $%(price)s가 차감됩니다. 답변은 무료입니다(최대 "
+"%(limit)s개)."
 
 #: apps/forms/templates/forms/list.html:33
 msgid "Create the form"
@@ -3952,9 +4065,11 @@ msgstr "질문 수정"
 
 #: apps/forms/templates/forms/question_edit.html:9
 msgid ""
-"This question already has answers. Changing its type or its choices can make"
-" the old answers hard to read."
-msgstr "이 질문에는 이미 답변이 있습니다. 유형이나 선택지를 바꾸면 이전 답변을 읽기 어려울 수 있습니다."
+"This question already has answers. Changing its type or its choices can make "
+"the old answers hard to read."
+msgstr ""
+"이 질문에는 이미 답변이 있습니다. 유형이나 선택지를 바꾸면 이전 답변을 읽기 "
+"어려울 수 있습니다."
 
 #: apps/forms/templates/forms/results.html:8
 msgid "Download as a spreadsheet"
@@ -4010,7 +4125,9 @@ msgstr "이 문서에서 회사 정보를 읽을 수 없습니다. 요금은 청
 msgid ""
 "Done. Check the details below, correct anything that is wrong, then press "
 "Continue."
-msgstr "완료되었습니다. 아래 내용을 확인하고 잘못된 부분은 수정한 후 계속을 눌러 주세요."
+msgstr ""
+"완료되었습니다. 아래 내용을 확인하고 잘못된 부분은 수정한 후 계속을 눌러 주세"
+"요."
 
 #: apps/identity/forms.py:23
 msgid "PNG, JPG or WebP, up to 2 MB"
@@ -4029,7 +4146,9 @@ msgstr "파일 크기는 5MB 미만이어야 합니다."
 msgid ""
 "This PDF could not be read. Save it again without a password, or upload an "
 "image."
-msgstr "이 PDF를 읽을 수 없습니다. 비밀번호 없이 다시 저장하거나 이미지를 업로드해 주세요."
+msgstr ""
+"이 PDF를 읽을 수 없습니다. 비밀번호 없이 다시 저장하거나 이미지를 업로드해 주"
+"세요."
 
 #: apps/identity/forms.py:53 apps/identity/forms.py:158
 #, python-format
@@ -4078,9 +4197,11 @@ msgstr "이미지가 너무 작습니다. 더 선명한 사진을 사용하세�
 
 #: apps/identity/imaging.py:113
 msgid ""
-"We could not find a clear logo in this picture. Use the logo file on a plain"
-" background."
-msgstr "이 사진에서 선명한 로고를 찾지 못했습니다. 단색 배경의 로고 파일을 사용하세요."
+"We could not find a clear logo in this picture. Use the logo file on a plain "
+"background."
+msgstr ""
+"이 사진에서 선명한 로고를 찾지 못했습니다. 단색 배경의 로고 파일을 사용하세"
+"요."
 
 #: apps/identity/letterheads.py:92
 msgid "The letterhead is saved."
@@ -4174,7 +4295,9 @@ msgstr "다른 언어"
 msgid ""
 "Optional. A document written in one of these languages uses this name and "
 "address instead."
-msgstr "선택 사항입니다. 이 언어 중 하나로 작성된 문서는 이 이름과 주소를 대신 사용합니다."
+msgstr ""
+"선택 사항입니다. 이 언어 중 하나로 작성된 문서는 이 이름과 주소를 대신 사용합"
+"니다."
 
 #: apps/identity/templates/identity/_basics.html:16
 msgid "Add a language"
@@ -4202,7 +4325,8 @@ msgid ""
 "A letter is printed on the letterhead of its own language. Your main "
 "language is %(language)s; add one for every other language you write in."
 msgstr ""
-"편지는 해당 언어의 레터헤드로 인쇄됩니다. 기본 언어는 %(language)s입니다. 그 외에 사용하는 언어마다 레터헤드를 추가하세요."
+"편지는 해당 언어의 레터헤드로 인쇄됩니다. 기본 언어는 %(language)s입니다. 그 "
+"외에 사용하는 언어마다 레터헤드를 추가하세요."
 
 #: apps/identity/templates/identity/_letterheads.html:11
 msgid "This letterhead will be deleted for good."
@@ -4266,7 +4390,8 @@ msgstr "스튜디오에서 만들기"
 msgid ""
 "The logo, the letterheads in every language and the guided setup are in the "
 "AI studio, under Company identity."
-msgstr "로고, 언어별 레터헤드, 안내 설정은 AI 스튜디오의 회사 아이덴티티에 있습니다."
+msgstr ""
+"로고, 언어별 레터헤드, 안내 설정은 AI 스튜디오의 회사 아이덴티티에 있습니다."
 
 #: apps/identity/templates/identity/profile.html:23 apps/mail/forms.py:86
 msgid "Style"
@@ -4284,7 +4409,8 @@ msgstr "회사 아이덴티티 설정"
 
 #: apps/identity/templates/identity/setup.html:7
 msgid "One item at a time: upload it, let us create it, or skip it for now."
-msgstr "한 번에 하나씩: 업로드하거나, 저희가 만들거나, 나중으로 미룰 수 있습니다."
+msgstr ""
+"한 번에 하나씩: 업로드하거나, 저희가 만들거나, 나중으로 미룰 수 있습니다."
 
 #: apps/identity/templates/identity/setup.html:22
 msgid "Have a paper with the company's details?"
@@ -4294,7 +4420,9 @@ msgstr "회사 정보가 담긴 문서가 있나요?"
 msgid ""
 "Upload the commercial registration, the tax certificate or a business card "
 "and we fill in the details for you to check."
-msgstr "사업자등록증, 세금 증명서 또는 명함을 업로드하면 정보를 자동으로 채워 드려요. 내용만 확인해 주세요."
+msgstr ""
+"사업자등록증, 세금 증명서 또는 명함을 업로드하면 정보를 자동으로 채워 드려"
+"요. 내용만 확인해 주세요."
 
 #: apps/identity/templates/identity/setup.html:25
 msgid "Read it"
@@ -4328,8 +4456,7 @@ msgstr "나중에 하기"
 
 #: apps/identity/templates/identity/studio.html:7
 msgid ""
-"The logo and the letterheads that every letter and certificate is printed "
-"on."
+"The logo and the letterheads that every letter and certificate is printed on."
 msgstr "모든 편지와 증명서가 인쇄되는 로고와 레터헤드입니다."
 
 #: apps/identity/templates/identity/studio.html:15
@@ -4444,7 +4571,8 @@ msgstr "%(company)s의 갱신이 필요한 문서"
 msgid ""
 "These documents of %(company)s expire soon or have expired. Renew them in "
 "time."
-msgstr "%(company)s의 이 문서들은 곧 만료되거나 이미 만료되었습니다. 제때 갱신하세요."
+msgstr ""
+"%(company)s의 이 문서들은 곧 만료되거나 이미 만료되었습니다. 제때 갱신하세요."
 
 #: apps/library/templates/library/emails/expiry_reminder.html:6
 #: apps/library/templates/library/emails/expiry_reminder.txt:3
@@ -4475,7 +4603,9 @@ msgstr "공식 문서"
 msgid ""
 "Keep your licences, contracts and invoices in one place, and see on the "
 "board what expires next."
-msgstr "허가증, 계약서, 청구서를 한곳에 보관하고 다음에 만료될 문서를 보드에서 확인하세요."
+msgstr ""
+"허가증, 계약서, 청구서를 한곳에 보관하고 다음에 만료될 문서를 보드에서 확인하"
+"세요."
 
 #: apps/library/templates/library/form.html:11
 #: apps/library/templates/library/form.html:13
@@ -4484,9 +4614,10 @@ msgstr "대신 읽어 주기"
 
 #: apps/library/templates/library/form.html:12
 msgid ""
-"The AI reads the document and fills in the details that are still empty. You"
-" are charged only if it reads them."
-msgstr "AI가 문서를 읽고 비어 있는 항목을 채웁니다. 읽은 경우에만 요금이 청구됩니다."
+"The AI reads the document and fills in the details that are still empty. You "
+"are charged only if it reads them."
+msgstr ""
+"AI가 문서를 읽고 비어 있는 항목을 채웁니다. 읽은 경우에만 요금이 청구됩니다."
 
 #: apps/library/templates/library/form.html:22
 msgid "Only members of this workspace can open it."
@@ -4494,24 +4625,26 @@ msgstr "이 워크스페이스의 구성원만 열 수 있습니다."
 
 #: apps/library/templates/library/form.html:32
 msgid ""
-"The type, issuer, reference number and dates are read from the file. You are"
-" charged only if they are read."
-msgstr "파일에서 유형, 발급 기관, 참조 번호, 날짜를 읽습니다. 읽은 경우에만 요금이 청구됩니다."
+"The type, issuer, reference number and dates are read from the file. You are "
+"charged only if they are read."
+msgstr ""
+"파일에서 유형, 발급 기관, 참조 번호, 날짜를 읽습니다. 읽은 경우에만 요금이 청"
+"구됩니다."
 
 #: apps/library/templates/library/form.html:37
 msgid "Add the details yourself"
 msgstr "세부 정보 직접 입력"
 
-#: apps/library/templates/library/form.html:39
-#: templates/console/ledger.html:21
+#: apps/library/templates/library/form.html:39 templates/console/ledger.html:21
 msgid "Details"
 msgstr "세부 정보"
 
 #: apps/library/templates/library/form.html:46
 msgid ""
-"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it"
-" expires."
-msgstr "만료일을 설정하면 만료 90일, 30일, 7일, 1일 전에 이메일로 알려 드립니다."
+"With an expiry date, you are reminded by email 90, 30, 7 and 1 day before it "
+"expires."
+msgstr ""
+"만료일을 설정하면 만료 90일, 30일, 7일, 1일 전에 이메일로 알려 드립니다."
 
 #: apps/library/templates/library/list.html:8
 msgid "All documents"
@@ -4540,7 +4673,9 @@ msgstr "템플릿"
 msgid ""
 "Turn this document into a template you can fill again and again. Making the "
 "template is free."
-msgstr "이 문서를 계속 다시 채워 쓸 수 있는 템플릿으로 만드세요. 템플릿 만들기는 무료입니다."
+msgstr ""
+"이 문서를 계속 다시 채워 쓸 수 있는 템플릿으로 만드세요. 템플릿 만들기는 무료"
+"입니다."
 
 #: apps/library/templates/library/list.html:72
 msgid "Use as a template"
@@ -4568,9 +4703,11 @@ msgstr "AI 도구"
 
 #: apps/library/templates/library/list.html:103
 msgid ""
-"Keep your licences, contracts and letters in one place, create new documents"
-" with AI, and see on the board what expires next."
-msgstr "면허, 계약서, 공문을 한곳에 보관하고, AI로 새 문서를 만들고, 다음 만료 예정 항목을 보드에서 확인하세요."
+"Keep your licences, contracts and letters in one place, create new documents "
+"with AI, and see on the board what expires next."
+msgstr ""
+"면허, 계약서, 공문을 한곳에 보관하고, AI로 새 문서를 만들고, 다음 만료 예정 "
+"항목을 보드에서 확인하세요."
 
 #: apps/library/views.py:135
 msgid "Edit the document"
@@ -4584,7 +4721,9 @@ msgstr "허용되지 않는 메일 서버 이름 또는 포트입니다."
 msgid ""
 "The mail server refused the user name or password. Gmail, Outlook and Yahoo "
 "need an app password."
-msgstr "메일 서버가 사용자 이름 또는 비밀번호를 거부했습니다. Gmail, Outlook, Yahoo는 앱 비밀번호가 필요합니다."
+msgstr ""
+"메일 서버가 사용자 이름 또는 비밀번호를 거부했습니다. Gmail, Outlook, Yahoo"
+"는 앱 비밀번호가 필요합니다."
 
 #: apps/mail/client.py:69
 msgid "The mail server answered with an error."
@@ -4596,14 +4735,16 @@ msgid ""
 "password is wrong: check the mailbox password, then the server name and the "
 "port."
 msgstr ""
-"메일 서버의 응답이 너무 오래 걸렸습니다. 일부 제공업체는 비밀번호가 틀렸을 때 이런 현상이 나타납니다. 메일함 비밀번호를 먼저 확인한 "
-"다음 서버 이름과 포트를 확인해 주세요."
+"메일 서버의 응답이 너무 오래 걸렸습니다. 일부 제공업체는 비밀번호가 틀렸을 "
+"때 이런 현상이 나타납니다. 메일함 비밀번호를 먼저 확인한 다음 서버 이름과 포"
+"트를 확인해 주세요."
 
 #: apps/mail/client.py:74
 msgid ""
 "The secure connection to the mail server failed. Check the port and the "
 "security type."
-msgstr "메일 서버에 대한 보안 연결에 실패했습니다. 포트와 보안 유형을 확인해 주세요."
+msgstr ""
+"메일 서버에 대한 보안 연결에 실패했습니다. 포트와 보안 유형을 확인해 주세요."
 
 #: apps/mail/client.py:76
 msgid "Could not reach the mail server. Check the server name and the port."
@@ -4676,8 +4817,8 @@ msgid ""
 "Kept sealed and never shown again. Gmail, Outlook and Yahoo need an app "
 "password, not the normal one."
 msgstr ""
-"안전하게 암호화되어 저장되며 다시 표시되지 않습니다. Gmail, Outlook, Yahoo는 일반 비밀번호가 아닌 앱 비밀번호가 "
-"필요합니다."
+"안전하게 암호화되어 저장되며 다시 표시되지 않습니다. Gmail, Outlook, Yahoo는 "
+"일반 비밀번호가 아닌 앱 비밀번호가 필요합니다."
 
 #: apps/mail/forms.py:23
 msgid "User name"
@@ -4722,7 +4863,9 @@ msgstr "mail.example.com처럼 서버 이름만 입력해 주세요."
 #: apps/mail/forms.py:62
 msgid ""
 "Use the usual mail ports (993 or 143 to read, 465, 587, 25 or 2525 to send)."
-msgstr "일반적인 메일 포트를 사용해 주세요(수신 993 또는 143, 발신 465, 587, 25 또는 2525)."
+msgstr ""
+"일반적인 메일 포트를 사용해 주세요(수신 993 또는 143, 발신 465, 587, 25 또는 "
+"2525)."
 
 #: apps/mail/forms.py:85
 msgid "Optional. Leave it empty to use the name of the style."
@@ -4756,7 +4899,8 @@ msgstr "미니멀"
 
 #: apps/mail/generate.py:70
 msgid "The design could not be used. You were not charged; please try again."
-msgstr "디자인을 사용할 수 없습니다. 요금은 청구되지 않았으니 다시 시도해 주세요."
+msgstr ""
+"디자인을 사용할 수 없습니다. 요금은 청구되지 않았으니 다시 시도해 주세요."
 
 #: apps/mail/models.py:17
 msgid "e-mail address"
@@ -4775,8 +4919,7 @@ msgid "signature"
 msgstr "서명"
 
 #: apps/mail/templates/mail/_compose_form.html:8
-#: apps/mail/templates/mail/box.html:85
-#: apps/mail/templates/mail/compose.html:3
+#: apps/mail/templates/mail/box.html:85 apps/mail/templates/mail/compose.html:3
 msgid "New message"
 msgstr "새 메시지"
 
@@ -5048,7 +5191,9 @@ msgstr "회사 메일함이 연결되어 있지 않습니다"
 msgid ""
 "Once the owner connects the company e-mail address, everyone who works on "
 "documents can read and write company mail here, without leaving MyDocHub."
-msgstr "소유자가 회사 이메일 주소를 연결하면 문서 작업자 모두 MyDocHub를 벗어나지 않고 회사 메일을 읽고 쓸 수 있습니다."
+msgstr ""
+"소유자가 회사 이메일 주소를 연결하면 문서 작업자 모두 MyDocHub를 벗어나지 않"
+"고 회사 메일을 읽고 쓸 수 있습니다."
 
 #: apps/mail/templates/mail/not_connected.html:9
 msgid "Connect the mailbox"
@@ -5060,9 +5205,11 @@ msgstr "회사 메일함 연결"
 
 #: apps/mail/templates/mail/setup.html:6
 msgid ""
-"Add the company e-mail address once, then read and write company mail inside"
-" MyDocHub."
-msgstr "회사 이메일 주소를 한 번만 추가하면 MyDocHub에서 바로 회사 메일을 읽고 쓸 수 있습니다."
+"Add the company e-mail address once, then read and write company mail inside "
+"MyDocHub."
+msgstr ""
+"회사 이메일 주소를 한 번만 추가하면 MyDocHub에서 바로 회사 메일을 읽고 쓸 수 "
+"있습니다."
 
 #: apps/mail/templates/mail/setup.html:15
 msgid "Server details"
@@ -5070,18 +5217,20 @@ msgstr "서버 정보"
 
 #: apps/mail/templates/mail/setup.html:16
 msgid ""
-"Guessed from the address when left empty. Change them only if the connection"
-" fails."
-msgstr "비워 두면 주소를 기준으로 자동 추정됩니다. 연결에 실패할 때만 변경해 주세요."
+"Guessed from the address when left empty. Change them only if the connection "
+"fails."
+msgstr ""
+"비워 두면 주소를 기준으로 자동 추정됩니다. 연결에 실패할 때만 변경해 주세요."
 
 #: apps/mail/templates/mail/setup.html:28
 msgid ""
 "Everyone in the workspace who can edit documents will be able to read and "
-"send mail from this mailbox. Opening and sending are written in the activity"
-" log. The password is sealed with your workspace key."
+"send mail from this mailbox. Opening and sending are written in the activity "
+"log. The password is sealed with your workspace key."
 msgstr ""
-"문서를 편집할 수 있는 워크스페이스 구성원 모두 이 메일함에서 메일을 읽고 보낼 수 있습니다. 열람과 발송은 활동 로그에 기록됩니다. "
-"비밀번호는 워크스페이스 키로 암호화됩니다."
+"문서를 편집할 수 있는 워크스페이스 구성원 모두 이 메일함에서 메일을 읽고 보"
+"낼 수 있습니다. 열람과 발송은 활동 로그에 기록됩니다. 비밀번호는 워크스페이"
+"스 키로 암호화됩니다."
 
 #: apps/mail/templates/mail/setup.html:30
 msgid "Save and test"
@@ -5104,7 +5253,9 @@ msgstr "연결 해제"
 msgid ""
 "Removes the saved password from MyDocHub. Your messages stay on your mail "
 "server."
-msgstr "MyDocHub에 저장된 비밀번호를 삭제합니다. 메시지는 메일 서버에 그대로 남습니다."
+msgstr ""
+"MyDocHub에 저장된 비밀번호를 삭제합니다. 메시지는 메일 서버에 그대로 남습니"
+"다."
 
 #: apps/mail/templates/mail/setup.html:39
 msgid "The mailbox will be disconnected from MyDocHub."
@@ -5121,12 +5272,13 @@ msgstr "새 이메일 템플릿"
 
 #: apps/mail/templates/mail/template_new.html:7
 msgid ""
-"The AI designs a template with your logo, brand colours and company details."
-" You see it before you use it, and you are charged only if a usable design "
-"is delivered."
+"The AI designs a template with your logo, brand colours and company details. "
+"You see it before you use it, and you are charged only if a usable design is "
+"delivered."
 msgstr ""
-"AI가 회원님의 로고, 브랜드 색상, 회사 정보를 반영해 템플릿을 디자인합니다. 사용하기 전에 미리 확인할 수 있으며, 사용 가능한 "
-"디자인이 완성된 경우에만 요금이 청구됩니다."
+"AI가 회원님의 로고, 브랜드 색상, 회사 정보를 반영해 템플릿을 디자인합니다. 사"
+"용하기 전에 미리 확인할 수 있으며, 사용 가능한 디자인이 완성된 경우에만 요금"
+"이 청구됩니다."
 
 #: apps/mail/templates/mail/template_new.html:19
 msgid "Design my template"
@@ -5143,8 +5295,9 @@ msgid ""
 "logo, colours and a footer with your details. Make one with AI, then choose "
 "it when you write."
 msgstr ""
-"템플릿을 사용하면 회사의 모든 메시지에 로고, 색상, 회사 정보가 담긴 하단 문구까지 동일하고 전문적인 느낌을 줄 수 있습니다. AI로 "
-"템플릿을 만든 다음 메시지를 쓸 때 선택하세요."
+"템플릿을 사용하면 회사의 모든 메시지에 로고, 색상, 회사 정보가 담긴 하단 문구"
+"까지 동일하고 전문적인 느낌을 줄 수 있습니다. AI로 템플릿을 만든 다음 메시지"
+"를 쓸 때 선택하세요."
 
 #: apps/mail/templates/mail/templates.html:14
 msgid "Open the preview"
@@ -5170,7 +5323,9 @@ msgstr "템플릿이 아직 없어요"
 msgid ""
 "Your messages go out as plain messages. Make a template and every message "
 "will carry your logo, colours and details."
-msgstr "지금은 메시지가 일반 메시지로 전송돼요. 템플릿을 만들면 모든 메시지에 로고, 색상, 세부 정보가 함께 들어가요."
+msgstr ""
+"지금은 메시지가 일반 메시지로 전송돼요. 템플릿을 만들면 모든 메시지에 로고, "
+"색상, 세부 정보가 함께 들어가요."
 
 #: apps/mail/templates/mail/templates.html:29
 msgid "Make my first template"
@@ -5184,7 +5339,9 @@ msgstr "메일함이 연결되었습니다."
 msgid ""
 "The mailbox is disconnected and its password is deleted. Your messages stay "
 "on your mail server."
-msgstr "메일함 연결이 해제되었고 비밀번호가 삭제되었습니다. 메시지는 메일 서버에 그대로 남습니다."
+msgstr ""
+"메일함 연결이 해제되었고 비밀번호가 삭제되었습니다. 메시지는 메일 서버에 그대"
+"로 남습니다."
 
 #: apps/mail/views.py:118
 msgid "Inbox"
@@ -5279,7 +5436,9 @@ msgstr "“%(title)s”의 PDF를 만들지 못했습니다. 다시 시도해 �
 msgid ""
 "Only PDF files and pictures (PNG, JPG, WebP) up to 10 MB can be kept in the "
 "library."
-msgstr "라이브러리에는 최대 10MB의 PDF 파일과 이미지(PNG, JPG, WebP)만 보관할 수 있습니다."
+msgstr ""
+"라이브러리에는 최대 10MB의 PDF 파일과 이미지(PNG, JPG, WebP)만 보관할 수 있습"
+"니다."
 
 #: apps/mail/views.py:487
 msgid "Attachment"
@@ -5293,7 +5452,8 @@ msgstr "라이브러리에 저장했습니다. 여기에서 세부 정보를 완
 msgid ""
 "Your e-mail template is ready. Preview it and choose it when you write a "
 "message."
-msgstr "이메일 템플릿이 준비되었습니다. 미리 보고, 메시지를 작성할 때 선택하세요."
+msgstr ""
+"이메일 템플릿이 준비되었습니다. 미리 보고, 메시지를 작성할 때 선택하세요."
 
 #: apps/mail/views.py:537
 msgid "Subject of your message"
@@ -5450,9 +5610,9 @@ msgstr "읽었음을 확인해 주세요: %(title)s"
 
 #: apps/notifications/registry.py:20
 #, python-format
-msgid ""
-"The balance is low: %(balance)s left. Top up to keep using the services"
-msgstr "잔액이 부족합니다: %(balance)s 남았습니다. 서비스를 계속 쓰려면 충전하세요"
+msgid "The balance is low: %(balance)s left. Top up to keep using the services"
+msgstr ""
+"잔액이 부족합니다: %(balance)s 남았습니다. 서비스를 계속 쓰려면 충전하세요"
 
 #: apps/notifications/registry.py:21
 msgid "The balance is finished. Top up to keep using the services"
@@ -5545,15 +5705,16 @@ msgstr "한 번에 작성되는 좋고 명확한 프레젠테이션."
 
 #: apps/presentations/service.py:51
 msgid ""
-"Reviewed and sharpened by a second pass: stronger titles and a tighter "
-"story."
+"Reviewed and sharpened by a second pass: stronger titles and a tighter story."
 msgstr "두 번째 단계에서 검토하고 다듬습니다. 더 강한 제목과 더 탄탄한 이야기."
 
 #: apps/presentations/service.py:52
 msgid ""
 "The best we can build: your audience is analysed first, then every designed "
 "slide is checked by eye and corrected."
-msgstr "저희가 만들 수 있는 최고 품질: 먼저 청중을 분석하고, 디자인된 모든 슬라이드를 눈으로 확인해 수정합니다."
+msgstr ""
+"저희가 만들 수 있는 최고 품질: 먼저 청중을 분석하고, 디자인된 모든 슬라이드"
+"를 눈으로 확인해 수정합니다."
 
 #: apps/presentations/templates/presentations/confirm.html:6
 msgid "Confirm the presentation"
@@ -5583,7 +5744,9 @@ msgstr "잔액: <bdi dir=\"ltr\">$%(balance)s</bdi>"
 msgid ""
 "It takes a few minutes. You can leave the page: the result waits in your "
 "presentations. If it fails, the price goes back to your balance."
-msgstr "몇 분 걸립니다. 페이지를 떠나도 됩니다. 결과는 프레젠테이션 목록에 보관됩니다. 실패하면 요금이 잔액으로 환불됩니다."
+msgstr ""
+"몇 분 걸립니다. 페이지를 떠나도 됩니다. 결과는 프레젠테이션 목록에 보관됩니"
+"다. 실패하면 요금이 잔액으로 환불됩니다."
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
@@ -5593,8 +5756,7 @@ msgstr "$%(price)s로 만들기"
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
 #: apps/team/templates/team/team.html:54 templates/base.html:27
-#: templates/console/base_console.html:54
-#: templates/partials/dialog_foot.html:1
+#: templates/console/base_console.html:54 templates/partials/dialog_foot.html:1
 msgid "Cancel"
 msgstr "취소"
 
@@ -5611,13 +5773,16 @@ msgstr "이 프레젠테이션은 영구적으로 삭제됩니다."
 
 #: apps/presentations/templates/presentations/detail.html:16
 msgid ""
-"Building the slides takes a few minutes. You can leave this page: the result"
-" waits in your presentations."
-msgstr "슬라이드를 만드는 데 몇 분 걸립니다. 이 페이지를 떠나도 됩니다. 결과는 프레젠테이션 목록에 보관됩니다."
+"Building the slides takes a few minutes. You can leave this page: the result "
+"waits in your presentations."
+msgstr ""
+"슬라이드를 만드는 데 몇 분 걸립니다. 이 페이지를 떠나도 됩니다. 결과는 프레젠"
+"테이션 목록에 보관됩니다."
 
 #: apps/presentations/templates/presentations/detail.html:21
 msgid "Your browser cannot show the preview. Download the PowerPoint."
-msgstr "브라우저에서 미리보기를 표시할 수 없습니다. PowerPoint를 다운로드하세요."
+msgstr ""
+"브라우저에서 미리보기를 표시할 수 없습니다. PowerPoint를 다운로드하세요."
 
 #: apps/presentations/templates/presentations/detail.html:22
 msgid "The slides"
@@ -5627,19 +5792,24 @@ msgstr "슬라이드"
 msgid ""
 "Written by AI from what you gave it. Check the facts and figures before you "
 "present."
-msgstr "제공하신 내용으로 AI가 작성했습니다. 발표하기 전에 사실과 수치를 확인하세요."
+msgstr ""
+"제공하신 내용으로 AI가 작성했습니다. 발표하기 전에 사실과 수치를 확인하세요."
 
 #: apps/presentations/templates/presentations/forbidden.html:6
 msgid ""
 "Presentations are for the owner, the administrators and the members. Ask an "
 "administrator if you need to make one."
-msgstr "프레젠테이션은 소유자, 관리자, 멤버용입니다. 만들어야 한다면 관리자에게 요청하세요."
+msgstr ""
+"프레젠테이션은 소유자, 관리자, 멤버용입니다. 만들어야 한다면 관리자에게 요청"
+"하세요."
 
 #: apps/presentations/templates/presentations/list.html:6
 msgid ""
 "Describe the talk, or choose a document: get a designed PowerPoint in your "
 "company's colours and logo that you can still edit."
-msgstr "발표 내용을 설명하거나 문서를 선택하세요. 회사의 색상과 로고로 디자인되고 수정도 가능한 PowerPoint를 받아 보세요."
+msgstr ""
+"발표 내용을 설명하거나 문서를 선택하세요. 회사의 색상과 로고로 디자인되고 수"
+"정도 가능한 PowerPoint를 받아 보세요."
 
 #: apps/presentations/templates/presentations/list.html:7
 #: apps/presentations/templates/presentations/list.html:23
@@ -5662,9 +5832,11 @@ msgstr "<bdi dir=\"ltr\">$%(price)s</bdi>부터"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
-"The price shown is for 10 slides. You see the exact price before anything is"
-" charged."
-msgstr "표시된 가격은 슬라이드 10장 기준입니다. 요금이 부과되기 전에 정확한 가격을 확인할 수 있습니다."
+"The price shown is for 10 slides. You see the exact price before anything is "
+"charged."
+msgstr ""
+"표시된 가격은 슬라이드 10장 기준입니다. 요금이 부과되기 전에 정확한 가격을 확"
+"인할 수 있습니다."
 
 #: apps/presentations/templates/presentations/list.html:41
 msgid "See the price"
@@ -5724,9 +5896,11 @@ msgstr "이 링크는 사용할 수 없어요"
 
 #: apps/sharing/templates/sharing/gone.html:7
 msgid ""
-"It may have ended or been cancelled by the person who shared it. Ask them to"
-" send a new link."
-msgstr "링크가 만료되었거나 공유한 사람이 취소했을 수 있어요. 새 링크를 보내 달라고 요청해 보세요."
+"It may have ended or been cancelled by the person who shared it. Ask them to "
+"send a new link."
+msgstr ""
+"링크가 만료되었거나 공유한 사람이 취소했을 수 있어요. 새 링크를 보내 달라고 "
+"요청해 보세요."
 
 #: apps/sharing/templates/sharing/list.html:6
 msgid ""
@@ -5771,7 +5945,8 @@ msgstr "이 링크를 취소할까요? 링크가 바로 열리지 않게 됩니�
 #: apps/sharing/templates/sharing/list.html:24
 msgid ""
 "Nothing shared yet. Open a paper or an issued document and choose Share."
-msgstr "아직 공유한 항목이 없어요. 문서나 발급된 문서를 열고 공유를 선택하세요."
+msgstr ""
+"아직 공유한 항목이 없어요. 문서나 발급된 문서를 열고 공유를 선택하세요."
 
 #: apps/sharing/templates/sharing/lock.html:6
 #: apps/sharing/templates/sharing/view.html:7
@@ -5810,7 +5985,8 @@ msgstr "비밀번호(선택사항)"
 #: apps/sharing/templates/sharing/new.html:14
 msgid ""
 "Send the password by a different way than the link, for example by phone."
-msgstr "비밀번호는 링크와 다른 방법으로 전달하세요. 예를 들어 전화로 알려 주세요."
+msgstr ""
+"비밀번호는 링크와 다른 방법으로 전달하세요. 예를 들어 전화로 알려 주세요."
 
 #: apps/sharing/templates/sharing/new.html:16
 msgid "Allow saving a copy"
@@ -5818,9 +5994,11 @@ msgstr "사본 저장 허용"
 
 #: apps/sharing/templates/sharing/new.html:17
 msgid ""
-"Without it the person can only view it on the page. Nothing can stop a photo"
-" of the screen, so share only with people you trust."
-msgstr "허용하지 않으면 상대방은 페이지에서 보기만 할 수 있습니다. 화면 촬영은 막을 수 없으니 신뢰하는 사람에게만 공유하세요."
+"Without it the person can only view it on the page. Nothing can stop a photo "
+"of the screen, so share only with people you trust."
+msgstr ""
+"허용하지 않으면 상대방은 페이지에서 보기만 할 수 있습니다. 화면 촬영은 막을 "
+"수 없으니 신뢰하는 사람에게만 공유하세요."
 
 #: apps/sharing/templates/sharing/new.html:18
 msgid "Make the link"
@@ -5940,7 +6118,9 @@ msgstr "첨부"
 msgid ""
 "Any file, up to 10 MB. It is kept encrypted and only members of this "
 "workspace can open it."
-msgstr "모든 파일, 최대 10MB. 암호화되어 저장되며 이 워크스페이스의 구성원만 열 수 있습니다."
+msgstr ""
+"모든 파일, 최대 10MB. 암호화되어 저장되며 이 워크스페이스의 구성원만 열 수 있"
+"습니다."
 
 #: apps/tasks/templates/tasks/detail.html:37
 msgid "Follow-up"
@@ -6023,7 +6203,9 @@ msgstr "초대 수락"
 msgid ""
 "This invitation is for %(email)s, but you are signed in with another "
 "address. Sign out and open the link again."
-msgstr "이 초대는 %(email)s 앞으로 발송되었지만 다른 주소로 로그인되어 있습니다. 로그아웃한 후 링크를 다시 열어 주세요."
+msgstr ""
+"이 초대는 %(email)s 앞으로 발송되었지만 다른 주소로 로그인되어 있습니다. 로그"
+"아웃한 후 링크를 다시 열어 주세요."
 
 #: apps/team/templates/team/accept.html:13 templates/base_app.html:111
 #: templates/base_app.html:119 templates/console/base_console.html:25
@@ -6054,7 +6236,9 @@ msgstr "%(inviter)s님이 MyDocHub의 %(name)s에 %(role)s 역할로 초대했�
 msgid ""
 "The link works once and for %(days)s days. If you did not expect this "
 "invitation, ignore this message."
-msgstr "이 링크는 %(days)s일 동안 한 번만 사용할 수 있습니다. 초대를 예상하지 못했다면 이 메시지를 무시하세요."
+msgstr ""
+"이 링크는 %(days)s일 동안 한 번만 사용할 수 있습니다. 초대를 예상하지 못했다"
+"면 이 메시지를 무시하세요."
 
 #: apps/team/templates/team/emails/invite.txt:3
 msgid "Open this link to accept:"
@@ -6105,7 +6289,9 @@ msgstr "초대장 보내기"
 msgid ""
 "Owner: everything. Admin: manages the company and the team. Member: writes "
 "and uploads. Viewer: reads. Client: reads what is shared."
-msgstr "소유자: 모든 권한. 관리자: 회사와 팀 관리. 멤버: 작성 및 업로드. 뷰어: 읽기. 고객: 공유된 항목 읽기."
+msgstr ""
+"소유자: 모든 권한. 관리자: 회사와 팀 관리. 멤버: 작성 및 업로드. 뷰어: 읽기. "
+"고객: 공유된 항목 읽기."
 
 #: apps/team/templates/team/team.html:20
 msgid "Approval of documents"
@@ -6115,7 +6301,8 @@ msgstr "문서 승인"
 msgid ""
 "Documents written by members must be approved before they can be printed, "
 "downloaded or sent"
-msgstr "구성원이 작성한 문서는 승인을 받아야 인쇄, 다운로드, 발송할 수 있습니다"
+msgstr ""
+"구성원이 작성한 문서는 승인을 받아야 인쇄, 다운로드, 발송할 수 있습니다"
 
 #: apps/team/templates/team/team.html:23
 msgid "The owner and the administrators' own documents are approved at once."
@@ -6167,9 +6354,11 @@ msgstr "초대장을 보냈습니다."
 
 #: apps/team/views.py:81
 msgid ""
-"The invitation was created but the e-mail could not be sent. Use Resend in a"
-" few minutes."
-msgstr "초대는 만들어졌지만 이메일을 보내지 못했습니다. 몇 분 후 다시 보내기를 눌러 주세요."
+"The invitation was created but the e-mail could not be sent. Use Resend in a "
+"few minutes."
+msgstr ""
+"초대는 만들어졌지만 이메일을 보내지 못했습니다. 몇 분 후 다시 보내기를 눌러 "
+"주세요."
 
 #: apps/team/views.py:101
 msgid "We sent the invitation again."
@@ -6262,7 +6451,8 @@ msgstr "비밀번호 재설정"
 msgid ""
 "Use the button below to choose a new password. The link is valid for one "
 "hour."
-msgstr "아래 버튼을 눌러 새 비밀번호를 선택하세요. 링크는 1시간 동안 유효합니다."
+msgstr ""
+"아래 버튼을 눌러 새 비밀번호를 선택하세요. 링크는 1시간 동안 유효합니다."
 
 #: templates/accounts/emails/password_reset.html:5
 #: templates/accounts/password_reset_confirm.html:3
@@ -6278,7 +6468,8 @@ msgstr "요청하지 않으셨다면 이 메시지를 무시하세요."
 #: templates/accounts/emails/password_reset.txt:1
 msgid ""
 "Use the link below to choose a new password. The link is valid for one hour."
-msgstr "아래 링크를 눌러 새 비밀번호를 선택하세요. 링크는 1시간 동안 유효합니다."
+msgstr ""
+"아래 링크를 눌러 새 비밀번호를 선택하세요. 링크는 1시간 동안 유효합니다."
 
 #: templates/accounts/emails/password_reset_subject.txt:1
 msgid "Reset your MyDocHub password"
@@ -6308,8 +6499,7 @@ msgstr "가입하지 않으셨다면 이 메시지를 무시하세요."
 
 #: templates/accounts/emails/verify_email.txt:2
 msgid ""
-"Confirm your email address with the link below. The link is valid for 3 "
-"days."
+"Confirm your email address with the link below. The link is valid for 3 days."
 msgstr "아래 링크로 이메일 주소를 확인하세요. 링크는 3일 동안 유효합니다."
 
 #: templates/accounts/emails/verify_email_subject.txt:1
@@ -6389,7 +6579,9 @@ msgstr "계정 보안"
 msgid ""
 "Protect your account with a second step: a code from an authenticator app, "
 "asked every time you sign in."
-msgstr "2단계 인증으로 계정을 보호하세요. 로그인할 때마다 인증 앱의 코드를 입력합니다."
+msgstr ""
+"2단계 인증으로 계정을 보호하세요. 로그인할 때마다 인증 앱의 코드를 입력합니"
+"다."
 
 #: templates/accounts/security.html:8
 msgid "Your backup codes"
@@ -6400,8 +6592,8 @@ msgid ""
 "Keep these codes somewhere safe, apart from your phone. Each one works once "
 "if you lose access to the app. They are shown only now."
 msgstr ""
-"이 코드를 휴대폰과 별도로 안전한 곳에 보관하세요. 앱을 사용할 수 없게 되면 각 코드를 한 번씩 사용할 수 있습니다. 지금만 "
-"표시됩니다."
+"이 코드를 휴대폰과 별도로 안전한 곳에 보관하세요. 앱을 사용할 수 없게 되면 "
+"각 코드를 한 번씩 사용할 수 있습니다. 지금만 표시됩니다."
 
 #: templates/accounts/security.html:13 templates/accounts/two_factor.html:3
 #: templates/accounts/two_factor.html:5
@@ -6435,11 +6627,11 @@ msgstr "끄기"
 
 #: templates/accounts/security.html:25
 msgid ""
-"Scan this picture with an authenticator app (Google Authenticator, Microsoft"
-" Authenticator, Authy…), then enter the code it shows."
+"Scan this picture with an authenticator app (Google Authenticator, Microsoft "
+"Authenticator, Authy…), then enter the code it shows."
 msgstr ""
-"인증 앱(Google Authenticator, Microsoft Authenticator, Authy 등)으로 이 이미지를 스캔한 후 "
-"표시되는 코드를 입력하세요."
+"인증 앱(Google Authenticator, Microsoft Authenticator, Authy 등)으로 이 이미"
+"지를 스캔한 후 표시되는 코드를 입력하세요."
 
 #: templates/accounts/security.html:27
 msgid "Or type this key into the app:"
@@ -6469,7 +6661,9 @@ msgstr "이미 계정이 있으신가요?"
 msgid ""
 "Enter the six-digit code from your authenticator app. If you lost your "
 "phone, enter one of your backup codes."
-msgstr "인증 앱의 6자리 코드를 입력하세요. 휴대폰을 분실했다면 백업 코드 중 하나를 입력하세요."
+msgstr ""
+"인증 앱의 6자리 코드를 입력하세요. 휴대폰을 분실했다면 백업 코드 중 하나를 입"
+"력하세요."
 
 #: templates/accounts/two_factor.html:10
 msgid "Verify"
@@ -6496,8 +6690,8 @@ msgid ""
 "This can take up to a minute. Keep this page open: the result appears here "
 "as soon as it is ready, and you are charged only if it is delivered."
 msgstr ""
-"최대 1분 정도 걸릴 수 있어요. 이 페이지를 열어 두세요. 결과가 준비되면 바로 여기에 표시되며, 결과가 제공된 경우에만 요금이 "
-"청구됩니다."
+"최대 1분 정도 걸릴 수 있어요. 이 페이지를 열어 두세요. 결과가 준비되면 바로 "
+"여기에 표시되며, 결과가 제공된 경우에만 요금이 청구됩니다."
 
 #: templates/base.html:21
 msgctxt "seconds"
@@ -6537,8 +6731,7 @@ msgid "Account"
 msgstr "계정"
 
 #: templates/base_app.html:106 templates/base_app.html:117
-#: templates/console/base_console.html:3
-#: templates/console/base_console.html:35
+#: templates/console/base_console.html:3 templates/console/base_console.html:35
 msgid "Platform console"
 msgstr "플랫폼 콘솔"
 
@@ -6632,9 +6825,11 @@ msgstr "월간 AI 예산"
 
 #: templates/console/ai.html:14
 msgid ""
-"When the month's cost reaches the budget, every AI service stops until it is"
-" raised or the month ends."
-msgstr "이달의 비용이 예산에 도달하면 예산을 늘리거나 달이 바뀔 때까지 모든 AI 서비스가 중지됩니다."
+"When the month's cost reaches the budget, every AI service stops until it is "
+"raised or the month ends."
+msgstr ""
+"이달의 비용이 예산에 도달하면 예산을 늘리거나 달이 바뀔 때까지 모든 AI 서비스"
+"가 중지됩니다."
 
 #: templates/console/ai.html:15
 msgid "Monthly budget (USD)"
@@ -6732,7 +6927,8 @@ msgid ""
 "While the site is locked, visitors see the Coming Soon page. Superusers and "
 "people with an access code get in."
 msgstr ""
-"사이트가 잠겨 있는 동안 방문자에게는 출시 예정 페이지가 표시됩니다. 슈퍼유저와 접근 코드가 있는 사용자는 들어갈 수 있습니다."
+"사이트가 잠겨 있는 동안 방문자에게는 출시 예정 페이지가 표시됩니다. 슈퍼유저"
+"와 접근 코드가 있는 사용자는 들어갈 수 있습니다."
 
 #: templates/console/launch.html:10
 msgid "Coming Soon lock"
@@ -6746,7 +6942,9 @@ msgstr "잠김"
 msgid ""
 "The site is locked: visitors see the Coming Soon page unless they have an "
 "access code."
-msgstr "사이트가 잠겨 있습니다. 접근 코드가 없는 방문자에게는 출시 예정 페이지가 표시됩니다."
+msgstr ""
+"사이트가 잠겨 있습니다. 접근 코드가 없는 방문자에게는 출시 예정 페이지가 표시"
+"됩니다."
 
 #: templates/console/launch.html:11
 msgid "The site is open to everyone."
@@ -6759,7 +6957,9 @@ msgstr "%(who)s님이 %(when)s에 마지막으로 변경함"
 
 #: templates/console/launch.html:14
 msgid "Open the site to everyone? Search engines may start to index it."
-msgstr "사이트를 모든 사용자에게 공개할까요? 검색 엔진이 사이트를 색인하기 시작할 수 있습니다."
+msgstr ""
+"사이트를 모든 사용자에게 공개할까요? 검색 엔진이 사이트를 색인하기 시작할 수 "
+"있습니다."
 
 #: templates/console/launch.html:14 templates/console/launch.html:15
 msgid "Open the site"
@@ -6814,7 +7014,8 @@ msgstr "코드 만들기"
 msgid ""
 "Every movement of every balance: card top-ups, credit given by the platform "
 "team, AI sales and refunds."
-msgstr "모든 잔액의 모든 내역: 카드 충전, 플랫폼 팀이 지급한 크레딧, AI 판매 및 환불."
+msgstr ""
+"모든 잔액의 모든 내역: 카드 충전, 플랫폼 팀이 지급한 크레딧, AI 판매 및 환불."
 
 #: templates/console/ledger.html:8 templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
@@ -6924,11 +7125,11 @@ msgstr "최근 원장 항목"
 #: templates/console/prices.html:5
 msgid ""
 "What every service really costs and what it is sold for. A stored price can "
-"be changed in the Django admin; sync_prices brings the stored prices in line"
-" with the price file."
+"be changed in the Django admin; sync_prices brings the stored prices in line "
+"with the price file."
 msgstr ""
-"각 서비스의 실제 비용과 판매 가격입니다. 저장된 가격은 Django 관리자에서 변경할 수 있으며, sync_prices는 저장된 가격을"
-" 가격 파일에 맞춥니다."
+"각 서비스의 실제 비용과 판매 가격입니다. 저장된 가격은 Django 관리자에서 변경"
+"할 수 있으며, sync_prices는 저장된 가격을 가격 파일에 맞춥니다."
 
 #: templates/console/prices.html:7
 msgid "Worst case"
@@ -6948,9 +7149,11 @@ msgstr "판매 안 함"
 
 #: templates/console/prices.html:12
 msgid ""
-"(n) = number of real runs behind the cost; * = measured on a smaller run and"
-" scaled up."
-msgstr "(n) = 비용 산정에 사용된 실제 실행 횟수, * = 더 작은 실행으로 측정해 환산한 값."
+"(n) = number of real runs behind the cost; * = measured on a smaller run and "
+"scaled up."
+msgstr ""
+"(n) = 비용 산정에 사용된 실제 실행 횟수, * = 더 작은 실행으로 측정해 환산한 "
+"값."
 
 #: templates/console/user_grant.html:3 templates/console/user_grant.html:6
 #: templates/console/users.html:20
@@ -7030,11 +7233,14 @@ msgstr "이 워크스페이스 삭제"
 msgid ""
 "Everything in it is deleted for good: documents, templates, papers, files, "
 "wallet and history. Enter your password to confirm."
-msgstr "문서, 템플릿, 파일, 지갑, 기록 등 모든 항목이 영구적으로 삭제됩니다. 확인하려면 비밀번호를 입력하세요."
+msgstr ""
+"문서, 템플릿, 파일, 지갑, 기록 등 모든 항목이 영구적으로 삭제됩니다. 확인하려"
+"면 비밀번호를 입력하세요."
 
 #: templates/console/workspaces.html:5
 msgid "Every company using the platform. Add credit to any of them from here."
-msgstr "플랫폼을 사용하는 모든 회사입니다. 여기서 원하는 회사에 크레딧을 추가하세요."
+msgstr ""
+"플랫폼을 사용하는 모든 회사입니다. 여기서 원하는 회사에 크레딧을 추가하세요."
 
 #: templates/console/workspaces.html:7
 msgid "Name, short name or owner e-mail"
@@ -7087,206 +7293,6 @@ msgstr "미리보기 액세스"
 #: templates/partials/preview_pill.html:1
 msgid "Leave"
 msgstr "나가기"
-
-#~ msgid "Identity, letters and certificates, on your own letterhead."
-#~ msgstr "아이덴티티, 레터, 증명서를 우리 회사 레터헤드로."
-
-#~ msgid "Upload what you have, or let us create it"
-#~ msgstr "가지고 있는 것을 업로드하거나 저희가 만들어 드립니다"
-
-#~ msgid ""
-#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
-#~ "legal advice and must be reviewed before the service opens to the public. "
-#~ "Items in [brackets] are to be filled in."
-#~ msgstr ""
-#~ "초안 — 이 글은 회사 변호사를 위한 출발점입니다. 법률 자문이 아니며, 서비스를 공개하기 전에 반드시 검토해야 합니다. [대괄호] 안의"
-#~ " 항목은 채워 넣어야 합니다."
-
-#~ msgid "Open the company identity"
-#~ msgstr "회사 아이덴티티 열기"
-
-#~ msgctxt "menu section"
-#~ msgid "AI workspace"
-#~ msgstr "AI 워크스페이스"
-
-#~ msgctxt "menu section"
-#~ msgid "Design studio"
-#~ msgstr "디자인 스튜디오"
-
-#~ msgctxt "menu section"
-#~ msgid "Business intelligence"
-#~ msgstr "비즈니스 인텔리전스"
-
-#~ msgctxt "menu section"
-#~ msgid "Company"
-#~ msgstr "회사"
-
-#~ msgid "Reminders due"
-#~ msgstr "기한이 된 알림"
-
-#~ msgid "Built by"
-#~ msgstr "제작:"
-
-#~ msgid ""
-#~ "Logo, letterhead, stamp and signature. Upload what you have; we can create "
-#~ "the logo and the letterhead for you."
-#~ msgstr "로고, 레터헤드, 도장, 서명. 가진 것을 업로드하세요. 로고와 레터헤드는 만들어 드릴 수 있습니다."
-
-#~ msgid "add the stamp"
-#~ msgstr "도장 추가"
-
-#~ msgid ""
-#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
-#~ "time. The stamp and the signature are not kept."
-#~ msgstr "이 텍스트를 저장해 두고 다시 사용하세요. 매번 채울 빈칸은 {{이렇게}} 써 주세요. 도장과 서명은 저장되지 않습니다."
-
-#~ msgid "Sealed"
-#~ msgstr "직인 날인됨"
-
-#~ msgid "I confirm that I am authorised to use this stamp for this company."
-#~ msgstr "이 회사를 위해 이 도장을 사용할 권한이 있음을 확인합니다."
-
-#~ msgid ""
-#~ "I confirm that this is my signature, or that its owner allows me to use it "
-#~ "for this company."
-#~ msgstr "이 서명이 본인의 서명이거나, 서명 소유자가 이 회사를 위해 사용하도록 허락했음을 확인합니다."
-
-#~ msgid "Enter your password again to confirm it is you."
-#~ msgstr "본인 확인을 위해 비밀번호를 다시 입력하세요."
-
-#~ msgid "stamp"
-#~ msgstr "도장"
-
-#~ msgid "The photo is too dark. Use a white page in good light."
-#~ msgstr "사진이 너무 어둡습니다. 밝은 곳에서 흰 종이를 사용하세요."
-
-#, python-format
-#~ msgid ""
-#~ "We could not find a clear %(what)s in this picture. Use a photo of a plain "
-#~ "white page in even light."
-#~ msgstr "이 이미지에서 선명한 %(what)s을(를) 찾지 못했습니다. 고른 빛에서 찍은 무늬 없는 흰 종이 사진을 사용하세요."
-
-#~ msgid ""
-#~ "The drawing is too faint or too small to use. Take the photo closer, in even"
-#~ " light."
-#~ msgstr "그림이 너무 흐리거나 작습니다. 가까이에서 고른 빛으로 촬영하세요."
-
-#~ msgid ""
-#~ "The page is not plain enough. Use a white page and avoid shadows and "
-#~ "patterns."
-#~ msgstr "종이가 충분히 깨끗하지 않습니다. 흰 종이를 사용하고 그림자와 무늬를 피하세요."
-
-#~ msgid "Stamp"
-#~ msgstr "도장"
-
-#~ msgid "Stamp and signature"
-#~ msgstr "도장 및 서명"
-
-#~ msgid "Kept private"
-#~ msgstr "비공개"
-
-#~ msgid ""
-#~ "The stamp and the signature are for the owner of the company, and for the "
-#~ "members the owner allows. Ask the owner."
-#~ msgstr "도장과 서명은 회사 소유자와 소유자가 허용한 구성원만 사용할 수 있습니다. 소유자에게 문의하세요."
-
-#~ msgid ""
-#~ "They are for the owner, and for the members the owner allows. Everything "
-#~ "done with them is written to the activity log."
-#~ msgstr "소유자와 소유자가 허용한 구성원만 사용할 수 있습니다. 도장과 서명으로 한 모든 작업은 활동 기록에 남습니다."
-
-#~ msgid "Replace"
-#~ msgstr "바꾸기"
-
-#~ msgid "This file will be deleted for good. Enter your password to confirm."
-#~ msgstr "이 파일은 영구적으로 삭제됩니다. 확인을 위해 비밀번호를 입력해 주세요."
-
-#~ msgid "Who may use them"
-#~ msgstr "사용 가능한 사람"
-
-#~ msgid ""
-#~ "You, the owner, always can. Other members can put the stamp or the signature"
-#~ " on a document only if you allow them here."
-#~ msgstr ""
-#~ "소유자인 회원님은 항상 사용할 수 있습니다. 다른 구성원은 여기에서 허용한 경우에만 문서에 도장이나 서명을 넣을 수 있습니다."
-
-#~ msgid "allowed"
-#~ msgstr "허용됨"
-
-#~ msgid "Take back"
-#~ msgstr "허용 취소"
-
-#~ msgid "Allow"
-#~ msgstr "허용"
-
-#~ msgid "There are no other members yet."
-#~ msgstr "아직 다른 구성원이 없습니다."
-
-#~ msgid "Upload a clear image of the company's stamp. We never create a stamp."
-#~ msgstr "회사 도장의 선명한 이미지를 업로드하세요. 도장은 절대 만들지 않습니다."
-
-#~ msgid "Upload a clear image of the signature. We never create a signature."
-#~ msgstr "서명이 선명한 이미지를 업로드하세요. 서명은 절대 만들어 드리지 않습니다."
-
-#~ msgid "May use the stamp and signature"
-#~ msgstr "도장과 서명 사용 가능"
-
-#~ msgid "may use the stamp and signature"
-#~ msgstr "도장과 서명 사용 가능"
-
-#~ msgid "The result could not be read. You were not charged; please try again."
-#~ msgstr "결과를 읽을 수 없습니다. 요금은 청구되지 않았으니 다시 시도해 주세요."
-
-#, python-format
-#~ msgid ""
-#~ "Translate it, summarize it, pull its data out or turn it into Word. Only the"
-#~ " first %(pages)s pages are read. The price depends on the number of pages. "
-#~ "You see the price first and are charged only if the result is delivered."
-#~ msgstr ""
-#~ "번역, 요약, 데이터 추출, Word 변환까지 가능합니다. 처음 %(pages)s페이지만 읽습니다. 요금은 페이지 수에 따라 달라집니다."
-#~ " 먼저 요금을 확인할 수 있으며, 결과가 제공된 경우에만 청구됩니다."
-
-#, python-format
-#~ msgid "Pages in this document: %(pages)s"
-#~ msgstr "이 문서의 페이지 수: %(pages)s"
-
-#~ msgid "Download Word"
-#~ msgstr "Word 다운로드"
-
-#~ msgid "No text could be read from this file."
-#~ msgstr "이 파일에서 텍스트를 읽을 수 없습니다."
-
-#~ msgid "Done. This file had text, so the conversion was free."
-#~ msgstr "완료되었습니다. 이 파일에는 텍스트가 있어 변환은 무료였습니다."
-
-#~ msgid ""
-#~ "An editable Word file with the text of this document. It has text already, "
-#~ "so this is free."
-#~ msgstr "이 문서의 텍스트가 담긴 편집 가능한 Word 파일입니다. 이미 텍스트가 있어서 무료예요."
-
-#~ msgid "Something different is coming"
-#~ msgstr "새로운 변화가 다가오고 있어요"
-
-#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "secrets.json의 SITE_LOCKED = false 설정으로 사이트가 공개 상태로 유지되고 있습니다."
-
-#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
-#~ msgstr "secrets.json의 SITE_LOCKED = false 설정으로 공개 상태가 유지됩니다."
-
-#~ msgid "Something new is taking shape…"
-#~ msgstr "새로운 기능이 준비되고 있어요…"
-
-#~ msgid "Your company's papers, letters and seals in one place."
-#~ msgstr "회사의 문서, 레터, 직인을 한곳에서 관리하세요."
-
-#~ msgid "By"
-#~ msgstr "작성자"
-
-#~ msgid "Next 6 months"
-#~ msgstr "향후 6개월"
-
-#~ msgid "New letter or certificate"
-#~ msgstr "새 레터 또는 증명서"
 
 #, python-format
 msgid "At your command, %(name)s!"
@@ -7341,3 +7347,231 @@ msgstr "질문: %(q)s"
 
 msgid "The answer was saved as a note."
 msgstr "답변이 메모로 저장되었습니다."
+
+#~ msgid "Identity, letters and certificates, on your own letterhead."
+#~ msgstr "아이덴티티, 레터, 증명서를 우리 회사 레터헤드로."
+
+#~ msgid "Upload what you have, or let us create it"
+#~ msgstr "가지고 있는 것을 업로드하거나 저희가 만들어 드립니다"
+
+#~ msgid ""
+#~ "DRAFT — this text is a starting point for the company's lawyer. It is not "
+#~ "legal advice and must be reviewed before the service opens to the public. "
+#~ "Items in [brackets] are to be filled in."
+#~ msgstr ""
+#~ "초안 — 이 글은 회사 변호사를 위한 출발점입니다. 법률 자문이 아니며, 서비스"
+#~ "를 공개하기 전에 반드시 검토해야 합니다. [대괄호] 안의 항목은 채워 넣어야 "
+#~ "합니다."
+
+#~ msgid "Open the company identity"
+#~ msgstr "회사 아이덴티티 열기"
+
+#~ msgctxt "menu section"
+#~ msgid "AI workspace"
+#~ msgstr "AI 워크스페이스"
+
+#~ msgctxt "menu section"
+#~ msgid "Design studio"
+#~ msgstr "디자인 스튜디오"
+
+#~ msgctxt "menu section"
+#~ msgid "Business intelligence"
+#~ msgstr "비즈니스 인텔리전스"
+
+#~ msgctxt "menu section"
+#~ msgid "Company"
+#~ msgstr "회사"
+
+#~ msgid "Reminders due"
+#~ msgstr "기한이 된 알림"
+
+#~ msgid "Built by"
+#~ msgstr "제작:"
+
+#~ msgid ""
+#~ "Logo, letterhead, stamp and signature. Upload what you have; we can "
+#~ "create the logo and the letterhead for you."
+#~ msgstr ""
+#~ "로고, 레터헤드, 도장, 서명. 가진 것을 업로드하세요. 로고와 레터헤드는 만들"
+#~ "어 드릴 수 있습니다."
+
+#~ msgid "add the stamp"
+#~ msgstr "도장 추가"
+
+#~ msgid ""
+#~ "Keep this text to use again. Write {{like this}} for a blank to fill each "
+#~ "time. The stamp and the signature are not kept."
+#~ msgstr ""
+#~ "이 텍스트를 저장해 두고 다시 사용하세요. 매번 채울 빈칸은 {{이렇게}} 써 주"
+#~ "세요. 도장과 서명은 저장되지 않습니다."
+
+#~ msgid "Sealed"
+#~ msgstr "직인 날인됨"
+
+#~ msgid "I confirm that I am authorised to use this stamp for this company."
+#~ msgstr "이 회사를 위해 이 도장을 사용할 권한이 있음을 확인합니다."
+
+#~ msgid ""
+#~ "I confirm that this is my signature, or that its owner allows me to use "
+#~ "it for this company."
+#~ msgstr ""
+#~ "이 서명이 본인의 서명이거나, 서명 소유자가 이 회사를 위해 사용하도록 허락"
+#~ "했음을 확인합니다."
+
+#~ msgid "Enter your password again to confirm it is you."
+#~ msgstr "본인 확인을 위해 비밀번호를 다시 입력하세요."
+
+#~ msgid "stamp"
+#~ msgstr "도장"
+
+#~ msgid "The photo is too dark. Use a white page in good light."
+#~ msgstr "사진이 너무 어둡습니다. 밝은 곳에서 흰 종이를 사용하세요."
+
+#, python-format
+#~ msgid ""
+#~ "We could not find a clear %(what)s in this picture. Use a photo of a "
+#~ "plain white page in even light."
+#~ msgstr ""
+#~ "이 이미지에서 선명한 %(what)s을(를) 찾지 못했습니다. 고른 빛에서 찍은 무"
+#~ "늬 없는 흰 종이 사진을 사용하세요."
+
+#~ msgid ""
+#~ "The drawing is too faint or too small to use. Take the photo closer, in "
+#~ "even light."
+#~ msgstr "그림이 너무 흐리거나 작습니다. 가까이에서 고른 빛으로 촬영하세요."
+
+#~ msgid ""
+#~ "The page is not plain enough. Use a white page and avoid shadows and "
+#~ "patterns."
+#~ msgstr ""
+#~ "종이가 충분히 깨끗하지 않습니다. 흰 종이를 사용하고 그림자와 무늬를 피하세"
+#~ "요."
+
+#~ msgid "Stamp"
+#~ msgstr "도장"
+
+#~ msgid "Stamp and signature"
+#~ msgstr "도장 및 서명"
+
+#~ msgid "Kept private"
+#~ msgstr "비공개"
+
+#~ msgid ""
+#~ "The stamp and the signature are for the owner of the company, and for the "
+#~ "members the owner allows. Ask the owner."
+#~ msgstr ""
+#~ "도장과 서명은 회사 소유자와 소유자가 허용한 구성원만 사용할 수 있습니다. "
+#~ "소유자에게 문의하세요."
+
+#~ msgid ""
+#~ "They are for the owner, and for the members the owner allows. Everything "
+#~ "done with them is written to the activity log."
+#~ msgstr ""
+#~ "소유자와 소유자가 허용한 구성원만 사용할 수 있습니다. 도장과 서명으로 한 "
+#~ "모든 작업은 활동 기록에 남습니다."
+
+#~ msgid "Replace"
+#~ msgstr "바꾸기"
+
+#~ msgid "This file will be deleted for good. Enter your password to confirm."
+#~ msgstr ""
+#~ "이 파일은 영구적으로 삭제됩니다. 확인을 위해 비밀번호를 입력해 주세요."
+
+#~ msgid "Who may use them"
+#~ msgstr "사용 가능한 사람"
+
+#~ msgid ""
+#~ "You, the owner, always can. Other members can put the stamp or the "
+#~ "signature on a document only if you allow them here."
+#~ msgstr ""
+#~ "소유자인 회원님은 항상 사용할 수 있습니다. 다른 구성원은 여기에서 허용한 "
+#~ "경우에만 문서에 도장이나 서명을 넣을 수 있습니다."
+
+#~ msgid "allowed"
+#~ msgstr "허용됨"
+
+#~ msgid "Take back"
+#~ msgstr "허용 취소"
+
+#~ msgid "Allow"
+#~ msgstr "허용"
+
+#~ msgid "There are no other members yet."
+#~ msgstr "아직 다른 구성원이 없습니다."
+
+#~ msgid ""
+#~ "Upload a clear image of the company's stamp. We never create a stamp."
+#~ msgstr ""
+#~ "회사 도장의 선명한 이미지를 업로드하세요. 도장은 절대 만들지 않습니다."
+
+#~ msgid "Upload a clear image of the signature. We never create a signature."
+#~ msgstr ""
+#~ "서명이 선명한 이미지를 업로드하세요. 서명은 절대 만들어 드리지 않습니다."
+
+#~ msgid "May use the stamp and signature"
+#~ msgstr "도장과 서명 사용 가능"
+
+#~ msgid "may use the stamp and signature"
+#~ msgstr "도장과 서명 사용 가능"
+
+#~ msgid ""
+#~ "The result could not be read. You were not charged; please try again."
+#~ msgstr ""
+#~ "결과를 읽을 수 없습니다. 요금은 청구되지 않았으니 다시 시도해 주세요."
+
+#, python-format
+#~ msgid ""
+#~ "Translate it, summarize it, pull its data out or turn it into Word. Only "
+#~ "the first %(pages)s pages are read. The price depends on the number of "
+#~ "pages. You see the price first and are charged only if the result is "
+#~ "delivered."
+#~ msgstr ""
+#~ "번역, 요약, 데이터 추출, Word 변환까지 가능합니다. 처음 %(pages)s페이지만 "
+#~ "읽습니다. 요금은 페이지 수에 따라 달라집니다. 먼저 요금을 확인할 수 있으"
+#~ "며, 결과가 제공된 경우에만 청구됩니다."
+
+#, python-format
+#~ msgid "Pages in this document: %(pages)s"
+#~ msgstr "이 문서의 페이지 수: %(pages)s"
+
+#~ msgid "Download Word"
+#~ msgstr "Word 다운로드"
+
+#~ msgid "No text could be read from this file."
+#~ msgstr "이 파일에서 텍스트를 읽을 수 없습니다."
+
+#~ msgid "Done. This file had text, so the conversion was free."
+#~ msgstr "완료되었습니다. 이 파일에는 텍스트가 있어 변환은 무료였습니다."
+
+#~ msgid ""
+#~ "An editable Word file with the text of this document. It has text "
+#~ "already, so this is free."
+#~ msgstr ""
+#~ "이 문서의 텍스트가 담긴 편집 가능한 Word 파일입니다. 이미 텍스트가 있어서 "
+#~ "무료예요."
+
+#~ msgid "Something different is coming"
+#~ msgstr "새로운 변화가 다가오고 있어요"
+
+#~ msgid "The site is kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr ""
+#~ "secrets.json의 SITE_LOCKED = false 설정으로 사이트가 공개 상태로 유지되고 "
+#~ "있습니다."
+
+#~ msgid "Kept open by SITE_LOCKED = false in secrets.json."
+#~ msgstr "secrets.json의 SITE_LOCKED = false 설정으로 공개 상태가 유지됩니다."
+
+#~ msgid "Something new is taking shape…"
+#~ msgstr "새로운 기능이 준비되고 있어요…"
+
+#~ msgid "Your company's papers, letters and seals in one place."
+#~ msgstr "회사의 문서, 레터, 직인을 한곳에서 관리하세요."
+
+#~ msgid "By"
+#~ msgstr "작성자"
+
+#~ msgid "Next 6 months"
+#~ msgstr "향후 6개월"
+
+#~ msgid "New letter or certificate"
+#~ msgstr "새 레터 또는 증명서"

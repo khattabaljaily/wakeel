@@ -25,6 +25,9 @@ class Job(models.Model):
         ANALYZE_COMPETITORS = 'competitors', _('تحليل المنافسين')
         FETCH_INBOX = 'fetch_inbox', _('قراءة التعليقات')
         AD_SUGGEST = 'ad_suggest', _('اقتراح ترويج')
+        # A job of the document section (and later ones): `params['func']` is the dotted path of the function that does the work,
+        # `params['service']` the price-list service it is charged as. Set by server code only, never from a request.
+        CALL = 'call', _('مهمة عامة')
 
     class Status(models.TextChoices):
         PENDING = 'pending', _('في الانتظار')

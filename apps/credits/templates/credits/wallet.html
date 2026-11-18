@@ -12,6 +12,18 @@
             {% if wallet.is_exempt %}<div class="small-muted mt-2">{% translate "This company is not charged." %}</div>{% endif %}
         </div></div>
         <div class="wk-card mt-4"><div class="wk-card-body">
+            <h2 class="wk-section-title"><i class="bi bi-plus-circle text-primary"></i> {% translate "Top up" %}</h2>
+            {% if paid %}<div class="alert alert-success small">{% translate "Thank you. The balance is added as soon as the payment is confirmed." %}</div>{% endif %}
+            {% if payments_open %}
+            <form method="post" action="{% url 'billing:checkout' %}" class="d-flex flex-wrap gap-2">{% csrf_token %}
+                {% for p in packages %}<button class="btn btn-outline-primary" name="amount" value="{{ p.usd }}">${{ p.usd }}</button>{% endfor %}
+            </form>
+            {% else %}
+            <div class="d-flex flex-wrap gap-2">{% for p in packages %}<button class="btn btn-outline-primary" disabled>${{ p.usd }}</button>{% endfor %}</div>
+            {% endif %}
+            <div class="small-muted mt-2">{% if payments_open %}{% translate "The balance is added once the payment is confirmed. 1 dollar = 1,000 points." %}{% else %}{% translate "Online payment is not open yet." %}{% endif %}</div>
+        </div></div>
+        <div class="wk-card mt-4"><div class="wk-card-body">
             <h2 class="wk-section-title"><i class="bi bi-tags text-primary"></i> {% translate "What the services cost" %}</h2>
             <table class="table table-sm align-middle mb-0">
                 {% for s in services %}

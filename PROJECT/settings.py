@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'apps.ops',
     'apps.audit',
     'apps.credits',
+    'apps.billing',
     'enjaz_operators',
 ]
 
@@ -297,6 +298,15 @@ PASSWORD_RESET_TIMEOUT = 60 * 60 * 24  # 1 day
 # The operating model (enjaz-operators): Enjaz develops Wakeel, an operator offers it to each company, chosen by the
 # company's country. Each operator's payment keys: secrets.json "GATEWAYS": {"banan": {...}}.
 ENJAZ_OPERATORS = {'PRODUCT': 'wakeel', 'ACCOUNT': 'apps.companies.operators.of_request'}
+
+# Card payments for top-ups go through the company's operator (enjaz-operators). Each operator's keys live only in secrets.json:
+#   "GATEWAYS": {"banan": {"secret_key": ..., "webhook_secret": ...}}
+# or, with no secret key, one Stripe payment link per package: "PAYMENT_LINKS": {"banan": {"10": "https://buy.stripe.com/...", ...}}
+# (link: fixed price in USD, quantity not adjustable, after payment back to SITE_URL/company/wallet/?paid=1) plus the webhook secret.
+# Point the operator's Stripe webhook at SITE_URL/billing/webhook/<operator>/ (events checkout.session.completed,
+# checkout.session.async_payment_succeeded, checkout.session.expired). Without keys the Pay buttons stay disabled.
+GATEWAY_KEYS = get_secret('GATEWAYS', {}) or {}
+PAYMENT_LINKS = get_secret('PAYMENT_LINKS', {}) or {}
 
 ALLOW_REGISTRATION = get_secret('ALLOW_REGISTRATION', True)
 

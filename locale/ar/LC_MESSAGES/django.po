@@ -7583,3 +7583,12 @@ msgstr "المخطط الآلي ينتظر شحن الرصيد: يحتاج $%(ne
 
 msgid "The monthly report was not made: the balance is $%(balance)s and it needs $%(needed)s"
 msgstr "لم يُعدّ التقرير الشهري: الرصيد $%(balance)s ويحتاج $%(needed)s"
+
+msgid "Thank you. The balance is added as soon as the payment is confirmed."
+msgstr "شكراً لك. يُضاف الرصيد فور تأكيد الدفع."
+
+msgid "The balance is added once the payment is confirmed. 1 dollar = 1,000 points."
+msgstr "يُضاف الرصيد بعد تأكيد الدفع. 1 دولار = 1,000 نقطة."
+
+msgid "Wakeel credit: $%(amount)s"
+msgstr "رصيد وكيل: $%(amount)s"

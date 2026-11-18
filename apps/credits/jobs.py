@@ -32,7 +32,7 @@ def quote_for(kind, company, params=None):
         if params.get('services'):
             return quotes.bundle(*[quotes.make(name) for name in params['services']])
         service = params.get('service')
-        return quotes.make(service, params.get('units')) if service else None
+        return quotes.make(service, params.get('units'), params.get('pages')) if service else None
     service = SERVICES.get(kind)
     if service is None:
         return None

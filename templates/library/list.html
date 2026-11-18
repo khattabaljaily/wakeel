@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n credits %}
+{% load i18n credits docops %}
 {% block title %}{% translate "Document management" context "navigation" %}{% endblock %}
 {% block page_title %}{% translate "Document management" context "navigation" %}{% endblock %}
 {% block actions %}{% if membership.can_edit %}<a class="btn btn-soft" href="{% url 'documents:new' 'document' %}{% if cat %}?cat={{ cat }}{% endif %}"><i class="bi bi-stars"></i> {% translate "Create with AI" %}</a>
@@ -55,8 +55,9 @@
             <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
                 <h2 class="h5 mb-0 me-auto" dir="auto">{{ selected.title }}</h2>
                 {% if membership.can_edit %}<form method="post" action="{% url 'documents:template_import' selected.pk %}" data-once>{% csrf_token %}<button class="btn btn-sm btn-light" {% if not imports_left %}disabled{% endif %} title="{% translate 'Turn this document into a template you can fill again and again. Making the template is free.' %}"><i class="bi bi-file-earmark-richtext"></i> {% translate "Use as a template" %} <span class="badge text-bg-success">{% translate "Free" %}</span></button></form>{% endif %}
+                {% if membership.can_manage %}<a class="btn btn-sm btn-light" href="{% url 'sharing:new' 'record' selected.pk %}"><i class="bi bi-link-45deg"></i> {% translate "Share" %}</a>{% endif %}
                 <a class="btn btn-sm btn-light" href="{% url 'library:file' selected.pk %}?download=1"><i class="bi bi-download"></i> {% translate "Download" %}</a>
-                {% if membership.can_edit and not reading %}<form method="post" action="{% url 'library:read' selected.pk %}" data-once>{% csrf_token %}<input type="hidden" name="expected_points" value="{{ read_quote.total }}"><button class="btn btn-sm btn-soft" title="{% translate 'The AI reads the document and fills in the details that are still empty. You are charged only if it reads them.' %}"><i class="bi bi-stars"></i> {% translate "Read it for me" %} <span dir="ltr">· ${{ read_quote.total|usd }}</span></button></form>{% endif %}
+                {% if membership.can_edit and not reading %}<form method="post" action="{% url 'library:read' selected.pk %}" data-once>{% csrf_token %}<input type="hidden" name="expected_points" value="{{ read_quote.total }}"><button class="btn btn-sm btn-soft" title="{% translate 'The AI reads the document and fills in the details that are still empty. You are charged only if it reads them.' %}"><i class="bi bi-stars"></i> {% translate "Read it for me" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ read_quote.total|usd }}</span></button></form>{% endif %}
                 {% if membership.can_edit %}<a class="btn btn-sm btn-light" href="{% url 'library:edit' selected.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>{% endif %}
                 {% if membership.can_manage %}<form method="post" action="{% url 'library:delete' selected.pk %}" data-confirm="{% translate 'This document will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}
             </div>
@@ -74,6 +75,7 @@
             {% if selected.is_image %}<img class="img-fluid d-block mx-auto" src="{% url 'library:file' selected.pk %}" alt="{{ selected.title }}">
             {% else %}<iframe src="{% url 'library:file' selected.pk %}" title="{{ selected.title }}" loading="lazy" style="width:100%;height:70vh;border:0"></iframe>{% endif %}
         </div>
+        {% docops_panel selected %}
         {% else %}
         <div class="wk-card"><div class="wk-card-body text-center py-5">
             <i class="bi bi-folder2-open fs-1 text-muted"></i>

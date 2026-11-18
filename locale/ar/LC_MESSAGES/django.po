@@ -7454,6 +7454,15 @@ msgstr ""
 "هل أصمّم لها قالباً لشركتك بهويتها؟ بعد ذلك، كلما احتجت «%(name)s» تدفع $"
 "%(later)s فقط للكتابة."
 
+msgid "Document services"
+msgstr "خدمات المستندات"
+
+msgid "Shared with Wakeel"
+msgstr "شورِك عبر وكيل"
+
+msgid "You were not charged."
+msgstr "لم يُخصم منك شيء."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

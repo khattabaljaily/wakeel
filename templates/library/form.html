@@ -8,7 +8,7 @@
     <div class="wk-card-body d-flex flex-wrap align-items-center gap-3">
         <div class="flex-grow-1"><strong><i class="bi bi-stars"></i> {% translate "Read it for me" %}</strong><div class="small-muted">{% translate "The AI reads the document and fills in the details that are still empty. You are charged only if it reads them." %}</div></div>
         <input type="hidden" name="expected_points" value="{{ read_quote.total }}">
-        <button class="btn btn-soft">{% translate "Read it for me" %} <span dir="ltr">· ${{ read_quote.total|usd }}</span></button>
+        <button class="btn btn-soft">{% translate "Read it for me" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ read_quote.total|usd }}</span></button>
     </div>
 </form>{% endif %}
 <form method="post" enctype="multipart/form-data" novalidate class="wk-card" style="max-width:820px">{% csrf_token %}

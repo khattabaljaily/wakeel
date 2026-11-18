@@ -80,7 +80,7 @@
   <label class="form-label" for="rw-notes">{% translate "What should change?" %}</label>
   <textarea class="form-control" id="rw-notes" name="notes" rows="3" maxlength="2000" required></textarea>
   <div class="form-text mb-3">{% translate "For example: make it shorter, add a clause about confidentiality, change the amount to 1,500." %}</div>
-  <button type="submit" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Rewrite it" %} <span dir="ltr">· ${{ rewrite_quote.usd }}</span></button>
+  <button type="submit" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Rewrite it" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ rewrite_quote.usd }}</span></button>
   <small class="small-muted d-block mt-2">{% translate "Save your edits first: the AI works on the saved text. You are charged only if the new text is delivered." %}</small>
   </div>
 </form>
@@ -92,6 +92,11 @@
   <button type="submit" class="btn btn-light">{% translate "Save as a template" %}</button>
   </div>
 </form>{% endif %}
+{% if membership.can_manage and document.status == 'approved' and not document.revoked_at %}<div class="wk-card mb-3"><div class="wk-card-head"><h2>{% translate "Sharing" %}</h2></div><div class="wk-card-body">
+  <p class="small-muted">{% translate "Give someone outside the company a link to look at this document, for a limited time and with an optional password." %}</p>
+  <a class="btn btn-light" href="{% url 'sharing:new' 'document' document.pk %}"><i class="bi bi-link-45deg"></i> {% translate "Share with someone outside the company" %}</a>
+  <a class="btn btn-link" href="{% url 'sharing:list' %}">{% translate "Sharing links" %}</a></div></div>
+{% endif %}
 {% if document.verify_code and membership.can_manage %}
 <form method="post" action="{% url 'documents:revoke' document.pk %}" class="wk-card mb-3" data-confirm="{% if document.revoked_at %}{% translate 'The document will be valid again.' %}{% else %}{% translate 'Its verification page will say that this document is cancelled.' %}{% endif %}" data-confirm-yes="{% if document.revoked_at %}{% translate 'Reinstate' %}{% else %}{% translate 'Cancel the document' %}{% endif %}">{% csrf_token %}
   <div class="wk-card-head"><h2>{% translate "Validity" %}</h2></div><div class="wk-card-body">

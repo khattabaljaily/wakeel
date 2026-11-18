@@ -93,6 +93,8 @@ INSTALLED_APPS = [
     'apps.identity',
     'apps.library',
     'apps.documents',
+    'apps.docops',
+    'apps.sharing',
     'enjaz_operators',
 ]
 

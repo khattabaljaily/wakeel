@@ -9,7 +9,7 @@
       <input type="hidden" name="expected_points" value="{{ design_quote.total }}">
       <label class="form-label" for="rd-{{ t.pk }}">{% translate "What should change?" %}</label>
       <textarea class="form-control mb-2" id="rd-{{ t.pk }}" name="notes" rows="4" maxlength="2000"></textarea>
-      <button type="submit" class="btn btn-primary">{% translate "Redesign" %} <span dir="ltr">· ${{ design_quote.usd }}</span></button>
+      <button type="submit" class="btn btn-primary">{% translate "Redesign" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ design_quote.usd }}</span></button>
     </form></div>
   <form method="post" action="{% url 'documents:template_delete' t.pk %}" data-confirm="{% translate 'This template will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}
     <button type="submit" class="btn btn-sm btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>

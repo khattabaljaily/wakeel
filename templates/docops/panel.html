@@ -1,0 +1,19 @@
+{% load i18n %}
+<section class="wk-card mt-3" id="docops" aria-labelledby="docops-title">
+  <div class="wk-card-head"><h2 id="docops-title"><i class="bi bi-stars"></i> {% translate "AI tools for this document" %}</h2></div>
+  <div class="wk-card-body">
+  <p class="small-muted">{% translate "Choose a service: you see its options and their prices for this document before anything is charged." %}</p>
+  {% if membership.can_edit %}
+  <div class="d-flex flex-wrap gap-2">{% for kind in kinds %}<a class="btn btn-sm btn-light" href="{% url 'services:confirm' kind record.pk %}" id="op-{{ kind }}">{% include "docops/services/_icon.html" %} {% include "docops/services/_name.html" %}</a>{% endfor %}</div>
+  {% endif %}
+  {% if results %}
+  <h3 class="h6 mt-3">{% translate "Results" %}</h3>
+  <div class="list-group list-group-flush">
+    {% for op in results %}
+    <a class="list-group-item list-group-item-action" href="{% url 'docops:result' op.pk %}">{{ op.get_kind_display }}{% if op.language %} · {{ op.get_language_display }}{% endif %} · {{ op.get_tier_display }}
+      <div class="small-muted">{{ op.created_at|date:"Y-m-d H:i" }}{% if op.is_working %} · {{ op.get_status_display }}{% elif op.status == 'failed' %} · {{ op.get_status_display }}{% endif %}{% if op.was_cut %} · {% blocktranslate with read=op.pages total=op.pages_total %}{{ read }} of {{ total }} pages{% endblocktranslate %}{% endif %}</div></a>
+    {% endfor %}
+  </div>
+  {% endif %}
+  </div>
+</section>

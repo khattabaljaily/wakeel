@@ -9,6 +9,31 @@
     "topup_packages_usd": [10, 25, 50]
   },
   "services": {
+    "extract_data": {
+      "name_en": "Extract the data of a document (per page, up to 10)",
+      "name_ar": "استخراج بيانات مستند (بالصفحة، حتى 10 صفحات)",
+      "per_page": {
+        "max_pages": 10,
+        "fixed_cost_usd": 0.01
+      },
+      "parts": [
+        {
+          "model": "opus-5-5",
+          "calls": 1,
+          "in": 20000,
+          "out": 5000
+        }
+      ],
+      "measured_cost_usd": 0.021,
+      "density": {
+        "in_per_page": 1664,
+        "in_per_text": 1,
+        "out_per_page": 195,
+        "margin": 1.1
+      },
+      "note": "Per dense page (2026-11-03): the PDF goes to Opus as a document block, a full page of Arabic text is 3,764 input tokens (free token count) = $0.0151, and the facts grow by ~195 output tokens a page (fit of the real runs of 2026-11-02: 604 / 1,766 / 2,358 output tokens on 1 / 4 / 10 pages) = $0.0039; +10% = $0.021 a page. Fixed: the instructions (~330 tokens) and the ~410 output tokens every answer has = $0.0095 -> $0.01. out raised to 5000 so 10 dense pages are never cut off.",
+      "tier": "premium"
+    },
     "generate_template": {
       "name_en": "Design a template of a document", "name_ar": "تصميم قالب مستند", "tier": "premium",
       "fixed_cost_usd": 0.15,

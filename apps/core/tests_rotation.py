@@ -31,7 +31,7 @@ class RotationTests(TestCase):
 
     def run_command(self, *args):
         out, err = io.StringIO(), io.StringIO()
-        call_command('rotate_file_key', '--new-key', self.new, *args, stdout=out, stderr=err)
+        call_command('rotate_file_key', f'--new-key={self.new}', *args, stdout=out, stderr=err)
         return out.getvalue()
 
     def test_it_only_counts_without_yes_and_needs_a_backup_choice_with_it(self):

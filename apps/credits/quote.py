@@ -25,7 +25,7 @@ class Line:
 @dataclass(frozen=True)
 class Quote:
     service_key: str
-    units: int | None
+    units: object        # an int (posts), or the dense pages as a string (a document service)
     lines: tuple
     total: int
 
@@ -55,13 +55,23 @@ class Quote:
 
 def unit_label(service_key):
     """The name of a service's unit for people, in the reader's language: 'post' -> 'منشور'."""
+    if catalog.page_pricing(service_key):
+        return _('page')
     return {'post': _('post')}.get(catalog.unit_name(service_key), catalog.unit_name(service_key))
 
 
 _unit_label = unit_label
 
 
-def make(service_key: str, units: int | None = None) -> Quote:
+def make(service_key: str, units=None, pages: int | None = None) -> Quote:
+    """The quote of one run. For a service priced by the page (`units` = the dense pages the document is worth, `pages` the pages
+    read) the lines are the fixed price and the pages."""
+    if catalog.page_pricing(service_key):
+        total = catalog.price_points(service_key, units, pages)
+        dense = catalog.dense_pages(service_key, pages, units)
+        base = catalog.base_points(service_key, units, pages)
+        lines = tuple(line for line in (Line('base', base), Line('units', total - base, dense)) if line.points)
+        return Quote(service_key, str(dense), lines, total)
     total = catalog.price_points(service_key, units)
     if catalog.unit_name(service_key) and total:
         count = min(max(int(units or 1), 1), catalog.max_units(service_key))

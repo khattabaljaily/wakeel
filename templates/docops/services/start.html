@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% include "docops/services/_name.html" %}{% endblock %}
+{% block page_title %}{% include "docops/services/_name.html" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% include "docops/services/_about.html" %} {% blocktranslate with p=price_one %}From ${{ p }} a page.{% endblocktranslate %}</div>{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'services:hub' %}">{% translate "AI services" context "navigation" %}</a>{% endblock %}
+{% block content %}
+{% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+<div class="row g-3">
+  <form class="col-lg-6" method="post" enctype="multipart/form-data" data-once>{% csrf_token %}<div class="wk-card h-100"><div class="wk-card-body">
+    <h2 class="h5">{% translate "Upload a document" %}</h2>
+    <input type="file" class="form-control mb-2" name="file" accept="application/pdf,image/png,image/jpeg,image/webp" required>
+    <p class="form-text">{% translate "PDF, PNG, JPG or WebP, up to 10 MB" %}. {% translate "The file is kept in your library under «Other documents», encrypted, with its result." %}</p>
+    <p class="form-text">{% translate "Stamps, seals, signatures and personal photos in your file are never copied into the result." %}</p>
+    <button class="btn btn-primary" type="submit">{% translate "Continue" %}</button>
+  </div></div></form>
+  <form class="col-lg-6" method="post">{% csrf_token %}<div class="wk-card h-100"><div class="wk-card-body">
+    <h2 class="h5">{% translate "Or choose from your library" %}</h2>
+    {% if documents %}
+    <select class="form-select mb-3" name="record" required>{% for r in documents %}<option value="{{ r.pk }}" dir="auto">{{ r.title }}</option>{% endfor %}</select>
+    <button class="btn btn-light" type="submit">{% translate "Continue" %}</button>
+    {% else %}<p class="small-muted">{% translate "No documents yet." %}</p>{% endif %}
+  </div></div></form>
+</div>
+{% endblock %}

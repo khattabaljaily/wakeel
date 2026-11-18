@@ -112,6 +112,50 @@ def call_json(system, prompt, schema, *, max_tokens=32000, effort='high', tier='
         raise
 
 
+def complete_text(system, prompt, *, max_tokens=16000, effort='low', tier='premium', timeout=900):
+    """One plain-text AI call (no JSON schema), for the document services (enjaz-docai asks for free text). `prompt` is a string
+    or a list of Claude content blocks (images, PDFs): such a call always runs on Claude. Returns an AIResult whose
+    `data` is {'text': ...}. Raises AIError (message safe to show)."""
+    if not settings.AI_ENABLED:
+        raise AIError(UNAVAILABLE, f'No AI key: add {settings.AI_KEY_NAME} to secrets.json.')
+    provider, model = resolve(tier, vision=True)
+    if provider != 'anthropic':
+        raise AIError(UNAVAILABLE, 'Plain-text document services need ANTHROPIC_API_KEY.')
+    kwargs = {'model': model, 'max_tokens': max_tokens, 'system': system, 'messages': [{'role': 'user', 'content': prompt}],
+              'output_config': {'effort': effort}}
+    api = anthropic.Anthropic(api_key=settings.ANTHROPIC_API_KEY, timeout=timeout, max_retries=2)
+    try:
+        with api.messages.stream(**kwargs) as stream:
+            message = stream.get_final_message()
+    except anthropic.AuthenticationError as exc:
+        raise AIError(UNAVAILABLE, 'Claude rejected the key: check ANTHROPIC_API_KEY in secrets.json.') from exc
+    except anthropic.RateLimitError as exc:
+        raise AIError(BUSY, 'Claude rate limit (429).') from exc
+    except anthropic.APIStatusError as exc:
+        raise AIError(UNREACHABLE, f'Claude API error {exc.status_code}: {exc.message}') from exc
+    except anthropic.APIConnectionError as exc:
+        raise AIError(UNREACHABLE, f'Cannot reach the Claude API: {exc}') from exc
+    if message.stop_reason == 'refusal':
+        raise AIError(_('اعتذر النموذج عن تنفيذ هذا الطلب. عدّل التوجيهات وحاول مرة أخرى.'))
+    text = ''.join(b.text for b in message.content if b.type == 'text')
+    usage = message.usage
+    cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
+    cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
+    return AIResult({'text': text}, usage.input_tokens + cache_read + cache_write, usage.output_tokens, cache_read, message.model)
+
+
+def count_tokens(text):
+    """The provider's free token count of `text`, or None when it cannot be reached (callers fall back to an estimate)."""
+    if not settings.ANTHROPIC_API_KEY:
+        return None
+    try:
+        api = anthropic.Anthropic(api_key=settings.ANTHROPIC_API_KEY, timeout=20, max_retries=1)
+        return int(api.messages.count_tokens(model=settings.ANTHROPIC_MODEL, messages=[{'role': 'user', 'content': text}]).input_tokens)
+    except Exception:
+        logger.warning('Token count failed', exc_info=True)
+        return None
+
+
 def _parse(text, request_id=''):
     try:
         data = json.loads(text)

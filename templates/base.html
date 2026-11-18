@@ -127,6 +127,15 @@
                     <a class="rail-btn" href="{% url 'documents:issued' %}"{% nav_current '/app/documents/d/issued/' %}><i class="bi bi-files"></i><span class="lbl">{% translate "Issued documents" %}</span></a>
                     {% if membership.can_edit %}<a class="rail-btn" href="{% url 'documents:new' 'document' %}"{% nav_current '/app/documents/d/new/' %}><i class="bi bi-pencil-square"></i><span class="lbl">{% translate "Create a document" context "navigation" %}</span></a>{% endif %}
                     <a class="rail-btn" href="{% url 'documents:templates' %}"{% nav_current '/app/documents/d/templates/' %}><i class="bi bi-file-earmark-richtext"></i><span class="lbl">{% translate "Document templates" context "navigation" %}</span></a>
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'sharing:list' %}"{% nav_current '/app/documents/share/' %}><i class="bi bi-link-45deg"></i><span class="lbl">{% translate "Shared links" context "navigation" %}</span></a>{% endif %}
+                </div>
+            </div>
+
+            <div class="rail-grp {% nav_group '/app/ai/' %}" data-grp="studio">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "AI studio" context "menu section" %}"><i class="bi bi-palette"></i><span class="lbl">{% translate "AI studio" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "AI studio" context "menu section" %}</span>
+                    <a class="rail-btn" href="{% url 'services:hub' %}"{% nav_current '/app/ai/' %}><i class="bi bi-stars"></i><span class="lbl">{% translate "AI services" context "navigation" %}</span></a>
                 </div>
             </div>
 

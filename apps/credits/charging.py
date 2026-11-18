@@ -7,6 +7,8 @@
 
 Fail-safe: a charge is a ledger line with its itemised breakdown; the balance is changed by one conditional UPDATE, so it can
 never go below zero and two runs at once cannot spend the same points."""
+from decimal import Decimal
+
 from django.db import transaction
 from django.db.models import F
 
@@ -79,8 +81,9 @@ def charge(company, user, quote, *, reference: str = '', expected_total=None):
             raise InsufficientCredits(quote.total, wallet.balance)
         return WalletTransaction.objects.create(
             company=company, user=user, delta=-quote.total, action=WalletTransaction.AI_SERVICE,
-            service_key=quote.service_key[:40], units=quote.units, reference=reference[:60],
-            breakdown=[{'key': line.key, 'points': line.points, 'count': line.count} for line in quote.lines],
+            service_key=quote.service_key[:40], units=quote.units if isinstance(quote.units, int) else None, reference=reference[:60],
+            breakdown=[{'key': line.key, 'points': line.points, 'count': str(line.count) if isinstance(line.count, Decimal) else line.count}
+                       for line in quote.lines],      # dense pages are a Decimal: kept as text
             description=f'AI service: {quote.service_key}')
 
 

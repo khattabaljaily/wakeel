@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "AI services" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "AI services" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Upload a document or choose one from your library. You see the price before anything is charged, and you pay only if the result is delivered." %}</div>{% endblock %}
+{% block content %}
+<div class="row g-3 mb-4">
+  {% for kind, price in cards %}
+  <div class="col-md-6 col-xl-4"><a class="wk-card d-block h-100 text-reset" {% if membership.can_edit %}href="{% url 'services:start' kind %}"{% endif %}><div class="wk-card-body">
+    <div class="fs-3 mb-2 text-primary">{% include "docops/services/_icon.html" %}</div>
+    <h2 class="h5">{% include "docops/services/_name.html" %}</h2>
+    <p class="small-muted">{% include "docops/services/_about.html" %}</p>
+    <span class="badge text-bg-light border">{% blocktranslate with p=price %}From ${{ p }} a page{% endblocktranslate %}</span>
+  </div></a></div>
+  {% endfor %}
+</div>
+<div class="wk-card"><div class="wk-card-head"><h2>{% translate "Latest results" %}</h2></div>
+  <div class="list-group list-group-flush">
+  {% for op in recent %}
+  <a class="list-group-item list-group-item-action" href="{% url 'docops:result' op.pk %}">{{ op.get_kind_display }}{% if op.language %} · {{ op.get_language_display }}{% endif %}<div class="small-muted" dir="auto">{{ op.record.title }} · {{ op.created_at|date:"Y-m-d H:i" }}</div></a>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "Nothing yet." %}</div>{% endfor %}
+  </div></div>
+{% endblock %}

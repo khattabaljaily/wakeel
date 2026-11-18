@@ -22,11 +22,11 @@
       <p><b>{% blocktranslate with name=needs_template %}You do not have a template for «{{ name }}» yet.{% endblocktranslate %}</b>
         {% blocktranslate with name=needs_template later=write_quote.usd %}Shall I make a template of it for your company, in its identity? After that, each time you need a «{{ name }}», you pay only ${{ later }} for the writing.{% endblocktranslate %}</p>
       <ul class="small mb-3">{% for text, usd in first_quote.described %}<li>{{ text }}: <span dir="ltr">${{ usd }}</span></li>{% endfor %}</ul>
-      <button type="submit" name="action" value="write_new_template" class="btn btn-primary">{% translate "Yes, make my template and write the document" %} <span dir="ltr">· ${{ first_quote.usd }}</span></button>
+      <button type="submit" name="action" value="write_new_template" class="btn btn-primary">{% translate "Yes, make my template and write the document" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ first_quote.usd }}</span></button>
     </div>
     {% endif %}
     <div class="d-flex flex-wrap align-items-center gap-3">
-      <button type="submit" name="action" value="write" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Write it for me" %} <span dir="ltr">· ${{ write_quote.usd }}</span></button>
+      <button type="submit" name="action" value="write" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Write it for me" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ write_quote.usd }}</span></button>
       <small class="small-muted">{% blocktranslate with balance=wallet_usd %}Your balance: ${{ balance }}. You are charged only if the text is delivered.{% endblocktranslate %}</small>
     </div>
     <p class="small-muted mt-3 mb-0">{% translate "The price above is for a type you already have a template for. A new type asks you first, with the whole price." %} <a href="{% url 'documents:new' 'document' %}?manual=1">{% translate "Or write the document yourself" %}</a></p>

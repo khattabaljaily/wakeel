@@ -28,7 +28,7 @@
             <table class="table table-sm align-middle mb-0">
                 {% for s in services %}
                 <tr><td>{{ s.name }}</td>
-                    <td class="text-end" dir="ltr">{% if s.free %}<span class="small-muted">{% translate "Free" %}</span>{% elif s.per_unit %}${{ s.nine }} <span class="small-muted">/ 9 {{ s.per_unit }}</span>{% else %}${{ s.price }}{% endif %}</td></tr>
+                    <td class="text-end" dir="ltr">{% if s.free %}<span class="small-muted">{% translate "Free" %}</span>{% elif s.per_unit %}${{ s.nine }} <span class="small-muted">/ 9 <bdi>{{ s.per_unit }}</bdi></span>{% else %}${{ s.price }}{% endif %}</td></tr>
                 {% endfor %}
             </table>
         </div></div>

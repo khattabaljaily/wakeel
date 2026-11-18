@@ -7645,6 +7645,22 @@ msgstr "مهامك المتأخرة"
 msgid "Tasks assigned to you"
 msgstr "مهام مسندة إليك"
 
+msgid "Content plan from it"
+msgstr "خطة محتوى منه"
+
+msgid "Build a month of social media content from this document."
+msgstr "ابنِ محتوى شهر على وسائل التواصل من هذا المستند."
+
+msgid "Post from it"
+msgstr "منشور منه"
+
+msgid ""
+"The AI reads the document and writes one post from it. Reading is free; you "
+"pay the price of one written post."
+msgstr ""
+"يقرأ الذكاء الاصطناعي المستند ويكتب منه منشوراً واحداً. القراءة مجانية وتدفع "
+"سعر منشور واحد مكتوب."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

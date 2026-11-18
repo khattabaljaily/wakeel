@@ -15,6 +15,7 @@ urlpatterns = [
     path('calendar/', views.calendar_view, name='calendar'),
     path('posts/', views.post_list, name='post_list'),
     path('posts/new/', views.post_create, name='post_create'),
+    path('posts/from-document/<int:pk>/', views.post_from_document, name='post_from_document'),
     path('posts/<int:pk>/', views.post_edit, name='post_edit'),
     path('posts/<int:pk>/delete/', views.post_delete, name='post_delete'),
     path('posts/<int:pk>/download/', views.post_download, name='post_download'),

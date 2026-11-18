@@ -41,6 +41,9 @@ class ContentPlan(models.Model):
     pillars = models.JSONField(_('محاور المحتوى'), default=list, blank=True)
     key_dates = models.JSONField(_('المناسبات'), default=list, blank=True)
     error = models.TextField(blank=True)
+    # A document of the library the plan is built from, and what the AI read in it (kept, so a regeneration does not read it again).
+    source = models.ForeignKey('library.Record', null=True, blank=True, on_delete=models.SET_NULL, related_name='+', editable=False)
+    source_facts = models.TextField(blank=True, editable=False)
     # Secret for the client review page (/review/<token>/); empty when the link is off.
     share_token = models.CharField(max_length=64, blank=True, db_index=True)
     autopilot = models.BooleanField(default=False, help_text='Prepared by the autopilot, not by a person.')

@@ -45,10 +45,11 @@ def plan_list(request):
 
 @company_required(edit=True)
 def plan_create(request):
-    form = PlanForm(request.POST or None)
+    form = PlanForm(request.POST or None, initial={'source': request.GET.get('source')})
     if request.method == 'POST' and form.is_valid():
         plan = form.save(commit=False)
         plan.company, plan.created_by = request.company, request.user
+        plan.source = form.cleaned_data.get('source')
         quote = quotes.make('generate_plan', posts_count(plan))
         charging.ensure_can_afford(request.company, request.user, quote, credit_jobs.expected_points(request.POST))
         with transaction.atomic():   # a refused payment leaves no plan stuck in "generating"
@@ -197,6 +198,28 @@ def post_create(request):
         scheduled_at=datetime.datetime.combine(day, datetime.time(19, 0), tzinfo=request.company.tzinfo),
         headline=request.company.name,
     )
+    return redirect('content:post_edit', pk=post.pk)
+
+
+@company_required(edit=True)
+@require_POST
+def post_from_document(request, pk):
+    """A new draft post written from a document of the library: one paid rewrite at the price on the button (the AI reads the
+    document for free). A refused payment keeps no draft."""
+    from apps.library.models import Record
+    record = get_object_or_404(Record, pk=pk)
+    day = timezone.localdate() + datetime.timedelta(days=1)
+    platforms = [Platform.FACEBOOK, Platform.INSTAGRAM]
+    with transaction.atomic():
+        post = Post.objects.create(
+            company=request.company, created_by=request.user, title=record.title[:200] or _('منشور جديد'), platforms=platforms,
+            status=Post.Status.DRAFT, size=default_size(Post.Format.IMAGE, platforms),
+            scheduled_at=datetime.datetime.combine(day, datetime.time(19, 0), tzinfo=request.company.tzinfo), headline=request.company.name)
+        Job.enqueue(request.company, Job.Kind.REWRITE_POST, request.user, expected_points=credit_jobs.expected_points(request.POST),
+                    post_id=post.pk, source_id=record.pk,
+                    instruction='Write this post from the source document: pick the one thing in it most worth telling this audience, '
+                                'and write the headline, the caption and the design text for it.')
+    messages.info(request, _('وكيل يكتب المنشور من المستند، وسيظهر النص هنا خلال لحظات. حدّث الصفحة.'))
     return redirect('content:post_edit', pk=post.pk)
 
 

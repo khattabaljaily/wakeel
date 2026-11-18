@@ -68,7 +68,7 @@ def record_list(request):
     return render(request, 'library/list.html', {
         'entries': entries, 'selected': selected, 'cat': category, 'soon': soon, 'q': query,
         'expiring_here': expiring.count(), 'cat_label': dict(Record.CATEGORIES).get(category, ''),
-        'read_quote': quotes.make(extract.SERVICE), 'reading': reading, 'pdf_available': pdf_tools.available(),
+        'read_quote': quotes.make(extract.SERVICE), 'post_quote': quotes.make('rewrite_post'), 'reading': reading, 'pdf_available': pdf_tools.available(),
         'imports_left': document_jobs.imports_left(request.company), 'write_quote': document_jobs.quote_for(['fill_document']),
         'design_quote': document_jobs.quote_for(['generate_template']), **folders.folders()})
 

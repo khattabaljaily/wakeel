@@ -5740,3 +5740,24 @@ msgstr "Posts past their publishing time"
 
 msgid "تعليقات بانتظار الرد"
 msgstr "Comments waiting for a reply"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "A library document as the source"
+
+msgid ""
+"اختياري: يقرأ وكيل المستند (كتالوج، عرض، قائمة أسعار…) ويبني الخطة على ما "
+"فيه. القراءة مجانية ضمن سعر الخطة."
+msgstr ""
+"Optional: Wakeel reads the document (a catalogue, an offer, a price list…) "
+"and builds the plan on it. Reading is free within the plan price."
+
+msgid "بلا مستند"
+msgstr "No document"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeel is reading the source document…"
+
+msgid "وكيل يكتب المنشور من المستند، وسيظهر النص هنا خلال لحظات. حدّث الصفحة."
+msgstr ""
+"Wakeel is writing the post from the document; the text will appear here in a "
+"moment. Refresh the page."

@@ -13,7 +13,7 @@ from apps.companies.models import MediaAsset
 from apps.studio import art
 from apps.studio.vectors import VECTORS
 
-from . import events
+from . import doc_source, events
 from . import learning
 from .models import ContentPlan, Post
 
@@ -146,6 +146,12 @@ def run_generate_plan(job):
             logger.exception('Learning before plan %s failed', plan.pk)
     job.set_progress(10, _('وكيل يدرس هوية الشركة ويضع الاستراتيجية…'))
     try:
+        if plan.source_id and not plan.source_facts:
+            job.set_progress(8, _('وكيل يقرأ المستند المصدر…'))
+            read = doc_source.read(plan.source)
+            job.add_usage(read)
+            plan.source_facts = read.data['facts'].strip()[:4000]
+            plan.save(update_fields=['source_facts'])
         result = planner.generate_plan(plan)
     except Exception as exc:
         if not job.was_cancelled():
@@ -172,7 +178,15 @@ def run_generate_plan(job):
 def run_rewrite_post(job):
     post = Post.objects.select_related('company').get(pk=job.params['post_id'], company=job.company)
     job.set_progress(20, _('وكيل يعيد كتابة المنشور…'))
-    result = planner.rewrite_post(post, job.params.get('instruction', ''))
+    facts = ''
+    if job.params.get('source_id'):
+        from apps.library.models import Record
+        source = Record.objects.for_company(job.company).filter(pk=job.params['source_id']).first()
+        if source is not None:
+            read = doc_source.read(source)
+            job.add_usage(read)
+            facts = read.data['facts'].strip()[:4000]
+    result = planner.rewrite_post(post, job.params.get('instruction', ''), facts)
     job.add_usage(result)
     apply_rewrite(post, result.data)
     if not post.is_video:

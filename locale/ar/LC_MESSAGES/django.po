@@ -7598,6 +7598,41 @@ msgstr "سيتم فصل صندوق البريد عن وكيل."
 msgid "Your balance: $%(balance)s. It takes about half a minute."
 msgstr "رصيدك: $%(balance)s. يستغرق نحو نصف دقيقة."
 
+msgid ""
+"The conversation is free (up to %(limit)s messages a day); only the services "
+"you approve are charged, and the price on each card is the price charged. "
+"Marid reads what you write and the details of the documents it searches, "
+"never their content; a document is read only when you approve a suggestion "
+"such as a question about it. It can make mistakes: check each suggestion."
+msgstr ""
+"المحادثة مجانية (حتى %(limit)s رسالة في اليوم)، ولا يُخصم إلا ثمن الخدمات "
+"التي توافق عليها، والسعر المكتوب على كل بطاقة هو السعر المخصوم. يقرأ مارد ما "
+"تكتبه وبيانات المستندات التي يبحث فيها، ولا يقرأ محتواها أبداً؛ ولا يُقرأ "
+"مستند إلا إذا وافقت على اقتراح مثل سؤال عنه. قد يخطئ، فراجع كل اقتراح."
+
+msgid ""
+"Marid is for the owner, the administrators and the editors. Ask an "
+"administrator if you need it."
+msgstr "مارد للمالك والمديرين والمحررين. اطلب من أحد المديرين إذا احتجته."
+
+msgid "Reading the document. The answer will be saved as a note."
+msgstr "جارٍ قراءة المستند. ستُحفظ الإجابة في ملاحظة."
+
+msgid "The form was created. Check its questions."
+msgstr "أُنشئ النموذج. راجع أسئلته."
+
+msgid "Open the card again and approve it from there."
+msgstr "افتح البطاقة مرة أخرى ووافق عليها من هناك."
+
+msgid "You reached today's limit of messages to Marid. Try again tomorrow."
+msgstr "وصلت إلى حدّ اليوم من الرسائل إلى مارد. جرّب غداً."
+
+msgid "This suggestion is no longer available. Ask Marid again."
+msgstr "هذا الاقتراح لم يعد متاحاً. اسأل مارد من جديد."
+
+msgid "slide"
+msgstr "شريحة"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

@@ -28,6 +28,7 @@ class AuditEvent(CompanyScopedModel):
     CONTACT_CREATED, CONTACT_UPDATED, CONTACT_DELETED = 'contact.created', 'contact.updated', 'contact.deleted'
     ANNOUNCEMENT_PUBLISHED, ANNOUNCEMENT_UPDATED = 'announcement.published', 'announcement.updated'
     ANNOUNCEMENT_DELETED = 'announcement.deleted'
+    ASSISTANT_ACTION, ASSISTANT_ASKED = 'assistant.action', 'assistant.ask_document'
     ACTIONS = {
         DOC_QR_CHANGED: _('Added or removed the verification QR code of a document'),
         DOC_PRINTED_VERIFIABLE: _('Opened a document with a verification QR code for printing'),
@@ -73,6 +74,8 @@ class AuditEvent(CompanyScopedModel):
         ANNOUNCEMENT_PUBLISHED: _('Published an announcement'),
         ANNOUNCEMENT_UPDATED: _('Changed an announcement'),
         ANNOUNCEMENT_DELETED: _('Deleted an announcement'),
+        ASSISTANT_ACTION: _('Approved a suggestion of Marid'),
+        ASSISTANT_ASKED: _('Asked Marid a question about a document'),
     }
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')

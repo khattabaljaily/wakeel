@@ -1,0 +1,72 @@
+/* Marid (apps.assistant): the chat page and the orange genie who flies around the screen (static/js/marid.js). Moved from MyDocHub's site.css. */
+:root { --md-line: var(--wk-border); --md-surface: var(--wk-card); --md-muted: var(--wk-muted); --md-accent: var(--wk-primary); --md-accent-soft: var(--wk-primary-50); --md-ink: var(--wk-ink); --md-accent-text: var(--wk-primary-600); --md-surface-2: #f1f2f9; }
+.chat { display: flex; flex-direction: column; gap: .9rem; padding: 1rem; }
+.chat-msg { max-width: min(46rem, 92%); padding: .7rem 1rem; border-radius: 14px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.chat-msg.user { align-self: flex-end; background: var(--md-accent); color: #fff; border-end-end-radius: 4px; }
+.chat-msg.assistant { align-self: flex-start; background: var(--md-surface-2); border-end-start-radius: 4px; }
+.chat-card { align-self: flex-start; width: min(46rem, 92%); border: 1px solid var(--md-line); border-radius: 14px; background: var(--md-surface); padding: .9rem 1rem; }
+.chat-card h3 { margin: 0 0 .4rem; font-size: 1rem; display: flex; gap: .5rem; align-items: center; justify-content: space-between; }
+.chat-card dl { display: grid; grid-template-columns: max-content 1fr; gap: .2rem .9rem; margin: 0 0 .7rem; font-size: .9rem; }
+.chat-card dt { color: var(--md-muted); font-weight: 600; }
+.chat-card dd { margin: 0; overflow-wrap: anywhere; }
+.chat-card .chat-actions { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+.chat-card form { display: inline; }
+.chat-compose { display: grid; grid-template-columns: 1fr auto; gap: .6rem; padding: 1rem; border-top: 1px solid var(--md-line); align-items: end; }
+.chat-compose textarea { min-height: 3rem; max-height: 10rem; resize: vertical; }
+.chat-ideas { display: flex; gap: .5rem; flex-wrap: wrap; padding: 0 1rem 1rem; }
+.chat-ideas { min-width: 0; }
+.chat-ideas .btn { font: inherit; white-space: normal; text-align: start; max-width: 100%; height: auto; line-height: 1.5; padding-block: .55rem; }
+@media (max-width: 640px) { .chat-compose { grid-template-columns: 1fr; } .chat-msg, .chat-card { max-width: 100%; } }
+/* ── Marid, the orange genie of the assistant (static/js/marid.js) ─────────────────────────────────────────────────── */
+.genie { flex: 1; max-width: 26rem; min-width: 0; display: flex; align-items: center; gap: .5rem; padding: .3rem .85rem .3rem .45rem; border: 1.5px solid var(--md-line); border-radius: 12px; background: var(--md-surface); color: var(--md-muted); font-size: .88rem; font-weight: 600; text-decoration: none; transition: border-color .2s, box-shadow .2s; }
+html[dir="rtl"] .genie { padding: .3rem .45rem .3rem .85rem; }
+a.genie:hover { border-color: var(--md-accent); box-shadow: 0 0 0 4px var(--md-accent-soft); text-decoration: none; color: var(--md-ink); }
+a.genie:focus-visible { outline: 2px solid var(--md-accent); outline-offset: 2px; }
+.genie-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.marid-home { flex: none; inline-size: 2.3rem; block-size: 2rem; }
+.marid-layer { position: fixed; inset: 0; z-index: 45; overflow: hidden; pointer-events: none; contain: layout paint; }   /* whatever flies off the screen is cut here, so the page never widens */
+.marid { position: absolute; inset: 0 auto auto 0; width: 64px; height: 70px; opacity: 0; pointer-events: none; transform-origin: 50% 50%; will-change: transform; }
+.marid[data-state="home"], .marid[data-state="fly"] { opacity: 1; }
+.marid[data-state="home"] { pointer-events: auto; cursor: pointer; }
+.marid-svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 5px rgb(0 0 0 / .2)); }
+.marid[data-state="home"] .marid-svg { animation: md-bob 3.4s ease-in-out infinite; }
+.md-tail { transform-box: fill-box; transform-origin: 50% 0; animation: md-tail 1.7s ease-in-out infinite; }
+.md-arm-r { transform-box: view-box; transform-origin: 90px 72px; }
+.md-arm-l { transform-box: view-box; transform-origin: 30px 72px; }
+.md-eyes-closed, .md-zzz { display: none; }
+.marid.is-asleep .md-eyes { display: none; }
+.marid.is-asleep .md-eyes-closed, .marid.is-asleep .md-zzz { display: inline; }
+.marid.is-asleep .marid-svg { animation: none; filter: drop-shadow(0 4px 5px rgb(0 0 0 / .2)) saturate(.7); }
+.marid.is-waving .md-arm-r { animation: md-wave .5s ease-in-out 6; }
+.marid.is-flying .md-arm-r { animation: md-flap .32s ease-in-out infinite alternate; }
+.marid.is-flying .md-arm-l { animation: md-flap-l .32s ease-in-out infinite alternate; }
+@keyframes md-bob { 50% { transform: translateY(-3px); } }
+@keyframes md-tail { 50% { transform: skewX(7deg) scaleY(1.08); } }
+@keyframes md-wave { 50% { transform: rotate(-26deg); } }
+@keyframes md-flap { to { transform: rotate(-18deg); } }
+@keyframes md-flap-l { to { transform: rotate(18deg); } }
+.md-spark { position: absolute; z-index: 1; pointer-events: none; color: #FFB84D; font-size: 15px; line-height: 1; text-shadow: 0 0 6px rgb(255 184 77 / .8); animation: md-spark .95s ease-out forwards; }
+@keyframes md-spark { to { opacity: 0; transform: translateY(20px) scale(.3) rotate(140deg); } }
+.marid-bubble { position: fixed; z-index: 46; max-width: min(18rem, calc(100vw - 1.6rem)); display: grid; gap: .35rem; padding: .6rem .85rem; border: 1.5px solid #F4A135; border-radius: 14px;
+  background: var(--md-surface); color: var(--md-ink); box-shadow: var(--wk-shadow-lg); font-weight: 700; font-size: .92rem; line-height: 1.5; text-align: start; }
+.marid-bubble[hidden] { display: none; }
+.marid-bubble.is-in { animation: md-pop .28s cubic-bezier(.2, 1.4, .4, 1); }
+@keyframes md-pop { from { opacity: 0; transform: translateY(-6px) scale(.9); } }
+.marid-switch { justify-self: start; padding: 0; border: 0; background: none; color: var(--md-accent-text); font: inherit; font-size: .8rem; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.marid-switch[hidden] { display: none; }
+.marid-bar { justify-self: start; padding: .3rem .8rem; border: 1.5px solid var(--md-accent); border-radius: 999px; background: none; color: var(--md-accent-text); font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.marid-bar[hidden] { display: none; }
+@media (max-width: 700px) {
+  /* On a phone the bar shrinks to the place where Marid rests, between the section title and the balance; if there is no room he only visits. */
+  .genie { flex: 0 1 2.6rem; padding: 0; border: 0; background: none; box-shadow: none; }
+  .genie-text { display: none; }
+  .genie .marid-home { flex: 0 1 2.3rem; min-width: 0; }
+  a.genie:hover { box-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marid-svg, .md-tail, .marid.is-waving .md-arm-r { animation: none !important; }
+}
+.chat-empty { color: var(--md-muted); text-align: center; padding: 2rem 1rem; }
+.chat-lines { list-style: none; margin: 0 0 .7rem; padding: 0; font-size: .85rem; color: var(--md-muted); }
+.chat-lines li { display: flex; justify-content: space-between; gap: 1rem; }
+.chat-compose textarea { resize: vertical; }

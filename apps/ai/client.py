@@ -144,6 +144,101 @@ def complete_text(system, prompt, *, max_tokens=16000, effort='low', tier='premi
     return AIResult({'text': text}, usage.input_tokens + cache_read + cache_write, usage.output_tokens, cache_read, message.model)
 
 
+def chat_tools(system, messages, tools, *, tier='assistant', max_tokens=900):
+    """One turn of a conversation that may call tools (the assistant, apps.assistant). `messages` are OpenAI-style dicts:
+    {'role': 'user'|'assistant', 'content'}, an assistant turn with 'tool_calls' [{'id', 'function': {'name', 'arguments': <json text>}}],
+    and {'role': 'tool', 'tool_call_id', 'content'}; `tools` are OpenAI-style function definitions. Returns (message, AIResult-like
+    usage) where `message` is {'content': str, 'tool_calls': [...]} in the same shape. DeepSeek by default; with no DeepSeek key
+    the same turn runs on Claude. Raises AIError (message safe to show)."""
+    if not settings.AI_ENABLED:
+        raise AIError(UNAVAILABLE, f'No AI key: add {settings.AI_KEY_NAME} to secrets.json.')
+    provider, model = resolve(tier)
+    if provider == 'deepseek':
+        return _deepseek_chat(system, messages, tools, max_tokens=max_tokens, model=model)
+    return _anthropic_chat(system, messages, tools, max_tokens=max_tokens, model=model)
+
+
+def _deepseek_chat(system, messages, tools, *, max_tokens, model):
+    payload = {'model': model, 'messages': [{'role': 'system', 'content': system}] + list(messages), 'max_tokens': max_tokens,
+               'temperature': 0.3, 'stream': False}
+    if tools:
+        payload['tools'] = tools
+    headers = {'Authorization': f'Bearer {settings.DEEPSEEK_API_KEY}'}
+    url = settings.DEEPSEEK_BASE_URL.rstrip('/') + '/chat/completions'
+    for attempt in range(2):
+        try:
+            response = requests.post(url, json=payload, headers=headers, timeout=60)
+        except requests.RequestException as exc:
+            if attempt == 0:
+                continue
+            raise AIError(UNREACHABLE, f'Cannot reach the DeepSeek API: {exc}') from exc
+        if response.status_code >= 500 and attempt == 0:
+            continue
+        if response.status_code != 200:
+            logger.error('DeepSeek API error %s: %s', response.status_code, response.text[:500])
+            message, detail = _DEEPSEEK_ERRORS.get(response.status_code, (UNREACHABLE, 'DeepSeek API error'))
+            raise AIError(message, f'{detail} [HTTP {response.status_code}] {response.text[:300]}')
+        break
+    body = response.json()
+    message = (body['choices'][0].get('message') or {})
+    usage = body.get('usage', {})
+    return ({'content': message.get('content') or '', 'tool_calls': message.get('tool_calls') or []},
+            AIResult({}, usage.get('prompt_tokens', 0), usage.get('completion_tokens', 0), usage.get('prompt_cache_hit_tokens', 0),
+                     body.get('model') or model))
+
+
+def _to_anthropic_messages(messages):
+    """OpenAI-style turns -> Claude's: tool calls become tool_use blocks, their results one user turn of tool_result blocks."""
+    out = []
+    for m in messages:
+        if m['role'] == 'tool':
+            block = {'type': 'tool_result', 'tool_use_id': m.get('tool_call_id', ''), 'content': m.get('content') or ''}
+            if out and out[-1]['role'] == 'user' and isinstance(out[-1]['content'], list):
+                out[-1]['content'].append(block)
+            else:
+                out.append({'role': 'user', 'content': [block]})
+        elif m['role'] == 'assistant' and m.get('tool_calls'):
+            blocks = [{'type': 'text', 'text': m['content']}] if (m.get('content') or '').strip() else []
+            for call in m['tool_calls']:
+                fn = call.get('function') or {}
+                try:
+                    args = json.loads(fn.get('arguments') or '{}')
+                except ValueError:
+                    args = {}
+                blocks.append({'type': 'tool_use', 'id': call.get('id', ''), 'name': fn.get('name', ''), 'input': args if isinstance(args, dict) else {}})
+            out.append({'role': 'assistant', 'content': blocks})
+        else:
+            out.append({'role': m['role'], 'content': m.get('content') or ' '})
+    return out
+
+
+def _anthropic_chat(system, messages, tools, *, max_tokens, model):
+    model = settings.ANTHROPIC_MODEL_FAST if model.startswith('deepseek') else model
+    kwargs = {'model': model, 'max_tokens': max_tokens, 'system': system, 'messages': _to_anthropic_messages(messages)}
+    if tools:
+        kwargs['tools'] = [{'name': t['function']['name'], 'description': t['function'].get('description', ''),
+                            'input_schema': t['function'].get('parameters') or {'type': 'object', 'properties': {}}} for t in tools]
+    api = anthropic.Anthropic(api_key=settings.ANTHROPIC_API_KEY, timeout=60, max_retries=2)
+    try:
+        message = api.messages.create(**kwargs)
+    except anthropic.AuthenticationError as exc:
+        raise AIError(UNAVAILABLE, 'Claude rejected the key: check ANTHROPIC_API_KEY in secrets.json.') from exc
+    except anthropic.RateLimitError as exc:
+        raise AIError(BUSY, 'Claude rate limit (429).') from exc
+    except anthropic.APIStatusError as exc:
+        raise AIError(UNREACHABLE, f'Claude API error {exc.status_code}: {exc.message}') from exc
+    except anthropic.APIConnectionError as exc:
+        raise AIError(UNREACHABLE, f'Cannot reach the Claude API: {exc}') from exc
+    text = ''.join(b.text for b in message.content if b.type == 'text')
+    calls = [{'id': b.id, 'type': 'function', 'function': {'name': b.name, 'arguments': json.dumps(b.input, ensure_ascii=False)}}
+             for b in message.content if b.type == 'tool_use']
+    usage = message.usage
+    cache_read = getattr(usage, 'cache_read_input_tokens', 0) or 0
+    cache_write = getattr(usage, 'cache_creation_input_tokens', 0) or 0
+    return ({'content': text, 'tool_calls': calls},
+            AIResult({}, usage.input_tokens + cache_read + cache_write, usage.output_tokens, cache_read, message.model))
+
+
 def count_tokens(text):
     """The provider's free token count of `text`, or None when it cannot be reached (callers fall back to an estimate)."""
     if not settings.ANTHROPIC_API_KEY:

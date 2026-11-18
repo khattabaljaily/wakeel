@@ -7,6 +7,7 @@ kept (owner's rule, 2026-11-18, after MyDocHub showed $0.08 and charged $0.36)."
 from dataclasses import dataclass
 
 from django.core import signing
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
 from . import catalog
@@ -48,13 +49,15 @@ class Quote:
             if line.key == 'units':
                 text = _('%(count)s × %(unit)s') % {'count': line.count, 'unit': _unit_label(self.service_key)}
             else:
-                text = catalog.service_name(line.key if line.key != 'base' else self.service_key, 'ar')
+                text = catalog.service_name(line.key if line.key != 'base' else self.service_key, (get_language() or 'en').split('-')[0])
             out.append((text, catalog.format_points(line.points)))
         return out
 
 
 def unit_label(service_key):
     """The name of a service's unit for people, in the reader's language: 'post' -> 'منشور'."""
+    if service_key.startswith('presentation'):
+        return _('slide')                         # a deck is priced by the slide (a source document's pages are counted as slides)
     if catalog.page_pricing(service_key):
         return _('page')
     return {'post': _('post')}.get(catalog.unit_name(service_key), catalog.unit_name(service_key))

@@ -32,6 +32,7 @@ urlpatterns = [
     path('app/contacts/', include('apps.contacts.urls')),
     path('app/announcements/', include('apps.announcements.urls')),
     path('app/mail/', include('apps.mail.urls')),
+    path('app/ai/marid/', include('apps.assistant.urls')),
     path('app/ai/', include('apps.docops.urls')),
     path('app/ai/', include('apps.docops.service_urls')),
     path('v/<str:code>/', documents_verify.verify, name='verify'),

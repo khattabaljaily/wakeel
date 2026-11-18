@@ -103,6 +103,7 @@ INSTALLED_APPS = [
     'apps.contacts',
     'apps.announcements',
     'apps.mail',
+    'apps.assistant',
     'enjaz_operators',
 ]
 
@@ -341,6 +342,7 @@ DEEPSEEK_BASE_URL = get_secret('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')
 AI_TIERS = get_secret('AI_TIERS', {
     'interactive': ['anthropic', ANTHROPIC_MODEL_FAST],
     'background': ['deepseek', DEEPSEEK_MODEL],
+    'assistant': ['deepseek', DEEPSEEK_MODEL],         # Marid's free chat (short turns, tools): the cheapest
     'premium': ['anthropic', ANTHROPIC_MODEL],
 })
 # Spend guards (apps/credits/guards.py): the platform's monthly AI budget in USD (0 = no limit), and per company the paid jobs an
@@ -350,6 +352,9 @@ AI_MAX_CHARGES_PER_HOUR = get_secret('AI_MAX_CHARGES_PER_HOUR', 120)
 AI_MAX_REFUNDS_PER_DAY = get_secret('AI_MAX_REFUNDS_PER_DAY', 30)
 # A form is paid once when it is made; its answers are free up to this many (keeps the cost of one form bounded).
 FORM_MAX_RESPONSES = int(get_secret('FORM_MAX_RESPONSES', 1000))
+# Marid (apps.assistant): the chat is free for the person, so what it costs the platform is bounded per person per day.
+ASSISTANT_DAILY_MESSAGES = int(get_secret('ASSISTANT_DAILY_MESSAGES', 60))
+ASSISTANT_HISTORY = 12               # the last messages the assistant reads each time
 # The company mailbox (apps.mail) connects only to public mail servers; the tests run a local fake server.
 MAIL_ALLOW_PRIVATE_HOSTS = RUNNING_TESTS
 # DeepSeek charges less off-peak. The window, in UTC as [start, end], may cross midnight.

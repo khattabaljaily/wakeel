@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
     <link rel="stylesheet" href="{% static_v 'css/app.css' %}">
     <link rel="stylesheet" href="{% static_v 'css/rail.css' %}">
+    <link rel="stylesheet" href="{% static_v 'css/marid.css' %}">
     <script>try { if (localStorage.getItem('wkSide') === 'collapsed') document.documentElement.classList.add('side-collapsed'); } catch (e) {}</script>
     {% if agency.logo %}<link rel="icon" href="{{ agency.logo.url }}">{% else %}<link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">{% endif %}
     <meta name="theme-color" content="#12112a">
@@ -135,9 +136,10 @@
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "AI studio" context "menu section" %}"><i class="bi bi-palette"></i><span class="lbl">{% translate "AI studio" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
                 <div class="rail-grp-body">
                     <span class="rail-fly-title" aria-hidden="true">{% translate "AI studio" context "menu section" %}</span>
-                    <a class="rail-btn" href="{% url 'services:hub' %}"{% if request.path|slice:':8' == '/app/ai/' and '/app/ai/identity/' not in request.path and '/app/ai/presentations/' not in request.path %} aria-current="page"{% endif %}><i class="bi bi-stars"></i><span class="lbl">{% translate "AI services" context "navigation" %}</span></a>
+                    <a class="rail-btn" href="{% url 'services:hub' %}"{% if request.path|slice:':8' == '/app/ai/' and '/app/ai/identity/' not in request.path and '/app/ai/presentations/' not in request.path and '/app/ai/marid/' not in request.path %} aria-current="page"{% endif %}><i class="bi bi-stars"></i><span class="lbl">{% translate "AI services" context "navigation" %}</span></a>
                     <a class="rail-btn" href="{% url 'brand:studio' %}"{% nav_current '/app/ai/identity/' %}><i class="bi bi-bezier2"></i><span class="lbl">{% translate "Company identity" context "navigation" %}</span></a>
                     {% if membership.can_edit %}<a class="rail-btn" href="{% url 'presentations:list' %}"{% nav_current '/app/ai/presentations/' %}><i class="bi bi-easel"></i><span class="lbl">{% translate "Smart presentations" context "navigation" %}</span></a>{% endif %}
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'assistant:chat' %}"{% nav_current '/app/ai/marid/' %}><i class="bi bi-chat-heart"></i><span class="lbl">{% translate "Marid" context "navigation" %}</span></a>{% endif %}
                 </div>
             </div>
 
@@ -204,6 +206,7 @@
             <h1>{% block page_title %}{% endblock %}</h1>
             {% block subtitle %}{% endblock %}
         </div>
+        {% if company and membership.can_edit and not user.is_superuser %}<a class="genie" href="{% url 'assistant:chat' %}" data-marid-open><span class="marid-home" data-marid-home aria-hidden="true"></span><span class="genie-text">{% translate "Ask Marid to do something…" %}</span></a>{% endif %}
         <div class="actions">{% block actions %}{% endblock %}</div>
         <div class="wk-topbar__tools">
         {% include "_language_toggle.html" %}
@@ -280,6 +283,7 @@
 <script src="{% url 'javascript-catalog' %}"></script>
 <script src="{% static_v 'js/app.js' %}"></script>
 <script src="{% static_v 'js/rail.js' %}"></script>
+{% if company and membership.can_edit and not user.is_superuser %}{% include "_marid.html" %}<script src="{% static_v 'js/marid.js' %}" defer></script>{% endif %}
 {% block scripts %}{% endblock %}
 </body>
 </html>

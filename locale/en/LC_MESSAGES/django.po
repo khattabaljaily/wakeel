@@ -5539,3 +5539,15 @@ msgstr "Special day"
 
 msgid "اختر يوماً بين 1 و28."
 msgstr "Choose a day between 1 and 28."
+
+msgid "منشوراً"
+msgstr "posts"
+
+msgid "الرصيد"
+msgstr "Balance"
+
+msgid "المحفظة"
+msgstr "Wallet"
+
+msgid "سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك. السعر $%(price)s."
+msgstr "Wakeel will write the plan again, and all its current posts, including your edits, will be replaced. Price: $%(price)s."

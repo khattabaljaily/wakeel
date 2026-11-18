@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n credits %}
 {% load wakeel %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block page_title %}<span id="pageTitle">{{ post.title }}</span>{% endblock %}
@@ -48,14 +48,14 @@
         <div class="quick mb-2">{% for q in quick_rewrites %}<button type="button" data-rewrite="{{ q }}">{{ q }}</button>{% endfor %}</div>
         <div class="input-group">
             <input type="text" class="form-control" id="rewriteInput" placeholder="{% translate "مثال: ركّز على خدمة التوصيل المجاني واذكر أنها لفترة محدودة" %}">
-            <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> {% translate "نفّذ" %}</button>
+            <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> {% translate "نفّذ" %} <span dir="ltr">· ${% price 'rewrite_post' %}</span></button>
         </div>
         <div class="small text-primary mt-2 d-none" id="rewriteStatus"><span class="spinner-border spinner-border-sm"></span> <span>{% translate "وكيل يعيد كتابة المنشور…" %}</span></div>
         <div class="d-flex flex-wrap gap-2 align-items-center mt-3 pt-3 border-top">
             <span class="small fw-semibold"><i class="bi bi-translate"></i> {% translate "نسخة جديدة من هذا المنشور:" %}</span>
             <select class="form-select form-select-sm w-auto" id="variantLang">{% for key, label in variants %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select>
-            <button type="button" class="btn btn-sm btn-soft" id="variantBtn">{% translate "أنشئ النسخة" %}</button>
-            {% if post.status == 'published' %}<button type="button" class="btn btn-sm btn-soft" id="repostBtn"><i class="bi bi-recycle"></i> {% translate "أعد نشره بصياغة جديدة" %}</button>{% endif %}
+            <button type="button" class="btn btn-sm btn-soft" id="variantBtn">{% translate "أنشئ النسخة" %} <span dir="ltr">· ${% price 'variant_post' %}</span></button>
+            {% if post.status == 'published' %}<button type="button" class="btn btn-sm btn-soft" id="repostBtn"><i class="bi bi-recycle"></i> {% translate "أعد نشره بصياغة جديدة" %} <span dir="ltr">· ${% price 'repost' %}</span></button>{% endif %}
         </div>
         {% if post.source_post or copies %}<div class="small-muted mt-2">
             {% if post.source_post %}{% translate "منسوخ من:" %} <a href="{% url 'content:post_edit' post.source_post_id %}">{{ post.source_post.title }}</a>{% endif %}
@@ -248,6 +248,7 @@
 <script>
 (function () {
     var POST_ID = {{ post.pk }};
+    var AI_PRICES = { rewrite: {{ ai_prices.rewrite }}, variant: {{ ai_prices.variant }}, repost: {{ ai_prices.repost }} };
     var CAN_EDIT = {{ membership.can_edit|yesno:"true,false" }};
     var CAN_MANAGE = {{ membership.can_manage|yesno:"true,false" }};
     var ME = '{{ user.display_name|escapejs }}';
@@ -413,7 +414,7 @@
         rwStatus.classList.remove('d-none');
         document.querySelectorAll('[data-rewrite], #rewriteBtn').forEach(function (b) { b.disabled = true; });
         go.then(function () {
-            return Wakeel.api('/api/posts/' + POST_ID + '/rewrite/', 'POST', { instruction: instruction });
+            return Wakeel.api('/api/posts/' + POST_ID + '/rewrite/', 'POST', { instruction: instruction, expected_points: AI_PRICES.rewrite });
         }).then(function (r) {
             return Wakeel.pollJob(r.job, function (job) { if (job.message) rwStatus.querySelector('span:last-child').textContent = job.message; });
         }).then(function () {
@@ -460,10 +461,10 @@
     }
     var variantBtn = document.getElementById('variantBtn');
     if (variantBtn) variantBtn.addEventListener('click', function () {
-        makeCopy('/api/posts/' + POST_ID + '/variant/', { language: document.getElementById('variantLang').value }, variantBtn);
+        makeCopy('/api/posts/' + POST_ID + '/variant/', { language: document.getElementById('variantLang').value, expected_points: AI_PRICES.variant }, variantBtn);
     });
     var repostBtn = document.getElementById('repostBtn');
-    if (repostBtn) repostBtn.addEventListener('click', function () { makeCopy('/api/posts/' + POST_ID + '/repost/', {}, repostBtn); });
+    if (repostBtn) repostBtn.addEventListener('click', function () { makeCopy('/api/posts/' + POST_ID + '/repost/', { expected_points: AI_PRICES.repost }, repostBtn); });
 
     // ---------- Status workflow ----------
     var LABELS = { draft: ['{{ _("مسودة")|escapejs }}', 'draft'], review: ['{{ _("بانتظار المراجعة")|escapejs }}', 'review'], approved: ['{{ _("معتمد")|escapejs }}', 'approved'], published: ['{{ _("منشور")|escapejs }}', 'published'] };

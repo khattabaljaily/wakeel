@@ -68,6 +68,7 @@ def _run(job):
         message = HANDLERS[job.kind](job)
         if job.was_cancelled():
             job.status = Job.Status.CANCELLED
+            job.settle()
             return job
     except (AIError, social.PublishError) as exc:  # messages written for the user
         job.status, job.error = Job.Status.FAILED, str(exc)
@@ -80,9 +81,11 @@ def _run(job):
         job.status, job.progress, job.message = Job.Status.DONE, 100, (message or '')[:255]
     if job.was_cancelled():  # cancelled while running: keep it that way
         job.status = Job.Status.CANCELLED
+        job.settle()
         return job
     job.finished_at = timezone.now()
     job.save()
+    job.settle()  # a failed job gives its charge back
     return job
 
 

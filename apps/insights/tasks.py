@@ -5,12 +5,16 @@ import secrets
 
 from django.conf import settings
 from django.core.mail import send_mail
+from django.db import transaction
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils import timezone, translation
 from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Company
+from apps.credits import catalog
+from apps.credits.charging import InsufficientCredits
+from apps.notifications.services import notify_managers_event
 from apps.social.models import SocialAccount
 
 from . import services
@@ -127,7 +131,15 @@ def run_due(now=None):
                 and not MonthlyReport.objects.filter(company=company, month=month).exists()):
             start, end = services.month_bounds(month, company)
             if PostInsight.objects.filter(post__company=company, post__published_at__gte=start, post__published_at__lt=end).exists():
-                rep = MonthlyReport.objects.create(company=company, month=month, share_token=secrets.token_urlsafe(24))
-                Job.enqueue(company, Job.Kind.GENERATE_REPORT, None, report_id=rep.pk, deliver=True)
+                try:
+                    with transaction.atomic():
+                        rep = MonthlyReport.objects.create(company=company, month=month, share_token=secrets.token_urlsafe(24))
+                        Job.enqueue(company, Job.Kind.GENERATE_REPORT, None, report_id=rep.pk, deliver=True)
+                except InsufficientCredits as exc:
+                    # Not made, and tried again at the next check (the report is only started once the balance covers it).
+                    notify_managers_event(company, 'report_skipped', url='/company/wallet/',
+                                          dedupe_key=f'report-skipped-{company.pk}-{month:%Y-%m}',
+                                          balance=catalog.format_points(exc.balance), needed=catalog.format_points(exc.cost))
+                    continue
                 queued += 1
     return queued

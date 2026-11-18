@@ -13,8 +13,8 @@
         <a class="dropdown-item" href="{% url 'content:plan_captions' plan.pk %}"><i class="bi bi-file-text"></i> {% translate "تنزيل نصوص المنشورات" %}</a>
         {% if membership.can_edit %}
         <button class="dropdown-item" id="renderAll"><i class="bi bi-brush"></i> {% translate "إعادة تصميم كل الصور" %}</button>
-        <form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}
-            <button class="dropdown-item" data-confirm-title="{% translate "إعادة إعداد الخطة؟" %}" data-confirm="{% translate "سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك." %}" data-confirm-ok="{% translate "أعد الإعداد" %}" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> {% translate "إعادة إعداد الخطة" %}</button>
+        <form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}<input type="hidden" name="expected_points" value="{{ regen_quote.total }}">
+            <button class="dropdown-item" data-confirm-title="{% translate "إعادة إعداد الخطة؟" %}" data-confirm="{% blocktranslate trimmed with price=regen_quote.usd %}سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك. السعر ${{ price }}.{% endblocktranslate %}" data-confirm-ok="{% translate "أعد الإعداد" %}" data-confirm-tone="primary"><i class="bi bi-arrow-repeat"></i> {% translate "إعادة إعداد الخطة" %} <span dir="ltr">· ${{ regen_quote.usd }}</span></button>
         </form>
         {% endif %}
         {% if membership.can_manage %}
@@ -55,7 +55,7 @@
     <h3>{% translate "تعذّر إعداد الخطة" %}</h3>
     <p>{{ plan.error|default:_("حدث خطأ غير متوقع.") }}</p>
     <div class="d-flex gap-2 justify-content-center">
-        {% if membership.can_edit %}<form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}<button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> {% translate "حاول مرة أخرى" %}</button></form>{% endif %}
+        {% if membership.can_edit %}<form method="post" action="{% url 'content:plan_regenerate' plan.pk %}">{% csrf_token %}<input type="hidden" name="expected_points" value="{{ regen_quote.total }}"><button class="btn btn-ai"><i class="bi bi-arrow-repeat"></i> {% translate "حاول مرة أخرى" %} <span dir="ltr">· ${{ regen_quote.usd }}</span></button></form>{% endif %}
         {% if membership.can_manage %}<form method="post" action="{% url 'content:plan_delete' plan.pk %}">{% csrf_token %}
             <button class="btn btn-light text-danger" data-confirm-title="{% translate "حذف الخطة؟" %}" data-confirm="{% translate "ستُحذف هذه الخطة نهائياً." %}" data-confirm-ok="{% translate "حذف الخطة" %}"><i class="bi bi-trash"></i> {% translate "حذف الخطة" %}</button>
         </form>{% endif %}

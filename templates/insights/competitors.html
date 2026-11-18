@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n credits %}
 {% block title %}{% translate "المنافسون" %}{% endblock %}
 {% block page_title %}{% translate "المنافسون" %}{% endblock %}
 {% block subtitle %}<div class="subtitle">{% translate "يقرأ وكيل مواقع منافسيك وما تلصقه من منشوراتهم، ويستخرج الفجوات التي تميّز علامتك، ثم يستخدمها في خطط الأشهر القادمة." %}</div>{% endblock %}
-{% block actions %}{% if membership.can_edit and rivals %}<form method="post" action="{% url 'competitors:analyse' %}" class="d-inline">{% csrf_token %}<button class="btn btn-ai" {% if running %}disabled{% endif %}><i class="bi bi-magic"></i> {% if running %}{% translate "جارٍ التحليل…" %}{% else %}{% translate "حلّل المنافسين" %}{% endif %}</button></form>{% endif %}{% endblock %}
+{% block actions %}{% if membership.can_edit and rivals %}<form method="post" action="{% url 'competitors:analyse' %}" class="d-inline">{% csrf_token %}<input type="hidden" name="expected_points" value="{% quote 'competitors' as q %}{{ q.total }}"><button class="btn btn-ai" {% if running %}disabled{% endif %}><i class="bi bi-magic"></i> {% if running %}{% translate "جارٍ التحليل…" %}{% else %}{% translate "حلّل المنافسين" %} <span dir="ltr">· ${% price 'competitors' %}</span>{% endif %}</button></form>{% endif %}{% endblock %}
 {% block content %}
 <div class="row g-4">
 <div class="col-lg-5">

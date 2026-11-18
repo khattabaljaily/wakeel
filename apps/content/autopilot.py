@@ -10,12 +10,15 @@ import logging
 
 from django.conf import settings
 from django.core.mail import send_mail
+from django.db import transaction
 from django.template.loader import render_to_string
 from django.utils import timezone, translation
 from django.utils.text import format_lazy
 from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Company, Membership
+from apps.credits import catalog
+from apps.credits.charging import InsufficientCredits
 
 from .models import ContentPlan, Platform
 
@@ -55,12 +58,27 @@ def run_due(now=None):
     for company, month in due_companies(now):
         owner = company.memberships.filter(role=Membership.Role.OWNER).select_related('user').first()
         platforms, per_week = _defaults(company)
-        plan = ContentPlan.objects.create(company=company, month=month, platforms=platforms, posts_per_week=per_week,
-                                          created_by=owner.user if owner else None, autopilot=True)
-        Job.enqueue(company, Job.Kind.GENERATE_PLAN, plan.created_by, plan_id=plan.pk, autopilot=True)
+        try:
+            with transaction.atomic():   # a refused payment leaves no plan stuck in "generating"
+                plan = ContentPlan.objects.create(company=company, month=month, platforms=platforms, posts_per_week=per_week,
+                                                  created_by=owner.user if owner else None, autopilot=True)
+                Job.enqueue(company, Job.Kind.GENERATE_PLAN, plan.created_by, plan_id=plan.pk, autopilot=True)
+        except InsufficientCredits as exc:
+            # The autopilot pays from the wallet like a person does. It never spends what is not there: it waits, and says so.
+            logger.info('Autopilot paused for %s: balance %s, plan needs %s', company, exc.balance, exc.cost)
+            _tell_balance_low(company, owner.user if owner else None, exc)
+            continue
         logger.info('Autopilot started plan %s for %s', plan.pk, company)
         started += 1
     return started
+
+
+def _tell_balance_low(company, owner_user, exc):
+    """Tell the company's managers (once a month) that the autopilot is waiting for a top-up."""
+    from apps.notifications.services import notify_managers_event
+    month = timezone.localdate().strftime('%Y-%m')
+    notify_managers_event(company, 'autopilot_paused', url='/company/wallet/', dedupe_key=f'autopilot-paused-{company.pk}-{month}',
+                          balance=catalog.format_points(exc.balance), needed=catalog.format_points(exc.cost))
 
 
 def deliver(plan):

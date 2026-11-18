@@ -13,6 +13,7 @@ from apps.content import events
 from apps.content import learning
 from apps.content.models import ContentPlan, LearningSignal, Post, PostComment
 from apps.content.services import set_status
+from apps.credits.jobs import expected_points
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
 
@@ -53,6 +54,7 @@ def job_cancel(request, pk):
     if not job.is_finished:
         job.status, job.finished_at, job.error = Job.Status.CANCELLED, timezone.now(), _('ألغاه المستخدم.')
         job.save(update_fields=['status', 'finished_at', 'error'])
+        job.settle()
         if job.kind == Job.Kind.GENERATE_PLAN:
             ContentPlan.objects.filter(pk=job.params.get('plan_id'), company=job.company,
                                        status=ContentPlan.Status.GENERATING).update(
@@ -129,7 +131,7 @@ def post_rewrite(request, pk):
     instruction = (request.data.get('instruction') or '').strip()
     if not instruction:
         return Response({'error': _('اكتب ما تريد تغييره في المنشور.')}, status=status.HTTP_400_BAD_REQUEST)
-    job = Job.enqueue(_company(request), Job.Kind.REWRITE_POST, request.user, post_id=post.pk, instruction=instruction[:1000])
+    job = Job.enqueue(_company(request), Job.Kind.REWRITE_POST, request.user, expected_points=expected_points(request.data), post_id=post.pk, instruction=instruction[:1000])
     learning.record_note(post, LearningSignal.Kind.REWRITE, instruction)
     return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
 
@@ -142,7 +144,7 @@ def post_variant(request, pk):
     language = request.data.get('language')
     if language not in VARIANTS:
         return Response({'error': _('اختر اللغة أو اللهجة.')}, status=status.HTTP_400_BAD_REQUEST)
-    job = Job.enqueue(_company(request), Job.Kind.VARIANT_POST, request.user, post_id=post.pk, language=language)
+    job = Job.enqueue(_company(request), Job.Kind.VARIANT_POST, request.user, expected_points=expected_points(request.data), post_id=post.pk, language=language)
     return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
 
 
@@ -150,7 +152,7 @@ def post_variant(request, pk):
 @permission_classes(PERMS)
 def post_repost(request, pk):
     post = get_object_or_404(Post, pk=pk, company=_company(request))
-    job = Job.enqueue(_company(request), Job.Kind.REPOST, request.user, post_id=post.pk)
+    job = Job.enqueue(_company(request), Job.Kind.REPOST, request.user, expected_points=expected_points(request.data), post_id=post.pk)
     return Response({'job': job.pk}, status=status.HTTP_202_ACCEPTED)
 
 

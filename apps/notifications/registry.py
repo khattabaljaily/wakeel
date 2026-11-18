@@ -21,6 +21,8 @@ KINDS = {
     'wallet_low': ('bi-wallet2', _('The balance is low: %(balance)s left. Top up to keep using the services')),
     'wallet_empty': ('bi-wallet2', _('The balance is finished. Top up to keep using the services')),
     'form_answer': ('bi-ui-checks', _('New answer on the form: %(title)s')),
+    'autopilot_paused': ('bi-pause-circle', _('The autopilot is waiting for a top-up: it needs $%(needed)s and the balance is $%(balance)s')),
+    'report_skipped': ('bi-graph-up', _('The monthly report was not made: the balance is $%(balance)s and it needs $%(needed)s')),
     'member_joined': ('bi-person-plus', _('%(who)s joined the company')),
 }
 

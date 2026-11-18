@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n credits %}
+{% block title %}{% translate "Wallet" %}{% endblock %}
+{% block page_title %}{% translate "Wallet" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "You pay only for what you use. Every price is shown before you run a service, and the same amount is charged." %}</div>{% endblock %}
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="wk-card"><div class="wk-card-body">
+            <div class="small-muted">{% translate "Balance" %}</div>
+            <div class="display-6 fw-bold" dir="ltr">${{ balance }}</div>
+            {% if wallet.is_exempt %}<div class="small-muted mt-2">{% translate "This company is not charged." %}</div>{% endif %}
+        </div></div>
+        <div class="wk-card mt-4"><div class="wk-card-body">
+            <h2 class="wk-section-title"><i class="bi bi-tags text-primary"></i> {% translate "What the services cost" %}</h2>
+            <table class="table table-sm align-middle mb-0">
+                {% for s in services %}
+                <tr><td>{{ s.name }}</td>
+                    <td class="text-end" dir="ltr">{% if s.free %}<span class="small-muted">{% translate "Free" %}</span>{% elif s.per_unit %}${{ s.nine }} <span class="small-muted">/ 9 {{ s.per_unit }}</span>{% else %}${{ s.price }}{% endif %}</td></tr>
+                {% endfor %}
+            </table>
+        </div></div>
+    </div>
+    <div class="col-lg-7">
+        <div class="wk-card">
+            <div class="wk-card-head"><h2><i class="bi bi-receipt text-primary"></i> {% translate "Ledger" %}</h2></div>
+            {% for t in page %}
+            <div class="wk-note" {% if forloop.first %}style="border-top:0"{% endif %}>
+                <i class="bi {% if t.delta < 0 %}bi-dash-circle{% else %}bi-plus-circle{% endif %}"></i>
+                <span class="flex-grow-1"><span class="d-block">{{ t.get_action_display }}{% if t.service_key %} · {{ t.service_key }}{% endif %}</span>
+                    {% if t.breakdown %}<span class="small-muted d-block" dir="ltr">{% for b in t.breakdown %}{{ b.key }}{% if b.count %} ×{{ b.count }}{% endif %} ${{ b.points|usd }}{% if not forloop.last %} + {% endif %}{% endfor %}</span>{% endif %}
+                    <span class="small-muted">{{ t.created_at|date:"Y-m-d H:i" }}</span></span>
+                <strong dir="ltr" class="{% if t.delta < 0 %}text-danger{% else %}text-success{% endif %}">{% if t.delta > 0 %}+{% endif %}${{ t.delta|usd }}</strong>
+            </div>
+            {% empty %}
+            <div class="wk-empty"><div class="icon"><i class="bi bi-receipt"></i></div><h3>{% translate "Nothing yet." %}</h3></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

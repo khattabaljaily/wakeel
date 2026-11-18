@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "status": "DRAFT 2026-11-18. Prices follow the owner's rule (2026-11-03, MyDocHub): after every cost the net profit is half the total cost ($1 of total cost sells at $1.50), rounded up to the price step. A service is priced by its real cost: `measured_cost_usd` (from real runs) or, until measured, an `estimated` one. Costs are for the model of the service's tier (apps/ai/client.py): interactive = Claude Sonnet, background = DeepSeek. A service priced by units (posts of a plan) has a fixed part and a part per unit.",
+  "currency": "USD",
+  "points_per_dollar": 1000,
+  "rules": {
+    "price": {"profit": 0.5, "failures": 0.1, "card_fees": 0.06, "tax": 0},
+    "price_step_usd": 0.01,
+    "topup_packages_usd": [10, 25, 50]
+  },
+  "services": {
+    "generate_plan": {
+      "name_en": "Write the month plan", "name_ar": "إعداد خطة الشهر", "tier": "interactive", "unit": "post",
+      "fixed_cost_usd": 0.012, "unit_cost_usd": 0.0056, "max_units": 40,
+      "note": "Measured 2026-11-18, 9 posts on Claude Sonnet: $0.066-0.069 (5,944 in / 5,387-5,709 out). DeepSeek: about $0.07 for 9 posts. Cost = 0.012 + 0.0056 per post."
+    },
+    "rewrite_post": {
+      "name_en": "Rewrite a post", "name_ar": "إعادة كتابة منشور", "tier": "interactive",
+      "fixed_cost_usd": 0.015,
+      "note": "Measured on DeepSeek in production: average $0.0094, highest $0.0145 (10 runs). Not yet measured on Sonnet: the highest seen is used."
+    },
+    "variant_post": {
+      "name_en": "Version of a post in another language or dialect", "name_ar": "نسخة بلغة أو لهجة أخرى", "tier": "interactive",
+      "fixed_cost_usd": 0.015, "estimated": true, "note": "Same work as a rewrite."
+    },
+    "repost": {
+      "name_en": "Reword an evergreen post", "name_ar": "إعادة صياغة منشور دائم", "tier": "interactive",
+      "fixed_cost_usd": 0.015, "estimated": true, "note": "Same work as a rewrite."
+    },
+    "generate_report": {
+      "name_en": "Performance report", "name_ar": "تقرير الأداء", "tier": "background",
+      "fixed_cost_usd": 0.0102,
+      "note": "Measured on DeepSeek in production: average $0.0085, highest $0.0102 (3 runs)."
+    },
+    "competitors": {
+      "name_en": "Analyse the competitors", "name_ar": "تحليل المنافسين", "tier": "interactive",
+      "fixed_cost_usd": 0.04, "estimated": true,
+      "note": "Not measured yet: about 8,000 input and 2,000 output tokens on Sonnet. Measure with a real run before launch."
+    },
+    "ad_suggest": {
+      "name_en": "Suggest a promotion", "name_ar": "اقتراح ترويج", "tier": "interactive",
+      "fixed_cost_usd": 0.012, "estimated": true,
+      "note": "Not measured yet: about 1,000 input and 700 output tokens on Sonnet."
+    },
+    "fetch_inbox": {
+      "name_en": "Read and label the comments", "name_ar": "قراءة التعليقات وتصنيفها", "tier": "background",
+      "free": true,
+      "note": "Runs on its own every 30 minutes. A gift of the platform for now (cost tracked per job): charging for an automatic job without a person asking for it is not fair until a limit per month exists."
+    },
+    "learn": {
+      "name_en": "Learn from the team's notes", "name_ar": "التعلّم من الملاحظات", "tier": "background",
+      "free": true,
+      "note": "Measured $0.007. Runs on its own after feedback: a gift of the platform (cost tracked per job)."
+    }
+  }
+}

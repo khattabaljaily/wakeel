@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n credits %}
 {% block title %}{% translate "الترويج المدفوع" %}{% endblock %}
 {% block page_title %}{% translate "الترويج المدفوع" %}{% endblock %}
 {% block subtitle %}<div class="subtitle">{% translate "يقترح وكيل ترويج المنشورات الناجحة بميزانية تجريبية صغيرة، وينشئ الإعلان في Meta متوقفاً. لا يُصرف أي مبلغ حتى تفعّله أنت من مدير الإعلانات." %}</div>{% endblock %}
@@ -19,7 +19,7 @@
     {% for post in promotable %}
     <div class="d-flex align-items-center gap-3 py-2 {% if not forloop.last %}border-bottom{% endif %}">
         <div class="flex-grow-1 text-truncate"><a href="{% url 'content:post_edit' post.pk %}">{{ post.title }}</a> <span class="small-muted">· {{ post.published_at|date:"j F" }}</span></div>
-        {% if membership.can_edit %}<form method="post" action="{% url 'ads:suggest' post.pk %}">{% csrf_token %}<button class="btn btn-sm btn-soft"><i class="bi bi-megaphone"></i> {% translate "اقترح ترويجاً" %}</button></form>{% endif %}
+        {% if membership.can_edit %}<form method="post" action="{% url 'ads:suggest' post.pk %}">{% csrf_token %}<input type="hidden" name="expected_points" value="{% quote 'ad_suggest' as q %}{{ q.total }}"><button class="btn btn-sm btn-soft"><i class="bi bi-megaphone"></i> {% translate "اقترح ترويجاً" %} <span dir="ltr">· ${% price 'ad_suggest' %}</span></button></form>{% endif %}
     </div>
     {% empty %}<span class="small-muted">{% translate "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد." %}</span>{% endfor %}
 </div></div>

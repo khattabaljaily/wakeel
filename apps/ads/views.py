@@ -1,10 +1,12 @@
 from django import forms
 from django.contrib import messages
+from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from apps.companies.decorators import company_required
+from apps.credits.jobs import expected_points
 from apps.content.models import Post
 from apps.jobs.models import Job
 from apps.social.meta import MetaError
@@ -82,9 +84,10 @@ def choose_account(request):
 @require_POST
 def suggest(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk, company=request.company, status=Post.Status.PUBLISHED)
-    draft = AdDraft.objects.create(company=request.company, post=post, created_by=request.user,
-                                   countries=services.country_code(request.company))
-    Job.enqueue(request.company, Job.Kind.AD_SUGGEST, request.user, draft_id=draft.pk)
+    with transaction.atomic():   # a refused payment leaves no draft behind
+        draft = AdDraft.objects.create(company=request.company, post=post, created_by=request.user,
+                                       countries=services.country_code(request.company))
+        Job.enqueue(request.company, Job.Kind.AD_SUGGEST, request.user, expected_points=expected_points(request.POST), draft_id=draft.pk)
     return redirect('ads:draft', pk=draft.pk)
 
 

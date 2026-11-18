@@ -2,6 +2,7 @@ import datetime
 
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.db import transaction
 from django.db.models import CharField, Q
 from django.db.models.functions import Cast
 from django.http import FileResponse, Http404, HttpResponse, JsonResponse
@@ -10,8 +11,10 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
+from apps.ai.planner import posts_count
 from apps.companies.decorators import company_required
 from apps.companies.models import MediaAsset
+from apps.credits import catalog, charging, jobs as credit_jobs, quote as quotes
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
 from apps.studio.designs import MOTIFS, SCHEMES, SIZES, TEMPLATES
@@ -46,10 +49,15 @@ def plan_create(request):
     if request.method == 'POST' and form.is_valid():
         plan = form.save(commit=False)
         plan.company, plan.created_by = request.company, request.user
-        plan.save()
-        job = Job.enqueue(request.company, Job.Kind.GENERATE_PLAN, request.user, plan_id=plan.pk)
+        quote = quotes.make('generate_plan', posts_count(plan))
+        charging.ensure_can_afford(request.company, request.user, quote, credit_jobs.expected_points(request.POST))
+        with transaction.atomic():   # a refused payment leaves no plan stuck in "generating"
+            plan.save()
+            job = Job.enqueue(request.company, Job.Kind.GENERATE_PLAN, request.user, expected_points=quote.total, plan_id=plan.pk)
         return redirect(f'{plan.get_absolute_url()}?job={job.pk}')
-    return render(request, 'content/plan_form.html', {'form': form})
+    return render(request, 'content/plan_form.html', {
+        'form': form, 'plan_prices': credit_jobs.price_table('generate_plan'),
+        'wallet': charging.get_wallet(request.company), 'wallet_usd': catalog.format_points(charging.get_wallet(request.company).balance)})
 
 
 @company_required
@@ -64,6 +72,7 @@ def plan_detail(request, pk):
     posts = plan.posts.select_related('background').order_by('scheduled_at')
     return render(request, 'content/plan_detail.html', {
         'review_ids': [p.pk for p in posts if p.status == Post.Status.REVIEW],
+        'regen_quote': quotes.make('generate_plan', posts_count(plan)),
         'plan': plan, 'posts': posts, 'job': job, 'render_job': render_job, 'worker_alive': worker_alive(),
         'month_name': ARABIC_MONTHS[plan.month.month - 1],
         'month_label': f'{ARABIC_MONTHS[plan.month.month - 1]} {plan.month.year}',
@@ -76,9 +85,12 @@ def plan_detail(request, pk):
 @require_POST
 def plan_regenerate(request, pk):
     plan = get_object_or_404(ContentPlan, pk=pk, company=request.company)
-    plan.status, plan.error = ContentPlan.Status.GENERATING, ''
-    plan.save(update_fields=['status', 'error'])
-    job = Job.enqueue(request.company, Job.Kind.GENERATE_PLAN, request.user, plan_id=plan.pk)
+    quote = quotes.make('generate_plan', posts_count(plan))
+    charging.ensure_can_afford(request.company, request.user, quote, credit_jobs.expected_points(request.POST))
+    with transaction.atomic():
+        plan.status, plan.error = ContentPlan.Status.GENERATING, ''
+        plan.save(update_fields=['status', 'error'])
+        job = Job.enqueue(request.company, Job.Kind.GENERATE_PLAN, request.user, expected_points=quote.total, plan_id=plan.pk)
     return redirect(f'{plan.get_absolute_url()}?job={job.pk}')
 
 
@@ -225,6 +237,9 @@ def post_edit(request, pk):
         'comments': post.comments.select_related('user'),
         'publish_targets': [a.get_platform_display() for a in publish_targets(post)] if post.format in PUBLISHABLE_FORMATS else [],
         'plan_posts': list(post.plan.posts.order_by('scheduled_at').values_list('pk', flat=True)) if post.plan else [],
+        # What each AI action on a post costs: shown on its button and posted back, to be compared at the charge.
+        'ai_prices': {'rewrite': quotes.make('rewrite_post').total, 'variant': quotes.make('variant_post').total,
+                      'repost': quotes.make('repost').total},
         'quick_rewrites': [
             _('اجعل النص أقصر وأكثر تركيزاً'),
             _('اجعل الأسلوب أكثر حماساً وجاذبية'),

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n credits %}
 {% block title %}{% translate "خطة محتوى جديدة" %}{% endblock %}
 {% block page_title %}{% translate "خطة محتوى جديدة" %}{% endblock %}
 {% block subtitle %}<div class="subtitle">{% translate "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي." %}</div>{% endblock %}
@@ -16,7 +16,9 @@
                 </div>
                 {% include "_field.html" with field=form.platforms %}
                 {% include "_field.html" with field=form.brief %}
-                <button class="btn btn-ai btn-lg w-100"><i class="bi bi-magic"></i> {% translate "أعدّ الخطة الآن" %}</button>
+                <input type="hidden" name="expected_points" id="expectedPoints" value="">
+                <button class="btn btn-ai btn-lg w-100"><i class="bi bi-magic"></i> {% translate "أعدّ الخطة الآن" %} <span dir="ltr" class="ms-1">· $<span id="planPrice"></span></span></button>
+                <div class="small-muted text-center mt-2"><span id="planPosts"></span> {% translate "منشوراً" %} · {% translate "الرصيد" %}: <span dir="ltr">${{ wallet_usd }}</span>{% if membership.can_manage %} · <a href="{% url 'credits:wallet' %}">{% translate "المحفظة" %}</a>{% endif %}</div>
             </div>
         </form>
     </div>
@@ -34,4 +36,23 @@
         </div></div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
+{{ plan_prices|json_script:"planPrices" }}
+<script>
+(function () {
+    // The price is worked out from the table the server's charge uses; the total shown is posted back and compared at the charge.
+    var prices = JSON.parse(document.getElementById('planPrices').textContent);
+    var month = document.getElementById('id_month'), perWeek = document.getElementById('id_posts_per_week');
+    function update() {
+        var d = (month.value || '').split('-'), days = new Date(+d[0], +d[1], 0).getDate();
+        var posts = Math.max(1, Math.min(40, Math.round(+perWeek.value * days / 7)));
+        var points = prices[posts];
+        document.getElementById('planPrice').textContent = (points / 1000).toFixed(2);
+        document.getElementById('planPosts').textContent = posts;
+        document.getElementById('expectedPoints').value = points;
+    }
+    month.addEventListener('change', update); perWeek.addEventListener('change', update); update();
+})();
+</script>
 {% endblock %}

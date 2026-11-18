@@ -19,7 +19,11 @@ from .services import apply_plan
 def make_company(name='شركة', **kwargs):
     defaults = dict(industry='تقنية', country='قطر', description='وصف', timezone='Asia/Qatar')
     defaults.update(kwargs)
-    return Company.objects.create(name=name, **defaults)
+    company = Company.objects.create(name=name, **defaults)
+    # Paid jobs are charged when queued: give the test company a balance that never runs out.
+    from apps.credits.models import Wallet
+    Wallet.objects.create(company=company, balance=10_000_000)
+    return company
 
 
 def make_user(email, company=None, role=Membership.Role.OWNER):

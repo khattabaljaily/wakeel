@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     'apps.ads',
     'apps.ops',
     'apps.audit',
+    'apps.credits',
     'enjaz_operators',
 ]
 
@@ -106,6 +107,7 @@ MIDDLEWARE = [
     'apps.core.middleware.LanguageMiddleware',
     'apps.accounts.middleware.PendingAccountMiddleware',
     'apps.companies.middleware.CurrentCompanyMiddleware',
+    'apps.credits.middleware.PaymentRefusedMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -128,6 +130,7 @@ TEMPLATES = [
                 'apps.companies.context_processors.current_company',
                 'apps.notifications.context_processors.notifications',
                 'apps.ops.context_processors.ops',
+                'apps.credits.context_processors.wallet',
                 'enjaz_operators.context_processors.operator',
             ],
         },

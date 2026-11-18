@@ -7550,3 +7550,36 @@ msgstr "دعا شخصًا إلى الشركة"
 
 msgid "Joined the company"
 msgstr "انضم إلى الشركة"
+
+msgid "Wallet"
+msgstr "المحفظة"
+
+msgid "You pay only for what you use. Every price is shown before you run a service, and the same amount is charged."
+msgstr "تدفع فقط مقابل ما تستخدمه. يظهر كل سعر قبل تشغيل الخدمة، ويُخصم المبلغ نفسه."
+
+msgid "This company is not charged."
+msgstr "لا يُخصم من هذه الشركة."
+
+msgid "What the services cost"
+msgstr "تكلفة الخدمات"
+
+msgid "Never charged (internal and demo companies)."
+msgstr "لا يُخصم منها أبداً (الشركات الداخلية والتجريبية)."
+
+msgid "The price changed to $%(now)s (you were shown $%(shown)s). Nothing was charged: check it and try again."
+msgstr "تغيّر السعر إلى $%(now)s (كان المعروض $%(shown)s). لم يُخصم شيء: راجعه وحاول مرة أخرى."
+
+msgid "Your balance is not enough: this needs $%(cost)s and your balance is $%(balance)s. Top up to continue."
+msgstr "رصيدك لا يكفي: يلزم $%(cost)s ورصيدك $%(balance)s. اشحن رصيدك للمتابعة."
+
+msgid "%(count)s × %(unit)s"
+msgstr "%(count)s × %(unit)s"
+
+msgid "post"
+msgstr "منشور"
+
+msgid "The autopilot is waiting for a top-up: it needs $%(needed)s and the balance is $%(balance)s"
+msgstr "المخطط الآلي ينتظر شحن الرصيد: يحتاج $%(needed)s والرصيد $%(balance)s"
+
+msgid "The monthly report was not made: the balance is $%(balance)s and it needs $%(needed)s"
+msgstr "لم يُعدّ التقرير الشهري: الرصيد $%(balance)s ويحتاج $%(needed)s"

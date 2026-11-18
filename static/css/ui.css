@@ -1,0 +1,56 @@
+/* Inner pages, one pass for all of them (2026-11-18): calmer spacing, readable lists, soft badges, one look for filters and tables.
+   Everything here overrides Bootstrap/app.css through shared classes, so a page improves without its template changing. */
+
+/* The page: a readable width on big screens, a clear title and a lighter subtitle */
+.wk-content { max-width: 1320px; margin-inline: auto; padding-top: 1.75rem; }
+.wk-topbar__title h1 { font-size: 1.55rem; letter-spacing: -.01em; }
+.wk-topbar__title .subtitle { margin-top: .15rem; color: var(--wk-muted); font-size: .92rem; }
+
+/* Cards: more air inside, a quiet border instead of a heavy shadow */
+.wk-card { border-color: #e9ebf5; box-shadow: 0 1px 2px rgba(16, 18, 43, .03); }
+.wk-card-body { padding: 1.35rem 1.5rem; }
+.wk-card-head { padding: 1rem 1.5rem; }
+.wk-card-head h2, .wk-card-head h3 { font-weight: 700; }
+
+/* Lists of rows (tasks, contacts, notifications, anything built on list-group): taller rows, a clear hover, a quiet second line */
+.wk-card > .list-group > .list-group-item, .wk-card .list-group-flush > .list-group-item { padding: 1rem 1.5rem; border-color: #eef0f7; }
+.wk-card .list-group-item-action { transition: background-color .12s; }
+.wk-card .list-group-item-action:hover { background: var(--wk-primary-50); }
+.wk-card .list-group-item .fw-semibold { font-size: 1rem; color: var(--wk-ink); }
+.wk-card .list-group-item .small.opacity-75 { opacity: 1 !important; color: var(--wk-muted); margin-top: .3rem; font-size: .85rem; }
+.wk-card .list-group-item .d-flex.justify-content-between { align-items: center; }
+
+/* Filter chips: the row of small buttons above a list reads as one control */
+.d-flex.flex-wrap.gap-2.mb-3 > .btn-sm { border-radius: 999px; padding: .4rem .95rem; font-weight: 600; border: 1px solid transparent; }
+.d-flex.flex-wrap.gap-2.mb-3 > .btn-sm.btn-light { background: #fff; border-color: #e6e8f2; color: var(--wk-text); }
+.d-flex.flex-wrap.gap-2.mb-3 > .btn-sm.btn-light:hover { border-color: var(--wk-primary); color: var(--wk-primary-600); }
+.d-flex.flex-wrap.gap-2.mb-3 > .btn-sm .badge { margin-inline-start: .25rem; }
+.d-flex.flex-wrap.gap-2.mb-3 { margin-bottom: 1.1rem !important; }
+
+/* Badges: soft pills (tinted ground, dark text) instead of loud blocks */
+.badge { font-weight: 600; letter-spacing: 0; padding: .38em .7em; border-radius: 999px; }
+.badge.text-bg-danger { background: #fdecec !important; color: #b3261e !important; }
+.badge.text-bg-warning { background: #fff2d6 !important; color: #8a5a00 !important; }
+.badge.text-bg-success { background: #e2f6ea !important; color: #17693a !important; }
+.badge.text-bg-primary { background: var(--wk-primary-100) !important; color: var(--wk-primary-600) !important; }
+.badge.text-bg-secondary { background: #eceef6 !important; color: #4a4f73 !important; }
+.badge.text-bg-light { background: #f0f1f8 !important; color: #4a4f73 !important; }
+.badge.text-bg-light.border { border-color: #e1e4f0 !important; }
+
+/* Tables: a quiet header and soft row lines */
+.table { --bs-table-bg: transparent; }
+.table > thead th { font-size: .78rem; font-weight: 700; text-transform: none; color: var(--wk-muted); background: #f7f8fc; border-bottom: 1px solid #e9ebf5; padding: .7rem 1rem; }
+.table > :not(caption) > * > * { padding: .85rem 1rem; border-bottom-color: #eef0f7; }
+.table-hover > tbody > tr:hover > * { background: var(--wk-primary-50); }
+
+/* Forms: a clear label, comfortable fields, a visible focus */
+.form-label { font-weight: 600; font-size: .88rem; margin-bottom: .35rem; color: var(--wk-ink); }
+.form-control, .form-select { padding: .62rem .85rem; border-color: #dfe2ee; border-radius: 10px; }
+.form-control:focus, .form-select:focus { border-color: var(--wk-primary); box-shadow: 0 0 0 4px var(--wk-primary-50); }
+
+/* Empty states: centred, with room */
+.small-muted.text-center, .wk-empty { padding-block: 2.4rem; }
+
+/* The credit line at the bottom: out of the way */
+.wk-credit { opacity: .75; margin-top: 2.5rem; }
+@media (max-width: 991px) { .wk-content { padding-top: 1rem; } .wk-card-body, .wk-card-head, .wk-card > .list-group > .list-group-item { padding-inline: 1.1rem; } }

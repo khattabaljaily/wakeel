@@ -7697,6 +7697,9 @@ msgstr "جارٍ كتابة المنشور من المستند. حدّث الص�
 msgid "Rewriting the post. Refresh the page in a moment."
 msgstr "جارٍ إعادة كتابة المنشور. حدّث الصفحة بعد لحظة."
 
+msgid "page"
+msgstr "صفحة"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

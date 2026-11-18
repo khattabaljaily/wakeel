@@ -35,8 +35,8 @@ class PricingRuleTests(SimpleTestCase):
         self.assertEqual(sale_price_usd('0.0624', profit='0.5', failures='0.1', card_fees='0.06', step='0.01'), Decimal('0.12'))
 
     def test_rounding_is_up_and_once(self):
-        self.assertEqual(catalog.price_points('generate_plan', 9), 120)
-        self.assertEqual(catalog.price_points('generate_plan', 1), 40)
+        self.assertEqual(catalog.price_points('generate_plan', 9), 190)
+        self.assertEqual(catalog.price_points('generate_plan', 1), 70)
         # A plan of many posts is not priced as many one-post plans.
         self.assertLess(catalog.price_points('generate_plan', 9), 9 * catalog.price_points('generate_plan', 1))
 
@@ -74,7 +74,7 @@ class QuoteTests(SimpleTestCase):
     def test_the_token_carries_the_total_and_cannot_be_forged(self):
         q = quotes.make('generate_plan', 9)
         data = quotes.read_token(q.token)
-        self.assertEqual((data['s'], data['u'], data['t']), ('generate_plan', 9, 120))
+        self.assertEqual((data['s'], data['u'], data['t']), ('generate_plan', 9, 190))
         self.assertIsNone(quotes.read_token(q.token[:-3] + 'abc'))
 
     def test_a_bundle_shows_every_part_and_the_whole(self):
@@ -91,14 +91,14 @@ class ChargeTests(TestCase):
     def test_charge_takes_exactly_the_quote_and_keeps_the_breakdown(self):
         q = quotes.make('generate_plan', 9)
         txn = charging.charge(self.company, self.user, q)
-        self.assertEqual(txn.delta, -120)
-        self.assertEqual(sum(b['points'] for b in txn.breakdown), 120)
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 880)
+        self.assertEqual(txn.delta, -190)
+        self.assertEqual(sum(b['points'] for b in txn.breakdown), 190)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 810)
 
     def test_a_price_that_differs_from_the_one_shown_charges_nothing(self):
         with self.assertRaises(charging.PriceChanged) as caught:
             charging.charge(self.company, self.user, quotes.make('generate_plan', 9), expected_total=80)
-        self.assertEqual((caught.exception.shown, caught.exception.now), (80, 120))
+        self.assertEqual((caught.exception.shown, caught.exception.now), (80, 190))
         self.assertEqual(Wallet.objects.get(company=self.company).balance, 1000)
         self.assertFalse(WalletTransaction.objects.exists())
 
@@ -108,7 +108,7 @@ class ChargeTests(TestCase):
         wallet.save()
         with self.assertRaises(charging.InsufficientCredits) as caught:
             charging.charge(self.company, self.user, quotes.make('generate_plan', 9))
-        self.assertEqual((caught.exception.cost, caught.exception.balance), (120, 100))
+        self.assertEqual((caught.exception.cost, caught.exception.balance), (190, 100))
         self.assertEqual(Wallet.objects.get(company=self.company).balance, 100)
 
     def test_a_refund_gives_back_once(self):
@@ -145,7 +145,7 @@ class JobChargeTests(TestCase):
     def test_a_plan_is_priced_by_its_posts(self):
         plan = ContentPlan.objects.create(company=self.company, month=datetime.date(2026, 12, 1), platforms=['facebook'], posts_per_week=2)
         job = Job.enqueue(self.company, Job.Kind.GENERATE_PLAN, self.user, plan_id=plan.pk)
-        self.assertEqual(job.charge_txn.delta, -120)               # 9 posts in December at 2 a week
+        self.assertEqual(job.charge_txn.delta, -190)               # 9 posts in December at 2 a week
         self.assertEqual((job.charge_txn.units, job.charge_txn.service_key), (9, 'generate_plan'))
 
     def test_a_refused_payment_makes_no_job(self):
@@ -246,7 +246,7 @@ class PaymentRefusedTests(TestCase):
         Wallet.objects.filter(company=self.company).update(balance=1000)
         page = self.client.get(reverse('content:plan_create')).content.decode()
         self.assertIn('id="expectedPoints"', page)
-        self.assertIn('"9": 120', page)                              # the price table the screen works from
+        self.assertIn('"9": 190', page)                              # the price table the screen works from
         month = (datetime.date.today().replace(day=1) + datetime.timedelta(days=32)).replace(day=1).isoformat()
         r = self.client.post(reverse('content:plan_create'), {'month': month, 'platforms': ['facebook'], 'posts_per_week': 4,
                                                               'brief': '', 'expected_points': 1})
@@ -265,7 +265,7 @@ class WalletPageTests(TestCase):
         self.assertEqual(self.client.get(reverse('credits:wallet')).status_code, 403)
         self.client.force_login(owner)
         page = self.client.get(reverse('credits:wallet')).content.decode()
-        self.assertIn('$2.38', page)                                 # 2500 - 120 points
+        self.assertIn('$2.31', page)                                 # 2500 - 190 points
         self.assertIn('generate_plan', page)
         self.assertIn('/ 9 <bdi>post</bdi>', page)
         for amount in ('10', '25', '50'):
@@ -308,11 +308,11 @@ class OpsWalletTests(TestCase):
 
     def test_revenue_is_what_was_charged_less_what_was_given_back(self):
         Wallet.objects.filter(company=self.company).update(balance=1000)
-        a = charging.charge(self.company, self.owner, quotes.make('generate_plan', 9))     # 120
+        a = charging.charge(self.company, self.owner, quotes.make('generate_plan', 9))     # 190
         charging.charge(self.company, self.owner, quotes.make('rewrite_post'))             # 30
         charging.refund(a)
         charged, refunded, net = charging.revenue_usd()
-        self.assertEqual((charged, refunded, net), (Decimal('0.150'), Decimal('0.120'), Decimal('0.030')))
+        self.assertEqual((charged, refunded, net), (Decimal('0.220'), Decimal('0.190'), Decimal('0.030')))
         self.client.force_login(self.admin)
         self.assertContains(self.client.get(reverse('ops:company', args=[self.company.pk])), '$0.03')
         self.assertContains(self.client.get(reverse('ops:usage')), 'wk-card adm-kpi')

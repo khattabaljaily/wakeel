@@ -84,10 +84,10 @@
       "name_ar": "إعداد خطة الشهر",
       "tier": "interactive",
       "unit": "post",
-      "fixed_cost_usd": 0.012,
-      "unit_cost_usd": 0.0056,
+      "fixed_cost_usd": 0.027,
+      "unit_cost_usd": 0.0085,
       "max_units": 40,
-      "note": "Measured 2026-11-18, 9 posts on Claude Sonnet: $0.066-0.069 (5,944 in / 5,387-5,709 out). DeepSeek: about $0.07 for 9 posts. Cost = 0.012 + 0.0056 per post."
+      "note": "Re-measured 2026-11-18 inside Wakeel with real keys: 9 posts built from a library document on Claude Sonnet cost $0.104 (8,215 in / 8,117 out), of which about $0.015 is reading the source document (free to the person, so it sits in the fixed part). Earlier measure without a source: $0.066-0.069. Cost = 0.027 + 0.0085 per post. Draft."
     },
     "rewrite_post": {
       "name_en": "Rewrite a post",

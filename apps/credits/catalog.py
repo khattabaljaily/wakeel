@@ -90,11 +90,17 @@ def topup_packages_usd() -> list[Decimal]:
     return sorted(Decimal(str(v)) for v in load()['rules']['topup_packages_usd'])
 
 
+def format_package(amount) -> str:
+    """A package's amount for display and for the form value: Decimal('10') -> '10', Decimal('2.5') -> '2.5'."""
+    text = f'{Decimal(str(amount)):f}'
+    return text.rstrip('0').rstrip('.') if '.' in text else text
+
+
 def topup_points(amount_usd) -> int:
     """Points credited for a package. ValueError when the amount is not one of the packages."""
     amount = Decimal(str(amount_usd))
     if amount not in topup_packages_usd():
-        raise ValueError('Choose one of the top-up packages: ' + ', '.join(f'${p:f}'.rstrip('0').rstrip('.') for p in topup_packages_usd()))
+        raise ValueError('Choose one of the top-up packages: ' + ', '.join(f'${format_package(p)}' for p in topup_packages_usd()))
     return int(amount * POINTS_PER_DOLLAR)
 
 

@@ -51,6 +51,13 @@ class PricingRuleTests(SimpleTestCase):
         self.assertEqual(catalog.price_points('generate_plan', 999), catalog.price_points('generate_plan', 40))
         self.assertEqual(catalog.price_points('generate_plan', 0), catalog.price_points('generate_plan', 1))
 
+    def test_packages_are_written_as_they_are(self):
+        # A screenshot caught "$1 $25 $5": stripping zeros from '10' and '50' turned them into '1' and '5'.
+        self.assertEqual([catalog.format_package(p) for p in catalog.topup_packages_usd()], ['10', '25', '50'])
+        self.assertEqual(catalog.format_package('2.50'), '2.5')
+        with self.assertRaisesMessage(ValueError, '$10, $25, $50'):
+            catalog.topup_points(3)
+
     def test_topup_packages_are_only_the_listed_ones(self):
         self.assertEqual(catalog.topup_points(10), 10000)
         with self.assertRaises(ValueError):
@@ -261,6 +268,10 @@ class WalletPageTests(TestCase):
         self.assertIn('$2.38', page)                                 # 2500 - 120 points
         self.assertIn('generate_plan', page)
         self.assertIn('/ 9 post', page)
+        for amount in ('10', '25', '50'):
+            self.assertIn(f'>${amount}</button>', page)                   # the packages, as they are
+        self.client.cookies['wakeel_lang'] = 'ar'
+        self.assertIn('/ 9 منشور', self.client.get(reverse('credits:wallet')).content.decode())
 
 
 class OpsWalletTests(TestCase):

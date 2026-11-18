@@ -22,8 +22,8 @@ def wallet(request):
         quote = quotes.make(key, 1 if catalog.unit_name(key) else None)
         services.append({'key': key, 'free': catalog.is_free(key), 'name': catalog.service_name(key, request.LANGUAGE_CODE),
                          'price': quote.usd,
-                         'per_unit': catalog.unit_name(key), 'nine': quotes.make(key, 9).usd if catalog.unit_name(key) else ''})
+                         'per_unit': quotes.unit_label(key), 'nine': quotes.make(key, 9).usd if catalog.unit_name(key) else ''})
     return render(request, 'credits/wallet.html', {
         'wallet': wallet_row, 'balance': catalog.format_points(wallet_row.balance), 'page': page, 'services': services,
-        'packages': [{'usd': f'{p:f}'.rstrip('0').rstrip('.'), 'points': int(p * 1000)} for p in catalog.topup_packages_usd()],
+        'packages': [{'usd': catalog.format_package(p), 'points': int(p * 1000)} for p in catalog.topup_packages_usd()],
         'payments_open': payments_open(request.company), 'paid': request.GET.get('paid') == '1'})

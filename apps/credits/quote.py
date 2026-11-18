@@ -53,8 +53,12 @@ class Quote:
         return out
 
 
-def _unit_label(service_key):
+def unit_label(service_key):
+    """The name of a service's unit for people, in the reader's language: 'post' -> 'منشور'."""
     return {'post': _('post')}.get(catalog.unit_name(service_key), catalog.unit_name(service_key))
+
+
+_unit_label = unit_label
 
 
 def make(service_key: str, units: int | None = None) -> Quote:

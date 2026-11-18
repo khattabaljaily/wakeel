@@ -143,6 +143,10 @@ def _socials(links):
             found.setdefault('tiktok_handle', urlparse(href).path.strip('/').split('/')[0].lstrip('@'))
         elif low.startswith('tel:'):
             found.setdefault('phone', href[4:].strip())
+        elif low.startswith('mailto:'):
+            address = href[7:].split('?')[0].strip()
+            if '@' in address:
+                found.setdefault('official_email', address)
         elif 'wa.me/' in low or 'api.whatsapp.com' in low:
             number = re.sub(r'\D', '', urlparse(href).path) or re.sub(r'\D', '', href.split('phone=')[-1])[:15]
             if number:

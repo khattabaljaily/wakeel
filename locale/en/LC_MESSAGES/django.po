@@ -5596,3 +5596,30 @@ msgstr "AI: background"
 
 msgid "ذكاء اصطناعي: جودة قصوى"
 msgstr "AI: best quality"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "Company details and identity"
+
+msgid "البيانات الرسمية"
+msgstr "Official details"
+
+msgid "الاسم والعنوان الرسمي الذي يُطبع على الخطابات والشهادات والمستندات."
+msgstr "The official name and address printed on letters, certificates and documents."
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "Language of the official name and address"
+
+msgid "الاسم القانوني"
+msgstr "Legal name"
+
+msgid "رقم السجل التجاري"
+msgstr "Commercial registration no."
+
+msgid "الرقم الضريبي"
+msgstr "Tax no."
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "Company e-mail"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "Documents need approval"

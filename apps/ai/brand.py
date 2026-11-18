@@ -3,7 +3,7 @@ from .client import call_json
 
 TONES = ['professional', 'friendly', 'bold', 'luxury', 'playful', 'inspiring']
 LANGUAGES = ['ar_msa', 'ar_local', 'en', 'ar_en']
-_TEXT_FIELDS = ['name', 'industry', 'country', 'city', 'description', 'products', 'usp', 'target_audience',
+_TEXT_FIELDS = ['name', 'legal_name', 'address', 'industry', 'country', 'city', 'description', 'products', 'usp', 'target_audience',
                 'goals', 'voice_notes', 'dos', 'donts', 'brand_hashtags']
 
 BRAND_SCHEMA = {
@@ -27,6 +27,7 @@ Rules:
 - voice_notes, dos, donts: short practical guidance for writing its social posts, inferred from how the site speaks.
 - brand_hashtags: 2-4 hashtags built from the brand name or slogan, separated by spaces.
 - country and city: only if the site shows them (address, phone code, currency).
+- legal_name: the registered legal name only if the site shows it (a footer line such as "... W.L.L."); address: the postal address exactly as the site writes it, only if shown. Both stay empty otherwise.
 - tone: the closest match to how the site speaks. content_language: the language its audience is addressed in (ar_msa if Arabic, en if English only, ar_en if both)."""
 
 

@@ -6,6 +6,7 @@
     <div class="wk-step" data-step="2"><span class="n">3</span> <span class="t">{% translate "الأسلوب والنبرة" %}</span></div>
     <div class="wk-step" data-step="3"><span class="n">4</span> <span class="t">{% translate "الهوية البصرية" %}</span></div>
     <div class="wk-step" data-step="4"><span class="n">5</span> <span class="t">{% translate "قنوات التواصل" %}</span></div>
+    <div class="wk-step" data-step="5"><span class="n">6</span> <span class="t">{% translate "البيانات الرسمية" %}</span></div>
 </div>
 <div class="wk-steps__caption" aria-live="polite"></div>
 
@@ -101,6 +102,31 @@
             {% include "_field.html" with field=form.tiktok_handle wrap_class="col-md-6" %}
         </div>
     </div>
+    <div class="wk-pane" data-pane="5">
+        <p class="text-muted">{% translate "الاسم والعنوان الرسمي الذي يُطبع على الخطابات والشهادات والمستندات." %}</p>
+        <div class="row">
+            {% include "_field.html" with field=form.main_language wrap_class="col-md-4" %}
+            {% include "_field.html" with field=form.legal_name wrap_class="col-md-8" %}
+        </div>
+        {% include "_field.html" with field=form.address %}
+        <div class="row">
+            {% include "_field.html" with field=form.cr_number wrap_class="col-md-4" %}
+            {% include "_field.html" with field=form.tax_number wrap_class="col-md-4" %}
+            {% include "_field.html" with field=form.official_email wrap_class="col-md-4" %}
+        </div>
+        <div class="border rounded-3 p-3 mb-3" data-rows>
+            <div class="fw-semibold">{% translate "In other languages" %}</div>
+            <div class="small-muted mb-2">{% translate "Optional. A document written in one of these languages uses this name and address instead." %}</div>
+            {% for row in form.other_rows %}{% include "companies/_other_row.html" %}{% endfor %}
+            <template data-row-template>{% include "companies/_other_row.html" with row=None %}</template>
+            <button type="button" class="btn btn-sm btn-light" data-add-row><i class="bi bi-plus-lg"></i> {% translate "Add a language" %}</button>
+        </div>
+        <div class="form-check form-switch mb-3">
+            {{ form.documents_need_approval }} <label class="form-check-label" for="{{ form.documents_need_approval.id_for_label }}">{{ form.documents_need_approval.label }}</label>
+            <div class="form-text">{% translate "A document written by a member waits for the owner or an administrator before it can be printed or sent." %}</div>
+        </div>
+        <a href="{% url 'identity:letterheads' %}" class="btn btn-outline-primary"><i class="bi bi-file-earmark-richtext"></i> {% translate "Letterheads" %}</a>
+    </div>
 </div></div>
 
 <div class="d-flex gap-2 mt-3">
@@ -177,6 +203,19 @@
         form.elements[n].addEventListener('input', paint); form.elements[n].addEventListener('change', paint);
     });
     paint();
+
+    // Name and address in other languages: add and remove rows.
+    var rowsBox = form.querySelector('[data-rows]');
+    if (rowsBox) {
+        rowsBox.querySelector('[data-add-row]').addEventListener('click', function () {
+            var tpl = rowsBox.querySelector('[data-row-template]');
+            rowsBox.insertBefore(tpl.content.cloneNode(true), tpl);
+        });
+        rowsBox.addEventListener('click', function (e) {
+            var x = e.target.closest('[data-remove-row]');
+            if (x) x.closest('[data-row]').remove();
+        });
+    }
 
     // Website autofill: fill only empty fields (or ones still at their defaults).
     var DEFAULTS = {primary_color: '#4f46e5', secondary_color: '#0ea5e9', accent_color: '#f59e0b', tone: 'professional', content_language: 'ar_msa', timezone: 'asia/qatar'};

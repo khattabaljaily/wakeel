@@ -2,13 +2,14 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from apps.accounts.models import User
+from apps.identity.forms import OtherNamesMixin
 
 from .models import Company, MediaAsset, Membership
 
 COLOR_FIELDS = ('primary_color', 'secondary_color', 'accent_color')
 
 
-class CompanyForm(forms.ModelForm):
+class CompanyForm(OtherNamesMixin, forms.ModelForm):
     # Filled by the website autofill: a logo found on the site, downloaded on save
     # unless a file is uploaded.
     logo_url = forms.CharField(required=False, max_length=500, widget=forms.HiddenInput)
@@ -21,6 +22,8 @@ class CompanyForm(forms.ModelForm):
             'content_language', 'tone', 'voice_notes', 'dos', 'donts', 'brand_hashtags',
             'primary_color', 'secondary_color', 'accent_color', 'heading_font', 'body_font',
             'website', 'phone', 'whatsapp', 'facebook_page', 'instagram_handle', 'tiktok_handle',
+            # The official details (documents section): the name and address in the main language, registration, contact.
+            'main_language', 'legal_name', 'address', 'cr_number', 'tax_number', 'official_email', 'documents_need_approval',
         ]
         widgets = {
             'description': forms.Textarea(attrs={'rows': 3}),
@@ -29,12 +32,20 @@ class CompanyForm(forms.ModelForm):
             'target_audience': forms.Textarea(attrs={'rows': 2}),
             'competitors': forms.Textarea(attrs={'rows': 2}),
             'goals': forms.Textarea(attrs={'rows': 2}),
+            'address': forms.Textarea(attrs={'rows': 2}),
             'voice_notes': forms.Textarea(attrs={'rows': 2}),
             'dos': forms.Textarea(attrs={'rows': 2}),
             'donts': forms.Textarea(attrs={'rows': 2}),
             'logo': forms.FileInput(attrs={'accept': 'image/*'}),
             **{f: forms.TextInput(attrs={'type': 'color'}) for f in COLOR_FIELDS},
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['main_language'].required = False      # the onboarding wizard does not ask for it: Arabic until set
+
+    def clean_main_language(self):
+        return self.cleaned_data.get('main_language') or self.instance.main_language or 'ar'
 
     def clean_instagram_handle(self):
         return self.cleaned_data['instagram_handle'].strip().lstrip('@')

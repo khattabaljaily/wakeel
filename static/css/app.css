@@ -76,10 +76,10 @@ input[type=color].form-control { height: 46px; padding: .3rem; width: 100%; curs
 
 /* ---------- App layout ---------- */
 .wk-app { min-height: 100vh; }
-.wk-sidebar { width: 272px; background: var(--wk-sidebar) !important; color: #c9c8e6; position: fixed; top: 0; bottom: 0; inset-inline-start: 0;
+.wk-sidebar { width: 17rem; background: var(--wk-sidebar) !important; color: #c9c8e6; position: fixed; top: 0; bottom: 0; inset-inline-start: 0;
   display: flex; flex-direction: column; z-index: 1045; } /* above the offcanvas backdrop (1040) on phones */
 .wk-sidebar .offcanvas-body { display: flex; flex-direction: column; padding: 0; height: 100%; }
-@media (min-width: 992px) { .wk-main { margin-inline-start: 272px; } }
+@media (min-width: 992px) { .wk-main { margin-inline-start: 17rem; } }
 .wk-brand { display: flex; align-items: center; gap: .7rem; padding: 1.35rem 1.35rem 1rem; color: #fff; }
 .wk-brand img { width: 40px; height: 40px; }
 .wk-brand__name { font-size: 1.45rem; font-weight: 700; letter-spacing: -.3px; color: #fff; line-height: 1; }

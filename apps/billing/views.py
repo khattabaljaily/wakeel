@@ -71,6 +71,14 @@ def checkout(request):
 
 @csrf_exempt
 @require_POST
+def default_webhook(request):
+    """/billing/webhook/ with no operator in it: the product's default operator (the address first given to Stripe)."""
+    from apps.companies import operators
+    return webhook(request, operators.registry.default(operators.PRODUCT).key)
+
+
+@csrf_exempt
+@require_POST
 def webhook(request, operator):
     """The operator's gateway tells us a payment was completed (or expired). Its signature proves it, it may only settle
     a payment made through that same operator, and the credit is added once."""

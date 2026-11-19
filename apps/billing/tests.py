@@ -197,6 +197,21 @@ class PaymentLinkTests(TestCase):
         self.assertEqual((payment.status, get_wallet(self.company).balance), (Payment.PAID, 10000))
         self.assertEqual(WalletTransaction.objects.filter(action=WalletTransaction.TOPUP).count(), 1)
 
+    def test_the_address_without_an_operator_reaches_the_default_operator(self):
+        # The first address given to Stripe was /billing/webhook/ (no operator in it).
+        self.client.post(reverse('billing:checkout'), {'amount': '10'})
+        payment = Payment.objects.get()
+        event = {'type': 'checkout.session.completed', 'data': {'object': {
+            'client_reference_id': str(payment.pk), 'payment_status': 'paid', 'currency': 'usd', 'payment_link': 'plink_1',
+            'amount_total': 1000}}}
+        payload, header = signed(event)
+        response = self.client.post(reverse('billing:webhook'), payload, content_type='application/json', HTTP_STRIPE_SIGNATURE=header)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(get_wallet(self.company).balance, 10000)
+        # a wrong signature is still refused there
+        bad = self.client.post(reverse('billing:webhook'), payload, content_type='application/json', HTTP_STRIPE_SIGNATURE='t=1,v1=00')
+        self.assertEqual(bad.status_code, 400)
+
     def test_the_balance_page_sells_by_link_and_a_package_without_one_is_not_sold(self):
         self.assertIn(reverse('billing:checkout'), self.client.get(reverse('credits:wallet')).content.decode())
         self.client.post(reverse('billing:checkout'), {'amount': '50'})            # no link and no secret key

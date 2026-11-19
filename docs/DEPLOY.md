@@ -12,7 +12,7 @@ production command is shown to the owner first. Production: `Server`, `/home/enj
    - `ANTHROPIC_API_KEY` (Claude is not tried in production yet: try it on a test company first) and `DEEPSEEK_API_KEY`.
    - `AI_MONTHLY_BUDGET_USD` (default 100), optional `FORM_MAX_RESPONSES` (default 1000), `ASSISTANT_DAILY_MESSAGES` (default 60).
    - Mail: `EMAIL_*`, `DEFAULT_FROM_EMAIL`, `SUPPORT_EMAIL` (Enjaz addresses).
-   - Payments per operator: `GATEWAYS` / `PAYMENT_LINKS` keyed by the operator (`jovia`), and the Stripe webhook at `SITE_URL/billing/webhook/<operator>/` (events `checkout.session.completed`).
+   - Payments per operator: `GATEWAYS` / `PAYMENT_LINKS` keyed by the operator (`jovia`), and the Stripe webhook at `SITE_URL/billing/webhook/jovia/` (`SITE_URL/billing/webhook/` also reaches the default operator; events `checkout.session.completed`, and `checkout.session.expired`).
    - `VAPID_*` for browser notifications, `CHROME_BIN` (or `google-chrome` on PATH) for PDFs, `WHATSAPP_*` if used.
    - Optional `LEGAL_ENTITY` / `LEGAL_ENTITY_AR` to override the operator named on the public pages.
 3. **Packages**: `pip install -r requirements.txt`. `enjaz-operators` (v0.1.1) and `enjaz-docai` come from GitHub over SSH, so the server needs a deploy key.

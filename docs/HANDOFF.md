@@ -8,7 +8,7 @@
 
 ### حالة النشر عند نهاية الجلسة (2026-11-19 ~07:50 بتوقيت السيرفر): المرحلة 1 تمّت، والمرحلة 2 توقفت عند عقبة
 
-**الموقع القديم ما زال يعمل بلا أي تغيير** (`/home/banan/projects/wakeel`، الخدمتان فعّالتان، nginx كما هو).
+**تحديث: التحويل تمّ (انظر المرحلة 3 أدناه)؛ الإنتاج يعمل من المسار الجديد، والمجلد القديم باقٍ للرجوع.**
 
 **تمّ على السيرفر `Server` (بموافقة المالك، كل أمر عبر نافذة موافقة):**
 - **المرحلة 1 (نسخ احتياطي، ملفات جديدة فقط في `/home/enjaz/backups/`، صلاحية 600):** `wakeel-premerge-20261119-074154.sql` (dump كامل، `Dump completed`، 30 جدولاً)، و`wakeel-secrets-premerge-20261119-074154.json` (نسخة من أسرار الإنتاج)، و`wakeel-files-premerge-20261119-074154.tar.gz` (مجلد `media/` فقط؛ لا يوجد `private/` في النسخة القديمة؛ الأرشيف سليم، 73 مدخلاً). قاعدة البيانات: `wakeel` / المستخدم `wakeel` / `localhost`. نقطة الرجوع: commit `6b618ac`.
@@ -16,13 +16,13 @@
 
 **المرحلة 2 اكتملت (الموقع القديم ما زال يعمل):** حُلّت عقبة Python: ثُبّت `uv` في مجلد `khattab` (`/home/.khattab/.local/bin`، المنزل على السيرفر هو `/home/.khattab`) ومنه Python 3.12.16 المستقل، وبُنيت `/home/enjaz/projects/wakeel/.env` به (Django 5.2.17). **اكتُشفت ثغرة في المستودع:** `enjaz-docai` لم تكن في `requirements.txt` (كانت مثبّتة محلياً من المجلد الشقيق فقط)، فأُضيفت `@v0.7.0` (commit `e4e13c3`) وسُحبت على السيرفر. ثُبّت Chromium لـPlaywright، ونُسخ `media/` (15MB). **أسرار الموقع الجديد** `/home/enjaz/projects/wakeel/secrets.json` (600): نسخة من أسرار الإنتاج + المدموج (بريد إنجاز، `PAYMENT_LINKS` الأربعة، مفاتيح Anthropic وDeepSeek و`AI_PROVIDER` من المحلي، `FILE_ENCRYPTION_KEY`، `GATEWAYS.jovia.webhook_secret`، `LEGAL_ENTITY` فارغ)؛ الباقي كما في الإنتاج (`DEBUG` false، `SITE_URL`، `ALLOWED_HOSTS` وفيه النطاق القديم بعد، يُنظَّف عند حذف القديم). **`manage.py check --deploy`** سليم (3 تحذيرات معتادة). **الـ27 migration غير المطبقة جُرّبت على نسخة من dump الإنتاج في MySQL المحلي: نجحت كلها** (الشركات الثلاث: FlowApps وإنجاز وبنان صارت `operator=jovia`؛ مستخدمو الإنتاج 8). لم تُطبَّق على قاعدة الإنتاج بعد (لا صلاحية لإنشاء قاعدة تجريبية على السيرفر، ومستخدم القاعدة `wakeel` لا يملك إلا `wakeel`).
 
-**الخطوات المتبقية (المرحلة 3 فيها إيقاف قصير وتتطلب sudo لملفات النظام؛ تُعرض على المالك وتُوافَق قبل التنفيذ):**
-1. `systemctl stop wakeel wakeel-worker`؛ مزامنة أخيرة لـ`media/` (`rsync`)؛ `manage.py migrate --noinput` على قاعدة الإنتاج (وfي الجديد)؛ `collectstatic --noinput`.
-2. تعديل `WorkingDirectory/ExecStart/PATH/StandardOutput` في `wakeel.service` و`wakeel-worker.service` و`wakeel-backup.service` من `/home/banan/projects/wakeel` إلى `/home/enjaz/projects/wakeel` (Python الجديد داخل `.env` نفسه)؛ `sudo systemctl daemon-reload`.
-3. تعديل `alias` للـstatic وللـmedia في موقعي nginx `wakeel` و`wakeelservice` ثم `sudo nginx -t` و`reload`.
-4. `systemctl start wakeel wakeel-worker`؛ التحقق (صفحة الدخول 200، شحن/فتح ورقة/خدمة مدفوعة، `/ops/system/`، اختبار «Send test webhook» من Stripe = 200).
-5. أسطر cron في crontab المستخدم `khattab`: `send_note_reminders` (كل دقيقة) و`send_expiry_reminders` (09:00) و`prune_assistant` (شهرياً) بنمط أسطر MyDocHub.
-6. **الرجوع** إن فشل شيء: إعادة المسارات القديمة في الوحدات وnginx وتشغيل الخدمتين (القاعدة بعد `migrate` تحمل جداول جديدة فقط وقد لا تعمل النسخة القديمة عليها: الرجوع الكامل = استعادة dump `wakeel-premerge-20261119-074154.sql` بعد إيقاف الخدمتين).
+**المرحلة 3 نُفّذت (2026-11-19 ~08:26 بتوقيت السيرفر، بموافقة المالك): وكيل الجديد يعمل الآن من `/home/enjaz/projects/wakeel` على `wakeelservice.com`.** ما حدث بالترتيب: إيقاف الخدمتين، مزامنة أخيرة لـ`media/`، `migrate` على قاعدة الإنتاج (27 migration نجحت)، تثبيت ثلاث وحدات systemd (`wakeel` و`wakeel-worker` و`wakeel-backup`) وموقعي nginx بالمسار الجديد (الفروق مسارات فقط؛ `nginx -t` سليم)، التشغيل. **أسطر cron أُضيفت** إلى crontab المستخدم `khattab` (بدون استبدال الموجود، 34 سطراً صارت 38): `send_note_reminders` كل دقيقة، `send_expiry_reminders` 9:00، `prune_assistant` أول كل شهر 3:50، والسجلات في `~/logs/wakeel_*.log`. **الفحوص:** صفحة الدخول 200 على `wakeelservice.com` (عبر Cloudflare) وعلى النطاق القديم، `static` 200، الصفحة القانونية تسمّي «جوفيا سات المحدودة»، الـwebhook بلا توقيع يردّ 400 (السرّ مضبوط والتوقيع مطلوب) على `/billing/webhook/` و`/billing/webhook/jovia/`، الخدمتان وnginx `active`، سجل العامل «Worker started». **نسخ الرجوع على السيرفر:** `~/wakeel-switch/orig/` (الوحدات وnginx الأصلية، `/home/.khattab/wakeel-switch`) و`~/wakeel-switch/crontab.before`؛ والمجلد القديم `/home/banan/projects/wakeel` سليم كما هو (لم يُحذف)؛ ودفتر dump الرجوع الكامل `/home/enjaz/backups/wakeel-premerge-20261119-074154.sql`.
+
+**المتبقي (للمالك ثم الجلسة القادمة):**
+1. **تحقق المالك بنفسه (المرحلة 4):** يدخل بحسابه إلى `https://wakeelservice.com`، يفتح ورقة خاصة (يثبت أن مفتاح التشفير والملفات سليمة)، يجرّب شحنة بالبطاقة بأصغر باقة (10$) ويتأكد أن الرصيد يُضاف، ويشغّل خدمة مدفوعة واحدة، ويفتح `/ops/system/`. **و«Send test webhook» من Stripe**: 200 = سرّ التوقيع (المنقول من صورة) صحيح، 400 = حرف خاطئ فيُلصق نصاً.
+2. **شركات الإنتاج الثلاث** (FlowApps وإنجاز وبنان) رصيدها صفر: تُشحن أو تُعفى من `/ops/subscriptions/<id>/` («شحن الرصيد» أو «معفاة من الخصم»).
+3. بعد فترة تشغيل يحددها المالك، وبتأكيد صريح لكل خطوة: حذف **القديم** (المجلد `/home/banan/projects/wakeel` ومعه `.env` ونسخ `secrets.json.bak-*`، وموقع nginx `wakeel` للنطاق القديم وشهادته وإدخال `wakeel.enjaztechnology.com` في `ALLOWED_HOSTS` و`CSRF_TRUSTED_ORIGINS`)، ثم MyDocHub حسب `docs/MYDOCHUB_REMOVAL.md` (قبلها نسخة أخيرة خارج السيرفر).
+4. تنظيف: `~/wakeel-switch/` على السيرفر بعد أن يطمئن المالك.
 
 ### قرارات المالك في هذه الجلسة (ثابتة)
 - **الإسناد:** «من تطوير إنجاز لتقنية المعلومات، يُدار ويُشغَّل بواسطة جوفيا سات» (كباقي مشاريع إنجاز)؛ بنان أُزيل من وكيل كلياً؛ المشغّل الافتراضي `jovia`؛ الصفحات القانونية فيها المسؤول عن البيانات والحقوق والقانون الواجب التطبيق (يراجعها المالك).

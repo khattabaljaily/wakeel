@@ -12517,6 +12517,275 @@ msgstr ""
 msgid "— وكيل، مساحة عمل %(company)s"
 msgstr "— Wakeel, el espacio de trabajo de %(company)s"
 
+msgid "%(n)s تنتهي قريباً"
+msgstr "%(n)s caducan pronto"
+
+msgid "%(n)s جديد هذا الشهر"
+msgstr "%(n)s nuevas este mes"
+
+msgid "%(n)s سجل"
+msgstr "%(n)s registros"
+
+msgid "%(n)s شركة"
+msgstr "%(n)s empresas"
+
+msgid "%(n)s محفظة فارغة"
+msgstr "%(n)s monederos vacíos"
+
+msgid "%(n)s ورقة في المكتبات"
+msgstr "%(n)s documentos en bibliotecas"
+
+msgid "أرصدة العملاء الحالية"
+msgstr "Saldos actuales de los clientes"
+
+msgid "أصبحت الشركة تتبع «%(name)s»."
+msgstr "La empresa ahora pertenece a «%(name)s»."
+
+msgid "أنشئ مستنداً"
+msgstr "Crear un documento"
+
+msgid "ابحث بالبريد أو الإجراء أو الشركة"
+msgstr "Buscar por correo, acción o empresa"
+
+msgid "ابحث بالبريد أو الاسم"
+msgstr "Buscar por correo o nombre"
+
+msgid "ابحث بالشركة أو البريد أو الوصف"
+msgstr "Buscar por empresa, correo o descripción"
+
+msgid "ابدأ من هنا"
+msgstr "Empieza aquí"
+
+msgid "ارفع ورقة"
+msgstr "Subir un documento"
+
+msgid "اسأل مارد"
+msgstr "Pregunta a Marid"
+
+msgid "اشحن المحفظة"
+msgstr "Recargar el monedero"
+
+msgid "الأسعار"
+msgstr "Precios"
+
+msgid "التسويق هذا الشهر"
+msgstr "Marketing este mes"
+
+msgid "الخدمة"
+msgstr "Servicio"
+
+msgid "السعر ($)"
+msgstr "Precio ($)"
+
+msgid "المال"
+msgstr "Dinero"
+
+msgid "المخصوم من العملاء هذا الشهر"
+msgstr "Cobrado a los clientes este mes"
+
+msgid "المخصوم هذا الشهر (صافي بعد الاسترجاع)"
+msgstr "Cobrado este mes (neto de reembolsos)"
+
+msgid "المشغّل (من يخدم الشركة ويحصّل منها)"
+msgstr "Operador (quien atiende y cobra a la empresa)"
+
+msgid "المفتاح"
+msgstr "Clave"
+
+msgid "انتهى اشتراك الشركة."
+msgstr "La suscripción de la empresa ha terminado."
+
+msgid "تعطيل"
+msgstr "Desactivar"
+
+msgid "تنبيه: يملك %n شركة ستُحذف معه."
+msgstr ""
+"Aviso: esta persona es propietaria de %n empresas que también se eliminarán."
+
+msgid "حذف مستخدم نهائياً"
+msgstr "Eliminar un usuario definitivamente"
+
+msgid "حُذف %(email)s مع %(n)s شركة يملكها."
+msgstr "Se eliminó %(email)s junto con las %(n)s empresas que poseía."
+
+msgid ""
+"دع وكيل يدرس هوية %(name)s ويعدّ استراتيجية الشهر وكل المنشورات وتصاميمها "
+"خلال دقائق."
+msgstr ""
+"Deja que Wakeel estudie la identidad de %(name)s y prepare en minutos la "
+"estrategia del mes, todas las publicaciones y sus diseños."
+
+msgid "رصيد المحفظة"
+msgstr "Saldo del monedero"
+
+msgid "رصيد المحفظة منخفض، فقد تتوقف الخدمات المدفوعة. اشحنه ليستمر العمل."
+msgstr ""
+"El saldo del monedero es bajo y los servicios de pago podrían detenerse. "
+"Recárgalo para seguir trabajando."
+
+msgid "رصيدك منخفض"
+msgstr "Tu saldo es bajo"
+
+msgid "سجل المحافظ"
+msgstr "Registro de monederos"
+
+msgid "سجل النشاط العام"
+msgstr "Registro de actividad de la plataforma"
+
+msgid ""
+"سيُبلَّغ مالك الشركة ومديروها، وتتغير الجهة المذكورة في صفحات الشركة وفي الدفع."
+msgstr ""
+"Se avisará al propietario y a los administradores de la empresa, y cambiará "
+"el operador que aparece en las páginas de la empresa y en el pago."
+
+msgid "سيُحذف الحساب"
+msgstr "Se eliminará la cuenta"
+
+msgid "شحن"
+msgstr "Recarga"
+
+msgid "شحن هذا الشهر"
+msgstr "Recargas este mes"
+
+msgid ""
+"عند بلوغها تتوقف الخدمات المدفوعة لكل الشركات. تُضبط من AI_MONTHLY_BUDGET_USD "
+"في secrets.json."
+msgstr ""
+"Al alcanzarlo, los servicios de pago se detienen para todas las empresas. Se "
+"configura con AI_MONTHLY_BUDGET_USD en secrets.json."
+
+msgid "غير مفعّلة بعد"
+msgstr "Aún no activado"
+
+msgid "قائمة الأسعار الحالية للعملاء (مسودة حتى يعتمدها المالك). للقراءة فقط."
+msgstr ""
+"La lista de precios actual para clientes (borrador hasta que el propietario "
+"la apruebe). Solo lectura."
+
+msgid "كل الحسابات"
+msgstr "Todas las cuentas"
+
+msgid "كل الحسابات على المنصة، بأي شركة وبأي دور."
+msgstr "Todas las cuentas de la plataforma, con su empresa y rol."
+
+msgid ""
+"كل حركة على رصيد أي شركة: شحن، ومنح من الإدارة، وبيع الخدمات، والاسترجاع."
+msgstr ""
+"Cada movimiento en el saldo de cualquier empresa: recargas, concesiones de "
+"la administración, venta de servicios y reembolsos."
+
+msgid "كلمة المرور غير صحيحة. لم يُحذف شيء."
+msgstr "La contraseña es incorrecta. No se eliminó nada."
+
+msgid "لا توجد حركات."
+msgstr "No hay movimientos."
+
+msgid "لا توجد نتائج."
+msgstr "Sin resultados."
+
+msgid "لا يمكنك تعطيل حسابك بنفسك."
+msgstr "No puedes desactivar tu propia cuenta."
+
+msgid "لا يوجد نشاط."
+msgstr "No hay actividad."
+
+msgid "لم يعد %(email)s يستطيع الدخول."
+msgstr "%(email)s ya no puede iniciar sesión."
+
+msgid "ما فعله الناس في كل الشركات، من الأحدث."
+msgstr "Lo que hizo la gente en todas las empresas, lo más reciente primero."
+
+msgid "مجاني"
+msgstr "Gratis"
+
+msgid "محاولات خاطئة كثيرة. حاول بعد دقائق. لم يُحذف شيء."
+msgstr ""
+"Demasiados intentos fallidos. Inténtalo de nuevo en unos minutos. No se "
+"eliminó nada."
+
+msgid "مستند صادر هذا الشهر"
+msgstr "Documentos emitidos este mes"
+
+msgid "مشرف نظام"
+msgstr "Administrador del sistema"
+
+msgid "مشرفو النظام"
+msgstr "Administradores del sistema"
+
+msgid "مشغّل غير صالح."
+msgstr "Operador no válido."
+
+msgid ""
+"مع كل شركة يملكها وكل بياناتها وملفاتها، ولا رجعة فيه. عضويته في شركات "
+"الآخرين تنتهي فقط."
+msgstr ""
+"junto con todas las empresas que posee, todos sus datos y archivos. No se "
+"puede deshacer. Su pertenencia a empresas de otras personas simplemente "
+"termina."
+
+msgid "معطّل"
+msgstr "Desactivado"
+
+msgid "معطّلة"
+msgstr "Desactivada"
+
+msgid "منح من الإدارة هذا الشهر"
+msgstr "Concesiones de la administración este mes"
+
+msgid "مهمة جديدة"
+msgstr "Nueva tarea"
+
+msgid "مهمة مفتوحة لك"
+msgstr "Tareas abiertas para ti"
+
+msgid "ميزانية الذكاء الاصطناعي لهذا الشهر"
+msgstr "Presupuesto de IA este mes"
+
+msgid ""
+"نظرة شاملة على الشركات المشتركة، واستهلاك الذكاء الاصطناعي وتكلفته، وصحة "
+"الخدمات."
+msgstr ""
+"Resumen de las empresas suscritas, el uso y coste de la IA, y el estado de "
+"los servicios."
+
+msgid "نقل"
+msgstr "Mover"
+
+msgid "نقل إلى مشغّل"
+msgstr "Mover a un operador"
+
+msgid "نقل الشركة إلى مشغّل آخر؟"
+msgstr "¿Mover la empresa a otro operador?"
+
+msgid "هذا آخر مشرف نظام فلا يُحذف."
+msgstr ""
+"Este es el último administrador del sistema, así que no se puede eliminar."
+
+msgid "ورقة في المكتبة"
+msgstr "Documento en la biblioteca"
+
+msgid "يزيد حسب الصفحات"
+msgstr "Aumenta con las páginas"
+
+msgid "يستطيع %(email)s الدخول من جديد."
+msgstr "%(email)s puede volver a iniciar sesión."
+
+msgid "يملك:"
+msgstr "Posee:"
+
+msgid "ينتهي اشتراك الشركة بعد %(n)s يوماً."
+msgstr "La suscripción de la empresa termina en %(n)s días."
+
+msgid ""
+"— نبذة النشاط والجمهور والأسلوب والهوية البصرية، ليكتب وكيل محتوى يشبه "
+"علامتك."
+msgstr ""
+"— el resumen del negocio, la audiencia, el estilo y la identidad visual, "
+"para que Wakeel escriba contenido que se parezca a tu marca."
+
+msgid "Your company is now served and billed by %(operator)s"
+msgstr "Tu empresa ahora es atendida y facturada por %(operator)s"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identidad, cartas y certificados, en tu propio papel membretado."
 

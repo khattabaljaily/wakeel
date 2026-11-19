@@ -26,6 +26,35 @@
 </div>
 {% endif %}
 
+{% if overview %}
+<div class="row g-3 mb-4">
+    {% if membership.can_manage %}<div class="col-6 col-xl-3"><a href="{% url 'credits:wallet' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-published"><i class="bi bi-wallet2"></i></div><div><div class="wk-stat__value" dir="ltr">{% if overview.exempt %}∞{% else %}${{ overview.balance }}{% endif %}</div><div class="small-muted">{% if overview.low %}<span class="text-danger">{% translate "رصيدك منخفض" %}</span>{% else %}{% translate "رصيد المحفظة" %}{% endif %}</div></div></a></div>{% endif %}
+    <div class="col-6 col-xl-3"><a href="{% url 'library:list' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-folder2-open"></i></div><div><div class="wk-stat__value">{{ overview.records }}</div><div class="small-muted">{% if overview.expiring %}<span class="text-danger">{% blocktranslate trimmed with n=overview.expiring %}{{ n }} تنتهي قريباً{% endblocktranslate %}</span>{% else %}{% translate "ورقة في المكتبة" %}{% endif %}</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="{% url 'documents:issued' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-file-earmark-check"></i></div><div><div class="wk-stat__value">{{ overview.issued_month }}</div><div class="small-muted">{% translate "مستند صادر هذا الشهر" %}</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="{% url 'tasks:list' %}?show=mine" class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-check2-square"></i></div><div><div class="wk-stat__value">{{ overview.my_tasks }}</div><div class="small-muted">{% translate "مهمة مفتوحة لك" %}</div></div></a></div>
+</div>
+{% if overview.low and membership.can_manage %}
+<div class="alert alert-warning d-flex align-items-center gap-2 flex-wrap"><i class="bi bi-wallet2"></i>
+    <span>{% translate "رصيد المحفظة منخفض، فقد تتوقف الخدمات المدفوعة. اشحنه ليستمر العمل." %}</span>
+    <a href="{% url 'credits:wallet' %}" class="alert-link ms-auto">{% translate "اشحن المحفظة" %}</a></div>
+{% endif %}
+{% if overview.days_left is not None and overview.days_left <= 14 and membership.can_manage %}
+<div class="alert alert-info d-flex align-items-center gap-2"><i class="bi bi-calendar-event"></i>
+    <span>{% if overview.days_left < 0 %}{% translate "انتهى اشتراك الشركة." %}{% else %}{% blocktranslate trimmed with n=overview.days_left %}ينتهي اشتراك الشركة بعد {{ n }} يوماً.{% endblocktranslate %}{% endif %}</span></div>
+{% endif %}
+<section class="wk-card mb-4" aria-labelledby="quickTitle">
+    <div class="wk-card-head"><h2 id="quickTitle"><i class="bi bi-lightning-charge text-warning"></i> {% translate "ابدأ من هنا" %}</h2></div>
+    <div class="wk-card-body d-flex flex-wrap gap-2">
+        {% if membership.can_edit %}<a class="btn btn-light" href="{% url 'library:upload' %}"><i class="bi bi-cloud-upload"></i> {% translate "ارفع ورقة" %}</a>
+        <a class="btn btn-light" href="{% url 'documents:templates' %}"><i class="bi bi-file-earmark-plus"></i> {% translate "أنشئ مستنداً" %}</a>
+        <a class="btn btn-light" href="{% url 'services:hub' %}"><i class="bi bi-translate"></i> {% translate "ترجمة وتلخيص واستخراج" %}</a>
+        <a class="btn btn-light" href="{% url 'tasks:new' %}"><i class="bi bi-check2-square"></i> {% translate "مهمة جديدة" %}</a>
+        <a class="btn btn-light" href="{% url 'assistant:chat' %}"><i class="bi bi-chat-heart"></i> {% translate "اسأل مارد" %}</a>{% endif %}
+        {% if membership.can_manage %}<a class="btn btn-light" href="{% url 'credits:wallet' %}"><i class="bi bi-wallet2"></i> {% translate "المحفظة" %}</a>{% endif %}
+    </div>
+</section>
+{% endif %}
+
 {% if not current_plan %}
 <div class="wk-hero mb-4">
     <i class="bi bi-stars sparkle"></i>
@@ -61,6 +90,7 @@
     </div>
 </section>
 
+<h2 class="h6 text-muted mb-2"><i class="bi bi-stars"></i> {% translate "التسويق هذا الشهر" %}</h2>
 <div class="row g-3 mb-4">
     <div class="col-6 col-xl-3"><a href="{% url 'content:calendar' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-collection"></i></div><div><div class="wk-stat__value">{{ counts.total }}</div><div class="wk-stat__label">{% blocktranslate trimmed with month_name=month_name %}منشورات {{ month_name }}{% endblocktranslate %}</div></div></a></div>
     <div class="col-6 col-xl-3"><a href="{% url 'content:post_list' %}?status=review" class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-hourglass-split"></i></div><div><div class="wk-stat__value">{{ counts.review }}</div><div class="wk-stat__label">{% translate "بانتظار المراجعة" %}</div></div></a></div>

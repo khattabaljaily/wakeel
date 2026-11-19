@@ -23,6 +23,7 @@ KINDS = {
     'form_answer': ('bi-ui-checks', _('New answer on the form: %(title)s')),
     'autopilot_paused': ('bi-pause-circle', _('The autopilot is waiting for a top-up: it needs $%(needed)s and the balance is $%(balance)s')),
     'report_skipped': ('bi-graph-up', _('The monthly report was not made: the balance is $%(balance)s and it needs $%(needed)s')),
+    'operator_changed': ('bi-building', _('Your company is now served and billed by %(operator)s')),
     'member_joined': ('bi-person-plus', _('%(who)s joined the company')),
 }
 

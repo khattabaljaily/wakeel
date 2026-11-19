@@ -1,0 +1,4 @@
+{% load i18n %}{% if page.has_other_pages %}<p class="d-flex gap-2 align-items-center p-3 mb-0">
+{% if page.has_previous %}<a class="btn btn-light btn-sm" href="?page={{ page.previous_page_number }}{% for k, v in keep.items %}{% if v %}&amp;{{ k }}={{ v|urlencode }}{% endif %}{% endfor %}">←</a>{% endif %}
+<span class="small-muted">{{ page.number }} / {{ page.paginator.num_pages }} · {% blocktranslate trimmed with n=page.paginator.count %}{{ n }} سجل{% endblocktranslate %}</span>
+{% if page.has_next %}<a class="btn btn-light btn-sm" href="?page={{ page.next_page_number }}{% for k, v in keep.items %}{% if v %}&amp;{{ k }}={{ v|urlencode }}{% endif %}{% endfor %}">→</a>{% endif %}</p>{% endif %}

@@ -12412,6 +12412,272 @@ msgstr "Wakeel şu anda öneriyi hazırlıyor. Birazdan sayfayı yenileyin."
 msgid "— وكيل، مساحة عمل %(company)s"
 msgstr "— Wakeel, %(company)s çalışma alanı"
 
+msgid "%(n)s تنتهي قريباً"
+msgstr "%(n)s yakında bitiyor"
+
+msgid "%(n)s جديد هذا الشهر"
+msgstr "Bu ay %(n)s yeni"
+
+msgid "%(n)s سجل"
+msgstr "%(n)s kayıt"
+
+msgid "%(n)s شركة"
+msgstr "%(n)s şirket"
+
+msgid "%(n)s محفظة فارغة"
+msgstr "%(n)s boş cüzdan"
+
+msgid "%(n)s ورقة في المكتبات"
+msgstr "Kütüphanelerde %(n)s belge"
+
+msgid "أرصدة العملاء الحالية"
+msgstr "Müşterilerin güncel bakiyeleri"
+
+msgid "أصبحت الشركة تتبع «%(name)s»."
+msgstr "Şirket artık “%(name)s” operatörüne bağlı."
+
+msgid "أنشئ مستنداً"
+msgstr "Belge oluştur"
+
+msgid "ابحث بالبريد أو الإجراء أو الشركة"
+msgstr "E-posta, işlem veya şirkete göre ara"
+
+msgid "ابحث بالبريد أو الاسم"
+msgstr "E-posta veya ada göre ara"
+
+msgid "ابحث بالشركة أو البريد أو الوصف"
+msgstr "Şirket, e-posta veya açıklamaya göre ara"
+
+msgid "ابدأ من هنا"
+msgstr "Buradan başlayın"
+
+msgid "ارفع ورقة"
+msgstr "Belge yükle"
+
+msgid "اسأل مارد"
+msgstr "Marid'e sor"
+
+msgid "اشحن المحفظة"
+msgstr "Cüzdanı doldur"
+
+msgid "الأسعار"
+msgstr "Fiyatlar"
+
+msgid "التسويق هذا الشهر"
+msgstr "Bu ayki pazarlama"
+
+msgid "الخدمة"
+msgstr "Hizmet"
+
+msgid "السعر ($)"
+msgstr "Fiyat ($)"
+
+msgid "المال"
+msgstr "Para"
+
+msgid "المخصوم من العملاء هذا الشهر"
+msgstr "Bu ay müşterilerden düşülen"
+
+msgid "المخصوم هذا الشهر (صافي بعد الاسترجاع)"
+msgstr "Bu ay düşülen (iadeler düşüldükten sonra net)"
+
+msgid "المشغّل (من يخدم الشركة ويحصّل منها)"
+msgstr "Operatör (şirkete hizmet veren ve faturalayan)"
+
+msgid "المفتاح"
+msgstr "Anahtar"
+
+msgid "انتهى اشتراك الشركة."
+msgstr "Şirketin aboneliği sona erdi."
+
+msgid "تعطيل"
+msgstr "Devre dışı bırak"
+
+msgid "تنبيه: يملك %n شركة ستُحذف معه."
+msgstr "Uyarı: bu kişi, onunla birlikte silinecek %n şirkete sahip."
+
+msgid "حذف مستخدم نهائياً"
+msgstr "Kullanıcıyı kalıcı olarak sil"
+
+msgid "حُذف %(email)s مع %(n)s شركة يملكها."
+msgstr "%(email)s, sahip olduğu %(n)s şirketle birlikte silindi."
+
+msgid ""
+"دع وكيل يدرس هوية %(name)s ويعدّ استراتيجية الشهر وكل المنشورات وتصاميمها "
+"خلال دقائق."
+msgstr ""
+"Wakeel, %(name)s kimliğini incelesin; ayın stratejisini, tüm gönderileri ve "
+"tasarımlarını dakikalar içinde hazırlasın."
+
+msgid "رصيد المحفظة"
+msgstr "Cüzdan bakiyesi"
+
+msgid "رصيد المحفظة منخفض، فقد تتوقف الخدمات المدفوعة. اشحنه ليستمر العمل."
+msgstr ""
+"Cüzdan bakiyesi düşük, ücretli hizmetler durabilir. Çalışmanın sürmesi için "
+"bakiye yükleyin."
+
+msgid "رصيدك منخفض"
+msgstr "Bakiyeniz düşük"
+
+msgid "سجل المحافظ"
+msgstr "Cüzdan defteri"
+
+msgid "سجل النشاط العام"
+msgstr "Genel etkinlik günlüğü"
+
+msgid ""
+"سيُبلَّغ مالك الشركة ومديروها، وتتغير الجهة المذكورة في صفحات الشركة وفي الدفع."
+msgstr ""
+"Şirketin sahibi ve yöneticileri bilgilendirilecek; şirket sayfalarında ve "
+"ödemede belirtilen operatör değişecek."
+
+msgid "سيُحذف الحساب"
+msgstr "Hesap silinecek"
+
+msgid "شحن"
+msgstr "Yükleme"
+
+msgid "شحن هذا الشهر"
+msgstr "Bu ayki yüklemeler"
+
+msgid ""
+"عند بلوغها تتوقف الخدمات المدفوعة لكل الشركات. تُضبط من AI_MONTHLY_BUDGET_USD "
+"في secrets.json."
+msgstr ""
+"Bu değere ulaşıldığında tüm şirketler için ücretli hizmetler durur. secrets."
+"json içindeki AI_MONTHLY_BUDGET_USD ile ayarlanır."
+
+msgid "غير مفعّلة بعد"
+msgstr "Henüz etkin değil"
+
+msgid "قائمة الأسعار الحالية للعملاء (مسودة حتى يعتمدها المالك). للقراءة فقط."
+msgstr ""
+"Müşteriler için güncel fiyat listesi (sahip onaylayana kadar taslak). Salt "
+"okunur."
+
+msgid "كل الحسابات"
+msgstr "Tüm hesaplar"
+
+msgid "كل الحسابات على المنصة، بأي شركة وبأي دور."
+msgstr "Platformdaki tüm hesaplar: hangi şirkette ve hangi rolde."
+
+msgid ""
+"كل حركة على رصيد أي شركة: شحن، ومنح من الإدارة، وبيع الخدمات، والاسترجاع."
+msgstr ""
+"Herhangi bir şirketin bakiyesindeki her hareket: yüklemeler, yönetimden "
+"verilenler, hizmet satışları ve iadeler."
+
+msgid "كلمة المرور غير صحيحة. لم يُحذف شيء."
+msgstr "Parola yanlış. Hiçbir şey silinmedi."
+
+msgid "لا توجد حركات."
+msgstr "Hareket yok."
+
+msgid "لا توجد نتائج."
+msgstr "Sonuç yok."
+
+msgid "لا يمكنك تعطيل حسابك بنفسك."
+msgstr "Kendi hesabınızı devre dışı bırakamazsınız."
+
+msgid "لا يوجد نشاط."
+msgstr "Etkinlik yok."
+
+msgid "لم يعد %(email)s يستطيع الدخول."
+msgstr "%(email)s artık giriş yapamaz."
+
+msgid "ما فعله الناس في كل الشركات، من الأحدث."
+msgstr "İnsanların tüm şirketlerde yaptıkları, en yeniden başlayarak."
+
+msgid "مجاني"
+msgstr "Ücretsiz"
+
+msgid "محاولات خاطئة كثيرة. حاول بعد دقائق. لم يُحذف شيء."
+msgstr ""
+"Çok fazla hatalı deneme. Birkaç dakika sonra tekrar deneyin. Hiçbir şey "
+"silinmedi."
+
+msgid "مستند صادر هذا الشهر"
+msgstr "Bu ay düzenlenen belgeler"
+
+msgid "مشرف نظام"
+msgstr "Sistem yöneticisi"
+
+msgid "مشرفو النظام"
+msgstr "Sistem yöneticileri"
+
+msgid "مشغّل غير صالح."
+msgstr "Geçersiz operatör."
+
+msgid ""
+"مع كل شركة يملكها وكل بياناتها وملفاتها، ولا رجعة فيه. عضويته في شركات "
+"الآخرين تنتهي فقط."
+msgstr ""
+"sahip olduğu tüm şirketler, verileri ve dosyalarıyla birlikte; bu geri "
+"alınamaz. Başkalarının şirketlerindeki üyeliği ise yalnızca sona erer."
+
+msgid "معطّل"
+msgstr "Devre dışı"
+
+msgid "معطّلة"
+msgstr "Devre dışı"
+
+msgid "منح من الإدارة هذا الشهر"
+msgstr "Bu ay yönetimden verilenler"
+
+msgid "مهمة جديدة"
+msgstr "Yeni görev"
+
+msgid "مهمة مفتوحة لك"
+msgstr "Sizin için açık görevler"
+
+msgid "ميزانية الذكاء الاصطناعي لهذا الشهر"
+msgstr "Bu ayki yapay zeka bütçesi"
+
+msgid ""
+"نظرة شاملة على الشركات المشتركة، واستهلاك الذكاء الاصطناعي وتكلفته، وصحة "
+"الخدمات."
+msgstr ""
+"Abone şirketlere, yapay zeka kullanımına ve maliyetine ve hizmetlerin "
+"durumuna genel bakış."
+
+msgid "نقل"
+msgstr "Taşı"
+
+msgid "نقل إلى مشغّل"
+msgstr "Operatöre taşı"
+
+msgid "نقل الشركة إلى مشغّل آخر؟"
+msgstr "Şirket başka bir operatöre taşınsın mı?"
+
+msgid "هذا آخر مشرف نظام فلا يُحذف."
+msgstr "Bu son sistem yöneticisi, bu yüzden silinemez."
+
+msgid "ورقة في المكتبة"
+msgstr "Kütüphanedeki belge"
+
+msgid "يزيد حسب الصفحات"
+msgstr "Sayfalarla artar"
+
+msgid "يستطيع %(email)s الدخول من جديد."
+msgstr "%(email)s yeniden giriş yapabilir."
+
+msgid "يملك:"
+msgstr "Sahip olduğu:"
+
+msgid "ينتهي اشتراك الشركة بعد %(n)s يوماً."
+msgstr "Şirketin aboneliği %(n)s gün sonra bitiyor."
+
+msgid ""
+"— نبذة النشاط والجمهور والأسلوب والهوية البصرية، ليكتب وكيل محتوى يشبه "
+"علامتك."
+msgstr ""
+"— Wakeel markanıza benzeyen içerik yazsın diye işletme özeti, hedef kitle, "
+"üslup ve görsel kimlik."
+
+msgid "Your company is now served and billed by %(operator)s"
+msgstr "Şirketinize artık %(operator)s hizmet veriyor ve fatura kesiyor"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
 

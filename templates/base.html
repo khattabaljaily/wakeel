@@ -53,10 +53,15 @@
                 {% if ops_pending_signups %}<span class="wk-nav__badge wk-nav__badge--gold" title="{% translate "بانتظار الموافقة" %}">{{ ops_pending_signups }}</span>{% endif %}</a>
             <a href="{% url 'ops:subscriptions' %}" class="{% nav_active '/ops/subscriptions/' %}"><i class="bi bi-buildings"></i> {% translate "الاشتراكات" %}
                 {% if ops_pending_approval %}<span class="wk-nav__badge wk-nav__badge--gold" title="{% translate "بانتظار الاعتماد" %}">{{ ops_pending_approval }}</span>{% endif %}</a>
+            <a href="{% url 'ops:users' %}" class="{% nav_active '/ops/users/' %}"><i class="bi bi-people"></i> {% translate "المستخدمون" %}</a>
+            <div class="wk-nav__label">{% translate "المال" %}</div>
+            <a href="{% url 'ops:ledger' %}" class="{% nav_active '/ops/ledger/' %}"><i class="bi bi-journal-text"></i> {% translate "سجل المحافظ" %}</a>
+            <a href="{% url 'ops:prices' %}" class="{% nav_active '/ops/prices/' %}"><i class="bi bi-tags"></i> {% translate "الأسعار" %}</a>
             <div class="wk-nav__label">{% translate "التشغيل" %}</div>
             <a href="{% url 'ops:usage' %}" class="{% nav_active '/ops/usage/' %}"><i class="bi bi-cpu"></i> {% translate "الاستهلاك والتكلفة" %}</a>
             <a href="{% url 'ops:jobs' %}" class="{% nav_active '/ops/jobs/' %}"><i class="bi bi-list-task"></i> {% translate "المهام والأخطاء" %}
                 {% if ops_failed_week %}<span class="wk-nav__badge" title="{% translate "مهام فشلت خلال 7 أيام" %}">{{ ops_failed_week }}</span>{% endif %}</a>
+            <a href="{% url 'ops:activity' %}" class="{% nav_active '/ops/activity/' %}"><i class="bi bi-activity"></i> {% translate "سجل النشاط العام" %}</a>
             <a href="{% url 'ops:system' %}" class="{% nav_active '/ops/system/' %}"><i class="bi bi-hdd-stack"></i> {% translate "حالة النظام" %}</a>
             <div class="wk-nav__label">{% translate "أدوات" %}</div>
             <a href="{% url 'admin:index' %}"><i class="bi bi-database-gear"></i> {% translate "إدارة قاعدة البيانات" %}</a>

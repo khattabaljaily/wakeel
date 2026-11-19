@@ -5876,3 +5876,244 @@ msgid "السعر يظهر قبل كل خدمة، ويُخصم من محفظتك
 msgstr ""
 "The price is shown before every service and charged from your wallet exactly "
 "as shown."
+
+msgid "%(n)s تنتهي قريباً"
+msgstr "%(n)s expiring soon"
+
+msgid "%(n)s جديد هذا الشهر"
+msgstr "%(n)s new this month"
+
+msgid "%(n)s سجل"
+msgstr "%(n)s records"
+
+msgid "%(n)s شركة"
+msgstr "%(n)s companies"
+
+msgid "%(n)s محفظة فارغة"
+msgstr "%(n)s empty wallets"
+
+msgid "%(n)s ورقة في المكتبات"
+msgstr "%(n)s papers in libraries"
+
+msgid "أرصدة العملاء الحالية"
+msgstr "Current customer balances"
+
+msgid "أصبحت الشركة تتبع «%(name)s»."
+msgstr "The company now belongs to “%(name)s”."
+
+msgid "أنشئ مستنداً"
+msgstr "Create a document"
+
+msgid "ابحث بالبريد أو الإجراء أو الشركة"
+msgstr "Search by email, action or company"
+
+msgid "ابحث بالبريد أو الاسم"
+msgstr "Search by email or name"
+
+msgid "ابحث بالشركة أو البريد أو الوصف"
+msgstr "Search by company, email or description"
+
+msgid "ابدأ من هنا"
+msgstr "Start here"
+
+msgid "ارفع ورقة"
+msgstr "Upload a paper"
+
+msgid "اسأل مارد"
+msgstr "Ask Marid"
+
+msgid "اشحن المحفظة"
+msgstr "Top up the wallet"
+
+msgid "الأسعار"
+msgstr "Prices"
+
+msgid "التسويق هذا الشهر"
+msgstr "Marketing this month"
+
+msgid "الخدمة"
+msgstr "Service"
+
+msgid "السعر ($)"
+msgstr "Price ($)"
+
+msgid "المال"
+msgstr "Money"
+
+msgid "المخصوم من العملاء هذا الشهر"
+msgstr "Charged to customers this month"
+
+msgid "المخصوم هذا الشهر (صافي بعد الاسترجاع)"
+msgstr "Charged this month (net of refunds)"
+
+msgid "المشغّل (من يخدم الشركة ويحصّل منها)"
+msgstr "Operator (who serves and bills the company)"
+
+msgid "المفتاح"
+msgstr "Key"
+
+msgid "انتهى اشتراك الشركة."
+msgstr "The company subscription has ended."
+
+msgid "تعطيل"
+msgstr "Deactivate"
+
+msgid "تنبيه: يملك %n شركة ستُحذف معه."
+msgstr "Warning: this person owns %n companies that will be deleted too."
+
+msgid "حذف مستخدم نهائياً"
+msgstr "Delete a user permanently"
+
+msgid "حُذف %(email)s مع %(n)s شركة يملكها."
+msgstr "%(email)s was deleted, with %(n)s companies they owned."
+
+msgid "رصيد المحفظة"
+msgstr "Wallet balance"
+
+msgid "رصيد المحفظة منخفض، فقد تتوقف الخدمات المدفوعة. اشحنه ليستمر العمل."
+msgstr ""
+"The wallet balance is low and paid services may stop. Top it up to keep "
+"working."
+
+msgid "رصيدك منخفض"
+msgstr "Your balance is low"
+
+msgid "سجل المحافظ"
+msgstr "Wallet ledger"
+
+msgid "سجل النشاط العام"
+msgstr "Platform activity log"
+
+msgid ""
+"سيُبلَّغ مالك الشركة ومديروها، وتتغير الجهة المذكورة في صفحات الشركة وفي الدفع."
+msgstr ""
+"The company’s owner and admins will be told, and the operator named on the "
+"company’s pages and in payment will change."
+
+msgid "سيُحذف الحساب"
+msgstr "The account will be deleted"
+
+msgid "شحن"
+msgstr "Top-up"
+
+msgid "شحن هذا الشهر"
+msgstr "Top-ups this month"
+
+msgid ""
+"عند بلوغها تتوقف الخدمات المدفوعة لكل الشركات. تُضبط من AI_MONTHLY_BUDGET_USD "
+"في secrets.json."
+msgstr ""
+"When it is reached, paid services stop for every company. Set it with "
+"AI_MONTHLY_BUDGET_USD in secrets.json."
+
+msgid "غير مفعّلة بعد"
+msgstr "Not enabled yet"
+
+msgid "قائمة الأسعار الحالية للعملاء (مسودة حتى يعتمدها المالك). للقراءة فقط."
+msgstr ""
+"The current customer price list (a draft until the owner approves it). Read "
+"only."
+
+msgid "كل الحسابات"
+msgstr "All accounts"
+
+msgid "كل الحسابات على المنصة، بأي شركة وبأي دور."
+msgstr "Every account on the platform, in which company and role."
+
+msgid ""
+"كل حركة على رصيد أي شركة: شحن، ومنح من الإدارة، وبيع الخدمات، والاسترجاع."
+msgstr ""
+"Every movement on any company’s balance: top-ups, admin grants, service "
+"sales and refunds."
+
+msgid "كلمة المرور غير صحيحة. لم يُحذف شيء."
+msgstr "The password is wrong. Nothing was deleted."
+
+msgid "لا توجد حركات."
+msgstr "No movements."
+
+msgid "لا توجد نتائج."
+msgstr "No results."
+
+msgid "لا يمكنك تعطيل حسابك بنفسك."
+msgstr "You cannot deactivate your own account."
+
+msgid "لا يوجد نشاط."
+msgstr "No activity."
+
+msgid "لم يعد %(email)s يستطيع الدخول."
+msgstr "%(email)s can no longer sign in."
+
+msgid "ما فعله الناس في كل الشركات، من الأحدث."
+msgstr "What people did in every company, newest first."
+
+msgid "مجاني"
+msgstr "Free"
+
+msgid "محاولات خاطئة كثيرة. حاول بعد دقائق. لم يُحذف شيء."
+msgstr ""
+"Too many wrong attempts. Try again in a few minutes. Nothing was deleted."
+
+msgid "مستند صادر هذا الشهر"
+msgstr "Documents issued this month"
+
+msgid "مشرف نظام"
+msgstr "System admin"
+
+msgid "مشرفو النظام"
+msgstr "System admins"
+
+msgid "مشغّل غير صالح."
+msgstr "Invalid operator."
+
+msgid ""
+"مع كل شركة يملكها وكل بياناتها وملفاتها، ولا رجعة فيه. عضويته في شركات "
+"الآخرين تنتهي فقط."
+msgstr ""
+"together with every company they own, all its data and files. This cannot be "
+"undone. Their membership in other people’s companies simply ends."
+
+msgid "معطّل"
+msgstr "Deactivated"
+
+msgid "معطّلة"
+msgstr "Deactivated"
+
+msgid "منح من الإدارة هذا الشهر"
+msgstr "Admin grants this month"
+
+msgid "مهمة جديدة"
+msgstr "New task"
+
+msgid "مهمة مفتوحة لك"
+msgstr "Open tasks for you"
+
+msgid "ميزانية الذكاء الاصطناعي لهذا الشهر"
+msgstr "AI budget this month"
+
+msgid "نقل"
+msgstr "Move"
+
+msgid "نقل إلى مشغّل"
+msgstr "Move to operator"
+
+msgid "نقل الشركة إلى مشغّل آخر؟"
+msgstr "Move the company to another operator?"
+
+msgid "هذا آخر مشرف نظام فلا يُحذف."
+msgstr "This is the last system admin, so it cannot be deleted."
+
+msgid "ورقة في المكتبة"
+msgstr "Papers in the library"
+
+msgid "يزيد حسب الصفحات"
+msgstr "Rises with the pages"
+
+msgid "يستطيع %(email)s الدخول من جديد."
+msgstr "%(email)s can sign in again."
+
+msgid "يملك:"
+msgstr "Owns:"
+
+msgid "ينتهي اشتراك الشركة بعد %(n)s يوماً."
+msgstr "The company subscription ends in %(n)s days."

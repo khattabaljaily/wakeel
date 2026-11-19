@@ -36,6 +36,15 @@
     <div class="list-group-item d-flex justify-content-between gap-2 small"><span>{{ t.get_action_display }}{% if t.service_key %} · {{ t.service_key }}{% endif %} <span class="small-muted">{{ t.created_at|date:"j/n H:i" }}{% if t.description %} · {{ t.description|truncatechars:50 }}{% endif %}</span></span><strong dir="ltr">{% if t.delta > 0 %}+{% endif %}${{ t.delta|usd }}</strong></div>
 {% endfor %}</div>{% endif %}</div>
 
+<div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-3 align-items-end">
+    <div><div class="small-muted">{% translate "المشغّل (من يخدم الشركة ويحصّل منها)" %}</div><strong>{{ current_operator.name }}</strong></div>
+    <form method="post" action="{% url 'ops:company_operator' target.pk %}" class="d-flex gap-2 align-items-end ms-auto">{% csrf_token %}
+        <div><label class="small-muted d-block" for="operatorSelect">{% translate "نقل إلى مشغّل" %}</label>
+        <select id="operatorSelect" name="operator" class="form-select">{% for o in operators_list %}<option value="{{ o.key }}" {% if o.key == current_operator.key %}selected{% endif %}>{{ o.name }}</option>{% endfor %}</select></div>
+        <button class="btn btn-light" data-confirm-title="{% translate "نقل الشركة إلى مشغّل آخر؟" %}" data-confirm="{% translate "سيُبلَّغ مالك الشركة ومديروها، وتتغير الجهة المذكورة في صفحات الشركة وفي الدفع." %}" data-confirm-ok="{% translate "نقل" %}">{% translate "نقل" %}</button>
+    </form>
+</div></div>
+
 <div class="row g-4 mb-4">
     <div class="col-xl-7">
         <div class="wk-card h-100"><div class="wk-card-head"><h2><i class="bi bi-calendar3 text-primary"></i> {% translate "الاستهلاك حسب الشهر" %}</h2></div>{% include "_datatable.html" with table=months_table rows=months_rows %}</div>

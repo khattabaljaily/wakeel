@@ -7715,6 +7715,9 @@ msgstr "منتج من"
 msgid "You changed the server or the user name: type the password again."
 msgstr "غيّرت الخادم أو اسم المستخدم: اكتب كلمة السر من جديد."
 
+msgid "Your company is now served and billed by %(operator)s"
+msgstr "تخدم شركتك الآن ويحاسبها %(operator)s"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

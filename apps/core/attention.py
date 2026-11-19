@@ -73,3 +73,27 @@ def waiting(company, user, membership):
     if work:
         groups.append({'title': pgettext('menu section', 'Team workspace'), 'icon': 'bi-people', 'items': work})
     return groups
+
+
+def overview(company, user, membership):
+    """The company's whole product at a glance (not only marketing): money, papers, documents, tasks. None for a client."""
+    if membership.role == Membership.Role.CLIENT:
+        return None
+    from apps.credits import catalog, charging
+    from apps.documents.models import Document
+    from apps.library.models import SOON_DAYS, Record
+    from apps.tasks.models import Task
+    today = timezone.localdate()
+    wallet = charging.get_wallet(company)
+    month = timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    spent = charging.revenue_usd(since=month, company=company)[2]
+    low = not wallet.is_exempt and wallet.balance < 1000          # under $1
+    return {
+        'balance': catalog.format_points(wallet.balance), 'exempt': wallet.is_exempt, 'low': low, 'spent_month': spent,
+        'records': Record.objects.count(),
+        'expiring': Record.objects.filter(expiry_date__isnull=False, expiry_date__lte=today + datetime.timedelta(days=SOON_DAYS)).count(),
+        'issued_month': Document.objects.filter(created_at__gte=month).count(),
+        'drafts': Document.objects.filter(status=Document.DRAFT, created_by=user).count(),
+        'my_tasks': Task.objects.filter(assignee=user).exclude(status=Task.DONE).count(),
+        'days_left': company.days_until_expiry if company.subscription_expires else None,
+    }

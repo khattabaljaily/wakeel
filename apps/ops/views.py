@@ -2,6 +2,7 @@
 whole platform: subscribers, users, AI usage and cost, jobs and errors, and service status."""
 import datetime
 import json
+from decimal import Decimal
 from functools import wraps
 
 from django.conf import settings
@@ -9,6 +10,7 @@ from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.models import Count, Max, Q
@@ -30,7 +32,11 @@ from apps.credits.models import WalletTransaction
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
 
-from . import stats, tables
+from enjaz_operators import registry, web as operator_names
+
+from apps.companies import operators as operators_service
+
+from . import purge, stats, tables
 from .forms import DURATIONS, SubscriptionCreateForm, SubscriptionEditForm
 
 
@@ -87,6 +93,24 @@ def _company_rows(companies, year_jobs):
     return [{'company': c, 'owner': owners.get(c.pk), **by_company.get(c.pk, empty)} for c in companies]
 
 
+def _product_totals(month_start):
+    """What the other sections of the product are doing, platform-wide: documents, money, people."""
+    from django.db.models import Sum
+    from apps.documents.models import Document
+    from apps.library.models import Record
+    from apps.credits.models import Wallet
+    charged, refunded, net = charging.revenue_usd(since=month_start)
+    topups = WalletTransaction.objects.filter(created_at__gte=month_start, action=WalletTransaction.TOPUP).aggregate(s=Sum('delta'))['s'] or 0
+    held = Wallet.objects.filter(is_exempt=False).aggregate(s=Sum('balance'))['s'] or 0
+    empty = Wallet.objects.filter(is_exempt=False, balance__lte=0, company__is_active=True).count()
+    return {
+        'net': net, 'topups': catalog.format_points(topups), 'held': catalog.format_points(held), 'empty_wallets': empty,
+        'documents_month': Document.all_companies.filter(created_at__gte=month_start).count(),
+        'records': Record.all_companies.count(),
+        'users': User.objects.count(), 'new_users': User.objects.filter(date_joined__gte=month_start).count(),
+    }
+
+
 @superuser_required
 def overview(request):
     now = timezone.now()
@@ -119,6 +143,7 @@ def overview(request):
             'pending': Job.objects.filter(status__in=[Job.Status.PENDING, Job.Status.RUNNING]).count(),
         },
         'revenue': charging.revenue_usd(since=stats.year_start()),
+        'product': _product_totals(month_start), 'budget': _budget(),
         'cost_series': stats.monthly_series(year_jobs, lambda j: j.created_at, lambda j: float(j.cost_usd or 0)),
         'signup_series': stats.monthly_series(Company.objects.filter(created_at__gte=stats.year_start()),
                                               lambda c: c.created_at),
@@ -281,7 +306,7 @@ def subscription_delete(request, pk):
         messages.error(request, _('الاسم المكتوب لا يطابق اسم الشركة، فلم يُحذف شيء.'))
         return _back(request)
     name = company.name
-    company.delete()  # cascades to plans, posts, media and their files
+    purge.delete_company(company)  # the rows and the uploaded files
     messages.success(request, _('تم حذف اشتراك «%(name)s» وكل بياناته نهائياً.') % {'name': name})
     return redirect('ops:subscriptions')
 
@@ -354,6 +379,8 @@ def company_detail(request, pk):
         'wallet': charging.get_wallet(company), 'wallet_usd': catalog.format_points(charging.get_wallet(company).balance),
         'wallet_rows': WalletTransaction.objects.filter(company=company)[:10],
         'revenue': charging.revenue_usd(company=company),
+        'current_operator': operator_names.bind(operators_service.of_company(company)),
+        'operators_list': [operator_names.bind(o) for o in registry.operators(operators_service.PRODUCT)],
     })
 
 
@@ -389,6 +416,13 @@ def wallet_exempt(request, pk):
     return redirect('ops:company', pk=pk)
 
 
+def _budget():
+    from apps.credits import guards
+    limit = Decimal(str(settings.AI_MONTHLY_BUDGET_USD))
+    spent = guards.spend_this_month_usd()
+    return {'limit': limit, 'spent': spent, 'percent': min(100, int(spent / limit * 100)) if limit > 0 else 0}
+
+
 @superuser_required
 def usage(request):
     year_jobs = list(stats.ai_jobs(created_at__gte=stats.year_start()))
@@ -403,7 +437,7 @@ def usage(request):
     by_model, by_kind = tables.breakdown('modelsTable', _('النموذج')), tables.breakdown('kindsTable', _('المهمة'))
     months_table, companies_table = tables.usage_months(), tables.usage_companies()
     return render(request, 'ops/usage.html', {
-        'system': _system(), 'total': total,
+        'system': _system(), 'total': total, 'budget': _budget(),
         'months_table': months_table, 'months_rows': months_table.rows(months, request),
         'models_table': by_model, 'models_rows': by_model.rows(models.values(), request),
         'kinds_table': by_kind, 'kinds_rows': by_kind.rows(kinds.values(), request),
@@ -445,3 +479,157 @@ def system(request):
                   .order_by().values_list('status').annotate(n=Count('pk'))},
         'oldest_pending': Job.objects.filter(status=Job.Status.PENDING).order_by('created_at').first(),
     })
+
+
+# ── Users, ledger, prices, activity, operators ───────────────────────────────
+
+PAGE_SIZE = 50
+PASSWORD_TRIES, PASSWORD_WINDOW = 5, 600
+
+
+def _page(request, queryset):
+    return Paginator(queryset, PAGE_SIZE).get_page(request.GET.get('page'))
+
+
+def _password_ok(request) -> bool:
+    """The superuser's own password, asked again before anything is deleted for good (a few tries, then a pause)."""
+    key = f'ops-delete-fails-{request.user.pk}'
+    fails = cache.get(key, 0)
+    if fails >= PASSWORD_TRIES:
+        messages.error(request, _('محاولات خاطئة كثيرة. حاول بعد دقائق. لم يُحذف شيء.'))
+        return False
+    if request.user.check_password(request.POST.get('password', '')):
+        cache.delete(key)
+        return True
+    cache.set(key, fails + 1, PASSWORD_WINDOW)
+    messages.error(request, _('كلمة المرور غير صحيحة. لم يُحذف شيء.'))
+    return False
+
+
+@superuser_required
+def users(request):
+    q = request.GET.get('q', '').strip()
+    status = request.GET.get('status', '')
+    queryset = User.objects.annotate(n_companies=Count('memberships')).order_by('-date_joined')
+    if q:
+        queryset = queryset.filter(Q(email__icontains=q) | Q(first_name__icontains=q) | Q(last_name__icontains=q))
+    if status == 'inactive':
+        queryset = queryset.filter(is_active=False)
+    elif status == 'pending':
+        queryset = queryset.filter(is_approved=False, is_superuser=False)
+    elif status == 'superuser':
+        queryset = queryset.filter(is_superuser=True)
+    page = _page(request, queryset)
+    owned = {}
+    for m in (Membership.objects.filter(user__in=list(page), role=Membership.Role.OWNER)
+              .select_related('company').order_by('company__name')):
+        owned.setdefault(m.user_id, []).append(m.company)
+    last_superuser = User.objects.filter(is_superuser=True).count() == 1
+    for u in page:
+        u.owned = owned.get(u.pk, [])
+        u.last_superuser = last_superuser and u.is_superuser
+    return render(request, 'ops/users.html', {'page': page, 'q': q, 'status': status})
+
+
+@superuser_required
+@require_POST
+def user_toggle_active(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    if user.pk == request.user.pk:
+        messages.error(request, _('لا يمكنك تعطيل حسابك بنفسك.'))
+        return redirect('ops:users')
+    user.is_active = not user.is_active
+    user.save(update_fields=['is_active'])
+    messages.success(request, _('يستطيع %(email)s الدخول من جديد.') % {'email': user.email} if user.is_active
+                     else _('لم يعد %(email)s يستطيع الدخول.') % {'email': user.email})
+    return redirect('ops:users')
+
+
+@superuser_required
+@require_POST
+def user_delete(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    if user.is_superuser and User.objects.filter(is_superuser=True).count() == 1:
+        messages.error(request, _('هذا آخر مشرف نظام فلا يُحذف.'))
+        return redirect('ops:users')
+    if not _password_ok(request):
+        return redirect('ops:users')
+    myself = user.pk == request.user.pk
+    done = purge.delete_user(user)
+    if myself:
+        return redirect('admin:login')
+    messages.success(request, _('حُذف %(email)s مع %(n)s شركة يملكها.') % {'email': done['email'], 'n': len(done['companies'])})
+    return redirect('ops:users')
+
+
+@superuser_required
+def ledger(request):
+    """Every movement of every wallet: top-ups, admin grants, AI sales and refunds."""
+    q = request.GET.get('q', '').strip()
+    action = request.GET.get('action', '')
+    entries = WalletTransaction.objects.select_related('company', 'user').order_by('-created_at', '-id')
+    if action in dict(WalletTransaction.ACTION_CHOICES):
+        entries = entries.filter(action=action)
+    if q:
+        entries = entries.filter(Q(company__name__icontains=q) | Q(user__email__icontains=q) | Q(description__icontains=q))
+    month = timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    month_rows = WalletTransaction.objects.filter(created_at__gte=month)
+    topups = sum(month_rows.filter(action=WalletTransaction.TOPUP).values_list('delta', flat=True))
+    grants = sum(month_rows.filter(action__in=[WalletTransaction.ADMIN_GRANT, WalletTransaction.TRIAL]).values_list('delta', flat=True))
+    charged, refunded, net = charging.revenue_usd(since=month)
+    page = _page(request, entries)
+    for t in page:
+        t.usd = catalog.format_points(abs(t.delta))
+    return render(request, 'ops/ledger.html', {
+        'page': page, 'q': q, 'action': action, 'actions': WalletTransaction.ACTION_CHOICES,
+        'month': {'topups': catalog.format_points(topups), 'grants': catalog.format_points(grants), 'charged': charged, 'net': net},
+    })
+
+
+@superuser_required
+def prices(request):
+    """The price list as it is now (a draft until the owner settles it): what each service costs the customer."""
+    rows = []
+    for key in sorted(catalog.service_keys()):
+        service = catalog.service(key)
+        try:
+            points = catalog.price_points(key) if not catalog.is_free(key) else 0
+        except Exception:
+            points = None
+        rows.append({'key': key, 'name': catalog.service_name(key, 'ar'), 'free': catalog.is_free(key),
+                     'price': catalog.format_points(points) if points is not None else '—',
+                     'per_page': bool(catalog.page_pricing(key)), 'launched': catalog.is_launched(key)})
+    return render(request, 'ops/prices.html', {'rows': rows})
+
+
+@superuser_required
+def activity(request):
+    """The activity log of every company (who opened, issued, shared, invited...), newest first."""
+    from apps.audit.models import AuditEvent
+    q = request.GET.get('q', '').strip()
+    events = AuditEvent.all_companies.select_related('company').order_by('-created_at', '-id')
+    if q:
+        events = events.filter(Q(user_email__icontains=q) | Q(action__icontains=q) | Q(target__icontains=q) | Q(company__name__icontains=q))
+    return render(request, 'ops/activity.html', {'page': _page(request, events), 'q': q})
+
+
+@superuser_required
+@require_POST
+def company_operator(request, pk):
+    """Move a company to another operator (the one that serves and bills it); its owner and admins are told."""
+    from apps.companies import operators
+    from apps.notifications.services import notify_event
+    from enjaz_operators import registry
+    company = get_object_or_404(Company, pk=pk)
+    key = request.POST.get('operator', '')
+    allowed = {o.key: o for o in registry.operators(operators.PRODUCT)}
+    if key not in allowed:
+        messages.error(request, _('مشغّل غير صالح.'))
+        return redirect('ops:company', pk=pk)
+    if key != operators.of_company(company).key:
+        company.operator = key
+        company.save(update_fields=['operator'])
+        team = [m.user for m in company.memberships.select_related('user') if m.role in (Membership.Role.OWNER, Membership.Role.ADMIN)]
+        notify_event(team, 'operator_changed', company=company, url='', operator=allowed[key].name('en'))
+        messages.success(request, _('أصبحت الشركة تتبع «%(name)s».') % {'name': allowed[key].name('ar')})
+    return redirect('ops:company', pk=pk)

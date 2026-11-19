@@ -12469,6 +12469,272 @@ msgstr ""
 msgid "— وكيل، مساحة عمل %(company)s"
 msgstr "— Wakeel, ruang kerja %(company)s"
 
+msgid "%(n)s تنتهي قريباً"
+msgstr "%(n)s segera berakhir"
+
+msgid "%(n)s جديد هذا الشهر"
+msgstr "%(n)s baru bulan ini"
+
+msgid "%(n)s سجل"
+msgstr "%(n)s catatan"
+
+msgid "%(n)s شركة"
+msgstr "%(n)s perusahaan"
+
+msgid "%(n)s محفظة فارغة"
+msgstr "%(n)s dompet kosong"
+
+msgid "%(n)s ورقة في المكتبات"
+msgstr "%(n)s dokumen di perpustakaan"
+
+msgid "أرصدة العملاء الحالية"
+msgstr "Saldo pelanggan saat ini"
+
+msgid "أصبحت الشركة تتبع «%(name)s»."
+msgstr "Perusahaan kini berada di bawah “%(name)s”."
+
+msgid "أنشئ مستنداً"
+msgstr "Buat dokumen"
+
+msgid "ابحث بالبريد أو الإجراء أو الشركة"
+msgstr "Cari berdasarkan email, tindakan, atau perusahaan"
+
+msgid "ابحث بالبريد أو الاسم"
+msgstr "Cari berdasarkan email atau nama"
+
+msgid "ابحث بالشركة أو البريد أو الوصف"
+msgstr "Cari berdasarkan perusahaan, email, atau deskripsi"
+
+msgid "ابدأ من هنا"
+msgstr "Mulai dari sini"
+
+msgid "ارفع ورقة"
+msgstr "Unggah dokumen"
+
+msgid "اسأل مارد"
+msgstr "Tanya Marid"
+
+msgid "اشحن المحفظة"
+msgstr "Isi ulang dompet"
+
+msgid "الأسعار"
+msgstr "Harga"
+
+msgid "التسويق هذا الشهر"
+msgstr "Pemasaran bulan ini"
+
+msgid "الخدمة"
+msgstr "Layanan"
+
+msgid "السعر ($)"
+msgstr "Harga ($)"
+
+msgid "المال"
+msgstr "Uang"
+
+msgid "المخصوم من العملاء هذا الشهر"
+msgstr "Ditagihkan ke pelanggan bulan ini"
+
+msgid "المخصوم هذا الشهر (صافي بعد الاسترجاع)"
+msgstr "Ditagihkan bulan ini (bersih setelah pengembalian dana)"
+
+msgid "المشغّل (من يخدم الشركة ويحصّل منها)"
+msgstr "Operator (yang melayani dan menagih perusahaan)"
+
+msgid "المفتاح"
+msgstr "Kunci"
+
+msgid "انتهى اشتراك الشركة."
+msgstr "Langganan perusahaan telah berakhir."
+
+msgid "تعطيل"
+msgstr "Nonaktifkan"
+
+msgid "تنبيه: يملك %n شركة ستُحذف معه."
+msgstr "Peringatan: orang ini memiliki %n perusahaan yang juga akan dihapus."
+
+msgid "حذف مستخدم نهائياً"
+msgstr "Hapus pengguna secara permanen"
+
+msgid "حُذف %(email)s مع %(n)s شركة يملكها."
+msgstr "%(email)s telah dihapus, beserta %(n)s perusahaan miliknya."
+
+msgid ""
+"دع وكيل يدرس هوية %(name)s ويعدّ استراتيجية الشهر وكل المنشورات وتصاميمها "
+"خلال دقائق."
+msgstr ""
+"Biarkan Wakeel mempelajari identitas %(name)s dan menyiapkan strategi bulan "
+"ini, setiap postingan, dan desainnya dalam hitungan menit."
+
+msgid "رصيد المحفظة"
+msgstr "Saldo dompet"
+
+msgid "رصيد المحفظة منخفض، فقد تتوقف الخدمات المدفوعة. اشحنه ليستمر العمل."
+msgstr ""
+"Saldo dompet rendah dan layanan berbayar bisa berhenti. Isi ulang agar tetap "
+"berjalan."
+
+msgid "رصيدك منخفض"
+msgstr "Saldo Anda rendah"
+
+msgid "سجل المحافظ"
+msgstr "Buku besar dompet"
+
+msgid "سجل النشاط العام"
+msgstr "Log aktivitas platform"
+
+msgid ""
+"سيُبلَّغ مالك الشركة ومديروها، وتتغير الجهة المذكورة في صفحات الشركة وفي الدفع."
+msgstr ""
+"Pemilik dan admin perusahaan akan diberi tahu, dan operator yang tercantum "
+"di halaman perusahaan serta pada pembayaran akan berubah."
+
+msgid "سيُحذف الحساب"
+msgstr "Akun akan dihapus"
+
+msgid "شحن"
+msgstr "Isi ulang"
+
+msgid "شحن هذا الشهر"
+msgstr "Isi ulang bulan ini"
+
+msgid ""
+"عند بلوغها تتوقف الخدمات المدفوعة لكل الشركات. تُضبط من AI_MONTHLY_BUDGET_USD "
+"في secrets.json."
+msgstr ""
+"Saat tercapai, layanan berbayar berhenti untuk semua perusahaan. Atur dengan "
+"AI_MONTHLY_BUDGET_USD di secrets.json."
+
+msgid "غير مفعّلة بعد"
+msgstr "Belum diaktifkan"
+
+msgid "قائمة الأسعار الحالية للعملاء (مسودة حتى يعتمدها المالك). للقراءة فقط."
+msgstr ""
+"Daftar harga pelanggan saat ini (draf sampai disetujui pemilik). Hanya baca."
+
+msgid "كل الحسابات"
+msgstr "Semua akun"
+
+msgid "كل الحسابات على المنصة، بأي شركة وبأي دور."
+msgstr "Semua akun di platform, di perusahaan mana dan dengan peran apa."
+
+msgid ""
+"كل حركة على رصيد أي شركة: شحن، ومنح من الإدارة، وبيع الخدمات، والاسترجاع."
+msgstr ""
+"Setiap perubahan pada saldo perusahaan mana pun: isi ulang, hibah dari "
+"admin, penjualan layanan, dan pengembalian dana."
+
+msgid "كلمة المرور غير صحيحة. لم يُحذف شيء."
+msgstr "Kata sandi salah. Tidak ada yang dihapus."
+
+msgid "لا توجد حركات."
+msgstr "Tidak ada transaksi."
+
+msgid "لا توجد نتائج."
+msgstr "Tidak ada hasil."
+
+msgid "لا يمكنك تعطيل حسابك بنفسك."
+msgstr "Anda tidak dapat menonaktifkan akun Anda sendiri."
+
+msgid "لا يوجد نشاط."
+msgstr "Tidak ada aktivitas."
+
+msgid "لم يعد %(email)s يستطيع الدخول."
+msgstr "%(email)s tidak dapat lagi masuk."
+
+msgid "ما فعله الناس في كل الشركات، من الأحدث."
+msgstr "Apa yang dilakukan orang di semua perusahaan, dari yang terbaru."
+
+msgid "مجاني"
+msgstr "Gratis"
+
+msgid "محاولات خاطئة كثيرة. حاول بعد دقائق. لم يُحذف شيء."
+msgstr ""
+"Terlalu banyak percobaan salah. Coba lagi dalam beberapa menit. Tidak ada "
+"yang dihapus."
+
+msgid "مستند صادر هذا الشهر"
+msgstr "Dokumen diterbitkan bulan ini"
+
+msgid "مشرف نظام"
+msgstr "Admin sistem"
+
+msgid "مشرفو النظام"
+msgstr "Admin sistem"
+
+msgid "مشغّل غير صالح."
+msgstr "Operator tidak valid."
+
+msgid ""
+"مع كل شركة يملكها وكل بياناتها وملفاتها، ولا رجعة فيه. عضويته في شركات "
+"الآخرين تنتهي فقط."
+msgstr ""
+"beserta setiap perusahaan miliknya, semua data dan filenya. Tindakan ini "
+"tidak dapat dibatalkan. Keanggotaannya di perusahaan orang lain hanya "
+"berakhir."
+
+msgid "معطّل"
+msgstr "Nonaktif"
+
+msgid "معطّلة"
+msgstr "Nonaktif"
+
+msgid "منح من الإدارة هذا الشهر"
+msgstr "Hibah admin bulan ini"
+
+msgid "مهمة جديدة"
+msgstr "Tugas baru"
+
+msgid "مهمة مفتوحة لك"
+msgstr "Tugas terbuka untuk Anda"
+
+msgid "ميزانية الذكاء الاصطناعي لهذا الشهر"
+msgstr "Anggaran AI bulan ini"
+
+msgid ""
+"نظرة شاملة على الشركات المشتركة، واستهلاك الذكاء الاصطناعي وتكلفته، وصحة "
+"الخدمات."
+msgstr ""
+"Ikhtisar perusahaan yang berlangganan, penggunaan dan biaya AI, serta "
+"kesehatan layanan."
+
+msgid "نقل"
+msgstr "Pindahkan"
+
+msgid "نقل إلى مشغّل"
+msgstr "Pindahkan ke operator"
+
+msgid "نقل الشركة إلى مشغّل آخر؟"
+msgstr "Pindahkan perusahaan ke operator lain?"
+
+msgid "هذا آخر مشرف نظام فلا يُحذف."
+msgstr "Ini admin sistem terakhir, jadi tidak dapat dihapus."
+
+msgid "ورقة في المكتبة"
+msgstr "Dokumen di perpustakaan"
+
+msgid "يزيد حسب الصفحات"
+msgstr "Naik sesuai jumlah halaman"
+
+msgid "يستطيع %(email)s الدخول من جديد."
+msgstr "%(email)s dapat masuk lagi."
+
+msgid "يملك:"
+msgstr "Memiliki:"
+
+msgid "ينتهي اشتراك الشركة بعد %(n)s يوماً."
+msgstr "Langganan perusahaan berakhir dalam %(n)s hari."
+
+msgid ""
+"— نبذة النشاط والجمهور والأسلوب والهوية البصرية، ليكتب وكيل محتوى يشبه "
+"علامتك."
+msgstr ""
+"— ringkasan bisnis, audiens, gaya, dan identitas visual, agar Wakeel menulis "
+"konten yang mirip merek Anda."
+
+msgid "Your company is now served and billed by %(operator)s"
+msgstr "Perusahaan Anda kini dilayani dan ditagih oleh %(operator)s"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
 

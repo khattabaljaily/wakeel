@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from apps.companies.decorators import company_required
 from apps.content.forms import ARABIC_MONTHS
 from apps.content.models import ContentPlan, Post
-from apps.core.attention import waiting
+from apps.core.attention import overview as product_overview, waiting
 from apps.jobs.models import Job
 
 
@@ -102,6 +102,7 @@ def dashboard(request):
         'plans': plans[:4],
         'plan_reminder': plan_reminder,
         'waiting': waiting(company, request.user, request.membership),
+        'overview': product_overview(company, request.user, request.membership),
         'running_jobs': Job.objects.filter(company=company, status__in=[Job.Status.PENDING, Job.Status.RUNNING]).count(),
         'now': now,
     })

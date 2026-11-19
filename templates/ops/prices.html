@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "الأسعار" %}{% endblock %}
+{% block page_title %}{% translate "الأسعار" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "قائمة الأسعار الحالية للعملاء (مسودة حتى يعتمدها المالك). للقراءة فقط." %}</div>{% endblock %}
+{% block content %}
+<div class="wk-card"><div class="table-responsive"><table class="table align-middle mb-0">
+    <thead><tr><th>{% translate "الخدمة" %}</th><th>{% translate "المفتاح" %}</th><th class="text-end">{% translate "السعر ($)" %}</th><th>{% translate "ملاحظات" %}</th></tr></thead>
+    <tbody>{% for r in rows %}<tr><td>{{ r.name }}</td><td><code dir="ltr">{{ r.key }}</code></td>
+        <td class="text-end" dir="ltr">{% if r.free %}{% translate "مجاني" %}{% else %}{{ r.price }}{% endif %}</td>
+        <td class="small-muted">{% if r.per_page %}{% translate "يزيد حسب الصفحات" %}{% endif %}{% if not r.launched %} {% translate "غير مفعّلة بعد" %}{% endif %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% endblock %}

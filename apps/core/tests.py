@@ -216,8 +216,8 @@ class LegalPagesTests(TestCase):
 
     def test_the_provider_is_the_default_operator_unless_the_owner_sets_another(self):
         page = self.client.get(reverse('core:privacy'))
-        self.assertContains(page, 'طوّرتها إنجاز لتقنية المعلومات وتشغّلها شركة جوفيا سات المحدودة')
-        self.assertNotContains(page, 'بنان')
+        self.assertContains(page, 'طوّرتها إنجاز لتقنية المعلومات وتشغّلها بنان لتقنية المعلومات ذ.م.م')
+        self.assertNotContains(page, 'جوفيا')
         with self.settings(LEGAL_ENTITY='Example Co', LEGAL_ENTITY_AR='شركة المثال'):
             self.assertContains(self.client.get(reverse('core:privacy')), 'وتشغّلها شركة المثال')
             self.client.post(reverse('core:set_language'), {'language': 'en'})

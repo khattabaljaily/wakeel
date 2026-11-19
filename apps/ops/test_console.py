@@ -94,19 +94,19 @@ class OperatorChangeTests(ConsoleBase):
         return reverse('ops:company_operator', args=[self.company.pk])
 
     def test_only_a_registered_active_operator_is_accepted(self):
-        self.company.operator = 'jovia'
+        self.company.operator = 'banan'
         self.company.save(update_fields=['operator'])
         self.client.post(self.url(), {'operator': 'nope'})
         self.client.post(self.url(), {'operator': 'enjaz'})        # registered, but not active for Wakeel yet
         self.company.refresh_from_db()
-        self.assertEqual(self.company.operator, 'jovia')
+        self.assertEqual(self.company.operator, 'banan')
         self.assertContains(self.client.get(reverse('ops:company', args=[self.company.pk])), 'operatorSelect')
 
     def test_moving_a_company_tells_its_owner(self):
         from unittest import mock
         from apps.companies import operators
         from enjaz_operators import registry
-        both = [registry.get(operators.PRODUCT, 'jovia'), registry.get(operators.PRODUCT, 'enjaz')]
+        both = [registry.get(operators.PRODUCT, 'banan'), registry.get(operators.PRODUCT, 'enjaz')]
         with mock.patch.object(registry, 'operators', return_value=both):
             self.client.post(self.url(), {'operator': 'enjaz'})
         self.company.refresh_from_db()

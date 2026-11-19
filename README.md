@@ -2,7 +2,7 @@
 
 An AI marketing manager for companies, built to replace a marketing agency. It learns a company's brand, writes a monthly social media strategy, writes every post, designs the post images in the brand's colours, fonts and logo, and lays everything out in a calendar for review and approval.
 
-It is multi-tenant SaaS: one account can run several companies (Enjaz develops it and an operator, JOVIA SAT LTD by default, runs it for each company), and each company has its own team, roles, brand kit, media library, plans and posts.
+It is multi-tenant SaaS: one account can run several companies (Enjaz develops it and an operator, Banan for Information Technology W.L.L. by default, runs it for each company), and each company has its own team, roles, brand kit, media library, plans and posts.
 
 ---
 
@@ -186,7 +186,7 @@ before they sign in). The browser's language is ignored on purpose.
 
 ## Production
 
-Live at https://wakeelservice.com (developed by Enjaz Information Technology, operated by JOVIA SAT LTD) on `Server` (`/home/enjaz/projects/wakeel`):
+Live at https://wakeelservice.com (developed by Enjaz Information Technology, operated by Banan for Information Technology W.L.L.) on `Server` (`/home/enjaz/projects/wakeel`):
 
 | | |
 |---|---|

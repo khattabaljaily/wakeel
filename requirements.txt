@@ -7,7 +7,7 @@ django-widget-tweaks==1.5.1
 Django==5.2.17
 djangorestframework==3.18.1
 enjaz-docai @ git+ssh://git@github.com/khattabaljaily/enjaz-docai.git@v0.7.0
-enjaz-operators @ git+ssh://git@github.com/khattabaljaily/enjaz-operators.git@v0.1.1
+enjaz-operators @ git+ssh://git@github.com/khattabaljaily/enjaz-operators.git@v0.1.2
 gunicorn==26.2.0
 hijridate==2.6.0
 http-ece==1.2.1

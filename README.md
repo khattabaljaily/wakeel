@@ -186,7 +186,7 @@ before they sign in). The browser's language is ignored on purpose.
 
 ## Production
 
-Live at https://wakeelservice.com (developed by Enjaz Information Technology, operated by JOVIA SAT LTD) on `Server` (`/home/banan/projects/wakeel`):
+Live at https://wakeelservice.com (developed by Enjaz Information Technology, operated by JOVIA SAT LTD) on `Server` (`/home/enjaz/projects/wakeel`):
 
 | | |
 |---|---|

@@ -1,7 +1,7 @@
 # Deploying Wakeel
 
 Nothing here is run automatically. Deploy, SSH to production and service restarts happen only when the owner asks, and every
-production command is shown to the owner first. Production: `Server`, `/home/banan/projects/wakeel`, services `wakeel` and
+production command is shown to the owner first. Production: `Server`, `/home/enjaz/projects/wakeel`, services `wakeel` and
 `wakeel-worker`, gunicorn on 127.0.0.1:8109, nginx, MySQL `wakeel`.
 
 ## Before the first deploy of the merged product

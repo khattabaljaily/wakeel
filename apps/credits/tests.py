@@ -53,9 +53,9 @@ class PricingRuleTests(SimpleTestCase):
 
     def test_packages_are_written_as_they_are(self):
         # A screenshot caught "$1 $25 $5": stripping zeros from '10' and '50' turned them into '1' and '5'.
-        self.assertEqual([catalog.format_package(p) for p in catalog.topup_packages_usd()], ['10', '25', '50'])
+        self.assertEqual([catalog.format_package(p) for p in catalog.topup_packages_usd()], ['10', '25', '50', '100'])
         self.assertEqual(catalog.format_package('2.50'), '2.5')
-        with self.assertRaisesMessage(ValueError, '$10, $25, $50'):
+        with self.assertRaisesMessage(ValueError, '$10, $25, $50, $100'):
             catalog.topup_points(3)
 
     def test_topup_packages_are_only_the_listed_ones(self):

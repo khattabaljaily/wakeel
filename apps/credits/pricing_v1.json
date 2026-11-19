@@ -11,11 +11,7 @@
       "tax": 0
     },
     "price_step_usd": 0.01,
-    "topup_packages_usd": [
-      10,
-      25,
-      50
-    ]
+    "topup_packages_usd": [10, 25, 50, 100]
   },
   "services": {
     "extract_data": {

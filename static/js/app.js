@@ -216,17 +216,23 @@ Wakeel.confirm = (function () {
 document.addEventListener('click', function (e) {
     var btn = e.target.closest('[data-confirm]');
     if (!btn) return;
-    if (btn.dataset.confirmed) { delete btn.dataset.confirmed; return; }
+    // MyDocHub's pages put data-confirm / data-confirm-yes on the <form> itself: the dialog opens when its submit button is clicked.
+    var form = btn.tagName === 'FORM' ? btn : null, trigger = btn;
+    if (form) {
+        trigger = e.target.closest('button, input[type=submit]');
+        if (!trigger || trigger.type === 'button' || !form.contains(trigger)) return;
+    } else if (btn.dataset.confirmed) { delete btn.dataset.confirmed; return; }
     e.preventDefault();
     e.stopPropagation();
     Wakeel.confirm({
         title: btn.dataset.confirmTitle,
         message: btn.dataset.confirm,
-        okText: btn.dataset.confirmOk,
-        tone: btn.dataset.confirmTone,
+        okText: btn.dataset.confirmOk || btn.dataset.confirmYes,
+        tone: btn.dataset.confirmTone || (form ? 'danger' : undefined),
         requireText: btn.dataset.confirmRequire,
     }).then(function (result) {
         if (result === null) return;
+        if (form) { form.requestSubmit(trigger); return; }
         if (btn.dataset.confirmField && btn.form) btn.form.elements[btn.dataset.confirmField].value = result;
         btn.dataset.confirmed = '1';
         if (btn.form && btn.type !== 'button') btn.form.requestSubmit(btn);

@@ -7472,6 +7472,5003 @@ msgstr "Pertanyaan: %(q)s"
 msgid "The answer was saved as a note."
 msgstr "Jawaban disimpan sebagai catatan."
 
+msgid " حرفاً تقريباً قبل «"
+msgstr " karakter ditampilkan sebelum “"
+
+msgid " حقلاً من الموقع. راجعها في كل الخطوات."
+msgstr " kolom dari situs web. Periksa di setiap langkah."
+
+msgid " صورة"
+msgstr " gambar"
+
+msgid " من "
+msgstr " dari "
+
+msgid " منشوراً"
+msgstr " postingan"
+
+msgid " منشوراً؟"
+msgstr " postingan?"
+
+msgid " يوم"
+msgstr " hari lalu"
+
+msgid "%(all)s منشوراً"
+msgstr "%(all)s postingan"
+
+msgid "%(company)s · عبر وكيل"
+msgstr "%(company)s · via Wakeel"
+
+msgid "%(company)s · وكيل"
+msgstr "%(company)s · Wakeel"
+
+msgid "%(count)s × %(unit)s"
+msgstr "%(count)s × %(unit)s"
+
+msgid "%(count)s منشور"
+msgstr "%(count)s postingan"
+
+msgid "%(db_runs)s لقاعدة البيانات · %(media_runs)s للملفات"
+msgstr "%(db_runs)s dari basis data · %(media_runs)s dari berkas"
+
+msgid "%(display_name)s · %(created_at)s"
+msgstr "%(display_name)s · %(created_at)s"
+
+msgid "%(finished_at)s (منذ %(finished_at2)s)"
+msgstr "%(finished_at)s (%(finished_at2)s lalu)"
+
+msgid "%(get_kind_display)s · منذ %(created_at)s"
+msgstr "%(get_kind_display)s · %(created_at)s lalu"
+
+msgid "%(jobs)s مهمة"
+msgstr "%(jobs)s tugas"
+
+msgid "%(jobs)s مهمة · %(input)s رمز"
+msgstr "%(jobs)s tugas · %(input)s token"
+
+msgid "%(jobs)s مهمة · cache hit %(cache_rate)s%%"
+msgstr "%(jobs)s tugas · cache hit %(cache_rate)s%%"
+
+msgid "%(month)s (%(n)s منشوراً، %(get_status_display)s)"
+msgstr "%(month)s (%(n)s postingan, %(get_status_display)s)"
+
+msgid "%(month_label)s · %(posts_per_week)s منشورات أسبوعياً ·"
+msgstr "%(month_label)s · %(posts_per_week)s postingan per minggu ·"
+
+msgid "%(name)s (%(count)s عضو)"
+msgstr "%(name)s (%(count)s anggota)"
+
+msgid "%(name)s (العميل): %(body)s"
+msgstr "%(name)s (klien): %(body)s"
+
+msgid "%(name)s · لوحة النظام"
+msgstr "%(name)s · Konsol sistem"
+
+msgid "%(new_companies)s جديدة هذا الشهر"
+msgstr "%(new_companies)s baru bulan ini"
+
+msgid "%(pending)s بانتظار رأيك"
+msgstr "%(pending)s menunggu masukan Anda"
+
+msgid "%(pending)s قيد الانتظار"
+msgstr "%(pending)s tertunda"
+
+msgid "%(plans_month)s خطة محتوى"
+msgstr "%(plans_month)s rencana konten"
+
+msgid "%(running_jobs)s مهمة قيد التنفيذ الآن"
+msgstr "%(running_jobs)s tugas sedang berjalan"
+
+msgid "%(total_bytes)s (المساحة الحرة: %(free_bytes)s)"
+msgstr "%(total_bytes)s (ruang kosong: %(free_bytes)s)"
+
+msgid "%(unpriced)s مهمة بلا سعر"
+msgstr "%(unpriced)s tugas belum berharga"
+
+msgid "%(unscheduled)s منشور بلا موعد"
+msgstr "%(unscheduled)s postingan tanpa tanggal"
+
+msgid "(%(unread_notifications)s غير مقروءة)"
+msgstr "(%(unread_notifications)s belum dibaca)"
+
+msgid "(أنت)"
+msgstr "(Anda)"
+
+msgid "(دون %(unpriced)s مهمة بلا سعر)"
+msgstr "(tidak termasuk %(unpriced)s tugas belum berharga)"
+
+msgid "(قد يتغير يوماً حسب رؤية الهلال)"
+msgstr "(bisa bergeser sehari mengikuti rukyat hilal)"
+
+msgid ") ليعمل معه تلقائياً، أو شغّل"
+msgstr ") agar berjalan bersamanya, atau jalankan"
+
+msgid "). الأسعار في"
+msgstr "). Harga dalam"
+
+msgid ". سيراجعه فريقنا، وسيصلك بريد على"
+msgstr ". Tim kami akan meninjaunya, dan Anda akan menerima email di"
+
+msgid "12 شهراً"
+msgstr "12 bulan"
+
+msgid "14 يوماً (تجربة)"
+msgstr "14 hari (uji coba)"
+
+msgid "16 منشوراً جاهزاً"
+msgstr "16 postingan siap"
+
+msgid "3 أشهر"
+msgstr "3 bulan"
+
+msgid "6 أشهر"
+msgstr "6 bulan"
+
+msgid "<i class=\"bi bi-patch-check\"></i> اعتماد"
+msgstr "<i class=\"bi bi-patch-check\"></i> Setujui"
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ النشر…"
+msgstr ""
+"<span class=\"spinner-border spinner-border-sm\"></span> Memublikasikan…"
+
+msgid "<span class=\"text-warning\">● تغييرات غير محفوظة</span>"
+msgstr "<span class=\"text-warning\">● Perubahan belum disimpan</span>"
+
+msgid "A product of"
+msgstr "Produk dari"
+
+msgid "Added a contact"
+msgstr "Menambahkan kontak"
+
+msgid "Added a task"
+msgstr "Menambahkan tugas"
+
+msgid "Attach from Wakeel"
+msgstr "Lampirkan dari Wakeel"
+
+msgid "Attached a file to a task"
+msgstr "Melampirkan berkas ke tugas"
+
+msgid "Build a month of social media content from this document."
+msgstr "Bangun konten media sosial sebulan dari dokumen ini."
+
+msgid "Changed a contact"
+msgstr "Mengubah kontak"
+
+msgid "Changed a document of the library"
+msgstr "Mengubah dokumen perpustakaan"
+
+msgid "Changed a task"
+msgstr "Mengubah tugas"
+
+msgid "Changed an announcement"
+msgstr "Mengubah pengumuman"
+
+msgid "Changed the settings of a form"
+msgstr "Mengubah pengaturan formulir"
+
+msgid "Changed the status of a task"
+msgstr "Mengubah status tugas"
+
+msgid "Choose a file"
+msgstr "Pilih berkas"
+
+msgid "Closed a form"
+msgstr "Menutup formulir"
+
+msgid "Content plan from it"
+msgstr "Rencana konten dari dokumen ini"
+
+msgid "Created a form"
+msgstr "Membuat formulir"
+
+msgid "Ctrl + S للحفظ"
+msgstr "Ctrl + S untuk menyimpan"
+
+msgid "Deleted a contact and its history"
+msgstr "Menghapus kontak beserta riwayatnya"
+
+msgid "Deleted a document from the library"
+msgstr "Menghapus dokumen dari perpustakaan"
+
+msgid "Deleted a form and its answers"
+msgstr "Menghapus formulir beserta jawabannya"
+
+msgid "Deleted a presentation"
+msgstr "Menghapus presentasi"
+
+msgid "Deleted a task"
+msgstr "Menghapus tugas"
+
+msgid "Deleted an announcement"
+msgstr "Menghapus pengumuman"
+
+msgid "Document services"
+msgstr "Layanan dokumen"
+
+msgid "Documents waiting for your approval"
+msgstr "Dokumen yang menunggu persetujuan Anda"
+
+msgid "Downloaded the answers of a form"
+msgstr "Mengunduh jawaban formulir"
+
+msgid "Exported all the data of the company"
+msgstr "Mengekspor semua data perusahaan"
+
+msgid "Invited someone to the company"
+msgstr "Mengundang seseorang ke perusahaan"
+
+msgid "It did not work. You were not charged."
+msgstr "Tidak berhasil. Anda tidak dikenai biaya."
+
+msgid "Joined the company"
+msgstr "Bergabung dengan perusahaan"
+
+msgid "Letterheads"
+msgstr "Kop surat"
+
+msgid "Make a content plan"
+msgstr "Buat rencana konten"
+
+msgid "Never charged (internal and demo companies)."
+msgstr "Tidak pernah ditagih (perusahaan internal dan demo)."
+
+msgid "Nobody else is in this company yet."
+msgstr "Belum ada orang lain di perusahaan ini."
+
+msgid "Only members of this company can open it."
+msgstr "Hanya anggota perusahaan ini yang dapat membukanya."
+
+msgid "Only the people of this company, one answer each"
+msgstr "Hanya orang di perusahaan ini, satu jawaban per orang"
+
+msgid "Open the card again and approve it from there."
+msgstr "Buka kartu itu lagi dan setujui dari sana."
+
+msgid "Opened a form for answers"
+msgstr "Membuka formulir untuk jawaban"
+
+msgid "Ordered a presentation"
+msgstr "Memesan presentasi"
+
+msgid "Papers expired or expiring within 30 days"
+msgstr "Dokumen kedaluwarsa atau akan kedaluwarsa dalam 30 hari"
+
+msgid "Post"
+msgstr "Postingan"
+
+msgid "Post from it"
+msgstr "Postingan dari dokumen ini"
+
+msgid "Published an announcement"
+msgstr "Memublikasikan pengumuman"
+
+msgid "Reading the document. The answer will be saved as a note."
+msgstr "Membaca dokumen. Jawabannya akan disimpan sebagai catatan."
+
+msgid "Reading the document… the details will appear here in a moment."
+msgstr "Membaca dokumen… rinciannya akan muncul di sini sebentar lagi."
+
+msgid "Removed a file from a task"
+msgstr "Menghapus berkas dari tugas"
+
+msgid "Rewrite a post"
+msgstr "Tulis ulang postingan"
+
+msgid "Rewriting the post. Refresh the page in a moment."
+msgstr "Menulis ulang postingan. Segarkan halaman sebentar lagi."
+
+msgid "Shared with Wakeel"
+msgstr "Dibagikan dengan Wakeel"
+
+msgid "Tasks assigned to you"
+msgstr "Tugas yang ditugaskan kepada Anda"
+
+msgid "Tasks of yours are overdue"
+msgstr "Tugas Anda terlambat"
+
+msgid "Thank you. The balance is added as soon as the payment is confirmed."
+msgstr ""
+"Terima kasih. Saldo akan ditambahkan segera setelah pembayaran dikonfirmasi."
+
+msgid "The AI is writing. This can take up to a minute; you can wait here."
+msgstr ""
+"AI sedang menulis. Ini bisa memakan waktu hingga semenit; Anda bisa menunggu "
+"di sini."
+
+msgid "The form was created. Check its questions."
+msgstr "Formulir telah dibuat. Periksa pertanyaannya."
+
+msgid "The mailbox will be disconnected from Wakeel."
+msgstr "Kotak surat akan diputuskan dari Wakeel."
+
+msgid "The service is busy at the moment. Please try again later."
+msgstr "Layanan sedang sibuk saat ini. Silakan coba lagi nanti."
+
+msgid "This company is not charged."
+msgstr "Perusahaan ini tidak ditagih."
+
+msgid "This suggestion is no longer available. Ask Marid again."
+msgstr "Saran ini tidak tersedia lagi. Tanyakan lagi kepada Marid."
+
+msgid "Uploaded a document to the library"
+msgstr "Mengunggah dokumen ke perpustakaan"
+
+msgid "Verified by Wakeel"
+msgstr "Diverifikasi oleh Wakeel"
+
+msgid "Wakeel credit: $%(amount)s"
+msgstr "Kredit Wakeel: $%(amount)s"
+
+msgid "Wallet"
+msgstr "Dompet"
+
+msgid "What the services cost"
+msgstr "Biaya layanan"
+
+msgid "What to change"
+msgstr "Yang perlu diubah"
+
+msgid "Working on it. This page shows the plan as soon as it is ready."
+msgstr "Sedang dikerjakan. Halaman ini menampilkan rencana begitu siap."
+
+msgid "Write a post from a document"
+msgstr "Tulis postingan dari dokumen"
+
+msgid "Writing the post from the document. Refresh the page in a moment."
+msgstr "Menulis postingan dari dokumen. Segarkan halaman sebentar lagi."
+
+msgid "You are charged only if the work is delivered."
+msgstr "Anda hanya ditagih jika pekerjaan diserahkan."
+
+msgid "You changed the server or the user name: type the password again."
+msgstr "Anda mengubah server atau nama pengguna: ketik ulang kata sandi."
+
+msgid "You reached today's limit of messages to Marid. Try again tomorrow."
+msgstr "Anda mencapai batas pesan harian ke Marid. Coba lagi besok."
+
+msgid "You receive this because you set this reminder in Wakeel."
+msgstr "Anda menerima ini karena Anda mengatur pengingat ini di Wakeel."
+
+msgid "You were not charged."
+msgstr "Anda tidak dikenai biaya."
+
+msgid "Your balance: $%(balance)s. It takes about half a minute."
+msgstr "Saldo Anda: $%(balance)s. Butuh sekitar setengah menit."
+
+msgid "[سيناريو الفيديو]"
+msgstr "[Naskah video]"
+
+msgid "files chosen"
+msgstr "berkas dipilih"
+
+msgid "free"
+msgstr "gratis"
+
+msgid "month"
+msgstr "bulan"
+
+msgid "or drop it here"
+msgstr "atau jatuhkan di sini"
+
+msgid "page"
+msgstr "halaman"
+
+msgid "platforms"
+msgstr "platform"
+
+msgid "post"
+msgstr "postingan"
+
+msgid "posts per week"
+msgstr "postingan per minggu"
+
+msgid "slide"
+msgstr "slide"
+
+msgid "this month's brief"
+msgstr "brief bulan ini"
+
+msgid "{count} منشورات"
+msgstr "{count} postingan"
+
+msgid "{label} على «{post}»: {text}"
+msgstr "{label} pada “{post}”: {text}"
+
+msgid "{name} (العميل)"
+msgstr "{name} (klien)"
+
+msgid "«%(name)s» معتمد بالفعل."
+msgstr "“%(name)s” sudah disetujui."
+
+msgid "· %(industry)s · %(country)s · منذ %(created_at)s"
+msgstr "· %(industry)s · %(country)s · sejak %(created_at)s"
+
+msgid "· اللغة:"
+msgstr "· Bahasa:"
+
+msgid "· النشر التلقائي: %(auto_publish)s"
+msgstr "· Penerbitan otomatis: %(auto_publish)s"
+
+msgid "· الهدف: %(objective)s"
+msgstr "· Tujuan: %(objective)s"
+
+msgid "· منذ"
+msgstr "· sejak"
+
+msgid "· وكيل"
+msgstr "· Wakeel"
+
+msgid "· يعمل"
+msgstr "· pada"
+
+msgid "»، فاجعل البداية قوية."
+msgstr "”, jadi buat pembukanya kuat."
+
+msgid "، "
+msgstr ", "
+
+msgid "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير ("
+msgstr ", jadi tugas belum dimulai. Jalankan server dalam mode pengembangan ("
+
+msgid "، و%(pending)s مهمة تنتظر"
+msgstr ", dan %(pending)s tugas menunggu"
+
+msgid "، وأضف"
+msgstr ", tambahkan"
+
+msgid "، واجعل رابط إعادة التوجيه:"
+msgstr ", dan atur URI pengalihan ke:"
+
+msgid "، وتُحسب تكلفة كل مهمة لحظة تنفيذها."
+msgstr ", dan biaya tiap tugas dihitung saat dijalankan."
+
+msgid "؛ المفاتيح السرية لا تُعرض"
+msgstr "; kunci rahasia tidak ditampilkan"
+
+msgid "؟"
+msgstr "?"
+
+msgid "آخر 12 شهراً"
+msgstr "12 bulan terakhir"
+
+msgid "آخر 30 يوماً"
+msgstr "30 hari terakhir"
+
+msgid "آخر 90 يوماً"
+msgstr "90 hari terakhir"
+
+msgid "آخر الأخطاء"
+msgstr "Kesalahan terbaru"
+
+msgid "آخر المهام"
+msgstr "Tugas terbaru"
+
+msgid "آخر تحديث:"
+msgstr "Terakhir diperbarui:"
+
+msgid "آخر تحديث: %(when)s"
+msgstr "Terakhir diperbarui: %(when)s"
+
+msgid "آخر نسخة"
+msgstr "Pencadangan terakhir"
+
+msgid "آيس كريم"
+msgstr "Es krim"
+
+msgid "أبر"
+msgstr "Apr"
+
+msgid "أبريل"
+msgstr "April"
+
+msgid "أثاث"
+msgstr "Furnitur"
+
+msgid "أحدث الاشتراكات"
+msgstr "Langganan terbaru"
+
+msgid "أخبار"
+msgstr "Berita"
+
+msgid "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي."
+msgstr ""
+"Beri tahu Wakeel apa yang penting bagi Anda bulan ini, dan sisanya akan "
+"diurus."
+
+msgid "أخرى"
+msgstr "Lainnya"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr ""
+"Masukkan email Anda dan kami akan mengirim tautan untuk mengatur kata sandi "
+"baru."
+
+msgid "أدخل رابط الموقع أولاً."
+msgstr "Masukkan tautan situs web terlebih dahulu."
+
+msgid "أدخل كلمة المرور للتأكيد"
+msgstr "Masukkan kata sandi Anda untuk konfirmasi"
+
+msgid "أدخل لوناً بصيغة ‎#RRGGBB."
+msgstr "Masukkan warna dalam format #RRGGBB."
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "Masukkan jumlah dolar yang valid (maksimal 1000)."
+
+msgid "أدوات"
+msgstr "Alat"
+
+msgid "أرسل {name} {subject} للمراجعة."
+msgstr "{name} mengirim {subject} untuk ditinjau."
+
+msgid "أرسل رابط الاستعادة"
+msgstr "Kirim tautan reset"
+
+msgid "أرسل للعميل على واتساب"
+msgstr "Kirim ke klien lewat WhatsApp"
+
+msgid "أزمة"
+msgstr "Krisis"
+
+msgid "أزمة محتملة"
+msgstr "Kemungkinan krisis"
+
+msgid "أسعار ثابتة:"
+msgstr "Harga tetap:"
+
+msgid "أسعار هذا النموذج غير معروفة. أضف"
+msgstr "Harga model ini tidak diketahui. Tambahkan"
+
+msgid "أسنان"
+msgstr "Gigi"
+
+msgid "أسود"
+msgstr "Gelap"
+
+msgid "أشرطة"
+msgstr "Pita"
+
+msgid "أشعة"
+msgstr "Sinar"
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "Penagihan saldo perusahaan diaktifkan kembali."
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "Perusahaan kini dibebaskan dari biaya."
+
+msgid "أضف دعوة أوضح لاتخاذ إجراء"
+msgstr "Tambahkan ajakan bertindak yang lebih jelas"
+
+msgid "أضف رقم واتساب العميل أولاً من إعدادات المخطط الآلي."
+msgstr ""
+"Tambahkan nomor WhatsApp klien terlebih dahulu, di pengaturan Perencana "
+"otomatis."
+
+msgid "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين"
+msgstr "Tambahkan aturan, mis.: Jangan gunakan kata “penawaran” di judul"
+
+msgid "أضف منافساً"
+msgstr "Tambahkan pesaing"
+
+msgid "أضف منافساً واحداً على الأقل."
+msgstr "Tambahkan setidaknya satu pesaing."
+
+msgid "أضف منافسيك"
+msgstr "Tambahkan pesaing Anda"
+
+msgid "أضفتموها"
+msgstr "Ditambahkan oleh Anda"
+
+msgid "أضيفت القاعدة، وسيلتزم بها وكيل من الآن."
+msgstr "Aturan ditambahkan. Wakeel akan mengikutinya mulai sekarang."
+
+msgid "أطفال"
+msgstr "Anak-anak"
+
+msgid "أعاد وكيل كتابة المنشور"
+msgstr "Wakeel menulis ulang postingan"
+
+msgid "أعد الإعداد"
+msgstr "Siapkan lagi"
+
+msgid "أعد المحاولة واضغط «تعديل الإعدادات» لتحديدها"
+msgstr "Coba lagi dan tekan “Ubah pengaturan” untuk memilihnya"
+
+msgid "أعد نشره"
+msgstr "Posting ulang"
+
+msgid "أعد نشره بصياغة جديدة"
+msgstr "Posting ulang dengan kata-kata baru"
+
+msgid "أعدّ الخطة"
+msgstr "Siapkan rencana"
+
+msgid "أعدّ الخطة الآن"
+msgstr "Siapkan rencana sekarang"
+
+msgid "أعدّ المخطط الآلي خطة {title}."
+msgstr "Perencana otomatis menyiapkan rencana {title}."
+
+msgid "أعدّ تقريراً لشهر"
+msgstr "Siapkan laporan untuk"
+
+msgid "أعدّ خطة الشهر"
+msgstr "Siapkan rencana bulan ini"
+
+msgid "أعدّ خطة المحتوى"
+msgstr "Siapkan rencana konten"
+
+msgid "أعدّ خطة محتوى أو أنشئ منشوراً يدوياً."
+msgstr "Siapkan rencana konten atau buat postingan secara manual."
+
+msgid "أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات."
+msgstr ""
+"Siapkan rencana konten dan Wakeel akan mengisi kalender Anda dengan "
+"postingan."
+
+msgid "أعدّت هذه الخطة %(name)s"
+msgstr "Rencana ini disiapkan oleh %(name)s"
+
+msgid "أعضاء"
+msgstr "anggota"
+
+msgid "أعضاء الفريق · المنشورات"
+msgstr "Anggota tim · postingan"
+
+msgid "أعمال"
+msgstr "Bisnis"
+
+msgid "أغس"
+msgstr "Agu"
+
+msgid "أغسطس"
+msgstr "Agustus"
+
+msgid "أغلقتها؟ تابع"
+msgstr "Sudah menutupnya? Lanjutkan"
+
+msgid "أفضل ساعات النشر لجمهورك"
+msgstr "Jam posting terbaik untuk audiens Anda"
+
+msgid "أقدم مهمة منتظرة"
+msgstr "Tugas tertunggu terlama"
+
+msgid "أقواس"
+msgstr "Busur"
+
+msgid "أكت"
+msgstr "Okt"
+
+msgid "أكتوبر"
+msgstr "Oktober"
+
+msgid "أكمل الخطوات هناك وسنتابع هنا تلقائياً."
+msgstr ""
+"Selesaikan langkah-langkah di sana dan kami akan melanjutkan di sini secara "
+"otomatis."
+
+msgid "أكمل الملف"
+msgstr "Lengkapi profil"
+
+msgid "أكمل الملف أولاً"
+msgstr "Lengkapi profil terlebih dahulu"
+
+msgid "أكمل ملف شركتك"
+msgstr "Lengkapi profil perusahaan Anda"
+
+msgid "ألغاه المستخدم."
+msgstr "Dibatalkan oleh pengguna."
+
+msgid "أمان"
+msgstr "Keamanan"
+
+msgid "أمثلة من منشوراتهم"
+msgstr "Contoh postingan mereka"
+
+msgid "أنت داخل حساب"
+msgstr "Anda berada di dalam akun"
+
+msgid "أنشأت الصفحة، التالي"
+msgstr "Sudah saya buat, lanjut"
+
+msgid "أنشئ النسخة"
+msgstr "Buat versi"
+
+msgid "أنشئ تطبيقاً في"
+msgstr "Buat aplikasi di"
+
+msgid "أنشئ حساباً"
+msgstr "Buat akun"
+
+msgid "أنشئ صفحة لشركتك"
+msgstr "Buat Halaman untuk perusahaan Anda"
+
+msgid "أنشئ صفحة لشركتك أولاً"
+msgstr "Buat Halaman untuk perusahaan Anda terlebih dahulu"
+
+msgid "أنشئه في Meta متوقفاً"
+msgstr "Buat di Meta, dijeda"
+
+msgid "أهداف التسويق"
+msgstr "Tujuan pemasaran"
+
+msgid "أهلاً %(display_name)s 👋"
+msgstr "Halo %(display_name)s 👋"
+
+msgid "أو افتحها من المتصفح"
+msgstr "Atau buka di peramban"
+
+msgid "أوقفت الإشعارات على هذا الجهاز"
+msgstr "Notifikasi dimatikan di perangkat ini"
+
+msgid "أول يوم في الشهر."
+msgstr "Hari pertama bulan."
+
+msgid "أُرسلت دعوة المراجعة إلى واتساب العميل."
+msgstr "Undangan tinjauan telah dikirim ke WhatsApp klien."
+
+msgid "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي"
+msgstr "Rencana ini disiapkan oleh Wakeel · Manajer pemasaran AI Anda"
+
+msgid "أُلغي"
+msgstr "Dibatalkan"
+
+msgid "أُلغي إعداد الخطة. يمكنك المحاولة مرة أخرى أو حذف الخطة."
+msgstr ""
+"Penyiapan rencana dibatalkan. Anda dapat mencoba lagi atau menghapus rencana."
+
+msgid "أُنشئ متوقفاً في Meta"
+msgstr "Dibuat dalam keadaan dijeda di Meta"
+
+msgid "أُنشئت نسخة %(label)s."
+msgstr "Versi %(label)s dibuat."
+
+msgid "أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد."
+msgstr "Mode agensi nonaktif; klien Anda kembali melihat merek Wakeel."
+
+msgid "إحصاءات"
+msgstr "Statistik"
+
+msgid "إخفاء كلمة المرور"
+msgstr "Sembunyikan kata sandi"
+
+msgid "إدارة الفريق متاحة للمالك والمديرين فقط."
+msgstr "Hanya pemilik dan admin yang dapat mengelola tim."
+
+msgid "إدارة المشتركين ومتابعة نشاطهم"
+msgstr "Kelola pelanggan dan pantau aktivitas mereka"
+
+msgid "إدارة المكتبة"
+msgstr "Kelola perpustakaan"
+
+msgid "إدارة المنصة"
+msgstr "Admin platform"
+
+msgid "إدارة قاعدة البيانات"
+msgstr "Admin basis data"
+
+msgid "إدارة وكيل"
+msgstr "Administrasi Wakeel"
+
+msgid "إرجاع"
+msgstr "Pulihkan"
+
+msgid "إرسال"
+msgstr "Kirim"
+
+msgid "إرسال الرد"
+msgstr "Kirim balasan"
+
+msgid "إرسال الملاحظة"
+msgstr "Kirim catatan"
+
+msgid "إرسال للمراجعة"
+msgstr "Kirim untuk ditinjau"
+
+msgid "إزالة"
+msgstr "Hapus"
+
+msgid "إزالة %(display_name)s"
+msgstr "Hapus %(display_name)s"
+
+msgid "إزالة العضو؟"
+msgstr "Hapus anggota?"
+
+msgid "إسعاف"
+msgstr "Pertolongan pertama"
+
+msgid "إشادة"
+msgstr "Pujian"
+
+msgid "إشعار"
+msgstr "Notifikasi"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "Notifikasi email"
+
+msgid "إشعارات هذا الجهاز"
+msgstr "Notifikasi di perangkat ini"
+
+msgid "إضافة"
+msgstr "Tambah"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "Tambah saldo ($, negatif untuk mengambil kembali)"
+
+msgid "إضافة شركاتك"
+msgstr "Tambahkan perusahaan Anda"
+
+msgid "إضافة شركة"
+msgstr "Tambah perusahaan"
+
+msgid "إضافة عضو"
+msgstr "Tambah anggota"
+
+msgid "إطار"
+msgstr "Bingkai"
+
+msgid "إظهار كلمة المرور"
+msgstr "Tampilkan kata sandi"
+
+msgid "إعادة إعداد الخطة"
+msgstr "Siapkan rencana lagi"
+
+msgid "إعادة إعداد الخطة؟"
+msgstr "Siapkan rencana lagi?"
+
+msgid "إعادة إلى المسودة"
+msgstr "Kembali ke draf"
+
+msgid "إعادة الإعداد"
+msgstr "Siapkan lagi"
+
+msgid "إعادة الربط أو تغيير الصفحة"
+msgstr "Hubungkan ulang atau ganti Halaman"
+
+msgid "إعادة المحاولة"
+msgstr "Coba lagi"
+
+msgid "إعادة تصميم كل الصور"
+msgstr "Desain ulang semua gambar"
+
+msgid "إعادة كتابة منشور"
+msgstr "Menulis ulang postingan"
+
+msgid "إعادة نشر تلقائية كل شهر"
+msgstr "Posting ulang otomatis setiap bulan"
+
+msgid "إعادة نشر محتوى دائم"
+msgstr "Posting ulang evergreen"
+
+msgid "إعجاب"
+msgstr "Suka"
+
+msgid "إعداد التقرير"
+msgstr "Siapkan laporan"
+
+msgid "إعداد الخطط، التصميم، النشر، والنشر المجدول"
+msgstr "Penyiapan rencana, desain, penerbitan, dan penerbitan terjadwal"
+
+msgid "إعداد النشر التلقائي"
+msgstr "Atur posting otomatis"
+
+msgid "إعداد تقرير الأداء"
+msgstr "Tulis laporan kinerja"
+
+msgid "إعداد خطة المحتوى"
+msgstr "Menyiapkan rencana konten"
+
+msgid "إعدادات"
+msgstr "Pengaturan"
+
+msgid "إعدادات الحساب"
+msgstr "Pengaturan akun"
+
+msgid "إعفاء من الخصم"
+msgstr "Bebas biaya"
+
+msgid "إعلان"
+msgstr "Pengumuman"
+
+msgid "إغلاق"
+msgstr "Tutup"
+
+msgid "إلغاء"
+msgstr "Batal"
+
+msgid "إلغاء الإعفاء"
+msgstr "Hapus pembebasan"
+
+msgid "إلى"
+msgstr "ke"
+
+msgid "إلى ملف"
+msgstr "ke"
+
+msgid "إنترنت"
+msgstr "Internet"
+
+msgid "إنجاز"
+msgstr "Selesai"
+
+msgid "إنستغرام"
+msgstr "Instagram"
+
+msgid "إنشاء الإعلان في Meta؟"
+msgstr "Buat iklan di Meta?"
+
+msgid "إنشاء الاشتراك"
+msgstr "Buat langganan"
+
+msgid "إنشاء الحساب"
+msgstr "Akun dibuat"
+
+msgid "إنشاء حساب"
+msgstr "Buat akun"
+
+msgid "إنشاء رابط جديد؟"
+msgstr "Buat tautan baru?"
+
+msgid "إنشاء رابط للعميل"
+msgstr "Buat tautan klien"
+
+msgid "إنشاء متوقفاً"
+msgstr "Buat dalam keadaan dijeda"
+
+msgid "إنشاء مساحة العمل"
+msgstr "Buat ruang kerja"
+
+msgid "إيجابي"
+msgstr "Positif"
+
+msgid "إيقاف"
+msgstr "Hentikan"
+
+msgid "إيقاف إعداد الخطة؟"
+msgstr "Hentikan penyiapan rencana?"
+
+msgid "إيقاف الإعداد"
+msgstr "Hentikan penyiapan"
+
+msgid "إيقاف الرابط"
+msgstr "Matikan tautan"
+
+msgid "إيقاف وضع الوكالة"
+msgstr "Matikan mode agensi"
+
+msgid "إيقافه يعلّق الاشتراك."
+msgstr "Mematikannya akan menangguhkan langganan."
+
+msgid "ابحث بالاسم أو البريد أو المدينة…"
+msgstr "Cari berdasarkan nama, email, atau kota…"
+
+msgid "ابحث بالاسم أو البريد…"
+msgstr "Cari berdasarkan nama atau email…"
+
+msgid "ابحث بالشركة أو الخطأ أو النموذج…"
+msgstr "Cari berdasarkan perusahaan, kesalahan, atau model…"
+
+msgid "ابحث في المنشورات…"
+msgstr "Cari postingan…"
+
+msgid "ابدأ الآن"
+msgstr "Mulai"
+
+msgid "ابدأ بخطتك الأولى"
+msgstr "Mulai dengan rencana pertama Anda"
+
+msgid "ابدأ مع وكيل"
+msgstr "Mulai menggunakan Wakeel"
+
+msgid "اتصال"
+msgstr "Panggilan"
+
+msgid "اجعل الأسلوب أكثر حماساً وجاذبية"
+msgstr "Buat nada lebih energik dan menarik"
+
+msgid "اجعل النص أقصر وأكثر تركيزاً"
+msgstr "Buat teks lebih singkat dan fokus"
+
+msgid "احتفال"
+msgstr "Perayaan"
+
+msgid "احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا."
+msgstr "Simpan postingan untuk mendesainnya, dan gambar akan muncul di sini."
+
+msgid "اختر الصفحة"
+msgstr "Pilih Halaman"
+
+msgid "اختر اللغة أو اللهجة."
+msgstr "Pilih bahasa atau dialek."
+
+msgid "اختر ثلاثة رسوم كحد أقصى."
+msgstr "Pilih paling banyak tiga gambar."
+
+msgid "اختر حساباً إعلانياً من صفحة الترويج أولاً."
+msgstr "Pilih akun iklan di halaman promosi terlebih dahulu."
+
+msgid "اختر صفحة فيسبوك"
+msgstr "Pilih Halaman Facebook"
+
+msgid "اختر كلمة مرور جديدة لحسابك."
+msgstr "Pilih kata sandi baru untuk akun Anda."
+
+msgid "اختر ما ينطبق عليك:"
+msgstr "Pilih yang sesuai untuk Anda:"
+
+msgid "اختر مدة صحيحة للتجديد."
+msgstr "Pilih periode perpanjangan yang valid."
+
+msgid "اختر منصة واحدة على الأقل."
+msgstr "Pilih setidaknya satu platform."
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "Pilih hari antara 1 dan 28."
+
+msgid "اختيار"
+msgstr "Pilih"
+
+msgid "ادخار"
+msgstr "Tabungan"
+
+msgid "اربط إنستغرام بصفحة فيسبوك"
+msgstr "Hubungkan Instagram ke Halaman Facebook"
+
+msgid "اربط حساب تيك توك"
+msgstr "Hubungkan akun TikTok Anda"
+
+msgid "اربط حسابات فيسبوك أو إنستغرام"
+msgstr "Hubungkan akun Facebook atau Instagram"
+
+msgid "اربط فيسبوك أو إنستغرام"
+msgstr "Hubungkan Facebook atau Instagram"
+
+msgid "ارتفاع"
+msgstr "Naik"
+
+msgid "استدامة"
+msgstr "Keberlanjutan"
+
+msgid "استراتيجية الشهر"
+msgstr "Strategi bulan ini"
+
+msgid "استراتيجية شهرية"
+msgstr "Strategi bulanan"
+
+msgid "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك"
+msgstr ""
+"Strategi bulanan yang dibangun dari pemahaman tentang bisnis dan audiens Anda"
+
+msgid "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل."
+msgstr "Strategi dan postingan tiap bulan, seperti yang disiapkan Wakeel."
+
+msgid "استعادة كلمة المرور"
+msgstr "Reset kata sandi"
+
+msgid "استعادة كلمة المرور في وكيل"
+msgstr "Reset kata sandi Wakeel Anda"
+
+msgid "استعادة كلمة المرور والإشعارات"
+msgstr "Reset kata sandi dan notifikasi"
+
+msgid "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً"
+msgstr "Penggunaan AI di seluruh platform selama 12 bulan terakhir"
+
+msgid "اسحب الصور هنا أو اضغط للاختيار"
+msgstr "Seret gambar ke sini atau ketuk untuk memilih"
+
+msgid "اسحب المنشور إلى يوم آخر لتغيير موعده."
+msgstr "Seret postingan ke hari lain untuk mengubah tanggalnya."
+
+msgid "اسم الشركة"
+msgstr "Nama perusahaan"
+
+msgid "اسم الوكالة"
+msgstr "Nama agensi"
+
+msgid "اسمك"
+msgstr "Nama Anda"
+
+msgid "اشتراك %(name)s معلّق"
+msgstr "Langganan %(name)s ditangguhkan"
+
+msgid "اشتراك جديد"
+msgstr "Langganan baru"
+
+msgid "اشتراك غير صالح."
+msgstr "Langganan tidak valid."
+
+msgid "اشتراك نشط"
+msgstr "Langganan aktif"
+
+msgid "اشتراك نشط بدون تاريخ انتهاء"
+msgstr "Langganan aktif tanpa tanggal berakhir"
+
+msgid "اشتراك نشط، باقٍ "
+msgstr "Langganan aktif, sisa "
+
+msgid "اشتراك ينتهي خلال 7 أيام."
+msgstr "langganan berakhir dalam 7 hari."
+
+msgid "اشتراكات جديدة"
+msgstr "Langganan baru"
+
+msgid "اضغط على القائمة ☰ ثم «نوع الحساب والأدوات»."
+msgstr "Ketuk menu ☰, lalu “Jenis akun dan alat”."
+
+msgid "اطلب الآن ←"
+msgstr "Pesan sekarang →"
+
+msgid "اطلب خطة الشهر"
+msgstr "Minta rencana bulan ini"
+
+msgid "اطلب من وكيل تعديل المنشور"
+msgstr "Minta Wakeel mengubah postingan"
+
+msgid "اعتماد"
+msgstr "Setujui"
+
+msgid "اعتماد "
+msgstr "Setujui "
+
+msgid "اعتماد %(name)s"
+msgstr "Setujui %(name)s"
+
+msgid "اعتماد الحساب؟"
+msgstr "Setujui akun?"
+
+msgid "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها"
+msgstr ""
+"Setujui pelanggan baru, serta perpanjang, tangguhkan, atau hapus langganan"
+
+msgid "اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط."
+msgstr ""
+"Hanya pemilik dan admin yang dapat menyetujui dan memublikasikan postingan."
+
+msgid "اعتماد كل ما بانتظار المراجعة (%(review_ids)s)"
+msgstr "Setujui semua yang menunggu tinjauan (%(review_ids)s)"
+
+msgid "اعتماد ✅"
+msgstr "Setujui ✅"
+
+msgid "اعتمد"
+msgstr "disetujui"
+
+msgid "اعتمد {name} {subject}."
+msgstr "{name} menyetujui {subject}."
+
+msgid "اعتمد المنشور أولاً، ثم انشره."
+msgstr "Setujui postingan terlebih dahulu, lalu publikasikan."
+
+msgid "افتح تطبيق إنستغرام وادخل إلى ملفك الشخصي."
+msgstr "Buka aplikasi Instagram dan masuk ke profil Anda."
+
+msgid "افتح مدير الإعلانات"
+msgstr "Buka Ads Manager"
+
+msgid "اقتباس"
+msgstr "Kutipan"
+
+msgid "اقتراح الترويج جاهز."
+msgstr "Saran promosi sudah siap."
+
+msgid "اقتراح ترويج"
+msgstr "Saran promosi"
+
+msgid "اقترح ترويجاً"
+msgstr "Sarankan promosi"
+
+msgid "اكتب اسمك أولاً"
+msgstr "Tulis nama Anda terlebih dahulu"
+
+msgid "اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة."
+msgstr ""
+"Tulis nama Anda terlebih dahulu agar tim tahu siapa yang meninggalkan "
+"catatan."
+
+msgid "اكتب الرد أولاً."
+msgstr "Tulis balasan terlebih dahulu."
+
+msgid "اكتب الرد…"
+msgstr "Tulis balasan…"
+
+msgid "اكتب تعليقاً…"
+msgstr "Tulis komentar…"
+
+msgid "اكتب تعليقك أولاً."
+msgstr "Tulis komentar Anda terlebih dahulu."
+
+msgid "اكتب عنواناً أقوى يلفت الانتباه"
+msgstr "Tulis judul yang lebih kuat dan menarik perhatian"
+
+msgid "اكتب فكرة مختلفة تماماً لنفس المحور"
+msgstr "Tulis ide yang benar-benar berbeda untuk pilar yang sama"
+
+msgid "اكتب ما تريد تغييره في المنشور."
+msgstr "Tulis apa yang ingin Anda ubah pada postingan."
+
+msgid "اكتب ملاحظتك أولاً."
+msgstr "Tulis catatan Anda terlebih dahulu."
+
+msgid "اكتمل"
+msgstr "Selesai"
+
+msgid "اكتمل الربط"
+msgstr "Koneksi selesai"
+
+msgid "اكتمل تحليل المنافسين."
+msgstr "Analisis pesaing selesai."
+
+msgid "الآن"
+msgstr "Baru saja"
+
+msgid "الآن · 🌐"
+msgstr "Baru saja · 🌐"
+
+msgid "الآن نربط حساباتك بوكيل"
+msgstr "Sekarang mari hubungkan akun Anda ke Wakeel"
+
+msgid "الأحد"
+msgstr "Minggu"
+
+msgid "الأحدث"
+msgstr "Terbaru"
+
+msgid "الأداء"
+msgstr "Kinerja"
+
+msgid "الأدوار"
+msgstr "Peran"
+
+msgid "الأربعاء"
+msgstr "Rabu"
+
+msgid "الأردن"
+msgstr "Yordania"
+
+msgid "الأساسيات"
+msgstr "Dasar"
+
+msgid "الأسلوب والنبرة"
+msgstr "Gaya dan nada"
+
+msgid "الأضعف أداءً"
+msgstr "Kinerja terlemah"
+
+msgid "الأعضاء"
+msgstr "Anggota"
+
+msgid "الأعلى استهلاكاً هذا الشهر"
+msgstr "Penggunaan tertinggi bulan ini"
+
+msgid "الأفضل أداءً"
+msgstr "Kinerja terbaik"
+
+msgid "الأقدم"
+msgstr "Terlama"
+
+msgid "الألوان والزخرفة"
+msgstr "Warna dan motif"
+
+msgid "الأهداف"
+msgstr "Tujuan"
+
+msgid "الإثنين"
+msgstr "Senin"
+
+msgid "الإجمالي الأقصى: %(total)s %(cur)s"
+msgstr "Total maksimum: %(total)s %(cur)s"
+
+msgid "الإدارة"
+msgstr "Administrasi"
+
+msgid "الإشعارات"
+msgstr "Notifikasi"
+
+msgid "الإعدادات"
+msgstr "Pengaturan"
+
+msgid "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله."
+msgstr ""
+"Iklan sudah ada di Meta dan dijeda. Tidak ada biaya sampai Anda "
+"menyalakannya."
+
+msgid "الإمارات"
+msgstr "Uni Emirat Arab"
+
+msgid "الإنجليزية"
+msgstr "Inggris"
+
+msgid "الاستراتيجية"
+msgstr "Strategi"
+
+msgid "الاستهلاك حسب الشهر"
+msgstr "Penggunaan per bulan"
+
+msgid "الاستهلاك والتفاصيل"
+msgstr "Penggunaan dan rincian"
+
+msgid "الاستهلاك والتكلفة"
+msgstr "Penggunaan dan biaya"
+
+msgid "الاسم"
+msgstr "Nama"
+
+msgid "الاسم القانوني"
+msgstr "Nama hukum"
+
+msgid "الاسم الكامل"
+msgstr "Nama lengkap"
+
+msgid "الاسم:"
+msgstr "Nama:"
+
+msgid "الاشتراك"
+msgstr "Langganan"
+
+msgid "الاشتراك معلّق"
+msgstr "Langganan ditangguhkan"
+
+msgid "الاشتراكات"
+msgstr "Langganan"
+
+msgid "الاشتراكات الجديدة لكل شهر"
+msgstr "Langganan baru per bulan"
+
+msgid "الاعتماد"
+msgstr "Persetujuan"
+
+msgid "الاكتفاء بفيسبوك"
+msgstr "Tetap dengan Facebook"
+
+msgid "البحرين"
+msgstr "Bahrain"
+
+msgid "البريد الإلكتروني"
+msgstr "Email"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "Email atau kata sandi salah."
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "Email perusahaan"
+
+msgid "البريد:"
+msgstr "Email:"
+
+msgid "البيانات الرسمية"
+msgstr "Data resmi"
+
+msgid "التاريخ"
+msgstr "Tanggal"
+
+msgid "التالي"
+msgstr "Berikutnya"
+
+msgid "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة."
+msgstr "Analisis sedang disiapkan. Muat ulang halaman dalam semenit."
+
+msgid "التحويل إلى العربية"
+msgstr "Ganti ke bahasa Arab"
+
+msgid "الترويج المدفوع"
+msgstr "Promosi berbayar"
+
+msgid "التسجيل خلال آخر 12 شهراً"
+msgstr "Pendaftaran selama 12 bulan terakhir"
+
+msgid "التسجيل مغلق حالياً."
+msgstr "Pendaftaran sedang ditutup."
+
+msgid "التسعير المستخدم"
+msgstr "Harga yang dipakai"
+
+msgid "التسويق"
+msgstr "Pemasaran"
+
+msgid "التشغيل"
+msgstr "Operasional"
+
+msgid "التصميم"
+msgstr "Desain"
+
+msgid "التصميم تغيّر منذ آخر تحديث للصورة."
+msgstr "Desain berubah sejak gambar terakhir diperbarui."
+
+msgid "التصميم قيد الإعداد"
+msgstr "Desain sedang dikerjakan"
+
+msgid "التعليقات"
+msgstr "Komentar"
+
+msgid "التعلّم من الملاحظات"
+msgstr "Belajar dari masukan"
+
+msgid "التفاصيل"
+msgstr "Rincian"
+
+msgid "التفاصيل التقنية"
+msgstr "Rincian teknis"
+
+msgid "التفاعل"
+msgstr "Interaksi"
+
+msgid "التفعيل"
+msgstr "Aktivasi"
+
+msgid "التقارير الشهرية"
+msgstr "Laporan bulanan"
+
+msgid "التقرير الكامل بالأرقام وتوصيات الشهر القادم:"
+msgstr "Laporan lengkap dengan angka dan rekomendasi bulan depan:"
+
+msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
+msgstr "Laporan sedang disiapkan. Muat ulang halaman sebentar lagi."
+
+msgid "التقويم"
+msgstr "Kalender"
+
+msgid "التقويم الكامل"
+msgstr "Kalender lengkap"
+
+msgid "التكلفة"
+msgstr "Biaya"
+
+msgid "التكلفة لكل شهر"
+msgstr "Biaya per bulan"
+
+msgid "الثلاثاء"
+msgstr "Selasa"
+
+msgid "الجمعة"
+msgstr "Jumat"
+
+msgid "الجمعة البيضاء (عروض التسوق)"
+msgstr "Jumat Putih (promo belanja)"
+
+msgid "الجمهور المستهدف"
+msgstr "Target audiens"
+
+msgid "الجميع"
+msgstr "Semua orang"
+
+msgid "الجنس"
+msgstr "Jenis kelamin"
+
+msgid "الحالة"
+msgstr "Status"
+
+msgid "الحساب"
+msgstr "Akun"
+
+msgid "الحساب الإعلاني"
+msgstr "Akun iklan"
+
+msgid "الحساب تجريبي."
+msgstr "Ini adalah akun uji coba."
+
+msgid "الحساب غير مربوط. اربطه من «حسابات النشر»."
+msgstr "Akun belum terhubung. Hubungkan dari “Akun penerbitan”."
+
+msgid "الحسابات المربوطة"
+msgstr "Akun terhubung"
+
+msgid "الخدمات"
+msgstr "Layanan"
+
+msgid "الخدمات والإعدادات التي تعمل بها المنصة"
+msgstr "Layanan dan pengaturan yang menjalankan platform"
+
+msgid "الخرطوم (GMT+2)"
+msgstr "Khartoum (GMT+2)"
+
+msgid "الخطط:"
+msgstr "Rencana:"
+
+msgid "الخطوة "
+msgstr "Langkah "
+
+msgid "الخميس"
+msgstr "Kamis"
+
+msgid "الدخول كمدير المشترك"
+msgstr "Masuk sebagai admin pelanggan"
+
+msgid "الدوحة (GMT+3)"
+msgstr "Doha (GMT+3)"
+
+msgid "الدور"
+msgstr "Peran"
+
+msgid "الدول"
+msgstr "Negara"
+
+msgid "الدولة"
+msgstr "Negara"
+
+msgid "الذروة"
+msgstr "Puncak"
+
+msgid "الذكاء الاصطناعي"
+msgstr "AI"
+
+msgid "الذكاء الاصطناعي غير مفعّل"
+msgstr "AI belum dikonfigurasi"
+
+msgid "الذكاء الاصطناعي غير مفعّل (ينقص"
+msgstr "AI belum dikonfigurasi (tidak ada"
+
+msgid "الذكاء الاصطناعي غير مفعّل بعد. أضف"
+msgstr "AI belum dikonfigurasi. Tambahkan"
+
+msgid "الذكاء الاصطناعي متصل"
+msgstr "AI terhubung"
+
+msgid "الرابط غير صالح"
+msgstr "Tautan tidak valid"
+
+msgid "الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https."
+msgstr "Tautan tidak valid. Gunakan tautan yang diawali http atau https."
+
+msgid "الرابط لا يشير إلى صفحة ويب."
+msgstr "Tautan tidak mengarah ke halaman web."
+
+msgid "الربط"
+msgstr "Hubungkan"
+
+msgid "الرد التلقائي على التعليقات البسيطة"
+msgstr "Balas otomatis komentar sederhana"
+
+msgid "الرد التلقائي: متوقف"
+msgstr "Balas otomatis: nonaktif"
+
+msgid "الرد التلقائي: يعمل"
+msgstr "Balas otomatis: aktif"
+
+msgid "الرسوم"
+msgstr "Gambar ilustrasi"
+
+msgid "الرصيد"
+msgstr "Saldo"
+
+msgid "الرقم الضريبي"
+msgstr "No. pajak"
+
+msgid "الرموز (مُدخلة · cache · مُخرجة)"
+msgstr "Token (masukan · cache · keluaran)"
+
+msgid "الرياض (GMT+3)"
+msgstr "Riyadh (GMT+3)"
+
+msgid "الزخرفة"
+msgstr "Motif"
+
+msgid "السابق"
+msgstr "Sebelumnya"
+
+msgid "السبت"
+msgstr "Sabtu"
+
+msgid "السعودية"
+msgstr "Arab Saudi"
+
+msgid "السودان"
+msgstr "Sudan"
+
+msgid "الشارة"
+msgstr "Lencana"
+
+msgid "الشركات"
+msgstr "Perusahaan"
+
+msgid "الشركات التي تظهر لعملائها هوية الوكالة"
+msgstr "Perusahaan yang kliennya melihat merek agensi"
+
+msgid "الشركة"
+msgstr "Perusahaan"
+
+msgid "الشعار"
+msgstr "Logo"
+
+msgid "الشهر"
+msgstr "Bulan"
+
+msgid "الشهر التالي"
+msgstr "Bulan depan"
+
+msgid "الشهر السابق"
+msgstr "Bulan lalu"
+
+msgid "الشهر القادم"
+msgstr "bulan depan"
+
+msgid "الصفحة الرئيسية"
+msgstr "Beranda"
+
+msgid "الصورة"
+msgstr "Gambar"
+
+msgid "الصورة المعروضة هي آخر نسخة محفوظة."
+msgstr "Gambar yang ditampilkan adalah versi tersimpan terakhir."
+
+msgid "الصورة النهائية"
+msgstr "Gambar akhir"
+
+msgid "الصورة محدّثة وجاهزة للنشر."
+msgstr "Gambar sudah terbaru dan siap dipublikasikan."
+
+msgid "العامل الخلفي"
+msgstr "Pekerja latar belakang"
+
+msgid "العامل الخلفي متوقف"
+msgstr "Pekerja latar belakang berhenti"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "العربية الفصحى"
+msgstr "Bahasa Arab Baku"
+
+msgid "العربية بلهجة السوق المحلي"
+msgstr "Bahasa Arab dialek lokal"
+
+msgid "العربية والإنجليزية معاً"
+msgstr "Bahasa Arab dan Inggris bersamaan"
+
+msgid "العضو"
+msgstr "Anggota"
+
+msgid "العضويات"
+msgstr "Keanggotaan"
+
+msgid "العمر إلى"
+msgstr "Usia sampai"
+
+msgid "العمر من"
+msgstr "Usia dari"
+
+msgid "العميل"
+msgstr "Klien"
+
+msgid "العميل (واتساب +%(phone)s)"
+msgstr "Klien (WhatsApp +%(phone)s)"
+
+msgid "العنوان"
+msgstr "Judul"
+
+msgid "العنوان الرئيسي"
+msgstr "Judul utama"
+
+msgid "العنوان الفرعي"
+msgstr "Subjudul"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "Kembali ke halaman masuk"
+
+msgid "العودة للوحة الإدارة"
+msgstr "Kembali ke konsol admin"
+
+msgid "العيد الوطني البحريني"
+msgstr "Hari Nasional Bahrain"
+
+msgid "العيد الوطني الكويتي"
+msgstr "Hari Nasional Kuwait"
+
+msgid "الفريق"
+msgstr "Tim"
+
+msgid "الفكرة"
+msgstr "Ide"
+
+msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
+msgstr "Video pendek dipublikasikan secara manual setelah difilmkan."
+
+msgid "القائمة"
+msgstr "Menu"
+
+msgid "القائمة الرئيسية"
+msgstr "Menu utama"
+
+msgid "القالب"
+msgstr "Templat"
+
+msgid "القاهرة"
+msgstr "Kairo"
+
+msgid "القيمة"
+msgstr "Nilai"
+
+msgid "الكل"
+msgstr "Semua"
+
+msgid "الكويت"
+msgstr "Kuwait"
+
+msgid "الكويت (GMT+3)"
+msgstr "Kuwait (GMT+3)"
+
+msgid "اللغة"
+msgstr "Bahasa"
+
+msgid "اللهجة الخليجية"
+msgstr "Dialek Teluk"
+
+msgid "اللهجة السودانية"
+msgstr "Dialek Sudan"
+
+msgid "اللهجة الشامية"
+msgstr "Dialek Levant"
+
+msgid "اللهجة المصرية"
+msgstr "Dialek Mesir"
+
+msgid "اللون الأساسي"
+msgstr "Warna utama"
+
+msgid "اللون الثانوي"
+msgstr "Warna sekunder"
+
+msgid "المالك"
+msgstr "Pemilik"
+
+msgid "المالك والمدير:"
+msgstr "Pemilik dan admin:"
+
+msgid "المجال"
+msgstr "Industri"
+
+msgid "المحتوى"
+msgstr "Konten"
+
+msgid "المحفظة"
+msgstr "Dompet"
+
+msgid "المحور"
+msgstr "Pilar"
+
+msgid "المخصوم (صافي)"
+msgstr "Ditagih (bersih)"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "Ditagihkan ke pelanggan (bersih setelah pengembalian dana)"
+
+msgid "المخطط الآلي"
+msgstr "Perencana otomatis"
+
+msgid "المدة"
+msgstr "Periode"
+
+msgid "المدينة"
+msgstr "Kota"
+
+msgid "المدينة والدولة"
+msgstr "Kota dan negara"
+
+msgid "المراجعة والتعليقات"
+msgstr "Tinjauan dan komentar"
+
+msgid "المزيد"
+msgstr "lainnya"
+
+msgid "المساحة المستخدمة"
+msgstr "Ruang terpakai"
+
+msgid "المستخدمون"
+msgstr "Pengguna"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "Dokumen perlu persetujuan"
+
+msgid "المشاهد:"
+msgstr "Pemirsa:"
+
+msgid "المشترك"
+msgstr "Pelanggan"
+
+msgid "المشتركون"
+msgstr "Pelanggan"
+
+msgid "المقاس"
+msgstr "Ukuran"
+
+msgid "المكتبة فارغة"
+msgstr "Perpustakaan kosong"
+
+msgid "المملكة المتحدة"
+msgstr "Inggris Raya"
+
+msgid "المناسبات"
+msgstr "Momen khusus"
+
+msgid "المنافسون"
+msgstr "Pesaing"
+
+msgid "المنامة (GMT+3)"
+msgstr "Manama (GMT+3)"
+
+msgid "المنتجات والخدمات"
+msgstr "Produk dan layanan"
+
+msgid "المنشور التالي"
+msgstr "Postingan berikutnya"
+
+msgid "المنشور السابق"
+msgstr "Postingan sebelumnya"
+
+msgid "المنشور منشور بالفعل."
+msgstr "Postingan sudah dipublikasikan."
+
+msgid "المنشورات"
+msgstr "Postingan"
+
+msgid "المنشورات القادمة"
+msgstr "Postingan mendatang"
+
+msgid "المنشورات:"
+msgstr "Postingan:"
+
+msgid "المنصات"
+msgstr "Platform"
+
+msgid "المنطقة الزمنية"
+msgstr "Zona waktu"
+
+msgid "المهام"
+msgstr "Tugas"
+
+msgid "المهام والأخطاء"
+msgstr "Tugas dan kesalahan"
+
+msgid "المهمة"
+msgstr "Tugas"
+
+msgid "الموقع الإلكتروني"
+msgstr "Situs web"
+
+msgid "الموقع يعيد التوجيه مرات كثيرة."
+msgstr "Situs web terlalu banyak mengalihkan."
+
+msgid "الميزانية اليومية"
+msgstr "Anggaran harian"
+
+msgid "النبرة:"
+msgstr "Nada:"
+
+msgid "النتيجة"
+msgstr "Hasil"
+
+msgid "النسخ الاحتياطي"
+msgstr "Pencadangan"
+
+msgid "النسخ المحفوظة"
+msgstr "Pencadangan disimpan"
+
+msgid "النشاط والجمهور"
+msgstr "Bisnis dan audiens"
+
+msgid "النشاط والجمهور والنبرة والهوية البصرية."
+msgstr "Bisnis, audiens, nada, dan identitas visual."
+
+msgid "النشر التلقائي"
+msgstr "Penerbitan otomatis"
+
+msgid "النشر التلقائي في الموعد"
+msgstr "Terbitkan otomatis sesuai jadwal"
+
+msgid "النشر التلقائي مفعّل"
+msgstr "Penerbitan otomatis aktif"
+
+msgid "النشر عبر Meta"
+msgstr "Penerbitan lewat Meta"
+
+msgid "النشر على فيسبوك وإنستغرام"
+msgstr "Penerbitan ke Facebook dan Instagram"
+
+msgid "النشر متاح للمالك والمديرين فقط."
+msgstr "Hanya pemilik dan admin yang dapat memublikasikan."
+
+msgid "النظام"
+msgstr "Sistem"
+
+msgid "النموذج"
+msgstr "Model"
+
+msgid "النموذج · التكلفة"
+msgstr "Model · biaya"
+
+msgid "الهاتف"
+msgstr "Telepon"
+
+msgid "الهاتف:"
+msgstr "Telepon:"
+
+msgid "الهدف"
+msgstr "Tujuan"
+
+msgid "الهوية البصرية"
+msgstr "Identitas visual"
+
+msgid "الوسوم"
+msgstr "Tag"
+
+msgid "الوصف"
+msgstr "Deskripsi"
+
+msgid "الوصول"
+msgstr "Jangkauan"
+
+msgid "الوكالات"
+msgstr "Agensi"
+
+msgid "اليوم"
+msgstr "Hari ini"
+
+msgid "اليوم الرياضي للدولة في قطر"
+msgstr "Hari Olahraga Nasional Qatar"
+
+msgid "اليوم الوطني"
+msgstr "Hari Nasional"
+
+msgid "اليوم الوطني السعودي"
+msgstr "Hari Nasional Arab Saudi"
+
+msgid "اليوم الوطني العُماني"
+msgstr "Hari Nasional Oman"
+
+msgid "اليوم الوطني القطري"
+msgstr "Hari Nasional Qatar"
+
+msgid "املأ من الموقع"
+msgstr "Isi dari situs web"
+
+msgid "انتقل إلى شركة أخرى:"
+msgstr "Beralih ke perusahaan lain:"
+
+msgid "انتهت جلسة الربط. حاول مرة أخرى."
+msgstr "Sesi koneksi berakhir. Silakan coba lagi."
+
+msgid "انتهى اشتراك %(name)s"
+msgstr "Langganan %(name)s telah kedaluwarsa"
+
+msgid "انتهى الاشتراك منذ "
+msgstr "Langganan kedaluwarsa "
+
+msgid "انشر"
+msgstr "Publikasikan"
+
+msgid "انشر الآن"
+msgstr "Publikasikan sekarang"
+
+msgid "انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها."
+msgstr "Publikasikan postingan yang disetujui ke akun terhubung sesuai jadwal."
+
+msgid "انضم في"
+msgstr "Bergabung"
+
+msgid "انطلاق"
+msgstr "Peluncuran"
+
+msgid "اهتمامات تضيفها في مدير الإعلانات"
+msgstr "Minat yang ditambahkan di Ads Manager"
+
+msgid "بألوان علامتك وخطوطها وشعارها"
+msgstr "Dengan warna, font, dan logo merek Anda"
+
+msgid "بؤرة"
+msgstr "Sorotan"
+
+msgid "بانتظار الاعتماد"
+msgstr "Menunggu persetujuan"
+
+msgid "بانتظار الرد"
+msgstr "Menunggu balasan"
+
+msgid "بانتظار المراجعة"
+msgstr "Menunggu tinjauan"
+
+msgid "بانتظار الموافقة"
+msgstr "Menunggu persetujuan"
+
+msgid "بانتظار نافذة تيك توك…"
+msgstr "Menunggu jendela TikTok…"
+
+msgid "بانتظار نافذة فيسبوك…"
+msgstr "Menunggu jendela Facebook…"
+
+msgid "بحاجة لتحديث التصميم"
+msgstr "Desain perlu diperbarui"
+
+msgid "بحث في الاشتراكات"
+msgstr "Cari langganan"
+
+msgid "بحث في الفريق"
+msgstr "Cari tim"
+
+msgid "بحث في المهام"
+msgstr "Cari tugas"
+
+msgid "بحساب مالكها ("
+msgstr "dengan akun pemiliknya ("
+
+msgid "بدأ تصميم الصور…"
+msgstr "Mendesain gambar…"
+
+msgid "بداية الاشتراك"
+msgstr "Awal langganan"
+
+msgid "بداية العشر الأواخر من رمضان"
+msgstr "Awal sepuluh hari terakhir Ramadan"
+
+msgid "بداية شهر رمضان"
+msgstr "Awal Ramadan"
+
+msgid "بداية عشر ذي الحجة"
+msgstr "Awal sepuluh hari pertama Dzulhijjah"
+
+msgid "بدون"
+msgstr "Tidak ada"
+
+msgid "بدون انتهاء"
+msgstr "Tanpa tanggal berakhir"
+
+msgid "بدون تاريخ انتهاء"
+msgstr "Tanpa tanggal berakhir"
+
+msgid "بدون حساب إنستغرام"
+msgstr "Tanpa akun Instagram"
+
+msgid "بدون وصف"
+msgstr "Tanpa deskripsi"
+
+msgid "بديل ذكي لوكالات التسويق"
+msgstr "Alternatif cerdas pengganti agensi pemasaran"
+
+msgid "برج"
+msgstr "Menara"
+
+msgid "برجر"
+msgstr "Burger"
+
+msgid "برمجة"
+msgstr "Kode"
+
+msgid "بريد"
+msgstr "Email"
+
+msgid "بريد التواصل مع المشترك."
+msgstr "Email kontak untuk pelanggan."
+
+msgid "بريد العميل"
+msgstr "Email klien"
+
+msgid "بسيط"
+msgstr "Minimalis"
+
+msgid "بصفتك مشرف النظام."
+msgstr "sebagai admin sistem."
+
+msgid "بصمة"
+msgstr "Sidik jari"
+
+msgid "بطاقة"
+msgstr "Kartu"
+
+msgid "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل"
+msgstr "Setelah aktif, Anda menambahkan perusahaan dan Wakeel mulai bekerja"
+
+msgid "بقع لونية"
+msgstr "Gumpalan warna"
+
+msgid "بلا زخرفة"
+msgstr "Tanpa motif"
+
+msgid "بلا مستند"
+msgstr "Tanpa dokumen"
+
+msgid "بناء"
+msgstr "Konstruksi"
+
+msgid "بنك"
+msgstr "Bank"
+
+msgid "بودكاست"
+msgstr "Podcast"
+
+msgid "بيئة"
+msgstr "Lingkungan"
+
+msgid "بيانات"
+msgstr "Data"
+
+msgid "بيانات إضافية"
+msgstr "Rincian tambahan"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "Rincian dan identitas perusahaan"
+
+msgid "بيانات النشاط"
+msgstr "Rincian bisnis"
+
+msgid "بيتزا"
+msgstr "Pizza"
+
+msgid "بين 1 و%(max)s يوماً."
+msgstr "Antara 1 dan %(max)s hari."
+
+msgid "بين 1 و%(max)s."
+msgstr "Antara 1 dan %(max)s."
+
+msgid "تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى."
+msgstr "Instagram terlalu lama menyiapkan gambar. Coba publikasikan lagi."
+
+msgid "تأخر تيك توك في استلام الصورة. حاول الإرسال مرة أخرى."
+msgstr "TikTok terlalu lama menerima gambar. Coba kirim lagi."
+
+msgid "تأكيد كلمة المرور"
+msgstr "Konfirmasi kata sandi"
+
+msgid "تاريخ الاعتماد"
+msgstr "Tanggal persetujuan"
+
+msgid "تاريخ غير صالح."
+msgstr "Tanggal tidak valid."
+
+msgid "تبدأ مع وكيل فور وصول البريد"
+msgstr "Anda bisa mulai memakai Wakeel begitu email tiba"
+
+msgid "تجاهل"
+msgstr "Tutup"
+
+msgid "تجديد"
+msgstr "Perpanjang"
+
+msgid "تجديد %(name)s"
+msgstr "Perpanjang %(name)s"
+
+msgid "تجديد الاشتراك"
+msgstr "Perpanjang langganan"
+
+msgid "تجريبي"
+msgstr "Uji coba"
+
+msgid "تحديث"
+msgstr "Segarkan"
+
+msgid "تحديث أرقام الأداء"
+msgstr "Perbarui angka kinerja"
+
+msgid "تحديث الأرقام"
+msgstr "Perbarui angka"
+
+msgid "تحديث التصميم"
+msgstr "Perbarui desain"
+
+msgid "تحديث التصميم…"
+msgstr "Memperbarui desain…"
+
+msgid "تحديد الكل"
+msgstr "Pilih semua"
+
+msgid "تحقق من بريدك"
+msgstr "Periksa email Anda"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "Periksa email Anda"
+
+msgid "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة"
+msgstr ""
+"Kontrol terpusat atas pelanggan, penggunaan, biaya, dan operasional platform"
+
+msgid "تحليل المنافسين"
+msgstr "Analisis pesaing"
+
+msgid "تخييم"
+msgstr "Berkemah"
+
+msgid "تدريب"
+msgstr "Pelatihan"
+
+msgid "تدرّج"
+msgstr "Gradasi"
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "Anda membayar sesuai pemakaian"
+
+msgid "تذكير"
+msgstr "Pengingat"
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "Terjemahkan, ringkas, ekstrak"
+
+msgid "ترويج"
+msgstr "Promosi"
+
+msgid "تسجيل الخروج"
+msgstr "Keluar"
+
+msgid "تسجيل الدخول"
+msgstr "Masuk"
+
+msgid "تسوق"
+msgstr "Belanja"
+
+msgid "تسويق"
+msgstr "Pemasaran"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "Pemasaran, dokumen, dan tim Anda"
+
+msgid "تشغيل المخطط الآلي"
+msgstr "Aktifkan perencana otomatis"
+
+msgid "تصاميم احترافية بألوانك وخطوطك وشعارك"
+msgstr "Desain profesional dengan warna, font, dan logo Anda"
+
+msgid "تصاميم بهويتك"
+msgstr "Desain sesuai merek"
+
+msgid "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق"
+msgstr ""
+"Postingan masuk ke kotak masuk TikTok Anda untuk Anda selesaikan di aplikasi"
+
+msgid "تصميم الصور"
+msgstr "Desain gambar"
+
+msgid "تصميم الصور: %(done)s من %(total)s"
+msgstr "Mendesain gambar: %(done)s dari %(total)s"
+
+msgid "تصميم الصورة…"
+msgstr "Mendesain gambar…"
+
+msgid "تصميم المنشور: %(headline)s"
+msgstr "Desain postingan: %(headline)s"
+
+msgid "تصميم بهويتك"
+msgstr "Desain dalam identitas Anda"
+
+msgid "تصميم ثابت"
+msgstr "Desain statis"
+
+msgid "تصميم جديد"
+msgstr "Desain baru"
+
+msgid "تصميم صور الخطة"
+msgstr "Mendesain gambar rencana"
+
+msgid "تصميم صورة منشور"
+msgstr "Mendesain gambar postingan"
+
+msgid "تصوير"
+msgstr "Fotografi"
+
+msgid "تطبيق Meta"
+msgstr "Aplikasi Meta"
+
+msgid "تطبيق Meta غير مضبوط بعد."
+msgstr "Aplikasi Meta belum dikonfigurasi."
+
+msgid "تعديل"
+msgstr "Ubah"
+
+msgid "تعديل %(name)s"
+msgstr "Ubah %(name)s"
+
+msgid "تعديل المنافس"
+msgstr "Ubah pesaing"
+
+msgid "تعديل نص"
+msgstr "Ubah teks"
+
+msgid "تعذّر"
+msgstr "Gagal"
+
+msgid "تعذّر إعداد التقرير."
+msgstr "Laporan tidak dapat disiapkan."
+
+msgid "تعذّر إعداد الخطة"
+msgstr "Tidak dapat menyiapkan rencana"
+
+msgid "تعذّر إعداد خطة المحتوى: {error}"
+msgstr "Tidak dapat menyiapkan rencana konten: {error}"
+
+msgid "تعذّر الإعداد"
+msgstr "Penyiapan gagal"
+
+msgid "تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى."
+msgstr ""
+"Tidak dapat terhubung ke situs web. Pastikan situs aktif, lalu coba lagi."
+
+msgid "تعذّر التحليل"
+msgstr "Analisis gagal"
+
+msgid "تعذّر الربط"
+msgstr "Tidak dapat terhubung"
+
+msgid "تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح."
+msgstr ""
+"Situs web ini tidak ditemukan. Periksa apakah ejaan tautan sudah benar."
+
+msgid "تعذّر النشر"
+msgstr "Tidak dapat memublikasikan"
+
+msgid "تعذّر النشر:"
+msgstr "Tidak dapat memublikasikan:"
+
+msgid "تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل."
+msgstr "Tidak dapat menjangkau layanan AI. Silakan coba lagi sebentar lagi."
+
+msgid "تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت."
+msgstr "Tidak dapat menjangkau server Meta. Periksa koneksi internet server."
+
+msgid "تعذّر الوصول إلى خوادم واتساب."
+msgstr "Tidak dapat menjangkau server WhatsApp."
+
+msgid "تعذّر تحديث التصميم"
+msgstr "Tidak dapat memperbarui desain"
+
+msgid "تعذّر تصميم الصور"
+msgstr "Tidak dapat mendesain gambar"
+
+msgid "تعذّر قراءة الأرقام: %(problem)s"
+msgstr "Tidak dapat membaca angka: %(problem)s"
+
+msgid "تعذّر نشر «{title}»: {error}"
+msgstr "Tidak dapat memublikasikan “{title}”: {error}"
+
+msgid "تعذّرت إعادة الكتابة"
+msgstr "Tidak dapat menulis ulang postingan"
+
+msgid "تعذّرت قراءة الموقع."
+msgstr "Tidak dapat membaca situs web."
+
+msgid "تعليق"
+msgstr "Komentar"
+
+msgid "تعليق %(name)s"
+msgstr "Tangguhkan %(name)s"
+
+msgid "تعليق «%(name)s»؟"
+msgstr "Tangguhkan “%(name)s”?"
+
+msgid "تعليق العميل"
+msgstr "Komentar klien"
+
+msgid "تعليق عاجل"
+msgstr "Komentar mendesak"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "Komentar menunggu balasan"
+
+msgid "تعليقات جديدة: %(new)s، قُرئ منها %(read)s."
+msgstr "Komentar baru: %(new)s, %(read)s dibaca."
+
+msgid "تعليقك"
+msgstr "Komentar Anda"
+
+msgid "تعليم"
+msgstr "Pendidikan"
+
+msgid "تعليم الكل كمقروء"
+msgstr "Tandai semua sudah dibaca"
+
+msgid "تعلّم من %(pending_signals)s ملاحظة جديدة"
+msgstr "Pelajari dari %(pending_signals)s catatan baru"
+
+msgid "تعلّم وكيل من %(count)s ملاحظة."
+msgstr "Wakeel belajar dari %(count)s catatan."
+
+msgid "تعلّمها وكيل"
+msgstr "Dipelajari oleh Wakeel"
+
+msgid "تغيير كلمة المرور"
+msgstr "Ubah kata sandi"
+
+msgid "تغيّرت حالة المنشور، فلم يُنشر تلقائياً."
+msgstr "Status postingan berubah, jadi tidak dipublikasikan otomatis."
+
+msgid "تفاعل"
+msgstr "interaksi"
+
+msgid "تفعيل"
+msgstr "Aktifkan"
+
+msgid "تفعيل الرابط"
+msgstr "Aktifkan tautan"
+
+msgid "تقرير"
+msgstr "Laporan"
+
+msgid "تقرير %(m)s"
+msgstr "Laporan %(m)s"
+
+msgid "تقرير %(m)s · %(name)s"
+msgstr "Laporan %(m)s · %(name)s"
+
+msgid "تقرير أداء %(m)s"
+msgstr "Laporan kinerja %(m)s"
+
+msgid "تقرير أداء %(month)s جاهز."
+msgstr "Laporan kinerja %(month)s sudah siap."
+
+msgid "تقرير أداء %(month)s: %(name)s"
+msgstr "Laporan kinerja %(month)s: %(name)s"
+
+msgid "تقرير من %(name)s"
+msgstr "Laporan oleh %(name)s"
+
+msgid "تقويم النشر"
+msgstr "Kalender penerbitan"
+
+msgid "تقويم نشر ومراجعة واعتماد في مكان واحد"
+msgstr "Kalender penerbitan, tinjauan, dan persetujuan di satu tempat"
+
+msgid "تقويم ونشر"
+msgstr "Kalender & penerbitan"
+
+msgid "تقييم"
+msgstr "Peringkat"
+
+msgid "تكامل"
+msgstr "Integrasi"
+
+msgid "تكلفة 12 شهراً"
+msgstr "Biaya 12 bulan"
+
+msgid "تكلفة آخر 12 شهراً"
+msgstr "Biaya selama 12 bulan terakhir"
+
+msgid "تكلفة الذكاء الاصطناعي"
+msgstr "Biaya AI"
+
+msgid "تكلفة الذكاء الاصطناعي لكل شهر"
+msgstr "Biaya AI per bulan"
+
+msgid "تكلفة الشهر"
+msgstr "Biaya bulan ini"
+
+msgid "تكلفة هذا الشهر"
+msgstr "Biaya bulan ini"
+
+msgid "تلقائي"
+msgstr "Otomatis"
+
+msgid "تم إرسال الرد."
+msgstr "Balasan terkirim."
+
+msgid "تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…"
+msgstr "%(count)s postingan disiapkan. Mendesain gambar…"
+
+msgid "تم إعداد الخطة و%(count)s منشوراً."
+msgstr "Rencana dan %(count)s postingan disiapkan."
+
+msgid "تم إعداد تقرير %(month)s."
+msgstr "Laporan %(month)s sudah siap."
+
+msgid "تم إنشاء اشتراك «%(name)s» ومالكه %(email)s."
+msgstr "Langganan “%(name)s” dibuat, dengan %(email)s sebagai pemiliknya."
+
+msgid "تم إيقاف إشعارات البريد."
+msgstr "Notifikasi email dimatikan."
+
+msgid "تم إيقاف الرد التلقائي."
+msgstr "Balas otomatis nonaktif."
+
+msgid "تم إيقاف المخطط الآلي."
+msgstr "Perencana otomatis nonaktif."
+
+msgid "تم إيقاف النشر التلقائي."
+msgstr "Penerbitan otomatis nonaktif."
+
+msgid "تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل."
+msgstr "Tautan klien dimatikan. Tautan lama tidak berfungsi lagi."
+
+msgid "تم اختيار "
+msgstr "Dipilih"
+
+msgid "تم اختيار الحساب الإعلاني."
+msgstr "Akun iklan dipilih."
+
+msgid "تم استلام طلب"
+msgstr "Kami telah menerima permintaan untuk"
+
+msgid "تم اعتماد "
+msgstr "Disetujui "
+
+msgid "تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد."
+msgstr "“%(name)s” disetujui, dan pemiliknya telah dikirimi email."
+
+msgid "تم اعتماد «%(title)s» ✅"
+msgstr "“%(title)s” disetujui ✅"
+
+msgid "تم اعتماد حساب %(company)s في وكيل، ويمكنك البدء الآن."
+msgstr ""
+"Akun %(company)s di Wakeel telah disetujui, dan Anda bisa mulai sekarang."
+
+msgid "تم الحفظ الساعة "
+msgstr "Disimpan pada "
+
+msgid "تم الربط بنجاح"
+msgstr "Berhasil terhubung"
+
+msgid "تم الرد"
+msgstr "Dibalas"
+
+msgid "تم النشر"
+msgstr "Dipublikasikan"
+
+msgid "تم النشر يدوياً"
+msgstr "Dipublikasikan manual"
+
+msgid "تم تجديد «%(name)s» حتى %(date)s."
+msgstr "“%(name)s” diperpanjang hingga %(date)s."
+
+msgid "تم تحديث أرقام %(count)s منشور."
+msgstr "Angka diperbarui untuk %(count)s postingan."
+
+msgid "تم تحديث التصميم."
+msgstr "Desain diperbarui."
+
+msgid "تم تحديث الحالة: "
+msgstr "Status diperbarui: "
+
+msgid "تم تحديث الدور."
+msgstr "Peran diperbarui."
+
+msgid "تم تحديث رابط التقرير."
+msgstr "Tautan laporan diperbarui."
+
+msgid "تم تشغيل الرد التلقائي على الأسئلة البسيطة والإشادات."
+msgstr "Balas otomatis untuk pertanyaan sederhana dan pujian aktif."
+
+msgid "تم تشغيل المخطط الآلي."
+msgstr "Perencana otomatis aktif."
+
+msgid "تم تصميم %(count)s صورة."
+msgstr "%(count)s gambar didesain."
+
+msgid "تم تعديل الرصيد."
+msgstr "Saldo diubah."
+
+msgid "تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه."
+msgstr ""
+"“%(name)s” ditangguhkan; timnya tidak dapat bekerja sampai Anda "
+"mengaktifkannya kembali."
+
+msgid "تم تعيين كلمة المرور"
+msgstr "Kata sandi diatur"
+
+msgid "تم تغيير كلمة المرور"
+msgstr "Kata sandi diubah"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "Kata sandi Anda telah diubah."
+
+msgid "تم تغيير موعد النشر"
+msgstr "Tanggal publikasi diubah"
+
+msgid "تم تفعيل إشعارات البريد."
+msgstr "Notifikasi email diaktifkan."
+
+msgid "تم تفعيل النشر التلقائي."
+msgstr "Penerbitan otomatis aktif."
+
+msgid "تم تفعيل حساب %(name)s، وأُبلغ بالبريد."
+msgstr "Akun %(name)s kini aktif, dan mereka telah dikirimi email."
+
+msgid "تم تفعيل حسابك في وكيل"
+msgstr "Akun Wakeel Anda aktif"
+
+msgid "تم تفعيل حسابك في وكيل: %(name)s"
+msgstr "Akun Wakeel Anda aktif: %(name)s"
+
+msgid "تم تنشيط «%(name)s»."
+msgstr "“%(name)s” diaktifkan kembali."
+
+msgid "تم حذف «%(name)s» وكل بياناتها نهائياً."
+msgstr "“%(name)s” dan semua datanya telah dihapus secara permanen."
+
+msgid "تم حذف الخطة ومنشوراتها."
+msgstr "Rencana dan postingannya telah dihapus."
+
+msgid "تم حذف الصورة."
+msgstr "Gambar dihapus."
+
+msgid "تم حذف المنافس."
+msgstr "Pesaing dihapus."
+
+msgid "تم حذف المنشور."
+msgstr "Postingan dihapus."
+
+msgid "تم حذف حسابك وكل بياناته نهائياً."
+msgstr "Akun Anda dan semua datanya telah dihapus secara permanen."
+
+msgid "تم حفظ الإعدادات."
+msgstr "Pengaturan disimpan."
+
+msgid "تم حفظ المنافس."
+msgstr "Pesaing disimpan."
+
+msgid "تم حفظ بيانات «%(name)s»."
+msgstr "“%(name)s” disimpan."
+
+msgid "تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات."
+msgstr ""
+"Identitas merek disimpan. Desain ulang gambar untuk menerapkan perubahan."
+
+msgid "تم حفظ هوية الوكالة."
+msgstr "Merek agensi disimpan."
+
+msgid "تم ربط تيك توك"
+msgstr "TikTok terhubung"
+
+msgid "تم ربط صفحة «%(page)s»"
+msgstr "Halaman “%(page)s” terhubung"
+
+msgid "تم رفض طلب %(name)s وحذفه."
+msgstr "Permintaan %(name)s ditolak dan dihapus."
+
+msgid "تم رفع %(count)s صورة."
+msgstr "%(count)s gambar diunggah."
+
+msgid "تم فصل الحساب."
+msgstr "Akun diputuskan."
+
+msgid "تم نشرها"
+msgstr "Dipublikasikan"
+
+msgid "تمت إزالة العضو."
+msgstr "Anggota dihapus."
+
+msgid "تمت إضافة العضو."
+msgstr "Anggota ditambahkan."
+
+msgid "تمت إعادة الكتابة."
+msgstr "Penulisan ulang selesai."
+
+msgid "تميّز"
+msgstr "Kilau"
+
+msgid "تنبيه"
+msgstr "Peringatan"
+
+msgid "تنزيل"
+msgstr "Unduh"
+
+msgid "تنزيل نصوص المنشورات"
+msgstr "Unduh teks postingan"
+
+msgid "تنشيط"
+msgstr "Aktifkan kembali"
+
+msgid "تنشيط %(name)s"
+msgstr "Aktifkan kembali %(name)s"
+
+msgid "تنفيذ"
+msgstr "Terapkan"
+
+msgid "توجيهات هذا الشهر"
+msgstr "Brief bulan ini"
+
+msgid "توجيهاتك:"
+msgstr "Brief Anda:"
+
+msgid "توسيع القائمة"
+msgstr "Perluas menu"
+
+msgid "توصيات الشهر القادم"
+msgstr "Rekomendasi untuk bulan depan"
+
+msgid "توصيل"
+msgstr "Pengiriman"
+
+msgid "تيك توك"
+msgstr "TikTok"
+
+msgid "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات."
+msgstr "Warna dan font ini dipakai di setiap desain postingan."
+
+msgid "تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات."
+msgstr "Ditambahkan ke postingan bila sesuai, dipisahkan spasi."
+
+msgid "جائزة"
+msgstr "Penghargaan"
+
+msgid "جارٍ التحليل…"
+msgstr "Menganalisis…"
+
+msgid "جارٍ التحميل…"
+msgstr "Memuat…"
+
+msgid "جارٍ التصميم…"
+msgstr "Mendesain…"
+
+msgid "جارٍ النشر…"
+msgstr "Memublikasikan…"
+
+msgid "جارٍ تصميم الصور…"
+msgstr "Mendesain gambar…"
+
+msgid "جارٍ قراءة أرقام الشهر…"
+msgstr "Membaca angka bulan ini…"
+
+msgid "جاهز"
+msgstr "Siap"
+
+msgid "جاهزة"
+msgstr "Siap"
+
+msgid "جديد"
+msgstr "Baru"
+
+msgid "جري"
+msgstr "Berjalan"
+
+msgid "جريء"
+msgstr "Tebal"
+
+msgid "جريئة وحماسية"
+msgstr "Tebal dan energik"
+
+msgid "جوال"
+msgstr "Seluler"
+
+msgid "جودة"
+msgstr "Kualitas"
+
+msgid "جُهّز «%(title)s» لإعادة النشر."
+msgstr "“%(title)s” siap dipublikasikan lagi."
+
+msgid "حاسوب"
+msgstr "Laptop"
+
+msgid "حالة الاشتراك"
+msgstr "Status langganan"
+
+msgid "حالة الخدمات"
+msgstr "Status layanan"
+
+msgid "حالة المنشورات"
+msgstr "Status postingan"
+
+msgid "حالة النظام"
+msgstr "Status sistem"
+
+msgid "حالة غير معروفة."
+msgstr "Status tidak diketahui."
+
+msgid "حاول مرة أخرى"
+msgstr "Coba lagi"
+
+msgid "حب"
+msgstr "Cinta"
+
+msgid "حدث خطأ غير متوقع."
+msgstr "Terjadi kesalahan yang tidak terduga."
+
+msgid "حدّد دولة واحدة على الأقل."
+msgstr "Pilih setidaknya satu negara."
+
+msgid "حذف"
+msgstr "Hapus"
+
+msgid "حذف %(name)s"
+msgstr "Hapus %(name)s"
+
+msgid "حذف %(name)s؟"
+msgstr "Hapus %(name)s?"
+
+msgid "حذف «%(name)s» نهائياً؟"
+msgstr "Hapus “%(name)s” secara permanen?"
+
+msgid "حذف الاقتراح"
+msgstr "Hapus saran"
+
+msgid "حذف الحساب"
+msgstr "Hapus akun"
+
+msgid "حذف الخطة"
+msgstr "Hapus rencana"
+
+msgid "حذف الخطة؟"
+msgstr "Hapus rencana?"
+
+msgid "حذف الشركة"
+msgstr "Hapus perusahaan"
+
+msgid "حذف الشركة متاح لمالكها فقط."
+msgstr "Hanya pemilik yang dapat menghapus perusahaan."
+
+msgid "حذف الشركة نهائياً"
+msgstr "Hapus perusahaan secara permanen"
+
+msgid "حذف الصورة"
+msgstr "Hapus gambar"
+
+msgid "حذف الصورة؟"
+msgstr "Hapus gambar?"
+
+msgid "حذف القاعدة"
+msgstr "Hapus aturan"
+
+msgid "حذف المنشور"
+msgstr "Hapus postingan"
+
+msgid "حذف المنشور؟"
+msgstr "Hapus postingan?"
+
+msgid "حذف حسابك نهائياً؟"
+msgstr "Hapus akun Anda secara permanen?"
+
+msgid "حذف حسابك والشركات التي تملكها نهائياً."
+msgstr "Hapus akun Anda dan perusahaan yang Anda miliki, secara permanen."
+
+msgid "حذف حسابي"
+msgstr "Hapus akun saya"
+
+msgid "حذف حسابي نهائياً"
+msgstr "Hapus akun saya secara permanen"
+
+msgid "حذف نهائي"
+msgstr "Hapus permanen"
+
+msgid "حذف هذه القاعدة؟"
+msgstr "Hapus aturan ini?"
+
+msgid "حساب %(name)s مفعّل بالفعل."
+msgstr "Akun %(name)s sudah aktif."
+
+msgid "حساب إنستغرام"
+msgstr "Akun Instagram"
+
+msgid "حساب احترافي ومربوط بصفحة الشركة"
+msgstr "Akun profesional yang ditautkan ke Halaman perusahaan"
+
+msgid "حساب تجريبي"
+msgstr "Akun uji coba"
+
+msgid "حساب تواصل"
+msgstr "Akun sosial"
+
+msgid "حساب تيك توك"
+msgstr "Akun TikTok"
+
+msgid "حساب مالك النشاط"
+msgstr "Akun pemilik bisnis"
+
+msgid "حسابات التواصل"
+msgstr "Akun sosial"
+
+msgid "حسابات النشر"
+msgstr "Akun penerbitan"
+
+msgid "حسابات النشر:"
+msgstr "Akun penerbitan:"
+
+msgid "حسابك قيد المراجعة"
+msgstr "Akun Anda sedang ditinjau"
+
+msgid "حسابك قيد المراجعة."
+msgstr "Akun Anda sedang ditinjau."
+
+msgid "حسابي احترافي، التالي"
+msgstr "Sudah profesional, lanjut"
+
+msgid "حسب التصميم"
+msgstr "Menurut tata letak"
+
+msgid "حسب الشركة"
+msgstr "Menurut perusahaan"
+
+msgid "حسب المحور"
+msgstr "Menurut pilar"
+
+msgid "حسب النموذج"
+msgstr "Menurut model"
+
+msgid "حسب تكلفة الذكاء الاصطناعي"
+msgstr "Menurut biaya AI"
+
+msgid "حسب نوع المهمة"
+msgstr "Menurut jenis tugas"
+
+msgid "حسب يوم النشر"
+msgstr "Menurut hari dalam seminggu"
+
+msgid "حصة"
+msgstr "Bagikan"
+
+msgid "حفظ"
+msgstr "Simpan"
+
+msgid "حفظ التغييرات"
+msgstr "Simpan perubahan"
+
+msgid "حفظ المنشورات…"
+msgstr "Menyimpan postingan…"
+
+msgid "حفظ كلمة المرور"
+msgstr "Simpan kata sandi"
+
+msgid "حقيقي (مدفوع)"
+msgstr "Nyata (berbayar)"
+
+msgid "حلقات"
+msgstr "Cincin"
+
+msgid "حلويات"
+msgstr "Manisan"
+
+msgid "حلّل المنافسين"
+msgstr "Analisis pesaing"
+
+msgid "حماس"
+msgstr "Kegembiraan"
+
+msgid "حوّل حساب إنستغرام إلى احترافي"
+msgstr "Ubah Instagram ke akun profesional"
+
+msgid "حُذفت القاعدة."
+msgstr "Aturan dihapus."
+
+msgid "خادم"
+msgstr "Server"
+
+msgid "خارج الذروة"
+msgstr "Di luar jam sibuk"
+
+msgid "خارج الذروة (DeepSeek)"
+msgstr "Di luar jam sibuk (DeepSeek)"
+
+msgid "خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل."
+msgstr "Layanan AI sedang sibuk. Silakan coba lagi sebentar lagi."
+
+msgid "خريطة"
+msgstr "Peta"
+
+msgid "خصم"
+msgstr "Diskon"
+
+msgid "خط العناوين"
+msgstr "Font judul"
+
+msgid "خط النصوص"
+msgstr "Font isi"
+
+msgid "خطة"
+msgstr "Rencana"
+
+msgid "خطة %(upcoming)s موجودة: افتحها"
+msgstr "Rencana %(upcoming)s sudah ada: buka"
+
+msgid "خطة {title} جاهزة: {count} منشوراً بانتظار المراجعة."
+msgstr "Rencana {title} siap: {count} postingan menunggu tinjauan."
+
+msgid "خطة الشهر القادم"
+msgstr "rencana bulan depan"
+
+msgid "خطة المحتوى"
+msgstr "Rencana konten"
+
+msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
+msgstr "Rencana konten siap ditinjau: %(name)s"
+
+msgid "خطة المحتوى — الشهر القادم"
+msgstr "Rencana konten — bulan depan"
+
+msgid "خطة جديدة"
+msgstr "Rencana baru"
+
+msgid "خطة شهرية ومنشورات"
+msgstr "Rencana bulanan dan postingan"
+
+msgid "خطة قيد الإعداد"
+msgstr "Rencana sedang disiapkan"
+
+msgid "خطة محتوى"
+msgstr "Rencana konten"
+
+msgid "خطة محتوى جديدة"
+msgstr "Rencana konten baru"
+
+msgid "خطط المحتوى"
+msgstr "Rencana konten"
+
+msgid "خطوط مائلة"
+msgstr "Garis"
+
+msgid "خلال 7 أيام، مع السبب التقني"
+msgstr "Dalam 7 hari terakhir, beserta penyebab teknisnya"
+
+msgid "خيارات الرابط"
+msgstr "Opsi tautan"
+
+msgid "داكن عميق"
+msgstr "Dalam"
+
+msgid "دبي (GMT+4)"
+msgstr "Dubai (GMT+4)"
+
+msgid "دخول"
+msgstr "Masuk"
+
+msgid "دخول كمدير %(name)s"
+msgstr "Masuk sebagai admin %(name)s"
+
+msgid "دخول كمدير المشترك"
+msgstr "Masuk sebagai admin pelanggan"
+
+msgid "دعم فني"
+msgstr "Dukungan"
+
+msgid "دفع"
+msgstr "Pembayaran"
+
+msgid "دهان"
+msgstr "Cat"
+
+msgid "دواء"
+msgstr "Kedokteran"
+
+msgid "دور %(display_name)s"
+msgstr "Peran %(display_name)s"
+
+msgid "ديس"
+msgstr "Des"
+
+msgid "ديسمبر"
+msgstr "Desember"
+
+msgid "ذكاء"
+msgstr "Kecerdasan"
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "AI: interaktif (ada orang yang menunggu)"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "AI: kualitas terbaik"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "AI: latar belakang"
+
+msgid "ذكرى انتصارات أكتوبر"
+msgstr "Peringatan Kemenangan Oktober"
+
+msgid "ذكرى ثورة 23 يوليو"
+msgstr "Peringatan Revolusi 23 Juli"
+
+msgid "ذكية"
+msgstr "platform cerdas"
+
+msgid "رأس السنة الميلادية"
+msgstr "Tahun Baru"
+
+msgid "رأس السنة الهجرية"
+msgstr "Tahun Baru Islam"
+
+msgid "رابط العميل"
+msgstr "Tautan klien"
+
+msgid "رابط العميل جاهز. انسخه وأرسله للعميل."
+msgstr "Tautan klien siap. Salin dan kirim ke klien Anda."
+
+msgid "رابط جديد"
+msgstr "Tautan baru"
+
+msgid "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة."
+msgstr ""
+"Periksa kolom yang wajib diisi atau tidak valid pada langkah yang disorot."
+
+msgid "راجع الحقول المظللة."
+msgstr "Periksa kolom yang disorot."
+
+msgid "راجع الصلاحيات واضغط «متابعة» للموافقة عليها."
+msgstr "Tinjau izin lalu tekan “Lanjutkan” untuk menyetujuinya."
+
+msgid "راجع الطلب ووافق عليه من لوحة مشرف النظام:"
+msgstr "Tinjau dan setujui dari konsol admin sistem:"
+
+msgid "راجع واعتمد"
+msgstr "Tinjau dan setujui"
+
+msgid "راسلنا وسنرد عليك في أقرب وقت."
+msgstr "Kirim email kepada kami dan kami akan segera menghubungi Anda."
+
+msgid "ربط"
+msgstr "Hubungkan"
+
+msgid "ربط إنستغرام الآن"
+msgstr "Tautkan Instagram sekarang"
+
+msgid "ربط تيك توك"
+msgstr "Hubungkan TikTok"
+
+msgid "ربط حسابات النشر"
+msgstr "Hubungkan akun penerbitan"
+
+msgid "ربط فيسبوك وإنستغرام"
+msgstr "Hubungkan Facebook dan Instagram"
+
+msgid "ربطتهما، التالي"
+msgstr "Sudah tertaut, lanjut"
+
+msgid "ربطه الآن"
+msgstr "Tautkan sekarang"
+
+msgid "ربما استُخدم الرابط من قبل أو انتهت صلاحيته. اطلب رابطاً جديداً."
+msgstr "Tautan mungkin sudah dipakai atau kedaluwarsa. Minta yang baru."
+
+msgid "رجال"
+msgstr "Pria"
+
+msgid "رجوع"
+msgstr "Kembali"
+
+msgid "رد الموقع برمز %(code)s. تأكد من الرابط."
+msgstr "Situs web menjawab dengan kode %(code)s. Periksa tautannya."
+
+msgid "رد تلقائي من وكيل"
+msgstr "Balasan otomatis oleh Wakeel"
+
+msgid "رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات."
+msgstr ""
+"Email saat rencana siap, serta untuk permintaan perubahan dan komentar."
+
+msgid "رفض"
+msgstr "Tolak"
+
+msgid "رفض تيك توك الطلب: %(detail)s"
+msgstr "TikTok menolak permintaan: %(detail)s"
+
+msgid "رفض طلب %(display_name)s؟"
+msgstr "Tolak permintaan %(display_name)s?"
+
+msgid "رفض واتساب الرسالة: %(detail)s"
+msgstr "WhatsApp menolak pesan: %(detail)s"
+
+msgid "رفض وحذف"
+msgstr "Tolak dan hapus"
+
+msgid "رفضت Meta الطلب: %(detail)s"
+msgstr "Meta menolak permintaan: %(detail)s"
+
+msgid "رفع"
+msgstr "Unggah"
+
+msgid "رقم التواصل"
+msgstr "Nomor kontak"
+
+msgid "رقم السجل التجاري"
+msgstr "No. registrasi usaha"
+
+msgid "رقم الهاتف"
+msgstr "Nomor telepon"
+
+msgid "رقم بارز"
+msgstr "Angka besar"
+
+msgid "رمز %(code)s"
+msgstr "kode %(code)s"
+
+msgid "رمز QR"
+msgstr "Kode QR"
+
+msgid "رمز مُخرج"
+msgstr "token keluaran"
+
+msgid "رمز مُدخل"
+msgstr "token masukan"
+
+msgid "رمضان"
+msgstr "Ramadan"
+
+msgid "رموز الدول، مثل: QA SA AE"
+msgstr "Kode negara, mis. QA SA AE"
+
+msgid "رموز مُخرجة"
+msgstr "Token keluaran"
+
+msgid "رموز مُدخلة"
+msgstr "Token masukan"
+
+msgid "روابط أو أسماء حسابات، مفصولة بمسافات."
+msgstr "Tautan atau nama akun, dipisahkan spasi."
+
+msgid "روبوت"
+msgstr "Robot"
+
+msgid "ريادة"
+msgstr "Kepemimpinan"
+
+msgid "رياضة"
+msgstr "Kebugaran"
+
+msgid "زوايا تميّزك"
+msgstr "Sudut pandang yang membedakan Anda"
+
+msgid "سؤال"
+msgstr "Pertanyaan"
+
+msgid "سبت"
+msgstr "Sep"
+
+msgid "سبتمبر"
+msgstr "September"
+
+msgid "ستدخل مساحة عمل"
+msgstr "Anda akan masuk ke ruang kerja"
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "Anda akan menerima notifikasi di perangkat ini"
+
+msgid "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات."
+msgstr ""
+"Peringatan untuk rencana siap, tinjauan, dan komentar akan muncul di sini."
+
+msgid "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:"
+msgstr "Jendela TikTok akan terbuka. Ini yang perlu dilakukan di dalamnya:"
+
+msgid "ستفتح نافذة من فيسبوك. هذا ما ستفعله فيها:"
+msgstr "Jendela Facebook akan terbuka. Ini yang perlu dilakukan di dalamnya:"
+
+msgid "ستُحذف هذه الخطة نهائياً."
+msgstr "Rencana ini akan dihapus secara permanen."
+
+msgid "سجّل %(date_joined)s"
+msgstr "Mendaftar %(date_joined)s lalu"
+
+msgid "سجّل الدخول"
+msgstr "Masuk"
+
+msgid "سجّل الدخول بحساب تيك توك الخاص بالشركة."
+msgstr "Masuk dengan akun TikTok perusahaan."
+
+msgid "سجّل الدخول لمتابعة تسويق شركتك."
+msgstr "Masuk untuk melanjutkan pemasaran perusahaan Anda."
+
+msgid "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:"
+msgstr "Masuk dan mulai menyiapkan rencana konten pertama Anda:"
+
+msgid "سحابة"
+msgstr "Awan"
+
+msgid "سعادة"
+msgstr "Kebahagiaan"
+
+msgid "سعر"
+msgstr "Harga"
+
+msgid "سفر"
+msgstr "Perjalanan"
+
+msgid "سلبي"
+msgstr "Negatif"
+
+msgid "سلّم حسابات شركتك"
+msgstr "Serahkan akun perusahaan Anda"
+
+msgid "سنة"
+msgstr "1 tahun"
+
+msgid "سنجهّز الحساب ثم نعيد الربط"
+msgstr "Kami akan menyiapkan akun, lalu menghubungkan ulang"
+
+msgid "سنجهّزه معاً خطوة بخطوة"
+msgstr "Kami akan menyiapkannya bersama langkah demi langkah"
+
+msgid "سننشئها معاً في دقيقتين"
+msgstr "Kami akan membuatnya bersama dalam dua menit"
+
+msgid "سيارة"
+msgstr "Mobil"
+
+msgid "سياسة الخصوصية"
+msgstr "Kebijakan privasi"
+
+msgid "سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى."
+msgstr "Postingan kembali ke draf beserta catatan Anda untuk editor konten."
+
+msgid "سيناريو الفيديو"
+msgstr "Naskah video"
+
+msgid "سيناريوهات الفيديو"
+msgstr "Naskah video"
+
+msgid "سيُفعَّل حساب"
+msgstr "Ini akan mengaktifkan akun"
+
+msgid "سيُنشر فوراً على: "
+msgstr "Akan segera dipublikasikan di: "
+
+msgid "شاطئ"
+msgstr "Pantai"
+
+msgid "شبكة"
+msgstr "Kisi"
+
+msgid "شجرة"
+msgstr "Pohon"
+
+msgid "شخص آخر يدير الصفحة"
+msgstr "Orang lain mengelola Halaman"
+
+msgid "شراكة وخدمة"
+msgstr "Kemitraan dan layanan"
+
+msgid "شركاتك"
+msgstr "Perusahaan Anda"
+
+msgid "شركة"
+msgstr "Perusahaan"
+
+msgid "شركة جديدة"
+msgstr "Perusahaan baru"
+
+msgid "شركة نشطة هذا الشهر"
+msgstr "Perusahaan aktif bulan ini"
+
+msgid "شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)"
+msgstr ""
+"Perusahaan: %(name)s (beserta rencana, postingan, gambar, dan semua datanya)"
+
+msgid "شروط الاستخدام"
+msgstr "Ketentuan penggunaan"
+
+msgid "شريط جانبي"
+msgstr "Bilah samping"
+
+msgid "شعار الوكالة"
+msgstr "Logo agensi"
+
+msgid "شكراً، تم اعتماد المنشور"
+msgstr "Terima kasih, postingan disetujui"
+
+msgid "شكوى"
+msgstr "Keluhan"
+
+msgid "شمس"
+msgstr "Matahari"
+
+msgid "شهادة"
+msgstr "Sertifikat"
+
+msgid "شهر"
+msgstr "1 bulan"
+
+msgid "صالح لإعادة النشر بصياغة جديدة بعد مدة."
+msgstr ""
+"Layak dipublikasikan lagi, dengan kata-kata baru, setelah beberapa waktu."
+
+msgid "صالون"
+msgstr "Salon"
+
+msgid "صحة"
+msgstr "Kesehatan"
+
+msgid "صحي"
+msgstr "Sehat"
+
+msgid "صحيح"
+msgstr "Benar"
+
+msgid "صفحة «%(name)s» · ربطها %(display_name)s"
+msgstr "Halaman “%(name)s” · dihubungkan oleh %(display_name)s"
+
+msgid "صفحة فيسبوك"
+msgstr "Halaman Facebook"
+
+msgid "صلاحيتك في هذه الشركة للمشاهدة فقط."
+msgstr "Anda hanya memiliki akses lihat di perusahaan ini."
+
+msgid "صلاحيتك للمشاهدة فقط."
+msgstr "Anda hanya memiliki akses lihat."
+
+msgid "صندوق"
+msgstr "Kotak"
+
+msgid "صورة"
+msgstr "Gambar"
+
+msgid "صورة الخلفية"
+msgstr "Gambar latar"
+
+msgid "صورة كاملة"
+msgstr "Foto penuh"
+
+msgid "صيانة"
+msgstr "Pemeliharaan"
+
+msgid "ضعف:"
+msgstr "Kelemahan:"
+
+msgid "طابور المهام"
+msgstr "Antrean tugas"
+
+msgid "طاقة"
+msgstr "Energi"
+
+msgid "طبخ"
+msgstr "Memasak"
+
+msgid "طبيب"
+msgstr "Dokter"
+
+msgid "طرد"
+msgstr "Paket"
+
+msgid "طلاب"
+msgstr "Pelajar"
+
+msgid "طلب {name} تعديل {subject}: {note}"
+msgstr "{name} meminta perubahan pada {subject}: {note}"
+
+msgid "طلب إعادة كتابة"
+msgstr "Permintaan tulis ulang"
+
+msgid "طلب اشتراك جديد بانتظار الاعتماد."
+msgstr "permintaan langganan baru menunggu persetujuan."
+
+msgid "طلب تسجيل جديد بانتظار الموافقة."
+msgstr "permintaan pendaftaran baru menunggu persetujuan."
+
+msgid "طلب تسجيل جديد في وكيل بانتظار الموافقة:"
+msgstr "Pendaftaran Wakeel baru menunggu persetujuan:"
+
+msgid "طلب تسجيل جديد في وكيل: %(name)s"
+msgstr "Pendaftaran baru di Wakeel: %(name)s"
+
+msgid "طلب تعديل"
+msgstr "Minta perubahan"
+
+msgid "طلب تعديل ✏️"
+msgstr "Minta perubahan ✏️"
+
+msgid "طلب رابط جديد"
+msgstr "Minta tautan baru"
+
+msgid "طلب غير صالح."
+msgstr "Permintaan tidak valid."
+
+msgid "طلبات التسجيل"
+msgstr "Permintaan pendaftaran"
+
+msgid "طولي 4:5"
+msgstr "Potret 4:5"
+
+msgid "طيّ القائمة"
+msgstr "Ciutkan menu"
+
+msgid "عاجل"
+msgstr "Mendesak"
+
+msgid "عادي"
+msgstr "Normal"
+
+msgid "عبارات مفضلة، أو أسلوب معين في الكتابة."
+msgstr "Frasa favorit, atau cara menulis tertentu."
+
+msgid "عبارة الدعوة"
+msgstr "Ajakan bertindak"
+
+msgid "عدالة"
+msgstr "Hukum"
+
+msgid "عدد الأيام"
+msgstr "Jumlah hari"
+
+msgid "عدد المنشورات أسبوعياً"
+msgstr "Postingan per minggu"
+
+msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
+msgstr ""
+"Ubah apa saja dengan satu klik, dan setujui postingan untuk dipublikasikan."
+
+msgid "عرض"
+msgstr "Penawaran"
+
+msgid "عرض %(name)s"
+msgstr "Lihat %(name)s"
+
+msgid "عرض الاشتراكات"
+msgstr "Lihat langganan"
+
+msgid "عرض التقويم"
+msgstr "Lihat kalender"
+
+msgid "عرض الكل"
+msgstr "Lihat semua"
+
+msgid "عرض المزيد"
+msgstr "Lihat selengkapnya"
+
+msgid "عرض تقديمي"
+msgstr "Presentasi"
+
+msgid "عرض محدود"
+msgstr "Penawaran terbatas"
+
+msgid "عروض، مناسبات، منتجات جديدة، أو أي شيء تريد التركيز عليه."
+msgstr ""
+"Penawaran, momen khusus, produk baru, atau apa pun yang ingin Anda fokuskan."
+
+msgid "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها."
+msgstr ""
+"Perkenalkan perusahaan Anda ke Wakeel agar bisa bekerja sebagai tim "
+"pemasarannya."
+
+msgid "عرّفنا بشركتك"
+msgstr "Perkenalkan perusahaan Anda"
+
+msgid "عضو"
+msgstr "anggota"
+
+msgid "عضوية"
+msgstr "Keanggotaan"
+
+msgid "عطور"
+msgstr "Parfum"
+
+msgid "علامات زائد"
+msgstr "Tanda plus"
+
+msgid "علّق على"
+msgstr "berkomentar pada"
+
+msgid "عملة"
+msgstr "Koin"
+
+msgid "عمودي 9:16"
+msgstr "Vertikal 9:16"
+
+msgid "عميل"
+msgstr "Pelanggan"
+
+msgid "عمّان"
+msgstr "Amman"
+
+msgid "عن وكيل"
+msgstr "Tentang Wakeel"
+
+msgid "عند تفعيله، ينشر وكيل كل منشور"
+msgstr "Saat aktif, Wakeel memublikasikan setiap"
+
+msgid "عندك سؤال؟"
+msgstr "Punya pertanyaan?"
+
+msgid "عنوان المنشور يظهر هنا"
+msgstr "Judul postingan muncul di sini"
+
+msgid "عيد استقلال الأردن"
+msgstr "Hari Kemerdekaan Yordania"
+
+msgid "عيد استقلال السودان"
+msgstr "Hari Kemerdekaan Sudan"
+
+msgid "عيد الأضحى"
+msgstr "Idul Adha"
+
+msgid "عيد الأم"
+msgstr "Hari Ibu"
+
+msgid "عيد الاتحاد الإماراتي"
+msgstr "Hari Nasional UEA (Hari Persatuan)"
+
+msgid "عيد التحرير في الكويت"
+msgstr "Hari Pembebasan Kuwait"
+
+msgid "عيد الفطر"
+msgstr "Idul Fitri"
+
+msgid "عيون"
+msgstr "Mata"
+
+msgid "عُمان"
+msgstr "Oman"
+
+msgid "غادرت «%(name)s»."
+msgstr "Anda keluar dari “%(name)s”."
+
+msgid "غرفة نوم"
+msgstr "Kamar tidur"
+
+msgid "غروب"
+msgstr "Senja"
+
+msgid "غلاف الفيديو (اختياري)"
+msgstr "Sampul video (opsional)"
+
+msgid "غير مجدول"
+msgstr "Tidak dijadwalkan"
+
+msgid "غير مربوط"
+msgstr "Tidak terhubung"
+
+msgid "غير مربوطة"
+msgstr "Tidak terhubung"
+
+msgid "غير مضبوط"
+msgstr "Tidak dikonfigurasi"
+
+msgid "غير مضبوط (يُطبع في الطرفية)"
+msgstr "Tidak dikonfigurasi (dicetak ke konsol)"
+
+msgid "غير مفعّلة على هذا الجهاز."
+msgstr "Nonaktif di perangkat ini."
+
+msgid "فاتح"
+msgstr "Terang"
+
+msgid "فاتورة"
+msgstr "Faktur"
+
+msgid "فاخرة وراقية"
+msgstr "Mewah dan elegan"
+
+msgid "فارغ = الافتراضي للقالب."
+msgstr "Kosong = bawaan tata letak."
+
+msgid "فارغ = الافتراضية للقالب."
+msgstr "Kosong = bawaan tata letak."
+
+msgid "فارغ = بدون انتهاء."
+msgstr "Kosong = tidak pernah kedaluwarsa."
+
+msgid "فبر"
+msgstr "Feb"
+
+msgid "فبراير"
+msgstr "Februari"
+
+msgid "فتح إعدادات الربط في فيسبوك"
+msgstr "Buka pengaturan penautan di Facebook"
+
+msgid "فتح صفحة الإنشاء"
+msgstr "Buka pembuatan Halaman"
+
+msgid "فتح كما يراه العميل"
+msgstr "Buka seperti yang dilihat klien"
+
+msgid "فتح نافذة تيك توك"
+msgstr "Buka jendela TikTok"
+
+msgid "فتح نافذة فيسبوك"
+msgstr "Buka jendela Facebook"
+
+msgid "فجوات يتركونها"
+msgstr "Celah yang mereka tinggalkan"
+
+msgid "فخامة"
+msgstr "Kemewahan"
+
+msgid "فريق"
+msgstr "Tim"
+
+msgid "فريق تسويق كامل،"
+msgstr "Tim pemasaran lengkap,"
+
+msgid "فريق وكيل"
+msgstr "Tim Wakeel"
+
+msgid "فريقك وبريدك"
+msgstr "Tim dan surel Anda"
+
+msgid "فشل"
+msgstr "Gagal"
+
+msgid "فشل النسخ الاحتياطي لوكيل"
+msgstr "Pencadangan Wakeel gagal"
+
+msgid "فشلت"
+msgstr "Gagal"
+
+msgid "فشلت: %(error)s"
+msgstr "Gagal: %(error)s"
+
+msgid "فصل"
+msgstr "Putuskan"
+
+msgid "فصل إنستغرام؟"
+msgstr "Putuskan Instagram?"
+
+msgid "فصل تيك توك؟"
+msgstr "Putuskan TikTok?"
+
+msgid "فصل فيسبوك؟"
+msgstr "Putuskan Facebook?"
+
+msgid "فعّل"
+msgstr "Aktifkan"
+
+msgid "فكرة"
+msgstr "Ide"
+
+msgid "فواكه"
+msgstr "Buah"
+
+msgid "فور التفعيل."
+msgstr "begitu aktif."
+
+msgid "فوز"
+msgstr "Trofi"
+
+msgid "في الانتظار"
+msgstr "Tertunda"
+
+msgid "في التقويم"
+msgstr "Di kalender"
+
+msgid "في اليوم المحدد من كل شهر"
+msgstr "Pada hari yang dipilih setiap bulan"
+
+msgid "في انتظار بدء المهمة…"
+msgstr "Menunggu tugas dimulai…"
+
+msgid "في منصة واحدة"
+msgstr "dalam satu"
+
+msgid "في هذه الصفحة"
+msgstr "Di halaman ini"
+
+msgid "فيديو"
+msgstr "Video"
+
+msgid "فيديو قصير"
+msgstr "Video pendek"
+
+msgid "فيديو قصير (ريلز / تيك توك)"
+msgstr "Video pendek (Reels / TikTok)"
+
+msgid "فيديو قصير: سيناريو التصوير"
+msgstr "Video pendek: naskah syuting"
+
+msgid "فيسبوك"
+msgstr "Facebook"
+
+msgid "فيسبوك فقط الآن"
+msgstr "Facebook saja untuk saat ini"
+
+msgid "فيلا"
+msgstr "Vila"
+
+msgid "قائمة مهام"
+msgstr "Daftar periksa"
+
+msgid "قراءة التعليقات"
+msgstr "Baca komentar"
+
+msgid "قراءة مواقع المنافسين…"
+msgstr "Membaca situs web pesaing…"
+
+msgid "قراءة وكيل"
+msgstr "Pembacaan Wakeel"
+
+msgid "قصاصات"
+msgstr "Konfeti"
+
+msgid "قصة (ستوري)"
+msgstr "Cerita"
+
+msgid "قطر"
+msgstr "Qatar"
+
+msgid "قطري"
+msgstr "Diagonal"
+
+msgid "قنوات التواصل"
+msgstr "Saluran kontak"
+
+msgid "قهوة"
+msgstr "Kopi"
+
+msgid "قوة:"
+msgstr "Kekuatan:"
+
+msgid "قوس"
+msgstr "Lengkungan"
+
+msgid "قياس"
+msgstr "Ukuran"
+
+msgid "قيد الإعداد"
+msgstr "Menyiapkan"
+
+msgid "قيد الاعتماد"
+msgstr "Menunggu persetujuan"
+
+msgid "قيد الاقتراح"
+msgstr "Menyarankan"
+
+msgid "قيد التحليل"
+msgstr "Menganalisis"
+
+msgid "قيد التعديل"
+msgstr "Sedang direvisi"
+
+msgid "قيد التنفيذ"
+msgstr "Berjalan"
+
+msgid "قُرئ الموقع"
+msgstr "Situs web dibaca"
+
+msgid "كتاب"
+msgstr "Buku"
+
+msgid "كتابة"
+msgstr "Menulis"
+
+msgid "كتابة المنشورات"
+msgstr "Menulis postingan"
+
+msgid "كرة قدم"
+msgstr "Sepak bola"
+
+msgid "كل الأنواع"
+msgstr "Semua jenis"
+
+msgid "كل الإشعارات"
+msgstr "Semua notifikasi"
+
+msgid "كل الترويجات"
+msgstr "Semua promosi"
+
+msgid "كل التقارير"
+msgstr "Semua laporan"
+
+msgid "كل الحالات"
+msgstr "Semua status"
+
+msgid "كل الشركات"
+msgstr "Semua perusahaan"
+
+msgid "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق."
+msgstr "Semuanya, termasuk menyetujui postingan serta mengelola merek dan tim."
+
+msgid "كل المنصات"
+msgstr "Semua platform"
+
+msgid "كل المهام"
+msgstr "Semua tugas"
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "Semua yang dibutuhkan perusahaan Anda, dalam satu platform"
+
+msgid "كل ما تقدمه وكالة التسويق، في منصة واحدة"
+msgstr "Semua yang dilakukan agensi pemasaran, dalam satu platform"
+
+msgid "كلمات تساعد في اختيار الصورة المناسبة للمنشور."
+msgstr "Kata-kata yang membantu memilih gambar yang tepat untuk postingan."
+
+msgid "كلمة المرور"
+msgstr "Kata sandi"
+
+msgid "كلمة المرور غير صحيحة."
+msgstr "Kata sandi salah."
+
+msgid "كلمة المرور مطلوبة لإنشاء حساب المالك."
+msgstr "Kata sandi diperlukan untuk membuat akun pemilik."
+
+msgid "كلمة مرور المشرف غير صحيحة."
+msgstr "Kata sandi admin salah."
+
+msgid "كلمة مرور المشرف للتأكيد"
+msgstr "Kata sandi admin untuk konfirmasi"
+
+msgid "كلمة مرور جديدة"
+msgstr "Kata sandi baru"
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "Kedua kata sandi tidak cocok."
+
+msgid "كما سيظهر في إنستغرام وفيسبوك"
+msgstr "Seperti tampilannya di Instagram dan Facebook"
+
+msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
+msgstr ""
+"Bagaimana postingan Anda sebenarnya berkinerja, dan apa yang dipelajari "
+"Wakeel darinya."
+
+msgid "كيف يعمل؟"
+msgstr "Bagaimana cara kerjanya?"
+
+msgid "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك."
+msgstr ""
+"Untuk berhenti menerima email dari Wakeel, matikan di pengaturan akun Anda."
+
+msgid "لا أخطاء خلال آخر 7 أيام."
+msgstr "Tidak ada kesalahan dalam 7 hari terakhir."
+
+msgid "لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة."
+msgstr "Anda tidak memiliki izin untuk melakukan ini di perusahaan ini."
+
+msgid "لا توجد إشعارات"
+msgstr "Tidak ada notifikasi"
+
+msgid "لا توجد إشعارات بعد."
+msgstr "Belum ada notifikasi."
+
+msgid "لا توجد اشتراكات"
+msgstr "Tidak ada langganan"
+
+msgid "لا توجد اشتراكات بعد"
+msgstr "Belum ada langganan"
+
+msgid "لا توجد بيانات"
+msgstr "Tidak ada data"
+
+msgid "لا توجد بيانات كافية بعد."
+msgstr "Data belum cukup."
+
+msgid "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا."
+msgstr "Belum ada komentar. Tulis catatan Anda untuk tim di sini."
+
+msgid "لا توجد تعليقات هنا"
+msgstr "Tidak ada komentar di sini"
+
+msgid "لا توجد تغييرات"
+msgstr "Tidak ada perubahan"
+
+msgid "لا توجد تقارير بعد"
+msgstr "Belum ada laporan"
+
+msgid "لا توجد حسابات إعلانية نشطة"
+msgstr "Tidak ada akun iklan aktif"
+
+msgid "لا توجد خطة محتوى لهذا الشهر بعد"
+msgstr "Belum ada rencana konten untuk bulan ini"
+
+msgid "لا توجد شركات تملكها."
+msgstr "Anda tidak memiliki perusahaan."
+
+msgid "لا توجد طلبات جديدة"
+msgstr "Tidak ada permintaan baru"
+
+msgid "لا توجد ملاحظات جديدة."
+msgstr "Tidak ada masukan baru."
+
+msgid "لا توجد مناسبات خاصة في هذا الشهر."
+msgstr "Tidak ada momen khusus bulan ini."
+
+msgid "لا توجد منشورات"
+msgstr "Tidak ada postingan"
+
+msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
+msgstr ""
+"Tidak ada postingan yang menunggu tinjauan di rencana ini. Terima kasih!"
+
+msgid "لا توجد منشورات في هذه الخطة"
+msgstr "Tidak ada postingan di rencana ini"
+
+msgid "لا توجد منشورات قادمة"
+msgstr "Tidak ada postingan mendatang"
+
+msgid "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد."
+msgstr "Belum ada postingan yang dipublikasikan ke Facebook lewat Wakeel."
+
+msgid "لا توجد مهام"
+msgstr "Tidak ada tugas"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "Tidak ada yang menunggu Anda. Semuanya sudah pada tempatnya."
+
+msgid "لا يحتاج الرابط إلى حساب أو كلمة مرور."
+msgstr "Tautan tidak memerlukan akun atau kata sandi."
+
+msgid "لا يمكن التراجع عن ذلك."
+msgstr "Tindakan ini tidak dapat dibatalkan."
+
+msgid "لا يمكن قراءة هذا العنوان."
+msgstr "Alamat ini tidak dapat dibaca."
+
+msgid "لا يوجد"
+msgstr "Tidak ada"
+
+msgid "لا يوجد أعضاء"
+msgstr "Tidak ada anggota"
+
+msgid "لا يوجد اتصال · وكيل"
+msgstr "Tidak ada koneksi · Wakeel"
+
+msgid "لا يوجد اتصال بالإنترنت"
+msgstr "Tidak ada koneksi internet"
+
+msgid "لا يوجد استهلاك بعد"
+msgstr "Belum ada penggunaan"
+
+msgid "لا يوجد استهلاك هذا الشهر."
+msgstr "Tidak ada penggunaan bulan ini."
+
+msgid "لا يوجد حساب إنستغرام احترافي مربوط بهذه الصفحة."
+msgstr "Tidak ada akun profesional Instagram yang ditautkan ke Halaman ini."
+
+msgid "لا يوجد مالك نشط لـ «%(name)s»."
+msgstr "“%(name)s” tidak memiliki pemilik aktif."
+
+msgid "لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً."
+msgstr ""
+"Tidak ada pengguna dengan email ini. Minta mereka membuat akun Wakeel "
+"terlebih dahulu."
+
+msgid "لا، ليس بعد"
+msgstr "Tidak, belum"
+
+msgid "لدى الشركة موقع إلكتروني؟"
+msgstr "Apakah perusahaan memiliki situs web?"
+
+msgid "لديك حساب بالفعل؟"
+msgstr "Sudah punya akun?"
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "Bahasa nama resmi dan alamat"
+
+msgid "لغة المحتوى"
+msgstr "Bahasa konten"
+
+msgid "لغة النسخة"
+msgstr "Bahasa versi"
+
+msgid "لـ"
+msgstr "sampai "
+
+msgid "لكل مليون رمز"
+msgstr "per sejuta token"
+
+msgid "لكل مليون رمز (مدخلات / مخرجات)."
+msgstr "per sejuta token (masukan / keluaran)."
+
+msgid "لم أحدد الصفحة في النافذة"
+msgstr "Saya tidak memilih Halaman di jendela"
+
+msgid "لم تُصمَّم الصورة بعد"
+msgstr "Gambar belum didesain"
+
+msgid "لم تُصمَّم الصورة بعد."
+msgstr "Gambar belum didesain."
+
+msgid "لم تُعدّ أي خطة بعد."
+msgstr "Belum ada rencana yang disiapkan."
+
+msgid "لم تُعدّ خطة"
+msgstr "Rencana untuk"
+
+msgid "لم تُقرأ أرقام بعد."
+msgstr "Belum ada angka yang dibaca."
+
+msgid "لم تُنفَّذ أي نسخة بعد"
+msgstr "Belum ada pencadangan yang berjalan"
+
+msgid "لم يجد وكيل معلومات جديدة لإضافتها."
+msgstr "Wakeel tidak menemukan informasi baru untuk ditambahkan."
+
+msgid "لم يشارك فيسبوك أي صفحة مع وكيل"
+msgstr "Facebook tidak membagikan Halaman apa pun dengan Wakeel"
+
+msgid "لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "Tidak ada balasan dari layanan AI. Silakan coba lagi."
+
+msgid "لم يكتمل الربط"
+msgstr "Koneksi tidak selesai"
+
+msgid "لم يُصمَّم بعد"
+msgstr "Belum didesain"
+
+msgid "لم يُقرأ بعد"
+msgstr "Belum dibaca"
+
+msgid "لماذا هذا الترويج"
+msgstr "Mengapa promosi ini"
+
+msgid "لماذا يختار العميل هذه الشركة دون منافسيها؟"
+msgstr "Mengapa pelanggan memilih perusahaan ini dibanding pesaingnya?"
+
+msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
+msgstr "Untuk meninjau seluruh rencana, buka: %(link)s"
+
+msgid "لن يتمكن %(display_name)s من الوصول إلى %(name)s بعد الآن."
+msgstr "%(display_name)s tidak akan lagi dapat mengakses %(name)s."
+
+msgid "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن."
+msgstr "Wakeel tidak akan lagi mengirim postingan ke akun ini."
+
+msgid "لن يلتزم بها وكيل في الخطط القادمة."
+msgstr "Wakeel tidak akan mengikutinya di rencana mendatang."
+
+msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
+msgstr "Wakeel tidak akan lagi memublikasikan ke akun ini."
+
+msgid "لن ينشر وكيل على هذه الصفحة بعد الآن."
+msgstr "Wakeel tidak akan lagi memublikasikan ke Halaman ini."
+
+msgid "لنبدأ بالمعلومات الأساسية عن الشركة."
+msgstr "Mari mulai dengan data dasar perusahaan."
+
+msgid "لندن"
+msgstr "London"
+
+msgid "لوحة التحكم"
+msgstr "Dasbor"
+
+msgid "لوحة التحكم الرئيسية"
+msgstr "Dasbor utama"
+
+msgid "لوحة تحكم"
+msgstr "Dasbor"
+
+msgid "لوحة مشرف النظام"
+msgstr "Dasbor admin"
+
+msgid "لون التمييز"
+msgstr "Warna aksen"
+
+msgid "لون الوكالة"
+msgstr "Warna agensi"
+
+msgid "ليس لدي صفحة"
+msgstr "Saya tidak punya Halaman"
+
+msgid "ليس لديك حساب؟"
+msgstr "Belum punya akun?"
+
+msgid "ليكتب وكيل محتوى يشبه علامتك."
+msgstr "agar Wakeel menulis konten yang terdengar seperti merek Anda."
+
+msgid "ليكتمل ذلك دون تدخل"
+msgstr "untuk menyelesaikannya tanpa repot"
+
+msgid "ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها."
+msgstr ""
+"Data apa yang kami kumpulkan, mengapa, dan bagaimana Anda mengendalikan "
+"serta menghapusnya."
+
+msgid "ما الذي تريد تعديله؟"
+msgstr "Apa yang ingin Anda ubah?"
+
+msgid "ما الذي يحتاج إلى تعديل؟"
+msgstr "Apa yang perlu diubah?"
+
+msgid "ما تعلّمه وكيل"
+msgstr "Yang dipelajari Wakeel"
+
+msgid "ما رآه المشترك:"
+msgstr "Yang dilihat pelanggan:"
+
+msgid "ما نجح"
+msgstr "Yang berhasil"
+
+msgid "ما يجب تجنبه"
+msgstr "Jangan pernah"
+
+msgid "ما يجب فعله"
+msgstr "Selalu lakukan"
+
+msgid "ما يُنشر تلقائياً"
+msgstr "Yang dipublikasikan otomatis"
+
+msgid "ماء"
+msgstr "Air"
+
+msgid "ماذا تقدم الشركة، ولمن، وما الذي يميزها."
+msgstr ""
+"Apa yang ditawarkan perusahaan, kepada siapa, dan apa yang membedakannya."
+
+msgid "ماذا سيحدث؟"
+msgstr "Apa yang terjadi selanjutnya?"
+
+msgid "مار"
+msgstr "Mar"
+
+msgid "مارد، مساعدك"
+msgstr "Marid, asisten Anda"
+
+msgid "مارس"
+msgstr "Maret"
+
+msgid "ماي"
+msgstr "Mei"
+
+msgid "مايو"
+msgstr "Mei"
+
+msgid "مباشرة"
+msgstr "Langsung"
+
+msgid "متابعة هنا"
+msgstr "Lanjutkan di sini"
+
+msgid "متجر"
+msgstr "Toko"
+
+msgid "متدرّج"
+msgstr "Gradasi"
+
+msgid "متصل"
+msgstr "Terhubung"
+
+msgid "متوسط التفاعل · معدل التفاعل"
+msgstr "Rata-rata interaksi · tingkat interaksi"
+
+msgid "متوقف"
+msgstr "Dihentikan"
+
+msgid "متوقف الآن."
+msgstr "Nonaktif saat ini."
+
+msgid "متوقف — شغّل"
+msgstr "Dihentikan — jalankan"
+
+msgid "مثال: أحمد، مدير التسويق"
+msgstr "Misalnya: Ahmed, manajer pemasaran"
+
+msgid "مثال: غيّر الصورة واذكر موعد انتهاء العرض"
+msgstr "Misalnya: ganti gambar dan sebutkan kapan penawaran berakhir"
+
+msgid "مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات."
+msgstr ""
+"Misalnya: lebih banyak kesadaran, lebih banyak prospek, lebih banyak "
+"penjualan."
+
+msgid "مجمع"
+msgstr "Kompleks"
+
+msgid "محادثة"
+msgstr "Obrolan"
+
+msgid "محاسبة"
+msgstr "Akuntansi"
+
+msgid "محاور المحتوى"
+msgstr "Pilar konten"
+
+msgid "محايد"
+msgstr "Netral"
+
+msgid "محتوى دائم"
+msgstr "Evergreen"
+
+msgid "محرر المحتوى:"
+msgstr "Editor konten:"
+
+msgid "محرر محتوى"
+msgstr "Editor konten"
+
+msgid "محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً."
+msgstr "Diblokir di pengaturan peramban; izinkan di sana terlebih dahulu."
+
+msgid "محفظة"
+msgstr "Dompet"
+
+msgid "مخرجات"
+msgstr "keluaran"
+
+msgid "مدة الاشتراك"
+msgstr "Lama langganan"
+
+msgid "مدير"
+msgstr "Admin"
+
+msgid "مدير التسويق الذكي"
+msgstr "Manajer pemasaran AI Anda"
+
+msgid "مدير التسويق الذكي لشركتك"
+msgstr "Manajer pemasaran AI perusahaan Anda"
+
+msgid "مراجعة %(title)s"
+msgstr "Tinjau %(title)s"
+
+msgid "مراجعة الطلب"
+msgstr "Minta tinjauan"
+
+msgid "مراجعة الطلبات"
+msgstr "Permintaan tinjauan"
+
+msgid "مربع 1:1"
+msgstr "Persegi 1:1"
+
+msgid "مرحباً %(name)s،"
+msgstr "Halo %(name)s,"
+
+msgid "مرحباً بعودتك"
+msgstr "Selamat datang kembali"
+
+msgid "مرحباً بك في وكيل ✨"
+msgstr "Selamat datang di Wakeel ✨"
+
+msgid "مرحباً،"
+msgstr "Halo,"
+
+msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
+msgstr "Halo, laporan kinerja %(month)s untuk %(name)s sudah siap."
+
+msgid "مرحة وخفيفة"
+msgstr "Ceria dan ringan"
+
+msgid "مزعج"
+msgstr "Spam"
+
+msgid "مزوّد الذكاء الاصطناعي"
+msgstr "Penyedia AI"
+
+msgid "مستخدم"
+msgstr "Pengguna"
+
+msgid "مستند"
+msgstr "Dokumen"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "Dokumen perpustakaan sebagai sumber"
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "Dokumen di kop surat Anda"
+
+msgid "مستودع"
+msgstr "Gudang"
+
+msgid "مسجد"
+msgstr "Masjid"
+
+msgid "مسح التصفية"
+msgstr "Hapus filter"
+
+msgid "مسقط (GMT+4)"
+msgstr "Muskat (GMT+4)"
+
+msgid "مسودة"
+msgstr "Draf"
+
+msgid "مشاهد"
+msgstr "Pemirsa"
+
+msgid "مشتريات"
+msgstr "Pembelian"
+
+msgid "مشرف النظام"
+msgstr "Admin sistem"
+
+msgid "مصر"
+msgstr "Mesir"
+
+msgid "مضبوط"
+msgstr "Dikonfigurasi"
+
+msgid "مطعم"
+msgstr "Restoran"
+
+msgid "مطلوبة للحساب الجديد فقط."
+msgstr "Hanya diperlukan untuk akun baru."
+
+msgid "معالج"
+msgstr "Chip"
+
+msgid "معالج يرافقك خطوة بخطوة"
+msgstr "Panduan akan menuntun Anda langkah demi langkah"
+
+msgid "معاينة التصميم"
+msgstr "Pratinjau desain"
+
+msgid "معاينة المنشور في المنصة"
+msgstr "Pratinjau postingan di platform"
+
+msgid "معاينة حية"
+msgstr "Pratinjau langsung"
+
+msgid "معتمد"
+msgstr "Disetujui"
+
+msgid "معتمدة للنشر"
+msgstr "Disetujui untuk dipublikasikan"
+
+msgid "معدل التفاعل"
+msgstr "Tingkat interaksi"
+
+msgid "معفاة"
+msgstr "Dibebaskan"
+
+msgid "معلومة"
+msgstr "Fakta"
+
+msgid "معلّق"
+msgstr "Ditangguhkan"
+
+msgid "مغادرة"
+msgstr "Keluar"
+
+msgid "مغادرة الشركة"
+msgstr "Keluar dari perusahaan"
+
+msgid "مغادرة الشركة؟"
+msgstr "Keluar dari perusahaan?"
+
+msgid "مغامرة"
+msgstr "Petualangan"
+
+msgid "مفتاح"
+msgstr "Kunci"
+
+msgid "مفعّل — أوقفه في الإنتاج"
+msgstr "Aktif — matikan di produksi"
+
+msgid "مفعّل,متوقف"
+msgstr "on,off"
+
+msgid "مقترح"
+msgstr "Disarankan"
+
+msgid "مقسوم"
+msgstr "Terbagi"
+
+msgid "مكتبة"
+msgstr "Perpustakaan"
+
+msgid "مكتبة المستندات"
+msgstr "Perpustakaan dokumen"
+
+msgid "مكتبة الوسائط"
+msgstr "Pustaka media"
+
+msgid "ملأ وكيل "
+msgstr "Wakeel mengisi "
+
+msgid "ملابس"
+msgstr "Pakaian"
+
+msgid "ملاحظات"
+msgstr "Catatan"
+
+msgid "ملاحظات المراجعة"
+msgstr "Catatan tinjauan"
+
+msgid "ملاحظات على الأسلوب"
+msgstr "Catatan tentang gaya"
+
+msgid "ملاحظة"
+msgstr "Catatan"
+
+msgid "ملاحظة المراجعة:"
+msgstr "Catatan tinjauan:"
+
+msgid "ملخص الاستراتيجية"
+msgstr "Ringkasan strategi"
+
+msgid "ملخص الشهر"
+msgstr "Ringkasan bulan ini"
+
+msgid "ملصق"
+msgstr "Poster"
+
+msgid "ملف الشركة غير مكتمل، فستكون الخطة عامة."
+msgstr "Profil perusahaan belum lengkap, jadi rencana akan bersifat umum."
+
+msgid "ملهمة وتحفيزية"
+msgstr "Menginspirasi dan memotivasi"
+
+msgid "من"
+msgstr "Dari"
+
+msgid "من الاستراتيجية إلى التصميم إلى تقويم النشر."
+msgstr "Dari strategi, desain, hingga kalender penerbitan."
+
+msgid "من المدخلات cache hit"
+msgstr "dari masukan adalah cache hit"
+
+msgid "من يعمل على تسويق %(name)s، وما صلاحياته."
+msgstr ""
+"Siapa yang mengerjakan pemasaran %(name)s, dan apa yang bisa mereka lakukan."
+
+msgid "مناسبات الشهر"
+msgstr "Momen khusus bulan ini"
+
+msgid "مناسبة"
+msgstr "Momen"
+
+msgid "مناسبة خاصة"
+msgstr "Hari spesial"
+
+msgid "منتج"
+msgstr "Produk"
+
+msgid "منتجات"
+msgstr "Produk"
+
+msgid "منتهي"
+msgstr "Kedaluwarsa"
+
+msgid "منخفض"
+msgstr "Rendah"
+
+msgid "منزل"
+msgstr "Beranda"
+
+msgid "منسوخ من:"
+msgstr "Disalin dari:"
+
+msgid "منشور"
+msgstr "Dipublikasikan"
+
+msgid "منشور أُنشئ هذا الشهر"
+msgstr "Postingan dibuat bulan ini"
+
+msgid "منشور جديد"
+msgstr "Postingan baru"
+
+msgid "منشور جديد في هذا اليوم"
+msgstr "Postingan baru pada hari ini"
+
+msgid "منشور نُشر هذا الشهر"
+msgstr "Postingan dipublikasikan bulan ini"
+
+msgid "منشورات %(month_name)s"
+msgstr "Postingan %(month_name)s"
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "Postingan menunggu tinjauan"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "Postingan yang lewat waktu publikasi"
+
+msgid "منشورات تستحق الترويج"
+msgstr "Postingan layak dipromosikan"
+
+msgid "منشورات تستحق العودة"
+msgstr "Postingan layak dihidupkan kembali"
+
+msgid "منشورات تم قياسها"
+msgstr "Postingan terukur"
+
+msgid "منشورات دائمة يُعاد نشرها شهرياً"
+msgstr "Postingan evergreen diposting ulang tiap bulan"
+
+msgid "منشوراً"
+msgstr "postingan"
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr "Satu platform untuk pemasaran, dokumen, dan tim perusahaan Anda"
+
+msgid "مهام فشلت خلال 7 أيام"
+msgstr "Tugas yang gagal dalam 7 hari terakhir"
+
+msgid "مهام كل الشركات مع تفاصيلها التقنية"
+msgstr "Tugas semua perusahaan beserta rincian teknisnya"
+
+msgid "مهمة فشلت خلال 7 أيام"
+msgstr "Tugas gagal dalam 7 hari"
+
+msgid "مهنية وموثوقة"
+msgstr "Profesional dan tepercaya"
+
+msgid "موافقة العميل"
+msgstr "Persetujuan klien"
+
+msgid "موجات"
+msgstr "Gelombang"
+
+msgid "موظف"
+msgstr "Karyawan"
+
+msgid "موعد"
+msgstr "Janji temu"
+
+msgid "موعد النشر"
+msgstr "Waktu publikasi"
+
+msgid "موقع"
+msgstr "Lokasi"
+
+msgid "موقع الوكالة"
+msgstr "Situs web agensi"
+
+msgid "مُتجاهَل"
+msgstr "Diabaikan"
+
+msgid "مُخرجة"
+msgstr "keluaran"
+
+msgid "مُدخلة"
+msgstr "masukan"
+
+msgid "ناعم"
+msgstr "Lembut"
+
+msgid "نبات"
+msgstr "Tanaman"
+
+msgid "نبذة عن الشركة"
+msgstr "Tentang perusahaan"
+
+msgid "نبرة الخطاب"
+msgstr "Gaya bahasa"
+
+msgid "نجحت"
+msgstr "Berhasil"
+
+msgid "نساء"
+msgstr "Wanita"
+
+msgid "نسخ"
+msgstr "Salin"
+
+msgid "نسخ النص مع الوسوم"
+msgstr "Salin teks dengan tagar"
+
+msgid "نسخ منه:"
+msgstr "Salinan:"
+
+msgid "نسخة بلغة أو لهجة أخرى"
+msgstr "Versi dalam bahasa atau dialek lain"
+
+msgid "نسخة جديدة من هذا المنشور:"
+msgstr "Versi baru postingan ini:"
+
+msgid "نسيت كلمة المرور؟"
+msgstr "Lupa kata sandi?"
+
+msgid "نشر المنشور الآن؟"
+msgstr "Publikasikan postingan sekarang?"
+
+msgid "نشر منشور"
+msgstr "Memublikasikan postingan"
+
+msgid "نشط"
+msgstr "Aktif"
+
+msgid "نص المنشور"
+msgstr "Teks postingan"
+
+msgid "نص قصير بارز مثل: جديد، خصم 20%."
+msgstr "Teks singkat yang menonjol, misalnya: Baru, diskon 20%."
+
+msgid "نظام الألوان"
+msgstr "Skema warna"
+
+msgid "نظرة على تسويق %(name)s لشهر %(month_label)s"
+msgstr "Pemasaran %(name)s untuk %(month_label)s"
+
+msgid "نعم، لدينا صفحة"
+msgstr "Ya, kami punya Halaman"
+
+msgid "نعم، لكن لست متأكداً"
+msgstr "Ya, tapi saya tidak yakin"
+
+msgid "نعم، وحسابي جاهز"
+msgstr "Ya, dan akun saya sudah siap"
+
+msgid "نفّذ"
+msgstr "Mulai"
+
+msgid "نقاط"
+msgstr "Titik"
+
+msgid "نقاط التميز"
+msgstr "Yang membuatnya menonjol"
+
+msgid "نقد"
+msgstr "Tunai"
+
+msgid "نمو"
+msgstr "Pertumbuhan"
+
+msgid "نهاية الاشتراك"
+msgstr "Akhir langganan"
+
+msgid "نهاية الاشتراك قبل بدايته."
+msgstr "Langganan berakhir sebelum dimulai."
+
+msgid "نوع الحساب"
+msgstr "Jenis akun"
+
+msgid "نوع المنشور"
+msgstr "Jenis postingan"
+
+msgid "نوع المهمة"
+msgstr "Jenis tugas"
+
+msgid "نوف"
+msgstr "Nov"
+
+msgid "نوفمبر"
+msgstr "November"
+
+msgid "نُشر «{title}» على {platforms}."
+msgstr "“{title}” dipublikasikan di {platforms}."
+
+msgid "نُشر على %(platforms)s."
+msgstr "Dipublikasikan di %(platforms)s."
+
+msgid "نُشر هذا المنشور بالفعل."
+msgstr "Postingan ini sudah dipublikasikan."
+
+msgid "هدف"
+msgstr "Tujuan"
+
+msgid "هدية"
+msgstr "Hadiah"
+
+msgid "هذا الإجراء نهائي ولا يمكن التراجع عنه"
+msgstr "Ini permanen dan tidak dapat dibatalkan"
+
+msgid "هذا الحساب غير مفعّل."
+msgstr "Akun ini tidak aktif."
+
+msgid "هذا الشهر:"
+msgstr "Bulan ini:"
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "Peramban ini tidak mendukung notifikasi."
+
+msgid "هذا المستخدم عضو في الشركة بالفعل."
+msgstr "Pengguna ini sudah menjadi anggota perusahaan."
+
+msgid "هذا حساب مشرف نظام، ولا يكون مالكاً لاشتراك."
+msgstr "Ini adalah akun admin sistem, yang tidak dapat memiliki langganan."
+
+msgid "هل تريد النشر على إنستغرام أيضاً؟"
+msgstr "Apakah Anda juga ingin memposting ke Instagram?"
+
+msgid "هل لدى شركتك صفحة على فيسبوك؟"
+msgstr "Apakah perusahaan Anda memiliki Halaman Facebook?"
+
+msgid "هوية العلامة"
+msgstr "Identitas merek"
+
+msgid "هوية وعروض تقديمية"
+msgstr "Identitas dan presentasi"
+
+msgid "و"
+msgstr "dan"
+
+msgid "وأنا أديرها من حسابي على فيسبوك"
+msgstr "Dan saya mengelolanya dari akun Facebook saya"
+
+msgid "واتساب"
+msgstr "WhatsApp"
+
+msgid "واتساب العميل"
+msgstr "WhatsApp klien"
+
+msgid "واتساب غير مفعّل على هذا الخادم."
+msgstr "WhatsApp tidak diaktifkan di server ini."
+
+msgid "وثائق وكيل"
+msgstr "Dokumen Wakeel"
+
+msgid "ودودة وقريبة"
+msgstr "Ramah dan mudah didekati"
+
+msgid "وسوم اختيارية: منتج، فريق، مكتب…"
+msgstr "Tag opsional: produk, tim, kantor…"
+
+msgid "وسوم العلامة"
+msgstr "Tagar merek"
+
+msgid "وصف اختياري للصور"
+msgstr "Deskripsi opsional untuk gambar"
+
+msgid "وصف الصورة المقترحة"
+msgstr "Visual yang disarankan"
+
+msgid "وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr ""
+"Layanan AI mengembalikan balasan yang tidak terduga. Silakan coba lagi."
+
+msgid "وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr ""
+"Layanan AI mengembalikan balasan yang tidak lengkap. Silakan coba lagi."
+
+msgid "وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "Layanan AI mengembalikan balasan sebagian. Silakan coba lagi."
+
+msgid "وصلت ملاحظتك إلى الفريق"
+msgstr "Catatan Anda telah sampai ke tim"
+
+msgid "وصلت ملاحظتك على «%(title)s» إلى الفريق. شكراً!"
+msgstr "Catatan Anda tentang “%(title)s” telah sampai ke tim. Terima kasih!"
+
+msgid "وضع الوكالة"
+msgstr "Mode agensi"
+
+msgid "وقت"
+msgstr "Waktu"
+
+msgid "وقود"
+msgstr "Bahan bakar"
+
+msgid "وكالة"
+msgstr "Agensi"
+
+msgid "وكيل"
+msgstr "Wakeel"
+
+msgid "وكيل · مدير التسويق الذكي"
+msgstr "Wakeel · Manajer pemasaran AI Anda"
+
+msgid "وكيل يحلّل المنافسين…"
+msgstr "Wakeel sedang menganalisis pesaing…"
+
+msgid "وكيل يدرس هوية الشركة ويضع الاستراتيجية…"
+msgstr "Wakeel sedang mempelajari merek dan menyusun strategi…"
+
+msgid "وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…"
+msgstr "Wakeel sedang menelusuri masukan Anda sebelumnya untuk dipelajari…"
+
+msgid "وكيل يعمل على خطة %(month_label)s"
+msgstr "Wakeel sedang mengerjakan rencana %(month_label)s"
+
+msgid "وكيل يعيد صياغة المنشور…"
+msgstr "Wakeel sedang menyusun ulang kata-kata postingan…"
+
+msgid "وكيل يعيد كتابة المنشور…"
+msgstr "Wakeel sedang menulis ulang postingan…"
+
+msgid "وكيل يقرأ التعليقات…"
+msgstr "Wakeel sedang membaca komentar…"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeel sedang membaca dokumen sumber…"
+
+msgid "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة."
+msgstr "Wakeel sedang membaca situs web… ini mungkin butuh semenit."
+
+msgid "وكيل يكتب النسخة…"
+msgstr "Wakeel sedang menulis versi…"
+
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — manajer pemasaran AI Anda"
+
+msgid "وهذا نص فرعي قصير يشرح الفكرة."
+msgstr "Dan ini subjudul singkat yang menjelaskan idenya."
+
+msgid "ويُبلَّغ مالكه بالبريد."
+msgstr "dan kirim email ke pemiliknya."
+
+msgid "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة."
+msgstr "Wakeel memeriksa komentar baru setiap setengah jam."
+
+msgid "يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة."
+msgstr ""
+"Wakeel sedang menganalisis pesaing sekarang. Muat ulang halaman dalam "
+"semenit."
+
+msgid "يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره."
+msgstr ""
+"Merencanakan, menulis, mendesain, dan memublikasikan konten perusahaan Anda."
+
+msgid "يدرس وكيل هوية %(name)s وجمهورها وأهدافها."
+msgstr "Wakeel mempelajari identitas, audiens, dan tujuan %(name)s."
+
+msgid "يراجع فريقنا بيانات حسابك"
+msgstr "Tim kami meninjau data akun Anda"
+
+msgid "يراجع فريقنا بيانات شركتك"
+msgstr "Tim kami meninjau data perusahaan Anda"
+
+msgid "يرسل رابط المراجعة للعميل"
+msgstr "Mengirim tautan tinjauan ke klien Anda"
+
+msgid "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق."
+msgstr "Penyiapan biasanya memakan waktu dua hingga lima menit."
+
+msgid "يصمم المنشورات"
+msgstr "Mendesain postingan"
+
+msgid "يصمم صورة كل منشور بألوانك وخطوطك وشعارك."
+msgstr "Mendesain gambar setiap postingan dengan warna, font, dan logo Anda."
+
+msgid "يطّلع على الخطط والتقويم فقط."
+msgstr "Hanya melihat rencana dan kalender."
+
+msgid "يظهر أول "
+msgstr "Sekitar yang pertama "
+
+msgid "يعتمد المنشورات أو يطلب تعديلها دون حساب"
+msgstr "Mereka menyetujui postingan atau meminta perubahan, tanpa perlu akun"
+
+msgid "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة."
+msgstr ""
+"Menyiapkan rencana, mengedit postingan, dan mengirimnya untuk ditinjau."
+
+msgid "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr "Wakeel menyiapkan strategi, setiap postingan, dan desainnya."
+
+msgid "يعمل"
+msgstr "Aktif"
+
+msgid "يعمل لشركتك على مدار الساعة."
+msgstr "bekerja untuk perusahaan Anda sepanjang waktu."
+
+msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."
+msgstr "Aktif: rencana berikutnya disiapkan pada %(run_on)s."
+
+msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
+msgstr ""
+"Wakeel lebih memilih jam-jam ini saat menjadwalkan postingan Anda berikutnya:"
+
+msgid "يفهم علامتك"
+msgstr "yang memahami merek Anda"
+
+msgid "يقرأ وكيل التعليقات الجديدة الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr ""
+"Wakeel sedang membaca komentar baru sekarang. Muat ulang halaman sebentar "
+"lagi."
+
+msgid "يمكن إضافة %(n)s منافسين كحد أقصى."
+msgstr "Anda dapat menambahkan hingga %(n)s pesaing."
+
+msgid "يمكنك إضافة إنستغرام لاحقاً"
+msgstr "Anda dapat menambahkan Instagram nanti"
+
+msgid "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+msgstr "Sekarang Anda dapat masuk dengan kata sandi baru."
+
+msgid "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد."
+msgstr ""
+"Anda selalu dapat memublikasikan langsung dari halaman postingan yang "
+"disetujui."
+
+msgid "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)"
+msgstr ""
+"Anda dapat mengunggah beberapa gambar sekaligus (hingga 10 MB per gambar)"
+
+msgid "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية."
+msgstr ""
+"Anda boleh meninggalkan halaman ini; pekerjaan berlanjut di latar belakang."
+
+msgid "ينا"
+msgstr "Jan"
+
+msgid "يناير"
+msgstr "Januari"
+
+msgid "ينتظرك"
+msgstr "Menunggu Anda"
+
+msgid "ينتهي الاشتراك اليوم"
+msgstr "Langganan berakhir hari ini"
+
+msgid "ينتهي الاشتراك خلال "
+msgstr "Langganan berakhir dalam "
+
+msgid "ينتهي الاشتراك في %(date)s."
+msgstr "Langganan berakhir pada %(date)s."
+
+msgid "ينشر المعتمد في موعده"
+msgstr "Memublikasikan yang disetujui sesuai jadwal"
+
+msgid "ينقص"
+msgstr "Hilang"
+
+msgid "يوجد حساب مسجل بهذا البريد الإلكتروني."
+msgstr "Akun dengan email ini sudah ada."
+
+msgid "يول"
+msgstr "Jul"
+
+msgid "يوليو"
+msgstr "Juli"
+
+msgid "يوم إعداد الخطة"
+msgstr "Hari penyiapan rencana"
+
+msgid "يوم التأسيس السعودي"
+msgstr "Hari Pendirian Arab Saudi"
+
+msgid "يوم عرفة"
+msgstr "Hari Arafah"
+
+msgid "يومياً ·"
+msgstr "Harian ·"
+
+msgid "يون"
+msgstr "Jun"
+
+msgid "يونيو"
+msgstr "Juni"
+
+msgid "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr ""
+"Wakeel sedang menyiapkan saran sekarang. Muat ulang halaman sebentar lagi."
+
+msgid "— وكيل، مساحة عمل %(company)s"
+msgstr "— Wakeel, ruang kerja %(company)s"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
 

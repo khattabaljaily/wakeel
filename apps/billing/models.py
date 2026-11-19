@@ -18,7 +18,7 @@ class Payment(models.Model):
     points = models.PositiveIntegerField()
     # The operator whose gateway took this payment (enjaz-operators): only its webhook may confirm it, and it is
     # counted in that operator's monthly report.
-    operator = models.CharField(max_length=20, default='banan', db_index=True)
+    operator = models.CharField(max_length=20, default='jovia', db_index=True)
     currency = models.CharField(max_length=3, default='USD')
     status = models.CharField(max_length=10, choices=STATUSES, default=CREATED, db_index=True)
     stripe_session_id = models.CharField(max_length=120, blank=True, db_index=True)

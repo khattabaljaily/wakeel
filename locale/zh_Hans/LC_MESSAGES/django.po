@@ -7168,6 +7168,4938 @@ msgstr "问题：%(q)s"
 msgid "The answer was saved as a note."
 msgstr "答案已保存为笔记。"
 
+msgid " حرفاً تقريباً قبل «"
+msgstr " 个字符显示在“之前"
+
+msgid " حقلاً من الموقع. راجعها في كل الخطوات."
+msgstr " 个字段来自网站。请在每一步中检查。"
+
+msgid " صورة"
+msgstr " 张图片"
+
+msgid " من "
+msgstr " / 共 "
+
+msgid " منشوراً"
+msgstr " 篇帖子"
+
+msgid " منشوراً؟"
+msgstr " 篇帖子？"
+
+msgid " يوم"
+msgstr " 天前"
+
+msgid "%(all)s منشوراً"
+msgstr "%(all)s 篇帖子"
+
+msgid "%(company)s · عبر وكيل"
+msgstr "%(company)s · 通过 Wakeel"
+
+msgid "%(company)s · وكيل"
+msgstr "%(company)s · Wakeel"
+
+msgid "%(count)s × %(unit)s"
+msgstr "%(count)s × %(unit)s"
+
+msgid "%(count)s منشور"
+msgstr "%(count)s 篇帖子"
+
+msgid "%(db_runs)s لقاعدة البيانات · %(media_runs)s للملفات"
+msgstr "%(db_runs)s 来自数据库 · %(media_runs)s 来自文件"
+
+msgid "%(display_name)s · %(created_at)s"
+msgstr "%(display_name)s · %(created_at)s"
+
+msgid "%(finished_at)s (منذ %(finished_at2)s)"
+msgstr "%(finished_at)s（%(finished_at2)s前）"
+
+msgid "%(get_kind_display)s · منذ %(created_at)s"
+msgstr "%(get_kind_display)s · %(created_at)s前"
+
+msgid "%(jobs)s مهمة"
+msgstr "%(jobs)s 项任务"
+
+msgid "%(jobs)s مهمة · %(input)s رمز"
+msgstr "%(jobs)s 项任务 · %(input)s 个令牌"
+
+msgid "%(jobs)s مهمة · cache hit %(cache_rate)s%%"
+msgstr "%(jobs)s 项任务 · 缓存命中率 %(cache_rate)s%%"
+
+msgid "%(month)s (%(n)s منشوراً، %(get_status_display)s)"
+msgstr "%(month)s（%(n)s 篇帖子，%(get_status_display)s）"
+
+msgid "%(month_label)s · %(posts_per_week)s منشورات أسبوعياً ·"
+msgstr "%(month_label)s · 每周 %(posts_per_week)s 篇帖子 ·"
+
+msgid "%(name)s (%(count)s عضو)"
+msgstr "%(name)s（%(count)s 名成员）"
+
+msgid "%(name)s (العميل): %(body)s"
+msgstr "%(name)s（客户）：%(body)s"
+
+msgid "%(name)s · لوحة النظام"
+msgstr "%(name)s · 系统控制台"
+
+msgid "%(new_companies)s جديدة هذا الشهر"
+msgstr "本月新增 %(new_companies)s 家"
+
+msgid "%(pending)s بانتظار رأيك"
+msgstr "%(pending)s 项等待您的反馈"
+
+msgid "%(pending)s قيد الانتظار"
+msgstr "%(pending)s 项待处理"
+
+msgid "%(plans_month)s خطة محتوى"
+msgstr "%(plans_month)s 份内容计划"
+
+msgid "%(running_jobs)s مهمة قيد التنفيذ الآن"
+msgstr "%(running_jobs)s 项任务正在运行"
+
+msgid "%(total_bytes)s (المساحة الحرة: %(free_bytes)s)"
+msgstr "%(total_bytes)s（可用空间：%(free_bytes)s）"
+
+msgid "%(unpriced)s مهمة بلا سعر"
+msgstr "%(unpriced)s 项未定价任务"
+
+msgid "%(unscheduled)s منشور بلا موعد"
+msgstr "%(unscheduled)s 篇帖子未设日期"
+
+msgid "(%(unread_notifications)s غير مقروءة)"
+msgstr "（%(unread_notifications)s 条未读）"
+
+msgid "(أنت)"
+msgstr "（您）"
+
+msgid "(دون %(unpriced)s مهمة بلا سعر)"
+msgstr "（不含 %(unpriced)s 项未定价任务）"
+
+msgid "(قد يتغير يوماً حسب رؤية الهلال)"
+msgstr "（可能因月相观测而相差一天）"
+
+msgid ") ليعمل معه تلقائياً، أو شغّل"
+msgstr "），使其随之运行，或运行"
+
+msgid "). الأسعار في"
+msgstr "）。价格单位为"
+
+msgid ". سيراجعه فريقنا، وسيصلك بريد على"
+msgstr "。我们的团队将进行审核，您将收到电子邮件，发送至"
+
+msgid "12 شهراً"
+msgstr "12 个月"
+
+msgid "14 يوماً (تجربة)"
+msgstr "14 天（试用）"
+
+msgid "16 منشوراً جاهزاً"
+msgstr "16 篇帖子已就绪"
+
+msgid "3 أشهر"
+msgstr "3 个月"
+
+msgid "6 أشهر"
+msgstr "6 个月"
+
+msgid "<i class=\"bi bi-patch-check\"></i> اعتماد"
+msgstr "<i class=\"bi bi-patch-check\"></i> 批准"
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ النشر…"
+msgstr "<span class=\"spinner-border spinner-border-sm\"></span> 正在发布…"
+
+msgid "<span class=\"text-warning\">● تغييرات غير محفوظة</span>"
+msgstr "<span class=\"text-warning\">● 有未保存的更改</span>"
+
+msgid "A product of"
+msgstr "出品方："
+
+msgid "Added a contact"
+msgstr "添加了联系人"
+
+msgid "Added a task"
+msgstr "添加了任务"
+
+msgid "Attach from Wakeel"
+msgstr "从 Wakeel 附加"
+
+msgid "Attached a file to a task"
+msgstr "据此文档生成一个月的社交媒体内容。"
+
+msgid "Build a month of social media content from this document."
+msgstr "为任务附加了文件"
+
+msgid "Changed a contact"
+msgstr "更改了联系人"
+
+msgid "Changed a document of the library"
+msgstr "更改了资料库中的文档"
+
+msgid "Changed a task"
+msgstr "更改了任务"
+
+msgid "Changed an announcement"
+msgstr "更改了公告"
+
+msgid "Changed the settings of a form"
+msgstr "更改了表单设置"
+
+msgid "Changed the status of a task"
+msgstr "更改了任务状态"
+
+msgid "Choose a file"
+msgstr "选择文件"
+
+msgid "Closed a form"
+msgstr "关闭了表单"
+
+msgid "Content plan from it"
+msgstr "据此制定内容计划"
+
+msgid "Created a form"
+msgstr "创建了表单"
+
+msgid "Ctrl + S للحفظ"
+msgstr "Ctrl + S 保存"
+
+msgid "Deleted a contact and its history"
+msgstr "删除了联系人及其历史记录"
+
+msgid "Deleted a document from the library"
+msgstr "从资料库中删除了文档"
+
+msgid "Deleted a form and its answers"
+msgstr "删除了表单及其回答"
+
+msgid "Deleted a presentation"
+msgstr "删除了演示文稿"
+
+msgid "Deleted a task"
+msgstr "删除了任务"
+
+msgid "Deleted an announcement"
+msgstr "删除了公告"
+
+msgid "Document services"
+msgstr "文档服务"
+
+msgid "Documents waiting for your approval"
+msgstr "等待您批准的文档"
+
+msgid "Downloaded the answers of a form"
+msgstr "下载了表单的回答"
+
+msgid "Exported all the data of the company"
+msgstr "导出了公司的所有数据"
+
+msgid "Invited someone to the company"
+msgstr "邀请了某人加入公司"
+
+msgid "It did not work. You were not charged."
+msgstr "未成功，您未被扣费。"
+
+msgid "Joined the company"
+msgstr "加入了公司"
+
+msgid "Letterheads"
+msgstr "信笺抬头"
+
+msgid "Make a content plan"
+msgstr "制定内容计划"
+
+msgid "Never charged (internal and demo companies)."
+msgstr "从不收费（内部和演示公司）。"
+
+msgid "Nobody else is in this company yet."
+msgstr "这家公司还没有其他人。"
+
+msgid "Only members of this company can open it."
+msgstr "只有这家公司的成员才能打开。"
+
+msgid "Only the people of this company, one answer each"
+msgstr "仅限本公司成员，每人一份回答"
+
+msgid "Open the card again and approve it from there."
+msgstr "请重新打开卡片，并从那里批准。"
+
+msgid "Opened a form for answers"
+msgstr "开放了表单以接收回答"
+
+msgid "Ordered a presentation"
+msgstr "订购了演示文稿"
+
+msgid "Papers expired or expiring within 30 days"
+msgstr "已过期或 30 天内到期的证件"
+
+msgid "Post"
+msgstr "帖子"
+
+msgid "Post from it"
+msgstr "据此写帖子"
+
+msgid "Published an announcement"
+msgstr "发布了公告"
+
+msgid "Reading the document. The answer will be saved as a note."
+msgstr "正在阅读文档。回答将保存为备注。"
+
+msgid "Reading the document… the details will appear here in a moment."
+msgstr "正在阅读文档…详情稍后将显示在此处。"
+
+msgid "Removed a file from a task"
+msgstr "从任务中移除了文件"
+
+msgid "Rewrite a post"
+msgstr "重写帖子"
+
+msgid "Rewriting the post. Refresh the page in a moment."
+msgstr "正在重写帖子。请稍后刷新页面。"
+
+msgid "Shared with Wakeel"
+msgstr "已与 Wakeel 共享"
+
+msgid "Tasks assigned to you"
+msgstr "分配给您的任务"
+
+msgid "Tasks of yours are overdue"
+msgstr "您有任务已逾期"
+
+msgid "Thank you. The balance is added as soon as the payment is confirmed."
+msgstr "谢谢。款项确认后，余额将立即到账。"
+
+msgid "The AI is writing. This can take up to a minute; you can wait here."
+msgstr "AI 正在撰写。最多可能需要一分钟，您可以在此等候。"
+
+msgid "The form was created. Check its questions."
+msgstr "表单已创建。请检查其中的问题。"
+
+msgid "The mailbox will be disconnected from Wakeel."
+msgstr "该邮箱将与 Wakeel 断开连接。"
+
+msgid "The service is busy at the moment. Please try again later."
+msgstr "服务目前繁忙，请稍后再试。"
+
+msgid "This company is not charged."
+msgstr "这家公司不收费。"
+
+msgid "This suggestion is no longer available. Ask Marid again."
+msgstr "此建议已不可用。请再次询问 Marid。"
+
+msgid "Uploaded a document to the library"
+msgstr "向资料库上传了文档"
+
+msgid "Verified by Wakeel"
+msgstr "Wakeel 认证"
+
+msgid "Wakeel credit: $%(amount)s"
+msgstr "Wakeel 余额：$%(amount)s"
+
+msgid "Wallet"
+msgstr "钱包"
+
+msgid "What the services cost"
+msgstr "服务费用说明"
+
+msgid "What to change"
+msgstr "需要更改的内容"
+
+msgid "Working on it. This page shows the plan as soon as it is ready."
+msgstr "正在处理。计划准备好后将显示在此页面。"
+
+msgid "Write a post from a document"
+msgstr "根据文档写帖子"
+
+msgid "Writing the post from the document. Refresh the page in a moment."
+msgstr "正在根据文档撰写帖子。请稍后刷新页面。"
+
+msgid "You are charged only if the work is delivered."
+msgstr "仅在工作交付后才会扣费。"
+
+msgid "You changed the server or the user name: type the password again."
+msgstr "您更改了服务器或用户名：请重新输入密码。"
+
+msgid "You reached today's limit of messages to Marid. Try again tomorrow."
+msgstr "您已达到今天向 Marid 发送消息的上限。请明天再试。"
+
+msgid "You receive this because you set this reminder in Wakeel."
+msgstr "您收到此邮件，是因为您在 Wakeel 中设置了此提醒。"
+
+msgid "You were not charged."
+msgstr "您未被扣费。"
+
+msgid "Your balance: $%(balance)s. It takes about half a minute."
+msgstr "您的余额：$%(balance)s。大约需要半分钟。"
+
+msgid "[سيناريو الفيديو]"
+msgstr "[视频脚本]"
+
+msgid "files chosen"
+msgstr "个文件已选择"
+
+msgid "free"
+msgstr "免费"
+
+msgid "month"
+msgstr "月"
+
+msgid "or drop it here"
+msgstr "或拖放到此处"
+
+msgid "page"
+msgstr "页"
+
+msgid "platforms"
+msgstr "个平台"
+
+msgid "post"
+msgstr "帖子"
+
+msgid "posts per week"
+msgstr "每周帖子数"
+
+msgid "slide"
+msgstr "张幻灯片"
+
+msgid "this month's brief"
+msgstr "本月简报"
+
+msgid "{count} منشورات"
+msgstr "{count} 篇帖子"
+
+msgid "{label} على «{post}»: {text}"
+msgstr "{label}，关于“{post}”：{text}"
+
+msgid "{name} (العميل)"
+msgstr "{name}（客户）"
+
+msgid "«%(name)s» معتمد بالفعل."
+msgstr "“%(name)s”已获批准。"
+
+msgid "· %(industry)s · %(country)s · منذ %(created_at)s"
+msgstr "· %(industry)s · %(country)s · 自 %(created_at)s 起"
+
+msgid "· اللغة:"
+msgstr "· 语言："
+
+msgid "· النشر التلقائي: %(auto_publish)s"
+msgstr "· 自动发布：%(auto_publish)s"
+
+msgid "· الهدف: %(objective)s"
+msgstr "· 目标：%(objective)s"
+
+msgid "· منذ"
+msgstr "· 自"
+
+msgid "· وكيل"
+msgstr "· Wakeel"
+
+msgid "· يعمل"
+msgstr "· 于"
+
+msgid "»، فاجعل البداية قوية."
+msgstr "”，因此开头要有力。"
+
+msgid "، "
+msgstr "，"
+
+msgid "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير ("
+msgstr "，因此任务尚未开始。请以开发模式运行服务器（"
+
+msgid "، و%(pending)s مهمة تنتظر"
+msgstr "，另有 %(pending)s 项任务在等待"
+
+msgid "، وأضف"
+msgstr "，添加"
+
+msgid "، واجعل رابط إعادة التوجيه:"
+msgstr "，并将重定向 URI 设置为："
+
+msgid "، وتُحسب تكلفة كل مهمة لحظة تنفيذها."
+msgstr "，每项任务的费用在运行时计算。"
+
+msgid "؛ المفاتيح السرية لا تُعرض"
+msgstr "；密钥不会显示"
+
+msgid "؟"
+msgstr "？"
+
+msgid "آخر 12 شهراً"
+msgstr "过去 12 个月"
+
+msgid "آخر 30 يوماً"
+msgstr "过去 30 天"
+
+msgid "آخر 90 يوماً"
+msgstr "过去 90 天"
+
+msgid "آخر الأخطاء"
+msgstr "最新错误"
+
+msgid "آخر المهام"
+msgstr "最新任务"
+
+msgid "آخر تحديث:"
+msgstr "最后更新："
+
+msgid "آخر تحديث: %(when)s"
+msgstr "最后更新：%(when)s"
+
+msgid "آخر نسخة"
+msgstr "最近备份"
+
+msgid "آيس كريم"
+msgstr "冰淇淋"
+
+msgid "أبر"
+msgstr "4月"
+
+msgid "أبريل"
+msgstr "四月"
+
+msgid "أثاث"
+msgstr "家具"
+
+msgid "أحدث الاشتراكات"
+msgstr "最新订阅"
+
+msgid "أخبار"
+msgstr "新闻"
+
+msgid "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي."
+msgstr "告诉 Wakeel 本月您关注什么，其余交给它。"
+
+msgid "أخرى"
+msgstr "其他"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr "输入您的电子邮件，我们会发送设置新密码的链接。"
+
+msgid "أدخل رابط الموقع أولاً."
+msgstr "请先输入网站链接。"
+
+msgid "أدخل كلمة المرور للتأكيد"
+msgstr "输入密码以确认"
+
+msgid "أدخل لوناً بصيغة ‎#RRGGBB."
+msgstr "请按 #RRGGBB 格式输入颜色。"
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "请输入有效的美元金额（最高 1000）。"
+
+msgid "أدوات"
+msgstr "工具"
+
+msgid "أرسل {name} {subject} للمراجعة."
+msgstr "{name} 发送了 {subject} 供审核。"
+
+msgid "أرسل رابط الاستعادة"
+msgstr "发送重置链接"
+
+msgid "أرسل للعميل على واتساب"
+msgstr "通过 WhatsApp 发送给客户"
+
+msgid "أزمة"
+msgstr "危机"
+
+msgid "أزمة محتملة"
+msgstr "可能的危机"
+
+msgid "أسعار ثابتة:"
+msgstr "固定价格："
+
+msgid "أسعار هذا النموذج غير معروفة. أضف"
+msgstr "此模型的价格未知。请添加"
+
+msgid "أسنان"
+msgstr "牙科"
+
+msgid "أسود"
+msgstr "深色"
+
+msgid "أشرطة"
+msgstr "条带"
+
+msgid "أشعة"
+msgstr "光线"
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "已重新开启为公司余额充值。"
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "该公司现已免除收费。"
+
+msgid "أضف دعوة أوضح لاتخاذ إجراء"
+msgstr "添加更清晰的行动号召"
+
+msgid "أضف رقم واتساب العميل أولاً من إعدادات المخطط الآلي."
+msgstr "请先在自动规划设置中添加客户的 WhatsApp 号码。"
+
+msgid "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين"
+msgstr "添加规则，例如：标题中不要使用“优惠”一词"
+
+msgid "أضف منافساً"
+msgstr "添加竞争对手"
+
+msgid "أضف منافساً واحداً على الأقل."
+msgstr "请至少添加一个竞争对手。"
+
+msgid "أضف منافسيك"
+msgstr "添加您的竞争对手"
+
+msgid "أضفتموها"
+msgstr "由您添加"
+
+msgid "أضيفت القاعدة، وسيلتزم بها وكيل من الآن."
+msgstr "规则已添加。Wakeel 今后将遵守。"
+
+msgid "أطفال"
+msgstr "儿童"
+
+msgid "أعاد وكيل كتابة المنشور"
+msgstr "Wakeel 重写了帖子"
+
+msgid "أعد الإعداد"
+msgstr "重新准备"
+
+msgid "أعد المحاولة واضغط «تعديل الإعدادات» لتحديدها"
+msgstr "请重试，并点击“编辑设置”来选择它"
+
+msgid "أعد نشره"
+msgstr "转发"
+
+msgid "أعد نشره بصياغة جديدة"
+msgstr "用新措辞重新发布"
+
+msgid "أعدّ الخطة"
+msgstr "准备计划"
+
+msgid "أعدّ الخطة الآن"
+msgstr "立即准备计划"
+
+msgid "أعدّ المخطط الآلي خطة {title}."
+msgstr "自动规划器已准备好 {title} 计划。"
+
+msgid "أعدّ تقريراً لشهر"
+msgstr "为以下对象准备报告"
+
+msgid "أعدّ خطة الشهر"
+msgstr "准备本月计划"
+
+msgid "أعدّ خطة المحتوى"
+msgstr "制定内容计划"
+
+msgid "أعدّ خطة محتوى أو أنشئ منشوراً يدوياً."
+msgstr "制定内容计划，或手动创建帖子。"
+
+msgid "أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات."
+msgstr "制定内容计划，Wakeel 会用帖子填满您的日历。"
+
+msgid "أعدّت هذه الخطة %(name)s"
+msgstr "此计划由 %(name)s 准备"
+
+msgid "أعضاء"
+msgstr "成员"
+
+msgid "أعضاء الفريق · المنشورات"
+msgstr "团队成员 · 帖子"
+
+msgid "أعمال"
+msgstr "商业"
+
+msgid "أغس"
+msgstr "8月"
+
+msgid "أغسطس"
+msgstr "八月"
+
+msgid "أغلقتها؟ تابع"
+msgstr "已关闭？继续"
+
+msgid "أفضل ساعات النشر لجمهورك"
+msgstr "您的受众的最佳发帖时间"
+
+msgid "أقدم مهمة منتظرة"
+msgstr "等待最久的任务"
+
+msgid "أقواس"
+msgstr "弧形"
+
+msgid "أكت"
+msgstr "10月"
+
+msgid "أكتوبر"
+msgstr "十月"
+
+msgid "أكمل الخطوات هناك وسنتابع هنا تلقائياً."
+msgstr "请在那里完成步骤，我们会在这里自动继续。"
+
+msgid "أكمل الملف"
+msgstr "完善资料"
+
+msgid "أكمل الملف أولاً"
+msgstr "请先完善资料"
+
+msgid "أكمل ملف شركتك"
+msgstr "完善您的公司资料"
+
+msgid "ألغاه المستخدم."
+msgstr "已被用户取消。"
+
+msgid "أمان"
+msgstr "安全"
+
+msgid "أمثلة من منشوراتهم"
+msgstr "他们的帖子示例"
+
+msgid "أنت داخل حساب"
+msgstr "您正在以下账户中："
+
+msgid "أنشأت الصفحة، التالي"
+msgstr "我已创建，下一步"
+
+msgid "أنشئ النسخة"
+msgstr "创建版本"
+
+msgid "أنشئ تطبيقاً في"
+msgstr "创建应用，位置："
+
+msgid "أنشئ حساباً"
+msgstr "创建账户"
+
+msgid "أنشئ صفحة لشركتك"
+msgstr "为您的公司创建主页"
+
+msgid "أنشئ صفحة لشركتك أولاً"
+msgstr "请先为您的公司创建主页"
+
+msgid "أنشئه في Meta متوقفاً"
+msgstr "在 Meta 中创建，处于暂停状态"
+
+msgid "أهداف التسويق"
+msgstr "营销目标"
+
+msgid "أهلاً %(display_name)s 👋"
+msgstr "%(display_name)s，您好 👋"
+
+msgid "أو افتحها من المتصفح"
+msgstr "或在浏览器中打开"
+
+msgid "أوقفت الإشعارات على هذا الجهاز"
+msgstr "此设备上的通知已关闭"
+
+msgid "أول يوم في الشهر."
+msgstr "每月的第一天。"
+
+msgid "أُرسلت دعوة المراجعة إلى واتساب العميل."
+msgstr "审核邀请已发送到客户的 WhatsApp。"
+
+msgid "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي"
+msgstr "此计划由 Wakeel 准备 · 您的 AI 营销经理"
+
+msgid "أُلغي"
+msgstr "已取消"
+
+msgid "أُلغي إعداد الخطة. يمكنك المحاولة مرة أخرى أو حذف الخطة."
+msgstr "计划准备已取消。您可以重试或删除该计划。"
+
+msgid "أُنشئ متوقفاً في Meta"
+msgstr "已在 Meta 中创建为暂停状态"
+
+msgid "أُنشئت نسخة %(label)s."
+msgstr "已创建 %(label)s 版本。"
+
+msgid "أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد."
+msgstr "代理模式已关闭；您的客户将再次看到 Wakeel 品牌。"
+
+msgid "إحصاءات"
+msgstr "统计"
+
+msgid "إخفاء كلمة المرور"
+msgstr "隐藏密码"
+
+msgid "إدارة الفريق متاحة للمالك والمديرين فقط."
+msgstr "只有所有者和管理员可以管理团队。"
+
+msgid "إدارة المشتركين ومتابعة نشاطهم"
+msgstr "管理订阅者并跟踪其活动"
+
+msgid "إدارة المكتبة"
+msgstr "管理资料库"
+
+msgid "إدارة المنصة"
+msgstr "平台管理员"
+
+msgid "إدارة قاعدة البيانات"
+msgstr "数据库管理员"
+
+msgid "إدارة وكيل"
+msgstr "Wakeel 管理"
+
+msgid "إرجاع"
+msgstr "恢复"
+
+msgid "إرسال"
+msgstr "发送"
+
+msgid "إرسال الرد"
+msgstr "发送回复"
+
+msgid "إرسال الملاحظة"
+msgstr "发送备注"
+
+msgid "إرسال للمراجعة"
+msgstr "发送审核"
+
+msgid "إزالة"
+msgstr "移除"
+
+msgid "إزالة %(display_name)s"
+msgstr "移除 %(display_name)s"
+
+msgid "إزالة العضو؟"
+msgstr "移除成员？"
+
+msgid "إسعاف"
+msgstr "急救"
+
+msgid "إشادة"
+msgstr "赞扬"
+
+msgid "إشعار"
+msgstr "通知"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "电子邮件通知"
+
+msgid "إشعارات هذا الجهاز"
+msgstr "此设备上的通知"
+
+msgid "إضافة"
+msgstr "添加"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "增加余额（美元，负数为扣回）"
+
+msgid "إضافة شركاتك"
+msgstr "添加您的公司"
+
+msgid "إضافة شركة"
+msgstr "添加公司"
+
+msgid "إضافة عضو"
+msgstr "添加成员"
+
+msgid "إطار"
+msgstr "边框"
+
+msgid "إظهار كلمة المرور"
+msgstr "显示密码"
+
+msgid "إعادة إعداد الخطة"
+msgstr "重新准备计划"
+
+msgid "إعادة إعداد الخطة؟"
+msgstr "重新准备计划？"
+
+msgid "إعادة إلى المسودة"
+msgstr "退回草稿"
+
+msgid "إعادة الإعداد"
+msgstr "重新准备"
+
+msgid "إعادة الربط أو تغيير الصفحة"
+msgstr "重新连接或更换主页"
+
+msgid "إعادة المحاولة"
+msgstr "重试"
+
+msgid "إعادة تصميم كل الصور"
+msgstr "重新设计所有图片"
+
+msgid "إعادة كتابة منشور"
+msgstr "重写帖子"
+
+msgid "إعادة نشر تلقائية كل شهر"
+msgstr "每月自动转发"
+
+msgid "إعادة نشر محتوى دائم"
+msgstr "常青内容转发"
+
+msgid "إعجاب"
+msgstr "点赞"
+
+msgid "إعداد التقرير"
+msgstr "准备报告"
+
+msgid "إعداد الخطط، التصميم، النشر، والنشر المجدول"
+msgstr "计划准备、设计、发布和定时发布"
+
+msgid "إعداد النشر التلقائي"
+msgstr "设置自动发帖"
+
+msgid "إعداد تقرير الأداء"
+msgstr "撰写绩效报告"
+
+msgid "إعداد خطة المحتوى"
+msgstr "正在准备内容计划"
+
+msgid "إعدادات"
+msgstr "设置"
+
+msgid "إعدادات الحساب"
+msgstr "账户设置"
+
+msgid "إعفاء من الخصم"
+msgstr "免收费用"
+
+msgid "إعلان"
+msgstr "公告"
+
+msgid "إغلاق"
+msgstr "关闭"
+
+msgid "إلغاء"
+msgstr "取消"
+
+msgid "إلغاء الإعفاء"
+msgstr "取消豁免"
+
+msgid "إلى"
+msgstr "至"
+
+msgid "إلى ملف"
+msgstr "至"
+
+msgid "إنترنت"
+msgstr "互联网"
+
+msgid "إنجاز"
+msgstr "完成"
+
+msgid "إنستغرام"
+msgstr "Instagram"
+
+msgid "إنشاء الإعلان في Meta؟"
+msgstr "在 Meta 中创建广告？"
+
+msgid "إنشاء الاشتراك"
+msgstr "创建订阅"
+
+msgid "إنشاء الحساب"
+msgstr "账户已创建"
+
+msgid "إنشاء حساب"
+msgstr "创建账户"
+
+msgid "إنشاء رابط جديد؟"
+msgstr "创建新链接？"
+
+msgid "إنشاء رابط للعميل"
+msgstr "创建客户链接"
+
+msgid "إنشاء متوقفاً"
+msgstr "创建为暂停状态"
+
+msgid "إنشاء مساحة العمل"
+msgstr "创建工作区"
+
+msgid "إيجابي"
+msgstr "积极"
+
+msgid "إيقاف"
+msgstr "停止"
+
+msgid "إيقاف إعداد الخطة؟"
+msgstr "停止准备计划？"
+
+msgid "إيقاف الإعداد"
+msgstr "停止准备"
+
+msgid "إيقاف الرابط"
+msgstr "关闭链接"
+
+msgid "إيقاف وضع الوكالة"
+msgstr "关闭代理模式"
+
+msgid "إيقافه يعلّق الاشتراك."
+msgstr "关闭后将暂停订阅。"
+
+msgid "ابحث بالاسم أو البريد أو المدينة…"
+msgstr "按名称、电子邮件或城市搜索…"
+
+msgid "ابحث بالاسم أو البريد…"
+msgstr "按名称或电子邮件搜索…"
+
+msgid "ابحث بالشركة أو الخطأ أو النموذج…"
+msgstr "按公司、错误或模型搜索…"
+
+msgid "ابحث في المنشورات…"
+msgstr "搜索帖子…"
+
+msgid "ابدأ الآن"
+msgstr "开始使用"
+
+msgid "ابدأ بخطتك الأولى"
+msgstr "从您的第一个计划开始"
+
+msgid "ابدأ مع وكيل"
+msgstr "开始使用 Wakeel"
+
+msgid "اتصال"
+msgstr "行动号召"
+
+msgid "اجعل الأسلوب أكثر حماساً وجاذبية"
+msgstr "让语气更有活力、更吸引人"
+
+msgid "اجعل النص أقصر وأكثر تركيزاً"
+msgstr "让文字更简短、更聚焦"
+
+msgid "احتفال"
+msgstr "庆祝"
+
+msgid "احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا."
+msgstr "保存帖子以进行设计，图片将显示在此处。"
+
+msgid "اختر الصفحة"
+msgstr "选择主页"
+
+msgid "اختر اللغة أو اللهجة."
+msgstr "选择语言或方言。"
+
+msgid "اختر ثلاثة رسوم كحد أقصى."
+msgstr "最多选择三个图案。"
+
+msgid "اختر حساباً إعلانياً من صفحة الترويج أولاً."
+msgstr "请先在推广页面选择广告账户。"
+
+msgid "اختر صفحة فيسبوك"
+msgstr "选择 Facebook 主页"
+
+msgid "اختر كلمة مرور جديدة لحسابك."
+msgstr "为您的账户选择新密码。"
+
+msgid "اختر ما ينطبق عليك:"
+msgstr "选择适用于您的项目："
+
+msgid "اختر مدة صحيحة للتجديد."
+msgstr "请选择有效的续订周期。"
+
+msgid "اختر منصة واحدة على الأقل."
+msgstr "请至少选择一个平台。"
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "请选择 1 到 28 之间的一天。"
+
+msgid "اختيار"
+msgstr "选择"
+
+msgid "ادخار"
+msgstr "储蓄"
+
+msgid "اربط إنستغرام بصفحة فيسبوك"
+msgstr "将 Instagram 关联到 Facebook 主页"
+
+msgid "اربط حساب تيك توك"
+msgstr "连接您的 TikTok 账户"
+
+msgid "اربط حسابات فيسبوك أو إنستغرام"
+msgstr "连接 Facebook 或 Instagram 账户"
+
+msgid "اربط فيسبوك أو إنستغرام"
+msgstr "连接 Facebook 或 Instagram"
+
+msgid "ارتفاع"
+msgstr "上升"
+
+msgid "استدامة"
+msgstr "可持续发展"
+
+msgid "استراتيجية الشهر"
+msgstr "本月策略"
+
+msgid "استراتيجية شهرية"
+msgstr "月度策略"
+
+msgid "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك"
+msgstr "基于对您的业务和受众的了解而制定的月度策略"
+
+msgid "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل."
+msgstr "每月的策略和帖子，均由 Wakeel 准备。"
+
+msgid "استعادة كلمة المرور"
+msgstr "重置密码"
+
+msgid "استعادة كلمة المرور في وكيل"
+msgstr "重置您的 Wakeel 密码"
+
+msgid "استعادة كلمة المرور والإشعارات"
+msgstr "密码重置和通知"
+
+msgid "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً"
+msgstr "过去 12 个月全平台的 AI 使用情况"
+
+msgid "اسحب الصور هنا أو اضغط للاختيار"
+msgstr "将图片拖到此处或点按选择"
+
+msgid "اسحب المنشور إلى يوم آخر لتغيير موعده."
+msgstr "将帖子拖到另一天以更改其日期。"
+
+msgid "اسم الشركة"
+msgstr "公司名称"
+
+msgid "اسم الوكالة"
+msgstr "代理名称"
+
+msgid "اسمك"
+msgstr "您的姓名"
+
+msgid "اشتراك %(name)s معلّق"
+msgstr "%(name)s 订阅已暂停"
+
+msgid "اشتراك جديد"
+msgstr "新订阅"
+
+msgid "اشتراك غير صالح."
+msgstr "订阅无效。"
+
+msgid "اشتراك نشط"
+msgstr "有效订阅"
+
+msgid "اشتراك نشط بدون تاريخ انتهاء"
+msgstr "无结束日期的有效订阅"
+
+msgid "اشتراك نشط، باقٍ "
+msgstr "有效订阅，剩余 "
+
+msgid "اشتراك ينتهي خلال 7 أيام."
+msgstr "个订阅将在 7 天内结束。"
+
+msgid "اشتراكات جديدة"
+msgstr "新订阅"
+
+msgid "اضغط على القائمة ☰ ثم «نوع الحساب والأدوات»."
+msgstr "点按 ☰ 菜单，然后选择“账户类型和工具”。"
+
+msgid "اطلب الآن ←"
+msgstr "立即订购 →"
+
+msgid "اطلب خطة الشهر"
+msgstr "申请本月计划"
+
+msgid "اطلب من وكيل تعديل المنشور"
+msgstr "请 Wakeel 修改帖子"
+
+msgid "اعتماد"
+msgstr "批准"
+
+msgid "اعتماد "
+msgstr "批准 "
+
+msgid "اعتماد %(name)s"
+msgstr "批准 %(name)s"
+
+msgid "اعتماد الحساب؟"
+msgstr "批准该账户？"
+
+msgid "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها"
+msgstr "批准新订阅者，并续订、暂停或删除订阅"
+
+msgid "اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط."
+msgstr "只有所有者和管理员可以批准和发布帖子。"
+
+msgid "اعتماد كل ما بانتظار المراجعة (%(review_ids)s)"
+msgstr "批准所有待审核内容（%(review_ids)s）"
+
+msgid "اعتماد ✅"
+msgstr "批准 ✅"
+
+msgid "اعتمد"
+msgstr "已批准"
+
+msgid "اعتمد {name} {subject}."
+msgstr "{name} 已批准 {subject}。"
+
+msgid "اعتمد المنشور أولاً، ثم انشره."
+msgstr "请先批准帖子，然后再发布。"
+
+msgid "افتح تطبيق إنستغرام وادخل إلى ملفك الشخصي."
+msgstr "打开 Instagram 应用并进入您的个人主页。"
+
+msgid "افتح مدير الإعلانات"
+msgstr "打开广告管理器"
+
+msgid "اقتباس"
+msgstr "引用"
+
+msgid "اقتراح الترويج جاهز."
+msgstr "推广建议已就绪。"
+
+msgid "اقتراح ترويج"
+msgstr "推广建议"
+
+msgid "اقترح ترويجاً"
+msgstr "建议推广"
+
+msgid "اكتب اسمك أولاً"
+msgstr "请先填写您的姓名"
+
+msgid "اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة."
+msgstr "请先填写您的姓名，以便团队知道是谁留的备注。"
+
+msgid "اكتب الرد أولاً."
+msgstr "请先填写回复。"
+
+msgid "اكتب الرد…"
+msgstr "填写回复…"
+
+msgid "اكتب تعليقاً…"
+msgstr "写评论…"
+
+msgid "اكتب تعليقك أولاً."
+msgstr "请先填写评论。"
+
+msgid "اكتب عنواناً أقوى يلفت الانتباه"
+msgstr "写一个更有力、更吸睛的标题"
+
+msgid "اكتب فكرة مختلفة تماماً لنفس المحور"
+msgstr "为同一支柱写一个完全不同的创意"
+
+msgid "اكتب ما تريد تغييره في المنشور."
+msgstr "写下您想对帖子做的更改。"
+
+msgid "اكتب ملاحظتك أولاً."
+msgstr "请先填写备注。"
+
+msgid "اكتمل"
+msgstr "完成"
+
+msgid "اكتمل الربط"
+msgstr "连接完成"
+
+msgid "اكتمل تحليل المنافسين."
+msgstr "竞争对手分析完成。"
+
+msgid "الآن"
+msgstr "刚刚"
+
+msgid "الآن · 🌐"
+msgstr "刚刚 · 🌐"
+
+msgid "الآن نربط حساباتك بوكيل"
+msgstr "现在让我们将您的账户连接到 Wakeel"
+
+msgid "الأحد"
+msgstr "星期日"
+
+msgid "الأحدث"
+msgstr "最新"
+
+msgid "الأداء"
+msgstr "绩效"
+
+msgid "الأدوار"
+msgstr "角色"
+
+msgid "الأربعاء"
+msgstr "星期三"
+
+msgid "الأردن"
+msgstr "约旦"
+
+msgid "الأساسيات"
+msgstr "基础"
+
+msgid "الأسلوب والنبرة"
+msgstr "风格与语气"
+
+msgid "الأضعف أداءً"
+msgstr "表现最差"
+
+msgid "الأعضاء"
+msgstr "成员"
+
+msgid "الأعلى استهلاكاً هذا الشهر"
+msgstr "本月使用最多"
+
+msgid "الأفضل أداءً"
+msgstr "表现最佳"
+
+msgid "الأقدم"
+msgstr "最早"
+
+msgid "الألوان والزخرفة"
+msgstr "色彩与图案"
+
+msgid "الأهداف"
+msgstr "目标"
+
+msgid "الإثنين"
+msgstr "星期一"
+
+msgid "الإجمالي الأقصى: %(total)s %(cur)s"
+msgstr "总上限：%(total)s %(cur)s"
+
+msgid "الإدارة"
+msgstr "管理"
+
+msgid "الإشعارات"
+msgstr "通知"
+
+msgid "الإعدادات"
+msgstr "设置"
+
+msgid "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله."
+msgstr "广告已在 Meta 中创建并处于暂停状态。开启之前不会产生任何花费。"
+
+msgid "الإمارات"
+msgstr "阿拉伯联合酋长国"
+
+msgid "الإنجليزية"
+msgstr "English"
+
+msgid "الاستراتيجية"
+msgstr "策略"
+
+msgid "الاستهلاك حسب الشهر"
+msgstr "按月用量"
+
+msgid "الاستهلاك والتفاصيل"
+msgstr "用量与详情"
+
+msgid "الاستهلاك والتكلفة"
+msgstr "用量与费用"
+
+msgid "الاسم"
+msgstr "名称"
+
+msgid "الاسم القانوني"
+msgstr "法定名称"
+
+msgid "الاسم الكامل"
+msgstr "全名"
+
+msgid "الاسم:"
+msgstr "名称："
+
+msgid "الاشتراك"
+msgstr "订阅"
+
+msgid "الاشتراك معلّق"
+msgstr "订阅已暂停"
+
+msgid "الاشتراكات"
+msgstr "订阅"
+
+msgid "الاشتراكات الجديدة لكل شهر"
+msgstr "每月新增订阅"
+
+msgid "الاعتماد"
+msgstr "批准"
+
+msgid "الاكتفاء بفيسبوك"
+msgstr "继续使用 Facebook"
+
+msgid "البحرين"
+msgstr "巴林"
+
+msgid "البريد الإلكتروني"
+msgstr "电子邮件"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "电子邮件或密码不正确。"
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "公司电子邮件"
+
+msgid "البريد:"
+msgstr "电子邮件："
+
+msgid "البيانات الرسمية"
+msgstr "官方信息"
+
+msgid "التاريخ"
+msgstr "日期"
+
+msgid "التالي"
+msgstr "下一个"
+
+msgid "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة."
+msgstr "分析正在准备中。请一分钟后重新加载页面。"
+
+msgid "التحويل إلى العربية"
+msgstr "切换为阿拉伯语"
+
+msgid "الترويج المدفوع"
+msgstr "付费推广"
+
+msgid "التسجيل خلال آخر 12 شهراً"
+msgstr "过去 12 个月的注册量"
+
+msgid "التسجيل مغلق حالياً."
+msgstr "目前暂不开放注册。"
+
+msgid "التسعير المستخدم"
+msgstr "所用定价"
+
+msgid "التسويق"
+msgstr "营销"
+
+msgid "التشغيل"
+msgstr "运营"
+
+msgid "التصميم"
+msgstr "设计"
+
+msgid "التصميم تغيّر منذ آخر تحديث للصورة."
+msgstr "自上次更新图片以来，设计已更改。"
+
+msgid "التصميم قيد الإعداد"
+msgstr "设计进行中"
+
+msgid "التعليقات"
+msgstr "评论"
+
+msgid "التعلّم من الملاحظات"
+msgstr "从反馈中学习"
+
+msgid "التفاصيل"
+msgstr "详情"
+
+msgid "التفاصيل التقنية"
+msgstr "技术详情"
+
+msgid "التفاعل"
+msgstr "互动"
+
+msgid "التفعيل"
+msgstr "激活"
+
+msgid "التقارير الشهرية"
+msgstr "月度报告"
+
+msgid "التقرير الكامل بالأرقام وتوصيات الشهر القادم:"
+msgstr "含数据和下月建议的完整报告："
+
+msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
+msgstr "报告正在准备中。请稍后重新加载页面。"
+
+msgid "التقويم"
+msgstr "日历"
+
+msgid "التقويم الكامل"
+msgstr "完整日历"
+
+msgid "التكلفة"
+msgstr "费用"
+
+msgid "التكلفة لكل شهر"
+msgstr "每月费用"
+
+msgid "الثلاثاء"
+msgstr "星期二"
+
+msgid "الجمعة"
+msgstr "星期五"
+
+msgid "الجمعة البيضاء (عروض التسوق)"
+msgstr "白色星期五（购物优惠）"
+
+msgid "الجمهور المستهدف"
+msgstr "目标受众"
+
+msgid "الجميع"
+msgstr "所有人"
+
+msgid "الجنس"
+msgstr "性别"
+
+msgid "الحالة"
+msgstr "状态"
+
+msgid "الحساب"
+msgstr "账户"
+
+msgid "الحساب الإعلاني"
+msgstr "广告账户"
+
+msgid "الحساب تجريبي."
+msgstr "这是试用账户。"
+
+msgid "الحساب غير مربوط. اربطه من «حسابات النشر»."
+msgstr "该账户未连接。请从“发布账户”中连接。"
+
+msgid "الحسابات المربوطة"
+msgstr "已连接的账户"
+
+msgid "الخدمات"
+msgstr "服务"
+
+msgid "الخدمات والإعدادات التي تعمل بها المنصة"
+msgstr "平台运行所依赖的服务和设置"
+
+msgid "الخرطوم (GMT+2)"
+msgstr "喀土穆（GMT+2）"
+
+msgid "الخطط:"
+msgstr "计划："
+
+msgid "الخطوة "
+msgstr "步骤 "
+
+msgid "الخميس"
+msgstr "星期四"
+
+msgid "الدخول كمدير المشترك"
+msgstr "以订阅者的管理员身份登录"
+
+msgid "الدوحة (GMT+3)"
+msgstr "多哈（GMT+3）"
+
+msgid "الدور"
+msgstr "角色"
+
+msgid "الدول"
+msgstr "国家/地区"
+
+msgid "الدولة"
+msgstr "国家/地区"
+
+msgid "الذروة"
+msgstr "高峰"
+
+msgid "الذكاء الاصطناعي"
+msgstr "AI"
+
+msgid "الذكاء الاصطناعي غير مفعّل"
+msgstr "AI 未配置"
+
+msgid "الذكاء الاصطناعي غير مفعّل (ينقص"
+msgstr "AI 未配置（缺少"
+
+msgid "الذكاء الاصطناعي غير مفعّل بعد. أضف"
+msgstr "AI 尚未配置。请添加"
+
+msgid "الذكاء الاصطناعي متصل"
+msgstr "AI 已连接"
+
+msgid "الرابط غير صالح"
+msgstr "链接无效"
+
+msgid "الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https."
+msgstr "链接无效。请使用以 http 或 https 开头的链接。"
+
+msgid "الرابط لا يشير إلى صفحة ويب."
+msgstr "该链接未指向网页。"
+
+msgid "الربط"
+msgstr "连接"
+
+msgid "الرد التلقائي على التعليقات البسيطة"
+msgstr "自动回复简单评论"
+
+msgid "الرد التلقائي: متوقف"
+msgstr "自动回复：关闭"
+
+msgid "الرد التلقائي: يعمل"
+msgstr "自动回复：开启"
+
+msgid "الرسوم"
+msgstr "图案"
+
+msgid "الرصيد"
+msgstr "余额"
+
+msgid "الرقم الضريبي"
+msgstr "税号"
+
+msgid "الرموز (مُدخلة · cache · مُخرجة)"
+msgstr "令牌（输入 · 缓存 · 输出）"
+
+msgid "الرياض (GMT+3)"
+msgstr "利雅得（GMT+3）"
+
+msgid "الزخرفة"
+msgstr "图案"
+
+msgid "السابق"
+msgstr "上一个"
+
+msgid "السبت"
+msgstr "星期六"
+
+msgid "السعودية"
+msgstr "沙特阿拉伯"
+
+msgid "السودان"
+msgstr "苏丹"
+
+msgid "الشارة"
+msgstr "徽章"
+
+msgid "الشركات"
+msgstr "公司"
+
+msgid "الشركات التي تظهر لعملائها هوية الوكالة"
+msgstr "客户看到代理品牌的公司"
+
+msgid "الشركة"
+msgstr "公司"
+
+msgid "الشعار"
+msgstr "标志"
+
+msgid "الشهر"
+msgstr "月"
+
+msgid "الشهر التالي"
+msgstr "下个月"
+
+msgid "الشهر السابق"
+msgstr "上个月"
+
+msgid "الشهر القادم"
+msgstr "下个月"
+
+msgid "الصفحة الرئيسية"
+msgstr "主页"
+
+msgid "الصورة"
+msgstr "图片"
+
+msgid "الصورة المعروضة هي آخر نسخة محفوظة."
+msgstr "显示的图片是最后保存的版本。"
+
+msgid "الصورة النهائية"
+msgstr "最终图片"
+
+msgid "الصورة محدّثة وجاهزة للنشر."
+msgstr "图片已是最新，可以发布。"
+
+msgid "العامل الخلفي"
+msgstr "后台工作进程"
+
+msgid "العامل الخلفي متوقف"
+msgstr "后台工作进程已停止"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "العربية الفصحى"
+msgstr "现代标准阿拉伯语"
+
+msgid "العربية بلهجة السوق المحلي"
+msgstr "本地方言阿拉伯语"
+
+msgid "العربية والإنجليزية معاً"
+msgstr "阿拉伯语和英语并用"
+
+msgid "العضو"
+msgstr "成员"
+
+msgid "العضويات"
+msgstr "成员资格"
+
+msgid "العمر إلى"
+msgstr "年龄上限"
+
+msgid "العمر من"
+msgstr "年龄下限"
+
+msgid "العميل"
+msgstr "客户"
+
+msgid "العميل (واتساب +%(phone)s)"
+msgstr "客户（WhatsApp +%(phone)s）"
+
+msgid "العنوان"
+msgstr "标题"
+
+msgid "العنوان الرئيسي"
+msgstr "标题"
+
+msgid "العنوان الفرعي"
+msgstr "副标题"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "返回登录"
+
+msgid "العودة للوحة الإدارة"
+msgstr "返回管理控制台"
+
+msgid "العيد الوطني البحريني"
+msgstr "巴林国庆日"
+
+msgid "العيد الوطني الكويتي"
+msgstr "科威特国庆日"
+
+msgid "الفريق"
+msgstr "团队"
+
+msgid "الفكرة"
+msgstr "创意"
+
+msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
+msgstr "短视频需在拍摄后手动发布。"
+
+msgid "القائمة"
+msgstr "菜单"
+
+msgid "القائمة الرئيسية"
+msgstr "主菜单"
+
+msgid "القالب"
+msgstr "模板"
+
+msgid "القاهرة"
+msgstr "开罗"
+
+msgid "القيمة"
+msgstr "值"
+
+msgid "الكل"
+msgstr "全部"
+
+msgid "الكويت"
+msgstr "科威特"
+
+msgid "الكويت (GMT+3)"
+msgstr "科威特（GMT+3）"
+
+msgid "اللغة"
+msgstr "语言"
+
+msgid "اللهجة الخليجية"
+msgstr "海湾方言"
+
+msgid "اللهجة السودانية"
+msgstr "苏丹方言"
+
+msgid "اللهجة الشامية"
+msgstr "黎凡特方言"
+
+msgid "اللهجة المصرية"
+msgstr "埃及方言"
+
+msgid "اللون الأساسي"
+msgstr "主色"
+
+msgid "اللون الثانوي"
+msgstr "辅助色"
+
+msgid "المالك"
+msgstr "所有者"
+
+msgid "المالك والمدير:"
+msgstr "所有者和管理员："
+
+msgid "المجال"
+msgstr "行业"
+
+msgid "المحتوى"
+msgstr "内容"
+
+msgid "المحفظة"
+msgstr "钱包"
+
+msgid "المحور"
+msgstr "支柱"
+
+msgid "المخصوم (صافي)"
+msgstr "已扣费（净额）"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "向客户收取的费用（扣除退款后）"
+
+msgid "المخطط الآلي"
+msgstr "自动规划器"
+
+msgid "المدة"
+msgstr "周期"
+
+msgid "المدينة"
+msgstr "城市"
+
+msgid "المدينة والدولة"
+msgstr "城市和国家/地区"
+
+msgid "المراجعة والتعليقات"
+msgstr "审核与评论"
+
+msgid "المزيد"
+msgstr "更多"
+
+msgid "المساحة المستخدمة"
+msgstr "已用空间"
+
+msgid "المستخدمون"
+msgstr "用户"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "文档需要批准"
+
+msgid "المشاهد:"
+msgstr "查看者："
+
+msgid "المشترك"
+msgstr "订阅者"
+
+msgid "المشتركون"
+msgstr "订阅者"
+
+msgid "المقاس"
+msgstr "大小"
+
+msgid "المكتبة فارغة"
+msgstr "资料库为空"
+
+msgid "المملكة المتحدة"
+msgstr "英国"
+
+msgid "المناسبات"
+msgstr "节日"
+
+msgid "المنافسون"
+msgstr "竞争对手"
+
+msgid "المنامة (GMT+3)"
+msgstr "麦纳麦（GMT+3）"
+
+msgid "المنتجات والخدمات"
+msgstr "产品和服务"
+
+msgid "المنشور التالي"
+msgstr "下一篇帖子"
+
+msgid "المنشور السابق"
+msgstr "上一篇帖子"
+
+msgid "المنشور منشور بالفعل."
+msgstr "该帖子已发布。"
+
+msgid "المنشورات"
+msgstr "帖子"
+
+msgid "المنشورات القادمة"
+msgstr "即将发布的帖子"
+
+msgid "المنشورات:"
+msgstr "帖子："
+
+msgid "المنصات"
+msgstr "平台"
+
+msgid "المنطقة الزمنية"
+msgstr "时区"
+
+msgid "المهام"
+msgstr "任务"
+
+msgid "المهام والأخطاء"
+msgstr "任务和错误"
+
+msgid "المهمة"
+msgstr "任务"
+
+msgid "الموقع الإلكتروني"
+msgstr "网站"
+
+msgid "الموقع يعيد التوجيه مرات كثيرة."
+msgstr "该网站重定向次数过多。"
+
+msgid "الميزانية اليومية"
+msgstr "每日预算"
+
+msgid "النبرة:"
+msgstr "语气："
+
+msgid "النتيجة"
+msgstr "结果"
+
+msgid "النسخ الاحتياطي"
+msgstr "备份"
+
+msgid "النسخ المحفوظة"
+msgstr "保留的备份"
+
+msgid "النشاط والجمهور"
+msgstr "业务和受众"
+
+msgid "النشاط والجمهور والنبرة والهوية البصرية."
+msgstr "业务、受众、语气和视觉形象。"
+
+msgid "النشر التلقائي"
+msgstr "自动发布"
+
+msgid "النشر التلقائي في الموعد"
+msgstr "按计划自动发布"
+
+msgid "النشر التلقائي مفعّل"
+msgstr "自动发布已开启"
+
+msgid "النشر عبر Meta"
+msgstr "通过 Meta 发布"
+
+msgid "النشر على فيسبوك وإنستغرام"
+msgstr "发布到 Facebook 和 Instagram"
+
+msgid "النشر متاح للمالك والمديرين فقط."
+msgstr "只有所有者和管理员可以发布。"
+
+msgid "النظام"
+msgstr "系统"
+
+msgid "النموذج"
+msgstr "模型"
+
+msgid "النموذج · التكلفة"
+msgstr "模型 · 费用"
+
+msgid "الهاتف"
+msgstr "电话"
+
+msgid "الهاتف:"
+msgstr "电话："
+
+msgid "الهدف"
+msgstr "目标"
+
+msgid "الهوية البصرية"
+msgstr "视觉形象"
+
+msgid "الوسوم"
+msgstr "标签"
+
+msgid "الوصف"
+msgstr "描述"
+
+msgid "الوصول"
+msgstr "触达"
+
+msgid "الوكالات"
+msgstr "代理机构"
+
+msgid "اليوم"
+msgstr "今天"
+
+msgid "اليوم الرياضي للدولة في قطر"
+msgstr "卡塔尔国家体育日"
+
+msgid "اليوم الوطني"
+msgstr "国庆日"
+
+msgid "اليوم الوطني السعودي"
+msgstr "沙特国庆日"
+
+msgid "اليوم الوطني العُماني"
+msgstr "阿曼国庆日"
+
+msgid "اليوم الوطني القطري"
+msgstr "卡塔尔国庆日"
+
+msgid "املأ من الموقع"
+msgstr "从网站填充"
+
+msgid "انتقل إلى شركة أخرى:"
+msgstr "切换到另一家公司："
+
+msgid "انتهت جلسة الربط. حاول مرة أخرى."
+msgstr "连接会话已过期。请重试。"
+
+msgid "انتهى اشتراك %(name)s"
+msgstr "%(name)s 订阅已到期"
+
+msgid "انتهى الاشتراك منذ "
+msgstr "订阅已到期 "
+
+msgid "انشر"
+msgstr "发布"
+
+msgid "انشر الآن"
+msgstr "立即发布"
+
+msgid "انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها."
+msgstr "按计划将已批准的帖子发布到已连接的账户。"
+
+msgid "انضم في"
+msgstr "已加入"
+
+msgid "انطلاق"
+msgstr "启动"
+
+msgid "اهتمامات تضيفها في مدير الإعلانات"
+msgstr "需在广告管理器中添加的兴趣"
+
+msgid "بألوان علامتك وخطوطها وشعارها"
+msgstr "采用您品牌的色彩、字体和标志"
+
+msgid "بؤرة"
+msgstr "焦点"
+
+msgid "بانتظار الاعتماد"
+msgstr "等待批准"
+
+msgid "بانتظار الرد"
+msgstr "等待回复"
+
+msgid "بانتظار المراجعة"
+msgstr "等待审核"
+
+msgid "بانتظار الموافقة"
+msgstr "等待批准"
+
+msgid "بانتظار نافذة تيك توك…"
+msgstr "正在等待 TikTok 窗口…"
+
+msgid "بانتظار نافذة فيسبوك…"
+msgstr "正在等待 Facebook 窗口…"
+
+msgid "بحاجة لتحديث التصميم"
+msgstr "设计需要更新"
+
+msgid "بحث في الاشتراكات"
+msgstr "搜索订阅"
+
+msgid "بحث في الفريق"
+msgstr "搜索团队"
+
+msgid "بحث في المهام"
+msgstr "搜索任务"
+
+msgid "بحساب مالكها ("
+msgstr "使用其所有者的账户（"
+
+msgid "بدأ تصميم الصور…"
+msgstr "正在设计图片…"
+
+msgid "بداية الاشتراك"
+msgstr "订阅开始"
+
+msgid "بداية العشر الأواخر من رمضان"
+msgstr "斋月最后十天开始"
+
+msgid "بداية شهر رمضان"
+msgstr "斋月开始"
+
+msgid "بداية عشر ذي الحجة"
+msgstr "都尔黑哲月前十天开始"
+
+msgid "بدون"
+msgstr "无"
+
+msgid "بدون انتهاء"
+msgstr "无结束日期"
+
+msgid "بدون تاريخ انتهاء"
+msgstr "无结束日期"
+
+msgid "بدون حساب إنستغرام"
+msgstr "无 Instagram 账户"
+
+msgid "بدون وصف"
+msgstr "无描述"
+
+msgid "بديل ذكي لوكالات التسويق"
+msgstr "营销代理机构的智能替代方案"
+
+msgid "برج"
+msgstr "塔楼"
+
+msgid "برجر"
+msgstr "汉堡"
+
+msgid "برمجة"
+msgstr "代码"
+
+msgid "بريد"
+msgstr "电子邮件"
+
+msgid "بريد التواصل مع المشترك."
+msgstr "订阅者的联系电子邮件。"
+
+msgid "بريد العميل"
+msgstr "客户的电子邮件"
+
+msgid "بسيط"
+msgstr "极简"
+
+msgid "بصفتك مشرف النظام."
+msgstr "以系统管理员身份。"
+
+msgid "بصمة"
+msgstr "指纹"
+
+msgid "بطاقة"
+msgstr "卡片"
+
+msgid "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل"
+msgstr "一旦激活，您添加公司，Wakeel 就开始工作"
+
+msgid "بقع لونية"
+msgstr "色块"
+
+msgid "بلا زخرفة"
+msgstr "无图案"
+
+msgid "بلا مستند"
+msgstr "无文档"
+
+msgid "بناء"
+msgstr "建筑"
+
+msgid "بنك"
+msgstr "银行"
+
+msgid "بودكاست"
+msgstr "播客"
+
+msgid "بيئة"
+msgstr "环境"
+
+msgid "بيانات"
+msgstr "数据"
+
+msgid "بيانات إضافية"
+msgstr "更多详情"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "公司详情和标识"
+
+msgid "بيانات النشاط"
+msgstr "业务详情"
+
+msgid "بيتزا"
+msgstr "披萨"
+
+msgid "بين 1 و%(max)s يوماً."
+msgstr "介于 1 到 %(max)s 天之间。"
+
+msgid "بين 1 و%(max)s."
+msgstr "介于 1 到 %(max)s 之间。"
+
+msgid "تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى."
+msgstr "Instagram 准备图片耗时过长。请重新尝试发布。"
+
+msgid "تأخر تيك توك في استلام الصورة. حاول الإرسال مرة أخرى."
+msgstr "TikTok 接收图片耗时过长。请重新尝试发送。"
+
+msgid "تأكيد كلمة المرور"
+msgstr "确认密码"
+
+msgid "تاريخ الاعتماد"
+msgstr "批准日期"
+
+msgid "تاريخ غير صالح."
+msgstr "日期无效。"
+
+msgid "تبدأ مع وكيل فور وصول البريد"
+msgstr "邮件一到，您就可以开始使用 Wakeel"
+
+msgid "تجاهل"
+msgstr "忽略"
+
+msgid "تجديد"
+msgstr "续订"
+
+msgid "تجديد %(name)s"
+msgstr "续订 %(name)s"
+
+msgid "تجديد الاشتراك"
+msgstr "续订订阅"
+
+msgid "تجريبي"
+msgstr "试用"
+
+msgid "تحديث"
+msgstr "刷新"
+
+msgid "تحديث أرقام الأداء"
+msgstr "更新绩效数据"
+
+msgid "تحديث الأرقام"
+msgstr "更新数据"
+
+msgid "تحديث التصميم"
+msgstr "更新设计"
+
+msgid "تحديث التصميم…"
+msgstr "正在更新设计…"
+
+msgid "تحديد الكل"
+msgstr "全选"
+
+msgid "تحقق من بريدك"
+msgstr "请查收您的电子邮件"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "请查收您的电子邮件"
+
+msgid "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة"
+msgstr "集中管理订阅者、用量、费用和平台运营"
+
+msgid "تحليل المنافسين"
+msgstr "竞争对手分析"
+
+msgid "تخييم"
+msgstr "露营"
+
+msgid "تدريب"
+msgstr "培训"
+
+msgid "تدرّج"
+msgstr "渐变"
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "按使用量付费"
+
+msgid "تذكير"
+msgstr "提醒"
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "翻译、总结、提取"
+
+msgid "ترويج"
+msgstr "推广"
+
+msgid "تسجيل الخروج"
+msgstr "退出登录"
+
+msgid "تسجيل الدخول"
+msgstr "登录"
+
+msgid "تسوق"
+msgstr "购物"
+
+msgid "تسويق"
+msgstr "营销"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "您的营销、文档和团队"
+
+msgid "تشغيل المخطط الآلي"
+msgstr "开启自动规划器"
+
+msgid "تصاميم احترافية بألوانك وخطوطك وشعارك"
+msgstr "采用您的色彩、字体和标志的专业设计"
+
+msgid "تصاميم بهويتك"
+msgstr "品牌一致的设计"
+
+msgid "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق"
+msgstr "帖子会送达您的 TikTok 收件箱，由您在应用中完成"
+
+msgid "تصميم الصور"
+msgstr "图片设计"
+
+msgid "تصميم الصور: %(done)s من %(total)s"
+msgstr "正在设计图片：%(done)s / %(total)s"
+
+msgid "تصميم الصورة…"
+msgstr "正在设计图片…"
+
+msgid "تصميم المنشور: %(headline)s"
+msgstr "帖子设计：%(headline)s"
+
+msgid "تصميم بهويتك"
+msgstr "符合您品牌形象的设计"
+
+msgid "تصميم ثابت"
+msgstr "静态设计"
+
+msgid "تصميم جديد"
+msgstr "新设计"
+
+msgid "تصميم صور الخطة"
+msgstr "正在设计计划的图片"
+
+msgid "تصميم صورة منشور"
+msgstr "正在设计帖子图片"
+
+msgid "تصوير"
+msgstr "摄影"
+
+msgid "تطبيق Meta"
+msgstr "Meta 应用"
+
+msgid "تطبيق Meta غير مضبوط بعد."
+msgstr "Meta 应用尚未配置。"
+
+msgid "تعديل"
+msgstr "编辑"
+
+msgid "تعديل %(name)s"
+msgstr "编辑 %(name)s"
+
+msgid "تعديل المنافس"
+msgstr "编辑竞争对手"
+
+msgid "تعديل نص"
+msgstr "文字编辑"
+
+msgid "تعذّر"
+msgstr "失败"
+
+msgid "تعذّر إعداد التقرير."
+msgstr "无法准备报告。"
+
+msgid "تعذّر إعداد الخطة"
+msgstr "无法准备计划"
+
+msgid "تعذّر إعداد خطة المحتوى: {error}"
+msgstr "无法准备内容计划：{error}"
+
+msgid "تعذّر الإعداد"
+msgstr "准备失败"
+
+msgid "تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى."
+msgstr "无法连接到该网站。请确认网站正常运行，然后重试。"
+
+msgid "تعذّر التحليل"
+msgstr "分析失败"
+
+msgid "تعذّر الربط"
+msgstr "无法连接"
+
+msgid "تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح."
+msgstr "找不到该网站。请检查链接拼写是否正确。"
+
+msgid "تعذّر النشر"
+msgstr "无法发布"
+
+msgid "تعذّر النشر:"
+msgstr "无法发布："
+
+msgid "تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل."
+msgstr "无法连接 AI 服务。请稍后再试。"
+
+msgid "تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت."
+msgstr "无法连接 Meta 的服务器。请检查服务器的网络连接。"
+
+msgid "تعذّر الوصول إلى خوادم واتساب."
+msgstr "无法连接 WhatsApp 服务器。"
+
+msgid "تعذّر تحديث التصميم"
+msgstr "无法更新设计"
+
+msgid "تعذّر تصميم الصور"
+msgstr "无法设计图片"
+
+msgid "تعذّر قراءة الأرقام: %(problem)s"
+msgstr "无法读取数据：%(problem)s"
+
+msgid "تعذّر نشر «{title}»: {error}"
+msgstr "无法发布“{title}”：{error}"
+
+msgid "تعذّرت إعادة الكتابة"
+msgstr "无法重写帖子"
+
+msgid "تعذّرت قراءة الموقع."
+msgstr "无法读取该网站。"
+
+msgid "تعليق"
+msgstr "评论"
+
+msgid "تعليق %(name)s"
+msgstr "暂停 %(name)s"
+
+msgid "تعليق «%(name)s»؟"
+msgstr "暂停“%(name)s”？"
+
+msgid "تعليق العميل"
+msgstr "客户评论"
+
+msgid "تعليق عاجل"
+msgstr "紧急评论"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "等待回复的评论"
+
+msgid "تعليقات جديدة: %(new)s، قُرئ منها %(read)s."
+msgstr "新评论：%(new)s，已读 %(read)s。"
+
+msgid "تعليقك"
+msgstr "您的评论"
+
+msgid "تعليم"
+msgstr "教育"
+
+msgid "تعليم الكل كمقروء"
+msgstr "全部标为已读"
+
+msgid "تعلّم من %(pending_signals)s ملاحظة جديدة"
+msgstr "从 %(pending_signals)s 条新备注中学习"
+
+msgid "تعلّم وكيل من %(count)s ملاحظة."
+msgstr "Wakeel 从 %(count)s 条备注中学习了。"
+
+msgid "تعلّمها وكيل"
+msgstr "Wakeel 已学到的内容"
+
+msgid "تغيير كلمة المرور"
+msgstr "更改密码"
+
+msgid "تغيّرت حالة المنشور، فلم يُنشر تلقائياً."
+msgstr "帖子的状态已更改，因此未自动发布。"
+
+msgid "تفاعل"
+msgstr "互动"
+
+msgid "تفعيل"
+msgstr "开启"
+
+msgid "تفعيل الرابط"
+msgstr "开启链接"
+
+msgid "تقرير"
+msgstr "报告"
+
+msgid "تقرير %(m)s"
+msgstr "%(m)s 报告"
+
+msgid "تقرير %(m)s · %(name)s"
+msgstr "%(m)s 报告 · %(name)s"
+
+msgid "تقرير أداء %(m)s"
+msgstr "%(m)s 绩效报告"
+
+msgid "تقرير أداء %(month)s جاهز."
+msgstr "%(month)s 绩效报告已就绪。"
+
+msgid "تقرير أداء %(month)s: %(name)s"
+msgstr "%(month)s 绩效报告：%(name)s"
+
+msgid "تقرير من %(name)s"
+msgstr "%(name)s 的报告"
+
+msgid "تقويم النشر"
+msgstr "发布日历"
+
+msgid "تقويم نشر ومراجعة واعتماد في مكان واحد"
+msgstr "发布日历、审核和批准集中一处"
+
+msgid "تقويم ونشر"
+msgstr "日历与发布"
+
+msgid "تقييم"
+msgstr "评分"
+
+msgid "تكامل"
+msgstr "集成"
+
+msgid "تكلفة 12 شهراً"
+msgstr "12 个月费用"
+
+msgid "تكلفة آخر 12 شهراً"
+msgstr "过去 12 个月的费用"
+
+msgid "تكلفة الذكاء الاصطناعي"
+msgstr "AI 费用"
+
+msgid "تكلفة الذكاء الاصطناعي لكل شهر"
+msgstr "按月 AI 费用"
+
+msgid "تكلفة الشهر"
+msgstr "本月费用"
+
+msgid "تكلفة هذا الشهر"
+msgstr "本月费用"
+
+msgid "تلقائي"
+msgstr "自动"
+
+msgid "تم إرسال الرد."
+msgstr "回复已发送。"
+
+msgid "تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…"
+msgstr "已准备 %(count)s 篇帖子。正在设计图片…"
+
+msgid "تم إعداد الخطة و%(count)s منشوراً."
+msgstr "计划和 %(count)s 篇帖子已准备好。"
+
+msgid "تم إعداد تقرير %(month)s."
+msgstr "%(month)s 报告已就绪。"
+
+msgid "تم إنشاء اشتراك «%(name)s» ومالكه %(email)s."
+msgstr "订阅“%(name)s”已创建，所有者为 %(email)s。"
+
+msgid "تم إيقاف إشعارات البريد."
+msgstr "电子邮件通知已关闭。"
+
+msgid "تم إيقاف الرد التلقائي."
+msgstr "自动回复已关闭。"
+
+msgid "تم إيقاف المخطط الآلي."
+msgstr "自动规划器已关闭。"
+
+msgid "تم إيقاف النشر التلقائي."
+msgstr "自动发布已关闭。"
+
+msgid "تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل."
+msgstr "客户链接已关闭。旧链接不再有效。"
+
+msgid "تم اختيار "
+msgstr "已选择"
+
+msgid "تم اختيار الحساب الإعلاني."
+msgstr "广告账户已选择。"
+
+msgid "تم استلام طلب"
+msgstr "我们已收到以下请求："
+
+msgid "تم اعتماد "
+msgstr "已批准 "
+
+msgid "تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد."
+msgstr "“%(name)s”已批准，并已向其所有者发送电子邮件。"
+
+msgid "تم اعتماد «%(title)s» ✅"
+msgstr "“%(title)s”已批准 ✅"
+
+msgid "تم اعتماد حساب %(company)s في وكيل، ويمكنك البدء الآن."
+msgstr "您在 Wakeel 上的 %(company)s 账户已获批准，现在可以开始了。"
+
+msgid "تم الحفظ الساعة "
+msgstr "保存于 "
+
+msgid "تم الربط بنجاح"
+msgstr "连接成功"
+
+msgid "تم الرد"
+msgstr "已回复"
+
+msgid "تم النشر"
+msgstr "已发布"
+
+msgid "تم النشر يدوياً"
+msgstr "已手动发布"
+
+msgid "تم تجديد «%(name)s» حتى %(date)s."
+msgstr "“%(name)s”已续订至 %(date)s。"
+
+msgid "تم تحديث أرقام %(count)s منشور."
+msgstr "已更新 %(count)s 篇帖子的数据。"
+
+msgid "تم تحديث التصميم."
+msgstr "设计已更新。"
+
+msgid "تم تحديث الحالة: "
+msgstr "状态已更新："
+
+msgid "تم تحديث الدور."
+msgstr "角色已更新。"
+
+msgid "تم تحديث رابط التقرير."
+msgstr "报告链接已更新。"
+
+msgid "تم تشغيل الرد التلقائي على الأسئلة البسيطة والإشادات."
+msgstr "已开启对简单问题和赞扬的自动回复。"
+
+msgid "تم تشغيل المخطط الآلي."
+msgstr "自动规划器已开启。"
+
+msgid "تم تصميم %(count)s صورة."
+msgstr "已设计 %(count)s 张图片。"
+
+msgid "تم تعديل الرصيد."
+msgstr "余额已更改。"
+
+msgid "تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه."
+msgstr "“%(name)s”已暂停；在您重新激活之前，其团队无法工作。"
+
+msgid "تم تعيين كلمة المرور"
+msgstr "密码已设置"
+
+msgid "تم تغيير كلمة المرور"
+msgstr "密码已更改"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "您的密码已更改。"
+
+msgid "تم تغيير موعد النشر"
+msgstr "发布日期已更改"
+
+msgid "تم تفعيل إشعارات البريد."
+msgstr "电子邮件通知已开启。"
+
+msgid "تم تفعيل النشر التلقائي."
+msgstr "自动发布已开启。"
+
+msgid "تم تفعيل حساب %(name)s، وأُبلغ بالبريد."
+msgstr "%(name)s 的账户现已激活，并已向其发送电子邮件。"
+
+msgid "تم تفعيل حسابك في وكيل"
+msgstr "您的 Wakeel 账户已激活"
+
+msgid "تم تفعيل حسابك في وكيل: %(name)s"
+msgstr "您的 Wakeel 账户已激活：%(name)s"
+
+msgid "تم تنشيط «%(name)s»."
+msgstr "“%(name)s”已重新激活。"
+
+msgid "تم حذف «%(name)s» وكل بياناتها نهائياً."
+msgstr "“%(name)s”及其所有数据已被永久删除。"
+
+msgid "تم حذف الخطة ومنشوراتها."
+msgstr "计划及其帖子已删除。"
+
+msgid "تم حذف الصورة."
+msgstr "图片已删除。"
+
+msgid "تم حذف المنافس."
+msgstr "竞争对手已删除。"
+
+msgid "تم حذف المنشور."
+msgstr "帖子已删除。"
+
+msgid "تم حذف حسابك وكل بياناته نهائياً."
+msgstr "您的账户及其所有数据已被永久删除。"
+
+msgid "تم حفظ الإعدادات."
+msgstr "设置已保存。"
+
+msgid "تم حفظ المنافس."
+msgstr "竞争对手已保存。"
+
+msgid "تم حفظ بيانات «%(name)s»."
+msgstr "“%(name)s”已保存。"
+
+msgid "تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات."
+msgstr "品牌形象已保存。请重新设计图片以应用更改。"
+
+msgid "تم حفظ هوية الوكالة."
+msgstr "代理品牌已保存。"
+
+msgid "تم ربط تيك توك"
+msgstr "TikTok 已连接"
+
+msgid "تم ربط صفحة «%(page)s»"
+msgstr "“%(page)s”主页已连接"
+
+msgid "تم رفض طلب %(name)s وحذفه."
+msgstr "%(name)s 的请求已被拒绝并删除。"
+
+msgid "تم رفع %(count)s صورة."
+msgstr "已上传 %(count)s 张图片。"
+
+msgid "تم فصل الحساب."
+msgstr "账户已断开连接。"
+
+msgid "تم نشرها"
+msgstr "已发布"
+
+msgid "تمت إزالة العضو."
+msgstr "成员已移除。"
+
+msgid "تمت إضافة العضو."
+msgstr "成员已添加。"
+
+msgid "تمت إعادة الكتابة."
+msgstr "重写完成。"
+
+msgid "تميّز"
+msgstr "闪耀"
+
+msgid "تنبيه"
+msgstr "警告"
+
+msgid "تنزيل"
+msgstr "下载"
+
+msgid "تنزيل نصوص المنشورات"
+msgstr "下载帖子文本"
+
+msgid "تنشيط"
+msgstr "重新激活"
+
+msgid "تنشيط %(name)s"
+msgstr "重新激活 %(name)s"
+
+msgid "تنفيذ"
+msgstr "应用"
+
+msgid "توجيهات هذا الشهر"
+msgstr "本月简报"
+
+msgid "توجيهاتك:"
+msgstr "您的简报："
+
+msgid "توسيع القائمة"
+msgstr "展开菜单"
+
+msgid "توصيات الشهر القادم"
+msgstr "下月建议"
+
+msgid "توصيل"
+msgstr "交付"
+
+msgid "تيك توك"
+msgstr "TikTok"
+
+msgid "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات."
+msgstr "这些颜色和字体用于每个帖子设计。"
+
+msgid "تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات."
+msgstr "合适时会添加到帖子中，以空格分隔。"
+
+msgid "جائزة"
+msgstr "奖项"
+
+msgid "جارٍ التحليل…"
+msgstr "正在分析…"
+
+msgid "جارٍ التحميل…"
+msgstr "加载中…"
+
+msgid "جارٍ التصميم…"
+msgstr "正在设计…"
+
+msgid "جارٍ النشر…"
+msgstr "正在发布…"
+
+msgid "جارٍ تصميم الصور…"
+msgstr "正在设计图片…"
+
+msgid "جارٍ قراءة أرقام الشهر…"
+msgstr "正在读取本月数据…"
+
+msgid "جاهز"
+msgstr "就绪"
+
+msgid "جاهزة"
+msgstr "就绪"
+
+msgid "جديد"
+msgstr "新建"
+
+msgid "جري"
+msgstr "运行中"
+
+msgid "جريء"
+msgstr "粗体"
+
+msgid "جريئة وحماسية"
+msgstr "大胆而有活力"
+
+msgid "جوال"
+msgstr "手机"
+
+msgid "جودة"
+msgstr "质量"
+
+msgid "جُهّز «%(title)s» لإعادة النشر."
+msgstr "“%(title)s”已可再次发布。"
+
+msgid "حاسوب"
+msgstr "笔记本电脑"
+
+msgid "حالة الاشتراك"
+msgstr "订阅状态"
+
+msgid "حالة الخدمات"
+msgstr "服务状态"
+
+msgid "حالة المنشورات"
+msgstr "帖子状态"
+
+msgid "حالة النظام"
+msgstr "系统状态"
+
+msgid "حالة غير معروفة."
+msgstr "未知状态。"
+
+msgid "حاول مرة أخرى"
+msgstr "重试"
+
+msgid "حب"
+msgstr "爱"
+
+msgid "حدث خطأ غير متوقع."
+msgstr "出现意外错误。"
+
+msgid "حدّد دولة واحدة على الأقل."
+msgstr "请至少选择一个国家/地区。"
+
+msgid "حذف"
+msgstr "删除"
+
+msgid "حذف %(name)s"
+msgstr "删除 %(name)s"
+
+msgid "حذف %(name)s؟"
+msgstr "删除 %(name)s？"
+
+msgid "حذف «%(name)s» نهائياً؟"
+msgstr "永久删除“%(name)s”？"
+
+msgid "حذف الاقتراح"
+msgstr "删除建议"
+
+msgid "حذف الحساب"
+msgstr "删除账户"
+
+msgid "حذف الخطة"
+msgstr "删除计划"
+
+msgid "حذف الخطة؟"
+msgstr "删除该计划？"
+
+msgid "حذف الشركة"
+msgstr "删除公司"
+
+msgid "حذف الشركة متاح لمالكها فقط."
+msgstr "只有所有者可以删除公司。"
+
+msgid "حذف الشركة نهائياً"
+msgstr "永久删除公司"
+
+msgid "حذف الصورة"
+msgstr "删除图片"
+
+msgid "حذف الصورة؟"
+msgstr "删除图片？"
+
+msgid "حذف القاعدة"
+msgstr "删除规则"
+
+msgid "حذف المنشور"
+msgstr "删除帖子"
+
+msgid "حذف المنشور؟"
+msgstr "删除该帖子？"
+
+msgid "حذف حسابك نهائياً؟"
+msgstr "永久删除您的账户？"
+
+msgid "حذف حسابك والشركات التي تملكها نهائياً."
+msgstr "永久删除您的账户及您拥有的公司。"
+
+msgid "حذف حسابي"
+msgstr "删除我的账户"
+
+msgid "حذف حسابي نهائياً"
+msgstr "永久删除我的账户"
+
+msgid "حذف نهائي"
+msgstr "永久删除"
+
+msgid "حذف هذه القاعدة؟"
+msgstr "删除此规则？"
+
+msgid "حساب %(name)s مفعّل بالفعل."
+msgstr "%(name)s 的账户已经激活。"
+
+msgid "حساب إنستغرام"
+msgstr "Instagram 账户"
+
+msgid "حساب احترافي ومربوط بصفحة الشركة"
+msgstr "关联到公司主页的专业账户"
+
+msgid "حساب تجريبي"
+msgstr "试用账户"
+
+msgid "حساب تواصل"
+msgstr "社交账户"
+
+msgid "حساب تيك توك"
+msgstr "TikTok 账户"
+
+msgid "حساب مالك النشاط"
+msgstr "企业所有者的账户"
+
+msgid "حسابات التواصل"
+msgstr "社交账户"
+
+msgid "حسابات النشر"
+msgstr "发布账户"
+
+msgid "حسابات النشر:"
+msgstr "发布账户："
+
+msgid "حسابك قيد المراجعة"
+msgstr "您的账户正在审核中"
+
+msgid "حسابك قيد المراجعة."
+msgstr "您的账户正在审核中。"
+
+msgid "حسابي احترافي، التالي"
+msgstr "已是专业账户，下一步"
+
+msgid "حسب التصميم"
+msgstr "按版式"
+
+msgid "حسب الشركة"
+msgstr "按公司"
+
+msgid "حسب المحور"
+msgstr "按支柱"
+
+msgid "حسب النموذج"
+msgstr "按模型"
+
+msgid "حسب تكلفة الذكاء الاصطناعي"
+msgstr "按 AI 费用"
+
+msgid "حسب نوع المهمة"
+msgstr "按任务类型"
+
+msgid "حسب يوم النشر"
+msgstr "按星期"
+
+msgid "حصة"
+msgstr "分享"
+
+msgid "حفظ"
+msgstr "保存"
+
+msgid "حفظ التغييرات"
+msgstr "保存更改"
+
+msgid "حفظ المنشورات…"
+msgstr "正在保存帖子…"
+
+msgid "حفظ كلمة المرور"
+msgstr "保存密码"
+
+msgid "حقيقي (مدفوع)"
+msgstr "真实（付费）"
+
+msgid "حلقات"
+msgstr "圆环"
+
+msgid "حلويات"
+msgstr "甜点"
+
+msgid "حلّل المنافسين"
+msgstr "分析竞争对手"
+
+msgid "حماس"
+msgstr "兴奋"
+
+msgid "حوّل حساب إنستغرام إلى احترافي"
+msgstr "将 Instagram 切换为专业账户"
+
+msgid "حُذفت القاعدة."
+msgstr "规则已删除。"
+
+msgid "خادم"
+msgstr "服务器"
+
+msgid "خارج الذروة"
+msgstr "非高峰"
+
+msgid "خارج الذروة (DeepSeek)"
+msgstr "非高峰（DeepSeek）"
+
+msgid "خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل."
+msgstr "AI 服务目前繁忙。请稍后再试。"
+
+msgid "خريطة"
+msgstr "地图"
+
+msgid "خصم"
+msgstr "折扣"
+
+msgid "خط العناوين"
+msgstr "标题字体"
+
+msgid "خط النصوص"
+msgstr "正文字体"
+
+msgid "خطة"
+msgstr "计划"
+
+msgid "خطة %(upcoming)s موجودة: افتحها"
+msgstr "%(upcoming)s 计划已存在：打开"
+
+msgid "خطة {title} جاهزة: {count} منشوراً بانتظار المراجعة."
+msgstr "{title} 计划已就绪：{count} 篇帖子等待审核。"
+
+msgid "خطة الشهر القادم"
+msgstr "下月计划"
+
+msgid "خطة المحتوى"
+msgstr "内容计划"
+
+msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
+msgstr "内容计划待审核：%(name)s"
+
+msgid "خطة المحتوى — الشهر القادم"
+msgstr "内容计划 — 下个月"
+
+msgid "خطة جديدة"
+msgstr "新计划"
+
+msgid "خطة شهرية ومنشورات"
+msgstr "月度计划和帖子"
+
+msgid "خطة قيد الإعداد"
+msgstr "计划准备中"
+
+msgid "خطة محتوى"
+msgstr "内容计划"
+
+msgid "خطة محتوى جديدة"
+msgstr "新内容计划"
+
+msgid "خطط المحتوى"
+msgstr "内容计划"
+
+msgid "خطوط مائلة"
+msgstr "条纹"
+
+msgid "خلال 7 أيام، مع السبب التقني"
+msgstr "过去 7 天内，附技术原因"
+
+msgid "خيارات الرابط"
+msgstr "链接选项"
+
+msgid "داكن عميق"
+msgstr "深色调"
+
+msgid "دبي (GMT+4)"
+msgstr "迪拜（GMT+4）"
+
+msgid "دخول"
+msgstr "登录"
+
+msgid "دخول كمدير %(name)s"
+msgstr "以 %(name)s 的管理员身份登录"
+
+msgid "دخول كمدير المشترك"
+msgstr "以订阅者的管理员身份登录"
+
+msgid "دعم فني"
+msgstr "支持"
+
+msgid "دفع"
+msgstr "付款"
+
+msgid "دهان"
+msgstr "涂料"
+
+msgid "دواء"
+msgstr "医药"
+
+msgid "دور %(display_name)s"
+msgstr "%(display_name)s 的角色"
+
+msgid "ديس"
+msgstr "12月"
+
+msgid "ديسمبر"
+msgstr "十二月"
+
+msgid "ذكاء"
+msgstr "智能"
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "AI：交互式（有人在等待）"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "AI：最佳质量"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "AI：后台"
+
+msgid "ذكرى انتصارات أكتوبر"
+msgstr "十月胜利纪念日"
+
+msgid "ذكرى ثورة 23 يوليو"
+msgstr "七月二十三日革命纪念日"
+
+msgid "ذكية"
+msgstr "智能平台"
+
+msgid "رأس السنة الميلادية"
+msgstr "元旦"
+
+msgid "رأس السنة الهجرية"
+msgstr "伊斯兰新年"
+
+msgid "رابط العميل"
+msgstr "客户链接"
+
+msgid "رابط العميل جاهز. انسخه وأرسله للعميل."
+msgstr "客户链接已就绪。复制并发送给您的客户。"
+
+msgid "رابط جديد"
+msgstr "新链接"
+
+msgid "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة."
+msgstr "请检查高亮步骤中必填或无效的字段。"
+
+msgid "راجع الحقول المظللة."
+msgstr "请检查高亮的字段。"
+
+msgid "راجع الصلاحيات واضغط «متابعة» للموافقة عليها."
+msgstr "请查看权限并点击“继续”以批准。"
+
+msgid "راجع الطلب ووافق عليه من لوحة مشرف النظام:"
+msgstr "请在系统管理控制台中审核并批准："
+
+msgid "راجع واعتمد"
+msgstr "审核并批准"
+
+msgid "راسلنا وسنرد عليك في أقرب وقت."
+msgstr "给我们发送电子邮件，我们会尽快回复您。"
+
+msgid "ربط"
+msgstr "连接"
+
+msgid "ربط إنستغرام الآن"
+msgstr "立即关联 Instagram"
+
+msgid "ربط تيك توك"
+msgstr "连接 TikTok"
+
+msgid "ربط حسابات النشر"
+msgstr "连接发布账户"
+
+msgid "ربط فيسبوك وإنستغرام"
+msgstr "连接 Facebook 和 Instagram"
+
+msgid "ربطتهما، التالي"
+msgstr "已关联，下一步"
+
+msgid "ربطه الآن"
+msgstr "立即关联"
+
+msgid "ربما استُخدم الرابط من قبل أو انتهت صلاحيته. اطلب رابطاً جديداً."
+msgstr "该链接可能已被使用或已过期。请申请新链接。"
+
+msgid "رجال"
+msgstr "男性"
+
+msgid "رجوع"
+msgstr "返回"
+
+msgid "رد الموقع برمز %(code)s. تأكد من الرابط."
+msgstr "网站返回了代码 %(code)s。请检查链接。"
+
+msgid "رد تلقائي من وكيل"
+msgstr "由 Wakeel 自动回复"
+
+msgid "رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات."
+msgstr "计划就绪、变更请求和评论时发送电子邮件。"
+
+msgid "رفض"
+msgstr "拒绝"
+
+msgid "رفض تيك توك الطلب: %(detail)s"
+msgstr "TikTok 拒绝了请求：%(detail)s"
+
+msgid "رفض طلب %(display_name)s؟"
+msgstr "拒绝 %(display_name)s 的请求？"
+
+msgid "رفض واتساب الرسالة: %(detail)s"
+msgstr "WhatsApp 拒绝了该消息：%(detail)s"
+
+msgid "رفض وحذف"
+msgstr "拒绝并删除"
+
+msgid "رفضت Meta الطلب: %(detail)s"
+msgstr "Meta 拒绝了请求：%(detail)s"
+
+msgid "رفع"
+msgstr "上传"
+
+msgid "رقم التواصل"
+msgstr "联系电话"
+
+msgid "رقم السجل التجاري"
+msgstr "商业登记号"
+
+msgid "رقم الهاتف"
+msgstr "电话号码"
+
+msgid "رقم بارز"
+msgstr "大数字"
+
+msgid "رمز %(code)s"
+msgstr "代码 %(code)s"
+
+msgid "رمز QR"
+msgstr "二维码"
+
+msgid "رمز مُخرج"
+msgstr "输出令牌"
+
+msgid "رمز مُدخل"
+msgstr "输入令牌"
+
+msgid "رمضان"
+msgstr "斋月"
+
+msgid "رموز الدول، مثل: QA SA AE"
+msgstr "国家/地区代码，例如 QA SA AE"
+
+msgid "رموز مُخرجة"
+msgstr "输出令牌"
+
+msgid "رموز مُدخلة"
+msgstr "输入令牌"
+
+msgid "روابط أو أسماء حسابات، مفصولة بمسافات."
+msgstr "链接或账户名称，以空格分隔。"
+
+msgid "روبوت"
+msgstr "机器人"
+
+msgid "ريادة"
+msgstr "领导力"
+
+msgid "رياضة"
+msgstr "健身"
+
+msgid "زوايا تميّزك"
+msgstr "让您与众不同的切入点"
+
+msgid "سؤال"
+msgstr "问题"
+
+msgid "سبت"
+msgstr "9月"
+
+msgid "سبتمبر"
+msgstr "九月"
+
+msgid "ستدخل مساحة عمل"
+msgstr "您将进入以下工作区："
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "您将在此设备上收到通知"
+
+msgid "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات."
+msgstr "计划就绪、审核和评论的提醒将显示在此处。"
+
+msgid "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:"
+msgstr "将打开 TikTok 窗口。请在其中执行以下操作："
+
+msgid "ستفتح نافذة من فيسبوك. هذا ما ستفعله فيها:"
+msgstr "将打开 Facebook 窗口。请在其中执行以下操作："
+
+msgid "ستُحذف هذه الخطة نهائياً."
+msgstr "此计划将被永久删除。"
+
+msgid "سجّل %(date_joined)s"
+msgstr "注册于 %(date_joined)s 前"
+
+msgid "سجّل الدخول"
+msgstr "登录"
+
+msgid "سجّل الدخول بحساب تيك توك الخاص بالشركة."
+msgstr "请使用公司的 TikTok 账户登录。"
+
+msgid "سجّل الدخول لمتابعة تسويق شركتك."
+msgstr "登录以继续您公司的营销工作。"
+
+msgid "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:"
+msgstr "登录并开始准备您的第一份内容计划："
+
+msgid "سحابة"
+msgstr "云"
+
+msgid "سعادة"
+msgstr "快乐"
+
+msgid "سعر"
+msgstr "价格"
+
+msgid "سفر"
+msgstr "旅行"
+
+msgid "سلبي"
+msgstr "消极"
+
+msgid "سلّم حسابات شركتك"
+msgstr "交出贵公司的账户"
+
+msgid "سنة"
+msgstr "1 年"
+
+msgid "سنجهّز الحساب ثم نعيد الربط"
+msgstr "我们会设置好账户，然后重新连接"
+
+msgid "سنجهّزه معاً خطوة بخطوة"
+msgstr "我们会一步步和您一起设置"
+
+msgid "سننشئها معاً في دقيقتين"
+msgstr "我们会在两分钟内与您一起创建一个"
+
+msgid "سيارة"
+msgstr "汽车"
+
+msgid "سياسة الخصوصية"
+msgstr "隐私政策"
+
+msgid "سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى."
+msgstr "帖子将退回草稿，并附上您给内容编辑的备注。"
+
+msgid "سيناريو الفيديو"
+msgstr "视频脚本"
+
+msgid "سيناريوهات الفيديو"
+msgstr "视频脚本"
+
+msgid "سيُفعَّل حساب"
+msgstr "这将激活以下账户："
+
+msgid "سيُنشر فوراً على: "
+msgstr "将立即发布到："
+
+msgid "شاطئ"
+msgstr "海滩"
+
+msgid "شبكة"
+msgstr "网格"
+
+msgid "شجرة"
+msgstr "树"
+
+msgid "شخص آخر يدير الصفحة"
+msgstr "由其他人管理主页"
+
+msgid "شراكة وخدمة"
+msgstr "合作与服务"
+
+msgid "شركاتك"
+msgstr "您的公司"
+
+msgid "شركة"
+msgstr "公司"
+
+msgid "شركة جديدة"
+msgstr "新公司"
+
+msgid "شركة نشطة هذا الشهر"
+msgstr "本月活跃公司"
+
+msgid "شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)"
+msgstr "公司：%(name)s（包括其计划、帖子、图片和所有数据）"
+
+msgid "شروط الاستخدام"
+msgstr "使用条款"
+
+msgid "شريط جانبي"
+msgstr "侧边栏"
+
+msgid "شعار الوكالة"
+msgstr "代理标志"
+
+msgid "شكراً، تم اعتماد المنشور"
+msgstr "谢谢，帖子已批准"
+
+msgid "شكوى"
+msgstr "投诉"
+
+msgid "شمس"
+msgstr "太阳"
+
+msgid "شهادة"
+msgstr "证书"
+
+msgid "شهر"
+msgstr "1 个月"
+
+msgid "صالح لإعادة النشر بصياغة جديدة بعد مدة."
+msgstr "适合隔一段时间后以新措辞再次发布。"
+
+msgid "صالون"
+msgstr "美容院"
+
+msgid "صحة"
+msgstr "健康"
+
+msgid "صحي"
+msgstr "健康"
+
+msgid "صحيح"
+msgstr "正确"
+
+msgid "صفحة «%(name)s» · ربطها %(display_name)s"
+msgstr "主页“%(name)s” · 由 %(display_name)s 连接"
+
+msgid "صفحة فيسبوك"
+msgstr "Facebook 主页"
+
+msgid "صلاحيتك في هذه الشركة للمشاهدة فقط."
+msgstr "您在这家公司仅有查看权限。"
+
+msgid "صلاحيتك للمشاهدة فقط."
+msgstr "您仅有查看权限。"
+
+msgid "صندوق"
+msgstr "方框"
+
+msgid "صورة"
+msgstr "图片"
+
+msgid "صورة الخلفية"
+msgstr "背景图片"
+
+msgid "صورة كاملة"
+msgstr "完整照片"
+
+msgid "صيانة"
+msgstr "维护"
+
+msgid "ضعف:"
+msgstr "弱点："
+
+msgid "طابور المهام"
+msgstr "任务队列"
+
+msgid "طاقة"
+msgstr "能量"
+
+msgid "طبخ"
+msgstr "烹饪"
+
+msgid "طبيب"
+msgstr "医生"
+
+msgid "طرد"
+msgstr "包裹"
+
+msgid "طلاب"
+msgstr "学生"
+
+msgid "طلب {name} تعديل {subject}: {note}"
+msgstr "{name} 要求修改 {subject}：{note}"
+
+msgid "طلب إعادة كتابة"
+msgstr "重写请求"
+
+msgid "طلب اشتراك جديد بانتظار الاعتماد."
+msgstr "个新订阅请求等待批准。"
+
+msgid "طلب تسجيل جديد بانتظار الموافقة."
+msgstr "个新注册请求等待批准。"
+
+msgid "طلب تسجيل جديد في وكيل بانتظار الموافقة:"
+msgstr "有一个新的 Wakeel 注册等待批准："
+
+msgid "طلب تسجيل جديد في وكيل: %(name)s"
+msgstr "Wakeel 新注册：%(name)s"
+
+msgid "طلب تعديل"
+msgstr "请求修改"
+
+msgid "طلب تعديل ✏️"
+msgstr "请求修改 ✏️"
+
+msgid "طلب رابط جديد"
+msgstr "申请新链接"
+
+msgid "طلب غير صالح."
+msgstr "请求无效。"
+
+msgid "طلبات التسجيل"
+msgstr "注册请求"
+
+msgid "طولي 4:5"
+msgstr "竖版 4:5"
+
+msgid "طيّ القائمة"
+msgstr "收起菜单"
+
+msgid "عاجل"
+msgstr "紧急"
+
+msgid "عادي"
+msgstr "普通"
+
+msgid "عبارات مفضلة، أو أسلوب معين في الكتابة."
+msgstr "常用短语，或特定的写作方式。"
+
+msgid "عبارة الدعوة"
+msgstr "行动号召"
+
+msgid "عدالة"
+msgstr "法律"
+
+msgid "عدد الأيام"
+msgstr "天数"
+
+msgid "عدد المنشورات أسبوعياً"
+msgstr "每周帖子数"
+
+msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
+msgstr "一键修改任何内容，并批准帖子发布。"
+
+msgid "عرض"
+msgstr "优惠"
+
+msgid "عرض %(name)s"
+msgstr "查看 %(name)s"
+
+msgid "عرض الاشتراكات"
+msgstr "查看订阅"
+
+msgid "عرض التقويم"
+msgstr "查看日历"
+
+msgid "عرض الكل"
+msgstr "查看全部"
+
+msgid "عرض المزيد"
+msgstr "查看更多"
+
+msgid "عرض تقديمي"
+msgstr "演示文稿"
+
+msgid "عرض محدود"
+msgstr "限时优惠"
+
+msgid "عروض، مناسبات، منتجات جديدة، أو أي شيء تريد التركيز عليه."
+msgstr "优惠、节日、新品，或任何您想重点宣传的内容。"
+
+msgid "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها."
+msgstr "向 Wakeel 介绍您的公司，让它成为您的营销团队。"
+
+msgid "عرّفنا بشركتك"
+msgstr "介绍您的公司"
+
+msgid "عضو"
+msgstr "成员"
+
+msgid "عضوية"
+msgstr "会员资格"
+
+msgid "عطور"
+msgstr "香水"
+
+msgid "علامات زائد"
+msgstr "加号"
+
+msgid "علّق على"
+msgstr "评论了"
+
+msgid "عملة"
+msgstr "硬币"
+
+msgid "عمودي 9:16"
+msgstr "竖版 9:16"
+
+msgid "عميل"
+msgstr "客户"
+
+msgid "عمّان"
+msgstr "安曼"
+
+msgid "عن وكيل"
+msgstr "关于 Wakeel"
+
+msgid "عند تفعيله، ينشر وكيل كل منشور"
+msgstr "开启后，Wakeel 会发布每一篇"
+
+msgid "عندك سؤال؟"
+msgstr "有疑问？"
+
+msgid "عنوان المنشور يظهر هنا"
+msgstr "帖子标题显示在此处"
+
+msgid "عيد استقلال الأردن"
+msgstr "约旦独立日"
+
+msgid "عيد استقلال السودان"
+msgstr "苏丹独立日"
+
+msgid "عيد الأضحى"
+msgstr "宰牲节"
+
+msgid "عيد الأم"
+msgstr "母亲节"
+
+msgid "عيد الاتحاد الإماراتي"
+msgstr "阿联酋国庆日（联合日）"
+
+msgid "عيد التحرير في الكويت"
+msgstr "科威特解放日"
+
+msgid "عيد الفطر"
+msgstr "开斋节"
+
+msgid "عيون"
+msgstr "眼睛"
+
+msgid "عُمان"
+msgstr "阿曼"
+
+msgid "غادرت «%(name)s»."
+msgstr "您已离开“%(name)s”。"
+
+msgid "غرفة نوم"
+msgstr "卧室"
+
+msgid "غروب"
+msgstr "黄昏"
+
+msgid "غلاف الفيديو (اختياري)"
+msgstr "视频封面（可选）"
+
+msgid "غير مجدول"
+msgstr "未安排"
+
+msgid "غير مربوط"
+msgstr "未连接"
+
+msgid "غير مربوطة"
+msgstr "未连接"
+
+msgid "غير مضبوط"
+msgstr "未配置"
+
+msgid "غير مضبوط (يُطبع في الطرفية)"
+msgstr "未配置（输出到控制台）"
+
+msgid "غير مفعّلة على هذا الجهاز."
+msgstr "此设备上已关闭。"
+
+msgid "فاتح"
+msgstr "浅色"
+
+msgid "فاتورة"
+msgstr "发票"
+
+msgid "فاخرة وراقية"
+msgstr "奢华精致"
+
+msgid "فارغ = الافتراضي للقالب."
+msgstr "留空 = 版式默认值。"
+
+msgid "فارغ = الافتراضية للقالب."
+msgstr "留空 = 版式默认值。"
+
+msgid "فارغ = بدون انتهاء."
+msgstr "留空 = 永不过期。"
+
+msgid "فبر"
+msgstr "2月"
+
+msgid "فبراير"
+msgstr "二月"
+
+msgid "فتح إعدادات الربط في فيسبوك"
+msgstr "在 Facebook 上打开关联设置"
+
+msgid "فتح صفحة الإنشاء"
+msgstr "打开主页创建"
+
+msgid "فتح كما يراه العميل"
+msgstr "以客户视角打开"
+
+msgid "فتح نافذة تيك توك"
+msgstr "打开 TikTok 窗口"
+
+msgid "فتح نافذة فيسبوك"
+msgstr "打开 Facebook 窗口"
+
+msgid "فجوات يتركونها"
+msgstr "他们留下的空白"
+
+msgid "فخامة"
+msgstr "奢华"
+
+msgid "فريق"
+msgstr "团队"
+
+msgid "فريق تسويق كامل،"
+msgstr "一个完整的营销团队，"
+
+msgid "فريق وكيل"
+msgstr "Wakeel 团队"
+
+msgid "فريقك وبريدك"
+msgstr "您的团队和邮件"
+
+msgid "فشل"
+msgstr "失败"
+
+msgid "فشل النسخ الاحتياطي لوكيل"
+msgstr "Wakeel 备份失败"
+
+msgid "فشلت"
+msgstr "失败"
+
+msgid "فشلت: %(error)s"
+msgstr "失败：%(error)s"
+
+msgid "فصل"
+msgstr "断开连接"
+
+msgid "فصل إنستغرام؟"
+msgstr "断开 Instagram？"
+
+msgid "فصل تيك توك؟"
+msgstr "断开 TikTok？"
+
+msgid "فصل فيسبوك؟"
+msgstr "断开 Facebook？"
+
+msgid "فعّل"
+msgstr "开启"
+
+msgid "فكرة"
+msgstr "创意"
+
+msgid "فواكه"
+msgstr "水果"
+
+msgid "فور التفعيل."
+msgstr "一旦激活。"
+
+msgid "فوز"
+msgstr "奖杯"
+
+msgid "في الانتظار"
+msgstr "待处理"
+
+msgid "في التقويم"
+msgstr "在日历中"
+
+msgid "في اليوم المحدد من كل شهر"
+msgstr "每月选定的日期"
+
+msgid "في انتظار بدء المهمة…"
+msgstr "正在等待任务开始…"
+
+msgid "في منصة واحدة"
+msgstr "合而为一"
+
+msgid "في هذه الصفحة"
+msgstr "在此页面"
+
+msgid "فيديو"
+msgstr "视频"
+
+msgid "فيديو قصير"
+msgstr "短视频"
+
+msgid "فيديو قصير (ريلز / تيك توك)"
+msgstr "短视频（Reels / TikTok）"
+
+msgid "فيديو قصير: سيناريو التصوير"
+msgstr "短视频：拍摄脚本"
+
+msgid "فيسبوك"
+msgstr "Facebook"
+
+msgid "فيسبوك فقط الآن"
+msgstr "目前仅限 Facebook"
+
+msgid "فيلا"
+msgstr "别墅"
+
+msgid "قائمة مهام"
+msgstr "清单"
+
+msgid "قراءة التعليقات"
+msgstr "读取评论"
+
+msgid "قراءة مواقع المنافسين…"
+msgstr "正在读取竞争对手的网站…"
+
+msgid "قراءة وكيل"
+msgstr "Wakeel 的解读"
+
+msgid "قصاصات"
+msgstr "彩纸"
+
+msgid "قصة (ستوري)"
+msgstr "快拍"
+
+msgid "قطر"
+msgstr "卡塔尔"
+
+msgid "قطري"
+msgstr "对角线"
+
+msgid "قنوات التواصل"
+msgstr "联系渠道"
+
+msgid "قهوة"
+msgstr "咖啡"
+
+msgid "قوة:"
+msgstr "优势："
+
+msgid "قوس"
+msgstr "拱门"
+
+msgid "قياس"
+msgstr "测量"
+
+msgid "قيد الإعداد"
+msgstr "准备中"
+
+msgid "قيد الاعتماد"
+msgstr "等待批准"
+
+msgid "قيد الاقتراح"
+msgstr "建议中"
+
+msgid "قيد التحليل"
+msgstr "分析中"
+
+msgid "قيد التعديل"
+msgstr "修改中"
+
+msgid "قيد التنفيذ"
+msgstr "运行中"
+
+msgid "قُرئ الموقع"
+msgstr "网站已读取"
+
+msgid "كتاب"
+msgstr "书籍"
+
+msgid "كتابة"
+msgstr "撰写中"
+
+msgid "كتابة المنشورات"
+msgstr "帖子撰写"
+
+msgid "كرة قدم"
+msgstr "足球"
+
+msgid "كل الأنواع"
+msgstr "所有类型"
+
+msgid "كل الإشعارات"
+msgstr "所有通知"
+
+msgid "كل الترويجات"
+msgstr "所有推广"
+
+msgid "كل التقارير"
+msgstr "所有报告"
+
+msgid "كل الحالات"
+msgstr "所有状态"
+
+msgid "كل الشركات"
+msgstr "所有公司"
+
+msgid "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق."
+msgstr "一切功能，包括批准帖子以及管理品牌和团队。"
+
+msgid "كل المنصات"
+msgstr "所有平台"
+
+msgid "كل المهام"
+msgstr "所有任务"
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "您公司所需的一切，集于一个平台"
+
+msgid "كل ما تقدمه وكالة التسويق، في منصة واحدة"
+msgstr "营销代理机构所做的一切，集于一个平台"
+
+msgid "كلمات تساعد في اختيار الصورة المناسبة للمنشور."
+msgstr "有助于为帖子挑选合适图片的词语。"
+
+msgid "كلمة المرور"
+msgstr "密码"
+
+msgid "كلمة المرور غير صحيحة."
+msgstr "密码不正确。"
+
+msgid "كلمة المرور مطلوبة لإنشاء حساب المالك."
+msgstr "创建所有者账户需要密码。"
+
+msgid "كلمة مرور المشرف غير صحيحة."
+msgstr "管理员密码不正确。"
+
+msgid "كلمة مرور المشرف للتأكيد"
+msgstr "输入管理员密码以确认"
+
+msgid "كلمة مرور جديدة"
+msgstr "新密码"
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "两次输入的密码不一致。"
+
+msgid "كما سيظهر في إنستغرام وفيسبوك"
+msgstr "在 Instagram 和 Facebook 上的显示效果"
+
+msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
+msgstr "您的帖子的实际表现，以及 Wakeel 从中学到的内容。"
+
+msgid "كيف يعمل؟"
+msgstr "它是如何运作的？"
+
+msgid "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك."
+msgstr "如需停止接收 Wakeel 的电子邮件，请在账户设置中关闭。"
+
+msgid "لا أخطاء خلال آخر 7 أيام."
+msgstr "过去 7 天没有错误。"
+
+msgid "لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة."
+msgstr "您在这家公司没有执行此操作的权限。"
+
+msgid "لا توجد إشعارات"
+msgstr "没有通知"
+
+msgid "لا توجد إشعارات بعد."
+msgstr "暂无通知。"
+
+msgid "لا توجد اشتراكات"
+msgstr "没有订阅"
+
+msgid "لا توجد اشتراكات بعد"
+msgstr "暂无订阅"
+
+msgid "لا توجد بيانات"
+msgstr "无数据"
+
+msgid "لا توجد بيانات كافية بعد."
+msgstr "数据尚不足。"
+
+msgid "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا."
+msgstr "暂无评论。请在此处写下给团队的备注。"
+
+msgid "لا توجد تعليقات هنا"
+msgstr "这里没有评论"
+
+msgid "لا توجد تغييرات"
+msgstr "无更改"
+
+msgid "لا توجد تقارير بعد"
+msgstr "暂无报告"
+
+msgid "لا توجد حسابات إعلانية نشطة"
+msgstr "没有有效的广告账户"
+
+msgid "لا توجد خطة محتوى لهذا الشهر بعد"
+msgstr "本月暂无内容计划"
+
+msgid "لا توجد شركات تملكها."
+msgstr "您没有任何公司。"
+
+msgid "لا توجد طلبات جديدة"
+msgstr "没有新请求"
+
+msgid "لا توجد ملاحظات جديدة."
+msgstr "没有新反馈。"
+
+msgid "لا توجد مناسبات خاصة في هذا الشهر."
+msgstr "本月没有特殊节日。"
+
+msgid "لا توجد منشورات"
+msgstr "没有帖子"
+
+msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
+msgstr "此计划中没有待审核的帖子。谢谢！"
+
+msgid "لا توجد منشورات في هذه الخطة"
+msgstr "此计划中没有帖子"
+
+msgid "لا توجد منشورات قادمة"
+msgstr "没有即将发布的帖子"
+
+msgid "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد."
+msgstr "尚未通过 Wakeel 向 Facebook 发布任何帖子。"
+
+msgid "لا توجد مهام"
+msgstr "没有任务"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "没有等待您处理的事项。一切井然有序。"
+
+msgid "لا يحتاج الرابط إلى حساب أو كلمة مرور."
+msgstr "该链接无需账户或密码。"
+
+msgid "لا يمكن التراجع عن ذلك."
+msgstr "此操作无法撤销。"
+
+msgid "لا يمكن قراءة هذا العنوان."
+msgstr "无法读取此地址。"
+
+msgid "لا يوجد"
+msgstr "无"
+
+msgid "لا يوجد أعضاء"
+msgstr "没有成员"
+
+msgid "لا يوجد اتصال · وكيل"
+msgstr "未连接 · Wakeel"
+
+msgid "لا يوجد اتصال بالإنترنت"
+msgstr "无网络连接"
+
+msgid "لا يوجد استهلاك بعد"
+msgstr "暂无用量"
+
+msgid "لا يوجد استهلاك هذا الشهر."
+msgstr "本月暂无用量。"
+
+msgid "لا يوجد حساب إنستغرام احترافي مربوط بهذه الصفحة."
+msgstr "此主页未关联 Instagram 专业账户。"
+
+msgid "لا يوجد مالك نشط لـ «%(name)s»."
+msgstr "“%(name)s”没有有效的所有者。"
+
+msgid "لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً."
+msgstr "没有用户使用此电子邮件。请让对方先创建 Wakeel 账户。"
+
+msgid "لا، ليس بعد"
+msgstr "不，暂时没有"
+
+msgid "لدى الشركة موقع إلكتروني؟"
+msgstr "公司有网站吗？"
+
+msgid "لديك حساب بالفعل؟"
+msgstr "已有账户？"
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "正式名称和地址的语言"
+
+msgid "لغة المحتوى"
+msgstr "内容语言"
+
+msgid "لغة النسخة"
+msgstr "版本语言"
+
+msgid "لـ"
+msgstr "至 "
+
+msgid "لكل مليون رمز"
+msgstr "每百万令牌"
+
+msgid "لكل مليون رمز (مدخلات / مخرجات)."
+msgstr "每百万令牌（输入 / 输出）。"
+
+msgid "لم أحدد الصفحة في النافذة"
+msgstr "我没有在窗口中选择主页"
+
+msgid "لم تُصمَّم الصورة بعد"
+msgstr "图片尚未设计"
+
+msgid "لم تُصمَّم الصورة بعد."
+msgstr "图片尚未设计。"
+
+msgid "لم تُعدّ أي خطة بعد."
+msgstr "尚未准备任何计划。"
+
+msgid "لم تُعدّ خطة"
+msgstr "以下的计划"
+
+msgid "لم تُقرأ أرقام بعد."
+msgstr "尚未读取任何数据。"
+
+msgid "لم تُنفَّذ أي نسخة بعد"
+msgstr "尚未运行任何备份"
+
+msgid "لم يجد وكيل معلومات جديدة لإضافتها."
+msgstr "Wakeel 没有找到可添加的新信息。"
+
+msgid "لم يشارك فيسبوك أي صفحة مع وكيل"
+msgstr "Facebook 没有向 Wakeel 共享任何主页"
+
+msgid "لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI 服务没有回复。请重试。"
+
+msgid "لم يكتمل الربط"
+msgstr "连接未完成"
+
+msgid "لم يُصمَّم بعد"
+msgstr "尚未设计"
+
+msgid "لم يُقرأ بعد"
+msgstr "尚未读取"
+
+msgid "لماذا هذا الترويج"
+msgstr "为什么要做这次推广"
+
+msgid "لماذا يختار العميل هذه الشركة دون منافسيها؟"
+msgstr "客户为什么选择这家公司而不是竞争对手？"
+
+msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
+msgstr "要审阅整个计划，请打开：%(link)s"
+
+msgid "لن يتمكن %(display_name)s من الوصول إلى %(name)s بعد الآن."
+msgstr "%(display_name)s 将无法再访问 %(name)s。"
+
+msgid "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن."
+msgstr "Wakeel 将不再向此账户发送帖子。"
+
+msgid "لن يلتزم بها وكيل في الخطط القادمة."
+msgstr "Wakeel 在今后的计划中将不再遵循此项。"
+
+msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
+msgstr "Wakeel 将不再向此账户发布内容。"
+
+msgid "لن ينشر وكيل على هذه الصفحة بعد الآن."
+msgstr "Wakeel 将不再向此主页发布内容。"
+
+msgid "لنبدأ بالمعلومات الأساسية عن الشركة."
+msgstr "让我们从公司的基本信息开始。"
+
+msgid "لندن"
+msgstr "伦敦"
+
+msgid "لوحة التحكم"
+msgstr "仪表板"
+
+msgid "لوحة التحكم الرئيسية"
+msgstr "主仪表板"
+
+msgid "لوحة تحكم"
+msgstr "仪表板"
+
+msgid "لوحة مشرف النظام"
+msgstr "管理仪表板"
+
+msgid "لون التمييز"
+msgstr "强调色"
+
+msgid "لون الوكالة"
+msgstr "代理品牌色"
+
+msgid "ليس لدي صفحة"
+msgstr "我没有主页"
+
+msgid "ليس لديك حساب؟"
+msgstr "没有账户？"
+
+msgid "ليكتب وكيل محتوى يشبه علامتك."
+msgstr "让 Wakeel 撰写听起来像您品牌的内容。"
+
+msgid "ليكتمل ذلك دون تدخل"
+msgstr "无需动手即可完成此操作"
+
+msgid "ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها."
+msgstr "我们收集哪些数据、为什么收集，以及您如何控制和删除这些数据。"
+
+msgid "ما الذي تريد تعديله؟"
+msgstr "您想更改什么？"
+
+msgid "ما الذي يحتاج إلى تعديل؟"
+msgstr "需要更改什么？"
+
+msgid "ما تعلّمه وكيل"
+msgstr "Wakeel 学到的内容"
+
+msgid "ما رآه المشترك:"
+msgstr "订阅者看到的内容："
+
+msgid "ما نجح"
+msgstr "有效的做法"
+
+msgid "ما يجب تجنبه"
+msgstr "绝不要做"
+
+msgid "ما يجب فعله"
+msgstr "务必要做"
+
+msgid "ما يُنشر تلقائياً"
+msgstr "自动发布的内容"
+
+msgid "ماء"
+msgstr "水"
+
+msgid "ماذا تقدم الشركة، ولمن، وما الذي يميزها."
+msgstr "公司提供什么、面向谁，以及有何与众不同之处。"
+
+msgid "ماذا سيحدث؟"
+msgstr "接下来会发生什么？"
+
+msgid "مار"
+msgstr "3月"
+
+msgid "مارد، مساعدك"
+msgstr "Marid，您的助手"
+
+msgid "مارس"
+msgstr "三月"
+
+msgid "ماي"
+msgstr "5月"
+
+msgid "مايو"
+msgstr "五月"
+
+msgid "مباشرة"
+msgstr "直播"
+
+msgid "متابعة هنا"
+msgstr "在此继续"
+
+msgid "متجر"
+msgstr "商店"
+
+msgid "متدرّج"
+msgstr "渐变"
+
+msgid "متصل"
+msgstr "已连接"
+
+msgid "متوسط التفاعل · معدل التفاعل"
+msgstr "平均互动数 · 互动率"
+
+msgid "متوقف"
+msgstr "已停止"
+
+msgid "متوقف الآن."
+msgstr "目前已关闭。"
+
+msgid "متوقف — شغّل"
+msgstr "已停止 — 运行"
+
+msgid "مثال: أحمد، مدير التسويق"
+msgstr "例如：Ahmed，营销经理"
+
+msgid "مثال: غيّر الصورة واذكر موعد انتهاء العرض"
+msgstr "例如：更换图片，并注明优惠结束时间"
+
+msgid "مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات."
+msgstr "例如：提升知名度、获得更多潜在客户、增加销售。"
+
+msgid "مجمع"
+msgstr "复合"
+
+msgid "محادثة"
+msgstr "聊天"
+
+msgid "محاسبة"
+msgstr "会计"
+
+msgid "محاور المحتوى"
+msgstr "内容支柱"
+
+msgid "محايد"
+msgstr "中性"
+
+msgid "محتوى دائم"
+msgstr "常青"
+
+msgid "محرر المحتوى:"
+msgstr "内容编辑："
+
+msgid "محرر محتوى"
+msgstr "内容编辑"
+
+msgid "محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً."
+msgstr "已在浏览器设置中被阻止；请先在那里允许。"
+
+msgid "محفظة"
+msgstr "钱包"
+
+msgid "مخرجات"
+msgstr "输出"
+
+msgid "مدة الاشتراك"
+msgstr "订阅时长"
+
+msgid "مدير"
+msgstr "管理员"
+
+msgid "مدير التسويق الذكي"
+msgstr "您的 AI 营销经理"
+
+msgid "مدير التسويق الذكي لشركتك"
+msgstr "您公司的 AI 营销经理"
+
+msgid "مراجعة %(title)s"
+msgstr "审核 %(title)s"
+
+msgid "مراجعة الطلب"
+msgstr "请求审核"
+
+msgid "مراجعة الطلبات"
+msgstr "审核请求"
+
+msgid "مربع 1:1"
+msgstr "方形 1:1"
+
+msgid "مرحباً %(name)s،"
+msgstr "%(name)s，您好："
+
+msgid "مرحباً بعودتك"
+msgstr "欢迎回来"
+
+msgid "مرحباً بك في وكيل ✨"
+msgstr "欢迎使用 Wakeel ✨"
+
+msgid "مرحباً،"
+msgstr "您好："
+
+msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
+msgstr "您好，%(name)s 的 %(month)s 绩效报告已就绪。"
+
+msgid "مرحة وخفيفة"
+msgstr "活泼轻松"
+
+msgid "مزعج"
+msgstr "垃圾信息"
+
+msgid "مزوّد الذكاء الاصطناعي"
+msgstr "AI 提供商"
+
+msgid "مستخدم"
+msgstr "用户"
+
+msgid "مستند"
+msgstr "文档"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "以资料库文档为来源"
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "使用您信笺抬头的文档"
+
+msgid "مستودع"
+msgstr "仓库"
+
+msgid "مسجد"
+msgstr "清真寺"
+
+msgid "مسح التصفية"
+msgstr "清除筛选"
+
+msgid "مسقط (GMT+4)"
+msgstr "马斯喀特（GMT+4）"
+
+msgid "مسودة"
+msgstr "草稿"
+
+msgid "مشاهد"
+msgstr "查看者"
+
+msgid "مشتريات"
+msgstr "采购"
+
+msgid "مشرف النظام"
+msgstr "系统管理员"
+
+msgid "مصر"
+msgstr "埃及"
+
+msgid "مضبوط"
+msgstr "已配置"
+
+msgid "مطعم"
+msgstr "餐厅"
+
+msgid "مطلوبة للحساب الجديد فقط."
+msgstr "仅新账户需要。"
+
+msgid "معالج"
+msgstr "芯片"
+
+msgid "معالج يرافقك خطوة بخطوة"
+msgstr "向导会一步步引导您完成"
+
+msgid "معاينة التصميم"
+msgstr "设计预览"
+
+msgid "معاينة المنشور في المنصة"
+msgstr "帖子在平台上的预览"
+
+msgid "معاينة حية"
+msgstr "实时预览"
+
+msgid "معتمد"
+msgstr "已批准"
+
+msgid "معتمدة للنشر"
+msgstr "已批准发布"
+
+msgid "معدل التفاعل"
+msgstr "互动率"
+
+msgid "معفاة"
+msgstr "已豁免"
+
+msgid "معلومة"
+msgstr "事实"
+
+msgid "معلّق"
+msgstr "已暂停"
+
+msgid "مغادرة"
+msgstr "离开"
+
+msgid "مغادرة الشركة"
+msgstr "离开公司"
+
+msgid "مغادرة الشركة؟"
+msgstr "离开公司？"
+
+msgid "مغامرة"
+msgstr "冒险"
+
+msgid "مفتاح"
+msgstr "钥匙"
+
+msgid "مفعّل — أوقفه في الإنتاج"
+msgstr "已开启 — 请在生产环境中关闭"
+
+msgid "مفعّل,متوقف"
+msgstr "开,关"
+
+msgid "مقترح"
+msgstr "已建议"
+
+msgid "مقسوم"
+msgstr "分割"
+
+msgid "مكتبة"
+msgstr "资料库"
+
+msgid "مكتبة المستندات"
+msgstr "文档资料库"
+
+msgid "مكتبة الوسائط"
+msgstr "媒体库"
+
+msgid "ملأ وكيل "
+msgstr "Wakeel 已填写 "
+
+msgid "ملابس"
+msgstr "服装"
+
+msgid "ملاحظات"
+msgstr "备注"
+
+msgid "ملاحظات المراجعة"
+msgstr "审核备注"
+
+msgid "ملاحظات على الأسلوب"
+msgstr "风格备注"
+
+msgid "ملاحظة"
+msgstr "备注"
+
+msgid "ملاحظة المراجعة:"
+msgstr "审核备注："
+
+msgid "ملخص الاستراتيجية"
+msgstr "策略摘要"
+
+msgid "ملخص الشهر"
+msgstr "本月概要"
+
+msgid "ملصق"
+msgstr "海报"
+
+msgid "ملف الشركة غير مكتمل، فستكون الخطة عامة."
+msgstr "公司资料不完整，因此计划会比较笼统。"
+
+msgid "ملهمة وتحفيزية"
+msgstr "鼓舞人心"
+
+msgid "من"
+msgstr "自"
+
+msgid "من الاستراتيجية إلى التصميم إلى تقويم النشر."
+msgstr "从策略到设计，再到发布日历。"
+
+msgid "من المدخلات cache hit"
+msgstr "的输入命中缓存"
+
+msgid "من يعمل على تسويق %(name)s، وما صلاحياته."
+msgstr "谁负责 %(name)s 的营销，以及他们可以做什么。"
+
+msgid "مناسبات الشهر"
+msgstr "本月的节日"
+
+msgid "مناسبة"
+msgstr "节日"
+
+msgid "مناسبة خاصة"
+msgstr "特殊日子"
+
+msgid "منتج"
+msgstr "产品"
+
+msgid "منتجات"
+msgstr "产品"
+
+msgid "منتهي"
+msgstr "已过期"
+
+msgid "منخفض"
+msgstr "低"
+
+msgid "منزل"
+msgstr "首页"
+
+msgid "منسوخ من:"
+msgstr "复制自："
+
+msgid "منشور"
+msgstr "已发布"
+
+msgid "منشور أُنشئ هذا الشهر"
+msgstr "本月创建的帖子"
+
+msgid "منشور جديد"
+msgstr "新帖子"
+
+msgid "منشور جديد في هذا اليوم"
+msgstr "在这一天新建帖子"
+
+msgid "منشور نُشر هذا الشهر"
+msgstr "本月已发布的帖子"
+
+msgid "منشورات %(month_name)s"
+msgstr "%(month_name)s 的帖子"
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "等待审核的帖子"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "已过发布时间的帖子"
+
+msgid "منشورات تستحق الترويج"
+msgstr "值得推广的帖子"
+
+msgid "منشورات تستحق العودة"
+msgstr "值得重新发布的帖子"
+
+msgid "منشورات تم قياسها"
+msgstr "已统计的帖子"
+
+msgid "منشورات دائمة يُعاد نشرها شهرياً"
+msgstr "每月转发的常青帖子"
+
+msgid "منشوراً"
+msgstr "篇帖子"
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr "一个平台，管理您公司的营销、文档和团队"
+
+msgid "مهام فشلت خلال 7 أيام"
+msgstr "过去 7 天失败的任务"
+
+msgid "مهام كل الشركات مع تفاصيلها التقنية"
+msgstr "所有公司的任务及其技术详情"
+
+msgid "مهمة فشلت خلال 7 أيام"
+msgstr "7 天内失败的任务"
+
+msgid "مهنية وموثوقة"
+msgstr "专业可信"
+
+msgid "موافقة العميل"
+msgstr "客户批准"
+
+msgid "موجات"
+msgstr "波浪"
+
+msgid "موظف"
+msgstr "员工"
+
+msgid "موعد"
+msgstr "预约"
+
+msgid "موعد النشر"
+msgstr "发布时间"
+
+msgid "موقع"
+msgstr "位置"
+
+msgid "موقع الوكالة"
+msgstr "代理机构网站"
+
+msgid "مُتجاهَل"
+msgstr "已忽略"
+
+msgid "مُخرجة"
+msgstr "输出"
+
+msgid "مُدخلة"
+msgstr "输入"
+
+msgid "ناعم"
+msgstr "柔和"
+
+msgid "نبات"
+msgstr "植物"
+
+msgid "نبذة عن الشركة"
+msgstr "关于公司"
+
+msgid "نبرة الخطاب"
+msgstr "品牌语气"
+
+msgid "نجحت"
+msgstr "成功"
+
+msgid "نساء"
+msgstr "女性"
+
+msgid "نسخ"
+msgstr "复制"
+
+msgid "نسخ النص مع الوسوم"
+msgstr "复制文本及话题标签"
+
+msgid "نسخ منه:"
+msgstr "复制次数："
+
+msgid "نسخة بلغة أو لهجة أخرى"
+msgstr "另一种语言或方言的版本"
+
+msgid "نسخة جديدة من هذا المنشور:"
+msgstr "此帖子的新版本："
+
+msgid "نسيت كلمة المرور؟"
+msgstr "忘记密码？"
+
+msgid "نشر المنشور الآن؟"
+msgstr "立即发布帖子？"
+
+msgid "نشر منشور"
+msgstr "发布帖子"
+
+msgid "نشط"
+msgstr "有效"
+
+msgid "نص المنشور"
+msgstr "帖子文本"
+
+msgid "نص قصير بارز مثل: جديد، خصم 20%."
+msgstr "简短醒目的文字，例如：新品、八折。"
+
+msgid "نظام الألوان"
+msgstr "配色方案"
+
+msgid "نظرة على تسويق %(name)s لشهر %(month_label)s"
+msgstr "%(name)s %(month_label)s 的营销"
+
+msgid "نعم، لدينا صفحة"
+msgstr "是的，我们有主页"
+
+msgid "نعم، لكن لست متأكداً"
+msgstr "是的，但我不确定"
+
+msgid "نعم، وحسابي جاهز"
+msgstr "是的，我的账户已准备好"
+
+msgid "نفّذ"
+msgstr "前往"
+
+msgid "نقاط"
+msgstr "圆点"
+
+msgid "نقاط التميز"
+msgstr "它的与众不同之处"
+
+msgid "نقد"
+msgstr "现金"
+
+msgid "نمو"
+msgstr "增长"
+
+msgid "نهاية الاشتراك"
+msgstr "订阅结束"
+
+msgid "نهاية الاشتراك قبل بدايته."
+msgstr "订阅在开始前就已结束。"
+
+msgid "نوع الحساب"
+msgstr "账户类型"
+
+msgid "نوع المنشور"
+msgstr "帖子类型"
+
+msgid "نوع المهمة"
+msgstr "任务类型"
+
+msgid "نوف"
+msgstr "11月"
+
+msgid "نوفمبر"
+msgstr "十一月"
+
+msgid "نُشر «{title}» على {platforms}."
+msgstr "“{title}”已发布到 {platforms}。"
+
+msgid "نُشر على %(platforms)s."
+msgstr "已发布到 %(platforms)s。"
+
+msgid "نُشر هذا المنشور بالفعل."
+msgstr "此帖子已发布。"
+
+msgid "هدف"
+msgstr "目标"
+
+msgid "هدية"
+msgstr "礼物"
+
+msgid "هذا الإجراء نهائي ولا يمكن التراجع عنه"
+msgstr "此操作是永久性的，无法撤销"
+
+msgid "هذا الحساب غير مفعّل."
+msgstr "此账户未激活。"
+
+msgid "هذا الشهر:"
+msgstr "本月："
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "此浏览器不支持通知。"
+
+msgid "هذا المستخدم عضو في الشركة بالفعل."
+msgstr "该用户已经是公司成员。"
+
+msgid "هذا حساب مشرف نظام، ولا يكون مالكاً لاشتراك."
+msgstr "这是系统管理员账户，不能拥有订阅。"
+
+msgid "هل تريد النشر على إنستغرام أيضاً؟"
+msgstr "您也想发布到 Instagram 吗？"
+
+msgid "هل لدى شركتك صفحة على فيسبوك؟"
+msgstr "您的公司有 Facebook 主页吗？"
+
+msgid "هوية العلامة"
+msgstr "品牌形象"
+
+msgid "هوية وعروض تقديمية"
+msgstr "形象与演示"
+
+msgid "و"
+msgstr "和"
+
+msgid "وأنا أديرها من حسابي على فيسبوك"
+msgstr "我通过我的 Facebook 账户来管理它"
+
+msgid "واتساب"
+msgstr "WhatsApp"
+
+msgid "واتساب العميل"
+msgstr "客户的 WhatsApp"
+
+msgid "واتساب غير مفعّل على هذا الخادم."
+msgstr "此服务器未启用 WhatsApp。"
+
+msgid "وثائق وكيل"
+msgstr "Wakeel 文档"
+
+msgid "ودودة وقريبة"
+msgstr "亲切友好"
+
+msgid "وسوم اختيارية: منتج، فريق، مكتب…"
+msgstr "可选标签：产品、团队、办公室…"
+
+msgid "وسوم العلامة"
+msgstr "品牌话题标签"
+
+msgid "وصف اختياري للصور"
+msgstr "图片的可选描述"
+
+msgid "وصف الصورة المقترحة"
+msgstr "建议的视觉"
+
+msgid "وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI 服务返回了意外的回复。请重试。"
+
+msgid "وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI 服务返回了不完整的回复。请重试。"
+
+msgid "وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI 服务返回了部分回复。请重试。"
+
+msgid "وصلت ملاحظتك إلى الفريق"
+msgstr "您的备注已送达团队"
+
+msgid "وصلت ملاحظتك على «%(title)s» إلى الفريق. شكراً!"
+msgstr "您对“%(title)s”的备注已送达团队。谢谢！"
+
+msgid "وضع الوكالة"
+msgstr "代理模式"
+
+msgid "وقت"
+msgstr "时间"
+
+msgid "وقود"
+msgstr "燃料"
+
+msgid "وكالة"
+msgstr "代理机构"
+
+msgid "وكيل"
+msgstr "Wakeel"
+
+msgid "وكيل · مدير التسويق الذكي"
+msgstr "Wakeel · 您的 AI 营销经理"
+
+msgid "وكيل يحلّل المنافسين…"
+msgstr "Wakeel 正在分析竞争对手…"
+
+msgid "وكيل يدرس هوية الشركة ويضع الاستراتيجية…"
+msgstr "Wakeel 正在研究品牌并制定策略…"
+
+msgid "وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…"
+msgstr "Wakeel 正在梳理您之前的反馈并从中学习…"
+
+msgid "وكيل يعمل على خطة %(month_label)s"
+msgstr "Wakeel 正在制定 %(month_label)s 的计划"
+
+msgid "وكيل يعيد صياغة المنشور…"
+msgstr "Wakeel 正在改写帖子措辞…"
+
+msgid "وكيل يعيد كتابة المنشور…"
+msgstr "Wakeel 正在重写帖子…"
+
+msgid "وكيل يقرأ التعليقات…"
+msgstr "Wakeel 正在读取评论…"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeel 正在读取源文档…"
+
+msgid "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة."
+msgstr "Wakeel 正在读取网站…这可能需要一分钟。"
+
+msgid "وكيل يكتب النسخة…"
+msgstr "Wakeel 正在撰写该版本…"
+
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — 您的 AI 营销经理"
+
+msgid "وهذا نص فرعي قصير يشرح الفكرة."
+msgstr "这是一行简短的副标题，用来说明创意。"
+
+msgid "ويُبلَّغ مالكه بالبريد."
+msgstr "并向其所有者发送电子邮件。"
+
+msgid "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة."
+msgstr "Wakeel 每半小时检查一次新评论。"
+
+msgid "يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة."
+msgstr "Wakeel 正在分析竞争对手。请一分钟后重新加载页面。"
+
+msgid "يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره."
+msgstr "为您公司的内容做规划、撰写、设计和发布。"
+
+msgid "يدرس وكيل هوية %(name)s وجمهورها وأهدافها."
+msgstr "Wakeel 研究 %(name)s 的形象、受众和目标。"
+
+msgid "يراجع فريقنا بيانات حسابك"
+msgstr "我们的团队会审核您的账户信息"
+
+msgid "يراجع فريقنا بيانات شركتك"
+msgstr "我们的团队会审核您公司的信息"
+
+msgid "يرسل رابط المراجعة للعميل"
+msgstr "将审核链接发送给您的客户"
+
+msgid "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق."
+msgstr "准备通常需要两到五分钟。"
+
+msgid "يصمم المنشورات"
+msgstr "设计帖子"
+
+msgid "يصمم صورة كل منشور بألوانك وخطوطك وشعارك."
+msgstr "它会用您的色彩、字体和标志设计每个帖子的图片。"
+
+msgid "يطّلع على الخطط والتقويم فقط."
+msgstr "只能查看计划和日历。"
+
+msgid "يظهر أول "
+msgstr "约前 "
+
+msgid "يعتمد المنشورات أو يطلب تعديلها دون حساب"
+msgstr "他们无需账户即可批准帖子或要求修改"
+
+msgid "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة."
+msgstr "准备计划、编辑帖子并发送审核。"
+
+msgid "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr "Wakeel 准备策略、每个帖子及其设计。"
+
+msgid "يعمل"
+msgstr "开启"
+
+msgid "يعمل لشركتك على مدار الساعة."
+msgstr "全天候为您的公司工作。"
+
+msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."
+msgstr "已开启：下一份计划将于 %(run_on)s 准备。"
+
+msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
+msgstr "Wakeel 在安排您接下来的帖子时偏好这些时段："
+
+msgid "يفهم علامتك"
+msgstr "了解您品牌的"
+
+msgid "يقرأ وكيل التعليقات الجديدة الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel 正在读取新评论。请稍后重新加载页面。"
+
+msgid "يمكن إضافة %(n)s منافسين كحد أقصى."
+msgstr "您最多可以添加 %(n)s 个竞争对手。"
+
+msgid "يمكنك إضافة إنستغرام لاحقاً"
+msgstr "您可以稍后再添加 Instagram"
+
+msgid "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+msgstr "您现在可以使用新密码登录了。"
+
+msgid "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد."
+msgstr "您随时可以在已批准帖子的页面上立即发布。"
+
+msgid "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)"
+msgstr "您可以一次上传多张图片（每张最大 10 MB）"
+
+msgid "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية."
+msgstr "您可以离开此页面；工作会在后台继续。"
+
+msgid "ينا"
+msgstr "1月"
+
+msgid "يناير"
+msgstr "一月"
+
+msgid "ينتظرك"
+msgstr "等待您处理"
+
+msgid "ينتهي الاشتراك اليوم"
+msgstr "订阅今天结束"
+
+msgid "ينتهي الاشتراك خلال "
+msgstr "订阅将在以下时间结束："
+
+msgid "ينتهي الاشتراك في %(date)s."
+msgstr "订阅将于 %(date)s 结束。"
+
+msgid "ينشر المعتمد في موعده"
+msgstr "按计划发布已批准的内容"
+
+msgid "ينقص"
+msgstr "缺失"
+
+msgid "يوجد حساب مسجل بهذا البريد الإلكتروني."
+msgstr "使用此电子邮件的账户已存在。"
+
+msgid "يول"
+msgstr "7月"
+
+msgid "يوليو"
+msgstr "七月"
+
+msgid "يوم إعداد الخطة"
+msgstr "计划准备日"
+
+msgid "يوم التأسيس السعودي"
+msgstr "沙特建国日"
+
+msgid "يوم عرفة"
+msgstr "阿拉法特日"
+
+msgid "يومياً ·"
+msgstr "每日 ·"
+
+msgid "يون"
+msgstr "6月"
+
+msgid "يونيو"
+msgstr "六月"
+
+msgid "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel 正在准备建议。请稍后重新加载页面。"
+
+msgid "— وكيل، مساحة عمل %(company)s"
+msgstr "— Wakeel，%(company)s 工作区"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "标识、信函和证书,都用您自己的信笺。"
 

@@ -7195,6 +7195,4938 @@ msgstr "ጥያቄ፡ %(q)s"
 msgid "The answer was saved as a note."
 msgstr "መልሱ እንደ ማስታወሻ ተቀምጧል።"
 
+msgid " حرفاً تقريباً قبل «"
+msgstr " ከ“ በፊት ያሉ ፊደላት ይታያሉ"
+
+msgid " حقلاً من الموقع. راجعها في كل الخطوات."
+msgstr " የድር ጣቢያው መስኮች። በእያንዳንዱ ደረጃ ይከልሷቸው።"
+
+msgid " صورة"
+msgstr " ምስሎች"
+
+msgid " من "
+msgstr " ከ "
+
+msgid " منشوراً"
+msgstr " ልጥፎች"
+
+msgid " منشوراً؟"
+msgstr " ልጥፎች?"
+
+msgid " يوم"
+msgstr " ቀናት በፊት"
+
+msgid "%(all)s منشوراً"
+msgstr "%(all)s ልጥፎች"
+
+msgid "%(company)s · عبر وكيل"
+msgstr "%(company)s · በWakeel በኩል"
+
+msgid "%(company)s · وكيل"
+msgstr "%(company)s · Wakeel"
+
+msgid "%(count)s × %(unit)s"
+msgstr "%(count)s × %(unit)s"
+
+msgid "%(count)s منشور"
+msgstr "%(count)s ልጥፎች"
+
+msgid "%(db_runs)s لقاعدة البيانات · %(media_runs)s للملفات"
+msgstr "%(db_runs)s የመረጃ ቋቱ · %(media_runs)s የፋይሎቹ"
+
+msgid "%(display_name)s · %(created_at)s"
+msgstr "%(display_name)s · %(created_at)s"
+
+msgid "%(finished_at)s (منذ %(finished_at2)s)"
+msgstr "%(finished_at)s (ከ%(finished_at2)s በፊት)"
+
+msgid "%(get_kind_display)s · منذ %(created_at)s"
+msgstr "%(get_kind_display)s · ከ%(created_at)s በፊት"
+
+msgid "%(jobs)s مهمة"
+msgstr "%(jobs)s ተግባራት"
+
+msgid "%(jobs)s مهمة · %(input)s رمز"
+msgstr "%(jobs)s ተግባራት · %(input)s ቶከኖች"
+
+msgid "%(jobs)s مهمة · cache hit %(cache_rate)s%%"
+msgstr "%(jobs)s ተግባራት · የመሸጎጫ ተመታ %(cache_rate)s%%"
+
+msgid "%(month)s (%(n)s منشوراً، %(get_status_display)s)"
+msgstr "%(month)s (%(n)s ልጥፎች፣ %(get_status_display)s)"
+
+msgid "%(month_label)s · %(posts_per_week)s منشورات أسبوعياً ·"
+msgstr "%(month_label)s · በሳምንት %(posts_per_week)s ልጥፎች ·"
+
+msgid "%(name)s (%(count)s عضو)"
+msgstr "%(name)s (%(count)s አባላት)"
+
+msgid "%(name)s (العميل): %(body)s"
+msgstr "%(name)s (ደንበኛ): %(body)s"
+
+msgid "%(name)s · لوحة النظام"
+msgstr "%(name)s · የሥርዓት መቆጣጠሪያ"
+
+msgid "%(new_companies)s جديدة هذا الشهر"
+msgstr "በዚህ ወር %(new_companies)s አዲስ"
+
+msgid "%(pending)s بانتظار رأيك"
+msgstr "%(pending)s የእርስዎን አስተያየት በመጠባበቅ ላይ"
+
+msgid "%(pending)s قيد الانتظار"
+msgstr "%(pending)s በመጠባበቅ ላይ"
+
+msgid "%(plans_month)s خطة محتوى"
+msgstr "%(plans_month)s የይዘት ዕቅዶች"
+
+msgid "%(running_jobs)s مهمة قيد التنفيذ الآن"
+msgstr "አሁን %(running_jobs)s ተግባራት በሂደት ላይ"
+
+msgid "%(total_bytes)s (المساحة الحرة: %(free_bytes)s)"
+msgstr "%(total_bytes)s (ነፃ ቦታ: %(free_bytes)s)"
+
+msgid "%(unpriced)s مهمة بلا سعر"
+msgstr "%(unpriced)s ዋጋ ያልተሰጣቸው ተግባራት"
+
+msgid "%(unscheduled)s منشور بلا موعد"
+msgstr "%(unscheduled)s ቀን የሌላቸው ልጥፎች"
+
+msgid "(%(unread_notifications)s غير مقروءة)"
+msgstr "(%(unread_notifications)s ያልተነበቡ)"
+
+msgid "(أنت)"
+msgstr "(እርስዎ)"
+
+msgid "(دون %(unpriced)s مهمة بلا سعر)"
+msgstr "(%(unpriced)s ዋጋ ያልተሰጣቸው ተግባራትን ሳይጨምር)"
+
+msgid "(قد يتغير يوماً حسب رؤية الهلال)"
+msgstr "(በጨረቃ እይታ አንድ ቀን ሊለያይ ይችላል)"
+
+msgid ") ليعمل معه تلقائياً، أو شغّل"
+msgstr ") እንዲሰራ ከእሱ ጋር፣ ወይም ያሂዱ"
+
+msgid "). الأسعار في"
+msgstr ")። ዋጋዎች በ"
+
+msgid ". سيراجعه فريقنا، وسيصلك بريد على"
+msgstr "። ቡድናችን ይመረምረዋል፣ እና ኢሜይል ይደርስዎታል በ"
+
+msgid "12 شهراً"
+msgstr "12 ወራት"
+
+msgid "14 يوماً (تجربة)"
+msgstr "14 ቀናት (ሙከራ)"
+
+msgid "16 منشوراً جاهزاً"
+msgstr "16 ልጥፎች ዝግጁ"
+
+msgid "3 أشهر"
+msgstr "3 ወራት"
+
+msgid "6 أشهر"
+msgstr "6 ወራት"
+
+msgid "<i class=\"bi bi-patch-check\"></i> اعتماد"
+msgstr "<i class=\"bi bi-patch-check\"></i> አጽድቅ"
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ النشر…"
+msgstr "<span class=\"spinner-border spinner-border-sm\"></span> በማተም ላይ…"
+
+msgid "<span class=\"text-warning\">● تغييرات غير محفوظة</span>"
+msgstr "<span class=\"text-warning\">● ያልተቀመጡ ለውጦች</span>"
+
+msgid "A product of"
+msgstr "የ ምርት"
+
+msgid "Added a contact"
+msgstr "እውቂያ ጨምሯል"
+
+msgid "Added a task"
+msgstr "ተግባር ጨምሯል"
+
+msgid "Attach from Wakeel"
+msgstr "ከWakeel አያይዝ"
+
+msgid "Attached a file to a task"
+msgstr "ፋይል ወደ ተግባር አያይዟል"
+
+msgid "Build a month of social media content from this document."
+msgstr "ከዚህ ሰነድ የአንድ ወር የማኅበራዊ ሚዲያ ይዘት ይገንቡ።"
+
+msgid "Changed a contact"
+msgstr "እውቂያ ቀይሯል"
+
+msgid "Changed a document of the library"
+msgstr "የቤተ-መጻሕፍቱን ሰነድ ቀይሯል"
+
+msgid "Changed a task"
+msgstr "ተግባር ቀይሯል"
+
+msgid "Changed an announcement"
+msgstr "ማስታወቂያ ቀይሯል"
+
+msgid "Changed the settings of a form"
+msgstr "የቅጽ ቅንብሮችን ቀይሯል"
+
+msgid "Changed the status of a task"
+msgstr "የተግባር ሁኔታ ቀይሯል"
+
+msgid "Choose a file"
+msgstr "ፋይል ይምረጡ"
+
+msgid "Closed a form"
+msgstr "ቅጽ ዘግቷል"
+
+msgid "Content plan from it"
+msgstr "ከእሱ የይዘት ዕቅድ"
+
+msgid "Created a form"
+msgstr "ቅጽ ፈጥሯል"
+
+msgid "Ctrl + S للحفظ"
+msgstr "ለማስቀመጥ Ctrl + S"
+
+msgid "Deleted a contact and its history"
+msgstr "እውቂያ እና ታሪኩን ሰርዟል"
+
+msgid "Deleted a document from the library"
+msgstr "ሰነድ ከቤተ-መጻሕፍት ሰርዟል"
+
+msgid "Deleted a form and its answers"
+msgstr "ቅጽ እና መልሶቹን ሰርዟል"
+
+msgid "Deleted a presentation"
+msgstr "ገለጻ ሰርዟል"
+
+msgid "Deleted a task"
+msgstr "ተግባር ሰርዟል"
+
+msgid "Deleted an announcement"
+msgstr "ማስታወቂያ ሰርዟል"
+
+msgid "Document services"
+msgstr "የሰነድ አገልግሎቶች"
+
+msgid "Documents waiting for your approval"
+msgstr "የእርስዎን ማጽደቂያ የሚጠብቁ ሰነዶች"
+
+msgid "Downloaded the answers of a form"
+msgstr "የቅጽ መልሶችን አውርዷል"
+
+msgid "Exported all the data of the company"
+msgstr "የኩባንያውን ሁሉንም ውሂብ ወደ ውጭ ልኳል"
+
+msgid "Invited someone to the company"
+msgstr "አልሰራም። ክፍያ አልተጠየቁም።"
+
+msgid "It did not work. You were not charged."
+msgstr "ሰው ወደ ኩባንያው ጋብዟል"
+
+msgid "Joined the company"
+msgstr "ኩባንያውን ተቀላቅሏል"
+
+msgid "Letterheads"
+msgstr "ደብዳቤ ራሶች"
+
+msgid "Make a content plan"
+msgstr "የይዘት ዕቅድ ይስሩ"
+
+msgid "Never charged (internal and demo companies)."
+msgstr "(የውስጥ እና የማሳያ ኩባንያዎች) ፈጽሞ ክፍያ አይጠየቅም።"
+
+msgid "Nobody else is in this company yet."
+msgstr "በዚህ ኩባንያ ውስጥ ሌላ ማንም የለም።"
+
+msgid "Only members of this company can open it."
+msgstr "የዚህ ኩባንያ አባላት ብቻ ሊከፍቱት ይችላሉ።"
+
+msgid "Only the people of this company, one answer each"
+msgstr "የዚህ ኩባንያ ሰዎች ብቻ፣ እያንዳንዱ አንድ መልስ"
+
+msgid "Open the card again and approve it from there."
+msgstr "ካርዱን እንደገና ይክፈቱና ከዚያ ያጽድቁ።"
+
+msgid "Opened a form for answers"
+msgstr "ቅጽ ለመልሶች ከፍቷል"
+
+msgid "Ordered a presentation"
+msgstr "ገለጻ አዝዟል"
+
+msgid "Papers expired or expiring within 30 days"
+msgstr "በ30 ቀናት ውስጥ ጊዜያቸው ያለፈ ወይም የሚያልፍ ወረቀቶች"
+
+msgid "Post"
+msgstr "ልጥፍ"
+
+msgid "Post from it"
+msgstr "ከእሱ ልጥፍ"
+
+msgid "Published an announcement"
+msgstr "ማስታወቂያ አትሟል"
+
+msgid "Reading the document. The answer will be saved as a note."
+msgstr "ሰነዱን በማንበብ ላይ። መልሱ እንደ ማስታወሻ ይቀመጣል።"
+
+msgid "Reading the document… the details will appear here in a moment."
+msgstr "ሰነዱን በማንበብ ላይ… ዝርዝሮቹ በቅርቡ እዚህ ይታያሉ።"
+
+msgid "Removed a file from a task"
+msgstr "ፋይል ከተግባር አስወግዷል"
+
+msgid "Rewrite a post"
+msgstr "ልጥፍ እንደገና ይጻፉ"
+
+msgid "Rewriting the post. Refresh the page in a moment."
+msgstr "ልጥፉን እንደገና በመጻፍ ላይ። ከትንሽ ቆይታ በኋላ ገጹን ያድሱ።"
+
+msgid "Shared with Wakeel"
+msgstr "ከWakeel ጋር ተጋርቷል"
+
+msgid "Tasks assigned to you"
+msgstr "ለእርስዎ የተመደቡ ተግባራት"
+
+msgid "Tasks of yours are overdue"
+msgstr "የእርስዎ ተግባራት ዘግይተዋል"
+
+msgid "Thank you. The balance is added as soon as the payment is confirmed."
+msgstr "እናመሰግናለን። ክፍያው እንደተረጋገጠ ቀሪ ሒሳቡ ይጨመራል።"
+
+msgid "The AI is writing. This can take up to a minute; you can wait here."
+msgstr "AI እየጻፈ ነው። እስከ አንድ ደቂቃ ሊወስድ ይችላል፤ እዚህ መጠበቅ ይችላሉ።"
+
+msgid "The form was created. Check its questions."
+msgstr "ቅጹ ተፈጥሯል። ጥያቄዎቹን ይፈትሹ።"
+
+msgid "The mailbox will be disconnected from Wakeel."
+msgstr "የመልዕክት ሳጥኑ ከWakeel ይቋረጣል።"
+
+msgid "The service is busy at the moment. Please try again later."
+msgstr "አገልግሎቱ አሁን ሥራ በዝቶበታል። እባክዎ ቆይተው እንደገና ይሞክሩ።"
+
+msgid "This company is not charged."
+msgstr "ይህ ኩባንያ ክፍያ አይጠየቅም።"
+
+msgid "This suggestion is no longer available. Ask Marid again."
+msgstr "ይህ ጥቆማ ከእንግዲህ አይገኝም። ማሪድን እንደገና ይጠይቁ።"
+
+msgid "Uploaded a document to the library"
+msgstr "ሰነድ ወደ ቤተ-መጻሕፍት ሰቅሏል"
+
+msgid "Verified by Wakeel"
+msgstr "በWakeel የተረጋገጠ"
+
+msgid "Wakeel credit: $%(amount)s"
+msgstr "የWakeel ክሬዲት: $%(amount)s"
+
+msgid "Wallet"
+msgstr "ቦርሳ"
+
+msgid "What the services cost"
+msgstr "አገልግሎቶቹ ምን ያህል ያስከፍላሉ"
+
+msgid "What to change"
+msgstr "ምን ይቀየር"
+
+msgid "Working on it. This page shows the plan as soon as it is ready."
+msgstr "በዚህ ላይ እየሠራ ነው። ዕቅዱ ሲዘጋጅ ይህ ገጽ ያሳያል።"
+
+msgid "Write a post from a document"
+msgstr "ከሰነድ ልጥፍ ይጻፉ"
+
+msgid "Writing the post from the document. Refresh the page in a moment."
+msgstr "ልጥፉን ከሰነዱ በመጻፍ ላይ። ከትንሽ ቆይታ በኋላ ገጹን ያድሱ።"
+
+msgid "You are charged only if the work is delivered."
+msgstr "ሥራው ከደረሰ ብቻ ነው ክፍያ የሚጠየቁት።"
+
+msgid "You changed the server or the user name: type the password again."
+msgstr "አገልጋዩን ወይም የተጠቃሚ ስሙን ቀይረዋል፤ የይለፍ ቃሉን እንደገና ይጻፉ።"
+
+msgid "You reached today's limit of messages to Marid. Try again tomorrow."
+msgstr "ዛሬ ለማሪድ የሚላኩ መልዕክቶች ገደብ ላይ ደርሰዋል። ነገ እንደገና ይሞክሩ።"
+
+msgid "You receive this because you set this reminder in Wakeel."
+msgstr "ይህን የሚቀበሉት በWakeel ውስጥ ይህን አስታዋሽ ስላዘጋጁ ነው።"
+
+msgid "You were not charged."
+msgstr "ክፍያ አልተጠየቁም።"
+
+msgid "Your balance: $%(balance)s. It takes about half a minute."
+msgstr "ቀሪ ሒሳብዎ: $%(balance)s። ወደ ግማሽ ደቂቃ ይወስዳል።"
+
+msgid "[سيناريو الفيديو]"
+msgstr "[የቪዲዮ ስክሪፕት]"
+
+msgid "files chosen"
+msgstr "ፋይሎች ተመርጠዋል"
+
+msgid "free"
+msgstr "ነፃ"
+
+msgid "month"
+msgstr "ወር"
+
+msgid "or drop it here"
+msgstr "ወይም እዚህ ይጣሉት"
+
+msgid "page"
+msgstr "ገጽ"
+
+msgid "platforms"
+msgstr "መድረኮች"
+
+msgid "post"
+msgstr "ልጥፍ"
+
+msgid "posts per week"
+msgstr "በሳምንት ልጥፎች"
+
+msgid "slide"
+msgstr "ስላይድ"
+
+msgid "this month's brief"
+msgstr "የዚህ ወር ማጠቃለያ"
+
+msgid "{count} منشورات"
+msgstr "{count} ልጥፎች"
+
+msgid "{label} على «{post}»: {text}"
+msgstr "{label} በ“{post}” ላይ: {text}"
+
+msgid "{name} (العميل)"
+msgstr "{name} (ደንበኛ)"
+
+msgid "«%(name)s» معتمد بالفعل."
+msgstr "“%(name)s” አስቀድሞ ጸድቋል።"
+
+msgid "· %(industry)s · %(country)s · منذ %(created_at)s"
+msgstr "· %(industry)s · %(country)s · ከ%(created_at)s ጀምሮ"
+
+msgid "· اللغة:"
+msgstr "· ቋንቋ:"
+
+msgid "· النشر التلقائي: %(auto_publish)s"
+msgstr "· ራስ-ሰር ማተም: %(auto_publish)s"
+
+msgid "· الهدف: %(objective)s"
+msgstr "· ግብ: %(objective)s"
+
+msgid "· منذ"
+msgstr "· ከ"
+
+msgid "· وكيل"
+msgstr "· Wakeel"
+
+msgid "· يعمل"
+msgstr "· በ"
+
+msgid "»، فاجعل البداية قوية."
+msgstr "”፣ ስለዚህ መክፈቻውን ጠንካራ ያድርጉት።"
+
+msgid "، "
+msgstr "፣ "
+
+msgid "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير ("
+msgstr "፣ ስለዚህ ተግባሩ አልጀመረም። አገልጋዩን በልማት ሁነታ ያሂዱ ("
+
+msgid "، و%(pending)s مهمة تنتظر"
+msgstr "፣ እና %(pending)s ተግባራት እየጠበቁ ናቸው"
+
+msgid "، وأضف"
+msgstr "፣ ጨምር"
+
+msgid "، واجعل رابط إعادة التوجيه:"
+msgstr "፣ እና የማዞሪያ URI እንደሚከተለው ያዘጋጁ:"
+
+msgid "، وتُحسب تكلفة كل مهمة لحظة تنفيذها."
+msgstr "፣ እና የእያንዳንዱ ተግባር ወጪ በሚሰራበት ጊዜ ይሰላል።"
+
+msgid "؛ المفاتيح السرية لا تُعرض"
+msgstr "፤ ሚስጥራዊ ቁልፎች አይታዩም"
+
+msgid "؟"
+msgstr "?"
+
+msgid "آخر 12 شهراً"
+msgstr "ያለፉት 12 ወራት"
+
+msgid "آخر 30 يوماً"
+msgstr "ያለፉት 30 ቀናት"
+
+msgid "آخر 90 يوماً"
+msgstr "ያለፉት 90 ቀናት"
+
+msgid "آخر الأخطاء"
+msgstr "የቅርብ ጊዜ ስህተቶች"
+
+msgid "آخر المهام"
+msgstr "የቅርብ ጊዜ ተግባራት"
+
+msgid "آخر تحديث:"
+msgstr "መጨረሻ የተዘመነው:"
+
+msgid "آخر تحديث: %(when)s"
+msgstr "መጨረሻ የተዘመነው: %(when)s"
+
+msgid "آخر نسخة"
+msgstr "የመጨረሻ ምትኬ"
+
+msgid "آيس كريم"
+msgstr "አይስ ክሬም"
+
+msgid "أبر"
+msgstr "ኤፕ"
+
+msgid "أبريل"
+msgstr "ኤፕሪል"
+
+msgid "أثاث"
+msgstr "የቤት ዕቃ"
+
+msgid "أحدث الاشتراكات"
+msgstr "የቅርብ ጊዜ ምዝገባዎች"
+
+msgid "أخبار"
+msgstr "ዜና"
+
+msgid "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي."
+msgstr "በዚህ ወር ለእርስዎ ምን አስፈላጊ እንደሆነ ለWakeel ይንገሩት፣ የቀረውን ይሠራል።"
+
+msgid "أخرى"
+msgstr "ሌላ"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr "ኢሜይልዎን ያስገቡ፣ አዲስ የይለፍ ቃል ለማዘጋጀት አገናኝ እንልክልዎታለን።"
+
+msgid "أدخل رابط الموقع أولاً."
+msgstr "መጀመሪያ የድር ጣቢያውን አገናኝ ያስገቡ።"
+
+msgid "أدخل كلمة المرور للتأكيد"
+msgstr "ለማረጋገጥ የይለፍ ቃልዎን ያስገቡ"
+
+msgid "أدخل لوناً بصيغة ‎#RRGGBB."
+msgstr "ቀለም በ#RRGGBB ቅርጸት ያስገቡ።"
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "ትክክለኛ የዶላር መጠን ያስገቡ (እስከ 1000)።"
+
+msgid "أدوات"
+msgstr "መሣሪያዎች"
+
+msgid "أرسل {name} {subject} للمراجعة."
+msgstr "{name} {subject}ን ለግምገማ ልኳል።"
+
+msgid "أرسل رابط الاستعادة"
+msgstr "የዳግም ማስጀመሪያ አገናኝ ላክ"
+
+msgid "أرسل للعميل على واتساب"
+msgstr "ለደንበኛው በዋትስአፕ ላክ"
+
+msgid "أزمة"
+msgstr "ቀውስ"
+
+msgid "أزمة محتملة"
+msgstr "ሊሆን የሚችል ቀውስ"
+
+msgid "أسعار ثابتة:"
+msgstr "ቋሚ ዋጋዎች:"
+
+msgid "أسعار هذا النموذج غير معروفة. أضف"
+msgstr "የዚህ ሞዴል ዋጋዎች አይታወቁም። ጨምር"
+
+msgid "أسنان"
+msgstr "የጥርስ"
+
+msgid "أسود"
+msgstr "ጨለማ"
+
+msgid "أشرطة"
+msgstr "ባንዶች"
+
+msgid "أشعة"
+msgstr "ጨረሮች"
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "የኩባንያውን ቀሪ ሒሳብ መሙላት እንደገና በርቷል።"
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "ኩባንያው አሁን ከክፍያ ነፃ ነው።"
+
+msgid "أضف دعوة أوضح لاتخاذ إجراء"
+msgstr "ግልጽ የሆነ ጥሪ ለድርጊት ያክሉ"
+
+msgid "أضف رقم واتساب العميل أولاً من إعدادات المخطط الآلي."
+msgstr "መጀመሪያ የደንበኛውን የዋትስአፕ ቁጥር በራስ-ሰር እቅድ አውጪ ቅንብሮች ውስጥ ያክሉ።"
+
+msgid "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين"
+msgstr "ደንብ ያክሉ፣ ለምሳሌ: በርዕሶች ውስጥ “ቅናሾች” የሚለውን ቃል አትጠቀም"
+
+msgid "أضف منافساً"
+msgstr "ተፎካካሪ ያክሉ"
+
+msgid "أضف منافساً واحداً على الأقل."
+msgstr "ቢያንስ አንድ ተፎካካሪ ያክሉ።"
+
+msgid "أضف منافسيك"
+msgstr "ተፎካካሪዎችዎን ያክሉ"
+
+msgid "أضفتموها"
+msgstr "በእርስዎ የተጨመረ"
+
+msgid "أضيفت القاعدة، وسيلتزم بها وكيل من الآن."
+msgstr "ደንቡ ተጨምሯል። Wakeel ከአሁን ጀምሮ ይከተለዋል።"
+
+msgid "أطفال"
+msgstr "ልጆች"
+
+msgid "أعاد وكيل كتابة المنشور"
+msgstr "Wakeel ልጥፉን እንደገና ጽፏል"
+
+msgid "أعد الإعداد"
+msgstr "እንደገና አዘጋጅ"
+
+msgid "أعد المحاولة واضغط «تعديل الإعدادات» لتحديدها"
+msgstr "እንደገና ይሞክሩና ለመምረጥ “ቅንብሮችን አርትዕ” ይጫኑ"
+
+msgid "أعد نشره"
+msgstr "እንደገና ለጥፍ"
+
+msgid "أعد نشره بصياغة جديدة"
+msgstr "በአዲስ ቃላት እንደገና ለጥፍ"
+
+msgid "أعدّ الخطة"
+msgstr "ዕቅዱን አዘጋጅ"
+
+msgid "أعدّ الخطة الآن"
+msgstr "ዕቅዱን አሁን አዘጋጅ"
+
+msgid "أعدّ المخطط الآلي خطة {title}."
+msgstr "ራስ-ሰር እቅድ አውጪው የ{title} ዕቅድ አዘጋጅቷል።"
+
+msgid "أعدّ تقريراً لشهر"
+msgstr "ሪፖርት አዘጋጅ ለ"
+
+msgid "أعدّ خطة الشهر"
+msgstr "የዚህን ወር ዕቅድ አዘጋጅ"
+
+msgid "أعدّ خطة المحتوى"
+msgstr "የይዘት ዕቅድ አዘጋጅ"
+
+msgid "أعدّ خطة محتوى أو أنشئ منشوراً يدوياً."
+msgstr "የይዘት ዕቅድ ያዘጋጁ ወይም ልጥፍ በእጅ ይፍጠሩ።"
+
+msgid "أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات."
+msgstr "የይዘት ዕቅድ ያዘጋጁ እና Wakeel የቀን መቁጠሪያዎን በልጥፎች ይሞላል።"
+
+msgid "أعدّت هذه الخطة %(name)s"
+msgstr "ይህ ዕቅድ በ%(name)s ተዘጋጅቷል"
+
+msgid "أعضاء"
+msgstr "አባላት"
+
+msgid "أعضاء الفريق · المنشورات"
+msgstr "የቡድን አባላት · ልጥፎች"
+
+msgid "أعمال"
+msgstr "ንግድ"
+
+msgid "أغس"
+msgstr "ኦገ"
+
+msgid "أغسطس"
+msgstr "ኦገስት"
+
+msgid "أغلقتها؟ تابع"
+msgstr "ዘግተውታል? ይቀጥሉ"
+
+msgid "أفضل ساعات النشر لجمهورك"
+msgstr "ለታዳሚዎ ምርጥ የመለጠፊያ ሰዓቶች"
+
+msgid "أقدم مهمة منتظرة"
+msgstr "ለረጅም ጊዜ የሚጠብቅ ተግባር"
+
+msgid "أقواس"
+msgstr "ቅስቶች"
+
+msgid "أكت"
+msgstr "ኦክ"
+
+msgid "أكتوبر"
+msgstr "ኦክቶበር"
+
+msgid "أكمل الخطوات هناك وسنتابع هنا تلقائياً."
+msgstr "እዚያ ያሉትን ደረጃዎች ያጠናቅቁ፣ እኛ እዚህ በራስ-ሰር እንቀጥላለን።"
+
+msgid "أكمل الملف"
+msgstr "መገለጫውን ያጠናቅቁ"
+
+msgid "أكمل الملف أولاً"
+msgstr "መጀመሪያ መገለጫውን ያጠናቅቁ"
+
+msgid "أكمل ملف شركتك"
+msgstr "የኩባንያዎን መገለጫ ያጠናቅቁ"
+
+msgid "ألغاه المستخدم."
+msgstr "በተጠቃሚው ተሰርዟል።"
+
+msgid "أمان"
+msgstr "ደህንነት"
+
+msgid "أمثلة من منشوراتهم"
+msgstr "የልጥፎቻቸው ምሳሌዎች"
+
+msgid "أنت داخل حساب"
+msgstr "እርስዎ ያሉት በዚህ መለያ ውስጥ ነው:"
+
+msgid "أنشأت الصفحة، التالي"
+msgstr "ፈጥሬዋለሁ፣ ቀጣይ"
+
+msgid "أنشئ النسخة"
+msgstr "ስሪት ፍጠር"
+
+msgid "أنشئ تطبيقاً في"
+msgstr "መተግበሪያ ይፍጠሩ በ"
+
+msgid "أنشئ حساباً"
+msgstr "መለያ ይፍጠሩ"
+
+msgid "أنشئ صفحة لشركتك"
+msgstr "ለኩባንያዎ ገጽ ይፍጠሩ"
+
+msgid "أنشئ صفحة لشركتك أولاً"
+msgstr "መጀመሪያ ለኩባንያዎ ገጽ ይፍጠሩ"
+
+msgid "أنشئه في Meta متوقفاً"
+msgstr "በMeta ውስጥ ፍጠር፣ ባለበት ቆሟል"
+
+msgid "أهداف التسويق"
+msgstr "የግብይት ግቦች"
+
+msgid "أهلاً %(display_name)s 👋"
+msgstr "ሰላም %(display_name)s 👋"
+
+msgid "أو افتحها من المتصفح"
+msgstr "ወይም በአሳሹ ውስጥ ይክፈቱት"
+
+msgid "أوقفت الإشعارات على هذا الجهاز"
+msgstr "በዚህ መሣሪያ ላይ ማሳወቂያዎች ጠፍተዋል"
+
+msgid "أول يوم في الشهر."
+msgstr "የወሩ የመጀመሪያ ቀን።"
+
+msgid "أُرسلت دعوة المراجعة إلى واتساب العميل."
+msgstr "የግምገማ ግብዣው ወደ ደንበኛው ዋትስአፕ ተልኳል።"
+
+msgid "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي"
+msgstr "ይህ ዕቅድ በWakeel ተዘጋጅቷል · የእርስዎ AI የግብይት ሥራ አስኪያጅ"
+
+msgid "أُلغي"
+msgstr "ተሰርዟል"
+
+msgid "أُلغي إعداد الخطة. يمكنك المحاولة مرة أخرى أو حذف الخطة."
+msgstr "የዕቅድ ዝግጅት ተሰርዟል። እንደገና መሞከር ወይም ዕቅዱን መሰረዝ ይችላሉ።"
+
+msgid "أُنشئ متوقفاً في Meta"
+msgstr "በMeta ውስጥ ባለበት ቆሞ ተፈጥሯል"
+
+msgid "أُنشئت نسخة %(label)s."
+msgstr "የ%(label)s ስሪት ተፈጥሯል።"
+
+msgid "أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد."
+msgstr "የኤጀንሲ ሁነታ ጠፍቷል፤ ደንበኞችዎ የWakeel ብራንድ እንደገና ያያሉ።"
+
+msgid "إحصاءات"
+msgstr "ስታቲስቲክስ"
+
+msgid "إخفاء كلمة المرور"
+msgstr "የይለፍ ቃል ደብቅ"
+
+msgid "إدارة الفريق متاحة للمالك والمديرين فقط."
+msgstr "ቡድኑን ማስተዳደር የሚችሉት ባለቤቶችና አስተዳዳሪዎች ብቻ ናቸው።"
+
+msgid "إدارة المشتركين ومتابعة نشاطهم"
+msgstr "ተመዝጋቢዎችን ያስተዳድሩ እና እንቅስቃሴያቸውን ይከታተሉ"
+
+msgid "إدارة المكتبة"
+msgstr "ቤተ-መጻሕፍትን አስተዳድር"
+
+msgid "إدارة المنصة"
+msgstr "የመድረክ አስተዳዳሪ"
+
+msgid "إدارة قاعدة البيانات"
+msgstr "የመረጃ ቋት አስተዳዳሪ"
+
+msgid "إدارة وكيل"
+msgstr "የWakeel አስተዳደር"
+
+msgid "إرجاع"
+msgstr "መልስ"
+
+msgid "إرسال"
+msgstr "ላክ"
+
+msgid "إرسال الرد"
+msgstr "ምላሽ ላክ"
+
+msgid "إرسال الملاحظة"
+msgstr "ማስታወሻ ላክ"
+
+msgid "إرسال للمراجعة"
+msgstr "ለግምገማ ላክ"
+
+msgid "إزالة"
+msgstr "አስወግድ"
+
+msgid "إزالة %(display_name)s"
+msgstr "%(display_name)sን አስወግድ"
+
+msgid "إزالة العضو؟"
+msgstr "አባሉን ይወገድ?"
+
+msgid "إسعاف"
+msgstr "የመጀመሪያ እርዳታ"
+
+msgid "إشادة"
+msgstr "ምስጋና"
+
+msgid "إشعار"
+msgstr "ማሳወቂያ"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "የኢሜይል ማሳወቂያዎች"
+
+msgid "إشعارات هذا الجهاز"
+msgstr "በዚህ መሣሪያ ላይ ማሳወቂያዎች"
+
+msgid "إضافة"
+msgstr "ጨምር"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "ቀሪ ሒሳብ ጨምር ($፣ ለመመለስ አሉታዊ)"
+
+msgid "إضافة شركاتك"
+msgstr "ኩባንያዎችዎን ያክሉ"
+
+msgid "إضافة شركة"
+msgstr "ኩባንያ ጨምር"
+
+msgid "إضافة عضو"
+msgstr "አባል ጨምር"
+
+msgid "إطار"
+msgstr "ፍሬም"
+
+msgid "إظهار كلمة المرور"
+msgstr "የይለፍ ቃል አሳይ"
+
+msgid "إعادة إعداد الخطة"
+msgstr "ዕቅዱን እንደገና አዘጋጅ"
+
+msgid "إعادة إعداد الخطة؟"
+msgstr "ዕቅዱ እንደገና ይዘጋጅ?"
+
+msgid "إعادة إلى المسودة"
+msgstr "ወደ ረቂቅ ተመለስ"
+
+msgid "إعادة الإعداد"
+msgstr "እንደገና አዘጋጅ"
+
+msgid "إعادة الربط أو تغيير الصفحة"
+msgstr "ገጹን እንደገና አገናኝ ወይም ቀይር"
+
+msgid "إعادة المحاولة"
+msgstr "እንደገና ሞክር"
+
+msgid "إعادة تصميم كل الصور"
+msgstr "ሁሉንም ምስሎች እንደገና ንድፍ"
+
+msgid "إعادة كتابة منشور"
+msgstr "ልጥፍን እንደገና መጻፍ"
+
+msgid "إعادة نشر تلقائية كل شهر"
+msgstr "በየወሩ በራስ-ሰር እንደገና ለጥፍ"
+
+msgid "إعادة نشر محتوى دائم"
+msgstr "ጊዜ የማይሽረው እንደገና መለጠፍ"
+
+msgid "إعجاب"
+msgstr "ወደድኩት"
+
+msgid "إعداد التقرير"
+msgstr "ሪፖርት አዘጋጅ"
+
+msgid "إعداد الخطط، التصميم، النشر، والنشر المجدول"
+msgstr "የዕቅድ ዝግጅት፣ ንድፍ፣ ማተም እና የታቀደ ማተም"
+
+msgid "إعداد النشر التلقائي"
+msgstr "ራስ-ሰር መለጠፍን አዘጋጅ"
+
+msgid "إعداد تقرير الأداء"
+msgstr "የአፈጻጸም ሪፖርት ጻፍ"
+
+msgid "إعداد خطة المحتوى"
+msgstr "የይዘት ዕቅዱን በማዘጋጀት ላይ"
+
+msgid "إعدادات"
+msgstr "ቅንብሮች"
+
+msgid "إعدادات الحساب"
+msgstr "የመለያ ቅንብሮች"
+
+msgid "إعفاء من الخصم"
+msgstr "ከክፍያ ነፃ"
+
+msgid "إعلان"
+msgstr "ማስታወቂያ"
+
+msgid "إغلاق"
+msgstr "ዝጋ"
+
+msgid "إلغاء"
+msgstr "ሰርዝ"
+
+msgid "إلغاء الإعفاء"
+msgstr "ነፃነቱን አስወግድ"
+
+msgid "إلى"
+msgstr "ወደ"
+
+msgid "إلى ملف"
+msgstr "ወደ"
+
+msgid "إنترنت"
+msgstr "በይነመረብ"
+
+msgid "إنجاز"
+msgstr "ተጠናቅቋል"
+
+msgid "إنستغرام"
+msgstr "Instagram"
+
+msgid "إنشاء الإعلان في Meta؟"
+msgstr "ማስታወቂያውን በMeta ውስጥ ይፍጠሩ?"
+
+msgid "إنشاء الاشتراك"
+msgstr "ምዝገባ ፍጠር"
+
+msgid "إنشاء الحساب"
+msgstr "መለያ ተፈጥሯል"
+
+msgid "إنشاء حساب"
+msgstr "መለያ ይፍጠሩ"
+
+msgid "إنشاء رابط جديد؟"
+msgstr "አዲስ አገናኝ ይፈጠር?"
+
+msgid "إنشاء رابط للعميل"
+msgstr "የደንበኛ አገናኝ ፍጠር"
+
+msgid "إنشاء متوقفاً"
+msgstr "ባለበት ቆሞ ፍጠር"
+
+msgid "إنشاء مساحة العمل"
+msgstr "የሥራ ቦታ ፍጠር"
+
+msgid "إيجابي"
+msgstr "አዎንታዊ"
+
+msgid "إيقاف"
+msgstr "አቁም"
+
+msgid "إيقاف إعداد الخطة؟"
+msgstr "የዕቅድ ዝግጅት ይቁም?"
+
+msgid "إيقاف الإعداد"
+msgstr "ዝግጅቱን አቁም"
+
+msgid "إيقاف الرابط"
+msgstr "አገናኙን አጥፋ"
+
+msgid "إيقاف وضع الوكالة"
+msgstr "የኤጀንሲ ሁነታን አጥፋ"
+
+msgid "إيقافه يعلّق الاشتراك."
+msgstr "ማጥፋት ምዝገባውን ያግዳል።"
+
+msgid "ابحث بالاسم أو البريد أو المدينة…"
+msgstr "በስም፣ ኢሜይል ወይም ከተማ ይፈልጉ…"
+
+msgid "ابحث بالاسم أو البريد…"
+msgstr "በስም ወይም ኢሜይል ይፈልጉ…"
+
+msgid "ابحث بالشركة أو الخطأ أو النموذج…"
+msgstr "በኩባንያ፣ ስህተት ወይም ሞዴል ይፈልጉ…"
+
+msgid "ابحث في المنشورات…"
+msgstr "ልጥፎችን ይፈልጉ…"
+
+msgid "ابدأ الآن"
+msgstr "ጀምር"
+
+msgid "ابدأ بخطتك الأولى"
+msgstr "በመጀመሪያ ዕቅድዎ ይጀምሩ"
+
+msgid "ابدأ مع وكيل"
+msgstr "ከWakeel ጋር ይጀምሩ"
+
+msgid "اتصال"
+msgstr "ደውል"
+
+msgid "اجعل الأسلوب أكثر حماساً وجاذبية"
+msgstr "ቃናውን የበለጠ ጉልበት ያለውና ማራኪ አድርግ"
+
+msgid "اجعل النص أقصر وأكثر تركيزاً"
+msgstr "ጽሑፉን አጠር እና የበለጠ ትኩረት ያለው አድርግ"
+
+msgid "احتفال"
+msgstr "ክብረ በዓል"
+
+msgid "احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا."
+msgstr "ልጥፉን ይቆጥቡ ለመንደፍ፣ ምስሉ እዚህ ይታያል።"
+
+msgid "اختر الصفحة"
+msgstr "ገጹን ይምረጡ"
+
+msgid "اختر اللغة أو اللهجة."
+msgstr "ቋንቋውን ወይም ዘዬውን ይምረጡ።"
+
+msgid "اختر ثلاثة رسوم كحد أقصى."
+msgstr "ቢበዛ ሦስት ስዕሎችን ይምረጡ።"
+
+msgid "اختر حساباً إعلانياً من صفحة الترويج أولاً."
+msgstr "መጀመሪያ በማስተዋወቂያ ገጹ ላይ የማስታወቂያ መለያ ይምረጡ።"
+
+msgid "اختر صفحة فيسبوك"
+msgstr "የFacebook ገጽ ይምረጡ"
+
+msgid "اختر كلمة مرور جديدة لحسابك."
+msgstr "ለመለያዎ አዲስ የይለፍ ቃል ይምረጡ።"
+
+msgid "اختر ما ينطبق عليك:"
+msgstr "የሚመለከትዎትን ይምረጡ:"
+
+msgid "اختر مدة صحيحة للتجديد."
+msgstr "ትክክለኛ የእድሳት ጊዜ ይምረጡ።"
+
+msgid "اختر منصة واحدة على الأقل."
+msgstr "ቢያንስ አንድ መድረክ ይምረጡ።"
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "ከ1 እስከ 28 ያለ ቀን ይምረጡ።"
+
+msgid "اختيار"
+msgstr "ምረጥ"
+
+msgid "ادخار"
+msgstr "ቁጠባ"
+
+msgid "اربط إنستغرام بصفحة فيسبوك"
+msgstr "Instagramን ከFacebook ገጽ ጋር ያገናኙ"
+
+msgid "اربط حساب تيك توك"
+msgstr "የTikTok መለያዎን ያገናኙ"
+
+msgid "اربط حسابات فيسبوك أو إنستغرام"
+msgstr "የFacebook ወይም Instagram መለያዎችን ያገናኙ"
+
+msgid "اربط فيسبوك أو إنستغرام"
+msgstr "Facebook ወይም Instagram ያገናኙ"
+
+msgid "ارتفاع"
+msgstr "ዕድገት"
+
+msgid "استدامة"
+msgstr "ዘላቂነት"
+
+msgid "استراتيجية الشهر"
+msgstr "የዚህ ወር ስትራቴጂ"
+
+msgid "استراتيجية شهرية"
+msgstr "ወርሃዊ ስትራቴጂ"
+
+msgid "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك"
+msgstr "ንግድዎንና ታዳሚዎን በመረዳት ላይ የተመሠረተ ወርሃዊ ስትራቴጂ"
+
+msgid "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل."
+msgstr "የእያንዳንዱ ወር ስትራቴጂና ልጥፎች፣ Wakeel እንዳዘጋጃቸው።"
+
+msgid "استعادة كلمة المرور"
+msgstr "የይለፍ ቃል ዳግም አስጀምር"
+
+msgid "استعادة كلمة المرور في وكيل"
+msgstr "የWakeel የይለፍ ቃልዎን ዳግም ያስጀምሩ"
+
+msgid "استعادة كلمة المرور والإشعارات"
+msgstr "የይለፍ ቃል ዳግም ማስጀመር እና ማሳወቂያዎች"
+
+msgid "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً"
+msgstr "ባለፉት 12 ወራት በመድረኩ ላይ የAI አጠቃቀም"
+
+msgid "اسحب الصور هنا أو اضغط للاختيار"
+msgstr "ምስሎችን እዚህ ይጎትቱ ወይም ለመምረጥ ይንኩ"
+
+msgid "اسحب المنشور إلى يوم آخر لتغيير موعده."
+msgstr "ቀኑን ለመቀየር ልጥፍን ወደ ሌላ ቀን ይጎትቱ።"
+
+msgid "اسم الشركة"
+msgstr "የኩባንያ ስም"
+
+msgid "اسم الوكالة"
+msgstr "የኤጀንሲ ስም"
+
+msgid "اسمك"
+msgstr "ስምዎ"
+
+msgid "اشتراك %(name)s معلّق"
+msgstr "የ%(name)s ምዝገባ ታግዷል"
+
+msgid "اشتراك جديد"
+msgstr "አዲስ ምዝገባ"
+
+msgid "اشتراك غير صالح."
+msgstr "ልክ ያልሆነ ምዝገባ።"
+
+msgid "اشتراك نشط"
+msgstr "ንቁ ምዝገባዎች"
+
+msgid "اشتراك نشط بدون تاريخ انتهاء"
+msgstr "የማብቂያ ቀን የሌለው ንቁ ምዝገባ"
+
+msgid "اشتراك نشط، باقٍ "
+msgstr "ንቁ ምዝገባ፣ የቀረው "
+
+msgid "اشتراك ينتهي خلال 7 أيام."
+msgstr "በ7 ቀናት ውስጥ የሚያበቁ ምዝገባ(ዎች)።"
+
+msgid "اشتراكات جديدة"
+msgstr "አዲስ ምዝገባዎች"
+
+msgid "اضغط على القائمة ☰ ثم «نوع الحساب والأدوات»."
+msgstr "የ☰ ምናሌውን ይንኩ፣ ከዚያ “የመለያ ዓይነት እና መሣሪያዎች”ን።"
+
+msgid "اطلب الآن ←"
+msgstr "አሁን ይዘዙ ←"
+
+msgid "اطلب خطة الشهر"
+msgstr "የወሩን ዕቅድ ይጠይቁ"
+
+msgid "اطلب من وكيل تعديل المنشور"
+msgstr "Wakeel ልጥፉን እንዲቀይር ይጠይቁ"
+
+msgid "اعتماد"
+msgstr "አጽድቅ"
+
+msgid "اعتماد "
+msgstr "አጽድቅ "
+
+msgid "اعتماد %(name)s"
+msgstr "%(name)sን አጽድቅ"
+
+msgid "اعتماد الحساب؟"
+msgstr "መለያው ይጽደቅ?"
+
+msgid "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها"
+msgstr "አዲስ ተመዝጋቢዎችን ያጽድቁ፣ ምዝገባዎችን ያድሱ፣ ያግዱ ወይም ይሰርዙ"
+
+msgid "اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط."
+msgstr "ልጥፎችን ማጽደቅና ማተም የሚችሉት ባለቤቶችና አስተዳዳሪዎች ብቻ ናቸው።"
+
+msgid "اعتماد كل ما بانتظار المراجعة (%(review_ids)s)"
+msgstr "ግምገማ የሚጠብቀውን ሁሉ አጽድቅ (%(review_ids)s)"
+
+msgid "اعتماد ✅"
+msgstr "አጽድቅ ✅"
+
+msgid "اعتمد"
+msgstr "ጸድቋል"
+
+msgid "اعتمد {name} {subject}."
+msgstr "{name} {subject}ን አጽድቋል።"
+
+msgid "اعتمد المنشور أولاً، ثم انشره."
+msgstr "መጀመሪያ ልጥፉን ያጽድቁ፣ ከዚያ ያትሙት።"
+
+msgid "افتح تطبيق إنستغرام وادخل إلى ملفك الشخصي."
+msgstr "የInstagram መተግበሪያን ይክፈቱና ወደ መገለጫዎ ይሂዱ።"
+
+msgid "افتح مدير الإعلانات"
+msgstr "Ads Managerን ክፈት"
+
+msgid "اقتباس"
+msgstr "ጥቅስ"
+
+msgid "اقتراح الترويج جاهز."
+msgstr "የማስተዋወቂያ ጥቆማ ዝግጁ ነው።"
+
+msgid "اقتراح ترويج"
+msgstr "የማስተዋወቂያ ጥቆማ"
+
+msgid "اقترح ترويجاً"
+msgstr "ማስተዋወቂያ ጠቁም"
+
+msgid "اكتب اسمك أولاً"
+msgstr "መጀመሪያ ስምዎን ይጻፉ"
+
+msgid "اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة."
+msgstr "ቡድኑ ማስታወሻውን ማን እንደተወ እንዲያውቅ መጀመሪያ ስምዎን ይጻፉ።"
+
+msgid "اكتب الرد أولاً."
+msgstr "መጀመሪያ ምላሹን ይጻፉ።"
+
+msgid "اكتب الرد…"
+msgstr "ምላሹን ይጻፉ…"
+
+msgid "اكتب تعليقاً…"
+msgstr "አስተያየት ይጻፉ…"
+
+msgid "اكتب تعليقك أولاً."
+msgstr "መጀመሪያ አስተያየትዎን ይጻፉ።"
+
+msgid "اكتب عنواناً أقوى يلفت الانتباه"
+msgstr "ጠንካራና ትኩረት የሚስብ ርዕስ ጻፍ"
+
+msgid "اكتب فكرة مختلفة تماماً لنفس المحور"
+msgstr "ለተመሳሳይ ምሰሶ ፈጽሞ የተለየ ሐሳብ ጻፍ"
+
+msgid "اكتب ما تريد تغييره في المنشور."
+msgstr "በልጥፉ ላይ ምን መቀየር እንደሚፈልጉ ይጻፉ።"
+
+msgid "اكتب ملاحظتك أولاً."
+msgstr "መጀመሪያ ማስታወሻዎን ይጻፉ።"
+
+msgid "اكتمل"
+msgstr "ተጠናቅቋል"
+
+msgid "اكتمل الربط"
+msgstr "ግንኙነቱ ተጠናቅቋል"
+
+msgid "اكتمل تحليل المنافسين."
+msgstr "የተፎካካሪ ትንተና ተጠናቅቋል።"
+
+msgid "الآن"
+msgstr "አሁን"
+
+msgid "الآن · 🌐"
+msgstr "አሁን · 🌐"
+
+msgid "الآن نربط حساباتك بوكيل"
+msgstr "አሁን መለያዎችዎን ከWakeel ጋር እናገናኝ"
+
+msgid "الأحد"
+msgstr "እሑድ"
+
+msgid "الأحدث"
+msgstr "አዲስ"
+
+msgid "الأداء"
+msgstr "አፈጻጸም"
+
+msgid "الأدوار"
+msgstr "ሚናዎች"
+
+msgid "الأربعاء"
+msgstr "ረቡዕ"
+
+msgid "الأردن"
+msgstr "ዮርዳኖስ"
+
+msgid "الأساسيات"
+msgstr "መሠረታዊ"
+
+msgid "الأسلوب والنبرة"
+msgstr "ዘይቤና ቃና"
+
+msgid "الأضعف أداءً"
+msgstr "ዝቅተኛ አፈጻጸም ያላቸው"
+
+msgid "الأعضاء"
+msgstr "አባላት"
+
+msgid "الأعلى استهلاكاً هذا الشهر"
+msgstr "በዚህ ወር ከፍተኛ አጠቃቀም"
+
+msgid "الأفضل أداءً"
+msgstr "ምርጥ አፈጻጸም ያላቸው"
+
+msgid "الأقدم"
+msgstr "የቆዩ"
+
+msgid "الألوان والزخرفة"
+msgstr "ቀለሞችና ዘይቤ"
+
+msgid "الأهداف"
+msgstr "ግቦች"
+
+msgid "الإثنين"
+msgstr "ሰኞ"
+
+msgid "الإجمالي الأقصى: %(total)s %(cur)s"
+msgstr "ከፍተኛ ጠቅላላ: %(total)s %(cur)s"
+
+msgid "الإدارة"
+msgstr "አስተዳደር"
+
+msgid "الإشعارات"
+msgstr "ማሳወቂያዎች"
+
+msgid "الإعدادات"
+msgstr "ቅንብሮች"
+
+msgid "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله."
+msgstr "ማስታወቂያው በMeta ውስጥ ነው እና ባለበት ቆሟል። እስኪያበሩት ድረስ ምንም አይወጣም።"
+
+msgid "الإمارات"
+msgstr "ዩናይትድ ዓረብ ኤሚሬትስ"
+
+msgid "الإنجليزية"
+msgstr "እንግሊዝኛ"
+
+msgid "الاستراتيجية"
+msgstr "ስትራቴጂ"
+
+msgid "الاستهلاك حسب الشهر"
+msgstr "አጠቃቀም በወር"
+
+msgid "الاستهلاك والتفاصيل"
+msgstr "አጠቃቀም እና ዝርዝሮች"
+
+msgid "الاستهلاك والتكلفة"
+msgstr "አጠቃቀም እና ወጪ"
+
+msgid "الاسم"
+msgstr "ስም"
+
+msgid "الاسم القانوني"
+msgstr "ሕጋዊ ስም"
+
+msgid "الاسم الكامل"
+msgstr "ሙሉ ስም"
+
+msgid "الاسم:"
+msgstr "ስም:"
+
+msgid "الاشتراك"
+msgstr "ምዝገባ"
+
+msgid "الاشتراك معلّق"
+msgstr "ምዝገባ ታግዷል"
+
+msgid "الاشتراكات"
+msgstr "ምዝገባዎች"
+
+msgid "الاشتراكات الجديدة لكل شهر"
+msgstr "አዲስ ምዝገባዎች በወር"
+
+msgid "الاعتماد"
+msgstr "ማጽደቅ"
+
+msgid "الاكتفاء بفيسبوك"
+msgstr "በFacebook ላይ ይቆዩ"
+
+msgid "البحرين"
+msgstr "ባሕሬን"
+
+msgid "البريد الإلكتروني"
+msgstr "ኢሜይል"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "ኢሜይል ወይም የይለፍ ቃል ትክክል አይደለም።"
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "የኩባንያ ኢሜይል"
+
+msgid "البريد:"
+msgstr "ኢሜይል:"
+
+msgid "البيانات الرسمية"
+msgstr "ይፋዊ ዝርዝሮች"
+
+msgid "التاريخ"
+msgstr "ቀን"
+
+msgid "التالي"
+msgstr "ቀጣይ"
+
+msgid "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة."
+msgstr "ትንተናው በመዘጋጀት ላይ ነው። ከአንድ ደቂቃ በኋላ ገጹን እንደገና ይጫኑ።"
+
+msgid "التحويل إلى العربية"
+msgstr "ወደ ዓረብኛ ቀይር"
+
+msgid "الترويج المدفوع"
+msgstr "የሚከፈልበት ማስተዋወቂያ"
+
+msgid "التسجيل خلال آخر 12 شهراً"
+msgstr "ባለፉት 12 ወራት የተመዘገቡ"
+
+msgid "التسجيل مغلق حالياً."
+msgstr "ምዝገባ በአሁኑ ጊዜ ዝግ ነው።"
+
+msgid "التسعير المستخدم"
+msgstr "ጥቅም ላይ የዋለ ዋጋ"
+
+msgid "التسويق"
+msgstr "ግብይት"
+
+msgid "التشغيل"
+msgstr "ሥራዎች"
+
+msgid "التصميم"
+msgstr "ንድፍ"
+
+msgid "التصميم تغيّر منذ آخر تحديث للصورة."
+msgstr "ምስሉ ለመጨረሻ ጊዜ ከተዘመነ በኋላ ንድፉ ተቀይሯል።"
+
+msgid "التصميم قيد الإعداد"
+msgstr "ንድፍ በሂደት ላይ"
+
+msgid "التعليقات"
+msgstr "አስተያየቶች"
+
+msgid "التعلّم من الملاحظات"
+msgstr "ከአስተያየት መማር"
+
+msgid "التفاصيل"
+msgstr "ዝርዝሮች"
+
+msgid "التفاصيل التقنية"
+msgstr "ቴክኒካዊ ዝርዝሮች"
+
+msgid "التفاعل"
+msgstr "ተሳትፎ"
+
+msgid "التفعيل"
+msgstr "ማንቃት"
+
+msgid "التقارير الشهرية"
+msgstr "ወርሃዊ ሪፖርቶች"
+
+msgid "التقرير الكامل بالأرقام وتوصيات الشهر القادم:"
+msgstr "ሙሉ ሪፖርቱ ከቁጥሮቹና ከቀጣዩ ወር ምክሮች ጋር:"
+
+msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
+msgstr "ሪፖርቱ በመዘጋጀት ላይ ነው። ከትንሽ ቆይታ በኋላ ገጹን እንደገና ይጫኑ።"
+
+msgid "التقويم"
+msgstr "የቀን መቁጠሪያ"
+
+msgid "التقويم الكامل"
+msgstr "ሙሉ የቀን መቁጠሪያ"
+
+msgid "التكلفة"
+msgstr "ወጪ"
+
+msgid "التكلفة لكل شهر"
+msgstr "ወጪ በወር"
+
+msgid "الثلاثاء"
+msgstr "ማክሰኞ"
+
+msgid "الجمعة"
+msgstr "ዓርብ"
+
+msgid "الجمعة البيضاء (عروض التسوق)"
+msgstr "ነጭ ዓርብ (የግብይት ቅናሾች)"
+
+msgid "الجمهور المستهدف"
+msgstr "ዒላማ ታዳሚ"
+
+msgid "الجميع"
+msgstr "ሁሉም"
+
+msgid "الجنس"
+msgstr "ጾታ"
+
+msgid "الحالة"
+msgstr "ሁኔታ"
+
+msgid "الحساب"
+msgstr "መለያ"
+
+msgid "الحساب الإعلاني"
+msgstr "የማስታወቂያ መለያ"
+
+msgid "الحساب تجريبي."
+msgstr "ይህ የሙከራ መለያ ነው።"
+
+msgid "الحساب غير مربوط. اربطه من «حسابات النشر»."
+msgstr "መለያው አልተገናኘም። ከ“የማተሚያ መለያዎች” ያገናኙት።"
+
+msgid "الحسابات المربوطة"
+msgstr "የተገናኙ መለያዎች"
+
+msgid "الخدمات"
+msgstr "አገልግሎቶች"
+
+msgid "الخدمات والإعدادات التي تعمل بها المنصة"
+msgstr "መድረኩ የሚሠራባቸው አገልግሎቶችና ቅንብሮች"
+
+msgid "الخرطوم (GMT+2)"
+msgstr "ካርቱም (GMT+2)"
+
+msgid "الخطط:"
+msgstr "ዕቅዶች:"
+
+msgid "الخطوة "
+msgstr "ደረጃ "
+
+msgid "الخميس"
+msgstr "ሐሙስ"
+
+msgid "الدخول كمدير المشترك"
+msgstr "እንደ ተመዝጋቢው አስተዳዳሪ ግባ"
+
+msgid "الدوحة (GMT+3)"
+msgstr "ዶሃ (GMT+3)"
+
+msgid "الدور"
+msgstr "ሚና"
+
+msgid "الدول"
+msgstr "አገሮች"
+
+msgid "الدولة"
+msgstr "አገር"
+
+msgid "الذروة"
+msgstr "ከፍተኛ"
+
+msgid "الذكاء الاصطناعي"
+msgstr "AI"
+
+msgid "الذكاء الاصطناعي غير مفعّل"
+msgstr "AI አልተዋቀረም"
+
+msgid "الذكاء الاصطناعي غير مفعّل (ينقص"
+msgstr "AI አልተዋቀረም (የጎደለ"
+
+msgid "الذكاء الاصطناعي غير مفعّل بعد. أضف"
+msgstr "AI ገና አልተዋቀረም። ጨምር"
+
+msgid "الذكاء الاصطناعي متصل"
+msgstr "AI ተገናኝቷል"
+
+msgid "الرابط غير صالح"
+msgstr "ልክ ያልሆነ አገናኝ"
+
+msgid "الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https."
+msgstr "ልክ ያልሆነ አገናኝ። በhttp ወይም https የሚጀምር ይጠቀሙ።"
+
+msgid "الرابط لا يشير إلى صفحة ويب."
+msgstr "አገናኙ ወደ ድር ገጽ አይመራም።"
+
+msgid "الربط"
+msgstr "አገናኝ"
+
+msgid "الرد التلقائي على التعليقات البسيطة"
+msgstr "ለቀላል አስተያየቶች ራስ-ሰር ምላሽ"
+
+msgid "الرد التلقائي: متوقف"
+msgstr "ራስ-ሰር ምላሽ: ጠፍቷል"
+
+msgid "الرد التلقائي: يعمل"
+msgstr "ራስ-ሰር ምላሽ: በርቷል"
+
+msgid "الرسوم"
+msgstr "ስዕሎች"
+
+msgid "الرصيد"
+msgstr "ቀሪ ሒሳብ"
+
+msgid "الرقم الضريبي"
+msgstr "የግብር ቁጥር"
+
+msgid "الرموز (مُدخلة · cache · مُخرجة)"
+msgstr "ቶከኖች (ግብዓት · መሸጎጫ · ውጤት)"
+
+msgid "الرياض (GMT+3)"
+msgstr "ሪያድ (GMT+3)"
+
+msgid "الزخرفة"
+msgstr "ዘይቤ"
+
+msgid "السابق"
+msgstr "ቀዳሚ"
+
+msgid "السبت"
+msgstr "ቅዳሜ"
+
+msgid "السعودية"
+msgstr "ሳዑዲ አረቢያ"
+
+msgid "السودان"
+msgstr "ሱዳን"
+
+msgid "الشارة"
+msgstr "ባጅ"
+
+msgid "الشركات"
+msgstr "ኩባንያዎች"
+
+msgid "الشركات التي تظهر لعملائها هوية الوكالة"
+msgstr "ደንበኞቻቸው የኤጀንሲውን ብራንድ የሚያዩ ኩባንያዎች"
+
+msgid "الشركة"
+msgstr "ኩባንያ"
+
+msgid "الشعار"
+msgstr "አርማ"
+
+msgid "الشهر"
+msgstr "ወር"
+
+msgid "الشهر التالي"
+msgstr "ቀጣይ ወር"
+
+msgid "الشهر السابق"
+msgstr "ቀዳሚ ወር"
+
+msgid "الشهر القادم"
+msgstr "ቀጣይ ወር"
+
+msgid "الصفحة الرئيسية"
+msgstr "መነሻ ገጽ"
+
+msgid "الصورة"
+msgstr "ምስል"
+
+msgid "الصورة المعروضة هي آخر نسخة محفوظة."
+msgstr "የሚታየው ምስል መጨረሻ የተቀመጠው ስሪት ነው።"
+
+msgid "الصورة النهائية"
+msgstr "የመጨረሻ ምስል"
+
+msgid "الصورة محدّثة وجاهزة للنشر."
+msgstr "ምስሉ ወቅታዊ ነው እና ለማተም ዝግጁ ነው።"
+
+msgid "العامل الخلفي"
+msgstr "የጀርባ ሠራተኛ"
+
+msgid "العامل الخلفي متوقف"
+msgstr "የጀርባ ሠራተኛው ቆሟል"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "العربية الفصحى"
+msgstr "ዘመናዊ ደረጃውን የጠበቀ ዓረብኛ"
+
+msgid "العربية بلهجة السوق المحلي"
+msgstr "ዓረብኛ በአካባቢው ዘዬ"
+
+msgid "العربية والإنجليزية معاً"
+msgstr "ዓረብኛ እና እንግሊዝኛ በአንድ ላይ"
+
+msgid "العضو"
+msgstr "አባል"
+
+msgid "العضويات"
+msgstr "አባልነቶች"
+
+msgid "العمر إلى"
+msgstr "እስከ ዕድሜ"
+
+msgid "العمر من"
+msgstr "ከዕድሜ"
+
+msgid "العميل"
+msgstr "ደንበኛ"
+
+msgid "العميل (واتساب +%(phone)s)"
+msgstr "ደንበኛ (ዋትስአፕ +%(phone)s)"
+
+msgid "العنوان"
+msgstr "ርዕስ"
+
+msgid "العنوان الرئيسي"
+msgstr "ዋና ርዕስ"
+
+msgid "العنوان الفرعي"
+msgstr "ንዑስ ርዕስ"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "ወደ መግቢያ ተመለስ"
+
+msgid "العودة للوحة الإدارة"
+msgstr "ወደ አስተዳደር መቆጣጠሪያ ተመለስ"
+
+msgid "العيد الوطني البحريني"
+msgstr "የባሕሬን ብሔራዊ ቀን"
+
+msgid "العيد الوطني الكويتي"
+msgstr "የኩዌት ብሔራዊ ቀን"
+
+msgid "الفريق"
+msgstr "ቡድን"
+
+msgid "الفكرة"
+msgstr "ሐሳብ"
+
+msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
+msgstr "አጫጭር ቪዲዮዎች ከተቀረጹ በኋላ በእጅ ይታተማሉ።"
+
+msgid "القائمة"
+msgstr "ምናሌ"
+
+msgid "القائمة الرئيسية"
+msgstr "ዋና ምናሌ"
+
+msgid "القالب"
+msgstr "አብነት"
+
+msgid "القاهرة"
+msgstr "ካይሮ"
+
+msgid "القيمة"
+msgstr "ዋጋ"
+
+msgid "الكل"
+msgstr "ሁሉም"
+
+msgid "الكويت"
+msgstr "ኩዌት"
+
+msgid "الكويت (GMT+3)"
+msgstr "ኩዌት (GMT+3)"
+
+msgid "اللغة"
+msgstr "ቋንቋ"
+
+msgid "اللهجة الخليجية"
+msgstr "የገልፍ ዘዬ"
+
+msgid "اللهجة السودانية"
+msgstr "የሱዳን ዘዬ"
+
+msgid "اللهجة الشامية"
+msgstr "የሌቫንት ዘዬ"
+
+msgid "اللهجة المصرية"
+msgstr "የግብፅ ዘዬ"
+
+msgid "اللون الأساسي"
+msgstr "ዋና ቀለም"
+
+msgid "اللون الثانوي"
+msgstr "ሁለተኛ ቀለም"
+
+msgid "المالك"
+msgstr "ባለቤት"
+
+msgid "المالك والمدير:"
+msgstr "ባለቤት እና አስተዳዳሪ:"
+
+msgid "المجال"
+msgstr "ዘርፍ"
+
+msgid "المحتوى"
+msgstr "ይዘት"
+
+msgid "المحفظة"
+msgstr "ቦርሳ"
+
+msgid "المحور"
+msgstr "ምሰሶ"
+
+msgid "المخصوم (صافي)"
+msgstr "የተከፈለ (ተጣራ)"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "ከደንበኞች የተከፈለ (ተመላሽን ቀንሶ)"
+
+msgid "المخطط الآلي"
+msgstr "ራስ-ሰር እቅድ አውጪ"
+
+msgid "المدة"
+msgstr "ጊዜ"
+
+msgid "المدينة"
+msgstr "ከተማ"
+
+msgid "المدينة والدولة"
+msgstr "ከተማ እና አገር"
+
+msgid "المراجعة والتعليقات"
+msgstr "ግምገማ እና አስተያየቶች"
+
+msgid "المزيد"
+msgstr "ተጨማሪ"
+
+msgid "المساحة المستخدمة"
+msgstr "ያገለገለ ቦታ"
+
+msgid "المستخدمون"
+msgstr "ተጠቃሚዎች"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "ሰነዶች ማጽደቅ ያስፈልጋቸዋል"
+
+msgid "المشاهد:"
+msgstr "ተመልካች:"
+
+msgid "المشترك"
+msgstr "ተመዝጋቢ"
+
+msgid "المشتركون"
+msgstr "ተመዝጋቢዎች"
+
+msgid "المقاس"
+msgstr "መጠን"
+
+msgid "المكتبة فارغة"
+msgstr "ቤተ-መጻሕፍቱ ባዶ ነው"
+
+msgid "المملكة المتحدة"
+msgstr "ዩናይትድ ኪንግደም"
+
+msgid "المناسبات"
+msgstr "ወቅቶች"
+
+msgid "المنافسون"
+msgstr "ተፎካካሪዎች"
+
+msgid "المنامة (GMT+3)"
+msgstr "ማናማ (GMT+3)"
+
+msgid "المنتجات والخدمات"
+msgstr "ምርቶችና አገልግሎቶች"
+
+msgid "المنشور التالي"
+msgstr "ቀጣይ ልጥፍ"
+
+msgid "المنشور السابق"
+msgstr "ቀዳሚ ልጥፍ"
+
+msgid "المنشور منشور بالفعل."
+msgstr "ልጥፉ አስቀድሞ ታትሟል።"
+
+msgid "المنشورات"
+msgstr "ልጥፎች"
+
+msgid "المنشورات القادمة"
+msgstr "መጪ ልጥፎች"
+
+msgid "المنشورات:"
+msgstr "ልጥፎች:"
+
+msgid "المنصات"
+msgstr "መድረኮች"
+
+msgid "المنطقة الزمنية"
+msgstr "የሰዓት ሰቅ"
+
+msgid "المهام"
+msgstr "ተግባራት"
+
+msgid "المهام والأخطاء"
+msgstr "ተግባራትና ስህተቶች"
+
+msgid "المهمة"
+msgstr "ተግባር"
+
+msgid "الموقع الإلكتروني"
+msgstr "ድር ጣቢያ"
+
+msgid "الموقع يعيد التوجيه مرات كثيرة."
+msgstr "ድር ጣቢያው ብዙ ጊዜ ወደ ሌላ ይመራል።"
+
+msgid "الميزانية اليومية"
+msgstr "የቀን በጀት"
+
+msgid "النبرة:"
+msgstr "ቃና:"
+
+msgid "النتيجة"
+msgstr "ውጤት"
+
+msgid "النسخ الاحتياطي"
+msgstr "ምትኬዎች"
+
+msgid "النسخ المحفوظة"
+msgstr "የተቀመጡ ምትኬዎች"
+
+msgid "النشاط والجمهور"
+msgstr "ንግድና ታዳሚ"
+
+msgid "النشاط والجمهور والنبرة والهوية البصرية."
+msgstr "ንግድ፣ ታዳሚ፣ ቃና እና የእይታ መታወቂያ።"
+
+msgid "النشر التلقائي"
+msgstr "ራስ-ሰር ማተም"
+
+msgid "النشر التلقائي في الموعد"
+msgstr "በጊዜ ሰሌዳ ራስ-ሰር አትም"
+
+msgid "النشر التلقائي مفعّل"
+msgstr "ራስ-ሰር ማተም በርቷል"
+
+msgid "النشر عبر Meta"
+msgstr "በMeta በኩል ማተም"
+
+msgid "النشر على فيسبوك وإنستغرام"
+msgstr "ወደ Facebook እና Instagram ማተም"
+
+msgid "النشر متاح للمالك والمديرين فقط."
+msgstr "ማተም የሚችሉት ባለቤቶችና አስተዳዳሪዎች ብቻ ናቸው።"
+
+msgid "النظام"
+msgstr "ሥርዓት"
+
+msgid "النموذج"
+msgstr "ሞዴል"
+
+msgid "النموذج · التكلفة"
+msgstr "ሞዴል · ወጪ"
+
+msgid "الهاتف"
+msgstr "ስልክ"
+
+msgid "الهاتف:"
+msgstr "ስልክ:"
+
+msgid "الهدف"
+msgstr "ግብ"
+
+msgid "الهوية البصرية"
+msgstr "የእይታ መታወቂያ"
+
+msgid "الوسوم"
+msgstr "መለያዎች"
+
+msgid "الوصف"
+msgstr "መግለጫ"
+
+msgid "الوصول"
+msgstr "ተደራሽነት"
+
+msgid "الوكالات"
+msgstr "ኤጀንሲዎች"
+
+msgid "اليوم"
+msgstr "ዛሬ"
+
+msgid "اليوم الرياضي للدولة في قطر"
+msgstr "የኳታር ብሔራዊ ስፖርት ቀን"
+
+msgid "اليوم الوطني"
+msgstr "ብሔራዊ ቀን"
+
+msgid "اليوم الوطني السعودي"
+msgstr "የሳዑዲ ብሔራዊ ቀን"
+
+msgid "اليوم الوطني العُماني"
+msgstr "የኦማን ብሔራዊ ቀን"
+
+msgid "اليوم الوطني القطري"
+msgstr "የኳታር ብሔራዊ ቀን"
+
+msgid "املأ من الموقع"
+msgstr "ከድር ጣቢያ ሙላ"
+
+msgid "انتقل إلى شركة أخرى:"
+msgstr "ወደ ሌላ ኩባንያ ቀይር:"
+
+msgid "انتهت جلسة الربط. حاول مرة أخرى."
+msgstr "የግንኙነት ክፍለ ጊዜው አብቅቷል። እባክዎ እንደገና ይሞክሩ።"
+
+msgid "انتهى اشتراك %(name)s"
+msgstr "የ%(name)s ምዝገባ አብቅቷል"
+
+msgid "انتهى الاشتراك منذ "
+msgstr "ምዝገባ አብቅቷል "
+
+msgid "انشر"
+msgstr "አትም"
+
+msgid "انشر الآن"
+msgstr "አሁን አትም"
+
+msgid "انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها."
+msgstr "የጸደቁ ልጥፎችን በጊዜ ሰሌዳ ወደ ተገናኙት መለያዎች አትም።"
+
+msgid "انضم في"
+msgstr "የተቀላቀለው"
+
+msgid "انطلاق"
+msgstr "አስጀምር"
+
+msgid "اهتمامات تضيفها في مدير الإعلانات"
+msgstr "በAds Manager ውስጥ የሚጨመሩ ፍላጎቶች"
+
+msgid "بألوان علامتك وخطوطها وشعارها"
+msgstr "በብራንድዎ ቀለሞች፣ ፊደላት እና አርማ"
+
+msgid "بؤرة"
+msgstr "ትኩረት"
+
+msgid "بانتظار الاعتماد"
+msgstr "ማጽደቅ በመጠባበቅ ላይ"
+
+msgid "بانتظار الرد"
+msgstr "ምላሽ በመጠባበቅ ላይ"
+
+msgid "بانتظار المراجعة"
+msgstr "ግምገማ በመጠባበቅ ላይ"
+
+msgid "بانتظار الموافقة"
+msgstr "ማጽደቅ በመጠባበቅ ላይ"
+
+msgid "بانتظار نافذة تيك توك…"
+msgstr "የTikTok መስኮቱን በመጠበቅ ላይ…"
+
+msgid "بانتظار نافذة فيسبوك…"
+msgstr "የFacebook መስኮቱን በመጠበቅ ላይ…"
+
+msgid "بحاجة لتحديث التصميم"
+msgstr "ንድፉ መዘመን አለበት"
+
+msgid "بحث في الاشتراكات"
+msgstr "ምዝገባዎችን ይፈልጉ"
+
+msgid "بحث في الفريق"
+msgstr "ቡድኑን ይፈልጉ"
+
+msgid "بحث في المهام"
+msgstr "ተግባራትን ይፈልጉ"
+
+msgid "بحساب مالكها ("
+msgstr "በባለቤቱ መለያ ("
+
+msgid "بدأ تصميم الصور…"
+msgstr "ምስሎቹን በመንደፍ ላይ…"
+
+msgid "بداية الاشتراك"
+msgstr "የምዝገባ መጀመሪያ"
+
+msgid "بداية العشر الأواخر من رمضان"
+msgstr "የረመዳን የመጨረሻዎቹ አሥር ቀናት መጀመሪያ"
+
+msgid "بداية شهر رمضان"
+msgstr "የረመዳን መጀመሪያ"
+
+msgid "بداية عشر ذي الحجة"
+msgstr "የዙል ሂጃ የመጀመሪያዎቹ አሥር ቀናት መጀመሪያ"
+
+msgid "بدون"
+msgstr "ምንም"
+
+msgid "بدون انتهاء"
+msgstr "የማብቂያ ቀን የለም"
+
+msgid "بدون تاريخ انتهاء"
+msgstr "የማብቂያ ቀን የለም"
+
+msgid "بدون حساب إنستغرام"
+msgstr "የInstagram መለያ የለም"
+
+msgid "بدون وصف"
+msgstr "መግለጫ የለም"
+
+msgid "بديل ذكي لوكالات التسويق"
+msgstr "ከግብይት ኤጀንሲዎች ብልህ አማራጭ"
+
+msgid "برج"
+msgstr "ማማ"
+
+msgid "برجر"
+msgstr "በርገር"
+
+msgid "برمجة"
+msgstr "ኮድ"
+
+msgid "بريد"
+msgstr "ኢሜይል"
+
+msgid "بريد التواصل مع المشترك."
+msgstr "ለተመዝጋቢው የመገናኛ ኢሜይል።"
+
+msgid "بريد العميل"
+msgstr "የደንበኛ ኢሜይል"
+
+msgid "بسيط"
+msgstr "አነስተኛ"
+
+msgid "بصفتك مشرف النظام."
+msgstr "እንደ ሥርዓት አስተዳዳሪ።"
+
+msgid "بصمة"
+msgstr "የጣት አሻራ"
+
+msgid "بطاقة"
+msgstr "ካርድ"
+
+msgid "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل"
+msgstr "አንዴ ንቁ ከሆነ ኩባንያዎችዎን ያክላሉ እና Wakeel ሥራ ይጀምራል"
+
+msgid "بقع لونية"
+msgstr "የቀለም ነጠብጣቦች"
+
+msgid "بلا زخرفة"
+msgstr "ዘይቤ የለም"
+
+msgid "بلا مستند"
+msgstr "ሰነድ የለም"
+
+msgid "بناء"
+msgstr "ግንባታ"
+
+msgid "بنك"
+msgstr "ባንክ"
+
+msgid "بودكاست"
+msgstr "ፖድካስት"
+
+msgid "بيئة"
+msgstr "አካባቢ"
+
+msgid "بيانات"
+msgstr "ውሂብ"
+
+msgid "بيانات إضافية"
+msgstr "ተጨማሪ ዝርዝሮች"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "የኩባንያ ዝርዝሮችና መታወቂያ"
+
+msgid "بيانات النشاط"
+msgstr "የንግድ ዝርዝሮች"
+
+msgid "بيتزا"
+msgstr "ፒዛ"
+
+msgid "بين 1 و%(max)s يوماً."
+msgstr "ከ1 እስከ %(max)s ቀናት መካከል።"
+
+msgid "بين 1 و%(max)s."
+msgstr "ከ1 እስከ %(max)s መካከል።"
+
+msgid "تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى."
+msgstr "Instagram ምስሉን ለማዘጋጀት ብዙ ጊዜ ወሰደ። እንደገና ለማተም ይሞክሩ።"
+
+msgid "تأخر تيك توك في استلام الصورة. حاول الإرسال مرة أخرى."
+msgstr "TikTok ምስሉን ለመቀበል ብዙ ጊዜ እየወሰደ ነው። እንደገና ለመላክ ይሞክሩ።"
+
+msgid "تأكيد كلمة المرور"
+msgstr "የይለፍ ቃል ያረጋግጡ"
+
+msgid "تاريخ الاعتماد"
+msgstr "የማጽደቅ ቀን"
+
+msgid "تاريخ غير صالح."
+msgstr "ልክ ያልሆነ ቀን።"
+
+msgid "تبدأ مع وكيل فور وصول البريد"
+msgstr "ኢሜይሉ እንደደረሰ ከWakeel ጋር ይጀምራሉ"
+
+msgid "تجاهل"
+msgstr "ዝጋ"
+
+msgid "تجديد"
+msgstr "አድስ"
+
+msgid "تجديد %(name)s"
+msgstr "%(name)sን አድስ"
+
+msgid "تجديد الاشتراك"
+msgstr "ምዝገባ አድስ"
+
+msgid "تجريبي"
+msgstr "ሙከራ"
+
+msgid "تحديث"
+msgstr "አድስ"
+
+msgid "تحديث أرقام الأداء"
+msgstr "የአፈጻጸም ቁጥሮችን አዘምን"
+
+msgid "تحديث الأرقام"
+msgstr "ቁጥሮችን አዘምን"
+
+msgid "تحديث التصميم"
+msgstr "ንድፉን አዘምን"
+
+msgid "تحديث التصميم…"
+msgstr "ንድፉን በማዘመን ላይ…"
+
+msgid "تحديد الكل"
+msgstr "ሁሉንም ምረጥ"
+
+msgid "تحقق من بريدك"
+msgstr "ኢሜይልዎን ይመልከቱ"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "ኢሜይልዎን ይመልከቱ"
+
+msgid "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة"
+msgstr "የተመዝጋቢዎች፣ አጠቃቀም፣ ወጪ እና የመድረክ ሥራዎች ማዕከላዊ ቁጥጥር"
+
+msgid "تحليل المنافسين"
+msgstr "የተፎካካሪ ትንተና"
+
+msgid "تخييم"
+msgstr "ካምፒንግ"
+
+msgid "تدريب"
+msgstr "ሥልጠና"
+
+msgid "تدرّج"
+msgstr "ቅልመት"
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "የሚከፍሉት ለሚጠቀሙት ብቻ ነው"
+
+msgid "تذكير"
+msgstr "አስታዋሽ"
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "ተርጉም፣ አጠቃልል፣ አውጣ"
+
+msgid "ترويج"
+msgstr "ማስተዋወቂያ"
+
+msgid "تسجيل الخروج"
+msgstr "ውጣ"
+
+msgid "تسجيل الدخول"
+msgstr "ግባ"
+
+msgid "تسوق"
+msgstr "ግብይት"
+
+msgid "تسويق"
+msgstr "ግብይት"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "ግብይትዎ፣ ሰነዶችዎና ቡድንዎ"
+
+msgid "تشغيل المخطط الآلي"
+msgstr "ራስ-ሰር እቅድ አውጪውን ያብሩ"
+
+msgid "تصاميم احترافية بألوانك وخطوطك وشعارك"
+msgstr "በእርስዎ ቀለሞች፣ ፊደላት እና አርማ ሙያዊ ንድፎች"
+
+msgid "تصاميم بهويتك"
+msgstr "ከብራንድ ጋር የሚስማሙ ንድፎች"
+
+msgid "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق"
+msgstr "ልጥፎች በመተግበሪያው ውስጥ እንዲጨርሷቸው ወደ TikTok የገቢ መልዕክት ሳጥንዎ ይደርሳሉ"
+
+msgid "تصميم الصور"
+msgstr "የምስል ንድፍ"
+
+msgid "تصميم الصور: %(done)s من %(total)s"
+msgstr "ምስሎችን በመንደፍ ላይ: %(done)s ከ%(total)s"
+
+msgid "تصميم الصورة…"
+msgstr "ምስሉን በመንደፍ ላይ…"
+
+msgid "تصميم المنشور: %(headline)s"
+msgstr "የልጥፍ ንድፍ: %(headline)s"
+
+msgid "تصميم بهويتك"
+msgstr "በእርስዎ መታወቂያ ውስጥ ያሉ ንድፎች"
+
+msgid "تصميم ثابت"
+msgstr "ቋሚ ንድፍ"
+
+msgid "تصميم جديد"
+msgstr "አዲስ ንድፍ"
+
+msgid "تصميم صور الخطة"
+msgstr "የዕቅዱን ምስሎች በመንደፍ ላይ"
+
+msgid "تصميم صورة منشور"
+msgstr "የልጥፍ ምስል በመንደፍ ላይ"
+
+msgid "تصوير"
+msgstr "ፎቶግራፍ"
+
+msgid "تطبيق Meta"
+msgstr "የMeta መተግበሪያ"
+
+msgid "تطبيق Meta غير مضبوط بعد."
+msgstr "የMeta መተግበሪያ ገና አልተዋቀረም።"
+
+msgid "تعديل"
+msgstr "አርትዕ"
+
+msgid "تعديل %(name)s"
+msgstr "%(name)sን አርትዕ"
+
+msgid "تعديل المنافس"
+msgstr "ተፎካካሪን አርትዕ"
+
+msgid "تعديل نص"
+msgstr "የጽሑፍ አርትዖት"
+
+msgid "تعذّر"
+msgstr "አልተሳካም"
+
+msgid "تعذّر إعداد التقرير."
+msgstr "ሪፖርቱን ማዘጋጀት አልተቻለም።"
+
+msgid "تعذّر إعداد الخطة"
+msgstr "ዕቅዱን ማዘጋጀት አልተቻለም"
+
+msgid "تعذّر إعداد خطة المحتوى: {error}"
+msgstr "የይዘት ዕቅዱን ማዘጋጀት አልተቻለም: {error}"
+
+msgid "تعذّر الإعداد"
+msgstr "ዝግጅቱ አልተሳካም"
+
+msgid "تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى."
+msgstr "ከድር ጣቢያው ጋር መገናኘት አልተቻለም። እየሠራ መሆኑን ያረጋግጡና እንደገና ይሞክሩ።"
+
+msgid "تعذّر التحليل"
+msgstr "ትንተናው አልተሳካም"
+
+msgid "تعذّر الربط"
+msgstr "መገናኘት አልተቻለም"
+
+msgid "تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح."
+msgstr "ይህ ድር ጣቢያ አልተገኘም። አገናኙ በትክክል መጻፉን ያረጋግጡ።"
+
+msgid "تعذّر النشر"
+msgstr "ማተም አልተቻለም"
+
+msgid "تعذّر النشر:"
+msgstr "ማተም አልተቻለም:"
+
+msgid "تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل."
+msgstr "የAI አገልግሎቱን ማግኘት አልተቻለም። እባክዎ ትንሽ ቆይተው እንደገና ይሞክሩ።"
+
+msgid "تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت."
+msgstr "የMeta አገልጋዮችን ማግኘት አልተቻለም። የአገልጋዩን የበይነመረብ ግንኙነት ይፈትሹ።"
+
+msgid "تعذّر الوصول إلى خوادم واتساب."
+msgstr "የዋትስአፕ አገልጋዮችን ማግኘት አልተቻለም።"
+
+msgid "تعذّر تحديث التصميم"
+msgstr "ንድፉን ማዘመን አልተቻለም"
+
+msgid "تعذّر تصميم الصور"
+msgstr "ምስሎቹን መንደፍ አልተቻለም"
+
+msgid "تعذّر قراءة الأرقام: %(problem)s"
+msgstr "ቁጥሮቹን ማንበብ አልተቻለም: %(problem)s"
+
+msgid "تعذّر نشر «{title}»: {error}"
+msgstr "“{title}”ን ማተም አልተቻለም: {error}"
+
+msgid "تعذّرت إعادة الكتابة"
+msgstr "ልጥፉን እንደገና መጻፍ አልተቻለም"
+
+msgid "تعذّرت قراءة الموقع."
+msgstr "ድር ጣቢያውን ማንበብ አልተቻለም።"
+
+msgid "تعليق"
+msgstr "አስተያየት"
+
+msgid "تعليق %(name)s"
+msgstr "%(name)sን እገድ"
+
+msgid "تعليق «%(name)s»؟"
+msgstr "“%(name)s” ይታገድ?"
+
+msgid "تعليق العميل"
+msgstr "የደንበኛ አስተያየት"
+
+msgid "تعليق عاجل"
+msgstr "አስቸኳይ አስተያየት"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "ምላሽ የሚጠብቁ አስተያየቶች"
+
+msgid "تعليقات جديدة: %(new)s، قُرئ منها %(read)s."
+msgstr "አዲስ አስተያየቶች: %(new)s፣ %(read)s የተነበቡ።"
+
+msgid "تعليقك"
+msgstr "አስተያየትዎ"
+
+msgid "تعليم"
+msgstr "ትምህርት"
+
+msgid "تعليم الكل كمقروء"
+msgstr "ሁሉንም እንደተነበበ ምልክት አድርግ"
+
+msgid "تعلّم من %(pending_signals)s ملاحظة جديدة"
+msgstr "ከ%(pending_signals)s አዳዲስ ማስታወሻዎች ተማር"
+
+msgid "تعلّم وكيل من %(count)s ملاحظة."
+msgstr "Wakeel ከ%(count)s ማስታወሻዎች ተምሯል።"
+
+msgid "تعلّمها وكيل"
+msgstr "Wakeel የተማረው"
+
+msgid "تغيير كلمة المرور"
+msgstr "የይለፍ ቃል ቀይር"
+
+msgid "تغيّرت حالة المنشور، فلم يُنشر تلقائياً."
+msgstr "የልጥፉ ሁኔታ ተቀይሯል፣ ስለዚህ በራስ-ሰር አልታተመም።"
+
+msgid "تفاعل"
+msgstr "መስተጋብሮች"
+
+msgid "تفعيل"
+msgstr "አብራ"
+
+msgid "تفعيل الرابط"
+msgstr "አገናኙን አብራ"
+
+msgid "تقرير"
+msgstr "ሪፖርት"
+
+msgid "تقرير %(m)s"
+msgstr "የ%(m)s ሪፖርት"
+
+msgid "تقرير %(m)s · %(name)s"
+msgstr "የ%(m)s ሪፖርት · %(name)s"
+
+msgid "تقرير أداء %(m)s"
+msgstr "የ%(m)s አፈጻጸም ሪፖርት"
+
+msgid "تقرير أداء %(month)s جاهز."
+msgstr "የ%(month)s አፈጻጸም ሪፖርት ዝግጁ ነው።"
+
+msgid "تقرير أداء %(month)s: %(name)s"
+msgstr "የ%(month)s አፈጻጸም ሪፖርት: %(name)s"
+
+msgid "تقرير من %(name)s"
+msgstr "ሪፖርት በ%(name)s"
+
+msgid "تقويم النشر"
+msgstr "የማተሚያ የቀን መቁጠሪያ"
+
+msgid "تقويم نشر ومراجعة واعتماد في مكان واحد"
+msgstr "የማተሚያ የቀን መቁጠሪያ፣ ግምገማና ማጽደቅ በአንድ ቦታ"
+
+msgid "تقويم ونشر"
+msgstr "የቀን መቁጠሪያና ማተም"
+
+msgid "تقييم"
+msgstr "ደረጃ"
+
+msgid "تكامل"
+msgstr "ውህደት"
+
+msgid "تكلفة 12 شهراً"
+msgstr "የ12 ወር ወጪ"
+
+msgid "تكلفة آخر 12 شهراً"
+msgstr "ባለፉት 12 ወራት ወጪ"
+
+msgid "تكلفة الذكاء الاصطناعي"
+msgstr "የAI ወጪ"
+
+msgid "تكلفة الذكاء الاصطناعي لكل شهر"
+msgstr "የAI ወጪ በወር"
+
+msgid "تكلفة الشهر"
+msgstr "የዚህ ወር ወጪ"
+
+msgid "تكلفة هذا الشهر"
+msgstr "የዚህ ወር ወጪ"
+
+msgid "تلقائي"
+msgstr "ራስ-ሰር"
+
+msgid "تم إرسال الرد."
+msgstr "ምላሹ ተልኳል።"
+
+msgid "تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…"
+msgstr "%(count)s ልጥፎች ተዘጋጅተዋል። ምስሎቹን በመንደፍ ላይ…"
+
+msgid "تم إعداد الخطة و%(count)s منشوراً."
+msgstr "ዕቅዱና %(count)s ልጥፎች ተዘጋጅተዋል።"
+
+msgid "تم إعداد تقرير %(month)s."
+msgstr "የ%(month)s ሪፖርት ዝግጁ ነው።"
+
+msgid "تم إنشاء اشتراك «%(name)s» ومالكه %(email)s."
+msgstr "ምዝገባ “%(name)s” ተፈጥሯል፣ ባለቤቱ %(email)s ነው።"
+
+msgid "تم إيقاف إشعارات البريد."
+msgstr "የኢሜይል ማሳወቂያዎች ጠፍተዋል።"
+
+msgid "تم إيقاف الرد التلقائي."
+msgstr "ራስ-ሰር ምላሽ ጠፍቷል።"
+
+msgid "تم إيقاف المخطط الآلي."
+msgstr "ራስ-ሰር እቅድ አውጪው ጠፍቷል።"
+
+msgid "تم إيقاف النشر التلقائي."
+msgstr "ራስ-ሰር ማተም ጠፍቷል።"
+
+msgid "تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل."
+msgstr "የደንበኛ አገናኝ ጠፍቷል። የድሮው አገናኝ ከእንግዲህ አይሠራም።"
+
+msgid "تم اختيار "
+msgstr "ተመርጧል"
+
+msgid "تم اختيار الحساب الإعلاني."
+msgstr "የማስታወቂያ መለያ ተመርጧል።"
+
+msgid "تم استلام طلب"
+msgstr "ጥያቄውን ተቀብለናል ለ"
+
+msgid "تم اعتماد "
+msgstr "ጸድቋል "
+
+msgid "تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد."
+msgstr "“%(name)s” ጸድቋል፣ እና ባለቤቱ በኢሜይል ተነግሯል።"
+
+msgid "تم اعتماد «%(title)s» ✅"
+msgstr "“%(title)s” ጸድቋል ✅"
+
+msgid "تم اعتماد حساب %(company)s في وكيل، ويمكنك البدء الآن."
+msgstr "በWakeel ላይ ያለው የ%(company)s መለያ ጸድቋል፣ አሁን መጀመር ይችላሉ።"
+
+msgid "تم الحفظ الساعة "
+msgstr "የተቀመጠው በ "
+
+msgid "تم الربط بنجاح"
+msgstr "በተሳካ ሁኔታ ተገናኝቷል"
+
+msgid "تم الرد"
+msgstr "ምላሽ ተሰጥቷል"
+
+msgid "تم النشر"
+msgstr "ታትሟል"
+
+msgid "تم النشر يدوياً"
+msgstr "በእጅ ታትሟል"
+
+msgid "تم تجديد «%(name)s» حتى %(date)s."
+msgstr "“%(name)s” እስከ %(date)s ታድሷል።"
+
+msgid "تم تحديث أرقام %(count)s منشور."
+msgstr "ለ%(count)s ልጥፎች ቁጥሮች ተዘምነዋል።"
+
+msgid "تم تحديث التصميم."
+msgstr "ንድፉ ተዘምኗል።"
+
+msgid "تم تحديث الحالة: "
+msgstr "ሁኔታ ተዘምኗል: "
+
+msgid "تم تحديث الدور."
+msgstr "ሚናው ተዘምኗል።"
+
+msgid "تم تحديث رابط التقرير."
+msgstr "የሪፖርት አገናኝ ተዘምኗል።"
+
+msgid "تم تشغيل الرد التلقائي على الأسئلة البسيطة والإشادات."
+msgstr "ለቀላል ጥያቄዎችና ምስጋናዎች ራስ-ሰር ምላሽ በርቷል።"
+
+msgid "تم تشغيل المخطط الآلي."
+msgstr "ራስ-ሰር እቅድ አውጪው በርቷል።"
+
+msgid "تم تصميم %(count)s صورة."
+msgstr "%(count)s ምስሎች ተነድፈዋል።"
+
+msgid "تم تعديل الرصيد."
+msgstr "ቀሪ ሒሳቡ ተቀይሯል።"
+
+msgid "تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه."
+msgstr "“%(name)s” ታግዷል፤ እስኪያነቁት ድረስ ቡድኑ መሥራት አይችልም።"
+
+msgid "تم تعيين كلمة المرور"
+msgstr "የይለፍ ቃል ተዘጋጅቷል"
+
+msgid "تم تغيير كلمة المرور"
+msgstr "የይለፍ ቃል ተቀይሯል"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "የይለፍ ቃልዎ ተቀይሯል።"
+
+msgid "تم تغيير موعد النشر"
+msgstr "የማተሚያ ቀን ተቀይሯል"
+
+msgid "تم تفعيل إشعارات البريد."
+msgstr "የኢሜይል ማሳወቂያዎች በርተዋል።"
+
+msgid "تم تفعيل النشر التلقائي."
+msgstr "ራስ-ሰር ማተም በርቷል።"
+
+msgid "تم تفعيل حساب %(name)s، وأُبلغ بالبريد."
+msgstr "የ%(name)s መለያ አሁን ንቁ ነው፣ እና በኢሜይል ተነግሯቸዋል።"
+
+msgid "تم تفعيل حسابك في وكيل"
+msgstr "የWakeel መለያዎ ንቁ ነው"
+
+msgid "تم تفعيل حسابك في وكيل: %(name)s"
+msgstr "የWakeel መለያዎ ንቁ ነው: %(name)s"
+
+msgid "تم تنشيط «%(name)s»."
+msgstr "“%(name)s” እንደገና ነቅቷል።"
+
+msgid "تم حذف «%(name)s» وكل بياناتها نهائياً."
+msgstr "“%(name)s” እና ሁሉም ውሂቡ ለዘላለም ተሰርዟል።"
+
+msgid "تم حذف الخطة ومنشوراتها."
+msgstr "ዕቅዱና ልጥፎቹ ተሰርዘዋል።"
+
+msgid "تم حذف الصورة."
+msgstr "ምስሉ ተሰርዟል።"
+
+msgid "تم حذف المنافس."
+msgstr "ተፎካካሪው ተሰርዟል።"
+
+msgid "تم حذف المنشور."
+msgstr "ልጥፉ ተሰርዟል።"
+
+msgid "تم حذف حسابك وكل بياناته نهائياً."
+msgstr "መለያዎና ሁሉም ውሂቡ ለዘላለም ተሰርዟል።"
+
+msgid "تم حفظ الإعدادات."
+msgstr "ቅንብሮች ተቀምጠዋል።"
+
+msgid "تم حفظ المنافس."
+msgstr "ተፎካካሪው ተቀምጧል።"
+
+msgid "تم حفظ بيانات «%(name)s»."
+msgstr "“%(name)s” ተቀምጧል።"
+
+msgid "تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات."
+msgstr "የብራንድ መታወቂያ ተቀምጧል። ለውጦቹን ለመተግበር ምስሎቹን እንደገና ይንድፉ።"
+
+msgid "تم حفظ هوية الوكالة."
+msgstr "የኤጀንሲ ብራንድ ተቀምጧል።"
+
+msgid "تم ربط تيك توك"
+msgstr "TikTok ተገናኝቷል"
+
+msgid "تم ربط صفحة «%(page)s»"
+msgstr "“%(page)s” ገጽ ተገናኝቷል"
+
+msgid "تم رفض طلب %(name)s وحذفه."
+msgstr "የ%(name)s ጥያቄ ውድቅ ተደርጎ ተሰርዟል።"
+
+msgid "تم رفع %(count)s صورة."
+msgstr "%(count)s ምስል(ሎች) ተሰቅለዋል።"
+
+msgid "تم فصل الحساب."
+msgstr "መለያው ተቋርጧል።"
+
+msgid "تم نشرها"
+msgstr "ታትሟል"
+
+msgid "تمت إزالة العضو."
+msgstr "አባሉ ተወግዷል።"
+
+msgid "تمت إضافة العضو."
+msgstr "አባሉ ተጨምሯል።"
+
+msgid "تمت إعادة الكتابة."
+msgstr "እንደገና መጻፍ ተጠናቅቋል።"
+
+msgid "تميّز"
+msgstr "ብልጭታ"
+
+msgid "تنبيه"
+msgstr "ማስጠንቀቂያ"
+
+msgid "تنزيل"
+msgstr "አውርድ"
+
+msgid "تنزيل نصوص المنشورات"
+msgstr "የልጥፍ ጽሑፎችን አውርድ"
+
+msgid "تنشيط"
+msgstr "እንደገና አንቃ"
+
+msgid "تنشيط %(name)s"
+msgstr "%(name)sን እንደገና አንቃ"
+
+msgid "تنفيذ"
+msgstr "ተግብር"
+
+msgid "توجيهات هذا الشهر"
+msgstr "የዚህ ወር ማጠቃለያ"
+
+msgid "توجيهاتك:"
+msgstr "ማጠቃለያዎ:"
+
+msgid "توسيع القائمة"
+msgstr "ምናሌውን ዘርጋ"
+
+msgid "توصيات الشهر القادم"
+msgstr "ለቀጣዩ ወር ምክሮች"
+
+msgid "توصيل"
+msgstr "ርክክብ"
+
+msgid "تيك توك"
+msgstr "TikTok"
+
+msgid "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات."
+msgstr "እነዚህ ቀለሞችና ፊደላት በእያንዳንዱ የልጥፍ ንድፍ ውስጥ ይጠቀማሉ።"
+
+msgid "تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات."
+msgstr "ሲስማሙ ወደ ልጥፎች ይጨመራል፣ በቦታ ተለያይቶ።"
+
+msgid "جائزة"
+msgstr "ሽልማት"
+
+msgid "جارٍ التحليل…"
+msgstr "በመተንተን ላይ…"
+
+msgid "جارٍ التحميل…"
+msgstr "በመጫን ላይ…"
+
+msgid "جارٍ التصميم…"
+msgstr "በመንደፍ ላይ…"
+
+msgid "جارٍ النشر…"
+msgstr "በማተም ላይ…"
+
+msgid "جارٍ تصميم الصور…"
+msgstr "ምስሎቹን በመንደፍ ላይ…"
+
+msgid "جارٍ قراءة أرقام الشهر…"
+msgstr "የወሩን ቁጥሮች በማንበብ ላይ…"
+
+msgid "جاهز"
+msgstr "ዝግጁ"
+
+msgid "جاهزة"
+msgstr "ዝግጁ"
+
+msgid "جديد"
+msgstr "አዲስ"
+
+msgid "جري"
+msgstr "በሂደት ላይ"
+
+msgid "جريء"
+msgstr "ደማቅ"
+
+msgid "جريئة وحماسية"
+msgstr "ደማቅና ጉልበተኛ"
+
+msgid "جوال"
+msgstr "ሞባይል"
+
+msgid "جودة"
+msgstr "ጥራት"
+
+msgid "جُهّز «%(title)s» لإعادة النشر."
+msgstr "“%(title)s” እንደገና ለመታተም ዝግጁ ነው።"
+
+msgid "حاسوب"
+msgstr "ላፕቶፕ"
+
+msgid "حالة الاشتراك"
+msgstr "የምዝገባ ሁኔታ"
+
+msgid "حالة الخدمات"
+msgstr "የአገልግሎት ሁኔታ"
+
+msgid "حالة المنشورات"
+msgstr "የልጥፍ ሁኔታ"
+
+msgid "حالة النظام"
+msgstr "የሥርዓት ሁኔታ"
+
+msgid "حالة غير معروفة."
+msgstr "ያልታወቀ ሁኔታ።"
+
+msgid "حاول مرة أخرى"
+msgstr "እንደገና ይሞክሩ"
+
+msgid "حب"
+msgstr "ፍቅር"
+
+msgid "حدث خطأ غير متوقع."
+msgstr "ያልተጠበቀ ችግር ተፈጥሯል።"
+
+msgid "حدّد دولة واحدة على الأقل."
+msgstr "ቢያንስ አንድ አገር ይምረጡ።"
+
+msgid "حذف"
+msgstr "ሰርዝ"
+
+msgid "حذف %(name)s"
+msgstr "%(name)sን ሰርዝ"
+
+msgid "حذف %(name)s؟"
+msgstr "%(name)s ይሰረዝ?"
+
+msgid "حذف «%(name)s» نهائياً؟"
+msgstr "“%(name)s” ለዘላለም ይሰረዝ?"
+
+msgid "حذف الاقتراح"
+msgstr "ጥቆማን ሰርዝ"
+
+msgid "حذف الحساب"
+msgstr "መለያ ሰርዝ"
+
+msgid "حذف الخطة"
+msgstr "ዕቅድ ሰርዝ"
+
+msgid "حذف الخطة؟"
+msgstr "ዕቅዱ ይሰረዝ?"
+
+msgid "حذف الشركة"
+msgstr "ኩባንያ ሰርዝ"
+
+msgid "حذف الشركة متاح لمالكها فقط."
+msgstr "ኩባንያውን መሰረዝ የሚችለው ባለቤቱ ብቻ ነው።"
+
+msgid "حذف الشركة نهائياً"
+msgstr "ኩባንያውን ለዘላለም ሰርዝ"
+
+msgid "حذف الصورة"
+msgstr "ምስል ሰርዝ"
+
+msgid "حذف الصورة؟"
+msgstr "ምስሉ ይሰረዝ?"
+
+msgid "حذف القاعدة"
+msgstr "ደንብ ሰርዝ"
+
+msgid "حذف المنشور"
+msgstr "ልጥፍ ሰርዝ"
+
+msgid "حذف المنشور؟"
+msgstr "ልጥፉ ይሰረዝ?"
+
+msgid "حذف حسابك نهائياً؟"
+msgstr "መለያዎ ለዘላለም ይሰረዝ?"
+
+msgid "حذف حسابك والشركات التي تملكها نهائياً."
+msgstr "መለያዎንና የያዙትን ኩባንያዎች ለዘላለም ይሰርዙ።"
+
+msgid "حذف حسابي"
+msgstr "መለያዬን ሰርዝ"
+
+msgid "حذف حسابي نهائياً"
+msgstr "መለያዬን ለዘላለም ሰርዝ"
+
+msgid "حذف نهائي"
+msgstr "ለዘላለም ሰርዝ"
+
+msgid "حذف هذه القاعدة؟"
+msgstr "ይህ ደንብ ይሰረዝ?"
+
+msgid "حساب %(name)s مفعّل بالفعل."
+msgstr "የ%(name)s መለያ አስቀድሞ ንቁ ነው።"
+
+msgid "حساب إنستغرام"
+msgstr "የInstagram መለያ"
+
+msgid "حساب احترافي ومربوط بصفحة الشركة"
+msgstr "ከኩባንያው ገጽ ጋር የተገናኘ ሙያዊ መለያ"
+
+msgid "حساب تجريبي"
+msgstr "የሙከራ መለያ"
+
+msgid "حساب تواصل"
+msgstr "የማኅበራዊ መለያ"
+
+msgid "حساب تيك توك"
+msgstr "የTikTok መለያ"
+
+msgid "حساب مالك النشاط"
+msgstr "የንግድ ባለቤት መለያ"
+
+msgid "حسابات التواصل"
+msgstr "የማኅበራዊ መለያዎች"
+
+msgid "حسابات النشر"
+msgstr "የማተሚያ መለያዎች"
+
+msgid "حسابات النشر:"
+msgstr "የማተሚያ መለያዎች:"
+
+msgid "حسابك قيد المراجعة"
+msgstr "መለያዎ በመገምገም ላይ ነው"
+
+msgid "حسابك قيد المراجعة."
+msgstr "መለያዎ በመገምገም ላይ ነው።"
+
+msgid "حسابي احترافي، التالي"
+msgstr "ሙያዊ ነው፣ ቀጣይ"
+
+msgid "حسب التصميم"
+msgstr "በአቀማመጥ"
+
+msgid "حسب الشركة"
+msgstr "በኩባንያ"
+
+msgid "حسب المحور"
+msgstr "በምሰሶ"
+
+msgid "حسب النموذج"
+msgstr "በሞዴል"
+
+msgid "حسب تكلفة الذكاء الاصطناعي"
+msgstr "በAI ወጪ"
+
+msgid "حسب نوع المهمة"
+msgstr "በተግባር ዓይነት"
+
+msgid "حسب يوم النشر"
+msgstr "በሳምንቱ ቀን"
+
+msgid "حصة"
+msgstr "አጋራ"
+
+msgid "حفظ"
+msgstr "አስቀምጥ"
+
+msgid "حفظ التغييرات"
+msgstr "ለውጦችን አስቀምጥ"
+
+msgid "حفظ المنشورات…"
+msgstr "ልጥፎችን በማስቀመጥ ላይ…"
+
+msgid "حفظ كلمة المرور"
+msgstr "የይለፍ ቃል አስቀምጥ"
+
+msgid "حقيقي (مدفوع)"
+msgstr "እውነተኛ (የሚከፈል)"
+
+msgid "حلقات"
+msgstr "ቀለበቶች"
+
+msgid "حلويات"
+msgstr "ጣፋጮች"
+
+msgid "حلّل المنافسين"
+msgstr "ተፎካካሪዎችን ተንትን"
+
+msgid "حماس"
+msgstr "ደስታ"
+
+msgid "حوّل حساب إنستغرام إلى احترافي"
+msgstr "Instagramን ወደ ሙያዊ መለያ ቀይር"
+
+msgid "حُذفت القاعدة."
+msgstr "ደንቡ ተሰርዟል።"
+
+msgid "خادم"
+msgstr "አገልጋይ"
+
+msgid "خارج الذروة"
+msgstr "ከፍተኛ ያልሆነ ሰዓት"
+
+msgid "خارج الذروة (DeepSeek)"
+msgstr "ከፍተኛ ያልሆነ ሰዓት (DeepSeek)"
+
+msgid "خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل."
+msgstr "የAI አገልግሎቱ አሁን ሥራ በዝቶበታል። እባክዎ ትንሽ ቆይተው እንደገና ይሞክሩ።"
+
+msgid "خريطة"
+msgstr "ካርታ"
+
+msgid "خصم"
+msgstr "ቅናሽ"
+
+msgid "خط العناوين"
+msgstr "የርዕስ ፊደል"
+
+msgid "خط النصوص"
+msgstr "የጽሑፍ ፊደል"
+
+msgid "خطة"
+msgstr "ዕቅድ"
+
+msgid "خطة %(upcoming)s موجودة: افتحها"
+msgstr "የ%(upcoming)s ዕቅድ አለ: ክፈት"
+
+msgid "خطة {title} جاهزة: {count} منشوراً بانتظار المراجعة."
+msgstr "የ{title} ዕቅድ ዝግጁ ነው: {count} ልጥፎች ግምገማ በመጠባበቅ ላይ።"
+
+msgid "خطة الشهر القادم"
+msgstr "የቀጣዩ ወር ዕቅድ"
+
+msgid "خطة المحتوى"
+msgstr "የይዘት ዕቅድ"
+
+msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
+msgstr "የይዘት ዕቅድ ለግምገማ ዝግጁ ነው: %(name)s"
+
+msgid "خطة المحتوى — الشهر القادم"
+msgstr "የይዘት ዕቅድ — ቀጣይ ወር"
+
+msgid "خطة جديدة"
+msgstr "አዲስ ዕቅድ"
+
+msgid "خطة شهرية ومنشورات"
+msgstr "ወርሃዊ ዕቅድና ልጥፎች"
+
+msgid "خطة قيد الإعداد"
+msgstr "ዕቅድ በመዘጋጀት ላይ"
+
+msgid "خطة محتوى"
+msgstr "የይዘት ዕቅድ"
+
+msgid "خطة محتوى جديدة"
+msgstr "አዲስ የይዘት ዕቅድ"
+
+msgid "خطط المحتوى"
+msgstr "የይዘት ዕቅዶች"
+
+msgid "خطوط مائلة"
+msgstr "ሰንበር"
+
+msgid "خلال 7 أيام، مع السبب التقني"
+msgstr "ባለፉት 7 ቀናት፣ ከቴክኒካዊ ምክንያት ጋር"
+
+msgid "خيارات الرابط"
+msgstr "የአገናኝ አማራጮች"
+
+msgid "داكن عميق"
+msgstr "ጥልቅ"
+
+msgid "دبي (GMT+4)"
+msgstr "ዱባይ (GMT+4)"
+
+msgid "دخول"
+msgstr "ግባ"
+
+msgid "دخول كمدير %(name)s"
+msgstr "እንደ %(name)s አስተዳዳሪ ግባ"
+
+msgid "دخول كمدير المشترك"
+msgstr "እንደ ተመዝጋቢው አስተዳዳሪ ግባ"
+
+msgid "دعم فني"
+msgstr "ድጋፍ"
+
+msgid "دفع"
+msgstr "ክፍያ"
+
+msgid "دهان"
+msgstr "ቀለም"
+
+msgid "دواء"
+msgstr "መድኃኒት"
+
+msgid "دور %(display_name)s"
+msgstr "የ%(display_name)s ሚና"
+
+msgid "ديس"
+msgstr "ዲሴ"
+
+msgid "ديسمبر"
+msgstr "ዲሴምበር"
+
+msgid "ذكاء"
+msgstr "ብልህነት"
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "AI: በይነተገናኝ (ሰው እየጠበቀ ነው)"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "AI: ምርጥ ጥራት"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "AI: ከበስተጀርባ"
+
+msgid "ذكرى انتصارات أكتوبر"
+msgstr "የጥቅምት ድል ዓመታዊ በዓል"
+
+msgid "ذكرى ثورة 23 يوليو"
+msgstr "የ23 ሐምሌ አብዮት ዓመታዊ በዓል"
+
+msgid "ذكية"
+msgstr "ብልህ መድረክ"
+
+msgid "رأس السنة الميلادية"
+msgstr "የአዲስ ዓመት ቀን"
+
+msgid "رأس السنة الهجرية"
+msgstr "የእስልምና አዲስ ዓመት"
+
+msgid "رابط العميل"
+msgstr "የደንበኛ አገናኝ"
+
+msgid "رابط العميل جاهز. انسخه وأرسله للعميل."
+msgstr "የደንበኛ አገናኝ ዝግጁ ነው። ገልብጠው ለደንበኛዎ ይላኩ።"
+
+msgid "رابط جديد"
+msgstr "አዲስ አገናኝ"
+
+msgid "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة."
+msgstr "በደመቁት ደረጃዎች ውስጥ ያሉ የሚያስፈልጉ ወይም ልክ ያልሆኑ መስኮችን ይፈትሹ።"
+
+msgid "راجع الحقول المظللة."
+msgstr "የደመቁትን መስኮች ይፈትሹ።"
+
+msgid "راجع الصلاحيات واضغط «متابعة» للموافقة عليها."
+msgstr "ፈቃዶቹን ይከልሱና ለማጽደቅ “ቀጥል” ይጫኑ።"
+
+msgid "راجع الطلب ووافق عليه من لوحة مشرف النظام:"
+msgstr "ከሥርዓት አስተዳዳሪ መቆጣጠሪያ ይከልሱና ያጽድቁት:"
+
+msgid "راجع واعتمد"
+msgstr "ይከልሱና ያጽድቁ"
+
+msgid "راسلنا وسنرد عليك في أقرب وقت."
+msgstr "ኢሜይል ይላኩልን፣ በቅርቡ እንመልሳለን።"
+
+msgid "ربط"
+msgstr "አገናኝ"
+
+msgid "ربط إنستغرام الآن"
+msgstr "Instagramን አሁን ያገናኙ"
+
+msgid "ربط تيك توك"
+msgstr "TikTokን ያገናኙ"
+
+msgid "ربط حسابات النشر"
+msgstr "የማተሚያ መለያዎችን ያገናኙ"
+
+msgid "ربط فيسبوك وإنستغرام"
+msgstr "Facebook እና Instagramን ያገናኙ"
+
+msgid "ربطتهما، التالي"
+msgstr "ተገናኝተዋል፣ ቀጣይ"
+
+msgid "ربطه الآن"
+msgstr "አሁን ያገናኙት"
+
+msgid "ربما استُخدم الرابط من قبل أو انتهت صلاحيته. اطلب رابطاً جديداً."
+msgstr "አገናኙ አስቀድሞ ጥቅም ላይ ውሎ ወይም ጊዜው አልፎ ሊሆን ይችላል። አዲስ ይጠይቁ።"
+
+msgid "رجال"
+msgstr "ወንዶች"
+
+msgid "رجوع"
+msgstr "ተመለስ"
+
+msgid "رد الموقع برمز %(code)s. تأكد من الرابط."
+msgstr "ድር ጣቢያው በኮድ %(code)s መልሷል። አገናኙን ይፈትሹ።"
+
+msgid "رد تلقائي من وكيل"
+msgstr "ራስ-ሰር ምላሽ በWakeel"
+
+msgid "رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات."
+msgstr "ዕቅዶች ዝግጁ ሲሆኑ፣ እና ለለውጥ ጥያቄዎችና አስተያየቶች ኢሜይሎች።"
+
+msgid "رفض"
+msgstr "ውድቅ አድርግ"
+
+msgid "رفض تيك توك الطلب: %(detail)s"
+msgstr "TikTok ጥያቄውን ውድቅ አድርጓል: %(detail)s"
+
+msgid "رفض طلب %(display_name)s؟"
+msgstr "የ%(display_name)s ጥያቄ ውድቅ ይደረግ?"
+
+msgid "رفض واتساب الرسالة: %(detail)s"
+msgstr "ዋትስአፕ መልዕክቱን አልተቀበለም: %(detail)s"
+
+msgid "رفض وحذف"
+msgstr "ውድቅ አድርግና ሰርዝ"
+
+msgid "رفضت Meta الطلب: %(detail)s"
+msgstr "Meta ጥያቄውን ውድቅ አድርጓል: %(detail)s"
+
+msgid "رفع"
+msgstr "ስቀል"
+
+msgid "رقم التواصل"
+msgstr "የመገናኛ ቁጥር"
+
+msgid "رقم السجل التجاري"
+msgstr "የንግድ ምዝገባ ቁጥር"
+
+msgid "رقم الهاتف"
+msgstr "ስልክ ቁጥር"
+
+msgid "رقم بارز"
+msgstr "ትልቅ ቁጥር"
+
+msgid "رمز %(code)s"
+msgstr "ኮድ %(code)s"
+
+msgid "رمز QR"
+msgstr "QR ኮድ"
+
+msgid "رمز مُخرج"
+msgstr "የውጤት ቶከኖች"
+
+msgid "رمز مُدخل"
+msgstr "የግብዓት ቶከኖች"
+
+msgid "رمضان"
+msgstr "ረመዳን"
+
+msgid "رموز الدول، مثل: QA SA AE"
+msgstr "የአገር ኮዶች፣ ለምሳሌ QA SA AE"
+
+msgid "رموز مُخرجة"
+msgstr "የውጤት ቶከኖች"
+
+msgid "رموز مُدخلة"
+msgstr "የግብዓት ቶከኖች"
+
+msgid "روابط أو أسماء حسابات، مفصولة بمسافات."
+msgstr "አገናኞች ወይም የመለያ ስሞች፣ በቦታ ተለያይተው።"
+
+msgid "روبوت"
+msgstr "ሮቦት"
+
+msgid "ريادة"
+msgstr "አመራር"
+
+msgid "رياضة"
+msgstr "የአካል ብቃት"
+
+msgid "زوايا تميّزك"
+msgstr "ከሌሎች የሚለዩዎት አቀራረቦች"
+
+msgid "سؤال"
+msgstr "ጥያቄ"
+
+msgid "سبت"
+msgstr "ሴፕ"
+
+msgid "سبتمبر"
+msgstr "ሴፕቴምበር"
+
+msgid "ستدخل مساحة عمل"
+msgstr "ወደ የሥራ ቦታ ይገባሉ:"
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "በዚህ መሣሪያ ላይ ማሳወቂያዎች ይደርስዎታል"
+
+msgid "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات."
+msgstr "ለዝግጁ ዕቅዶች፣ ግምገማዎችና አስተያየቶች ማንቂያዎች እዚህ ይታያሉ።"
+
+msgid "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:"
+msgstr "የTikTok መስኮት ይከፈታል። በውስጡ ምን ማድረግ እንዳለብዎ እነሆ:"
+
+msgid "ستفتح نافذة من فيسبوك. هذا ما ستفعله فيها:"
+msgstr "የFacebook መስኮት ይከፈታል። በውስጡ ምን ማድረግ እንዳለብዎ እነሆ:"
+
+msgid "ستُحذف هذه الخطة نهائياً."
+msgstr "ይህ ዕቅድ ለዘላለም ይሰረዛል።"
+
+msgid "سجّل %(date_joined)s"
+msgstr "ከ%(date_joined)s በፊት ተመዝግቧል"
+
+msgid "سجّل الدخول"
+msgstr "ግባ"
+
+msgid "سجّل الدخول بحساب تيك توك الخاص بالشركة."
+msgstr "በኩባንያው TikTok መለያ ይግቡ።"
+
+msgid "سجّل الدخول لمتابعة تسويق شركتك."
+msgstr "የኩባንያዎን ግብይት ለማስቀጠል ይግቡ።"
+
+msgid "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:"
+msgstr "ይግቡና የመጀመሪያ የይዘት ዕቅድዎን ማዘጋጀት ይጀምሩ:"
+
+msgid "سحابة"
+msgstr "ደመና"
+
+msgid "سعادة"
+msgstr "ደስታ"
+
+msgid "سعر"
+msgstr "ዋጋ"
+
+msgid "سفر"
+msgstr "ጉዞ"
+
+msgid "سلبي"
+msgstr "አሉታዊ"
+
+msgid "سلّم حسابات شركتك"
+msgstr "የኩባንያዎን መለያዎች ያስረክቡ"
+
+msgid "سنة"
+msgstr "1 ዓመት"
+
+msgid "سنجهّز الحساب ثم نعيد الربط"
+msgstr "መለያውን እናዘጋጃለን፣ ከዚያ እንደገና ያገናኙ"
+
+msgid "سنجهّزه معاً خطوة بخطوة"
+msgstr "በደረጃ በደረጃ አብረን እናዘጋጀዋለን"
+
+msgid "سننشئها معاً في دقيقتين"
+msgstr "በሁለት ደቂቃ ውስጥ አንድ አብረን እንፈጥራለን"
+
+msgid "سيارة"
+msgstr "መኪና"
+
+msgid "سياسة الخصوصية"
+msgstr "የግላዊነት ፖሊሲ"
+
+msgid "سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى."
+msgstr "ልጥፉ ከማስታወሻዎ ጋር ለይዘት አርታዒው ወደ ረቂቅ ይመለሳል።"
+
+msgid "سيناريو الفيديو"
+msgstr "የቪዲዮ ስክሪፕት"
+
+msgid "سيناريوهات الفيديو"
+msgstr "የቪዲዮ ስክሪፕቶች"
+
+msgid "سيُفعَّل حساب"
+msgstr "ይህ የሚከተለውን መለያ ያነቃል:"
+
+msgid "سيُنشر فوراً على: "
+msgstr "ወዲያውኑ ይታተማል በ: "
+
+msgid "شاطئ"
+msgstr "የባሕር ዳርቻ"
+
+msgid "شبكة"
+msgstr "ፍርግርግ"
+
+msgid "شجرة"
+msgstr "ዛፍ"
+
+msgid "شخص آخر يدير الصفحة"
+msgstr "ሌላ ሰው ገጹን ያስተዳድራል"
+
+msgid "شراكة وخدمة"
+msgstr "አጋርነትና አገልግሎት"
+
+msgid "شركاتك"
+msgstr "ኩባንያዎችዎ"
+
+msgid "شركة"
+msgstr "ኩባንያ"
+
+msgid "شركة جديدة"
+msgstr "አዲስ ኩባንያ"
+
+msgid "شركة نشطة هذا الشهر"
+msgstr "በዚህ ወር ንቁ ኩባንያዎች"
+
+msgid "شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)"
+msgstr "ኩባንያ: %(name)s (ከዕቅዶቹ፣ ልጥፎቹ፣ ምስሎቹና ሁሉም ውሂቡ ጋር)"
+
+msgid "شروط الاستخدام"
+msgstr "የአጠቃቀም ውሎች"
+
+msgid "شريط جانبي"
+msgstr "የጎን አሞሌ"
+
+msgid "شعار الوكالة"
+msgstr "የኤጀንሲ አርማ"
+
+msgid "شكراً، تم اعتماد المنشور"
+msgstr "አመሰግናለሁ፣ ልጥፉ ጸድቋል"
+
+msgid "شكوى"
+msgstr "ቅሬታ"
+
+msgid "شمس"
+msgstr "እሑ"
+
+msgid "شهادة"
+msgstr "የምስክር ወረቀት"
+
+msgid "شهر"
+msgstr "1 ወር"
+
+msgid "صالح لإعادة النشر بصياغة جديدة بعد مدة."
+msgstr "ከጥቂት ጊዜ በኋላ በአዲስ ቃላት እንደገና ለመታተም ተስማሚ።"
+
+msgid "صالون"
+msgstr "ሳሎን"
+
+msgid "صحة"
+msgstr "ጤና"
+
+msgid "صحي"
+msgstr "ጤናማ"
+
+msgid "صحيح"
+msgstr "ትክክል"
+
+msgid "صفحة «%(name)s» · ربطها %(display_name)s"
+msgstr "ገጽ “%(name)s” · በ%(display_name)s የተገናኘ"
+
+msgid "صفحة فيسبوك"
+msgstr "የFacebook ገጽ"
+
+msgid "صلاحيتك في هذه الشركة للمشاهدة فقط."
+msgstr "በዚህ ኩባንያ ውስጥ የማየት ፈቃድ ብቻ አለዎት።"
+
+msgid "صلاحيتك للمشاهدة فقط."
+msgstr "የማየት ፈቃድ ብቻ አለዎት።"
+
+msgid "صندوق"
+msgstr "ሳጥን"
+
+msgid "صورة"
+msgstr "ምስል"
+
+msgid "صورة الخلفية"
+msgstr "የጀርባ ምስል"
+
+msgid "صورة كاملة"
+msgstr "ሙሉ ፎቶ"
+
+msgid "صيانة"
+msgstr "ጥገና"
+
+msgid "ضعف:"
+msgstr "ድክመቶች:"
+
+msgid "طابور المهام"
+msgstr "የተግባር ወረፋ"
+
+msgid "طاقة"
+msgstr "ኃይል"
+
+msgid "طبخ"
+msgstr "ምግብ ማብሰል"
+
+msgid "طبيب"
+msgstr "ሐኪም"
+
+msgid "طرد"
+msgstr "ጥቅል"
+
+msgid "طلاب"
+msgstr "ተማሪዎች"
+
+msgid "طلب {name} تعديل {subject}: {note}"
+msgstr "{name} በ{subject} ላይ ለውጥ ጠይቋል: {note}"
+
+msgid "طلب إعادة كتابة"
+msgstr "የእንደገና መጻፍ ጥያቄ"
+
+msgid "طلب اشتراك جديد بانتظار الاعتماد."
+msgstr "ማጽደቅ የሚጠብቁ አዲስ የምዝገባ ጥያቄ(ዎች)።"
+
+msgid "طلب تسجيل جديد بانتظار الموافقة."
+msgstr "ማጽደቅ የሚጠብቁ አዲስ የመመዝገቢያ ጥያቄ(ዎች)።"
+
+msgid "طلب تسجيل جديد في وكيل بانتظار الموافقة:"
+msgstr "አዲስ የWakeel ምዝገባ ማጽደቅ በመጠባበቅ ላይ ነው:"
+
+msgid "طلب تسجيل جديد في وكيل: %(name)s"
+msgstr "በWakeel ላይ አዲስ ምዝገባ: %(name)s"
+
+msgid "طلب تعديل"
+msgstr "ለውጦችን ጠይቅ"
+
+msgid "طلب تعديل ✏️"
+msgstr "ለውጦችን ጠይቅ ✏️"
+
+msgid "طلب رابط جديد"
+msgstr "አዲስ አገናኝ ጠይቅ"
+
+msgid "طلب غير صالح."
+msgstr "ልክ ያልሆነ ጥያቄ።"
+
+msgid "طلبات التسجيل"
+msgstr "የምዝገባ ጥያቄዎች"
+
+msgid "طولي 4:5"
+msgstr "ቁመታዊ 4:5"
+
+msgid "طيّ القائمة"
+msgstr "ምናሌውን ሰብስብ"
+
+msgid "عاجل"
+msgstr "አስቸኳይ"
+
+msgid "عادي"
+msgstr "መደበኛ"
+
+msgid "عبارات مفضلة، أو أسلوب معين في الكتابة."
+msgstr "ተወዳጅ ሐረጎች፣ ወይም የተለየ የአጻጻፍ መንገድ።"
+
+msgid "عبارة الدعوة"
+msgstr "ጥሪ ለድርጊት"
+
+msgid "عدالة"
+msgstr "ሕግ"
+
+msgid "عدد الأيام"
+msgstr "የቀናት ብዛት"
+
+msgid "عدد المنشورات أسبوعياً"
+msgstr "በሳምንት ልጥፎች"
+
+msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
+msgstr "ማንኛውንም ነገር በአንድ ጠቅታ ይቀይሩ፣ እና ልጥፎችን ለማተም ያጽድቁ።"
+
+msgid "عرض"
+msgstr "ቅናሽ"
+
+msgid "عرض %(name)s"
+msgstr "%(name)sን ይመልከቱ"
+
+msgid "عرض الاشتراكات"
+msgstr "ምዝገባዎችን ይመልከቱ"
+
+msgid "عرض التقويم"
+msgstr "የቀን መቁጠሪያን ይመልከቱ"
+
+msgid "عرض الكل"
+msgstr "ሁሉንም ይመልከቱ"
+
+msgid "عرض المزيد"
+msgstr "ተጨማሪ ይመልከቱ"
+
+msgid "عرض تقديمي"
+msgstr "ገለጻ"
+
+msgid "عرض محدود"
+msgstr "ውስን ቅናሽ"
+
+msgid "عروض، مناسبات، منتجات جديدة، أو أي شيء تريد التركيز عليه."
+msgstr "ቅናሾች፣ ወቅቶች፣ አዳዲስ ምርቶች፣ ወይም ትኩረት ሊሰጡት የሚፈልጉት ማንኛውም ነገር።"
+
+msgid "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها."
+msgstr "የግብይት ቡድኑ ሆኖ እንዲሠራ ኩባንያዎን ለWakeel ያስተዋውቁ።"
+
+msgid "عرّفنا بشركتك"
+msgstr "ኩባንያዎን ያስተዋውቁ"
+
+msgid "عضو"
+msgstr "አባል"
+
+msgid "عضوية"
+msgstr "አባልነት"
+
+msgid "عطور"
+msgstr "ሽቶ"
+
+msgid "علامات زائد"
+msgstr "የመደመር ምልክቶች"
+
+msgid "علّق على"
+msgstr "አስተያየት ሰጥቷል በ"
+
+msgid "عملة"
+msgstr "ሳንቲም"
+
+msgid "عمودي 9:16"
+msgstr "ወጣ ገባ 9:16"
+
+msgid "عميل"
+msgstr "ደንበኛ"
+
+msgid "عمّان"
+msgstr "አማን"
+
+msgid "عن وكيل"
+msgstr "ስለ Wakeel"
+
+msgid "عند تفعيله، ينشر وكيل كل منشور"
+msgstr "ሲበራ Wakeel ሁሉንም ያትማል"
+
+msgid "عندك سؤال؟"
+msgstr "ጥያቄ አለዎት?"
+
+msgid "عنوان المنشور يظهر هنا"
+msgstr "የልጥፉ ርዕስ እዚህ ይታያል"
+
+msgid "عيد استقلال الأردن"
+msgstr "የዮርዳኖስ የነጻነት ቀን"
+
+msgid "عيد استقلال السودان"
+msgstr "የሱዳን የነጻነት ቀን"
+
+msgid "عيد الأضحى"
+msgstr "ዒድ አል-አድሐ"
+
+msgid "عيد الأم"
+msgstr "የእናቶች ቀን"
+
+msgid "عيد الاتحاد الإماراتي"
+msgstr "የUAE ብሔራዊ ቀን (የኅብረት ቀን)"
+
+msgid "عيد التحرير في الكويت"
+msgstr "የኩዌት የነጻነት ቀን"
+
+msgid "عيد الفطر"
+msgstr "ዒድ አል-ፊጥር"
+
+msgid "عيون"
+msgstr "ዓይኖች"
+
+msgid "عُمان"
+msgstr "ኦማን"
+
+msgid "غادرت «%(name)s»."
+msgstr "“%(name)s”ን ለቀዋል።"
+
+msgid "غرفة نوم"
+msgstr "መኝታ ቤት"
+
+msgid "غروب"
+msgstr "ምሽት"
+
+msgid "غلاف الفيديو (اختياري)"
+msgstr "የቪዲዮ ሽፋን (አማራጭ)"
+
+msgid "غير مجدول"
+msgstr "አልተያዘም"
+
+msgid "غير مربوط"
+msgstr "አልተገናኘም"
+
+msgid "غير مربوطة"
+msgstr "አልተገናኘም"
+
+msgid "غير مضبوط"
+msgstr "አልተዋቀረም"
+
+msgid "غير مضبوط (يُطبع في الطرفية)"
+msgstr "አልተዋቀረም (ወደ መቆጣጠሪያው ታትሟል)"
+
+msgid "غير مفعّلة على هذا الجهاز."
+msgstr "በዚህ መሣሪያ ላይ ጠፍቷል።"
+
+msgid "فاتح"
+msgstr "ብርሃን"
+
+msgid "فاتورة"
+msgstr "ደረሰኝ"
+
+msgid "فاخرة وراقية"
+msgstr "የተንደላቀቀና የተጣራ"
+
+msgid "فارغ = الافتراضي للقالب."
+msgstr "ባዶ = የአቀማመጡ ነባሪ።"
+
+msgid "فارغ = الافتراضية للقالب."
+msgstr "ባዶ = የአቀማመጡ ነባሪ።"
+
+msgid "فارغ = بدون انتهاء."
+msgstr "ባዶ = ፈጽሞ አያልቅም።"
+
+msgid "فبر"
+msgstr "ፌብ"
+
+msgid "فبراير"
+msgstr "ፌብሩዋሪ"
+
+msgid "فتح إعدادات الربط في فيسبوك"
+msgstr "በFacebook ላይ የማገናኛ ቅንብሮችን ይክፈቱ"
+
+msgid "فتح صفحة الإنشاء"
+msgstr "የገጽ መፍጠሪያን ይክፈቱ"
+
+msgid "فتح كما يراه العميل"
+msgstr "ደንበኛው እንደሚያየው ክፈት"
+
+msgid "فتح نافذة تيك توك"
+msgstr "የTikTok መስኮቱን ክፈት"
+
+msgid "فتح نافذة فيسبوك"
+msgstr "የFacebook መስኮቱን ክፈት"
+
+msgid "فجوات يتركونها"
+msgstr "የሚተዉት ክፍተቶች"
+
+msgid "فخامة"
+msgstr "ቅንጦት"
+
+msgid "فريق"
+msgstr "ቡድን"
+
+msgid "فريق تسويق كامل،"
+msgstr "የተሟላ የግብይት ቡድን፣"
+
+msgid "فريق وكيل"
+msgstr "የWakeel ቡድን"
+
+msgid "فريقك وبريدك"
+msgstr "ቡድንዎና ደብዳቤዎ"
+
+msgid "فشل"
+msgstr "አልተሳካም"
+
+msgid "فشل النسخ الاحتياطي لوكيل"
+msgstr "የWakeel ምትኬ አልተሳካም"
+
+msgid "فشلت"
+msgstr "አልተሳካም"
+
+msgid "فشلت: %(error)s"
+msgstr "አልተሳካም: %(error)s"
+
+msgid "فصل"
+msgstr "አቋርጥ"
+
+msgid "فصل إنستغرام؟"
+msgstr "Instagram ይቋረጥ?"
+
+msgid "فصل تيك توك؟"
+msgstr "TikTok ይቋረጥ?"
+
+msgid "فصل فيسبوك؟"
+msgstr "Facebook ይቋረጥ?"
+
+msgid "فعّل"
+msgstr "አብራ"
+
+msgid "فكرة"
+msgstr "ሐሳብ"
+
+msgid "فواكه"
+msgstr "ፍራፍሬ"
+
+msgid "فور التفعيل."
+msgstr "እንደነቃ።"
+
+msgid "فوز"
+msgstr "ዋንጫ"
+
+msgid "في الانتظار"
+msgstr "በመጠባበቅ ላይ"
+
+msgid "في التقويم"
+msgstr "በቀን መቁጠሪያ ውስጥ"
+
+msgid "في اليوم المحدد من كل شهر"
+msgstr "በየወሩ በተመረጠው ቀን"
+
+msgid "في انتظار بدء المهمة…"
+msgstr "ተግባሩ እስኪጀምር በመጠበቅ ላይ…"
+
+msgid "في منصة واحدة"
+msgstr "በአንድ"
+
+msgid "في هذه الصفحة"
+msgstr "በዚህ ገጽ ላይ"
+
+msgid "فيديو"
+msgstr "ቪዲዮ"
+
+msgid "فيديو قصير"
+msgstr "አጭር ቪዲዮ"
+
+msgid "فيديو قصير (ريلز / تيك توك)"
+msgstr "አጭር ቪዲዮ (Reels / TikTok)"
+
+msgid "فيديو قصير: سيناريو التصوير"
+msgstr "አጭር ቪዲዮ: የቀረጻ ስክሪፕት"
+
+msgid "فيسبوك"
+msgstr "Facebook"
+
+msgid "فيسبوك فقط الآن"
+msgstr "ለአሁን Facebook ብቻ"
+
+msgid "فيلا"
+msgstr "ቪላ"
+
+msgid "قائمة مهام"
+msgstr "የፍተሻ ዝርዝር"
+
+msgid "قراءة التعليقات"
+msgstr "አስተያየቶችን አንብብ"
+
+msgid "قراءة مواقع المنافسين…"
+msgstr "የተፎካካሪዎችን ድር ጣቢያዎች በማንበብ ላይ…"
+
+msgid "قراءة وكيل"
+msgstr "የWakeel ንባብ"
+
+msgid "قصاصات"
+msgstr "ኮንፈቲ"
+
+msgid "قصة (ستوري)"
+msgstr "ታሪክ"
+
+msgid "قطر"
+msgstr "ኳታር"
+
+msgid "قطري"
+msgstr "ሰያፍ"
+
+msgid "قنوات التواصل"
+msgstr "የመገናኛ መንገዶች"
+
+msgid "قهوة"
+msgstr "ቡና"
+
+msgid "قوة:"
+msgstr "ጥንካሬዎች:"
+
+msgid "قوس"
+msgstr "ቅስት"
+
+msgid "قياس"
+msgstr "መለኪያ"
+
+msgid "قيد الإعداد"
+msgstr "በማዘጋጀት ላይ"
+
+msgid "قيد الاعتماد"
+msgstr "ማጽደቅ በመጠባበቅ ላይ"
+
+msgid "قيد الاقتراح"
+msgstr "በመጠቆም ላይ"
+
+msgid "قيد التحليل"
+msgstr "በመተንተን ላይ"
+
+msgid "قيد التعديل"
+msgstr "በመከለስ ላይ"
+
+msgid "قيد التنفيذ"
+msgstr "በሂደት ላይ"
+
+msgid "قُرئ الموقع"
+msgstr "ድር ጣቢያ ተነብቧል"
+
+msgid "كتاب"
+msgstr "መጽሐፍ"
+
+msgid "كتابة"
+msgstr "በመጻፍ ላይ"
+
+msgid "كتابة المنشورات"
+msgstr "ልጥፍ መጻፍ"
+
+msgid "كرة قدم"
+msgstr "እግር ኳስ"
+
+msgid "كل الأنواع"
+msgstr "ሁሉም ዓይነቶች"
+
+msgid "كل الإشعارات"
+msgstr "ሁሉም ማሳወቂያዎች"
+
+msgid "كل الترويجات"
+msgstr "ሁሉም ማስተዋወቂያዎች"
+
+msgid "كل التقارير"
+msgstr "ሁሉም ሪፖርቶች"
+
+msgid "كل الحالات"
+msgstr "ሁሉም ሁኔታዎች"
+
+msgid "كل الشركات"
+msgstr "ሁሉም ኩባንያዎች"
+
+msgid "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق."
+msgstr "ልጥፎችን ማጽደቅና ብራንድና ቡድን ማስተዳደርን ጨምሮ ሁሉም ነገር።"
+
+msgid "كل المنصات"
+msgstr "ሁሉም መድረኮች"
+
+msgid "كل المهام"
+msgstr "ሁሉም ተግባራት"
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "ኩባንያዎ የሚፈልገው ሁሉ፣ በአንድ መድረክ"
+
+msgid "كل ما تقدمه وكالة التسويق، في منصة واحدة"
+msgstr "የግብይት ኤጀንሲ የሚሠራው ሁሉ፣ በአንድ መድረክ"
+
+msgid "كلمات تساعد في اختيار الصورة المناسبة للمنشور."
+msgstr "ለልጥፍ ትክክለኛውን ምስል ለመምረጥ የሚረዱ ቃላት።"
+
+msgid "كلمة المرور"
+msgstr "የይለፍ ቃል"
+
+msgid "كلمة المرور غير صحيحة."
+msgstr "የይለፍ ቃል ትክክል አይደለም።"
+
+msgid "كلمة المرور مطلوبة لإنشاء حساب المالك."
+msgstr "የባለቤቱን መለያ ለመፍጠር የይለፍ ቃል ያስፈልጋል።"
+
+msgid "كلمة مرور المشرف غير صحيحة."
+msgstr "የአስተዳዳሪ የይለፍ ቃል ትክክል አይደለም።"
+
+msgid "كلمة مرور المشرف للتأكيد"
+msgstr "ለማረጋገጥ የአስተዳዳሪ የይለፍ ቃል"
+
+msgid "كلمة مرور جديدة"
+msgstr "አዲስ የይለፍ ቃል"
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "ሁለቱ የይለፍ ቃሎች አይመሳሰሉም።"
+
+msgid "كما سيظهر في إنستغرام وفيسبوك"
+msgstr "በInstagram እና Facebook ላይ እንደሚታየው"
+
+msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
+msgstr "ልጥፎችዎ በእውነት እንዴት እንደሠሩ፣ እና Wakeel ከዚያ ምን እንደሚማር።"
+
+msgid "كيف يعمل؟"
+msgstr "እንዴት ይሠራል?"
+
+msgid "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك."
+msgstr "ከWakeel የሚመጡ ኢሜይሎችን ለማቆም በመለያ ቅንብሮችዎ ውስጥ ያጥፏቸው።"
+
+msgid "لا أخطاء خلال آخر 7 أيام."
+msgstr "ባለፉት 7 ቀናት ምንም ስህተት የለም።"
+
+msgid "لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة."
+msgstr "በዚህ ኩባንያ ውስጥ ይህን ለማድረግ ፈቃድ የለዎትም።"
+
+msgid "لا توجد إشعارات"
+msgstr "ምንም ማሳወቂያ የለም"
+
+msgid "لا توجد إشعارات بعد."
+msgstr "ገና ምንም ማሳወቂያ የለም።"
+
+msgid "لا توجد اشتراكات"
+msgstr "ምዝገባዎች የሉም"
+
+msgid "لا توجد اشتراكات بعد"
+msgstr "ገና ምንም ምዝገባ የለም"
+
+msgid "لا توجد بيانات"
+msgstr "ውሂብ የለም"
+
+msgid "لا توجد بيانات كافية بعد."
+msgstr "ገና በቂ ውሂብ የለም።"
+
+msgid "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا."
+msgstr "ገና ምንም አስተያየት የለም። ለቡድኑ ማስታወሻዎን እዚህ ይጻፉ።"
+
+msgid "لا توجد تعليقات هنا"
+msgstr "እዚህ ምንም አስተያየት የለም"
+
+msgid "لا توجد تغييرات"
+msgstr "ምንም ለውጥ የለም"
+
+msgid "لا توجد تقارير بعد"
+msgstr "ገና ምንም ሪፖርት የለም"
+
+msgid "لا توجد حسابات إعلانية نشطة"
+msgstr "ንቁ የማስታወቂያ መለያዎች የሉም"
+
+msgid "لا توجد خطة محتوى لهذا الشهر بعد"
+msgstr "ለዚህ ወር ገና የይዘት ዕቅድ የለም"
+
+msgid "لا توجد شركات تملكها."
+msgstr "ምንም ኩባንያ የለዎትም።"
+
+msgid "لا توجد طلبات جديدة"
+msgstr "አዲስ ጥያቄዎች የሉም"
+
+msgid "لا توجد ملاحظات جديدة."
+msgstr "አዲስ አስተያየት የለም።"
+
+msgid "لا توجد مناسبات خاصة في هذا الشهر."
+msgstr "በዚህ ወር ልዩ ወቅቶች የሉም።"
+
+msgid "لا توجد منشورات"
+msgstr "ልጥፎች የሉም"
+
+msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
+msgstr "በዚህ ዕቅድ ውስጥ ግምገማ የሚጠብቁ ልጥፎች የሉም። አመሰግናለሁ!"
+
+msgid "لا توجد منشورات في هذه الخطة"
+msgstr "በዚህ ዕቅድ ውስጥ ልጥፎች የሉም"
+
+msgid "لا توجد منشورات قادمة"
+msgstr "መጪ ልጥፎች የሉም"
+
+msgid "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد."
+msgstr "በWakeel በኩል ወደ Facebook ገና ምንም ልጥፍ አልታተመም።"
+
+msgid "لا توجد مهام"
+msgstr "ተግባራት የሉም"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "ምንም የሚጠብቅዎት ነገር የለም። ሁሉም ነገር በቦታው ነው።"
+
+msgid "لا يحتاج الرابط إلى حساب أو كلمة مرور."
+msgstr "አገናኙ መለያ ወይም የይለፍ ቃል አያስፈልገውም።"
+
+msgid "لا يمكن التراجع عن ذلك."
+msgstr "ይህ መመለስ አይቻልም።"
+
+msgid "لا يمكن قراءة هذا العنوان."
+msgstr "ይህ አድራሻ ሊነበብ አይችልም።"
+
+msgid "لا يوجد"
+msgstr "ምንም"
+
+msgid "لا يوجد أعضاء"
+msgstr "አባላት የሉም"
+
+msgid "لا يوجد اتصال · وكيل"
+msgstr "ግንኙነት የለም · Wakeel"
+
+msgid "لا يوجد اتصال بالإنترنت"
+msgstr "የበይነመረብ ግንኙነት የለም"
+
+msgid "لا يوجد استهلاك بعد"
+msgstr "ገና ምንም አጠቃቀም የለም"
+
+msgid "لا يوجد استهلاك هذا الشهر."
+msgstr "በዚህ ወር ምንም አጠቃቀም የለም።"
+
+msgid "لا يوجد حساب إنستغرام احترافي مربوط بهذه الصفحة."
+msgstr "ከዚህ ገጽ ጋር የተገናኘ የInstagram ሙያዊ መለያ የለም።"
+
+msgid "لا يوجد مالك نشط لـ «%(name)s»."
+msgstr "“%(name)s” ንቁ ባለቤት የለውም።"
+
+msgid "لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً."
+msgstr "ይህ ኢሜይል ያለው ተጠቃሚ የለም። መጀመሪያ የWakeel መለያ እንዲፈጥር ይጠይቁት።"
+
+msgid "لا، ليس بعد"
+msgstr "አይ፣ ገና አይደለም"
+
+msgid "لدى الشركة موقع إلكتروني؟"
+msgstr "ኩባንያው ድር ጣቢያ አለው?"
+
+msgid "لديك حساب بالفعل؟"
+msgstr "መለያ አለዎት?"
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "የይፋዊ ስምና አድራሻ ቋንቋ"
+
+msgid "لغة المحتوى"
+msgstr "የይዘት ቋንቋ"
+
+msgid "لغة النسخة"
+msgstr "የስሪት ቋንቋ"
+
+msgid "لـ"
+msgstr "እስከ "
+
+msgid "لكل مليون رمز"
+msgstr "በሚሊዮን ቶከኖች"
+
+msgid "لكل مليون رمز (مدخلات / مخرجات)."
+msgstr "በሚሊዮን ቶከኖች (ግብዓት / ውጤት)።"
+
+msgid "لم أحدد الصفحة في النافذة"
+msgstr "በመስኮቱ ውስጥ ገጹን አልመረጥኩም"
+
+msgid "لم تُصمَّم الصورة بعد"
+msgstr "ምስሉ ገና አልተነደፈም"
+
+msgid "لم تُصمَّم الصورة بعد."
+msgstr "ምስሉ ገና አልተነደፈም።"
+
+msgid "لم تُعدّ أي خطة بعد."
+msgstr "ገና ምንም ዕቅድ አልተዘጋጀም።"
+
+msgid "لم تُعدّ خطة"
+msgstr "ዕቅዱ ለ"
+
+msgid "لم تُقرأ أرقام بعد."
+msgstr "ገና ምንም ቁጥሮች አልተነበቡም።"
+
+msgid "لم تُنفَّذ أي نسخة بعد"
+msgstr "ገና ምንም ምትኬ አልተሠራም"
+
+msgid "لم يجد وكيل معلومات جديدة لإضافتها."
+msgstr "Wakeel ለመጨመር አዲስ መረጃ አላገኘም።"
+
+msgid "لم يشارك فيسبوك أي صفحة مع وكيل"
+msgstr "Facebook ምንም ገጽ ከWakeel ጋር አላጋራም"
+
+msgid "لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "ከAI አገልግሎቱ ምላሽ አልመጣም። እባክዎ እንደገና ይሞክሩ።"
+
+msgid "لم يكتمل الربط"
+msgstr "ግንኙነቱ አልተጠናቀቀም"
+
+msgid "لم يُصمَّم بعد"
+msgstr "ገና አልተነደፈም"
+
+msgid "لم يُقرأ بعد"
+msgstr "ገና አልተነበበም"
+
+msgid "لماذا هذا الترويج"
+msgstr "ይህ ማስተዋወቂያ ለምን"
+
+msgid "لماذا يختار العميل هذه الشركة دون منافسيها؟"
+msgstr "ደንበኞች ከተፎካካሪዎቹ ይልቅ ይህን ኩባንያ ለምን ይመርጣሉ?"
+
+msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
+msgstr "ዕቅዱን በሙሉ ለመገምገም ይክፈቱ: %(link)s"
+
+msgid "لن يتمكن %(display_name)s من الوصول إلى %(name)s بعد الآن."
+msgstr "%(display_name)s ከእንግዲህ %(name)sን ማግኘት አይችልም።"
+
+msgid "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن."
+msgstr "Wakeel ከእንግዲህ ወደዚህ መለያ ልጥፎችን አይልክም።"
+
+msgid "لن يلتزم بها وكيل في الخطط القادمة."
+msgstr "Wakeel በሚቀጥሉት ዕቅዶች አይከተለውም።"
+
+msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
+msgstr "Wakeel ከእንግዲህ ወደዚህ መለያ አያትምም።"
+
+msgid "لن ينشر وكيل على هذه الصفحة بعد الآن."
+msgstr "Wakeel ከእንግዲህ ወደዚህ ገጽ አያትምም።"
+
+msgid "لنبدأ بالمعلومات الأساسية عن الشركة."
+msgstr "ከኩባንያው መሠረታዊ ዝርዝሮች እንጀምር።"
+
+msgid "لندن"
+msgstr "ለንደን"
+
+msgid "لوحة التحكم"
+msgstr "ዳሽቦርድ"
+
+msgid "لوحة التحكم الرئيسية"
+msgstr "ዋና ዳሽቦርድ"
+
+msgid "لوحة تحكم"
+msgstr "ዳሽቦርድ"
+
+msgid "لوحة مشرف النظام"
+msgstr "የአስተዳዳሪ ዳሽቦርድ"
+
+msgid "لون التمييز"
+msgstr "የአፅንዖት ቀለም"
+
+msgid "لون الوكالة"
+msgstr "የኤጀንሲ ቀለም"
+
+msgid "ليس لدي صفحة"
+msgstr "ገጽ የለኝም"
+
+msgid "ليس لديك حساب؟"
+msgstr "መለያ የለዎትም?"
+
+msgid "ليكتب وكيل محتوى يشبه علامتك."
+msgstr "ስለዚህ Wakeel ከብራንድዎ ጋር የሚመሳሰል ይዘት ይጽፋል።"
+
+msgid "ليكتمل ذلك دون تدخل"
+msgstr "ይህን ጣት ሳያነሱ ለማጠናቀቅ"
+
+msgid "ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها."
+msgstr "ምን ውሂብ እንደምንሰበስብ፣ ለምን፣ እና እንዴት እንደሚቆጣጠሩትና እንደሚሰርዙት።"
+
+msgid "ما الذي تريد تعديله؟"
+msgstr "ምን እንዲቀየር ይፈልጋሉ?"
+
+msgid "ما الذي يحتاج إلى تعديل؟"
+msgstr "ምን መቀየር አለበት?"
+
+msgid "ما تعلّمه وكيل"
+msgstr "Wakeel የተማረው"
+
+msgid "ما رآه المشترك:"
+msgstr "ተመዝጋቢው ያየው:"
+
+msgid "ما نجح"
+msgstr "የሠራው"
+
+msgid "ما يجب تجنبه"
+msgstr "ፈጽሞ አታድርግ"
+
+msgid "ما يجب فعله"
+msgstr "ሁልጊዜ አድርግ"
+
+msgid "ما يُنشر تلقائياً"
+msgstr "በራስ-ሰር የሚታተመው"
+
+msgid "ماء"
+msgstr "ውሃ"
+
+msgid "ماذا تقدم الشركة، ولمن، وما الذي يميزها."
+msgstr "ኩባንያው ምን እንደሚያቀርብ፣ ለማን፣ እና ምን እንደሚለየው።"
+
+msgid "ماذا سيحدث؟"
+msgstr "ቀጥሎ ምን ይሆናል?"
+
+msgid "مار"
+msgstr "ማር"
+
+msgid "مارد، مساعدك"
+msgstr "ማሪድ፣ ረዳትዎ"
+
+msgid "مارس"
+msgstr "ማርች"
+
+msgid "ماي"
+msgstr "ሜይ"
+
+msgid "مايو"
+msgstr "ሜይ"
+
+msgid "مباشرة"
+msgstr "ቀጥታ"
+
+msgid "متابعة هنا"
+msgstr "ከዚህ ይቀጥሉ"
+
+msgid "متجر"
+msgstr "ሱቅ"
+
+msgid "متدرّج"
+msgstr "ቅልመት"
+
+msgid "متصل"
+msgstr "ተገናኝቷል"
+
+msgid "متوسط التفاعل · معدل التفاعل"
+msgstr "አማካይ መስተጋብሮች · የተሳትፎ መጠን"
+
+msgid "متوقف"
+msgstr "ቆሟል"
+
+msgid "متوقف الآن."
+msgstr "አሁን ጠፍቷል።"
+
+msgid "متوقف — شغّل"
+msgstr "ቆሟል — ያሂዱ"
+
+msgid "مثال: أحمد، مدير التسويق"
+msgstr "ለምሳሌ: አህመድ፣ የግብይት ሥራ አስኪያጅ"
+
+msgid "مثال: غيّر الصورة واذكر موعد انتهاء العرض"
+msgstr "ለምሳሌ: ምስሉን ቀይሩ እና ቅናሹ መቼ እንደሚያልቅ ጥቀሱ"
+
+msgid "مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات."
+msgstr "ለምሳሌ: የበለጠ ግንዛቤ፣ ተጨማሪ ደንበኛ ፈላጊዎች፣ ተጨማሪ ሽያጭ።"
+
+msgid "مجمع"
+msgstr "ድብልቅ"
+
+msgid "محادثة"
+msgstr "ውይይት"
+
+msgid "محاسبة"
+msgstr "ሂሳብ አያያዝ"
+
+msgid "محاور المحتوى"
+msgstr "የይዘት ምሰሶዎች"
+
+msgid "محايد"
+msgstr "ገለልተኛ"
+
+msgid "محتوى دائم"
+msgstr "ጊዜ የማይሽረው"
+
+msgid "محرر المحتوى:"
+msgstr "የይዘት አርታዒ:"
+
+msgid "محرر محتوى"
+msgstr "የይዘት አርታዒ"
+
+msgid "محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً."
+msgstr "በአሳሽ ቅንብሮች ታግዷል፤ መጀመሪያ እዚያ ይፍቀዱ።"
+
+msgid "محفظة"
+msgstr "ቦርሳ"
+
+msgid "مخرجات"
+msgstr "ውጤት"
+
+msgid "مدة الاشتراك"
+msgstr "የምዝገባ ርዝመት"
+
+msgid "مدير"
+msgstr "አስተዳዳሪ"
+
+msgid "مدير التسويق الذكي"
+msgstr "የእርስዎ AI የግብይት ሥራ አስኪያጅ"
+
+msgid "مدير التسويق الذكي لشركتك"
+msgstr "የኩባንያዎ AI የግብይት ሥራ አስኪያጅ"
+
+msgid "مراجعة %(title)s"
+msgstr "%(title)sን ይከልሱ"
+
+msgid "مراجعة الطلب"
+msgstr "ግምገማ ጠይቅ"
+
+msgid "مراجعة الطلبات"
+msgstr "የግምገማ ጥያቄዎች"
+
+msgid "مربع 1:1"
+msgstr "ካሬ 1:1"
+
+msgid "مرحباً %(name)s،"
+msgstr "ሰላም %(name)s፣"
+
+msgid "مرحباً بعودتك"
+msgstr "እንኳን ደህና መጡ"
+
+msgid "مرحباً بك في وكيل ✨"
+msgstr "ወደ Wakeel እንኳን በደህና መጡ ✨"
+
+msgid "مرحباً،"
+msgstr "ሰላም፣"
+
+msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
+msgstr "ሰላም፣ የ%(name)s የ%(month)s አፈጻጸም ሪፖርት ዝግጁ ነው።"
+
+msgid "مرحة وخفيفة"
+msgstr "ተጫዋችና ቀላል"
+
+msgid "مزعج"
+msgstr "አይፈለጌ መልዕክት"
+
+msgid "مزوّد الذكاء الاصطناعي"
+msgstr "የAI አቅራቢ"
+
+msgid "مستخدم"
+msgstr "ተጠቃሚ"
+
+msgid "مستند"
+msgstr "ሰነድ"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "የቤተ-መጻሕፍት ሰነድ እንደ ምንጭ"
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "በደብዳቤ ራስዎ ላይ ያሉ ሰነዶች"
+
+msgid "مستودع"
+msgstr "መጋዘን"
+
+msgid "مسجد"
+msgstr "መስጊድ"
+
+msgid "مسح التصفية"
+msgstr "ማጣሪያዎችን አጽዳ"
+
+msgid "مسقط (GMT+4)"
+msgstr "ሙስካት (GMT+4)"
+
+msgid "مسودة"
+msgstr "ረቂቅ"
+
+msgid "مشاهد"
+msgstr "ተመልካች"
+
+msgid "مشتريات"
+msgstr "ግዢዎች"
+
+msgid "مشرف النظام"
+msgstr "የሥርዓት አስተዳዳሪ"
+
+msgid "مصر"
+msgstr "ግብፅ"
+
+msgid "مضبوط"
+msgstr "ተዋቅሯል"
+
+msgid "مطعم"
+msgstr "ምግብ ቤት"
+
+msgid "مطلوبة للحساب الجديد فقط."
+msgstr "ለአዲስ መለያ ብቻ ያስፈልጋል።"
+
+msgid "معالج"
+msgstr "ቺፕ"
+
+msgid "معالج يرافقك خطوة بخطوة"
+msgstr "አዋቂ በደረጃ በደረጃ ይመራዎታል"
+
+msgid "معاينة التصميم"
+msgstr "የንድፍ ቅድመ እይታ"
+
+msgid "معاينة المنشور في المنصة"
+msgstr "በመድረኩ ላይ የልጥፍ ቅድመ እይታ"
+
+msgid "معاينة حية"
+msgstr "ቀጥታ ቅድመ እይታ"
+
+msgid "معتمد"
+msgstr "ጸድቋል"
+
+msgid "معتمدة للنشر"
+msgstr "ለማተም ጸድቋል"
+
+msgid "معدل التفاعل"
+msgstr "የተሳትፎ መጠን"
+
+msgid "معفاة"
+msgstr "ነፃ"
+
+msgid "معلومة"
+msgstr "እውነታ"
+
+msgid "معلّق"
+msgstr "ታግዷል"
+
+msgid "مغادرة"
+msgstr "ውጣ"
+
+msgid "مغادرة الشركة"
+msgstr "ኩባንያውን ልቀቅ"
+
+msgid "مغادرة الشركة؟"
+msgstr "ኩባንያውን ይለቁ?"
+
+msgid "مغامرة"
+msgstr "ጀብዱ"
+
+msgid "مفتاح"
+msgstr "ቁልፍ"
+
+msgid "مفعّل — أوقفه في الإنتاج"
+msgstr "በርቷል — በምርት አካባቢ ያጥፉት"
+
+msgid "مفعّل,متوقف"
+msgstr "በርቷል,ጠፍቷል"
+
+msgid "مقترح"
+msgstr "የተጠቆመ"
+
+msgid "مقسوم"
+msgstr "ክፍፍል"
+
+msgid "مكتبة"
+msgstr "ቤተ-መጻሕፍት"
+
+msgid "مكتبة المستندات"
+msgstr "የሰነድ ቤተ-መጻሕፍት"
+
+msgid "مكتبة الوسائط"
+msgstr "የሚዲያ ቤተ-መጻሕፍት"
+
+msgid "ملأ وكيل "
+msgstr "Wakeel ሞልቷል "
+
+msgid "ملابس"
+msgstr "ልብስ"
+
+msgid "ملاحظات"
+msgstr "ማስታወሻዎች"
+
+msgid "ملاحظات المراجعة"
+msgstr "የግምገማ ማስታወሻዎች"
+
+msgid "ملاحظات على الأسلوب"
+msgstr "ስለ ዘይቤ ማስታወሻዎች"
+
+msgid "ملاحظة"
+msgstr "ማስታወሻ"
+
+msgid "ملاحظة المراجعة:"
+msgstr "የግምገማ ማስታወሻ:"
+
+msgid "ملخص الاستراتيجية"
+msgstr "የስትራቴጂ ማጠቃለያ"
+
+msgid "ملخص الشهر"
+msgstr "ወሩ በአጭሩ"
+
+msgid "ملصق"
+msgstr "ፖስተር"
+
+msgid "ملف الشركة غير مكتمل، فستكون الخطة عامة."
+msgstr "የኩባንያው መገለጫ ያልተሟላ ነው፣ ስለዚህ ዕቅዱ አጠቃላይ ይሆናል።"
+
+msgid "ملهمة وتحفيزية"
+msgstr "አነቃቂና አበረታች"
+
+msgid "من"
+msgstr "ከ"
+
+msgid "من الاستراتيجية إلى التصميم إلى تقويم النشر."
+msgstr "ከስትራቴጂ እስከ ንድፍ እስከ ማተሚያ የቀን መቁጠሪያ።"
+
+msgid "من المدخلات cache hit"
+msgstr "ግብዓቶች የመሸጎጫ ተመታዎች ነበሩ"
+
+msgid "من يعمل على تسويق %(name)s، وما صلاحياته."
+msgstr "የ%(name)s ግብይት ላይ ማን እንደሚሠራና ምን ማድረግ እንደሚችል።"
+
+msgid "مناسبات الشهر"
+msgstr "የዚህ ወር ወቅቶች"
+
+msgid "مناسبة"
+msgstr "ወቅት"
+
+msgid "مناسبة خاصة"
+msgstr "ልዩ ቀን"
+
+msgid "منتج"
+msgstr "ምርት"
+
+msgid "منتجات"
+msgstr "ምርቶች"
+
+msgid "منتهي"
+msgstr "አብቅቷል"
+
+msgid "منخفض"
+msgstr "ዝቅተኛ"
+
+msgid "منزل"
+msgstr "መነሻ"
+
+msgid "منسوخ من:"
+msgstr "የተቀዳው ከ:"
+
+msgid "منشور"
+msgstr "ታትሟል"
+
+msgid "منشور أُنشئ هذا الشهر"
+msgstr "በዚህ ወር የተፈጠሩ ልጥፎች"
+
+msgid "منشور جديد"
+msgstr "አዲስ ልጥፍ"
+
+msgid "منشور جديد في هذا اليوم"
+msgstr "በዚህ ቀን አዲስ ልጥፍ"
+
+msgid "منشور نُشر هذا الشهر"
+msgstr "በዚህ ወር የታተሙ ልጥፎች"
+
+msgid "منشورات %(month_name)s"
+msgstr "የ%(month_name)s ልጥፎች"
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "ግምገማ የሚጠብቁ ልጥፎች"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "የማተሚያ ጊዜያቸው ያለፈ ልጥፎች"
+
+msgid "منشورات تستحق الترويج"
+msgstr "ሊተዋወቁ የሚገባቸው ልጥፎች"
+
+msgid "منشورات تستحق العودة"
+msgstr "መልሰው ሊመጡ የሚገባቸው ልጥፎች"
+
+msgid "منشورات تم قياسها"
+msgstr "የተለኩ ልጥፎች"
+
+msgid "منشورات دائمة يُعاد نشرها شهرياً"
+msgstr "በየወሩ እንደገና የሚለጠፉ ጊዜ የማይሽራቸው ልጥፎች"
+
+msgid "منشوراً"
+msgstr "ልጥፎች"
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr "ለኩባንያዎ ግብይት፣ ሰነዶችና ቡድን አንድ መድረክ"
+
+msgid "مهام فشلت خلال 7 أيام"
+msgstr "ባለፉት 7 ቀናት ያልተሳኩ ተግባራት"
+
+msgid "مهام كل الشركات مع تفاصيلها التقنية"
+msgstr "የእያንዳንዱ ኩባንያ ተግባራት ከቴክኒካዊ ዝርዝሮቻቸው ጋር"
+
+msgid "مهمة فشلت خلال 7 أيام"
+msgstr "በ7 ቀናት ውስጥ ያልተሳኩ ተግባራት"
+
+msgid "مهنية وموثوقة"
+msgstr "ሙያዊና አስተማማኝ"
+
+msgid "موافقة العميل"
+msgstr "የደንበኛ ማጽደቅ"
+
+msgid "موجات"
+msgstr "ሞገዶች"
+
+msgid "موظف"
+msgstr "ሠራተኛ"
+
+msgid "موعد"
+msgstr "ቀጠሮ"
+
+msgid "موعد النشر"
+msgstr "የማተሚያ ሰዓት"
+
+msgid "موقع"
+msgstr "አካባቢ"
+
+msgid "موقع الوكالة"
+msgstr "የኤጀንሲ ድር ጣቢያ"
+
+msgid "مُتجاهَل"
+msgstr "ተሰናብቷል"
+
+msgid "مُخرجة"
+msgstr "ውጤት"
+
+msgid "مُدخلة"
+msgstr "ግብዓት"
+
+msgid "ناعم"
+msgstr "ለስላሳ"
+
+msgid "نبات"
+msgstr "ተክል"
+
+msgid "نبذة عن الشركة"
+msgstr "ስለ ኩባንያው"
+
+msgid "نبرة الخطاب"
+msgstr "የድምፅ ቃና"
+
+msgid "نجحت"
+msgstr "ተሳክቷል"
+
+msgid "نساء"
+msgstr "ሴቶች"
+
+msgid "نسخ"
+msgstr "ቅዳ"
+
+msgid "نسخ النص مع الوسوم"
+msgstr "ጽሑፉን ከሃሽታጎች ጋር ቅዳ"
+
+msgid "نسخ منه:"
+msgstr "ቅጂዎች:"
+
+msgid "نسخة بلغة أو لهجة أخرى"
+msgstr "በሌላ ቋንቋ ወይም ዘዬ ያለ ስሪት"
+
+msgid "نسخة جديدة من هذا المنشور:"
+msgstr "የዚህ ልጥፍ አዲስ ስሪት:"
+
+msgid "نسيت كلمة المرور؟"
+msgstr "የይለፍ ቃልዎን ረሱ?"
+
+msgid "نشر المنشور الآن؟"
+msgstr "ልጥፉ አሁን ይታተም?"
+
+msgid "نشر منشور"
+msgstr "ልጥፍ ማተም"
+
+msgid "نشط"
+msgstr "ንቁ"
+
+msgid "نص المنشور"
+msgstr "የልጥፍ ጽሑፍ"
+
+msgid "نص قصير بارز مثل: جديد، خصم 20%."
+msgstr "አጭር ጎልቶ የሚታይ ጽሑፍ ለምሳሌ: አዲስ፣ 20% ቅናሽ።"
+
+msgid "نظام الألوان"
+msgstr "የቀለም ንድፍ"
+
+msgid "نظرة على تسويق %(name)s لشهر %(month_label)s"
+msgstr "የ%(name)s ግብይት ለ%(month_label)s"
+
+msgid "نعم، لدينا صفحة"
+msgstr "አዎ፣ ገጽ አለን"
+
+msgid "نعم، لكن لست متأكداً"
+msgstr "አዎ፣ ግን እርግጠኛ አይደለሁም"
+
+msgid "نعم، وحسابي جاهز"
+msgstr "አዎ፣ መለያዬም ዝግጁ ነው"
+
+msgid "نفّذ"
+msgstr "ሂድ"
+
+msgid "نقاط"
+msgstr "ነጠብጣቦች"
+
+msgid "نقاط التميز"
+msgstr "ጎልቶ እንዲታይ የሚያደርገው"
+
+msgid "نقد"
+msgstr "ጥሬ ገንዘብ"
+
+msgid "نمو"
+msgstr "ዕድገት"
+
+msgid "نهاية الاشتراك"
+msgstr "የምዝገባ ማብቂያ"
+
+msgid "نهاية الاشتراك قبل بدايته."
+msgstr "ምዝገባው ከመጀመሩ በፊት ያበቃል።"
+
+msgid "نوع الحساب"
+msgstr "የመለያ ዓይነት"
+
+msgid "نوع المنشور"
+msgstr "የልጥፍ ዓይነት"
+
+msgid "نوع المهمة"
+msgstr "የተግባር ዓይነት"
+
+msgid "نوف"
+msgstr "ኖቬ"
+
+msgid "نوفمبر"
+msgstr "ኖቬምበር"
+
+msgid "نُشر «{title}» على {platforms}."
+msgstr "“{title}” በ{platforms} ላይ ታትሟል።"
+
+msgid "نُشر على %(platforms)s."
+msgstr "በ%(platforms)s ላይ ታትሟል።"
+
+msgid "نُشر هذا المنشور بالفعل."
+msgstr "ይህ ልጥፍ አስቀድሞ ታትሟል።"
+
+msgid "هدف"
+msgstr "ግብ"
+
+msgid "هدية"
+msgstr "ስጦታ"
+
+msgid "هذا الإجراء نهائي ولا يمكن التراجع عنه"
+msgstr "ይህ ቋሚ ነው እና መመለስ አይቻልም"
+
+msgid "هذا الحساب غير مفعّل."
+msgstr "ይህ መለያ ንቁ አይደለም።"
+
+msgid "هذا الشهر:"
+msgstr "በዚህ ወር:"
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "ይህ አሳሽ ማሳወቂያዎችን አይደግፍም።"
+
+msgid "هذا المستخدم عضو في الشركة بالفعل."
+msgstr "ይህ ተጠቃሚ አስቀድሞ የኩባንያው አባል ነው።"
+
+msgid "هذا حساب مشرف نظام، ولا يكون مالكاً لاشتراك."
+msgstr "ይህ የሥርዓት አስተዳዳሪ መለያ ነው፣ ምዝገባ ሊይዝ አይችልም።"
+
+msgid "هل تريد النشر على إنستغرام أيضاً؟"
+msgstr "ወደ Instagram ደግሞ መለጠፍ ይፈልጋሉ?"
+
+msgid "هل لدى شركتك صفحة على فيسبوك؟"
+msgstr "ኩባንያዎ የFacebook ገጽ አለው?"
+
+msgid "هوية العلامة"
+msgstr "የብራንድ መታወቂያ"
+
+msgid "هوية وعروض تقديمية"
+msgstr "መታወቂያና ገለጻዎች"
+
+msgid "و"
+msgstr "እና"
+
+msgid "وأنا أديرها من حسابي على فيسبوك"
+msgstr "እና ከFacebook መለያዬ አስተዳድረዋለሁ"
+
+msgid "واتساب"
+msgstr "WhatsApp"
+
+msgid "واتساب العميل"
+msgstr "የደንበኛ ዋትስአፕ"
+
+msgid "واتساب غير مفعّل على هذا الخادم."
+msgstr "ዋትስአፕ በዚህ አገልጋይ ላይ አልነቃም።"
+
+msgid "وثائق وكيل"
+msgstr "የWakeel ሰነዶች"
+
+msgid "ودودة وقريبة"
+msgstr "ወዳጃዊና ቀረቤታ ያለው"
+
+msgid "وسوم اختيارية: منتج، فريق، مكتب…"
+msgstr "አማራጭ መለያዎች: ምርት፣ ቡድን፣ ቢሮ…"
+
+msgid "وسوم العلامة"
+msgstr "የብራንድ ሃሽታጎች"
+
+msgid "وصف اختياري للصور"
+msgstr "ለምስሎቹ አማራጭ መግለጫ"
+
+msgid "وصف الصورة المقترحة"
+msgstr "የተጠቆመ ምስላዊ"
+
+msgid "وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "የAI አገልግሎቱ ያልተጠበቀ ምላሽ ሰጥቷል። እባክዎ እንደገና ይሞክሩ።"
+
+msgid "وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "የAI አገልግሎቱ ያልተሟላ ምላሽ ሰጥቷል። እባክዎ እንደገና ይሞክሩ።"
+
+msgid "وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "የAI አገልግሎቱ ከፊል ምላሽ ሰጥቷል። እባክዎ እንደገና ይሞክሩ።"
+
+msgid "وصلت ملاحظتك إلى الفريق"
+msgstr "ማስታወሻዎ ወደ ቡድኑ ደርሷል"
+
+msgid "وصلت ملاحظتك على «%(title)s» إلى الفريق. شكراً!"
+msgstr "በ“%(title)s” ላይ ያለዎት ማስታወሻ ወደ ቡድኑ ደርሷል። አመሰግናለሁ!"
+
+msgid "وضع الوكالة"
+msgstr "የኤጀንሲ ሁነታ"
+
+msgid "وقت"
+msgstr "ሰዓት"
+
+msgid "وقود"
+msgstr "ነዳጅ"
+
+msgid "وكالة"
+msgstr "ኤጀንሲ"
+
+msgid "وكيل"
+msgstr "Wakeel"
+
+msgid "وكيل · مدير التسويق الذكي"
+msgstr "Wakeel · የእርስዎ AI የግብይት ሥራ አስኪያጅ"
+
+msgid "وكيل يحلّل المنافسين…"
+msgstr "Wakeel ተፎካካሪዎችን በመተንተን ላይ ነው…"
+
+msgid "وكيل يدرس هوية الشركة ويضع الاستراتيجية…"
+msgstr "Wakeel ብራንዱን በማጥናትና ስትራቴጂውን በማዘጋጀት ላይ ነው…"
+
+msgid "وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…"
+msgstr "Wakeel ከቀደሙ አስተያየቶችዎ ለመማር እየመረመረ ነው…"
+
+msgid "وكيل يعمل على خطة %(month_label)s"
+msgstr "Wakeel የ%(month_label)s ዕቅድ ላይ እየሠራ ነው"
+
+msgid "وكيل يعيد صياغة المنشور…"
+msgstr "Wakeel ልጥፉን በሌላ ቃላት እየጻፈ ነው…"
+
+msgid "وكيل يعيد كتابة المنشور…"
+msgstr "Wakeel ልጥፉን እንደገና እየጻፈ ነው…"
+
+msgid "وكيل يقرأ التعليقات…"
+msgstr "Wakeel አስተያየቶቹን እያነበበ ነው…"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeel የምንጭ ሰነዱን እያነበበ ነው…"
+
+msgid "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة."
+msgstr "Wakeel ድር ጣቢያውን እያነበበ ነው… አንድ ደቂቃ ሊወስድ ይችላል።"
+
+msgid "وكيل يكتب النسخة…"
+msgstr "Wakeel ስሪቱን እየጻፈ ነው…"
+
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — የእርስዎ AI የግብይት ሥራ አስኪያጅ"
+
+msgid "وهذا نص فرعي قصير يشرح الفكرة."
+msgstr "ይህ ደግሞ ሐሳቡን የሚያብራራ አጭር ንዑስ ርዕስ ነው።"
+
+msgid "ويُبلَّغ مالكه بالبريد."
+msgstr "እና ለባለቤቱ ኢሜይል ይላኩ።"
+
+msgid "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة."
+msgstr "Wakeel በየግማሽ ሰዓቱ አዳዲስ አስተያየቶችን ይፈትሻል።"
+
+msgid "يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة."
+msgstr "Wakeel አሁን ተፎካካሪዎችን እየተነተነ ነው። ከአንድ ደቂቃ በኋላ ገጹን እንደገና ይጫኑ።"
+
+msgid "يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره."
+msgstr "የኩባንያዎን ይዘት ያቅዳል፣ ይጽፋል፣ ይነድፋል እና ያትማል።"
+
+msgid "يدرس وكيل هوية %(name)s وجمهورها وأهدافها."
+msgstr "Wakeel የ%(name)s መታወቂያ፣ ታዳሚና ግቦችን ያጠናል።"
+
+msgid "يراجع فريقنا بيانات حسابك"
+msgstr "ቡድናችን የመለያዎን ዝርዝሮች ይገመግማል"
+
+msgid "يراجع فريقنا بيانات شركتك"
+msgstr "ቡድናችን የኩባንያዎን ዝርዝሮች ይገመግማል"
+
+msgid "يرسل رابط المراجعة للعميل"
+msgstr "የግምገማ አገናኙን ለደንበኛዎ ይልካል"
+
+msgid "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق."
+msgstr "ዝግጅቱ ብዙውን ጊዜ ከሁለት እስከ አምስት ደቂቃ ይወስዳል።"
+
+msgid "يصمم المنشورات"
+msgstr "ልጥፎቹን ይነድፋል"
+
+msgid "يصمم صورة كل منشور بألوانك وخطوطك وشعارك."
+msgstr "የእያንዳንዱን ልጥፍ ምስል በእርስዎ ቀለሞች፣ ፊደላትና አርማ ይነድፋል።"
+
+msgid "يطّلع على الخطط والتقويم فقط."
+msgstr "ዕቅዶችንና የቀን መቁጠሪያውን ብቻ ያያል።"
+
+msgid "يظهر أول "
+msgstr "የመጀመሪያው ወደ "
+
+msgid "يعتمد المنشورات أو يطلب تعديلها دون حساب"
+msgstr "ልጥፎችን ያጸድቃሉ ወይም ለውጦችን ይጠይቃሉ፣ መለያ አያስፈልግም"
+
+msgid "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة."
+msgstr "ዕቅዶችን ያዘጋጃል፣ ልጥፎችን ያርማል እና ለግምገማ ይልካል።"
+
+msgid "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr "Wakeel ስትራቴጂውን፣ እያንዳንዱን ልጥፍና ንድፉን ያዘጋጃል።"
+
+msgid "يعمل"
+msgstr "በ"
+
+msgid "يعمل لشركتك على مدار الساعة."
+msgstr "ለኩባንያዎ ቀን ከሌት የሚሠራ።"
+
+msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."
+msgstr "በርቷል: ቀጣዩ ዕቅድ በ%(run_on)s ይዘጋጃል።"
+
+msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
+msgstr "Wakeel ቀጣይ ልጥፎችዎን ሲያቅድ እነዚህን ሰዓቶች ይመርጣል:"
+
+msgid "يفهم علامتك"
+msgstr "ብራንድዎን የሚረዳ"
+
+msgid "يقرأ وكيل التعليقات الجديدة الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel አሁን አዳዲስ አስተያየቶችን እያነበበ ነው። ከትንሽ ቆይታ በኋላ ገጹን እንደገና ይጫኑ።"
+
+msgid "يمكن إضافة %(n)s منافسين كحد أقصى."
+msgstr "እስከ %(n)s ተፎካካሪዎችን ማከል ይችላሉ።"
+
+msgid "يمكنك إضافة إنستغرام لاحقاً"
+msgstr "Instagramን በኋላ ማከል ይችላሉ"
+
+msgid "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+msgstr "አሁን በአዲሱ የይለፍ ቃልዎ መግባት ይችላሉ።"
+
+msgid "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد."
+msgstr "ሁልጊዜ ከጸደቀ ልጥፍ ገጽ ወዲያውኑ ማተም ይችላሉ።"
+
+msgid "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)"
+msgstr "በአንድ ጊዜ ብዙ ምስሎችን መስቀል ይችላሉ (እያንዳንዳቸው እስከ 10 MB)"
+
+msgid "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية."
+msgstr "ከዚህ ገጽ መውጣት ይችላሉ፤ ሥራው ከበስተጀርባ ይቀጥላል።"
+
+msgid "ينا"
+msgstr "ጃን"
+
+msgid "يناير"
+msgstr "ጃንዋሪ"
+
+msgid "ينتظرك"
+msgstr "እርስዎን በመጠበቅ ላይ"
+
+msgid "ينتهي الاشتراك اليوم"
+msgstr "ምዝገባው ዛሬ ያበቃል"
+
+msgid "ينتهي الاشتراك خلال "
+msgstr "ምዝገባው የሚያበቃው በ "
+
+msgid "ينتهي الاشتراك في %(date)s."
+msgstr "ምዝገባው በ%(date)s ያበቃል።"
+
+msgid "ينشر المعتمد في موعده"
+msgstr "የጸደቀውን በጊዜ ሰሌዳ ያትማል"
+
+msgid "ينقص"
+msgstr "ጎድሏል"
+
+msgid "يوجد حساب مسجل بهذا البريد الإلكتروني."
+msgstr "በዚህ ኢሜይል መለያ አስቀድሞ አለ።"
+
+msgid "يول"
+msgstr "ጁላ"
+
+msgid "يوليو"
+msgstr "ጁላይ"
+
+msgid "يوم إعداد الخطة"
+msgstr "የዕቅድ ዝግጅት ቀን"
+
+msgid "يوم التأسيس السعودي"
+msgstr "የሳዑዲ መሥራች ቀን"
+
+msgid "يوم عرفة"
+msgstr "የዐረፋ ቀን"
+
+msgid "يومياً ·"
+msgstr "በየቀኑ ·"
+
+msgid "يون"
+msgstr "ጁን"
+
+msgid "يونيو"
+msgstr "ጁን"
+
+msgid "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel አሁን ጥቆማውን እያዘጋጀ ነው። ከትንሽ ቆይታ በኋላ ገጹን እንደገና ይጫኑ።"
+
+msgid "— وكيل، مساحة عمل %(company)s"
+msgstr "— Wakeel፣ የ%(company)s የሥራ ቦታ"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "መለያ፣ ደብዳቤዎችና ሰርተፍኬቶች በራስዎ የደብዳቤ ራስጌ።"
 

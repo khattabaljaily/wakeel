@@ -7304,6 +7304,4942 @@ msgstr "प्रश्न: %(q)s"
 msgid "The answer was saved as a note."
 msgstr "उत्तर नोट के रूप में सहेजा गया।"
 
+msgid " حرفاً تقريباً قبل «"
+msgstr " अक्षर पहले दिखते हैं “"
+
+msgid " حقلاً من الموقع. راجعها في كل الخطوات."
+msgstr " वेबसाइट से फ़ील्ड। हर चरण में इन्हें जाँचें।"
+
+msgid " صورة"
+msgstr " चित्र"
+
+msgid " من "
+msgstr " में से"
+
+msgid " منشوراً"
+msgstr " पोस्ट"
+
+msgid " منشوراً؟"
+msgstr " पोस्ट?"
+
+msgid " يوم"
+msgstr " दिन पहले"
+
+msgid "%(all)s منشوراً"
+msgstr "%(all)s पोस्ट"
+
+msgid "%(company)s · عبر وكيل"
+msgstr "%(company)s · Wakeel के ज़रिए"
+
+msgid "%(company)s · وكيل"
+msgstr "%(company)s · Wakeel"
+
+msgid "%(count)s × %(unit)s"
+msgstr "%(count)s × %(unit)s"
+
+msgid "%(count)s منشور"
+msgstr "%(count)s पोस्ट"
+
+msgid "%(db_runs)s لقاعدة البيانات · %(media_runs)s للملفات"
+msgstr "डेटाबेस के %(db_runs)s · फ़ाइलों के %(media_runs)s"
+
+msgid "%(display_name)s · %(created_at)s"
+msgstr "%(display_name)s · %(created_at)s"
+
+msgid "%(finished_at)s (منذ %(finished_at2)s)"
+msgstr "%(finished_at)s (%(finished_at2)s पहले)"
+
+msgid "%(get_kind_display)s · منذ %(created_at)s"
+msgstr "%(get_kind_display)s · %(created_at)s पहले"
+
+msgid "%(jobs)s مهمة"
+msgstr "%(jobs)s कार्य"
+
+msgid "%(jobs)s مهمة · %(input)s رمز"
+msgstr "%(jobs)s कार्य · %(input)s टोकन"
+
+msgid "%(jobs)s مهمة · cache hit %(cache_rate)s%%"
+msgstr "%(jobs)s कार्य · cache hit %(cache_rate)s%%"
+
+msgid "%(month)s (%(n)s منشوراً، %(get_status_display)s)"
+msgstr "%(month)s (%(n)s पोस्ट, %(get_status_display)s)"
+
+msgid "%(month_label)s · %(posts_per_week)s منشورات أسبوعياً ·"
+msgstr "%(month_label)s · प्रति सप्ताह %(posts_per_week)s पोस्ट ·"
+
+msgid "%(name)s (%(count)s عضو)"
+msgstr "%(name)s (%(count)s सदस्य)"
+
+msgid "%(name)s (العميل): %(body)s"
+msgstr "%(name)s (क्लाइंट): %(body)s"
+
+msgid "%(name)s · لوحة النظام"
+msgstr "%(name)s · सिस्टम कंसोल"
+
+msgid "%(new_companies)s جديدة هذا الشهر"
+msgstr "इस महीने %(new_companies)s नई"
+
+msgid "%(pending)s بانتظار رأيك"
+msgstr "%(pending)s आपकी राय की प्रतीक्षा में"
+
+msgid "%(pending)s قيد الانتظار"
+msgstr "%(pending)s लंबित"
+
+msgid "%(plans_month)s خطة محتوى"
+msgstr "%(plans_month)s कंटेंट प्लान"
+
+msgid "%(running_jobs)s مهمة قيد التنفيذ الآن"
+msgstr "अभी %(running_jobs)s कार्य चल रहे हैं"
+
+msgid "%(total_bytes)s (المساحة الحرة: %(free_bytes)s)"
+msgstr "%(total_bytes)s (खाली जगह: %(free_bytes)s)"
+
+msgid "%(unpriced)s مهمة بلا سعر"
+msgstr "%(unpriced)s कार्य बिना कीमत के"
+
+msgid "%(unscheduled)s منشور بلا موعد"
+msgstr "%(unscheduled)s पोस्ट बिना तारीख़ के"
+
+msgid "(%(unread_notifications)s غير مقروءة)"
+msgstr "(%(unread_notifications)s अपठित)"
+
+msgid "(أنت)"
+msgstr "(आप)"
+
+msgid "(دون %(unpriced)s مهمة بلا سعر)"
+msgstr "(%(unpriced)s बिना कीमत वाले कार्य छोड़कर)"
+
+msgid "(قد يتغير يوماً حسب رؤية الهلال)"
+msgstr "(चाँद दिखने के आधार पर एक दिन बदल सकता है)"
+
+msgid ") ليعمل معه تلقائياً، أو شغّل"
+msgstr ") ताकि यह इसके साथ अपने आप चले, या चलाएँ"
+
+msgid "). الأسعار في"
+msgstr ")। कीमतें इसमें"
+
+msgid ". سيراجعه فريقنا، وسيصلك بريد على"
+msgstr "। हमारी टीम इसकी समीक्षा करेगी, और आपको इस पते पर ईमेल मिलेगा"
+
+msgid "12 شهراً"
+msgstr "12 महीने"
+
+msgid "14 يوماً (تجربة)"
+msgstr "14 दिन (ट्रायल)"
+
+msgid "16 منشوراً جاهزاً"
+msgstr "16 पोस्ट तैयार"
+
+msgid "3 أشهر"
+msgstr "3 महीने"
+
+msgid "6 أشهر"
+msgstr "6 महीने"
+
+msgid "<i class=\"bi bi-patch-check\"></i> اعتماد"
+msgstr "<i class=\"bi bi-patch-check\"></i> मंज़ूर करें"
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ النشر…"
+msgstr ""
+"<span class=\"spinner-border spinner-border-sm\"></span> प्रकाशित हो रहा है…"
+
+msgid "<span class=\"text-warning\">● تغييرات غير محفوظة</span>"
+msgstr "<span class=\"text-warning\">● बिना सहेजे बदलाव</span>"
+
+msgid "A product of"
+msgstr "A product of"
+
+msgid "Added a contact"
+msgstr "संपर्क जोड़ा गया"
+
+msgid "Added a task"
+msgstr "कार्य जोड़ा गया"
+
+msgid "Attach from Wakeel"
+msgstr "Wakeel से जोड़ें"
+
+msgid "Attached a file to a task"
+msgstr "कार्य में फ़ाइल जोड़ी गई"
+
+msgid "Build a month of social media content from this document."
+msgstr "इस दस्तावेज़ से एक महीने का सोशल मीडिया कंटेंट बनाएँ।"
+
+msgid "Changed a contact"
+msgstr "संपर्क बदला गया"
+
+msgid "Changed a document of the library"
+msgstr "लाइब्रेरी का दस्तावेज़ बदला गया"
+
+msgid "Changed a task"
+msgstr "कार्य बदला गया"
+
+msgid "Changed an announcement"
+msgstr "घोषणा बदली गई"
+
+msgid "Changed the settings of a form"
+msgstr "फ़ॉर्म की सेटिंग बदली गई"
+
+msgid "Changed the status of a task"
+msgstr "कार्य की स्थिति बदली गई"
+
+msgid "Choose a file"
+msgstr "फ़ाइल चुनें"
+
+msgid "Closed a form"
+msgstr "फ़ॉर्म बंद किया गया"
+
+msgid "Content plan from it"
+msgstr "इससे कंटेंट प्लान"
+
+msgid "Created a form"
+msgstr "फ़ॉर्म बनाया गया"
+
+msgid "Ctrl + S للحفظ"
+msgstr "सहेजने के लिए Ctrl + S"
+
+msgid "Deleted a contact and its history"
+msgstr "संपर्क और उसका इतिहास हटाया गया"
+
+msgid "Deleted a document from the library"
+msgstr "लाइब्रेरी से दस्तावेज़ हटाया गया"
+
+msgid "Deleted a form and its answers"
+msgstr "फ़ॉर्म और उसके जवाब हटाए गए"
+
+msgid "Deleted a presentation"
+msgstr "प्रेज़ेंटेशन हटाया गया"
+
+msgid "Deleted a task"
+msgstr "कार्य हटाया गया"
+
+msgid "Deleted an announcement"
+msgstr "घोषणा हटाई गई"
+
+msgid "Document services"
+msgstr "दस्तावेज़ सेवाएँ"
+
+msgid "Documents waiting for your approval"
+msgstr "आपकी मंज़ूरी की प्रतीक्षा में दस्तावेज़"
+
+msgid "Downloaded the answers of a form"
+msgstr "फ़ॉर्म के जवाब डाउनलोड किए गए"
+
+msgid "Exported all the data of the company"
+msgstr "कंपनी का सारा डेटा एक्सपोर्ट किया गया"
+
+msgid "Invited someone to the company"
+msgstr "किसी को कंपनी में आमंत्रित किया गया"
+
+msgid "It did not work. You were not charged."
+msgstr "काम नहीं हुआ। आपसे शुल्क नहीं लिया गया।"
+
+msgid "Joined the company"
+msgstr "कंपनी से जुड़े"
+
+msgid "Letterheads"
+msgstr "लेटरहेड"
+
+msgid "Make a content plan"
+msgstr "कंटेंट प्लान बनाएँ"
+
+msgid "Never charged (internal and demo companies)."
+msgstr "कभी शुल्क नहीं लगता (आंतरिक और डेमो कंपनियाँ)।"
+
+msgid "Nobody else is in this company yet."
+msgstr "इस कंपनी में अभी कोई और नहीं है।"
+
+msgid "Only members of this company can open it."
+msgstr "केवल इस कंपनी के सदस्य इसे खोल सकते हैं।"
+
+msgid "Only the people of this company, one answer each"
+msgstr "केवल इस कंपनी के लोग, हर किसी का एक जवाब"
+
+msgid "Open the card again and approve it from there."
+msgstr "कार्ड फिर से खोलें और वहीं से मंज़ूर करें।"
+
+msgid "Opened a form for answers"
+msgstr "फ़ॉर्म जवाबों के लिए खोला गया"
+
+msgid "Ordered a presentation"
+msgstr "प्रेज़ेंटेशन का ऑर्डर दिया गया"
+
+msgid "Papers expired or expiring within 30 days"
+msgstr "30 दिनों के भीतर समाप्त या समाप्त होने वाले कागज़ात"
+
+msgid "Post"
+msgstr "पोस्ट"
+
+msgid "Post from it"
+msgstr "इससे पोस्ट बनाएँ"
+
+msgid "Published an announcement"
+msgstr "घोषणा प्रकाशित की गई"
+
+msgid "Reading the document. The answer will be saved as a note."
+msgstr "दस्तावेज़ पढ़ा जा रहा है। जवाब नोट के रूप में सहेजा जाएगा।"
+
+msgid "Reading the document… the details will appear here in a moment."
+msgstr "दस्तावेज़ पढ़ा जा रहा है… विवरण कुछ ही देर में यहाँ दिखेंगे।"
+
+msgid "Removed a file from a task"
+msgstr "कार्य से फ़ाइल हटाई गई"
+
+msgid "Rewrite a post"
+msgstr "पोस्ट दोबारा लिखें"
+
+msgid "Rewriting the post. Refresh the page in a moment."
+msgstr "पोस्ट दोबारा लिखी जा रही है। कुछ देर में पेज रीफ़्रेश करें।"
+
+msgid "Shared with Wakeel"
+msgstr "Wakeel के साथ साझा किया गया"
+
+msgid "Tasks assigned to you"
+msgstr "आपको सौंपे गए कार्य"
+
+msgid "Tasks of yours are overdue"
+msgstr "आपके कार्य देर से हैं"
+
+msgid "Thank you. The balance is added as soon as the payment is confirmed."
+msgstr "धन्यवाद। भुगतान की पुष्टि होते ही बैलेंस जुड़ जाएगा।"
+
+msgid "The AI is writing. This can take up to a minute; you can wait here."
+msgstr "AI लिख रहा है। इसमें एक मिनट तक लग सकता है; आप यहीं प्रतीक्षा कर सकते हैं।"
+
+msgid "The form was created. Check its questions."
+msgstr "फ़ॉर्म बन गया। उसके प्रश्न जाँच लें।"
+
+msgid "The mailbox will be disconnected from Wakeel."
+msgstr "मेलबॉक्स Wakeel से डिस्कनेक्ट कर दिया जाएगा।"
+
+msgid "The service is busy at the moment. Please try again later."
+msgstr "सेवा अभी व्यस्त है। कृपया बाद में फिर कोशिश करें।"
+
+msgid "This company is not charged."
+msgstr "इस कंपनी से शुल्क नहीं लिया जाता।"
+
+msgid "This suggestion is no longer available. Ask Marid again."
+msgstr "यह सुझाव अब उपलब्ध नहीं है। Marid से दोबारा पूछें।"
+
+msgid "Uploaded a document to the library"
+msgstr "लाइब्रेरी में दस्तावेज़ अपलोड किया गया"
+
+msgid "Verified by Wakeel"
+msgstr "Wakeel द्वारा सत्यापित"
+
+msgid "Wakeel credit: $%(amount)s"
+msgstr "Wakeel क्रेडिट: $%(amount)s"
+
+msgid "Wallet"
+msgstr "वॉलेट"
+
+msgid "What the services cost"
+msgstr "सेवाओं की लागत"
+
+msgid "What to change"
+msgstr "क्या बदलना है"
+
+msgid "Working on it. This page shows the plan as soon as it is ready."
+msgstr "काम चल रहा है। प्लान तैयार होते ही यह पेज उसे दिखाएगा।"
+
+msgid "Write a post from a document"
+msgstr "दस्तावेज़ से पोस्ट लिखें"
+
+msgid "Writing the post from the document. Refresh the page in a moment."
+msgstr "दस्तावेज़ से पोस्ट लिखी जा रही है। कुछ देर में पेज रीफ़्रेश करें।"
+
+msgid "You are charged only if the work is delivered."
+msgstr "शुल्क तभी लगेगा जब काम पूरा सौंपा जाए।"
+
+msgid "You changed the server or the user name: type the password again."
+msgstr "आपने सर्वर या यूज़र नाम बदला है: पासवर्ड फिर से लिखें।"
+
+msgid "You reached today's limit of messages to Marid. Try again tomorrow."
+msgstr "आप आज की Marid को संदेश भेजने की सीमा तक पहुँच गए हैं। कल फिर कोशिश करें।"
+
+msgid "You receive this because you set this reminder in Wakeel."
+msgstr "आपको यह इसलिए मिल रहा है क्योंकि आपने Wakeel में यह रिमाइंडर सेट किया था।"
+
+msgid "You were not charged."
+msgstr "आपसे शुल्क नहीं लिया गया।"
+
+msgid "Your balance: $%(balance)s. It takes about half a minute."
+msgstr "आपका बैलेंस: $%(balance)s। इसमें लगभग आधा मिनट लगता है।"
+
+msgid "[سيناريو الفيديو]"
+msgstr "[वीडियो स्क्रिप्ट]"
+
+msgid "files chosen"
+msgstr "फ़ाइलें चुनी गईं"
+
+msgid "free"
+msgstr "मुफ़्त"
+
+msgid "month"
+msgstr "महीना"
+
+msgid "or drop it here"
+msgstr "या इसे यहाँ छोड़ें"
+
+msgid "page"
+msgstr "पेज"
+
+msgid "platforms"
+msgstr "प्लेटफ़ॉर्म"
+
+msgid "post"
+msgstr "पोस्ट"
+
+msgid "posts per week"
+msgstr "प्रति सप्ताह पोस्ट"
+
+msgid "slide"
+msgstr "स्लाइड"
+
+msgid "this month's brief"
+msgstr "इस महीने की ब्रीफ़"
+
+msgid "{count} منشورات"
+msgstr "{count} पोस्ट"
+
+msgid "{label} على «{post}»: {text}"
+msgstr "{post} पर {label}: {text}"
+
+msgid "{name} (العميل)"
+msgstr "{name} (क्लाइंट)"
+
+msgid "«%(name)s» معتمد بالفعل."
+msgstr "“%(name)s” पहले से मंज़ूर है।"
+
+msgid "· %(industry)s · %(country)s · منذ %(created_at)s"
+msgstr "· %(industry)s · %(country)s · %(created_at)s से"
+
+msgid "· اللغة:"
+msgstr "· भाषा:"
+
+msgid "· النشر التلقائي: %(auto_publish)s"
+msgstr "· ऑटो-पब्लिशिंग: %(auto_publish)s"
+
+msgid "· الهدف: %(objective)s"
+msgstr "· लक्ष्य: %(objective)s"
+
+msgid "· منذ"
+msgstr "· से"
+
+msgid "· وكيل"
+msgstr "· Wakeel"
+
+msgid "· يعمل"
+msgstr "· चालू"
+
+msgid "»، فاجعل البداية قوية."
+msgstr "”, तो शुरुआत दमदार रखें।"
+
+msgid "، "
+msgstr ", "
+
+msgid "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير ("
+msgstr ", इसलिए कार्य शुरू नहीं हुआ। सर्वर को डेवलपमेंट मोड में चलाएँ ("
+
+msgid "، و%(pending)s مهمة تنتظر"
+msgstr ", और %(pending)s कार्य प्रतीक्षा में हैं"
+
+msgid "، وأضف"
+msgstr ", जोड़ें"
+
+msgid "، واجعل رابط إعادة التوجيه:"
+msgstr ", और रीडायरेक्ट URI यह रखें:"
+
+msgid "، وتُحسب تكلفة كل مهمة لحظة تنفيذها."
+msgstr ", और हर कार्य की लागत उसके चलने के क्षण पर गिनी जाती है।"
+
+msgid "؛ المفاتيح السرية لا تُعرض"
+msgstr "; गुप्त कुंजियाँ नहीं दिखाई जातीं"
+
+msgid "؟"
+msgstr "?"
+
+msgid "آخر 12 شهراً"
+msgstr "पिछले 12 महीने"
+
+msgid "آخر 30 يوماً"
+msgstr "पिछले 30 दिन"
+
+msgid "آخر 90 يوماً"
+msgstr "पिछले 90 दिन"
+
+msgid "آخر الأخطاء"
+msgstr "ताज़ा त्रुटियाँ"
+
+msgid "آخر المهام"
+msgstr "ताज़ा कार्य"
+
+msgid "آخر تحديث:"
+msgstr "अंतिम अपडेट:"
+
+msgid "آخر تحديث: %(when)s"
+msgstr "अंतिम अपडेट: %(when)s"
+
+msgid "آخر نسخة"
+msgstr "अंतिम बैकअप"
+
+msgid "آيس كريم"
+msgstr "आइसक्रीम"
+
+msgid "أبر"
+msgstr "अप्रैल"
+
+msgid "أبريل"
+msgstr "अप्रैल"
+
+msgid "أثاث"
+msgstr "फ़र्नीचर"
+
+msgid "أحدث الاشتراكات"
+msgstr "ताज़ा सदस्यताएँ"
+
+msgid "أخبار"
+msgstr "समाचार"
+
+msgid "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي."
+msgstr "Wakeel को बताएँ कि इस महीने आपके लिए क्या मायने रखता है, बाकी वह संभाल लेगा।"
+
+msgid "أخرى"
+msgstr "अन्य"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr "अपना ईमेल दर्ज करें, हम आपको नया पासवर्ड सेट करने का लिंक भेजेंगे।"
+
+msgid "أدخل رابط الموقع أولاً."
+msgstr "पहले वेबसाइट का लिंक दर्ज करें।"
+
+msgid "أدخل كلمة المرور للتأكيد"
+msgstr "पुष्टि के लिए अपना पासवर्ड दर्ज करें"
+
+msgid "أدخل لوناً بصيغة ‎#RRGGBB."
+msgstr "#RRGGBB फ़ॉर्मैट में रंग दर्ज करें।"
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "डॉलर में मान्य राशि दर्ज करें (अधिकतम 1000)।"
+
+msgid "أدوات"
+msgstr "टूल"
+
+msgid "أرسل {name} {subject} للمراجعة."
+msgstr "{name} ने समीक्षा के लिए {subject} भेजा।"
+
+msgid "أرسل رابط الاستعادة"
+msgstr "रीसेट लिंक भेजें"
+
+msgid "أرسل للعميل على واتساب"
+msgstr "क्लाइंट को WhatsApp पर भेजें"
+
+msgid "أزمة"
+msgstr "संकट"
+
+msgid "أزمة محتملة"
+msgstr "संभावित संकट"
+
+msgid "أسعار ثابتة:"
+msgstr "निश्चित कीमतें:"
+
+msgid "أسعار هذا النموذج غير معروفة. أضف"
+msgstr "इस मॉडल की कीमतें अज्ञात हैं। जोड़ें"
+
+msgid "أسنان"
+msgstr "दंत चिकित्सा"
+
+msgid "أسود"
+msgstr "गहरा"
+
+msgid "أشرطة"
+msgstr "पट्टियाँ"
+
+msgid "أشعة"
+msgstr "किरणें"
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "कंपनी का बैलेंस चार्ज करना फिर से चालू है।"
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "कंपनी को अब शुल्क से छूट है।"
+
+msgid "أضف دعوة أوضح لاتخاذ إجراء"
+msgstr "ज़्यादा स्पष्ट कॉल टू एक्शन जोड़ें"
+
+msgid "أضف رقم واتساب العميل أولاً من إعدادات المخطط الآلي."
+msgstr "पहले ऑटो प्लानर की सेटिंग में क्लाइंट का WhatsApp नंबर जोड़ें।"
+
+msgid "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين"
+msgstr "नियम जोड़ें, जैसे: शीर्षकों में “ऑफ़र” शब्द का प्रयोग न करें"
+
+msgid "أضف منافساً"
+msgstr "प्रतिस्पर्धी जोड़ें"
+
+msgid "أضف منافساً واحداً على الأقل."
+msgstr "कम से कम एक प्रतिस्पर्धी जोड़ें।"
+
+msgid "أضف منافسيك"
+msgstr "अपने प्रतिस्पर्धी जोड़ें"
+
+msgid "أضفتموها"
+msgstr "आपने जोड़ा"
+
+msgid "أضيفت القاعدة، وسيلتزم بها وكيل من الآن."
+msgstr "नियम जोड़ दिया गया। Wakeel अब से इसका पालन करेगा।"
+
+msgid "أطفال"
+msgstr "बच्चे"
+
+msgid "أعاد وكيل كتابة المنشور"
+msgstr "Wakeel ने पोस्ट दोबारा लिखी"
+
+msgid "أعد الإعداد"
+msgstr "फिर से तैयार करें"
+
+msgid "أعد المحاولة واضغط «تعديل الإعدادات» لتحديدها"
+msgstr "फिर कोशिश करें और उसे चुनने के लिए “सेटिंग बदलें” दबाएँ"
+
+msgid "أعد نشره"
+msgstr "दोबारा पोस्ट करें"
+
+msgid "أعد نشره بصياغة جديدة"
+msgstr "नए शब्दों के साथ दोबारा पोस्ट करें"
+
+msgid "أعدّ الخطة"
+msgstr "प्लान तैयार करें"
+
+msgid "أعدّ الخطة الآن"
+msgstr "अभी प्लान तैयार करें"
+
+msgid "أعدّ المخطط الآلي خطة {title}."
+msgstr "ऑटो प्लानर ने {title} प्लान तैयार किया।"
+
+msgid "أعدّ تقريراً لشهر"
+msgstr "इसके लिए रिपोर्ट तैयार करें"
+
+msgid "أعدّ خطة الشهر"
+msgstr "इस महीने का प्लान तैयार करें"
+
+msgid "أعدّ خطة المحتوى"
+msgstr "कंटेंट प्लान तैयार करें"
+
+msgid "أعدّ خطة محتوى أو أنشئ منشوراً يدوياً."
+msgstr "कंटेंट प्लान तैयार करें या हाथ से पोस्ट बनाएँ।"
+
+msgid "أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات."
+msgstr "कंटेंट प्लान तैयार करें और Wakeel आपका कैलेंडर पोस्ट से भर देगा।"
+
+msgid "أعدّت هذه الخطة %(name)s"
+msgstr "यह प्लान %(name)s ने तैयार किया"
+
+msgid "أعضاء"
+msgstr "सदस्य"
+
+msgid "أعضاء الفريق · المنشورات"
+msgstr "टीम सदस्य · पोस्ट"
+
+msgid "أعمال"
+msgstr "बिज़नेस"
+
+msgid "أغس"
+msgstr "अग॰"
+
+msgid "أغسطس"
+msgstr "अगस्त"
+
+msgid "أغلقتها؟ تابع"
+msgstr "बंद कर दिया? जारी रखें"
+
+msgid "أفضل ساعات النشر لجمهورك"
+msgstr "आपके दर्शकों के लिए पोस्ट करने के सबसे अच्छे समय"
+
+msgid "أقدم مهمة منتظرة"
+msgstr "सबसे पुराना लंबित कार्य"
+
+msgid "أقواس"
+msgstr "चाप"
+
+msgid "أكت"
+msgstr "अक्टू॰"
+
+msgid "أكتوبر"
+msgstr "अक्टूबर"
+
+msgid "أكمل الخطوات هناك وسنتابع هنا تلقائياً."
+msgstr "वहाँ चरण पूरे करें, हम यहाँ अपने आप आगे बढ़ेंगे।"
+
+msgid "أكمل الملف"
+msgstr "प्रोफ़ाइल पूरी करें"
+
+msgid "أكمل الملف أولاً"
+msgstr "पहले प्रोफ़ाइल पूरी करें"
+
+msgid "أكمل ملف شركتك"
+msgstr "अपनी कंपनी की प्रोफ़ाइल पूरी करें"
+
+msgid "ألغاه المستخدم."
+msgstr "यूज़र ने रद्द किया।"
+
+msgid "أمان"
+msgstr "सुरक्षा"
+
+msgid "أمثلة من منشوراتهم"
+msgstr "उनकी पोस्ट के उदाहरण"
+
+msgid "أنت داخل حساب"
+msgstr "आप इस खाते के अंदर हैं:"
+
+msgid "أنشأت الصفحة، التالي"
+msgstr "मैंने बना दिया, आगे"
+
+msgid "أنشئ النسخة"
+msgstr "संस्करण बनाएँ"
+
+msgid "أنشئ تطبيقاً في"
+msgstr "इस पर ऐप बनाएँ"
+
+msgid "أنشئ حساباً"
+msgstr "खाता बनाएँ"
+
+msgid "أنشئ صفحة لشركتك"
+msgstr "अपनी कंपनी के लिए पेज बनाएँ"
+
+msgid "أنشئ صفحة لشركتك أولاً"
+msgstr "पहले अपनी कंपनी के लिए पेज बनाएँ"
+
+msgid "أنشئه في Meta متوقفاً"
+msgstr "इसे Meta में बनाएँ, रुका हुआ"
+
+msgid "أهداف التسويق"
+msgstr "मार्केटिंग लक्ष्य"
+
+msgid "أهلاً %(display_name)s 👋"
+msgstr "नमस्ते %(display_name)s 👋"
+
+msgid "أو افتحها من المتصفح"
+msgstr "या इसे ब्राउज़र में खोलें"
+
+msgid "أوقفت الإشعارات على هذا الجهاز"
+msgstr "इस डिवाइस पर नोटिफ़िकेशन बंद हैं"
+
+msgid "أول يوم في الشهر."
+msgstr "महीने का पहला दिन।"
+
+msgid "أُرسلت دعوة المراجعة إلى واتساب العميل."
+msgstr "समीक्षा का निमंत्रण क्लाइंट के WhatsApp पर भेज दिया गया।"
+
+msgid "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي"
+msgstr "यह प्लान Wakeel ने तैयार किया · आपका AI मार्केटिंग मैनेजर"
+
+msgid "أُلغي"
+msgstr "रद्द किया गया"
+
+msgid "أُلغي إعداد الخطة. يمكنك المحاولة مرة أخرى أو حذف الخطة."
+msgstr ""
+"प्लान तैयार करना रद्द कर दिया गया। आप फिर कोशिश कर सकते हैं या प्लान हटा सकते हैं।"
+
+msgid "أُنشئ متوقفاً في Meta"
+msgstr "Meta में रुका हुआ बनाया गया"
+
+msgid "أُنشئت نسخة %(label)s."
+msgstr "%(label)s संस्करण बनाया गया।"
+
+msgid "أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد."
+msgstr "एजेंसी मोड बंद है; आपके क्लाइंट को फिर Wakeel ब्रांड दिखेगा।"
+
+msgid "إحصاءات"
+msgstr "आँकड़े"
+
+msgid "إخفاء كلمة المرور"
+msgstr "पासवर्ड छिपाएँ"
+
+msgid "إدارة الفريق متاحة للمالك والمديرين فقط."
+msgstr "केवल मालिक और एडमिन टीम प्रबंधित कर सकते हैं।"
+
+msgid "إدارة المشتركين ومتابعة نشاطهم"
+msgstr "सब्सक्राइबर प्रबंधित करें और उनकी गतिविधि देखें"
+
+msgid "إدارة المكتبة"
+msgstr "लाइब्रेरी प्रबंधित करें"
+
+msgid "إدارة المنصة"
+msgstr "प्लेटफ़ॉर्म एडमिन"
+
+msgid "إدارة قاعدة البيانات"
+msgstr "डेटाबेस एडमिन"
+
+msgid "إدارة وكيل"
+msgstr "Wakeel प्रशासन"
+
+msgid "إرجاع"
+msgstr "बहाल करें"
+
+msgid "إرسال"
+msgstr "भेजें"
+
+msgid "إرسال الرد"
+msgstr "जवाब भेजें"
+
+msgid "إرسال الملاحظة"
+msgstr "नोट भेजें"
+
+msgid "إرسال للمراجعة"
+msgstr "समीक्षा के लिए भेजें"
+
+msgid "إزالة"
+msgstr "हटाएँ"
+
+msgid "إزالة %(display_name)s"
+msgstr "%(display_name)s को हटाएँ"
+
+msgid "إزالة العضو؟"
+msgstr "सदस्य हटाएँ?"
+
+msgid "إسعاف"
+msgstr "प्राथमिक उपचार"
+
+msgid "إشادة"
+msgstr "प्रशंसा"
+
+msgid "إشعار"
+msgstr "नोटिफ़िकेशन"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "ईमेल नोटिफ़िकेशन"
+
+msgid "إشعارات هذا الجهاز"
+msgstr "इस डिवाइस पर नोटिफ़िकेशन"
+
+msgid "إضافة"
+msgstr "जोड़ें"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "बैलेंस जोड़ें ($, वापस लेने के लिए ऋणात्मक)"
+
+msgid "إضافة شركاتك"
+msgstr "अपनी कंपनियाँ जोड़ें"
+
+msgid "إضافة شركة"
+msgstr "कंपनी जोड़ें"
+
+msgid "إضافة عضو"
+msgstr "सदस्य जोड़ें"
+
+msgid "إطار"
+msgstr "फ़्रेम"
+
+msgid "إظهار كلمة المرور"
+msgstr "पासवर्ड दिखाएँ"
+
+msgid "إعادة إعداد الخطة"
+msgstr "प्लान फिर से तैयार करें"
+
+msgid "إعادة إعداد الخطة؟"
+msgstr "प्लान फिर से तैयार करें?"
+
+msgid "إعادة إلى المسودة"
+msgstr "ड्राफ़्ट में वापस"
+
+msgid "إعادة الإعداد"
+msgstr "फिर से तैयार करें"
+
+msgid "إعادة الربط أو تغيير الصفحة"
+msgstr "पेज दोबारा जोड़ें या बदलें"
+
+msgid "إعادة المحاولة"
+msgstr "फिर कोशिश करें"
+
+msgid "إعادة تصميم كل الصور"
+msgstr "सभी चित्र दोबारा डिज़ाइन करें"
+
+msgid "إعادة كتابة منشور"
+msgstr "पोस्ट दोबारा लिखना"
+
+msgid "إعادة نشر تلقائية كل شهر"
+msgstr "हर महीने अपने आप दोबारा पोस्ट करें"
+
+msgid "إعادة نشر محتوى دائم"
+msgstr "सदाबहार पोस्ट दोबारा करें"
+
+msgid "إعجاب"
+msgstr "पसंद"
+
+msgid "إعداد التقرير"
+msgstr "रिपोर्ट तैयार करें"
+
+msgid "إعداد الخطط، التصميم، النشر، والنشر المجدول"
+msgstr "प्लान तैयारी, डिज़ाइन, प्रकाशन और निर्धारित प्रकाशन"
+
+msgid "إعداد النشر التلقائي"
+msgstr "ऑटो पोस्टिंग सेट करें"
+
+msgid "إعداد تقرير الأداء"
+msgstr "परफ़ॉर्मेंस रिपोर्ट लिखें"
+
+msgid "إعداد خطة المحتوى"
+msgstr "कंटेंट प्लान तैयार हो रहा है"
+
+msgid "إعدادات"
+msgstr "सेटिंग"
+
+msgid "إعدادات الحساب"
+msgstr "खाता सेटिंग"
+
+msgid "إعفاء من الخصم"
+msgstr "शुल्क से छूट"
+
+msgid "إعلان"
+msgstr "घोषणा"
+
+msgid "إغلاق"
+msgstr "बंद करें"
+
+msgid "إلغاء"
+msgstr "रद्द करें"
+
+msgid "إلغاء الإعفاء"
+msgstr "छूट हटाएँ"
+
+msgid "إلى"
+msgstr "को"
+
+msgid "إلى ملف"
+msgstr "को"
+
+msgid "إنترنت"
+msgstr "इंटरनेट"
+
+msgid "إنجاز"
+msgstr "हो गया"
+
+msgid "إنستغرام"
+msgstr "Instagram"
+
+msgid "إنشاء الإعلان في Meta؟"
+msgstr "Meta में विज्ञापन बनाएँ?"
+
+msgid "إنشاء الاشتراك"
+msgstr "सदस्यता बनाएँ"
+
+msgid "إنشاء الحساب"
+msgstr "खाता बन गया"
+
+msgid "إنشاء حساب"
+msgstr "खाता बनाएँ"
+
+msgid "إنشاء رابط جديد؟"
+msgstr "नया लिंक बनाएँ?"
+
+msgid "إنشاء رابط للعميل"
+msgstr "क्लाइंट लिंक बनाएँ"
+
+msgid "إنشاء متوقفاً"
+msgstr "रुका हुआ बनाएँ"
+
+msgid "إنشاء مساحة العمل"
+msgstr "वर्कस्पेस बनाएँ"
+
+msgid "إيجابي"
+msgstr "सकारात्मक"
+
+msgid "إيقاف"
+msgstr "रोकें"
+
+msgid "إيقاف إعداد الخطة؟"
+msgstr "प्लान तैयार करना रोकें?"
+
+msgid "إيقاف الإعداد"
+msgstr "तैयारी रोकें"
+
+msgid "إيقاف الرابط"
+msgstr "लिंक बंद करें"
+
+msgid "إيقاف وضع الوكالة"
+msgstr "एजेंसी मोड बंद करें"
+
+msgid "إيقافه يعلّق الاشتراك."
+msgstr "बंद करने पर सदस्यता निलंबित हो जाती है।"
+
+msgid "ابحث بالاسم أو البريد أو المدينة…"
+msgstr "नाम, ईमेल या शहर से खोजें…"
+
+msgid "ابحث بالاسم أو البريد…"
+msgstr "नाम या ईमेल से खोजें…"
+
+msgid "ابحث بالشركة أو الخطأ أو النموذج…"
+msgstr "कंपनी, त्रुटि या मॉडल से खोजें…"
+
+msgid "ابحث في المنشورات…"
+msgstr "पोस्ट खोजें…"
+
+msgid "ابدأ الآن"
+msgstr "शुरू करें"
+
+msgid "ابدأ بخطتك الأولى"
+msgstr "अपने पहले प्लान से शुरुआत करें"
+
+msgid "ابدأ مع وكيل"
+msgstr "Wakeel के साथ शुरू करें"
+
+msgid "اتصال"
+msgstr "कॉल"
+
+msgid "اجعل الأسلوب أكثر حماساً وجاذبية"
+msgstr "लहजा ज़्यादा ऊर्जावान और आकर्षक बनाएँ"
+
+msgid "اجعل النص أقصر وأكثر تركيزاً"
+msgstr "पाठ को छोटा और ज़्यादा केंद्रित बनाएँ"
+
+msgid "احتفال"
+msgstr "उत्सव"
+
+msgid "احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا."
+msgstr "पोस्ट को डिज़ाइन करने के लिए उसे सहेजें, चित्र यहाँ दिखेगा।"
+
+msgid "اختر الصفحة"
+msgstr "पेज चुनें"
+
+msgid "اختر اللغة أو اللهجة."
+msgstr "भाषा या बोली चुनें।"
+
+msgid "اختر ثلاثة رسوم كحد أقصى."
+msgstr "अधिकतम तीन चित्र चुनें।"
+
+msgid "اختر حساباً إعلانياً من صفحة الترويج أولاً."
+msgstr "पहले प्रमोशन पेज पर विज्ञापन खाता चुनें।"
+
+msgid "اختر صفحة فيسبوك"
+msgstr "Facebook पेज चुनें"
+
+msgid "اختر كلمة مرور جديدة لحسابك."
+msgstr "अपने खाते के लिए नया पासवर्ड चुनें।"
+
+msgid "اختر ما ينطبق عليك:"
+msgstr "जो आप पर लागू हो उसे चुनें:"
+
+msgid "اختر مدة صحيحة للتجديد."
+msgstr "मान्य नवीनीकरण अवधि चुनें।"
+
+msgid "اختر منصة واحدة على الأقل."
+msgstr "कम से कम एक प्लेटफ़ॉर्म चुनें।"
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "1 से 28 के बीच कोई दिन चुनें।"
+
+msgid "اختيار"
+msgstr "चुनें"
+
+msgid "ادخار"
+msgstr "बचत"
+
+msgid "اربط إنستغرام بصفحة فيسبوك"
+msgstr "Instagram को Facebook पेज से जोड़ें"
+
+msgid "اربط حساب تيك توك"
+msgstr "अपना TikTok खाता कनेक्ट करें"
+
+msgid "اربط حسابات فيسبوك أو إنستغرام"
+msgstr "Facebook या Instagram खाते कनेक्ट करें"
+
+msgid "اربط فيسبوك أو إنستغرام"
+msgstr "Facebook या Instagram कनेक्ट करें"
+
+msgid "ارتفاع"
+msgstr "उभार"
+
+msgid "استدامة"
+msgstr "स्थिरता"
+
+msgid "استراتيجية الشهر"
+msgstr "इस महीने की रणनीति"
+
+msgid "استراتيجية شهرية"
+msgstr "मासिक रणनीति"
+
+msgid "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك"
+msgstr "आपके बिज़नेस और दर्शकों की समझ पर बनी मासिक रणनीति"
+
+msgid "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل."
+msgstr "हर महीने की रणनीति और पोस्ट, जैसा Wakeel ने तैयार किया।"
+
+msgid "استعادة كلمة المرور"
+msgstr "पासवर्ड रीसेट करें"
+
+msgid "استعادة كلمة المرور في وكيل"
+msgstr "अपना Wakeel पासवर्ड रीसेट करें"
+
+msgid "استعادة كلمة المرور والإشعارات"
+msgstr "पासवर्ड रीसेट और नोटिफ़िकेशन"
+
+msgid "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً"
+msgstr "पिछले 12 महीनों में पूरे प्लेटफ़ॉर्म पर AI का उपयोग"
+
+msgid "اسحب الصور هنا أو اضغط للاختيار"
+msgstr "चित्र यहाँ खींचें या चुनने के लिए टैप करें"
+
+msgid "اسحب المنشور إلى يوم آخر لتغيير موعده."
+msgstr "तारीख़ बदलने के लिए पोस्ट को दूसरे दिन पर खींचें।"
+
+msgid "اسم الشركة"
+msgstr "कंपनी का नाम"
+
+msgid "اسم الوكالة"
+msgstr "एजेंसी का नाम"
+
+msgid "اسمك"
+msgstr "आपका नाम"
+
+msgid "اشتراك %(name)s معلّق"
+msgstr "%(name)s सदस्यता निलंबित है"
+
+msgid "اشتراك جديد"
+msgstr "नई सदस्यता"
+
+msgid "اشتراك غير صالح."
+msgstr "अमान्य सदस्यता।"
+
+msgid "اشتراك نشط"
+msgstr "सक्रिय सदस्यताएँ"
+
+msgid "اشتراك نشط بدون تاريخ انتهاء"
+msgstr "बिना समाप्ति तिथि की सक्रिय सदस्यता"
+
+msgid "اشتراك نشط، باقٍ "
+msgstr "सक्रिय सदस्यता, शेष "
+
+msgid "اشتراك ينتهي خلال 7 أيام."
+msgstr "सदस्यता 7 दिनों के भीतर समाप्त हो रही हैं।"
+
+msgid "اشتراكات جديدة"
+msgstr "नई सदस्यताएँ"
+
+msgid "اضغط على القائمة ☰ ثم «نوع الحساب والأدوات»."
+msgstr "☰ मेनू पर टैप करें, फिर “खाता प्रकार और टूल” चुनें।"
+
+msgid "اطلب الآن ←"
+msgstr "अभी ऑर्डर करें →"
+
+msgid "اطلب خطة الشهر"
+msgstr "महीने का प्लान माँगें"
+
+msgid "اطلب من وكيل تعديل المنشور"
+msgstr "Wakeel से पोस्ट बदलने को कहें"
+
+msgid "اعتماد"
+msgstr "मंज़ूर करें"
+
+msgid "اعتماد "
+msgstr "मंज़ूर करें "
+
+msgid "اعتماد %(name)s"
+msgstr "%(name)s को मंज़ूर करें"
+
+msgid "اعتماد الحساب؟"
+msgstr "खाता मंज़ूर करें?"
+
+msgid "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها"
+msgstr "नए सब्सक्राइबर मंज़ूर करें, और सदस्यताएँ नवीनीकृत, निलंबित या हटाएँ"
+
+msgid "اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط."
+msgstr "केवल मालिक और एडमिन पोस्ट मंज़ूर और प्रकाशित कर सकते हैं।"
+
+msgid "اعتماد كل ما بانتظار المراجعة (%(review_ids)s)"
+msgstr "समीक्षा की प्रतीक्षा में सब कुछ मंज़ूर करें (%(review_ids)s)"
+
+msgid "اعتماد ✅"
+msgstr "मंज़ूर करें ✅"
+
+msgid "اعتمد"
+msgstr "मंज़ूर"
+
+msgid "اعتمد {name} {subject}."
+msgstr "{name} ने {subject} मंज़ूर किया।"
+
+msgid "اعتمد المنشور أولاً، ثم انشره."
+msgstr "पहले पोस्ट मंज़ूर करें, फिर प्रकाशित करें।"
+
+msgid "افتح تطبيق إنستغرام وادخل إلى ملفك الشخصي."
+msgstr "Instagram ऐप खोलें और अपनी प्रोफ़ाइल पर जाएँ।"
+
+msgid "افتح مدير الإعلانات"
+msgstr "Ads Manager खोलें"
+
+msgid "اقتباس"
+msgstr "उद्धरण"
+
+msgid "اقتراح الترويج جاهز."
+msgstr "प्रमोशन का सुझाव तैयार है।"
+
+msgid "اقتراح ترويج"
+msgstr "प्रमोशन का सुझाव"
+
+msgid "اقترح ترويجاً"
+msgstr "प्रमोशन सुझाएँ"
+
+msgid "اكتب اسمك أولاً"
+msgstr "पहले अपना नाम लिखें"
+
+msgid "اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة."
+msgstr "पहले अपना नाम लिखें ताकि टीम जान सके कि नोट किसने छोड़ा।"
+
+msgid "اكتب الرد أولاً."
+msgstr "पहले जवाब लिखें।"
+
+msgid "اكتب الرد…"
+msgstr "जवाब लिखें…"
+
+msgid "اكتب تعليقاً…"
+msgstr "टिप्पणी लिखें…"
+
+msgid "اكتب تعليقك أولاً."
+msgstr "पहले अपनी टिप्पणी लिखें।"
+
+msgid "اكتب عنواناً أقوى يلفت الانتباه"
+msgstr "ज़्यादा दमदार, ध्यान खींचने वाला शीर्षक लिखें"
+
+msgid "اكتب فكرة مختلفة تماماً لنفس المحور"
+msgstr "उसी स्तंभ के लिए बिल्कुल अलग आइडिया लिखें"
+
+msgid "اكتب ما تريد تغييره في المنشور."
+msgstr "पोस्ट में जो बदलना चाहते हैं वह लिखें।"
+
+msgid "اكتب ملاحظتك أولاً."
+msgstr "पहले अपना नोट लिखें।"
+
+msgid "اكتمل"
+msgstr "हो गया"
+
+msgid "اكتمل الربط"
+msgstr "कनेक्शन पूरा हुआ"
+
+msgid "اكتمل تحليل المنافسين."
+msgstr "प्रतिस्पर्धी विश्लेषण पूरा हुआ।"
+
+msgid "الآن"
+msgstr "अभी-अभी"
+
+msgid "الآن · 🌐"
+msgstr "अभी-अभी · 🌐"
+
+msgid "الآن نربط حساباتك بوكيل"
+msgstr "अब अपने खाते Wakeel से जोड़ें"
+
+msgid "الأحد"
+msgstr "रविवार"
+
+msgid "الأحدث"
+msgstr "सबसे नया"
+
+msgid "الأداء"
+msgstr "परफ़ॉर्मेंस"
+
+msgid "الأدوار"
+msgstr "भूमिकाएँ"
+
+msgid "الأربعاء"
+msgstr "बुधवार"
+
+msgid "الأردن"
+msgstr "जॉर्डन"
+
+msgid "الأساسيات"
+msgstr "मूल बातें"
+
+msgid "الأسلوب والنبرة"
+msgstr "शैली और लहजा"
+
+msgid "الأضعف أداءً"
+msgstr "सबसे कमज़ोर प्रदर्शन"
+
+msgid "الأعضاء"
+msgstr "सदस्य"
+
+msgid "الأعلى استهلاكاً هذا الشهر"
+msgstr "इस महीने सबसे ज़्यादा उपयोग"
+
+msgid "الأفضل أداءً"
+msgstr "सबसे अच्छा प्रदर्शन"
+
+msgid "الأقدم"
+msgstr "सबसे पुराना"
+
+msgid "الألوان والزخرفة"
+msgstr "रंग और मोटिफ़"
+
+msgid "الأهداف"
+msgstr "लक्ष्य"
+
+msgid "الإثنين"
+msgstr "सोमवार"
+
+msgid "الإجمالي الأقصى: %(total)s %(cur)s"
+msgstr "अधिकतम कुल: %(total)s %(cur)s"
+
+msgid "الإدارة"
+msgstr "प्रशासन"
+
+msgid "الإشعارات"
+msgstr "नोटिफ़िकेशन"
+
+msgid "الإعدادات"
+msgstr "सेटिंग"
+
+msgid "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله."
+msgstr "विज्ञापन Meta में है और रुका हुआ है। चालू करने तक कुछ खर्च नहीं होगा।"
+
+msgid "الإمارات"
+msgstr "संयुक्त अरब अमीरात"
+
+msgid "الإنجليزية"
+msgstr "अंग्रेज़ी"
+
+msgid "الاستراتيجية"
+msgstr "रणनीति"
+
+msgid "الاستهلاك حسب الشهر"
+msgstr "महीने के अनुसार उपयोग"
+
+msgid "الاستهلاك والتفاصيل"
+msgstr "उपयोग और विवरण"
+
+msgid "الاستهلاك والتكلفة"
+msgstr "उपयोग और लागत"
+
+msgid "الاسم"
+msgstr "नाम"
+
+msgid "الاسم القانوني"
+msgstr "कानूनी नाम"
+
+msgid "الاسم الكامل"
+msgstr "पूरा नाम"
+
+msgid "الاسم:"
+msgstr "नाम:"
+
+msgid "الاشتراك"
+msgstr "सदस्यता"
+
+msgid "الاشتراك معلّق"
+msgstr "सदस्यता निलंबित"
+
+msgid "الاشتراكات"
+msgstr "सदस्यताएँ"
+
+msgid "الاشتراكات الجديدة لكل شهر"
+msgstr "प्रति माह नई सदस्यताएँ"
+
+msgid "الاعتماد"
+msgstr "मंज़ूरी"
+
+msgid "الاكتفاء بفيسبوك"
+msgstr "Facebook पर बने रहें"
+
+msgid "البحرين"
+msgstr "बहरीन"
+
+msgid "البريد الإلكتروني"
+msgstr "ईमेल"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "ईमेल या पासवर्ड गलत है।"
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "कंपनी ईमेल"
+
+msgid "البريد:"
+msgstr "ईमेल:"
+
+msgid "البيانات الرسمية"
+msgstr "आधिकारिक विवरण"
+
+msgid "التاريخ"
+msgstr "तारीख़"
+
+msgid "التالي"
+msgstr "अगला"
+
+msgid "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة."
+msgstr "विश्लेषण तैयार हो रहा है। एक मिनट में पेज फिर लोड करें।"
+
+msgid "التحويل إلى العربية"
+msgstr "अरबी पर जाएँ"
+
+msgid "الترويج المدفوع"
+msgstr "सशुल्क प्रमोशन"
+
+msgid "التسجيل خلال آخر 12 شهراً"
+msgstr "पिछले 12 महीनों के साइन-अप"
+
+msgid "التسجيل مغلق حالياً."
+msgstr "साइन-अप अभी बंद है।"
+
+msgid "التسعير المستخدم"
+msgstr "उपयोग की गई कीमतें"
+
+msgid "التسويق"
+msgstr "मार्केटिंग"
+
+msgid "التشغيل"
+msgstr "संचालन"
+
+msgid "التصميم"
+msgstr "डिज़ाइन"
+
+msgid "التصميم تغيّر منذ آخر تحديث للصورة."
+msgstr "चित्र अंतिम बार अपडेट होने के बाद से डिज़ाइन बदल गया है।"
+
+msgid "التصميم قيد الإعداد"
+msgstr "डिज़ाइन जारी है"
+
+msgid "التعليقات"
+msgstr "टिप्पणियाँ"
+
+msgid "التعلّم من الملاحظات"
+msgstr "फ़ीडबैक से सीखना"
+
+msgid "التفاصيل"
+msgstr "विवरण"
+
+msgid "التفاصيل التقنية"
+msgstr "तकनीकी विवरण"
+
+msgid "التفاعل"
+msgstr "एंगेजमेंट"
+
+msgid "التفعيل"
+msgstr "एक्टिवेशन"
+
+msgid "التقارير الشهرية"
+msgstr "मासिक रिपोर्ट"
+
+msgid "التقرير الكامل بالأرقام وتوصيات الشهر القادم:"
+msgstr "आँकड़ों और अगले महीने की सिफ़ारिशों के साथ पूरी रिपोर्ट:"
+
+msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
+msgstr "रिपोर्ट तैयार हो रही है। कुछ देर में पेज फिर लोड करें।"
+
+msgid "التقويم"
+msgstr "कैलेंडर"
+
+msgid "التقويم الكامل"
+msgstr "पूरा कैलेंडर"
+
+msgid "التكلفة"
+msgstr "लागत"
+
+msgid "التكلفة لكل شهر"
+msgstr "प्रति माह लागत"
+
+msgid "الثلاثاء"
+msgstr "मंगलवार"
+
+msgid "الجمعة"
+msgstr "शुक्रवार"
+
+msgid "الجمعة البيضاء (عروض التسوق)"
+msgstr "व्हाइट फ़्राइडे (शॉपिंग ऑफ़र)"
+
+msgid "الجمهور المستهدف"
+msgstr "लक्षित दर्शक"
+
+msgid "الجميع"
+msgstr "सभी"
+
+msgid "الجنس"
+msgstr "लिंग"
+
+msgid "الحالة"
+msgstr "स्थिति"
+
+msgid "الحساب"
+msgstr "खाता"
+
+msgid "الحساب الإعلاني"
+msgstr "विज्ञापन खाता"
+
+msgid "الحساب تجريبي."
+msgstr "यह एक ट्रायल खाता है।"
+
+msgid "الحساب غير مربوط. اربطه من «حسابات النشر»."
+msgstr "खाता कनेक्ट नहीं है। इसे “प्रकाशन खाते” से कनेक्ट करें।"
+
+msgid "الحسابات المربوطة"
+msgstr "कनेक्टेड खाते"
+
+msgid "الخدمات"
+msgstr "सेवाएँ"
+
+msgid "الخدمات والإعدادات التي تعمل بها المنصة"
+msgstr "वे सेवाएँ और सेटिंग जिन पर प्लेटफ़ॉर्म चलता है"
+
+msgid "الخرطوم (GMT+2)"
+msgstr "खार्तूम (GMT+2)"
+
+msgid "الخطط:"
+msgstr "प्लान:"
+
+msgid "الخطوة "
+msgstr "चरण "
+
+msgid "الخميس"
+msgstr "गुरुवार"
+
+msgid "الدخول كمدير المشترك"
+msgstr "सब्सक्राइबर के एडमिन के रूप में साइन इन करें"
+
+msgid "الدوحة (GMT+3)"
+msgstr "दोहा (GMT+3)"
+
+msgid "الدور"
+msgstr "भूमिका"
+
+msgid "الدول"
+msgstr "देश"
+
+msgid "الدولة"
+msgstr "देश"
+
+msgid "الذروة"
+msgstr "चरम"
+
+msgid "الذكاء الاصطناعي"
+msgstr "AI"
+
+msgid "الذكاء الاصطناعي غير مفعّل"
+msgstr "AI कॉन्फ़िगर नहीं है"
+
+msgid "الذكاء الاصطناعي غير مفعّل (ينقص"
+msgstr "AI कॉन्फ़िगर नहीं है (अनुपस्थित"
+
+msgid "الذكاء الاصطناعي غير مفعّل بعد. أضف"
+msgstr "AI अभी कॉन्फ़िगर नहीं है। जोड़ें"
+
+msgid "الذكاء الاصطناعي متصل"
+msgstr "AI कनेक्टेड"
+
+msgid "الرابط غير صالح"
+msgstr "अमान्य लिंक"
+
+msgid "الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https."
+msgstr "अमान्य लिंक। http या https से शुरू होने वाला लिंक इस्तेमाल करें।"
+
+msgid "الرابط لا يشير إلى صفحة ويب."
+msgstr "यह लिंक किसी वेब पेज की ओर नहीं जाता।"
+
+msgid "الربط"
+msgstr "कनेक्ट करें"
+
+msgid "الرد التلقائي على التعليقات البسيطة"
+msgstr "साधारण टिप्पणियों का ऑटो-जवाब"
+
+msgid "الرد التلقائي: متوقف"
+msgstr "ऑटो-जवाब: बंद"
+
+msgid "الرد التلقائي: يعمل"
+msgstr "ऑटो-जवाब: चालू"
+
+msgid "الرسوم"
+msgstr "ड्रॉइंग"
+
+msgid "الرصيد"
+msgstr "बैलेंस"
+
+msgid "الرقم الضريبي"
+msgstr "कर संख्या"
+
+msgid "الرموز (مُدخلة · cache · مُخرجة)"
+msgstr "टोकन (इनपुट · कैश · आउटपुट)"
+
+msgid "الرياض (GMT+3)"
+msgstr "रियाद (GMT+3)"
+
+msgid "الزخرفة"
+msgstr "मोटिफ़"
+
+msgid "السابق"
+msgstr "पिछला"
+
+msgid "السبت"
+msgstr "शनिवार"
+
+msgid "السعودية"
+msgstr "सऊदी अरब"
+
+msgid "السودان"
+msgstr "सूडान"
+
+msgid "الشارة"
+msgstr "बैज"
+
+msgid "الشركات"
+msgstr "कंपनियाँ"
+
+msgid "الشركات التي تظهر لعملائها هوية الوكالة"
+msgstr "वे कंपनियाँ जिनके क्लाइंट एजेंसी का ब्रांड देखते हैं"
+
+msgid "الشركة"
+msgstr "कंपनी"
+
+msgid "الشعار"
+msgstr "लोगो"
+
+msgid "الشهر"
+msgstr "महीना"
+
+msgid "الشهر التالي"
+msgstr "अगला महीना"
+
+msgid "الشهر السابق"
+msgstr "पिछला महीना"
+
+msgid "الشهر القادم"
+msgstr "अगला महीना"
+
+msgid "الصفحة الرئيسية"
+msgstr "होम पेज"
+
+msgid "الصورة"
+msgstr "चित्र"
+
+msgid "الصورة المعروضة هي آخر نسخة محفوظة."
+msgstr "दिखाया गया चित्र अंतिम सहेजा गया संस्करण है।"
+
+msgid "الصورة النهائية"
+msgstr "अंतिम चित्र"
+
+msgid "الصورة محدّثة وجاهزة للنشر."
+msgstr "चित्र अप-टू-डेट है और प्रकाशन के लिए तैयार है।"
+
+msgid "العامل الخلفي"
+msgstr "बैकग्राउंड वर्कर"
+
+msgid "العامل الخلفي متوقف"
+msgstr "बैकग्राउंड वर्कर रुका हुआ है"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "العربية الفصحى"
+msgstr "आधुनिक मानक अरबी"
+
+msgid "العربية بلهجة السوق المحلي"
+msgstr "स्थानीय बोली में अरबी"
+
+msgid "العربية والإنجليزية معاً"
+msgstr "अरबी और अंग्रेज़ी साथ में"
+
+msgid "العضو"
+msgstr "सदस्य"
+
+msgid "العضويات"
+msgstr "सदस्यताएँ"
+
+msgid "العمر إلى"
+msgstr "आयु तक"
+
+msgid "العمر من"
+msgstr "आयु से"
+
+msgid "العميل"
+msgstr "क्लाइंट"
+
+msgid "العميل (واتساب +%(phone)s)"
+msgstr "क्लाइंट (WhatsApp +%(phone)s)"
+
+msgid "العنوان"
+msgstr "शीर्षक"
+
+msgid "العنوان الرئيسي"
+msgstr "हेडलाइन"
+
+msgid "العنوان الفرعي"
+msgstr "उप-शीर्षक"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "साइन इन पर वापस जाएँ"
+
+msgid "العودة للوحة الإدارة"
+msgstr "एडमिन कंसोल पर वापस जाएँ"
+
+msgid "العيد الوطني البحريني"
+msgstr "बहरीन राष्ट्रीय दिवस"
+
+msgid "العيد الوطني الكويتي"
+msgstr "कुवैत राष्ट्रीय दिवस"
+
+msgid "الفريق"
+msgstr "टीम"
+
+msgid "الفكرة"
+msgstr "आइडिया"
+
+msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
+msgstr "छोटे वीडियो फ़िल्माने के बाद हाथ से प्रकाशित किए जाते हैं।"
+
+msgid "القائمة"
+msgstr "मेनू"
+
+msgid "القائمة الرئيسية"
+msgstr "मुख्य मेनू"
+
+msgid "القالب"
+msgstr "टेम्पलेट"
+
+msgid "القاهرة"
+msgstr "काहिरा"
+
+msgid "القيمة"
+msgstr "मान"
+
+msgid "الكل"
+msgstr "सभी"
+
+msgid "الكويت"
+msgstr "कुवैत"
+
+msgid "الكويت (GMT+3)"
+msgstr "कुवैत (GMT+3)"
+
+msgid "اللغة"
+msgstr "भाषा"
+
+msgid "اللهجة الخليجية"
+msgstr "खाड़ी की बोली"
+
+msgid "اللهجة السودانية"
+msgstr "सूडानी बोली"
+
+msgid "اللهجة الشامية"
+msgstr "लेवांत की बोली"
+
+msgid "اللهجة المصرية"
+msgstr "मिस्री बोली"
+
+msgid "اللون الأساسي"
+msgstr "प्राथमिक रंग"
+
+msgid "اللون الثانوي"
+msgstr "द्वितीयक रंग"
+
+msgid "المالك"
+msgstr "मालिक"
+
+msgid "المالك والمدير:"
+msgstr "मालिक और एडमिन:"
+
+msgid "المجال"
+msgstr "उद्योग"
+
+msgid "المحتوى"
+msgstr "कंटेंट"
+
+msgid "المحفظة"
+msgstr "वॉलेट"
+
+msgid "المحور"
+msgstr "स्तंभ"
+
+msgid "المخصوم (صافي)"
+msgstr "शुल्क (शुद्ध)"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "ग्राहकों से लिया गया शुल्क (रिफ़ंड घटाकर)"
+
+msgid "المخطط الآلي"
+msgstr "ऑटो प्लानर"
+
+msgid "المدة"
+msgstr "अवधि"
+
+msgid "المدينة"
+msgstr "शहर"
+
+msgid "المدينة والدولة"
+msgstr "शहर और देश"
+
+msgid "المراجعة والتعليقات"
+msgstr "समीक्षा और टिप्पणियाँ"
+
+msgid "المزيد"
+msgstr "और"
+
+msgid "المساحة المستخدمة"
+msgstr "उपयोग की गई जगह"
+
+msgid "المستخدمون"
+msgstr "यूज़र"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "दस्तावेज़ों को मंज़ूरी चाहिए"
+
+msgid "المشاهد:"
+msgstr "दर्शक:"
+
+msgid "المشترك"
+msgstr "सब्सक्राइबर"
+
+msgid "المشتركون"
+msgstr "सब्सक्राइबर"
+
+msgid "المقاس"
+msgstr "आकार"
+
+msgid "المكتبة فارغة"
+msgstr "लाइब्रेरी खाली है"
+
+msgid "المملكة المتحدة"
+msgstr "यूनाइटेड किंगडम"
+
+msgid "المناسبات"
+msgstr "अवसर"
+
+msgid "المنافسون"
+msgstr "प्रतिस्पर्धी"
+
+msgid "المنامة (GMT+3)"
+msgstr "मनामा (GMT+3)"
+
+msgid "المنتجات والخدمات"
+msgstr "उत्पाद और सेवाएँ"
+
+msgid "المنشور التالي"
+msgstr "अगली पोस्ट"
+
+msgid "المنشور السابق"
+msgstr "पिछली पोस्ट"
+
+msgid "المنشور منشور بالفعل."
+msgstr "पोस्ट पहले ही प्रकाशित हो चुकी है।"
+
+msgid "المنشورات"
+msgstr "पोस्ट"
+
+msgid "المنشورات القادمة"
+msgstr "आगामी पोस्ट"
+
+msgid "المنشورات:"
+msgstr "पोस्ट:"
+
+msgid "المنصات"
+msgstr "प्लेटफ़ॉर्म"
+
+msgid "المنطقة الزمنية"
+msgstr "समय क्षेत्र"
+
+msgid "المهام"
+msgstr "कार्य"
+
+msgid "المهام والأخطاء"
+msgstr "कार्य और त्रुटियाँ"
+
+msgid "المهمة"
+msgstr "कार्य"
+
+msgid "الموقع الإلكتروني"
+msgstr "वेबसाइट"
+
+msgid "الموقع يعيد التوجيه مرات كثيرة."
+msgstr "वेबसाइट बहुत ज़्यादा बार रीडायरेक्ट करती है।"
+
+msgid "الميزانية اليومية"
+msgstr "दैनिक बजट"
+
+msgid "النبرة:"
+msgstr "लहजा:"
+
+msgid "النتيجة"
+msgstr "परिणाम"
+
+msgid "النسخ الاحتياطي"
+msgstr "बैकअप"
+
+msgid "النسخ المحفوظة"
+msgstr "रखे गए बैकअप"
+
+msgid "النشاط والجمهور"
+msgstr "बिज़नेस और दर्शक"
+
+msgid "النشاط والجمهور والنبرة والهوية البصرية."
+msgstr "बिज़नेस, दर्शक, लहजा और विज़ुअल पहचान।"
+
+msgid "النشر التلقائي"
+msgstr "ऑटो-पब्लिशिंग"
+
+msgid "النشر التلقائي في الموعد"
+msgstr "समय पर ऑटो-पब्लिश करें"
+
+msgid "النشر التلقائي مفعّل"
+msgstr "ऑटो-पब्लिशिंग चालू है"
+
+msgid "النشر عبر Meta"
+msgstr "Meta के ज़रिए प्रकाशन"
+
+msgid "النشر على فيسبوك وإنستغرام"
+msgstr "Facebook और Instagram पर प्रकाशन"
+
+msgid "النشر متاح للمالك والمديرين فقط."
+msgstr "केवल मालिक और एडमिन प्रकाशित कर सकते हैं।"
+
+msgid "النظام"
+msgstr "सिस्टम"
+
+msgid "النموذج"
+msgstr "मॉडल"
+
+msgid "النموذج · التكلفة"
+msgstr "मॉडल · लागत"
+
+msgid "الهاتف"
+msgstr "फ़ोन"
+
+msgid "الهاتف:"
+msgstr "फ़ोन:"
+
+msgid "الهدف"
+msgstr "लक्ष्य"
+
+msgid "الهوية البصرية"
+msgstr "विज़ुअल पहचान"
+
+msgid "الوسوم"
+msgstr "टैग"
+
+msgid "الوصف"
+msgstr "विवरण"
+
+msgid "الوصول"
+msgstr "पहुँच"
+
+msgid "الوكالات"
+msgstr "एजेंसियाँ"
+
+msgid "اليوم"
+msgstr "आज"
+
+msgid "اليوم الرياضي للدولة في قطر"
+msgstr "कतर राष्ट्रीय खेल दिवस"
+
+msgid "اليوم الوطني"
+msgstr "राष्ट्रीय दिवस"
+
+msgid "اليوم الوطني السعودي"
+msgstr "सऊदी राष्ट्रीय दिवस"
+
+msgid "اليوم الوطني العُماني"
+msgstr "ओमान राष्ट्रीय दिवस"
+
+msgid "اليوم الوطني القطري"
+msgstr "कतर राष्ट्रीय दिवस"
+
+msgid "املأ من الموقع"
+msgstr "वेबसाइट से भरें"
+
+msgid "انتقل إلى شركة أخرى:"
+msgstr "दूसरी कंपनी पर जाएँ:"
+
+msgid "انتهت جلسة الربط. حاول مرة أخرى."
+msgstr "कनेक्शन सेशन समाप्त हो गया। कृपया फिर कोशिश करें।"
+
+msgid "انتهى اشتراك %(name)s"
+msgstr "%(name)s सदस्यता समाप्त हो गई है"
+
+msgid "انتهى الاشتراك منذ "
+msgstr "सदस्यता समाप्त हुई "
+
+msgid "انشر"
+msgstr "प्रकाशित करें"
+
+msgid "انشر الآن"
+msgstr "अभी प्रकाशित करें"
+
+msgid "انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها."
+msgstr "मंज़ूर पोस्ट को कनेक्टेड खातों पर समय पर प्रकाशित करें।"
+
+msgid "انضم في"
+msgstr "जुड़े"
+
+msgid "انطلاق"
+msgstr "लॉन्च"
+
+msgid "اهتمامات تضيفها في مدير الإعلانات"
+msgstr "Ads Manager में जोड़ने के लिए रुचियाँ"
+
+msgid "بألوان علامتك وخطوطها وشعارها"
+msgstr "आपके ब्रांड के रंगों, फ़ॉन्ट और लोगो में"
+
+msgid "بؤرة"
+msgstr "स्पॉटलाइट"
+
+msgid "بانتظار الاعتماد"
+msgstr "मंज़ूरी की प्रतीक्षा में"
+
+msgid "بانتظار الرد"
+msgstr "जवाब की प्रतीक्षा में"
+
+msgid "بانتظار المراجعة"
+msgstr "समीक्षा की प्रतीक्षा में"
+
+msgid "بانتظار الموافقة"
+msgstr "मंज़ूरी की प्रतीक्षा में"
+
+msgid "بانتظار نافذة تيك توك…"
+msgstr "TikTok विंडो की प्रतीक्षा…"
+
+msgid "بانتظار نافذة فيسبوك…"
+msgstr "Facebook विंडो की प्रतीक्षा…"
+
+msgid "بحاجة لتحديث التصميم"
+msgstr "डिज़ाइन अपडेट करना ज़रूरी है"
+
+msgid "بحث في الاشتراكات"
+msgstr "सदस्यताएँ खोजें"
+
+msgid "بحث في الفريق"
+msgstr "टीम में खोजें"
+
+msgid "بحث في المهام"
+msgstr "कार्य खोजें"
+
+msgid "بحساب مالكها ("
+msgstr "इसके मालिक के खाते से ("
+
+msgid "بدأ تصميم الصور…"
+msgstr "चित्र डिज़ाइन हो रहे हैं…"
+
+msgid "بداية الاشتراك"
+msgstr "सदस्यता की शुरुआत"
+
+msgid "بداية العشر الأواخر من رمضان"
+msgstr "रमज़ान के आख़िरी दस दिनों की शुरुआत"
+
+msgid "بداية شهر رمضان"
+msgstr "रमज़ान की शुरुआत"
+
+msgid "بداية عشر ذي الحجة"
+msgstr "ज़ुल-हिज्जा के पहले दस दिनों की शुरुआत"
+
+msgid "بدون"
+msgstr "कोई नहीं"
+
+msgid "بدون انتهاء"
+msgstr "कोई समाप्ति तिथि नहीं"
+
+msgid "بدون تاريخ انتهاء"
+msgstr "कोई समाप्ति तिथि नहीं"
+
+msgid "بدون حساب إنستغرام"
+msgstr "कोई Instagram खाता नहीं"
+
+msgid "بدون وصف"
+msgstr "कोई विवरण नहीं"
+
+msgid "بديل ذكي لوكالات التسويق"
+msgstr "मार्केटिंग एजेंसियों का स्मार्ट विकल्प"
+
+msgid "برج"
+msgstr "टावर"
+
+msgid "برجر"
+msgstr "बर्गर"
+
+msgid "برمجة"
+msgstr "कोड"
+
+msgid "بريد"
+msgstr "ईमेल"
+
+msgid "بريد التواصل مع المشترك."
+msgstr "सब्सक्राइबर का संपर्क ईमेल।"
+
+msgid "بريد العميل"
+msgstr "क्लाइंट का ईमेल"
+
+msgid "بسيط"
+msgstr "मिनिमल"
+
+msgid "بصفتك مشرف النظام."
+msgstr "सिस्टम एडमिन के रूप में।"
+
+msgid "بصمة"
+msgstr "फ़िंगरप्रिंट"
+
+msgid "بطاقة"
+msgstr "कार्ड"
+
+msgid "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل"
+msgstr "सक्रिय होते ही आप अपनी कंपनियाँ जोड़ें और Wakeel काम शुरू कर देगा"
+
+msgid "بقع لونية"
+msgstr "रंगीन धब्बे"
+
+msgid "بلا زخرفة"
+msgstr "कोई मोटिफ़ नहीं"
+
+msgid "بلا مستند"
+msgstr "कोई दस्तावेज़ नहीं"
+
+msgid "بناء"
+msgstr "निर्माण"
+
+msgid "بنك"
+msgstr "बैंक"
+
+msgid "بودكاست"
+msgstr "पॉडकास्ट"
+
+msgid "بيئة"
+msgstr "पर्यावरण"
+
+msgid "بيانات"
+msgstr "डेटा"
+
+msgid "بيانات إضافية"
+msgstr "अतिरिक्त विवरण"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "कंपनी का विवरण और पहचान"
+
+msgid "بيانات النشاط"
+msgstr "बिज़नेस का विवरण"
+
+msgid "بيتزا"
+msgstr "पिज़्ज़ा"
+
+msgid "بين 1 و%(max)s يوماً."
+msgstr "1 से %(max)s दिनों के बीच।"
+
+msgid "بين 1 و%(max)s."
+msgstr "1 से %(max)s के बीच।"
+
+msgid "تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى."
+msgstr "Instagram को चित्र तैयार करने में बहुत देर लगी। फिर से प्रकाशित करें।"
+
+msgid "تأخر تيك توك في استلام الصورة. حاول الإرسال مرة أخرى."
+msgstr "TikTok को चित्र मिलने में बहुत देर लग रही है। फिर से भेजें।"
+
+msgid "تأكيد كلمة المرور"
+msgstr "पासवर्ड की पुष्टि करें"
+
+msgid "تاريخ الاعتماد"
+msgstr "मंज़ूरी की तारीख़"
+
+msgid "تاريخ غير صالح."
+msgstr "अमान्य तारीख़।"
+
+msgid "تبدأ مع وكيل فور وصول البريد"
+msgstr "ईमेल आते ही आप Wakeel के साथ शुरू कर सकते हैं"
+
+msgid "تجاهل"
+msgstr "हटाएँ"
+
+msgid "تجديد"
+msgstr "नवीनीकृत करें"
+
+msgid "تجديد %(name)s"
+msgstr "%(name)s का नवीनीकरण करें"
+
+msgid "تجديد الاشتراك"
+msgstr "सदस्यता नवीनीकृत करें"
+
+msgid "تجريبي"
+msgstr "ट्रायल"
+
+msgid "تحديث"
+msgstr "रीफ़्रेश करें"
+
+msgid "تحديث أرقام الأداء"
+msgstr "परफ़ॉर्मेंस के आँकड़े अपडेट करें"
+
+msgid "تحديث الأرقام"
+msgstr "आँकड़े अपडेट करें"
+
+msgid "تحديث التصميم"
+msgstr "डिज़ाइन अपडेट करें"
+
+msgid "تحديث التصميم…"
+msgstr "डिज़ाइन अपडेट हो रहा है…"
+
+msgid "تحديد الكل"
+msgstr "सभी चुनें"
+
+msgid "تحقق من بريدك"
+msgstr "अपना ईमेल देखें"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "अपना ईमेल देखें"
+
+msgid "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة"
+msgstr "सब्सक्राइबर, उपयोग, लागत और प्लेटफ़ॉर्म संचालन का केंद्रीय नियंत्रण"
+
+msgid "تحليل المنافسين"
+msgstr "प्रतिस्पर्धी विश्लेषण"
+
+msgid "تخييم"
+msgstr "कैंपिंग"
+
+msgid "تدريب"
+msgstr "प्रशिक्षण"
+
+msgid "تدرّج"
+msgstr "ग्रेडिएंट"
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "आप जितना उपयोग करते हैं उतना ही भुगतान करते हैं"
+
+msgid "تذكير"
+msgstr "रिमाइंडर"
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "अनुवाद, सारांश, जानकारी निकालना"
+
+msgid "ترويج"
+msgstr "प्रमोशन"
+
+msgid "تسجيل الخروج"
+msgstr "साइन आउट"
+
+msgid "تسجيل الدخول"
+msgstr "साइन इन"
+
+msgid "تسوق"
+msgstr "शॉपिंग"
+
+msgid "تسويق"
+msgstr "मार्केटिंग"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "आपकी मार्केटिंग, दस्तावेज़ और टीम"
+
+msgid "تشغيل المخطط الآلي"
+msgstr "ऑटो प्लानर चालू करें"
+
+msgid "تصاميم احترافية بألوانك وخطوطك وشعارك"
+msgstr "आपके रंगों, फ़ॉन्ट और लोगो में पेशेवर डिज़ाइन"
+
+msgid "تصاميم بهويتك"
+msgstr "ब्रांड के अनुरूप डिज़ाइन"
+
+msgid "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق"
+msgstr "पोस्ट आपके TikTok इनबॉक्स में आती हैं, जिन्हें आप ऐप में पूरा करें"
+
+msgid "تصميم الصور"
+msgstr "चित्र डिज़ाइन"
+
+msgid "تصميم الصور: %(done)s من %(total)s"
+msgstr "चित्र डिज़ाइन हो रहे हैं: %(total)s में से %(done)s"
+
+msgid "تصميم الصورة…"
+msgstr "चित्र डिज़ाइन हो रहा है…"
+
+msgid "تصميم المنشور: %(headline)s"
+msgstr "पोस्ट डिज़ाइन: %(headline)s"
+
+msgid "تصميم بهويتك"
+msgstr "आपकी पहचान में डिज़ाइन"
+
+msgid "تصميم ثابت"
+msgstr "स्थिर डिज़ाइन"
+
+msgid "تصميم جديد"
+msgstr "नया डिज़ाइन"
+
+msgid "تصميم صور الخطة"
+msgstr "प्लान के चित्र डिज़ाइन हो रहे हैं"
+
+msgid "تصميم صورة منشور"
+msgstr "पोस्ट का चित्र डिज़ाइन हो रहा है"
+
+msgid "تصوير"
+msgstr "फ़ोटोग्राफ़ी"
+
+msgid "تطبيق Meta"
+msgstr "Meta ऐप"
+
+msgid "تطبيق Meta غير مضبوط بعد."
+msgstr "Meta ऐप अभी कॉन्फ़िगर नहीं है।"
+
+msgid "تعديل"
+msgstr "संपादित करें"
+
+msgid "تعديل %(name)s"
+msgstr "%(name)s संपादित करें"
+
+msgid "تعديل المنافس"
+msgstr "प्रतिस्पर्धी संपादित करें"
+
+msgid "تعديل نص"
+msgstr "पाठ संपादन"
+
+msgid "تعذّر"
+msgstr "विफल"
+
+msgid "تعذّر إعداد التقرير."
+msgstr "रिपोर्ट तैयार नहीं हो सकी।"
+
+msgid "تعذّر إعداد الخطة"
+msgstr "प्लान तैयार नहीं हो सका"
+
+msgid "تعذّر إعداد خطة المحتوى: {error}"
+msgstr "कंटेंट प्लान तैयार नहीं हो सका: {error}"
+
+msgid "تعذّر الإعداد"
+msgstr "तैयारी विफल"
+
+msgid "تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى."
+msgstr "वेबसाइट से कनेक्ट नहीं हो सका। जाँचें कि वह चालू है, फिर फिर कोशिश करें।"
+
+msgid "تعذّر التحليل"
+msgstr "विश्लेषण विफल"
+
+msgid "تعذّر الربط"
+msgstr "कनेक्ट नहीं हो सका"
+
+msgid "تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح."
+msgstr "यह वेबसाइट नहीं मिली। जाँचें कि लिंक की स्पेलिंग सही है।"
+
+msgid "تعذّر النشر"
+msgstr "प्रकाशित नहीं हो सका"
+
+msgid "تعذّر النشر:"
+msgstr "प्रकाशित नहीं हो सका:"
+
+msgid "تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل."
+msgstr "AI सेवा तक नहीं पहुँच सके। कृपया थोड़ी देर में फिर कोशिश करें।"
+
+msgid "تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت."
+msgstr "Meta के सर्वर तक नहीं पहुँच सके। सर्वर का इंटरनेट कनेक्शन जाँचें।"
+
+msgid "تعذّر الوصول إلى خوادم واتساب."
+msgstr "WhatsApp सर्वर तक नहीं पहुँच सके।"
+
+msgid "تعذّر تحديث التصميم"
+msgstr "डिज़ाइन अपडेट नहीं हो सका"
+
+msgid "تعذّر تصميم الصور"
+msgstr "चित्र डिज़ाइन नहीं हो सके"
+
+msgid "تعذّر قراءة الأرقام: %(problem)s"
+msgstr "आँकड़े पढ़े नहीं जा सके: %(problem)s"
+
+msgid "تعذّر نشر «{title}»: {error}"
+msgstr "“{title}” प्रकाशित नहीं हो सकी: {error}"
+
+msgid "تعذّرت إعادة الكتابة"
+msgstr "पोस्ट दोबारा नहीं लिखी जा सकी"
+
+msgid "تعذّرت قراءة الموقع."
+msgstr "वेबसाइट पढ़ी नहीं जा सकी।"
+
+msgid "تعليق"
+msgstr "टिप्पणी"
+
+msgid "تعليق %(name)s"
+msgstr "%(name)s को निलंबित करें"
+
+msgid "تعليق «%(name)s»؟"
+msgstr "“%(name)s” को निलंबित करें?"
+
+msgid "تعليق العميل"
+msgstr "क्लाइंट की टिप्पणी"
+
+msgid "تعليق عاجل"
+msgstr "ज़रूरी टिप्पणी"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "जवाब की प्रतीक्षा में टिप्पणियाँ"
+
+msgid "تعليقات جديدة: %(new)s، قُرئ منها %(read)s."
+msgstr "नई टिप्पणियाँ: %(new)s, %(read)s पढ़ी गईं।"
+
+msgid "تعليقك"
+msgstr "आपकी टिप्पणी"
+
+msgid "تعليم"
+msgstr "शिक्षा"
+
+msgid "تعليم الكل كمقروء"
+msgstr "सभी को पढ़ा हुआ चिह्नित करें"
+
+msgid "تعلّم من %(pending_signals)s ملاحظة جديدة"
+msgstr "%(pending_signals)s नए नोट से सीखें"
+
+msgid "تعلّم وكيل من %(count)s ملاحظة."
+msgstr "Wakeel ने %(count)s नोट से सीखा।"
+
+msgid "تعلّمها وكيل"
+msgstr "Wakeel ने सीखा"
+
+msgid "تغيير كلمة المرور"
+msgstr "पासवर्ड बदलें"
+
+msgid "تغيّرت حالة المنشور، فلم يُنشر تلقائياً."
+msgstr "पोस्ट की स्थिति बदल गई, इसलिए वह अपने आप प्रकाशित नहीं हुई।"
+
+msgid "تفاعل"
+msgstr "इंटरैक्शन"
+
+msgid "تفعيل"
+msgstr "चालू करें"
+
+msgid "تفعيل الرابط"
+msgstr "लिंक चालू करें"
+
+msgid "تقرير"
+msgstr "रिपोर्ट"
+
+msgid "تقرير %(m)s"
+msgstr "%(m)s रिपोर्ट"
+
+msgid "تقرير %(m)s · %(name)s"
+msgstr "%(m)s रिपोर्ट · %(name)s"
+
+msgid "تقرير أداء %(m)s"
+msgstr "%(m)s परफ़ॉर्मेंस रिपोर्ट"
+
+msgid "تقرير أداء %(month)s جاهز."
+msgstr "%(month)s की परफ़ॉर्मेंस रिपोर्ट तैयार है।"
+
+msgid "تقرير أداء %(month)s: %(name)s"
+msgstr "%(month)s की परफ़ॉर्मेंस रिपोर्ट: %(name)s"
+
+msgid "تقرير من %(name)s"
+msgstr "%(name)s की रिपोर्ट"
+
+msgid "تقويم النشر"
+msgstr "प्रकाशन कैलेंडर"
+
+msgid "تقويم نشر ومراجعة واعتماد في مكان واحد"
+msgstr "प्रकाशन कैलेंडर, समीक्षा और मंज़ूरी एक ही जगह"
+
+msgid "تقويم ونشر"
+msgstr "कैलेंडर और प्रकाशन"
+
+msgid "تقييم"
+msgstr "रेटिंग"
+
+msgid "تكامل"
+msgstr "इंटीग्रेशन"
+
+msgid "تكلفة 12 شهراً"
+msgstr "12 महीने की लागत"
+
+msgid "تكلفة آخر 12 شهراً"
+msgstr "पिछले 12 महीनों की लागत"
+
+msgid "تكلفة الذكاء الاصطناعي"
+msgstr "AI की लागत"
+
+msgid "تكلفة الذكاء الاصطناعي لكل شهر"
+msgstr "प्रति माह AI की लागत"
+
+msgid "تكلفة الشهر"
+msgstr "इस महीने की लागत"
+
+msgid "تكلفة هذا الشهر"
+msgstr "इस महीने की लागत"
+
+msgid "تلقائي"
+msgstr "ऑटो"
+
+msgid "تم إرسال الرد."
+msgstr "जवाब भेज दिया गया।"
+
+msgid "تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…"
+msgstr "%(count)s पोस्ट तैयार हुईं। चित्र डिज़ाइन हो रहे हैं…"
+
+msgid "تم إعداد الخطة و%(count)s منشوراً."
+msgstr "प्लान और %(count)s पोस्ट तैयार हुईं।"
+
+msgid "تم إعداد تقرير %(month)s."
+msgstr "%(month)s की रिपोर्ट तैयार है।"
+
+msgid "تم إنشاء اشتراك «%(name)s» ومالكه %(email)s."
+msgstr "सदस्यता “%(name)s” बन गई, जिसका मालिक %(email)s है।"
+
+msgid "تم إيقاف إشعارات البريد."
+msgstr "ईमेल नोटिफ़िकेशन बंद कर दिए गए।"
+
+msgid "تم إيقاف الرد التلقائي."
+msgstr "ऑटो-जवाब बंद है।"
+
+msgid "تم إيقاف المخطط الآلي."
+msgstr "ऑटो प्लानर बंद है।"
+
+msgid "تم إيقاف النشر التلقائي."
+msgstr "ऑटो-पब्लिशिंग बंद है।"
+
+msgid "تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل."
+msgstr "क्लाइंट लिंक बंद कर दिया गया। पुराना लिंक अब काम नहीं करता।"
+
+msgid "تم اختيار "
+msgstr "चुना गया"
+
+msgid "تم اختيار الحساب الإعلاني."
+msgstr "विज्ञापन खाता चुना गया।"
+
+msgid "تم استلام طلب"
+msgstr "हमें अनुरोध मिल गया है"
+
+msgid "تم اعتماد "
+msgstr "मंज़ूर किया गया "
+
+msgid "تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد."
+msgstr "“%(name)s” मंज़ूर हुआ, और उसके मालिक को ईमेल भेज दिया गया।"
+
+msgid "تم اعتماد «%(title)s» ✅"
+msgstr "“%(title)s” मंज़ूर ✅"
+
+msgid "تم اعتماد حساب %(company)s في وكيل، ويمكنك البدء الآن."
+msgstr "Wakeel पर %(company)s का खाता मंज़ूर हो गया है, आप अभी शुरू कर सकते हैं।"
+
+msgid "تم الحفظ الساعة "
+msgstr "सहेजा गया "
+
+msgid "تم الربط بنجاح"
+msgstr "सफलतापूर्वक कनेक्ट हुआ"
+
+msgid "تم الرد"
+msgstr "जवाब दिया गया"
+
+msgid "تم النشر"
+msgstr "प्रकाशित"
+
+msgid "تم النشر يدوياً"
+msgstr "हाथ से प्रकाशित"
+
+msgid "تم تجديد «%(name)s» حتى %(date)s."
+msgstr "“%(name)s” का %(date)s तक नवीनीकरण हो गया।"
+
+msgid "تم تحديث أرقام %(count)s منشور."
+msgstr "%(count)s पोस्ट के आँकड़े अपडेट हुए।"
+
+msgid "تم تحديث التصميم."
+msgstr "डिज़ाइन अपडेट हो गया।"
+
+msgid "تم تحديث الحالة: "
+msgstr "स्थिति अपडेट हुई: "
+
+msgid "تم تحديث الدور."
+msgstr "भूमिका अपडेट हुई।"
+
+msgid "تم تحديث رابط التقرير."
+msgstr "रिपोर्ट लिंक अपडेट हुआ।"
+
+msgid "تم تشغيل الرد التلقائي على الأسئلة البسيطة والإشادات."
+msgstr "साधारण प्रश्नों और प्रशंसा का ऑटो-जवाब चालू है।"
+
+msgid "تم تشغيل المخطط الآلي."
+msgstr "ऑटो प्लानर चालू है।"
+
+msgid "تم تصميم %(count)s صورة."
+msgstr "%(count)s चित्र डिज़ाइन हुए।"
+
+msgid "تم تعديل الرصيد."
+msgstr "बैलेंस बदल दिया गया।"
+
+msgid "تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه."
+msgstr "“%(name)s” निलंबित; दोबारा चालू करने तक उसकी टीम काम नहीं कर सकती।"
+
+msgid "تم تعيين كلمة المرور"
+msgstr "पासवर्ड सेट हो गया"
+
+msgid "تم تغيير كلمة المرور"
+msgstr "पासवर्ड बदल गया"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "आपका पासवर्ड बदल दिया गया है।"
+
+msgid "تم تغيير موعد النشر"
+msgstr "प्रकाशन की तारीख़ बदली"
+
+msgid "تم تفعيل إشعارات البريد."
+msgstr "ईमेल नोटिफ़िकेशन चालू कर दिए गए।"
+
+msgid "تم تفعيل النشر التلقائي."
+msgstr "ऑटो-पब्लिशिंग चालू है।"
+
+msgid "تم تفعيل حساب %(name)s، وأُبلغ بالبريد."
+msgstr "%(name)s का खाता अब सक्रिय है, और उन्हें ईमेल भेज दिया गया है।"
+
+msgid "تم تفعيل حسابك في وكيل"
+msgstr "आपका Wakeel खाता सक्रिय है"
+
+msgid "تم تفعيل حسابك في وكيل: %(name)s"
+msgstr "आपका Wakeel खाता सक्रिय है: %(name)s"
+
+msgid "تم تنشيط «%(name)s»."
+msgstr "“%(name)s” दोबारा चालू किया गया।"
+
+msgid "تم حذف «%(name)s» وكل بياناتها نهائياً."
+msgstr "“%(name)s” और उसका सारा डेटा स्थायी रूप से हटा दिया गया है।"
+
+msgid "تم حذف الخطة ومنشوراتها."
+msgstr "प्लान और उसकी पोस्ट हटा दी गई हैं।"
+
+msgid "تم حذف الصورة."
+msgstr "चित्र हटाया गया।"
+
+msgid "تم حذف المنافس."
+msgstr "प्रतिस्पर्धी हटाया गया।"
+
+msgid "تم حذف المنشور."
+msgstr "पोस्ट हटाई गई।"
+
+msgid "تم حذف حسابك وكل بياناته نهائياً."
+msgstr "आपका खाता और उसका सारा डेटा स्थायी रूप से हटा दिया गया है।"
+
+msgid "تم حفظ الإعدادات."
+msgstr "सेटिंग सहेजी गईं।"
+
+msgid "تم حفظ المنافس."
+msgstr "प्रतिस्पर्धी सहेजा गया।"
+
+msgid "تم حفظ بيانات «%(name)s»."
+msgstr "“%(name)s” सहेजा गया।"
+
+msgid "تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات."
+msgstr "ब्रांड पहचान सहेजी गई। बदलाव लागू करने के लिए चित्र दोबारा डिज़ाइन करें।"
+
+msgid "تم حفظ هوية الوكالة."
+msgstr "एजेंसी ब्रांड सहेजा गया।"
+
+msgid "تم ربط تيك توك"
+msgstr "TikTok कनेक्ट हो गया"
+
+msgid "تم ربط صفحة «%(page)s»"
+msgstr "“%(page)s” पेज कनेक्ट हो गया"
+
+msgid "تم رفض طلب %(name)s وحذفه."
+msgstr "%(name)s का अनुरोध अस्वीकार करके हटा दिया गया।"
+
+msgid "تم رفع %(count)s صورة."
+msgstr "%(count)s चित्र अपलोड हुए।"
+
+msgid "تم فصل الحساب."
+msgstr "खाता डिस्कनेक्ट किया गया।"
+
+msgid "تم نشرها"
+msgstr "प्रकाशित"
+
+msgid "تمت إزالة العضو."
+msgstr "सदस्य हटाया गया।"
+
+msgid "تمت إضافة العضو."
+msgstr "सदस्य जोड़ा गया।"
+
+msgid "تمت إعادة الكتابة."
+msgstr "दोबारा लिखना पूरा हुआ।"
+
+msgid "تميّز"
+msgstr "चमक"
+
+msgid "تنبيه"
+msgstr "चेतावनी"
+
+msgid "تنزيل"
+msgstr "डाउनलोड करें"
+
+msgid "تنزيل نصوص المنشورات"
+msgstr "पोस्ट का पाठ डाउनलोड करें"
+
+msgid "تنشيط"
+msgstr "दोबारा चालू करें"
+
+msgid "تنشيط %(name)s"
+msgstr "%(name)s को दोबारा चालू करें"
+
+msgid "تنفيذ"
+msgstr "लागू करें"
+
+msgid "توجيهات هذا الشهر"
+msgstr "इस महीने की ब्रीफ़"
+
+msgid "توجيهاتك:"
+msgstr "आपकी ब्रीफ़:"
+
+msgid "توسيع القائمة"
+msgstr "मेनू खोलें"
+
+msgid "توصيات الشهر القادم"
+msgstr "अगले महीने की सिफ़ारिशें"
+
+msgid "توصيل"
+msgstr "डिलीवरी"
+
+msgid "تيك توك"
+msgstr "TikTok"
+
+msgid "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات."
+msgstr "ये रंग और फ़ॉन्ट हर पोस्ट के डिज़ाइन में इस्तेमाल होते हैं।"
+
+msgid "تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات."
+msgstr "उचित होने पर पोस्ट में जोड़े जाते हैं, स्पेस से अलग करें।"
+
+msgid "جائزة"
+msgstr "पुरस्कार"
+
+msgid "جارٍ التحليل…"
+msgstr "विश्लेषण हो रहा है…"
+
+msgid "جارٍ التحميل…"
+msgstr "लोड हो रहा है…"
+
+msgid "جارٍ التصميم…"
+msgstr "डिज़ाइन हो रहा है…"
+
+msgid "جارٍ النشر…"
+msgstr "प्रकाशित हो रहा है…"
+
+msgid "جارٍ تصميم الصور…"
+msgstr "चित्र डिज़ाइन हो रहे हैं…"
+
+msgid "جارٍ قراءة أرقام الشهر…"
+msgstr "महीने के आँकड़े पढ़े जा रहे हैं…"
+
+msgid "جاهز"
+msgstr "तैयार"
+
+msgid "جاهزة"
+msgstr "तैयार"
+
+msgid "جديد"
+msgstr "नया"
+
+msgid "جري"
+msgstr "चल रहा है"
+
+msgid "جريء"
+msgstr "बोल्ड"
+
+msgid "جريئة وحماسية"
+msgstr "बोल्ड और ऊर्जावान"
+
+msgid "جوال"
+msgstr "मोबाइल"
+
+msgid "جودة"
+msgstr "गुणवत्ता"
+
+msgid "جُهّز «%(title)s» لإعادة النشر."
+msgstr "“%(title)s” फिर से प्रकाशित होने के लिए तैयार है।"
+
+msgid "حاسوب"
+msgstr "लैपटॉप"
+
+msgid "حالة الاشتراك"
+msgstr "सदस्यता की स्थिति"
+
+msgid "حالة الخدمات"
+msgstr "सेवा की स्थिति"
+
+msgid "حالة المنشورات"
+msgstr "पोस्ट की स्थिति"
+
+msgid "حالة النظام"
+msgstr "सिस्टम की स्थिति"
+
+msgid "حالة غير معروفة."
+msgstr "अज्ञात स्थिति।"
+
+msgid "حاول مرة أخرى"
+msgstr "फिर कोशिश करें"
+
+msgid "حب"
+msgstr "प्रेम"
+
+msgid "حدث خطأ غير متوقع."
+msgstr "कुछ अप्रत्याशित गड़बड़ हो गई।"
+
+msgid "حدّد دولة واحدة على الأقل."
+msgstr "कम से कम एक देश चुनें।"
+
+msgid "حذف"
+msgstr "हटाएँ"
+
+msgid "حذف %(name)s"
+msgstr "%(name)s हटाएँ"
+
+msgid "حذف %(name)s؟"
+msgstr "%(name)s हटाएँ?"
+
+msgid "حذف «%(name)s» نهائياً؟"
+msgstr "“%(name)s” स्थायी रूप से हटाएँ?"
+
+msgid "حذف الاقتراح"
+msgstr "सुझाव हटाएँ"
+
+msgid "حذف الحساب"
+msgstr "खाता हटाएँ"
+
+msgid "حذف الخطة"
+msgstr "प्लान हटाएँ"
+
+msgid "حذف الخطة؟"
+msgstr "प्लान हटाएँ?"
+
+msgid "حذف الشركة"
+msgstr "कंपनी हटाएँ"
+
+msgid "حذف الشركة متاح لمالكها فقط."
+msgstr "केवल मालिक कंपनी हटा सकता है।"
+
+msgid "حذف الشركة نهائياً"
+msgstr "कंपनी स्थायी रूप से हटाएँ"
+
+msgid "حذف الصورة"
+msgstr "चित्र हटाएँ"
+
+msgid "حذف الصورة؟"
+msgstr "चित्र हटाएँ?"
+
+msgid "حذف القاعدة"
+msgstr "नियम हटाएँ"
+
+msgid "حذف المنشور"
+msgstr "पोस्ट हटाएँ"
+
+msgid "حذف المنشور؟"
+msgstr "पोस्ट हटाएँ?"
+
+msgid "حذف حسابك نهائياً؟"
+msgstr "अपना खाता स्थायी रूप से हटाएँ?"
+
+msgid "حذف حسابك والشركات التي تملكها نهائياً."
+msgstr "अपना खाता और अपनी कंपनियाँ स्थायी रूप से हटाएँ।"
+
+msgid "حذف حسابي"
+msgstr "मेरा खाता हटाएँ"
+
+msgid "حذف حسابي نهائياً"
+msgstr "मेरा खाता स्थायी रूप से हटाएँ"
+
+msgid "حذف نهائي"
+msgstr "स्थायी रूप से हटाएँ"
+
+msgid "حذف هذه القاعدة؟"
+msgstr "यह नियम हटाएँ?"
+
+msgid "حساب %(name)s مفعّل بالفعل."
+msgstr "%(name)s का खाता पहले से सक्रिय है।"
+
+msgid "حساب إنستغرام"
+msgstr "Instagram खाता"
+
+msgid "حساب احترافي ومربوط بصفحة الشركة"
+msgstr "कंपनी के पेज से जुड़ा एक प्रोफ़ेशनल खाता"
+
+msgid "حساب تجريبي"
+msgstr "ट्रायल खाता"
+
+msgid "حساب تواصل"
+msgstr "सोशल खाता"
+
+msgid "حساب تيك توك"
+msgstr "TikTok खाता"
+
+msgid "حساب مالك النشاط"
+msgstr "बिज़नेस मालिक का खाता"
+
+msgid "حسابات التواصل"
+msgstr "सोशल खाते"
+
+msgid "حسابات النشر"
+msgstr "प्रकाशन खाते"
+
+msgid "حسابات النشر:"
+msgstr "प्रकाशन खाते:"
+
+msgid "حسابك قيد المراجعة"
+msgstr "आपका खाता समीक्षा में है"
+
+msgid "حسابك قيد المراجعة."
+msgstr "आपका खाता समीक्षा में है।"
+
+msgid "حسابي احترافي، التالي"
+msgstr "वह प्रोफ़ेशनल है, आगे"
+
+msgid "حسب التصميم"
+msgstr "लेआउट के अनुसार"
+
+msgid "حسب الشركة"
+msgstr "कंपनी के अनुसार"
+
+msgid "حسب المحور"
+msgstr "स्तंभ के अनुसार"
+
+msgid "حسب النموذج"
+msgstr "मॉडल के अनुसार"
+
+msgid "حسب تكلفة الذكاء الاصطناعي"
+msgstr "AI लागत के अनुसार"
+
+msgid "حسب نوع المهمة"
+msgstr "कार्य के प्रकार के अनुसार"
+
+msgid "حسب يوم النشر"
+msgstr "सप्ताह के दिन के अनुसार"
+
+msgid "حصة"
+msgstr "साझा करें"
+
+msgid "حفظ"
+msgstr "सहेजें"
+
+msgid "حفظ التغييرات"
+msgstr "बदलाव सहेजें"
+
+msgid "حفظ المنشورات…"
+msgstr "पोस्ट सहेजी जा रही हैं…"
+
+msgid "حفظ كلمة المرور"
+msgstr "पासवर्ड सहेजें"
+
+msgid "حقيقي (مدفوع)"
+msgstr "वास्तविक (सशुल्क)"
+
+msgid "حلقات"
+msgstr "छल्ले"
+
+msgid "حلويات"
+msgstr "मिठाइयाँ"
+
+msgid "حلّل المنافسين"
+msgstr "प्रतिस्पर्धियों का विश्लेषण करें"
+
+msgid "حماس"
+msgstr "उत्साह"
+
+msgid "حوّل حساب إنستغرام إلى احترافي"
+msgstr "Instagram को प्रोफ़ेशनल खाते में बदलें"
+
+msgid "حُذفت القاعدة."
+msgstr "नियम हटाया गया।"
+
+msgid "خادم"
+msgstr "सर्वर"
+
+msgid "خارج الذروة"
+msgstr "ऑफ़-पीक"
+
+msgid "خارج الذروة (DeepSeek)"
+msgstr "ऑफ़-पीक (DeepSeek)"
+
+msgid "خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل."
+msgstr "AI सेवा अभी व्यस्त है। कृपया थोड़ी देर में फिर कोशिश करें।"
+
+msgid "خريطة"
+msgstr "नक्शा"
+
+msgid "خصم"
+msgstr "छूट"
+
+msgid "خط العناوين"
+msgstr "शीर्षक फ़ॉन्ट"
+
+msgid "خط النصوص"
+msgstr "मुख्य पाठ फ़ॉन्ट"
+
+msgid "خطة"
+msgstr "प्लान"
+
+msgid "خطة %(upcoming)s موجودة: افتحها"
+msgstr "%(upcoming)s का प्लान मौजूद है: खोलें"
+
+msgid "خطة {title} جاهزة: {count} منشوراً بانتظار المراجعة."
+msgstr "{title} का प्लान तैयार है: {count} पोस्ट समीक्षा की प्रतीक्षा में।"
+
+msgid "خطة الشهر القادم"
+msgstr "अगले महीने का प्लान"
+
+msgid "خطة المحتوى"
+msgstr "कंटेंट प्लान"
+
+msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
+msgstr "कंटेंट प्लान समीक्षा के लिए तैयार: %(name)s"
+
+msgid "خطة المحتوى — الشهر القادم"
+msgstr "कंटेंट प्लान — अगला महीना"
+
+msgid "خطة جديدة"
+msgstr "नया प्लान"
+
+msgid "خطة شهرية ومنشورات"
+msgstr "मासिक प्लान और पोस्ट"
+
+msgid "خطة قيد الإعداد"
+msgstr "प्लान तैयार हो रहा है"
+
+msgid "خطة محتوى"
+msgstr "कंटेंट प्लान"
+
+msgid "خطة محتوى جديدة"
+msgstr "नया कंटेंट प्लान"
+
+msgid "خطط المحتوى"
+msgstr "कंटेंट प्लान"
+
+msgid "خطوط مائلة"
+msgstr "धारियाँ"
+
+msgid "خلال 7 أيام، مع السبب التقني"
+msgstr "पिछले 7 दिनों में, तकनीकी कारण के साथ"
+
+msgid "خيارات الرابط"
+msgstr "लिंक विकल्प"
+
+msgid "داكن عميق"
+msgstr "गहरा"
+
+msgid "دبي (GMT+4)"
+msgstr "दुबई (GMT+4)"
+
+msgid "دخول"
+msgstr "साइन इन"
+
+msgid "دخول كمدير %(name)s"
+msgstr "%(name)s के एडमिन के रूप में साइन इन करें"
+
+msgid "دخول كمدير المشترك"
+msgstr "सब्सक्राइबर के एडमिन के रूप में साइन इन करें"
+
+msgid "دعم فني"
+msgstr "सहायता"
+
+msgid "دفع"
+msgstr "भुगतान"
+
+msgid "دهان"
+msgstr "पेंट"
+
+msgid "دواء"
+msgstr "चिकित्सा"
+
+msgid "دور %(display_name)s"
+msgstr "%(display_name)s की भूमिका"
+
+msgid "ديس"
+msgstr "दिस॰"
+
+msgid "ديسمبر"
+msgstr "दिसंबर"
+
+msgid "ذكاء"
+msgstr "इंटेलिजेंस"
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "AI: इंटरैक्टिव (कोई प्रतीक्षा में है)"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "AI: सर्वोत्तम गुणवत्ता"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "AI: बैकग्राउंड"
+
+msgid "ذكرى انتصارات أكتوبر"
+msgstr "अक्टूबर विजय की वर्षगाँठ"
+
+msgid "ذكرى ثورة 23 يوليو"
+msgstr "23 जुलाई क्रांति की वर्षगाँठ"
+
+msgid "ذكية"
+msgstr "स्मार्ट प्लेटफ़ॉर्म"
+
+msgid "رأس السنة الميلادية"
+msgstr "नववर्ष दिवस"
+
+msgid "رأس السنة الهجرية"
+msgstr "इस्लामी नववर्ष"
+
+msgid "رابط العميل"
+msgstr "क्लाइंट लिंक"
+
+msgid "رابط العميل جاهز. انسخه وأرسله للعميل."
+msgstr "क्लाइंट लिंक तैयार है। इसे कॉपी करके अपने क्लाइंट को भेजें।"
+
+msgid "رابط جديد"
+msgstr "नया लिंक"
+
+msgid "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة."
+msgstr "हाइलाइट किए गए चरणों में ज़रूरी या अमान्य फ़ील्ड जाँचें।"
+
+msgid "راجع الحقول المظللة."
+msgstr "हाइलाइट किए गए फ़ील्ड जाँचें।"
+
+msgid "راجع الصلاحيات واضغط «متابعة» للموافقة عليها."
+msgstr "अनुमतियाँ देखें और उन्हें मंज़ूर करने के लिए “जारी रखें” दबाएँ।"
+
+msgid "راجع الطلب ووافق عليه من لوحة مشرف النظام:"
+msgstr "सिस्टम एडमिन कंसोल से इसकी समीक्षा करें और मंज़ूर करें:"
+
+msgid "راجع واعتمد"
+msgstr "समीक्षा करें और मंज़ूर करें"
+
+msgid "راسلنا وسنرد عليك في أقرب وقت."
+msgstr "हमें ईमेल करें, हम जल्द आपसे संपर्क करेंगे।"
+
+msgid "ربط"
+msgstr "कनेक्ट करें"
+
+msgid "ربط إنستغرام الآن"
+msgstr "अभी Instagram कनेक्ट करें"
+
+msgid "ربط تيك توك"
+msgstr "TikTok कनेक्ट करें"
+
+msgid "ربط حسابات النشر"
+msgstr "प्रकाशन खाते कनेक्ट करें"
+
+msgid "ربط فيسبوك وإنستغرام"
+msgstr "Facebook और Instagram कनेक्ट करें"
+
+msgid "ربطتهما، التالي"
+msgstr "वे जुड़े हुए हैं, आगे"
+
+msgid "ربطه الآن"
+msgstr "इसे अभी कनेक्ट करें"
+
+msgid "ربما استُخدم الرابط من قبل أو انتهت صلاحيته. اطلب رابطاً جديداً."
+msgstr "हो सकता है लिंक पहले इस्तेमाल हो चुका हो या समाप्त हो गया हो। नया लिंक माँगें।"
+
+msgid "رجال"
+msgstr "पुरुष"
+
+msgid "رجوع"
+msgstr "वापस"
+
+msgid "رد الموقع برمز %(code)s. تأكد من الرابط."
+msgstr "वेबसाइट ने कोड %(code)s के साथ जवाब दिया। लिंक जाँचें।"
+
+msgid "رد تلقائي من وكيل"
+msgstr "Wakeel द्वारा ऑटो-जवाब"
+
+msgid "رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات."
+msgstr "प्लान तैयार होने पर, और बदलाव के अनुरोधों और टिप्पणियों पर ईमेल।"
+
+msgid "رفض"
+msgstr "अस्वीकार करें"
+
+msgid "رفض تيك توك الطلب: %(detail)s"
+msgstr "TikTok ने अनुरोध अस्वीकार किया: %(detail)s"
+
+msgid "رفض طلب %(display_name)s؟"
+msgstr "%(display_name)s का अनुरोध अस्वीकार करें?"
+
+msgid "رفض واتساب الرسالة: %(detail)s"
+msgstr "WhatsApp ने संदेश अस्वीकार किया: %(detail)s"
+
+msgid "رفض وحذف"
+msgstr "अस्वीकार करें और हटाएँ"
+
+msgid "رفضت Meta الطلب: %(detail)s"
+msgstr "Meta ने अनुरोध अस्वीकार किया: %(detail)s"
+
+msgid "رفع"
+msgstr "अपलोड करें"
+
+msgid "رقم التواصل"
+msgstr "संपर्क नंबर"
+
+msgid "رقم السجل التجاري"
+msgstr "वाणिज्यिक पंजीकरण सं."
+
+msgid "رقم الهاتف"
+msgstr "फ़ोन नंबर"
+
+msgid "رقم بارز"
+msgstr "बड़ी संख्या"
+
+msgid "رمز %(code)s"
+msgstr "कोड %(code)s"
+
+msgid "رمز QR"
+msgstr "QR कोड"
+
+msgid "رمز مُخرج"
+msgstr "आउटपुट टोकन"
+
+msgid "رمز مُدخل"
+msgstr "इनपुट टोकन"
+
+msgid "رمضان"
+msgstr "रमज़ान"
+
+msgid "رموز الدول، مثل: QA SA AE"
+msgstr "देश कोड, जैसे QA SA AE"
+
+msgid "رموز مُخرجة"
+msgstr "आउटपुट टोकन"
+
+msgid "رموز مُدخلة"
+msgstr "इनपुट टोकन"
+
+msgid "روابط أو أسماء حسابات، مفصولة بمسافات."
+msgstr "लिंक या खाता नाम, स्पेस से अलग करें।"
+
+msgid "روبوت"
+msgstr "रोबोट"
+
+msgid "ريادة"
+msgstr "नेतृत्व"
+
+msgid "رياضة"
+msgstr "फ़िटनेस"
+
+msgid "زوايا تميّزك"
+msgstr "वे पहलू जो आपको अलग बनाते हैं"
+
+msgid "سؤال"
+msgstr "प्रश्न"
+
+msgid "سبت"
+msgstr "सित॰"
+
+msgid "سبتمبر"
+msgstr "सितंबर"
+
+msgid "ستدخل مساحة عمل"
+msgstr "आप इसके वर्कस्पेस में प्रवेश करेंगे:"
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "आपको इस डिवाइस पर नोटिफ़िकेशन मिलेंगे"
+
+msgid "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات."
+msgstr "तैयार प्लान, समीक्षाओं और टिप्पणियों के अलर्ट यहाँ दिखेंगे।"
+
+msgid "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:"
+msgstr "एक TikTok विंडो खुलेगी। उसमें यह करें:"
+
+msgid "ستفتح نافذة من فيسبوك. هذا ما ستفعله فيها:"
+msgstr "एक Facebook विंडो खुलेगी। उसमें यह करें:"
+
+msgid "ستُحذف هذه الخطة نهائياً."
+msgstr "यह प्लान स्थायी रूप से हटा दिया जाएगा।"
+
+msgid "سجّل %(date_joined)s"
+msgstr "%(date_joined)s पहले साइन अप किया"
+
+msgid "سجّل الدخول"
+msgstr "साइन इन"
+
+msgid "سجّل الدخول بحساب تيك توك الخاص بالشركة."
+msgstr "कंपनी के TikTok खाते से लॉग इन करें।"
+
+msgid "سجّل الدخول لمتابعة تسويق شركتك."
+msgstr "अपनी कंपनी की मार्केटिंग जारी रखने के लिए साइन इन करें।"
+
+msgid "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:"
+msgstr "साइन इन करें और अपना पहला कंटेंट प्लान तैयार करना शुरू करें:"
+
+msgid "سحابة"
+msgstr "क्लाउड"
+
+msgid "سعادة"
+msgstr "खुशी"
+
+msgid "سعر"
+msgstr "कीमत"
+
+msgid "سفر"
+msgstr "यात्रा"
+
+msgid "سلبي"
+msgstr "नकारात्मक"
+
+msgid "سلّم حسابات شركتك"
+msgstr "अपनी कंपनी के खाते सौंपें"
+
+msgid "سنة"
+msgstr "1 वर्ष"
+
+msgid "سنجهّز الحساب ثم نعيد الربط"
+msgstr "हम खाता बनाएँगे, फिर दोबारा कनेक्ट करें"
+
+msgid "سنجهّزه معاً خطوة بخطوة"
+msgstr "हम इसे मिलकर चरण दर चरण सेट करेंगे"
+
+msgid "سننشئها معاً في دقيقتين"
+msgstr "हम दो मिनट में मिलकर एक बनाएँगे"
+
+msgid "سيارة"
+msgstr "कार"
+
+msgid "سياسة الخصوصية"
+msgstr "गोपनीयता नीति"
+
+msgid "سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى."
+msgstr "पोस्ट आपके नोट के साथ कंटेंट एडिटर के लिए ड्राफ़्ट में लौट जाती है।"
+
+msgid "سيناريو الفيديو"
+msgstr "वीडियो स्क्रिप्ट"
+
+msgid "سيناريوهات الفيديو"
+msgstr "वीडियो स्क्रिप्ट"
+
+msgid "سيُفعَّل حساب"
+msgstr "इससे इसका खाता सक्रिय हो जाएगा:"
+
+msgid "سيُنشر فوراً على: "
+msgstr "यह तुरंत यहाँ प्रकाशित हो जाएगी: "
+
+msgid "شاطئ"
+msgstr "समुद्र तट"
+
+msgid "شبكة"
+msgstr "ग्रिड"
+
+msgid "شجرة"
+msgstr "पेड़"
+
+msgid "شخص آخر يدير الصفحة"
+msgstr "पेज कोई और प्रबंधित करता है"
+
+msgid "شراكة وخدمة"
+msgstr "साझेदारी और सेवा"
+
+msgid "شركاتك"
+msgstr "आपकी कंपनियाँ"
+
+msgid "شركة"
+msgstr "कंपनी"
+
+msgid "شركة جديدة"
+msgstr "नई कंपनी"
+
+msgid "شركة نشطة هذا الشهر"
+msgstr "इस महीने सक्रिय कंपनियाँ"
+
+msgid "شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)"
+msgstr "कंपनी: %(name)s (अपने प्लान, पोस्ट, चित्रों और सारे डेटा के साथ)"
+
+msgid "شروط الاستخدام"
+msgstr "उपयोग की शर्तें"
+
+msgid "شريط جانبي"
+msgstr "साइडबार"
+
+msgid "شعار الوكالة"
+msgstr "एजेंसी का लोगो"
+
+msgid "شكراً، تم اعتماد المنشور"
+msgstr "धन्यवाद, पोस्ट मंज़ूर हो गई"
+
+msgid "شكوى"
+msgstr "शिकायत"
+
+msgid "شمس"
+msgstr "सूरज"
+
+msgid "شهادة"
+msgstr "प्रमाणपत्र"
+
+msgid "شهر"
+msgstr "1 महीना"
+
+msgid "صالح لإعادة النشر بصياغة جديدة بعد مدة."
+msgstr "कुछ समय बाद, नए शब्दों में, फिर से प्रकाशित करने योग्य।"
+
+msgid "صالون"
+msgstr "सैलून"
+
+msgid "صحة"
+msgstr "स्वास्थ्य"
+
+msgid "صحي"
+msgstr "स्वस्थ"
+
+msgid "صحيح"
+msgstr "सही"
+
+msgid "صفحة «%(name)s» · ربطها %(display_name)s"
+msgstr "पेज “%(name)s” · %(display_name)s द्वारा कनेक्ट किया गया"
+
+msgid "صفحة فيسبوك"
+msgstr "Facebook पेज"
+
+msgid "صلاحيتك في هذه الشركة للمشاهدة فقط."
+msgstr "इस कंपनी में आपके पास केवल देखने की पहुँच है।"
+
+msgid "صلاحيتك للمشاهدة فقط."
+msgstr "आपके पास केवल देखने की पहुँच है।"
+
+msgid "صندوق"
+msgstr "बॉक्स"
+
+msgid "صورة"
+msgstr "चित्र"
+
+msgid "صورة الخلفية"
+msgstr "पृष्ठभूमि चित्र"
+
+msgid "صورة كاملة"
+msgstr "पूरी फ़ोटो"
+
+msgid "صيانة"
+msgstr "रखरखाव"
+
+msgid "ضعف:"
+msgstr "कमज़ोरियाँ:"
+
+msgid "طابور المهام"
+msgstr "कार्य कतार"
+
+msgid "طاقة"
+msgstr "ऊर्जा"
+
+msgid "طبخ"
+msgstr "खाना पकाना"
+
+msgid "طبيب"
+msgstr "डॉक्टर"
+
+msgid "طرد"
+msgstr "पार्सल"
+
+msgid "طلاب"
+msgstr "विद्यार्थी"
+
+msgid "طلب {name} تعديل {subject}: {note}"
+msgstr "{name} ने {subject} में बदलाव माँगे: {note}"
+
+msgid "طلب إعادة كتابة"
+msgstr "दोबारा लिखने का अनुरोध"
+
+msgid "طلب اشتراك جديد بانتظار الاعتماد."
+msgstr "नए सदस्यता अनुरोध मंज़ूरी की प्रतीक्षा में।"
+
+msgid "طلب تسجيل جديد بانتظار الموافقة."
+msgstr "नए साइन-अप अनुरोध मंज़ूरी की प्रतीक्षा में।"
+
+msgid "طلب تسجيل جديد في وكيل بانتظار الموافقة:"
+msgstr "Wakeel पर एक नया साइन-अप मंज़ूरी की प्रतीक्षा में है:"
+
+msgid "طلب تسجيل جديد في وكيل: %(name)s"
+msgstr "Wakeel पर नया साइन-अप: %(name)s"
+
+msgid "طلب تعديل"
+msgstr "बदलाव माँगें"
+
+msgid "طلب تعديل ✏️"
+msgstr "बदलाव माँगें ✏️"
+
+msgid "طلب رابط جديد"
+msgstr "नया लिंक माँगें"
+
+msgid "طلب غير صالح."
+msgstr "अमान्य अनुरोध।"
+
+msgid "طلبات التسجيل"
+msgstr "साइन-अप अनुरोध"
+
+msgid "طولي 4:5"
+msgstr "पोर्ट्रेट 4:5"
+
+msgid "طيّ القائمة"
+msgstr "मेनू समेटें"
+
+msgid "عاجل"
+msgstr "ज़रूरी"
+
+msgid "عادي"
+msgstr "सामान्य"
+
+msgid "عبارات مفضلة، أو أسلوب معين في الكتابة."
+msgstr "पसंदीदा वाक्यांश, या लिखने का कोई विशेष तरीका।"
+
+msgid "عبارة الدعوة"
+msgstr "कॉल टू एक्शन"
+
+msgid "عدالة"
+msgstr "कानून"
+
+msgid "عدد الأيام"
+msgstr "दिनों की संख्या"
+
+msgid "عدد المنشورات أسبوعياً"
+msgstr "प्रति सप्ताह पोस्ट"
+
+msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
+msgstr "एक क्लिक में कुछ भी बदलें, और प्रकाशन के लिए पोस्ट मंज़ूर करें।"
+
+msgid "عرض"
+msgstr "ऑफ़र"
+
+msgid "عرض %(name)s"
+msgstr "%(name)s देखें"
+
+msgid "عرض الاشتراكات"
+msgstr "सदस्यताएँ देखें"
+
+msgid "عرض التقويم"
+msgstr "कैलेंडर देखें"
+
+msgid "عرض الكل"
+msgstr "सभी देखें"
+
+msgid "عرض المزيد"
+msgstr "और देखें"
+
+msgid "عرض تقديمي"
+msgstr "प्रेज़ेंटेशन"
+
+msgid "عرض محدود"
+msgstr "सीमित ऑफ़र"
+
+msgid "عروض، مناسبات، منتجات جديدة، أو أي شيء تريد التركيز عليه."
+msgstr "ऑफ़र, अवसर, नए उत्पाद, या कुछ भी जिस पर आप ध्यान देना चाहें।"
+
+msgid "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها."
+msgstr ""
+"अपनी कंपनी का Wakeel से परिचय कराएँ ताकि वह उसकी मार्केटिंग टीम की तरह काम कर सके।"
+
+msgid "عرّفنا بشركتك"
+msgstr "अपनी कंपनी का परिचय दें"
+
+msgid "عضو"
+msgstr "सदस्य"
+
+msgid "عضوية"
+msgstr "सदस्यता"
+
+msgid "عطور"
+msgstr "इत्र"
+
+msgid "علامات زائد"
+msgstr "प्लस चिह्न"
+
+msgid "علّق على"
+msgstr "ने टिप्पणी की"
+
+msgid "عملة"
+msgstr "सिक्का"
+
+msgid "عمودي 9:16"
+msgstr "वर्टिकल 9:16"
+
+msgid "عميل"
+msgstr "ग्राहक"
+
+msgid "عمّان"
+msgstr "अम्मान"
+
+msgid "عن وكيل"
+msgstr "Wakeel के बारे में"
+
+msgid "عند تفعيله، ينشر وكيل كل منشور"
+msgstr "चालू होने पर, Wakeel हर पोस्ट प्रकाशित करता है"
+
+msgid "عندك سؤال؟"
+msgstr "कोई प्रश्न है?"
+
+msgid "عنوان المنشور يظهر هنا"
+msgstr "पोस्ट की हेडलाइन यहाँ दिखती है"
+
+msgid "عيد استقلال الأردن"
+msgstr "जॉर्डन स्वतंत्रता दिवस"
+
+msgid "عيد استقلال السودان"
+msgstr "सूडान स्वतंत्रता दिवस"
+
+msgid "عيد الأضحى"
+msgstr "ईद अल-अज़हा"
+
+msgid "عيد الأم"
+msgstr "मातृ दिवस"
+
+msgid "عيد الاتحاد الإماراتي"
+msgstr "यूएई राष्ट्रीय दिवस (संघ दिवस)"
+
+msgid "عيد التحرير في الكويت"
+msgstr "कुवैत मुक्ति दिवस"
+
+msgid "عيد الفطر"
+msgstr "ईद अल-फ़ित्र"
+
+msgid "عيون"
+msgstr "आँखें"
+
+msgid "عُمان"
+msgstr "ओमान"
+
+msgid "غادرت «%(name)s»."
+msgstr "आपने “%(name)s” छोड़ दिया।"
+
+msgid "غرفة نوم"
+msgstr "बेडरूम"
+
+msgid "غروب"
+msgstr "गोधूलि"
+
+msgid "غلاف الفيديو (اختياري)"
+msgstr "वीडियो कवर (वैकल्पिक)"
+
+msgid "غير مجدول"
+msgstr "निर्धारित नहीं"
+
+msgid "غير مربوط"
+msgstr "कनेक्ट नहीं है"
+
+msgid "غير مربوطة"
+msgstr "कनेक्ट नहीं है"
+
+msgid "غير مضبوط"
+msgstr "कॉन्फ़िगर नहीं है"
+
+msgid "غير مضبوط (يُطبع في الطرفية)"
+msgstr "कॉन्फ़िगर नहीं है (कंसोल पर प्रिंट होता है)"
+
+msgid "غير مفعّلة على هذا الجهاز."
+msgstr "इस डिवाइस पर बंद है।"
+
+msgid "فاتح"
+msgstr "हल्का"
+
+msgid "فاتورة"
+msgstr "चालान"
+
+msgid "فاخرة وراقية"
+msgstr "भव्य और परिष्कृत"
+
+msgid "فارغ = الافتراضي للقالب."
+msgstr "खाली = लेआउट का डिफ़ॉल्ट।"
+
+msgid "فارغ = الافتراضية للقالب."
+msgstr "खाली = लेआउट का डिफ़ॉल्ट।"
+
+msgid "فارغ = بدون انتهاء."
+msgstr "खाली = कभी समाप्त नहीं होता।"
+
+msgid "فبر"
+msgstr "फ़र॰"
+
+msgid "فبراير"
+msgstr "फ़रवरी"
+
+msgid "فتح إعدادات الربط في فيسبوك"
+msgstr "Facebook पर लिंकिंग सेटिंग खोलें"
+
+msgid "فتح صفحة الإنشاء"
+msgstr "पेज बनाने का पृष्ठ खोलें"
+
+msgid "فتح كما يراه العميل"
+msgstr "क्लाइंट को जैसा दिखता है वैसा खोलें"
+
+msgid "فتح نافذة تيك توك"
+msgstr "TikTok विंडो खोलें"
+
+msgid "فتح نافذة فيسبوك"
+msgstr "Facebook विंडो खोलें"
+
+msgid "فجوات يتركونها"
+msgstr "वे कमियाँ जो वे छोड़ते हैं"
+
+msgid "فخامة"
+msgstr "विलासिता"
+
+msgid "فريق"
+msgstr "टीम"
+
+msgid "فريق تسويق كامل،"
+msgstr "एक पूरी मार्केटिंग टीम,"
+
+msgid "فريق وكيل"
+msgstr "Wakeel टीम"
+
+msgid "فريقك وبريدك"
+msgstr "आपकी टीम और मेल"
+
+msgid "فشل"
+msgstr "विफल"
+
+msgid "فشل النسخ الاحتياطي لوكيل"
+msgstr "Wakeel बैकअप विफल रहा"
+
+msgid "فشلت"
+msgstr "विफल"
+
+msgid "فشلت: %(error)s"
+msgstr "विफल: %(error)s"
+
+msgid "فصل"
+msgstr "डिस्कनेक्ट करें"
+
+msgid "فصل إنستغرام؟"
+msgstr "Instagram डिस्कनेक्ट करें?"
+
+msgid "فصل تيك توك؟"
+msgstr "TikTok डिस्कनेक्ट करें?"
+
+msgid "فصل فيسبوك؟"
+msgstr "Facebook डिस्कनेक्ट करें?"
+
+msgid "فعّل"
+msgstr "चालू करें"
+
+msgid "فكرة"
+msgstr "आइडिया"
+
+msgid "فواكه"
+msgstr "फल"
+
+msgid "فور التفعيل."
+msgstr "सक्रिय होते ही।"
+
+msgid "فوز"
+msgstr "ट्रॉफ़ी"
+
+msgid "في الانتظار"
+msgstr "लंबित"
+
+msgid "في التقويم"
+msgstr "कैलेंडर में"
+
+msgid "في اليوم المحدد من كل شهر"
+msgstr "हर महीने चुने गए दिन पर"
+
+msgid "في انتظار بدء المهمة…"
+msgstr "कार्य शुरू होने की प्रतीक्षा…"
+
+msgid "في منصة واحدة"
+msgstr "एक में"
+
+msgid "في هذه الصفحة"
+msgstr "इस पेज पर"
+
+msgid "فيديو"
+msgstr "वीडियो"
+
+msgid "فيديو قصير"
+msgstr "छोटा वीडियो"
+
+msgid "فيديو قصير (ريلز / تيك توك)"
+msgstr "छोटा वीडियो (Reels / TikTok)"
+
+msgid "فيديو قصير: سيناريو التصوير"
+msgstr "छोटा वीडियो: फ़िल्मांकन स्क्रिप्ट"
+
+msgid "فيسبوك"
+msgstr "Facebook"
+
+msgid "فيسبوك فقط الآن"
+msgstr "अभी केवल Facebook"
+
+msgid "فيلا"
+msgstr "विला"
+
+msgid "قائمة مهام"
+msgstr "चेकलिस्ट"
+
+msgid "قراءة التعليقات"
+msgstr "टिप्पणियाँ पढ़ें"
+
+msgid "قراءة مواقع المنافسين…"
+msgstr "प्रतिस्पर्धियों की वेबसाइटें पढ़ी जा रही हैं…"
+
+msgid "قراءة وكيل"
+msgstr "Wakeel की पठन-सामग्री"
+
+msgid "قصاصات"
+msgstr "कॉन्फ़ेटी"
+
+msgid "قصة (ستوري)"
+msgstr "स्टोरी"
+
+msgid "قطر"
+msgstr "कतर"
+
+msgid "قطري"
+msgstr "तिरछा"
+
+msgid "قنوات التواصل"
+msgstr "संपर्क माध्यम"
+
+msgid "قهوة"
+msgstr "कॉफ़ी"
+
+msgid "قوة:"
+msgstr "ताकतें:"
+
+msgid "قوس"
+msgstr "मेहराब"
+
+msgid "قياس"
+msgstr "माप"
+
+msgid "قيد الإعداد"
+msgstr "तैयारी हो रही है"
+
+msgid "قيد الاعتماد"
+msgstr "मंज़ूरी की प्रतीक्षा में"
+
+msgid "قيد الاقتراح"
+msgstr "सुझाव दिया जा रहा है"
+
+msgid "قيد التحليل"
+msgstr "विश्लेषण हो रहा है"
+
+msgid "قيد التعديل"
+msgstr "संशोधन हो रहा है"
+
+msgid "قيد التنفيذ"
+msgstr "चल रहा है"
+
+msgid "قُرئ الموقع"
+msgstr "वेबसाइट पढ़ी गई"
+
+msgid "كتاب"
+msgstr "किताब"
+
+msgid "كتابة"
+msgstr "लेखन"
+
+msgid "كتابة المنشورات"
+msgstr "पोस्ट लेखन"
+
+msgid "كرة قدم"
+msgstr "फ़ुटबॉल"
+
+msgid "كل الأنواع"
+msgstr "सभी प्रकार"
+
+msgid "كل الإشعارات"
+msgstr "सभी नोटिफ़िकेशन"
+
+msgid "كل الترويجات"
+msgstr "सभी प्रमोशन"
+
+msgid "كل التقارير"
+msgstr "सभी रिपोर्ट"
+
+msgid "كل الحالات"
+msgstr "सभी स्थितियाँ"
+
+msgid "كل الشركات"
+msgstr "सभी कंपनियाँ"
+
+msgid "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق."
+msgstr "सब कुछ, जिसमें पोस्ट मंज़ूर करना और ब्रांड व टीम का प्रबंधन शामिल है।"
+
+msgid "كل المنصات"
+msgstr "सभी प्लेटफ़ॉर्म"
+
+msgid "كل المهام"
+msgstr "सभी कार्य"
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "आपकी कंपनी को जो कुछ चाहिए, एक ही प्लेटफ़ॉर्म पर"
+
+msgid "كل ما تقدمه وكالة التسويق، في منصة واحدة"
+msgstr "मार्केटिंग एजेंसी जो कुछ करती है, एक ही प्लेटफ़ॉर्म पर"
+
+msgid "كلمات تساعد في اختيار الصورة المناسبة للمنشور."
+msgstr "ऐसे शब्द जो पोस्ट के लिए सही चित्र चुनने में मदद करते हैं।"
+
+msgid "كلمة المرور"
+msgstr "पासवर्ड"
+
+msgid "كلمة المرور غير صحيحة."
+msgstr "पासवर्ड गलत है।"
+
+msgid "كلمة المرور مطلوبة لإنشاء حساب المالك."
+msgstr "मालिक का खाता बनाने के लिए पासवर्ड चाहिए।"
+
+msgid "كلمة مرور المشرف غير صحيحة."
+msgstr "एडमिन पासवर्ड गलत है।"
+
+msgid "كلمة مرور المشرف للتأكيد"
+msgstr "पुष्टि के लिए एडमिन पासवर्ड"
+
+msgid "كلمة مرور جديدة"
+msgstr "नया पासवर्ड"
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "दोनों पासवर्ड मेल नहीं खाते।"
+
+msgid "كما سيظهر في إنستغرام وفيسبوك"
+msgstr "जैसा यह Instagram और Facebook पर दिखेगा"
+
+msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
+msgstr "आपकी पोस्ट ने वास्तव में कैसा प्रदर्शन किया, और Wakeel उससे क्या सीखता है।"
+
+msgid "كيف يعمل؟"
+msgstr "यह कैसे काम करता है?"
+
+msgid "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك."
+msgstr "Wakeel के ईमेल बंद करने के लिए उन्हें अपनी खाता सेटिंग में बंद करें।"
+
+msgid "لا أخطاء خلال آخر 7 أيام."
+msgstr "पिछले 7 दिनों में कोई त्रुटि नहीं।"
+
+msgid "لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة."
+msgstr "इस कंपनी में आपको यह करने की अनुमति नहीं है।"
+
+msgid "لا توجد إشعارات"
+msgstr "कोई नोटिफ़िकेशन नहीं"
+
+msgid "لا توجد إشعارات بعد."
+msgstr "अभी कोई नोटिफ़िकेशन नहीं।"
+
+msgid "لا توجد اشتراكات"
+msgstr "कोई सदस्यता नहीं"
+
+msgid "لا توجد اشتراكات بعد"
+msgstr "अभी कोई सदस्यता नहीं"
+
+msgid "لا توجد بيانات"
+msgstr "कोई डेटा नहीं"
+
+msgid "لا توجد بيانات كافية بعد."
+msgstr "अभी पर्याप्त डेटा नहीं है।"
+
+msgid "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا."
+msgstr "अभी कोई टिप्पणी नहीं। टीम के लिए अपना नोट यहाँ लिखें।"
+
+msgid "لا توجد تعليقات هنا"
+msgstr "यहाँ कोई टिप्पणी नहीं"
+
+msgid "لا توجد تغييرات"
+msgstr "कोई बदलाव नहीं"
+
+msgid "لا توجد تقارير بعد"
+msgstr "अभी कोई रिपोर्ट नहीं"
+
+msgid "لا توجد حسابات إعلانية نشطة"
+msgstr "कोई सक्रिय विज्ञापन खाता नहीं"
+
+msgid "لا توجد خطة محتوى لهذا الشهر بعد"
+msgstr "इस महीने का कंटेंट प्लान अभी नहीं है"
+
+msgid "لا توجد شركات تملكها."
+msgstr "आपके पास कोई कंपनी नहीं है।"
+
+msgid "لا توجد طلبات جديدة"
+msgstr "कोई नया अनुरोध नहीं"
+
+msgid "لا توجد ملاحظات جديدة."
+msgstr "कोई नया फ़ीडबैक नहीं।"
+
+msgid "لا توجد مناسبات خاصة في هذا الشهر."
+msgstr "इस महीने कोई विशेष अवसर नहीं।"
+
+msgid "لا توجد منشورات"
+msgstr "कोई पोस्ट नहीं"
+
+msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
+msgstr "इस प्लान में समीक्षा की प्रतीक्षा में कोई पोस्ट नहीं है। धन्यवाद!"
+
+msgid "لا توجد منشورات في هذه الخطة"
+msgstr "इस प्लान में कोई पोस्ट नहीं"
+
+msgid "لا توجد منشورات قادمة"
+msgstr "कोई आगामी पोस्ट नहीं"
+
+msgid "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد."
+msgstr "अभी तक Wakeel के ज़रिए Facebook पर कोई पोस्ट प्रकाशित नहीं हुई।"
+
+msgid "لا توجد مهام"
+msgstr "कोई कार्य नहीं"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "आपके लिए कुछ भी प्रतीक्षा में नहीं है। सब कुछ अपनी जगह पर है।"
+
+msgid "لا يحتاج الرابط إلى حساب أو كلمة مرور."
+msgstr "लिंक के लिए खाता या पासवर्ड की ज़रूरत नहीं है।"
+
+msgid "لا يمكن التراجع عن ذلك."
+msgstr "इसे पूर्ववत नहीं किया जा सकता।"
+
+msgid "لا يمكن قراءة هذا العنوان."
+msgstr "यह पता पढ़ा नहीं जा सकता।"
+
+msgid "لا يوجد"
+msgstr "कोई नहीं"
+
+msgid "لا يوجد أعضاء"
+msgstr "कोई सदस्य नहीं"
+
+msgid "لا يوجد اتصال · وكيل"
+msgstr "कनेक्शन नहीं · Wakeel"
+
+msgid "لا يوجد اتصال بالإنترنت"
+msgstr "इंटरनेट कनेक्शन नहीं है"
+
+msgid "لا يوجد استهلاك بعد"
+msgstr "अभी कोई उपयोग नहीं"
+
+msgid "لا يوجد استهلاك هذا الشهر."
+msgstr "इस महीने कोई उपयोग नहीं।"
+
+msgid "لا يوجد حساب إنستغرام احترافي مربوط بهذه الصفحة."
+msgstr "इस पेज से कोई Instagram प्रोफ़ेशनल खाता जुड़ा नहीं है।"
+
+msgid "لا يوجد مالك نشط لـ «%(name)s»."
+msgstr "“%(name)s” का कोई सक्रिय मालिक नहीं है।"
+
+msgid "لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً."
+msgstr "इस ईमेल का कोई यूज़र नहीं है। उनसे पहले Wakeel खाता बनाने को कहें।"
+
+msgid "لا، ليس بعد"
+msgstr "नहीं, अभी नहीं"
+
+msgid "لدى الشركة موقع إلكتروني؟"
+msgstr "क्या कंपनी की वेबसाइट है?"
+
+msgid "لديك حساب بالفعل؟"
+msgstr "क्या पहले से खाता है?"
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "आधिकारिक नाम और पते की भाषा"
+
+msgid "لغة المحتوى"
+msgstr "कंटेंट की भाषा"
+
+msgid "لغة النسخة"
+msgstr "संस्करण की भाषा"
+
+msgid "لـ"
+msgstr "से "
+
+msgid "لكل مليون رمز"
+msgstr "प्रति मिलियन टोकन"
+
+msgid "لكل مليون رمز (مدخلات / مخرجات)."
+msgstr "प्रति मिलियन टोकन (इनपुट / आउटपुट)।"
+
+msgid "لم أحدد الصفحة في النافذة"
+msgstr "मैंने विंडो में पेज नहीं चुना"
+
+msgid "لم تُصمَّم الصورة بعد"
+msgstr "चित्र अभी डिज़ाइन नहीं हुआ है"
+
+msgid "لم تُصمَّم الصورة بعد."
+msgstr "चित्र अभी डिज़ाइन नहीं हुआ है।"
+
+msgid "لم تُعدّ أي خطة بعد."
+msgstr "अभी कोई प्लान तैयार नहीं हुआ।"
+
+msgid "لم تُعدّ خطة"
+msgstr "इसके लिए प्लान"
+
+msgid "لم تُقرأ أرقام بعد."
+msgstr "अभी कोई आँकड़े नहीं पढ़े गए।"
+
+msgid "لم تُنفَّذ أي نسخة بعد"
+msgstr "अभी कोई बैकअप नहीं चला"
+
+msgid "لم يجد وكيل معلومات جديدة لإضافتها."
+msgstr "Wakeel को जोड़ने के लिए कोई नई जानकारी नहीं मिली।"
+
+msgid "لم يشارك فيسبوك أي صفحة مع وكيل"
+msgstr "Facebook ने Wakeel के साथ कोई पेज साझा नहीं किया"
+
+msgid "لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI सेवा से कोई जवाब नहीं आया। कृपया फिर कोशिश करें।"
+
+msgid "لم يكتمل الربط"
+msgstr "कनेक्शन पूरा नहीं हुआ"
+
+msgid "لم يُصمَّم بعد"
+msgstr "अभी डिज़ाइन नहीं हुआ"
+
+msgid "لم يُقرأ بعد"
+msgstr "अभी पढ़ा नहीं गया"
+
+msgid "لماذا هذا الترويج"
+msgstr "यह प्रमोशन क्यों"
+
+msgid "لماذا يختار العميل هذه الشركة دون منافسيها؟"
+msgstr "ग्राहक इस कंपनी को उसके प्रतिस्पर्धियों के बजाय क्यों चुनते हैं?"
+
+msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
+msgstr "पूरा प्लान देखने के लिए खोलें: %(link)s"
+
+msgid "لن يتمكن %(display_name)s من الوصول إلى %(name)s بعد الآن."
+msgstr "%(display_name)s अब %(name)s तक नहीं पहुँच सकेंगे।"
+
+msgid "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن."
+msgstr "Wakeel अब इस खाते पर पोस्ट नहीं भेजेगा।"
+
+msgid "لن يلتزم بها وكيل في الخطط القادمة."
+msgstr "Wakeel आगामी प्लान में इसका पालन नहीं करेगा।"
+
+msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
+msgstr "Wakeel अब इस खाते पर प्रकाशित नहीं करेगा।"
+
+msgid "لن ينشر وكيل على هذه الصفحة بعد الآن."
+msgstr "Wakeel अब इस पेज पर प्रकाशित नहीं करेगा।"
+
+msgid "لنبدأ بالمعلومات الأساسية عن الشركة."
+msgstr "आइए कंपनी के बुनियादी विवरण से शुरू करें।"
+
+msgid "لندن"
+msgstr "लंदन"
+
+msgid "لوحة التحكم"
+msgstr "डैशबोर्ड"
+
+msgid "لوحة التحكم الرئيسية"
+msgstr "मुख्य डैशबोर्ड"
+
+msgid "لوحة تحكم"
+msgstr "डैशबोर्ड"
+
+msgid "لوحة مشرف النظام"
+msgstr "एडमिन डैशबोर्ड"
+
+msgid "لون التمييز"
+msgstr "एक्सेंट रंग"
+
+msgid "لون الوكالة"
+msgstr "एजेंसी का रंग"
+
+msgid "ليس لدي صفحة"
+msgstr "मेरे पास पेज नहीं है"
+
+msgid "ليس لديك حساب؟"
+msgstr "खाता नहीं है?"
+
+msgid "ليكتب وكيل محتوى يشبه علامتك."
+msgstr "ताकि Wakeel आपके ब्रांड जैसा कंटेंट लिखे।"
+
+msgid "ليكتمل ذلك دون تدخل"
+msgstr "ताकि यह बिना उँगली उठाए पूरा हो जाए"
+
+msgid "ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها."
+msgstr "हम कौन-सा डेटा जमा करते हैं, क्यों, और आप उसे कैसे नियंत्रित और हटा सकते हैं।"
+
+msgid "ما الذي تريد تعديله؟"
+msgstr "आप क्या बदलवाना चाहेंगे?"
+
+msgid "ما الذي يحتاج إلى تعديل؟"
+msgstr "क्या बदलना है?"
+
+msgid "ما تعلّمه وكيل"
+msgstr "Wakeel ने क्या सीखा"
+
+msgid "ما رآه المشترك:"
+msgstr "सब्सक्राइबर ने क्या देखा:"
+
+msgid "ما نجح"
+msgstr "क्या कारगर रहा"
+
+msgid "ما يجب تجنبه"
+msgstr "कभी न करें"
+
+msgid "ما يجب فعله"
+msgstr "हमेशा करें"
+
+msgid "ما يُنشر تلقائياً"
+msgstr "अपने आप क्या प्रकाशित होता है"
+
+msgid "ماء"
+msgstr "पानी"
+
+msgid "ماذا تقدم الشركة، ولمن، وما الذي يميزها."
+msgstr "कंपनी क्या पेश करती है, किसे, और उसे क्या अलग बनाता है।"
+
+msgid "ماذا سيحدث؟"
+msgstr "आगे क्या होगा?"
+
+msgid "مار"
+msgstr "मार्च"
+
+msgid "مارد، مساعدك"
+msgstr "Marid, आपका सहायक"
+
+msgid "مارس"
+msgstr "मार्च"
+
+msgid "ماي"
+msgstr "मई"
+
+msgid "مايو"
+msgstr "मई"
+
+msgid "مباشرة"
+msgstr "लाइव"
+
+msgid "متابعة هنا"
+msgstr "यहाँ जारी रखें"
+
+msgid "متجر"
+msgstr "स्टोर"
+
+msgid "متدرّج"
+msgstr "ग्रेडिएंट"
+
+msgid "متصل"
+msgstr "कनेक्टेड"
+
+msgid "متوسط التفاعل · معدل التفاعل"
+msgstr "औसत इंटरैक्शन · एंगेजमेंट दर"
+
+msgid "متوقف"
+msgstr "रुका हुआ"
+
+msgid "متوقف الآن."
+msgstr "अभी बंद है।"
+
+msgid "متوقف — شغّل"
+msgstr "रुका हुआ — चलाएँ"
+
+msgid "مثال: أحمد، مدير التسويق"
+msgstr "उदाहरण: अहमद, मार्केटिंग मैनेजर"
+
+msgid "مثال: غيّر الصورة واذكر موعد انتهاء العرض"
+msgstr "उदाहरण: चित्र बदलें और ऑफ़र खत्म होने की तारीख़ लिखें"
+
+msgid "مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات."
+msgstr "उदाहरण: ज़्यादा जागरूकता, ज़्यादा लीड, ज़्यादा बिक्री।"
+
+msgid "مجمع"
+msgstr "यौगिक"
+
+msgid "محادثة"
+msgstr "चैट"
+
+msgid "محاسبة"
+msgstr "लेखा"
+
+msgid "محاور المحتوى"
+msgstr "कंटेंट स्तंभ"
+
+msgid "محايد"
+msgstr "तटस्थ"
+
+msgid "محتوى دائم"
+msgstr "सदाबहार"
+
+msgid "محرر المحتوى:"
+msgstr "कंटेंट एडिटर:"
+
+msgid "محرر محتوى"
+msgstr "कंटेंट एडिटर"
+
+msgid "محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً."
+msgstr "ब्राउज़र सेटिंग में अवरुद्ध है; पहले वहाँ अनुमति दें।"
+
+msgid "محفظة"
+msgstr "वॉलेट"
+
+msgid "مخرجات"
+msgstr "आउटपुट"
+
+msgid "مدة الاشتراك"
+msgstr "सदस्यता की अवधि"
+
+msgid "مدير"
+msgstr "एडमिन"
+
+msgid "مدير التسويق الذكي"
+msgstr "आपका AI मार्केटिंग मैनेजर"
+
+msgid "مدير التسويق الذكي لشركتك"
+msgstr "आपकी कंपनी का AI मार्केटिंग मैनेजर"
+
+msgid "مراجعة %(title)s"
+msgstr "%(title)s की समीक्षा करें"
+
+msgid "مراجعة الطلب"
+msgstr "समीक्षा का अनुरोध करें"
+
+msgid "مراجعة الطلبات"
+msgstr "समीक्षा अनुरोध"
+
+msgid "مربع 1:1"
+msgstr "वर्गाकार 1:1"
+
+msgid "مرحباً %(name)s،"
+msgstr "नमस्ते %(name)s,"
+
+msgid "مرحباً بعودتك"
+msgstr "वापसी पर स्वागत है"
+
+msgid "مرحباً بك في وكيل ✨"
+msgstr "Wakeel में आपका स्वागत है ✨"
+
+msgid "مرحباً،"
+msgstr "नमस्ते,"
+
+msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
+msgstr "नमस्ते, %(name)s की %(month)s परफ़ॉर्मेंस रिपोर्ट तैयार है।"
+
+msgid "مرحة وخفيفة"
+msgstr "चंचल और हल्का"
+
+msgid "مزعج"
+msgstr "स्पैम"
+
+msgid "مزوّد الذكاء الاصطناعي"
+msgstr "AI प्रदाता"
+
+msgid "مستخدم"
+msgstr "यूज़र"
+
+msgid "مستند"
+msgstr "दस्तावेज़"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "स्रोत के रूप में लाइब्रेरी का दस्तावेज़"
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "आपके लेटरहेड पर दस्तावेज़"
+
+msgid "مستودع"
+msgstr "गोदाम"
+
+msgid "مسجد"
+msgstr "मस्जिद"
+
+msgid "مسح التصفية"
+msgstr "फ़िल्टर हटाएँ"
+
+msgid "مسقط (GMT+4)"
+msgstr "मस्कट (GMT+4)"
+
+msgid "مسودة"
+msgstr "ड्राफ़्ट"
+
+msgid "مشاهد"
+msgstr "दर्शक"
+
+msgid "مشتريات"
+msgstr "खरीदारी"
+
+msgid "مشرف النظام"
+msgstr "सिस्टम एडमिन"
+
+msgid "مصر"
+msgstr "मिस्र"
+
+msgid "مضبوط"
+msgstr "कॉन्फ़िगर किया गया"
+
+msgid "مطعم"
+msgstr "रेस्तराँ"
+
+msgid "مطلوبة للحساب الجديد فقط."
+msgstr "केवल नए खाते के लिए ज़रूरी।"
+
+msgid "معالج"
+msgstr "चिप"
+
+msgid "معالج يرافقك خطوة بخطوة"
+msgstr "एक विज़ार्ड आपको चरण दर चरण इसमें मार्गदर्शन देता है"
+
+msgid "معاينة التصميم"
+msgstr "डिज़ाइन पूर्वावलोकन"
+
+msgid "معاينة المنشور في المنصة"
+msgstr "प्लेटफ़ॉर्म पर पोस्ट का पूर्वावलोकन"
+
+msgid "معاينة حية"
+msgstr "लाइव पूर्वावलोकन"
+
+msgid "معتمد"
+msgstr "मंज़ूर"
+
+msgid "معتمدة للنشر"
+msgstr "प्रकाशन के लिए मंज़ूर"
+
+msgid "معدل التفاعل"
+msgstr "एंगेजमेंट दर"
+
+msgid "معفاة"
+msgstr "छूट प्राप्त"
+
+msgid "معلومة"
+msgstr "तथ्य"
+
+msgid "معلّق"
+msgstr "निलंबित"
+
+msgid "مغادرة"
+msgstr "छोड़ें"
+
+msgid "مغادرة الشركة"
+msgstr "कंपनी छोड़ें"
+
+msgid "مغادرة الشركة؟"
+msgstr "कंपनी छोड़ें?"
+
+msgid "مغامرة"
+msgstr "रोमांच"
+
+msgid "مفتاح"
+msgstr "कुंजी"
+
+msgid "مفعّل — أوقفه في الإنتاج"
+msgstr "चालू — प्रोडक्शन में इसे बंद करें"
+
+msgid "مفعّل,متوقف"
+msgstr "on,off"
+
+msgid "مقترح"
+msgstr "सुझाया गया"
+
+msgid "مقسوم"
+msgstr "विभाजित"
+
+msgid "مكتبة"
+msgstr "लाइब्रेरी"
+
+msgid "مكتبة المستندات"
+msgstr "दस्तावेज़ लाइब्रेरी"
+
+msgid "مكتبة الوسائط"
+msgstr "मीडिया लाइब्रेरी"
+
+msgid "ملأ وكيل "
+msgstr "Wakeel ने भरा "
+
+msgid "ملابس"
+msgstr "कपड़े"
+
+msgid "ملاحظات"
+msgstr "नोट"
+
+msgid "ملاحظات المراجعة"
+msgstr "समीक्षा नोट"
+
+msgid "ملاحظات على الأسلوب"
+msgstr "शैली पर नोट"
+
+msgid "ملاحظة"
+msgstr "नोट"
+
+msgid "ملاحظة المراجعة:"
+msgstr "समीक्षा नोट:"
+
+msgid "ملخص الاستراتيجية"
+msgstr "रणनीति सारांश"
+
+msgid "ملخص الشهر"
+msgstr "महीना संक्षेप में"
+
+msgid "ملصق"
+msgstr "पोस्टर"
+
+msgid "ملف الشركة غير مكتمل، فستكون الخطة عامة."
+msgstr "कंपनी प्रोफ़ाइल अधूरी है, इसलिए प्लान सामान्य रहेगा।"
+
+msgid "ملهمة وتحفيزية"
+msgstr "प्रेरणादायक और उत्साहवर्धक"
+
+msgid "من"
+msgstr "से"
+
+msgid "من الاستراتيجية إلى التصميم إلى تقويم النشر."
+msgstr "रणनीति से डिज़ाइन और प्रकाशन कैलेंडर तक।"
+
+msgid "من المدخلات cache hit"
+msgstr "इनपुट कैश हिट थे"
+
+msgid "من يعمل على تسويق %(name)s، وما صلاحياته."
+msgstr "%(name)s की मार्केटिंग पर कौन काम करता है, और वे क्या कर सकते हैं।"
+
+msgid "مناسبات الشهر"
+msgstr "इस महीने के अवसर"
+
+msgid "مناسبة"
+msgstr "अवसर"
+
+msgid "مناسبة خاصة"
+msgstr "खास दिन"
+
+msgid "منتج"
+msgstr "उत्पाद"
+
+msgid "منتجات"
+msgstr "उत्पाद"
+
+msgid "منتهي"
+msgstr "समाप्त"
+
+msgid "منخفض"
+msgstr "कम"
+
+msgid "منزل"
+msgstr "होम"
+
+msgid "منسوخ من:"
+msgstr "यहाँ से कॉपी किया गया:"
+
+msgid "منشور"
+msgstr "प्रकाशित"
+
+msgid "منشور أُنشئ هذا الشهر"
+msgstr "इस महीने बनाई गई पोस्ट"
+
+msgid "منشور جديد"
+msgstr "नई पोस्ट"
+
+msgid "منشور جديد في هذا اليوم"
+msgstr "इस दिन की नई पोस्ट"
+
+msgid "منشور نُشر هذا الشهر"
+msgstr "इस महीने प्रकाशित पोस्ट"
+
+msgid "منشورات %(month_name)s"
+msgstr "%(month_name)s की पोस्ट"
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "समीक्षा की प्रतीक्षा में पोस्ट"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "प्रकाशन समय निकल चुकी पोस्ट"
+
+msgid "منشورات تستحق الترويج"
+msgstr "प्रमोशन के लायक पोस्ट"
+
+msgid "منشورات تستحق العودة"
+msgstr "दोबारा लाने लायक पोस्ट"
+
+msgid "منشورات تم قياسها"
+msgstr "मापी गई पोस्ट"
+
+msgid "منشورات دائمة يُعاد نشرها شهرياً"
+msgstr "हर महीने दोबारा प्रकाशित सदाबहार पोस्ट"
+
+msgid "منشوراً"
+msgstr "पोस्ट"
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr "आपकी कंपनी की मार्केटिंग, दस्तावेज़ और टीम के लिए एक प्लेटफ़ॉर्म"
+
+msgid "مهام فشلت خلال 7 أيام"
+msgstr "पिछले 7 दिनों में विफल कार्य"
+
+msgid "مهام كل الشركات مع تفاصيلها التقنية"
+msgstr "हर कंपनी के कार्य उनके तकनीकी विवरण के साथ"
+
+msgid "مهمة فشلت خلال 7 أيام"
+msgstr "7 दिनों में विफल कार्य"
+
+msgid "مهنية وموثوقة"
+msgstr "पेशेवर और भरोसेमंद"
+
+msgid "موافقة العميل"
+msgstr "क्लाइंट की मंज़ूरी"
+
+msgid "موجات"
+msgstr "लहरें"
+
+msgid "موظف"
+msgstr "कर्मचारी"
+
+msgid "موعد"
+msgstr "अपॉइंटमेंट"
+
+msgid "موعد النشر"
+msgstr "प्रकाशन समय"
+
+msgid "موقع"
+msgstr "स्थान"
+
+msgid "موقع الوكالة"
+msgstr "एजेंसी की वेबसाइट"
+
+msgid "مُتجاهَل"
+msgstr "हटाया गया"
+
+msgid "مُخرجة"
+msgstr "आउटपुट"
+
+msgid "مُدخلة"
+msgstr "इनपुट"
+
+msgid "ناعم"
+msgstr "कोमल"
+
+msgid "نبات"
+msgstr "पौधा"
+
+msgid "نبذة عن الشركة"
+msgstr "कंपनी के बारे में"
+
+msgid "نبرة الخطاب"
+msgstr "बोलने का लहजा"
+
+msgid "نجحت"
+msgstr "सफल"
+
+msgid "نساء"
+msgstr "महिलाएँ"
+
+msgid "نسخ"
+msgstr "कॉपी करें"
+
+msgid "نسخ النص مع الوسوم"
+msgstr "हैशटैग के साथ पाठ कॉपी करें"
+
+msgid "نسخ منه:"
+msgstr "कॉपी:"
+
+msgid "نسخة بلغة أو لهجة أخرى"
+msgstr "दूसरी भाषा या बोली में संस्करण"
+
+msgid "نسخة جديدة من هذا المنشور:"
+msgstr "इस पोस्ट का नया संस्करण:"
+
+msgid "نسيت كلمة المرور؟"
+msgstr "पासवर्ड भूल गए?"
+
+msgid "نشر المنشور الآن؟"
+msgstr "पोस्ट अभी प्रकाशित करें?"
+
+msgid "نشر منشور"
+msgstr "पोस्ट प्रकाशित करना"
+
+msgid "نشط"
+msgstr "सक्रिय"
+
+msgid "نص المنشور"
+msgstr "पोस्ट का पाठ"
+
+msgid "نص قصير بارز مثل: جديد، خصم 20%."
+msgstr "एक छोटा उभरता पाठ जैसे: नया, 20% छूट।"
+
+msgid "نظام الألوان"
+msgstr "रंग योजना"
+
+msgid "نظرة على تسويق %(name)s لشهر %(month_label)s"
+msgstr "%(month_label)s के लिए %(name)s की मार्केटिंग"
+
+msgid "نعم، لدينا صفحة"
+msgstr "हाँ, हमारा पेज है"
+
+msgid "نعم، لكن لست متأكداً"
+msgstr "हाँ, लेकिन मुझे पक्का नहीं पता"
+
+msgid "نعم، وحسابي جاهز"
+msgstr "हाँ, और मेरा खाता तैयार है"
+
+msgid "نفّذ"
+msgstr "चलें"
+
+msgid "نقاط"
+msgstr "बिंदु"
+
+msgid "نقاط التميز"
+msgstr "इसे क्या खास बनाता है"
+
+msgid "نقد"
+msgstr "नकद"
+
+msgid "نمو"
+msgstr "विकास"
+
+msgid "نهاية الاشتراك"
+msgstr "सदस्यता का अंत"
+
+msgid "نهاية الاشتراك قبل بدايته."
+msgstr "सदस्यता शुरू होने से पहले ही समाप्त हो जाती है।"
+
+msgid "نوع الحساب"
+msgstr "खाते का प्रकार"
+
+msgid "نوع المنشور"
+msgstr "पोस्ट का प्रकार"
+
+msgid "نوع المهمة"
+msgstr "कार्य का प्रकार"
+
+msgid "نوف"
+msgstr "नव॰"
+
+msgid "نوفمبر"
+msgstr "नवंबर"
+
+msgid "نُشر «{title}» على {platforms}."
+msgstr "“{title}” {platforms} पर प्रकाशित हुई।"
+
+msgid "نُشر على %(platforms)s."
+msgstr "%(platforms)s पर प्रकाशित।"
+
+msgid "نُشر هذا المنشور بالفعل."
+msgstr "यह पोस्ट पहले ही प्रकाशित हो चुकी है।"
+
+msgid "هدف"
+msgstr "लक्ष्य"
+
+msgid "هدية"
+msgstr "उपहार"
+
+msgid "هذا الإجراء نهائي ولا يمكن التراجع عنه"
+msgstr "यह स्थायी है और पूर्ववत नहीं किया जा सकता"
+
+msgid "هذا الحساب غير مفعّل."
+msgstr "यह खाता सक्रिय नहीं है।"
+
+msgid "هذا الشهر:"
+msgstr "इस महीने:"
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "यह ब्राउज़र नोटिफ़िकेशन का समर्थन नहीं करता।"
+
+msgid "هذا المستخدم عضو في الشركة بالفعل."
+msgstr "यह यूज़र पहले से कंपनी का सदस्य है।"
+
+msgid "هذا حساب مشرف نظام، ولا يكون مالكاً لاشتراك."
+msgstr "यह सिस्टम एडमिन खाता है, जो सदस्यता का मालिक नहीं हो सकता।"
+
+msgid "هل تريد النشر على إنستغرام أيضاً؟"
+msgstr "क्या आप Instagram पर भी पोस्ट करना चाहते हैं?"
+
+msgid "هل لدى شركتك صفحة على فيسبوك؟"
+msgstr "क्या आपकी कंपनी का Facebook पेज है?"
+
+msgid "هوية العلامة"
+msgstr "ब्रांड पहचान"
+
+msgid "هوية وعروض تقديمية"
+msgstr "पहचान और प्रेज़ेंटेशन"
+
+msgid "و"
+msgstr "और"
+
+msgid "وأنا أديرها من حسابي على فيسبوك"
+msgstr "और मैं इसे अपने Facebook खाते से प्रबंधित करता हूँ"
+
+msgid "واتساب"
+msgstr "WhatsApp"
+
+msgid "واتساب العميل"
+msgstr "क्लाइंट का WhatsApp"
+
+msgid "واتساب غير مفعّل على هذا الخادم."
+msgstr "इस सर्वर पर WhatsApp चालू नहीं है।"
+
+msgid "وثائق وكيل"
+msgstr "Wakeel दस्तावेज़"
+
+msgid "ودودة وقريبة"
+msgstr "मिलनसार और सहज"
+
+msgid "وسوم اختيارية: منتج، فريق، مكتب…"
+msgstr "वैकल्पिक टैग: उत्पाद, टीम, कार्यालय…"
+
+msgid "وسوم العلامة"
+msgstr "ब्रांड हैशटैग"
+
+msgid "وصف اختياري للصور"
+msgstr "चित्रों के लिए वैकल्पिक विवरण"
+
+msgid "وصف الصورة المقترحة"
+msgstr "सुझाया गया विज़ुअल"
+
+msgid "وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI सेवा ने अप्रत्याशित जवाब दिया। कृपया फिर कोशिश करें।"
+
+msgid "وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI सेवा ने अधूरा जवाब दिया। कृपया फिर कोशिश करें।"
+
+msgid "وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AI सेवा ने आंशिक जवाब दिया। कृपया फिर कोशिश करें।"
+
+msgid "وصلت ملاحظتك إلى الفريق"
+msgstr "आपका नोट टीम तक पहुँच गया"
+
+msgid "وصلت ملاحظتك على «%(title)s» إلى الفريق. شكراً!"
+msgstr "“%(title)s” पर आपका नोट टीम तक पहुँच गया। धन्यवाद!"
+
+msgid "وضع الوكالة"
+msgstr "एजेंसी मोड"
+
+msgid "وقت"
+msgstr "समय"
+
+msgid "وقود"
+msgstr "ईंधन"
+
+msgid "وكالة"
+msgstr "एजेंसी"
+
+msgid "وكيل"
+msgstr "Wakeel"
+
+msgid "وكيل · مدير التسويق الذكي"
+msgstr "Wakeel · आपका AI मार्केटिंग मैनेजर"
+
+msgid "وكيل يحلّل المنافسين…"
+msgstr "Wakeel प्रतिस्पर्धियों का विश्लेषण कर रहा है…"
+
+msgid "وكيل يدرس هوية الشركة ويضع الاستراتيجية…"
+msgstr "Wakeel ब्रांड का अध्ययन करके रणनीति बना रहा है…"
+
+msgid "وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…"
+msgstr "Wakeel आपके पिछले फ़ीडबैक से सीखने के लिए उन्हें देख रहा है…"
+
+msgid "وكيل يعمل على خطة %(month_label)s"
+msgstr "Wakeel %(month_label)s के प्लान पर काम कर रहा है"
+
+msgid "وكيل يعيد صياغة المنشور…"
+msgstr "Wakeel पोस्ट के शब्द बदल रहा है…"
+
+msgid "وكيل يعيد كتابة المنشور…"
+msgstr "Wakeel पोस्ट दोबारा लिख रहा है…"
+
+msgid "وكيل يقرأ التعليقات…"
+msgstr "Wakeel टिप्पणियाँ पढ़ रहा है…"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeel स्रोत दस्तावेज़ पढ़ रहा है…"
+
+msgid "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة."
+msgstr "Wakeel वेबसाइट पढ़ रहा है… इसमें एक मिनट लग सकता है।"
+
+msgid "وكيل يكتب النسخة…"
+msgstr "Wakeel संस्करण लिख रहा है…"
+
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — आपका AI मार्केटिंग मैनेजर"
+
+msgid "وهذا نص فرعي قصير يشرح الفكرة."
+msgstr "और यह विचार समझाने वाला छोटा उप-शीर्षक है।"
+
+msgid "ويُبلَّغ مالكه بالبريد."
+msgstr "और उसके मालिक को ईमेल भेजें।"
+
+msgid "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة."
+msgstr "Wakeel हर आधे घंटे में नई टिप्पणियाँ जाँचता है।"
+
+msgid "يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة."
+msgstr "Wakeel अभी प्रतिस्पर्धियों का विश्लेषण कर रहा है। एक मिनट में पेज फिर लोड करें।"
+
+msgid "يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره."
+msgstr ""
+"आपकी कंपनी का कंटेंट प्लान करता है, लिखता है, डिज़ाइन करता है और प्रकाशित करता है।"
+
+msgid "يدرس وكيل هوية %(name)s وجمهورها وأهدافها."
+msgstr "Wakeel %(name)s की पहचान, दर्शकों और लक्ष्यों का अध्ययन करता है।"
+
+msgid "يراجع فريقنا بيانات حسابك"
+msgstr "हमारी टीम आपके खाते का विवरण जाँचती है"
+
+msgid "يراجع فريقنا بيانات شركتك"
+msgstr "हमारी टीम आपकी कंपनी का विवरण जाँचती है"
+
+msgid "يرسل رابط المراجعة للعميل"
+msgstr "आपके क्लाइंट को समीक्षा लिंक भेजता है"
+
+msgid "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق."
+msgstr "तैयारी में आमतौर पर दो से पाँच मिनट लगते हैं।"
+
+msgid "يصمم المنشورات"
+msgstr "पोस्ट डिज़ाइन करता है"
+
+msgid "يصمم صورة كل منشور بألوانك وخطوطك وشعارك."
+msgstr "यह हर पोस्ट का चित्र आपके रंगों, फ़ॉन्ट और लोगो में डिज़ाइन करता है।"
+
+msgid "يطّلع على الخطط والتقويم فقط."
+msgstr "केवल प्लान और कैलेंडर देखता है।"
+
+msgid "يظهر أول "
+msgstr "लगभग पहले "
+
+msgid "يعتمد المنشورات أو يطلب تعديلها دون حساب"
+msgstr "वे पोस्ट मंज़ूर करते हैं या बदलाव माँगते हैं, खाते की ज़रूरत नहीं"
+
+msgid "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة."
+msgstr "प्लान तैयार करता है, पोस्ट संपादित करता है और उन्हें समीक्षा के लिए भेजता है।"
+
+msgid "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr "Wakeel रणनीति, हर पोस्ट और उसका डिज़ाइन तैयार करता है।"
+
+msgid "يعمل"
+msgstr "चालू"
+
+msgid "يعمل لشركتك على مدار الساعة."
+msgstr "आपकी कंपनी के लिए चौबीसों घंटे काम करता है।"
+
+msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."
+msgstr "चालू: अगला प्लान %(run_on)s को तैयार होगा।"
+
+msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
+msgstr "अगली पोस्ट शेड्यूल करते समय Wakeel इन घंटों को पसंद करता है:"
+
+msgid "يفهم علامتك"
+msgstr "जो आपके ब्रांड को समझता है"
+
+msgid "يقرأ وكيل التعليقات الجديدة الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel अभी नई टिप्पणियाँ पढ़ रहा है। कुछ देर में पेज फिर लोड करें।"
+
+msgid "يمكن إضافة %(n)s منافسين كحد أقصى."
+msgstr "आप अधिकतम %(n)s प्रतिस्पर्धी जोड़ सकते हैं।"
+
+msgid "يمكنك إضافة إنستغرام لاحقاً"
+msgstr "आप Instagram बाद में जोड़ सकते हैं"
+
+msgid "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+msgstr "अब आप अपने नए पासवर्ड से साइन इन कर सकते हैं।"
+
+msgid "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد."
+msgstr "आप मंज़ूर पोस्ट के पेज से हमेशा तुरंत प्रकाशित कर सकते हैं।"
+
+msgid "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)"
+msgstr "आप एक साथ कई चित्र अपलोड कर सकते हैं (प्रत्येक अधिकतम 10 MB)"
+
+msgid "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية."
+msgstr "आप इस पेज को छोड़ सकते हैं; काम बैकग्राउंड में जारी रहता है।"
+
+msgid "ينا"
+msgstr "जन॰"
+
+msgid "يناير"
+msgstr "जनवरी"
+
+msgid "ينتظرك"
+msgstr "आपकी प्रतीक्षा में"
+
+msgid "ينتهي الاشتراك اليوم"
+msgstr "सदस्यता आज समाप्त हो रही है"
+
+msgid "ينتهي الاشتراك خلال "
+msgstr "सदस्यता समाप्त होने में "
+
+msgid "ينتهي الاشتراك في %(date)s."
+msgstr "सदस्यता %(date)s को समाप्त होती है।"
+
+msgid "ينشر المعتمد في موعده"
+msgstr "जो मंज़ूर है उसे समय पर प्रकाशित करता है"
+
+msgid "ينقص"
+msgstr "अनुपस्थित"
+
+msgid "يوجد حساب مسجل بهذا البريد الإلكتروني."
+msgstr "इस ईमेल से खाता पहले से मौजूद है।"
+
+msgid "يول"
+msgstr "जुल॰"
+
+msgid "يوليو"
+msgstr "जुलाई"
+
+msgid "يوم إعداد الخطة"
+msgstr "प्लान तैयार करने का दिन"
+
+msgid "يوم التأسيس السعودي"
+msgstr "सऊदी स्थापना दिवस"
+
+msgid "يوم عرفة"
+msgstr "अरफ़ा का दिन"
+
+msgid "يومياً ·"
+msgstr "दैनिक ·"
+
+msgid "يون"
+msgstr "जून"
+
+msgid "يونيو"
+msgstr "जून"
+
+msgid "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr "Wakeel अभी सुझाव तैयार कर रहा है। कुछ देर में पेज फिर लोड करें।"
+
+msgid "— وكيل، مساحة عمل %(company)s"
+msgstr "— Wakeel, %(company)s वर्कस्पेस"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "पहचान, पत्र और प्रमाणपत्र, आपके अपने लेटरहेड पर।"
 

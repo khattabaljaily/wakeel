@@ -4,7 +4,7 @@
 set -euo pipefail
 
 HOST=Server
-APP_DIR=/home/general/projects/wakeel
+APP_DIR=/home/banan/projects/wakeel
 
 if [ -n "$(git status --porcelain)" ] || [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main 2>/dev/null)" ]; then
     echo "Commit and push your changes to origin/main first." >&2

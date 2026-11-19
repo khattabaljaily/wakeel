@@ -44,7 +44,7 @@
     <div class="wk-about__who">
         <div>
             <h2>من نحن</h2>
-            <p>وكيل{% if legal_entity %} منتج من {{ legal_entity }}،{% endif %} صُمم للشركات التي تريد أن يعمل تسويقها ومستنداتها وفريقها في مكان واحد وبذكاء، دون تكلفة وكالة تسويق ولا تعدد الأدوات. نؤمن أن كل شركة تستحق أدوات احترافية بلغتها وهويتها.</p>
+            <p>وكيل{% if legal_entity %} من تطوير {{ developer }} وتشغيل {{ legal_entity }}،{% endif %} صُمم للشركات التي تريد أن يعمل تسويقها ومستنداتها وفريقها في مكان واحد وبذكاء، دون تكلفة وكالة تسويق ولا تعدد الأدوات. نؤمن أن كل شركة تستحق أدوات احترافية بلغتها وهويتها.</p>
             {% if support_email %}<p class="mb-0"><i class="bi bi-envelope"></i> <a href="mailto:{{ support_email }}" dir="ltr">{{ support_email }}</a></p>{% endif %}
         </div>
         {% if not user.is_authenticated %}<a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> ابدأ الآن</a>{% endif %}

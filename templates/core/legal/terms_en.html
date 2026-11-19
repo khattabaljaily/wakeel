@@ -1,4 +1,4 @@
-<p>These terms govern your use of Wakeel{% if legal_entity %}, the service provided by {{ legal_entity }}{% endif %} ("we"), at <a href="{{ site_url }}">{{ site_url }}</a>. By creating an account or using the service, you agree to these terms and to the <a href="{% url 'core:privacy' %}">Privacy Policy</a>.</p>
+<p>These terms govern your use of Wakeel{% if legal_entity %}, the service developed by {{ developer }} and operated by {{ legal_entity }}{% endif %} ("we"), at <a href="{{ site_url }}">{{ site_url }}</a>. By creating an account or using the service, you agree to these terms and to the <a href="{% url 'core:privacy' %}">Privacy Policy</a>.</p>
 
 <h2>1. The service</h2>
 <p>Wakeel brings businesses: monthly content plans, and posts written and designed with AI, reviewed and published to Facebook and Instagram or sent to TikTok through the accounts you connect; document keeping and issuing with templates and official letterhead, verified by a QR code; AI services on documents (translation, summaries, data extraction and more); management of tasks, contacts, mail and forms; and the assistant Marid, which suggests and only acts with your approval.</p>
@@ -36,5 +36,7 @@
 <h2>9. Changes</h2>
 <p>We may change these terms; we then update the "Last updated" date above and tell you about significant changes. Continuing to use the service after a change means you accept it.</p>
 
-<h2>10. Contact</h2>
+<h2>10. Governing law</h2>
+<p>{{ operator.law }}</p>
+<h2>11. Contact</h2>
 <p>For any question about these terms: <a href="mailto:{{ support_email }}">{{ support_email }}</a>.</p>

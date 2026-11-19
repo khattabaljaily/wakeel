@@ -23,7 +23,7 @@ SECRET = 'whsec_test_secret'
 
 
 def stripe_operator_for_tests(testcase):
-    """Wakeel's operator is Banan, whose gateway (SkipCash) does not exist yet. These tests exercise the Stripe mechanism with
+    """Wakeel's own operator (JOVIA) has no gateway keys here. These tests exercise the Stripe mechanism with
     an operator that has one (JOVIA, registered for MyDocHub)."""
     for module in (company_operators, billing_gateways):
         patcher = mock.patch.object(module, 'PRODUCT', 'mydochub')

@@ -7407,6 +7407,4978 @@ msgstr "質問: %(q)s"
 msgid "The answer was saved as a note."
 msgstr "回答はメモとして保存されました。"
 
+msgid " حرفاً تقريباً قبل «"
+msgstr " 文字が “の前に表示されます"
+
+msgid " حقلاً من الموقع. راجعها في كل الخطوات."
+msgstr ""
+" 件のフィールドをウェブサイトから取得しました。各ステップで内容を確認してくだ"
+"さい。"
+
+msgid " صورة"
+msgstr " 枚の画像"
+
+msgid " من "
+msgstr " / "
+
+msgid " منشوراً"
+msgstr " 件の投稿"
+
+msgid " منشوراً؟"
+msgstr " 件の投稿ですか?"
+
+msgid " يوم"
+msgstr " 日前"
+
+msgid "%(all)s منشوراً"
+msgstr "%(all)s 件の投稿"
+
+msgid "%(company)s · عبر وكيل"
+msgstr "%(company)s · Wakeel経由"
+
+msgid "%(company)s · وكيل"
+msgstr "%(company)s · Wakeel"
+
+msgid "%(count)s × %(unit)s"
+msgstr "%(count)s × %(unit)s"
+
+msgid "%(count)s منشور"
+msgstr "%(count)s 件の投稿"
+
+msgid "%(db_runs)s لقاعدة البيانات · %(media_runs)s للملفات"
+msgstr "データベース %(db_runs)s · ファイル %(media_runs)s"
+
+msgid "%(display_name)s · %(created_at)s"
+msgstr "%(display_name)s · %(created_at)s"
+
+msgid "%(finished_at)s (منذ %(finished_at2)s)"
+msgstr "%(finished_at)s(%(finished_at2)s前)"
+
+msgid "%(get_kind_display)s · منذ %(created_at)s"
+msgstr "%(get_kind_display)s · %(created_at)s前"
+
+msgid "%(jobs)s مهمة"
+msgstr "%(jobs)s 件のタスク"
+
+msgid "%(jobs)s مهمة · %(input)s رمز"
+msgstr "%(jobs)s 件のタスク · 入力トークン %(input)s"
+
+msgid "%(jobs)s مهمة · cache hit %(cache_rate)s%%"
+msgstr "%(jobs)s 件のタスク · キャッシュヒット率 %(cache_rate)s%%"
+
+msgid "%(month)s (%(n)s منشوراً، %(get_status_display)s)"
+msgstr "%(month)s(投稿 %(n)s 件、%(get_status_display)s)"
+
+msgid "%(month_label)s · %(posts_per_week)s منشورات أسبوعياً ·"
+msgstr "%(month_label)s · 週 %(posts_per_week)s 件の投稿 ·"
+
+msgid "%(name)s (%(count)s عضو)"
+msgstr "%(name)s(メンバー %(count)s 人)"
+
+msgid "%(name)s (العميل): %(body)s"
+msgstr "%(name)s(クライアント): %(body)s"
+
+msgid "%(name)s · لوحة النظام"
+msgstr "%(name)s · システムコンソール"
+
+msgid "%(new_companies)s جديدة هذا الشهر"
+msgstr "今月の新規 %(new_companies)s 社"
+
+msgid "%(pending)s بانتظار رأيك"
+msgstr "フィードバック待ち %(pending)s 件"
+
+msgid "%(pending)s قيد الانتظار"
+msgstr "保留中 %(pending)s 件"
+
+msgid "%(plans_month)s خطة محتوى"
+msgstr "コンテンツプラン %(plans_month)s 件"
+
+msgid "%(running_jobs)s مهمة قيد التنفيذ الآن"
+msgstr "実行中のタスク %(running_jobs)s 件"
+
+msgid "%(total_bytes)s (المساحة الحرة: %(free_bytes)s)"
+msgstr "%(total_bytes)s(空き容量: %(free_bytes)s)"
+
+msgid "%(unpriced)s مهمة بلا سعر"
+msgstr "価格未設定のタスク %(unpriced)s 件"
+
+msgid "%(unscheduled)s منشور بلا موعد"
+msgstr "日付未設定の投稿 %(unscheduled)s 件"
+
+msgid "(%(unread_notifications)s غير مقروءة)"
+msgstr "(未読 %(unread_notifications)s 件)"
+
+msgid "(أنت)"
+msgstr "(あなた)"
+
+msgid "(دون %(unpriced)s مهمة بلا سعر)"
+msgstr "(価格未設定のタスク %(unpriced)s 件を除く)"
+
+msgid "(قد يتغير يوماً حسب رؤية الهلال)"
+msgstr "(月の観測により1日前後することがあります)"
+
+msgid ") ليعمل معه تلقائياً، أو شغّل"
+msgstr ") と一緒に実行されるようにするか、次を実行してください"
+
+msgid "). الأسعار في"
+msgstr ")。価格は"
+
+msgid ". سيراجعه فريقنا، وسيصلك بريد على"
+msgstr "。チームが確認し、メールでお知らせします:"
+
+msgid "12 شهراً"
+msgstr "12か月"
+
+msgid "14 يوماً (تجربة)"
+msgstr "14日間(トライアル)"
+
+msgid "16 منشوراً جاهزاً"
+msgstr "16件の投稿の準備ができました"
+
+msgid "3 أشهر"
+msgstr "3か月"
+
+msgid "6 أشهر"
+msgstr "6か月"
+
+msgid "<i class=\"bi bi-patch-check\"></i> اعتماد"
+msgstr "<i class=\"bi bi-patch-check\"></i> 承認"
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ النشر…"
+msgstr "<span class=\"spinner-border spinner-border-sm\"></span> 公開中…"
+
+msgid "<span class=\"text-warning\">● تغييرات غير محفوظة</span>"
+msgstr "<span class=\"text-warning\">● 未保存の変更</span>"
+
+msgid "A product of"
+msgstr "提供:"
+
+msgid "Added a contact"
+msgstr "連絡先を追加しました"
+
+msgid "Added a task"
+msgstr "タスクを追加しました"
+
+msgid "Attach from Wakeel"
+msgstr "Wakeelから添付"
+
+msgid "Attached a file to a task"
+msgstr "タスクにファイルを添付しました"
+
+msgid "Build a month of social media content from this document."
+msgstr "このドキュメントから1か月分のSNSコンテンツを作成します。"
+
+msgid "Changed a contact"
+msgstr "連絡先を変更しました"
+
+msgid "Changed a document of the library"
+msgstr "ライブラリのドキュメントを変更しました"
+
+msgid "Changed a task"
+msgstr "タスクを変更しました"
+
+msgid "Changed an announcement"
+msgstr "お知らせを変更しました"
+
+msgid "Changed the settings of a form"
+msgstr "フォームの設定を変更しました"
+
+msgid "Changed the status of a task"
+msgstr "タスクのステータスを変更しました"
+
+msgid "Choose a file"
+msgstr "ファイルを選択"
+
+msgid "Closed a form"
+msgstr "フォームを閉じました"
+
+msgid "Content plan from it"
+msgstr "ここからコンテンツプランを作成"
+
+msgid "Created a form"
+msgstr "フォームを作成しました"
+
+msgid "Ctrl + S للحفظ"
+msgstr "Ctrl + S で保存"
+
+msgid "Deleted a contact and its history"
+msgstr "連絡先とその履歴を削除しました"
+
+msgid "Deleted a document from the library"
+msgstr "ライブラリからドキュメントを削除しました"
+
+msgid "Deleted a form and its answers"
+msgstr "フォームとその回答を削除しました"
+
+msgid "Deleted a presentation"
+msgstr "プレゼンテーションを削除しました"
+
+msgid "Deleted a task"
+msgstr "タスクを削除しました"
+
+msgid "Deleted an announcement"
+msgstr "お知らせを削除しました"
+
+msgid "Document services"
+msgstr "ドキュメントサービス"
+
+msgid "Documents waiting for your approval"
+msgstr "承認待ちのドキュメント"
+
+msgid "Downloaded the answers of a form"
+msgstr "フォームの回答をダウンロードしました"
+
+msgid "Exported all the data of the company"
+msgstr "会社の全データをエクスポートしました"
+
+msgid "Invited someone to the company"
+msgstr "会社に招待しました"
+
+msgid "It did not work. You were not charged."
+msgstr "うまくいきませんでした。請求は発生していません。"
+
+msgid "Joined the company"
+msgstr "会社に参加しました"
+
+msgid "Letterheads"
+msgstr "レターヘッド"
+
+msgid "Make a content plan"
+msgstr "コンテンツプランを作成"
+
+msgid "Never charged (internal and demo companies)."
+msgstr "請求なし(社内用およびデモ用の会社)。"
+
+msgid "Nobody else is in this company yet."
+msgstr "この会社にはまだ他に誰もいません。"
+
+msgid "Only members of this company can open it."
+msgstr "この会社のメンバーのみ開けます。"
+
+msgid "Only the people of this company, one answer each"
+msgstr "この会社のメンバーのみ、1人1回答"
+
+msgid "Open the card again and approve it from there."
+msgstr "カードをもう一度開き、そこから承認してください。"
+
+msgid "Opened a form for answers"
+msgstr "フォームの回答受付を開始しました"
+
+msgid "Ordered a presentation"
+msgstr "プレゼンテーションを注文しました"
+
+msgid "Papers expired or expiring within 30 days"
+msgstr "30日以内に期限切れ、または期限切れの書類"
+
+msgid "Post"
+msgstr "投稿"
+
+msgid "Post from it"
+msgstr "ここから投稿を作成"
+
+msgid "Published an announcement"
+msgstr "お知らせを公開しました"
+
+msgid "Reading the document. The answer will be saved as a note."
+msgstr "ドキュメントを読み込み中です。回答はメモとして保存されます。"
+
+msgid "Reading the document… the details will appear here in a moment."
+msgstr "ドキュメントを読み込み中…詳細はまもなくここに表示されます。"
+
+msgid "Removed a file from a task"
+msgstr "タスクからファイルを削除しました"
+
+msgid "Rewrite a post"
+msgstr "投稿を書き直す"
+
+msgid "Rewriting the post. Refresh the page in a moment."
+msgstr "投稿を書き直しています。しばらくしてからページを更新してください。"
+
+msgid "Shared with Wakeel"
+msgstr "Wakeelと共有"
+
+msgid "Tasks assigned to you"
+msgstr "あなたに割り当てられたタスク"
+
+msgid "Tasks of yours are overdue"
+msgstr "あなたのタスクが期限切れです"
+
+msgid "Thank you. The balance is added as soon as the payment is confirmed."
+msgstr "ありがとうございます。支払いが確認され次第、残高に反映されます。"
+
+msgid "The AI is writing. This can take up to a minute; you can wait here."
+msgstr "AIが執筆中です。最大1分ほどかかります。このままお待ちください。"
+
+msgid "The form was created. Check its questions."
+msgstr "フォームを作成しました。質問内容を確認してください。"
+
+msgid "The mailbox will be disconnected from Wakeel."
+msgstr "メールボックスはWakeelから切断されます。"
+
+msgid "The service is busy at the moment. Please try again later."
+msgstr ""
+"サービスが現在混み合っています。しばらくしてからもう一度お試しください。"
+
+msgid "This company is not charged."
+msgstr "この会社には請求されません。"
+
+msgid "This suggestion is no longer available. Ask Marid again."
+msgstr "この提案は利用できなくなりました。もう一度Maridに尋ねてください。"
+
+msgid "Uploaded a document to the library"
+msgstr "ライブラリにドキュメントをアップロードしました"
+
+msgid "Verified by Wakeel"
+msgstr "Wakeel認証済み"
+
+msgid "Wakeel credit: $%(amount)s"
+msgstr "Wakeelクレジット: $%(amount)s"
+
+msgid "Wallet"
+msgstr "ウォレット"
+
+msgid "What the services cost"
+msgstr "サービスの料金"
+
+msgid "What to change"
+msgstr "変更内容"
+
+msgid "Working on it. This page shows the plan as soon as it is ready."
+msgstr "処理中です。完成するとこのページにプランが表示されます。"
+
+msgid "Write a post from a document"
+msgstr "ドキュメントから投稿を作成"
+
+msgid "Writing the post from the document. Refresh the page in a moment."
+msgstr ""
+"ドキュメントから投稿を作成しています。しばらくしてからページを更新してくださ"
+"い。"
+
+msgid "You are charged only if the work is delivered."
+msgstr "作業が完了した場合のみ請求されます。"
+
+msgid "You changed the server or the user name: type the password again."
+msgstr ""
+"サーバーまたはユーザー名が変更されました。パスワードをもう一度入力してくださ"
+"い。"
+
+msgid "You reached today's limit of messages to Marid. Try again tomorrow."
+msgstr ""
+"本日のMaridへのメッセージ上限に達しました。明日もう一度お試しください。"
+
+msgid "You receive this because you set this reminder in Wakeel."
+msgstr "このメールは、Wakeelで設定したリマインダーにより送信されています。"
+
+msgid "You were not charged."
+msgstr "請求は発生していません。"
+
+msgid "Your balance: $%(balance)s. It takes about half a minute."
+msgstr "残高: $%(balance)s。約30秒かかります。"
+
+msgid "[سيناريو الفيديو]"
+msgstr "[動画スクリプト]"
+
+msgid "files chosen"
+msgstr "個のファイルを選択"
+
+msgid "free"
+msgstr "無料"
+
+msgid "month"
+msgstr "月"
+
+msgid "or drop it here"
+msgstr "またはここにドロップ"
+
+msgid "page"
+msgstr "ページ"
+
+msgid "platforms"
+msgstr "プラットフォーム"
+
+msgid "post"
+msgstr "投稿"
+
+msgid "posts per week"
+msgstr "週あたりの投稿数"
+
+msgid "slide"
+msgstr "スライド"
+
+msgid "this month's brief"
+msgstr "今月のブリーフ"
+
+msgid "{count} منشورات"
+msgstr "{count} 件の投稿"
+
+msgid "{label} على «{post}»: {text}"
+msgstr "{label}(“{post}”): {text}"
+
+msgid "{name} (العميل)"
+msgstr "{name}(クライアント)"
+
+msgid "«%(name)s» معتمد بالفعل."
+msgstr "“%(name)s” はすでに承認済みです。"
+
+msgid "· %(industry)s · %(country)s · منذ %(created_at)s"
+msgstr "· %(industry)s · %(country)s · %(created_at)s から"
+
+msgid "· اللغة:"
+msgstr "· 言語:"
+
+msgid "· النشر التلقائي: %(auto_publish)s"
+msgstr "· 自動公開: %(auto_publish)s"
+
+msgid "· الهدف: %(objective)s"
+msgstr "· 目標: %(objective)s"
+
+msgid "· منذ"
+msgstr "· 開始日"
+
+msgid "· وكيل"
+msgstr "· Wakeel"
+
+msgid "· يعمل"
+msgstr "· 日付:"
+
+msgid "»، فاجعل البداية قوية."
+msgstr "”。冒頭を印象的にしてください。"
+
+msgid "، "
+msgstr ", "
+
+msgid "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير ("
+msgstr ""
+"のため、タスクは開始されていません。サーバーを開発モードで実行してください("
+
+msgid "، و%(pending)s مهمة تنتظر"
+msgstr "、保留中のタスクが %(pending)s 件あります"
+
+msgid "، وأضف"
+msgstr "、追加:"
+
+msgid "، واجعل رابط إعادة التوجيه:"
+msgstr "、リダイレクトURIを次に設定してください:"
+
+msgid "، وتُحسب تكلفة كل مهمة لحظة تنفيذها."
+msgstr "。各タスクの費用は実行時に計算されます。"
+
+msgid "؛ المفاتيح السرية لا تُعرض"
+msgstr "。シークレットキーは表示されません"
+
+msgid "؟"
+msgstr "?"
+
+msgid "آخر 12 شهراً"
+msgstr "過去12か月"
+
+msgid "آخر 30 يوماً"
+msgstr "過去30日間"
+
+msgid "آخر 90 يوماً"
+msgstr "過去90日間"
+
+msgid "آخر الأخطاء"
+msgstr "最新のエラー"
+
+msgid "آخر المهام"
+msgstr "最新のタスク"
+
+msgid "آخر تحديث:"
+msgstr "最終更新:"
+
+msgid "آخر تحديث: %(when)s"
+msgstr "最終更新: %(when)s"
+
+msgid "آخر نسخة"
+msgstr "最後のバックアップ"
+
+msgid "آيس كريم"
+msgstr "アイスクリーム"
+
+msgid "أبر"
+msgstr "4月"
+
+msgid "أبريل"
+msgstr "4月"
+
+msgid "أثاث"
+msgstr "家具"
+
+msgid "أحدث الاشتراكات"
+msgstr "最新のサブスクリプション"
+
+msgid "أخبار"
+msgstr "ニュース"
+
+msgid "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي."
+msgstr "今月大切にしたいことをWakeelに伝えてください。あとはお任せください。"
+
+msgid "أخرى"
+msgstr "その他"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr ""
+"メールアドレスを入力してください。新しいパスワードを設定するリンクをお送りし"
+"ます。"
+
+msgid "أدخل رابط الموقع أولاً."
+msgstr "先にウェブサイトのリンクを入力してください。"
+
+msgid "أدخل كلمة المرور للتأكيد"
+msgstr "確認のためパスワードを入力してください"
+
+msgid "أدخل لوناً بصيغة ‎#RRGGBB."
+msgstr "#RRGGBB形式で色を入力してください。"
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "有効な金額をドル単位で入力してください(最大1000)。"
+
+msgid "أدوات"
+msgstr "ツール"
+
+msgid "أرسل {name} {subject} للمراجعة."
+msgstr "{name}さんが{subject}をレビューのために送信しました。"
+
+msgid "أرسل رابط الاستعادة"
+msgstr "リセットリンクを送信"
+
+msgid "أرسل للعميل على واتساب"
+msgstr "WhatsAppでクライアントに送信"
+
+msgid "أزمة"
+msgstr "危機"
+
+msgid "أزمة محتملة"
+msgstr "危機の可能性"
+
+msgid "أسعار ثابتة:"
+msgstr "固定料金:"
+
+msgid "أسعار هذا النموذج غير معروفة. أضف"
+msgstr "このモデルの料金は不明です。追加してください:"
+
+msgid "أسنان"
+msgstr "歯科"
+
+msgid "أسود"
+msgstr "ダーク"
+
+msgid "أشرطة"
+msgstr "バンド"
+
+msgid "أشعة"
+msgstr "光線"
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "会社の残高への課金を再開しました。"
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "この会社は課金の対象外になりました。"
+
+msgid "أضف دعوة أوضح لاتخاذ إجراء"
+msgstr "より明確な行動喚起を追加"
+
+msgid "أضف رقم واتساب العميل أولاً من إعدادات المخطط الآلي."
+msgstr ""
+"先に自動プランナーの設定でクライアントのWhatsApp番号を追加してください。"
+
+msgid "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين"
+msgstr "ルールを追加(例: 見出しに「お得」という言葉を使わない)"
+
+msgid "أضف منافساً"
+msgstr "競合を追加"
+
+msgid "أضف منافساً واحداً على الأقل."
+msgstr "競合を1社以上追加してください。"
+
+msgid "أضف منافسيك"
+msgstr "競合を追加しましょう"
+
+msgid "أضفتموها"
+msgstr "あなたが追加"
+
+msgid "أضيفت القاعدة، وسيلتزم بها وكيل من الآن."
+msgstr "ルールを追加しました。今後Wakeelはこのルールに従います。"
+
+msgid "أطفال"
+msgstr "キッズ"
+
+msgid "أعاد وكيل كتابة المنشور"
+msgstr "Wakeelが投稿を書き直しました"
+
+msgid "أعد الإعداد"
+msgstr "再作成"
+
+msgid "أعد المحاولة واضغط «تعديل الإعدادات» لتحديدها"
+msgstr "もう一度試し、「設定を編集」を押して選択してください"
+
+msgid "أعد نشره"
+msgstr "再投稿"
+
+msgid "أعد نشره بصياغة جديدة"
+msgstr "新しい文面で再投稿"
+
+msgid "أعدّ الخطة"
+msgstr "プランを作成"
+
+msgid "أعدّ الخطة الآن"
+msgstr "今すぐプランを作成"
+
+msgid "أعدّ المخطط الآلي خطة {title}."
+msgstr "自動プランナーが{title}のプランを作成しました。"
+
+msgid "أعدّ تقريراً لشهر"
+msgstr "レポートを作成:"
+
+msgid "أعدّ خطة الشهر"
+msgstr "今月のプランを作成"
+
+msgid "أعدّ خطة المحتوى"
+msgstr "コンテンツプランを作成"
+
+msgid "أعدّ خطة محتوى أو أنشئ منشوراً يدوياً."
+msgstr "コンテンツプランを作成するか、手動で投稿を作成しましょう。"
+
+msgid "أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات."
+msgstr "コンテンツプランを作成すると、Wakeelがカレンダーを投稿で埋めます。"
+
+msgid "أعدّت هذه الخطة %(name)s"
+msgstr "このプランは%(name)sが作成しました"
+
+msgid "أعضاء"
+msgstr "メンバー"
+
+msgid "أعضاء الفريق · المنشورات"
+msgstr "チームメンバー · 投稿"
+
+msgid "أعمال"
+msgstr "ビジネス"
+
+msgid "أغس"
+msgstr "8月"
+
+msgid "أغسطس"
+msgstr "8月"
+
+msgid "أغلقتها؟ تابع"
+msgstr "閉じましたか? 続ける"
+
+msgid "أفضل ساعات النشر لجمهورك"
+msgstr "オーディエンスに最適な投稿時間"
+
+msgid "أقدم مهمة منتظرة"
+msgstr "最も古い待機中のタスク"
+
+msgid "أقواس"
+msgstr "アーク"
+
+msgid "أكت"
+msgstr "10月"
+
+msgid "أكتوبر"
+msgstr "10月"
+
+msgid "أكمل الخطوات هناك وسنتابع هنا تلقائياً."
+msgstr "そこで手順を完了すると、こちらで自動的に続行します。"
+
+msgid "أكمل الملف"
+msgstr "プロフィールを完成"
+
+msgid "أكمل الملف أولاً"
+msgstr "先にプロフィールを完成させてください"
+
+msgid "أكمل ملف شركتك"
+msgstr "会社プロフィールを完成させましょう"
+
+msgid "ألغاه المستخدم."
+msgstr "ユーザーによりキャンセルされました。"
+
+msgid "أمان"
+msgstr "セキュリティ"
+
+msgid "أمثلة من منشوراتهم"
+msgstr "投稿の例"
+
+msgid "أنت داخل حساب"
+msgstr "次のアカウント内にいます:"
+
+msgid "أنشأت الصفحة، التالي"
+msgstr "作成しました。次へ"
+
+msgid "أنشئ النسخة"
+msgstr "バージョンを作成"
+
+msgid "أنشئ تطبيقاً في"
+msgstr "アプリを作成:"
+
+msgid "أنشئ حساباً"
+msgstr "アカウントを作成"
+
+msgid "أنشئ صفحة لشركتك"
+msgstr "会社のページを作成"
+
+msgid "أنشئ صفحة لشركتك أولاً"
+msgstr "先に会社のページを作成してください"
+
+msgid "أنشئه في Meta متوقفاً"
+msgstr "Metaで一時停止状態で作成"
+
+msgid "أهداف التسويق"
+msgstr "マーケティング目標"
+
+msgid "أهلاً %(display_name)s 👋"
+msgstr "こんにちは、%(display_name)sさん 👋"
+
+msgid "أو افتحها من المتصفح"
+msgstr "またはブラウザーで開く"
+
+msgid "أوقفت الإشعارات على هذا الجهاز"
+msgstr "このデバイスの通知はオフです"
+
+msgid "أول يوم في الشهر."
+msgstr "月の初日。"
+
+msgid "أُرسلت دعوة المراجعة إلى واتساب العميل."
+msgstr "レビューの招待をクライアントのWhatsAppに送信しました。"
+
+msgid "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي"
+msgstr "このプランはWakeel(AIマーケティングマネージャー)が作成しました"
+
+msgid "أُلغي"
+msgstr "キャンセル済み"
+
+msgid "أُلغي إعداد الخطة. يمكنك المحاولة مرة أخرى أو حذف الخطة."
+msgstr ""
+"プランの作成がキャンセルされました。もう一度試すか、プランを削除してくださ"
+"い。"
+
+msgid "أُنشئ متوقفاً في Meta"
+msgstr "Metaで一時停止状態で作成しました"
+
+msgid "أُنشئت نسخة %(label)s."
+msgstr "%(label)sバージョンを作成しました。"
+
+msgid "أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد."
+msgstr ""
+"エージェンシーモードをオフにしました。クライアントにはWakeelのブランドが再び"
+"表示されます。"
+
+msgid "إحصاءات"
+msgstr "統計"
+
+msgid "إخفاء كلمة المرور"
+msgstr "パスワードを隠す"
+
+msgid "إدارة الفريق متاحة للمالك والمديرين فقط."
+msgstr "チームを管理できるのはオーナーと管理者のみです。"
+
+msgid "إدارة المشتركين ومتابعة نشاطهم"
+msgstr "購読者を管理し、アクティビティを確認"
+
+msgid "إدارة المكتبة"
+msgstr "ライブラリを管理"
+
+msgid "إدارة المنصة"
+msgstr "プラットフォーム管理者"
+
+msgid "إدارة قاعدة البيانات"
+msgstr "データベース管理者"
+
+msgid "إدارة وكيل"
+msgstr "Wakeel管理"
+
+msgid "إرجاع"
+msgstr "復元"
+
+msgid "إرسال"
+msgstr "送信"
+
+msgid "إرسال الرد"
+msgstr "返信を送信"
+
+msgid "إرسال الملاحظة"
+msgstr "メモを送信"
+
+msgid "إرسال للمراجعة"
+msgstr "レビューに送信"
+
+msgid "إزالة"
+msgstr "削除"
+
+msgid "إزالة %(display_name)s"
+msgstr "%(display_name)sを削除"
+
+msgid "إزالة العضو؟"
+msgstr "メンバーを削除しますか?"
+
+msgid "إسعاف"
+msgstr "応急処置"
+
+msgid "إشادة"
+msgstr "称賛"
+
+msgid "إشعار"
+msgstr "通知"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "メール通知"
+
+msgid "إشعارات هذا الجهاز"
+msgstr "このデバイスの通知"
+
+msgid "إضافة"
+msgstr "追加"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "残高を追加($、マイナスで差し引き)"
+
+msgid "إضافة شركاتك"
+msgstr "会社を追加しましょう"
+
+msgid "إضافة شركة"
+msgstr "会社を追加"
+
+msgid "إضافة عضو"
+msgstr "メンバーを追加"
+
+msgid "إطار"
+msgstr "フレーム"
+
+msgid "إظهار كلمة المرور"
+msgstr "パスワードを表示"
+
+msgid "إعادة إعداد الخطة"
+msgstr "プランを再作成"
+
+msgid "إعادة إعداد الخطة؟"
+msgstr "プランを再作成しますか?"
+
+msgid "إعادة إلى المسودة"
+msgstr "下書きに戻す"
+
+msgid "إعادة الإعداد"
+msgstr "再作成"
+
+msgid "إعادة الربط أو تغيير الصفحة"
+msgstr "ページを再接続または変更"
+
+msgid "إعادة المحاولة"
+msgstr "再試行"
+
+msgid "إعادة تصميم كل الصور"
+msgstr "すべての画像を再デザイン"
+
+msgid "إعادة كتابة منشور"
+msgstr "投稿の書き直し"
+
+msgid "إعادة نشر تلقائية كل شهر"
+msgstr "毎月自動で再投稿"
+
+msgid "إعادة نشر محتوى دائم"
+msgstr "定番投稿の再投稿"
+
+msgid "إعجاب"
+msgstr "いいね"
+
+msgid "إعداد التقرير"
+msgstr "レポートを作成"
+
+msgid "إعداد الخطط، التصميم، النشر، والنشر المجدول"
+msgstr "プラン作成、デザイン、公開、予約公開"
+
+msgid "إعداد النشر التلقائي"
+msgstr "自動投稿を設定"
+
+msgid "إعداد تقرير الأداء"
+msgstr "パフォーマンスレポートを作成"
+
+msgid "إعداد خطة المحتوى"
+msgstr "コンテンツプランを作成中"
+
+msgid "إعدادات"
+msgstr "設定"
+
+msgid "إعدادات الحساب"
+msgstr "アカウント設定"
+
+msgid "إعفاء من الخصم"
+msgstr "課金対象外"
+
+msgid "إعلان"
+msgstr "お知らせ"
+
+msgid "إغلاق"
+msgstr "閉じる"
+
+msgid "إلغاء"
+msgstr "キャンセル"
+
+msgid "إلغاء الإعفاء"
+msgstr "対象外を解除"
+
+msgid "إلى"
+msgstr "宛先:"
+
+msgid "إلى ملف"
+msgstr "次へ:"
+
+msgid "إنترنت"
+msgstr "インターネット"
+
+msgid "إنجاز"
+msgstr "完了"
+
+msgid "إنستغرام"
+msgstr "Instagram"
+
+msgid "إنشاء الإعلان في Meta؟"
+msgstr "Metaで広告を作成しますか?"
+
+msgid "إنشاء الاشتراك"
+msgstr "サブスクリプションを作成"
+
+msgid "إنشاء الحساب"
+msgstr "アカウントを作成しました"
+
+msgid "إنشاء حساب"
+msgstr "アカウントを作成"
+
+msgid "إنشاء رابط جديد؟"
+msgstr "新しいリンクを作成しますか?"
+
+msgid "إنشاء رابط للعميل"
+msgstr "クライアント用リンクを作成"
+
+msgid "إنشاء متوقفاً"
+msgstr "一時停止状態で作成"
+
+msgid "إنشاء مساحة العمل"
+msgstr "ワークスペースを作成"
+
+msgid "إيجابي"
+msgstr "ポジティブ"
+
+msgid "إيقاف"
+msgstr "停止"
+
+msgid "إيقاف إعداد الخطة؟"
+msgstr "プランの作成を停止しますか?"
+
+msgid "إيقاف الإعداد"
+msgstr "作成を停止"
+
+msgid "إيقاف الرابط"
+msgstr "リンクをオフにする"
+
+msgid "إيقاف وضع الوكالة"
+msgstr "エージェンシーモードをオフにする"
+
+msgid "إيقافه يعلّق الاشتراك."
+msgstr "オフにするとサブスクリプションが停止されます。"
+
+msgid "ابحث بالاسم أو البريد أو المدينة…"
+msgstr "名前、メールアドレス、市区町村で検索…"
+
+msgid "ابحث بالاسم أو البريد…"
+msgstr "名前またはメールアドレスで検索…"
+
+msgid "ابحث بالشركة أو الخطأ أو النموذج…"
+msgstr "会社、エラー、モデルで検索…"
+
+msgid "ابحث في المنشورات…"
+msgstr "投稿を検索…"
+
+msgid "ابدأ الآن"
+msgstr "始める"
+
+msgid "ابدأ بخطتك الأولى"
+msgstr "最初のプランから始めましょう"
+
+msgid "ابدأ مع وكيل"
+msgstr "Wakeelを始めましょう"
+
+msgid "اتصال"
+msgstr "呼びかけ"
+
+msgid "اجعل الأسلوب أكثر حماساً وجاذبية"
+msgstr "トーンをよりエネルギッシュで魅力的に"
+
+msgid "اجعل النص أقصر وأكثر تركيزاً"
+msgstr "文章をより短く、焦点を絞って"
+
+msgid "احتفال"
+msgstr "お祝い"
+
+msgid "احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا."
+msgstr "投稿を保存してデザインすると、画像がここに表示されます。"
+
+msgid "اختر الصفحة"
+msgstr "ページを選択"
+
+msgid "اختر اللغة أو اللهجة."
+msgstr "言語または方言を選択してください。"
+
+msgid "اختر ثلاثة رسوم كحد أقصى."
+msgstr "イラストは最大3つまで選択してください。"
+
+msgid "اختر حساباً إعلانياً من صفحة الترويج أولاً."
+msgstr "先にプロモーションページで広告アカウントを選択してください。"
+
+msgid "اختر صفحة فيسبوك"
+msgstr "Facebookページを選択"
+
+msgid "اختر كلمة مرور جديدة لحسابك."
+msgstr "アカウントの新しいパスワードを選択してください。"
+
+msgid "اختر ما ينطبق عليك:"
+msgstr "当てはまるものを選択してください:"
+
+msgid "اختر مدة صحيحة للتجديد."
+msgstr "有効な更新期間を選択してください。"
+
+msgid "اختر منصة واحدة على الأقل."
+msgstr "プラットフォームを1つ以上選択してください。"
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "1〜28の間で日を選択してください。"
+
+msgid "اختيار"
+msgstr "選択"
+
+msgid "ادخار"
+msgstr "貯蓄"
+
+msgid "اربط إنستغرام بصفحة فيسبوك"
+msgstr "InstagramをFacebookページにリンク"
+
+msgid "اربط حساب تيك توك"
+msgstr "TikTokアカウントを接続"
+
+msgid "اربط حسابات فيسبوك أو إنستغرام"
+msgstr "FacebookまたはInstagramアカウントを接続"
+
+msgid "اربط فيسبوك أو إنستغرام"
+msgstr "FacebookまたはInstagramを接続"
+
+msgid "ارتفاع"
+msgstr "上昇"
+
+msgid "استدامة"
+msgstr "サステナビリティ"
+
+msgid "استراتيجية الشهر"
+msgstr "今月の戦略"
+
+msgid "استراتيجية شهرية"
+msgstr "月次戦略"
+
+msgid "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك"
+msgstr "ビジネスとオーディエンスの理解に基づく月次戦略"
+
+msgid "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل."
+msgstr "Wakeelが作成した各月の戦略と投稿。"
+
+msgid "استعادة كلمة المرور"
+msgstr "パスワードをリセット"
+
+msgid "استعادة كلمة المرور في وكيل"
+msgstr "Wakeelのパスワードをリセット"
+
+msgid "استعادة كلمة المرور والإشعارات"
+msgstr "パスワードのリセットと通知"
+
+msgid "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً"
+msgstr "過去12か月のプラットフォーム全体のAI使用量"
+
+msgid "اسحب الصور هنا أو اضغط للاختيار"
+msgstr "画像をここにドラッグ、またはタップして選択"
+
+msgid "اسحب المنشور إلى يوم آخر لتغيير موعده."
+msgstr "投稿を別の日にドラッグすると日付を変更できます。"
+
+msgid "اسم الشركة"
+msgstr "会社名"
+
+msgid "اسم الوكالة"
+msgstr "エージェンシー名"
+
+msgid "اسمك"
+msgstr "お名前"
+
+msgid "اشتراك %(name)s معلّق"
+msgstr "%(name)sのサブスクリプションは停止中です"
+
+msgid "اشتراك جديد"
+msgstr "新しいサブスクリプション"
+
+msgid "اشتراك غير صالح."
+msgstr "無効なサブスクリプションです。"
+
+msgid "اشتراك نشط"
+msgstr "有効なサブスクリプション"
+
+msgid "اشتراك نشط بدون تاريخ انتهاء"
+msgstr "終了日のない有効なサブスクリプション"
+
+msgid "اشتراك نشط، باقٍ "
+msgstr "有効なサブスクリプション、残り "
+
+msgid "اشتراك ينتهي خلال 7 أيام."
+msgstr "件のサブスクリプションが7日以内に終了します。"
+
+msgid "اشتراكات جديدة"
+msgstr "新規サブスクリプション"
+
+msgid "اضغط على القائمة ☰ ثم «نوع الحساب والأدوات»."
+msgstr "☰メニューをタップし、「アカウントの種類とツール」を選択してください。"
+
+msgid "اطلب الآن ←"
+msgstr "今すぐ注文 →"
+
+msgid "اطلب خطة الشهر"
+msgstr "今月のプランを依頼"
+
+msgid "اطلب من وكيل تعديل المنشور"
+msgstr "Wakeelに投稿の変更を依頼"
+
+msgid "اعتماد"
+msgstr "承認"
+
+msgid "اعتماد "
+msgstr "承認 "
+
+msgid "اعتماد %(name)s"
+msgstr "%(name)sを承認"
+
+msgid "اعتماد الحساب؟"
+msgstr "アカウントを承認しますか?"
+
+msgid "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها"
+msgstr "新規購読者の承認、サブスクリプションの更新・停止・削除"
+
+msgid "اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط."
+msgstr "投稿を承認して公開できるのはオーナーと管理者のみです。"
+
+msgid "اعتماد كل ما بانتظار المراجعة (%(review_ids)s)"
+msgstr "レビュー待ちをすべて承認(%(review_ids)s)"
+
+msgid "اعتماد ✅"
+msgstr "承認 ✅"
+
+msgid "اعتمد"
+msgstr "承認済み"
+
+msgid "اعتمد {name} {subject}."
+msgstr "{name}さんが{subject}を承認しました。"
+
+msgid "اعتمد المنشور أولاً، ثم انشره."
+msgstr "先に投稿を承認してから公開してください。"
+
+msgid "افتح تطبيق إنستغرام وادخل إلى ملفك الشخصي."
+msgstr "Instagramアプリを開き、プロフィールに移動してください。"
+
+msgid "افتح مدير الإعلانات"
+msgstr "広告マネージャを開く"
+
+msgid "اقتباس"
+msgstr "引用"
+
+msgid "اقتراح الترويج جاهز."
+msgstr "プロモーションの提案ができました。"
+
+msgid "اقتراح ترويج"
+msgstr "プロモーションの提案"
+
+msgid "اقترح ترويجاً"
+msgstr "プロモーションを提案"
+
+msgid "اكتب اسمك أولاً"
+msgstr "先にお名前を入力してください"
+
+msgid "اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة."
+msgstr "チームがメモの送り主を分かるよう、先にお名前を入力してください。"
+
+msgid "اكتب الرد أولاً."
+msgstr "先に返信を入力してください。"
+
+msgid "اكتب الرد…"
+msgstr "返信を入力…"
+
+msgid "اكتب تعليقاً…"
+msgstr "コメントを入力…"
+
+msgid "اكتب تعليقك أولاً."
+msgstr "先にコメントを入力してください。"
+
+msgid "اكتب عنواناً أقوى يلفت الانتباه"
+msgstr "より強く目を引く見出しにする"
+
+msgid "اكتب فكرة مختلفة تماماً لنفس المحور"
+msgstr "同じ柱でまったく別のアイデアを書く"
+
+msgid "اكتب ما تريد تغييره في المنشور."
+msgstr "投稿で変更したい内容を入力してください。"
+
+msgid "اكتب ملاحظتك أولاً."
+msgstr "先にメモを入力してください。"
+
+msgid "اكتمل"
+msgstr "完了"
+
+msgid "اكتمل الربط"
+msgstr "接続が完了しました"
+
+msgid "اكتمل تحليل المنافسين."
+msgstr "競合分析が完了しました。"
+
+msgid "الآن"
+msgstr "たった今"
+
+msgid "الآن · 🌐"
+msgstr "たった今 · 🌐"
+
+msgid "الآن نربط حساباتك بوكيل"
+msgstr "次に、アカウントをWakeelに接続しましょう"
+
+msgid "الأحد"
+msgstr "日曜日"
+
+msgid "الأحدث"
+msgstr "新しい順"
+
+msgid "الأداء"
+msgstr "パフォーマンス"
+
+msgid "الأدوار"
+msgstr "ロール"
+
+msgid "الأربعاء"
+msgstr "水曜日"
+
+msgid "الأردن"
+msgstr "ヨルダン"
+
+msgid "الأساسيات"
+msgstr "基本情報"
+
+msgid "الأسلوب والنبرة"
+msgstr "スタイルとトーン"
+
+msgid "الأضعف أداءً"
+msgstr "成績が低い順"
+
+msgid "الأعضاء"
+msgstr "メンバー"
+
+msgid "الأعلى استهلاكاً هذا الشهر"
+msgstr "今月の利用上位"
+
+msgid "الأفضل أداءً"
+msgstr "成績が良い順"
+
+msgid "الأقدم"
+msgstr "古い順"
+
+msgid "الألوان والزخرفة"
+msgstr "色とモチーフ"
+
+msgid "الأهداف"
+msgstr "目標"
+
+msgid "الإثنين"
+msgstr "月曜日"
+
+msgid "الإجمالي الأقصى: %(total)s %(cur)s"
+msgstr "上限合計: %(total)s %(cur)s"
+
+msgid "الإدارة"
+msgstr "管理"
+
+msgid "الإشعارات"
+msgstr "通知"
+
+msgid "الإعدادات"
+msgstr "設定"
+
+msgid "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله."
+msgstr ""
+"広告はMetaに作成され、一時停止中です。オンにするまで費用は発生しません。"
+
+msgid "الإمارات"
+msgstr "アラブ首長国連邦"
+
+msgid "الإنجليزية"
+msgstr "English"
+
+msgid "الاستراتيجية"
+msgstr "戦略"
+
+msgid "الاستهلاك حسب الشهر"
+msgstr "月別の使用量"
+
+msgid "الاستهلاك والتفاصيل"
+msgstr "使用量と詳細"
+
+msgid "الاستهلاك والتكلفة"
+msgstr "使用量と費用"
+
+msgid "الاسم"
+msgstr "名前"
+
+msgid "الاسم القانوني"
+msgstr "正式名称"
+
+msgid "الاسم الكامل"
+msgstr "氏名"
+
+msgid "الاسم:"
+msgstr "名前:"
+
+msgid "الاشتراك"
+msgstr "サブスクリプション"
+
+msgid "الاشتراك معلّق"
+msgstr "サブスクリプション停止中"
+
+msgid "الاشتراكات"
+msgstr "サブスクリプション"
+
+msgid "الاشتراكات الجديدة لكل شهر"
+msgstr "月別の新規サブスクリプション"
+
+msgid "الاعتماد"
+msgstr "承認"
+
+msgid "الاكتفاء بفيسبوك"
+msgstr "Facebookのままにする"
+
+msgid "البحرين"
+msgstr "バーレーン"
+
+msgid "البريد الإلكتروني"
+msgstr "メールアドレス"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "メールアドレスまたはパスワードが正しくありません。"
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "会社のメールアドレス"
+
+msgid "البريد:"
+msgstr "メールアドレス:"
+
+msgid "البيانات الرسمية"
+msgstr "公式情報"
+
+msgid "التاريخ"
+msgstr "日付"
+
+msgid "التالي"
+msgstr "次へ"
+
+msgid "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة."
+msgstr "分析を準備中です。1分後にページを再読み込みしてください。"
+
+msgid "التحويل إلى العربية"
+msgstr "アラビア語に切り替え"
+
+msgid "الترويج المدفوع"
+msgstr "有料プロモーション"
+
+msgid "التسجيل خلال آخر 12 شهراً"
+msgstr "過去12か月の新規登録"
+
+msgid "التسجيل مغلق حالياً."
+msgstr "現在、新規登録は受け付けていません。"
+
+msgid "التسعير المستخدم"
+msgstr "使用した料金"
+
+msgid "التسويق"
+msgstr "マーケティング"
+
+msgid "التشغيل"
+msgstr "運用"
+
+msgid "التصميم"
+msgstr "デザイン"
+
+msgid "التصميم تغيّر منذ آخر تحديث للصورة."
+msgstr "画像の最終更新後にデザインが変更されました。"
+
+msgid "التصميم قيد الإعداد"
+msgstr "デザイン作成中"
+
+msgid "التعليقات"
+msgstr "コメント"
+
+msgid "التعلّم من الملاحظات"
+msgstr "フィードバックから学習"
+
+msgid "التفاصيل"
+msgstr "詳細"
+
+msgid "التفاصيل التقنية"
+msgstr "技術的な詳細"
+
+msgid "التفاعل"
+msgstr "エンゲージメント"
+
+msgid "التفعيل"
+msgstr "有効化"
+
+msgid "التقارير الشهرية"
+msgstr "月次レポート"
+
+msgid "التقرير الكامل بالأرقام وتوصيات الشهر القادم:"
+msgstr "数値と来月の提案を含む完全なレポート:"
+
+msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
+msgstr "レポートを準備中です。しばらくしてからページを再読み込みしてください。"
+
+msgid "التقويم"
+msgstr "カレンダー"
+
+msgid "التقويم الكامل"
+msgstr "カレンダー全体"
+
+msgid "التكلفة"
+msgstr "費用"
+
+msgid "التكلفة لكل شهر"
+msgstr "月あたりの費用"
+
+msgid "الثلاثاء"
+msgstr "火曜日"
+
+msgid "الجمعة"
+msgstr "金曜日"
+
+msgid "الجمعة البيضاء (عروض التسوق)"
+msgstr "ホワイトフライデー(ショッピングセール)"
+
+msgid "الجمهور المستهدف"
+msgstr "ターゲットオーディエンス"
+
+msgid "الجميع"
+msgstr "全員"
+
+msgid "الجنس"
+msgstr "性別"
+
+msgid "الحالة"
+msgstr "ステータス"
+
+msgid "الحساب"
+msgstr "アカウント"
+
+msgid "الحساب الإعلاني"
+msgstr "広告アカウント"
+
+msgid "الحساب تجريبي."
+msgstr "これはトライアルアカウントです。"
+
+msgid "الحساب غير مربوط. اربطه من «حسابات النشر»."
+msgstr ""
+"アカウントが接続されていません。「公開アカウント」から接続してください。"
+
+msgid "الحسابات المربوطة"
+msgstr "接続済みアカウント"
+
+msgid "الخدمات"
+msgstr "サービス"
+
+msgid "الخدمات والإعدادات التي تعمل بها المنصة"
+msgstr "プラットフォームが稼働するサービスと設定"
+
+msgid "الخرطوم (GMT+2)"
+msgstr "ハルツーム(GMT+2)"
+
+msgid "الخطط:"
+msgstr "プラン:"
+
+msgid "الخطوة "
+msgstr "ステップ "
+
+msgid "الخميس"
+msgstr "木曜日"
+
+msgid "الدخول كمدير المشترك"
+msgstr "購読者の管理者としてログイン"
+
+msgid "الدوحة (GMT+3)"
+msgstr "ドーハ(GMT+3)"
+
+msgid "الدور"
+msgstr "ロール"
+
+msgid "الدول"
+msgstr "国"
+
+msgid "الدولة"
+msgstr "国"
+
+msgid "الذروة"
+msgstr "ピーク"
+
+msgid "الذكاء الاصطناعي"
+msgstr "AI"
+
+msgid "الذكاء الاصطناعي غير مفعّل"
+msgstr "AI未設定"
+
+msgid "الذكاء الاصطناعي غير مفعّل (ينقص"
+msgstr "AIが設定されていません(不足:"
+
+msgid "الذكاء الاصطناعي غير مفعّل بعد. أضف"
+msgstr "AIがまだ設定されていません。追加してください:"
+
+msgid "الذكاء الاصطناعي متصل"
+msgstr "AI接続済み"
+
+msgid "الرابط غير صالح"
+msgstr "無効なリンク"
+
+msgid "الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https."
+msgstr "無効なリンクです。httpまたはhttpsで始まるものを使用してください。"
+
+msgid "الرابط لا يشير إلى صفحة ويب."
+msgstr "このリンクはウェブページを指していません。"
+
+msgid "الربط"
+msgstr "接続"
+
+msgid "الرد التلقائي على التعليقات البسيطة"
+msgstr "簡単なコメントに自動返信"
+
+msgid "الرد التلقائي: متوقف"
+msgstr "自動返信: オフ"
+
+msgid "الرد التلقائي: يعمل"
+msgstr "自動返信: オン"
+
+msgid "الرسوم"
+msgstr "イラスト"
+
+msgid "الرصيد"
+msgstr "残高"
+
+msgid "الرقم الضريبي"
+msgstr "税番号"
+
+msgid "الرموز (مُدخلة · cache · مُخرجة)"
+msgstr "トークン(入力 · キャッシュ · 出力)"
+
+msgid "الرياض (GMT+3)"
+msgstr "リヤド(GMT+3)"
+
+msgid "الزخرفة"
+msgstr "モチーフ"
+
+msgid "السابق"
+msgstr "前へ"
+
+msgid "السبت"
+msgstr "土曜日"
+
+msgid "السعودية"
+msgstr "サウジアラビア"
+
+msgid "السودان"
+msgstr "スーダン"
+
+msgid "الشارة"
+msgstr "バッジ"
+
+msgid "الشركات"
+msgstr "会社"
+
+msgid "الشركات التي تظهر لعملائها هوية الوكالة"
+msgstr "クライアントにエージェンシーのブランドが表示される会社"
+
+msgid "الشركة"
+msgstr "会社"
+
+msgid "الشعار"
+msgstr "ロゴ"
+
+msgid "الشهر"
+msgstr "月"
+
+msgid "الشهر التالي"
+msgstr "来月"
+
+msgid "الشهر السابق"
+msgstr "前月"
+
+msgid "الشهر القادم"
+msgstr "来月"
+
+msgid "الصفحة الرئيسية"
+msgstr "ホームページ"
+
+msgid "الصورة"
+msgstr "画像"
+
+msgid "الصورة المعروضة هي آخر نسخة محفوظة."
+msgstr "表示中の画像は最後に保存されたバージョンです。"
+
+msgid "الصورة النهائية"
+msgstr "最終画像"
+
+msgid "الصورة محدّثة وجاهزة للنشر."
+msgstr "画像は最新で、公開の準備ができています。"
+
+msgid "العامل الخلفي"
+msgstr "バックグラウンドワーカー"
+
+msgid "العامل الخلفي متوقف"
+msgstr "バックグラウンドワーカーが停止しています"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "العربية الفصحى"
+msgstr "現代標準アラビア語"
+
+msgid "العربية بلهجة السوق المحلي"
+msgstr "現地方言のアラビア語"
+
+msgid "العربية والإنجليزية معاً"
+msgstr "アラビア語と英語の併記"
+
+msgid "العضو"
+msgstr "メンバー"
+
+msgid "العضويات"
+msgstr "メンバーシップ"
+
+msgid "العمر إلى"
+msgstr "年齢(上限)"
+
+msgid "العمر من"
+msgstr "年齢(下限)"
+
+msgid "العميل"
+msgstr "クライアント"
+
+msgid "العميل (واتساب +%(phone)s)"
+msgstr "クライアント(WhatsApp +%(phone)s)"
+
+msgid "العنوان"
+msgstr "タイトル"
+
+msgid "العنوان الرئيسي"
+msgstr "見出し"
+
+msgid "العنوان الفرعي"
+msgstr "サブ見出し"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "ログインに戻る"
+
+msgid "العودة للوحة الإدارة"
+msgstr "管理コンソールに戻る"
+
+msgid "العيد الوطني البحريني"
+msgstr "バーレーン建国記念日"
+
+msgid "العيد الوطني الكويتي"
+msgstr "クウェート建国記念日"
+
+msgid "الفريق"
+msgstr "チーム"
+
+msgid "الفكرة"
+msgstr "アイデア"
+
+msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
+msgstr "短い動画は撮影後に手動で公開します。"
+
+msgid "القائمة"
+msgstr "メニュー"
+
+msgid "القائمة الرئيسية"
+msgstr "メインメニュー"
+
+msgid "القالب"
+msgstr "テンプレート"
+
+msgid "القاهرة"
+msgstr "カイロ"
+
+msgid "القيمة"
+msgstr "値"
+
+msgid "الكل"
+msgstr "すべて"
+
+msgid "الكويت"
+msgstr "クウェート"
+
+msgid "الكويت (GMT+3)"
+msgstr "クウェート(GMT+3)"
+
+msgid "اللغة"
+msgstr "言語"
+
+msgid "اللهجة الخليجية"
+msgstr "湾岸方言"
+
+msgid "اللهجة السودانية"
+msgstr "スーダン方言"
+
+msgid "اللهجة الشامية"
+msgstr "レバント方言"
+
+msgid "اللهجة المصرية"
+msgstr "エジプト方言"
+
+msgid "اللون الأساسي"
+msgstr "メインカラー"
+
+msgid "اللون الثانوي"
+msgstr "サブカラー"
+
+msgid "المالك"
+msgstr "オーナー"
+
+msgid "المالك والمدير:"
+msgstr "オーナーと管理者:"
+
+msgid "المجال"
+msgstr "業種"
+
+msgid "المحتوى"
+msgstr "コンテンツ"
+
+msgid "المحفظة"
+msgstr "ウォレット"
+
+msgid "المحور"
+msgstr "柱"
+
+msgid "المخصوم (صافي)"
+msgstr "請求額(純額)"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "顧客への請求額(返金を除く純額)"
+
+msgid "المخطط الآلي"
+msgstr "自動プランナー"
+
+msgid "المدة"
+msgstr "期間"
+
+msgid "المدينة"
+msgstr "市区町村"
+
+msgid "المدينة والدولة"
+msgstr "市区町村と国"
+
+msgid "المراجعة والتعليقات"
+msgstr "レビューとコメント"
+
+msgid "المزيد"
+msgstr "さらに表示"
+
+msgid "المساحة المستخدمة"
+msgstr "使用容量"
+
+msgid "المستخدمون"
+msgstr "ユーザー"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "ドキュメントの承認が必要です"
+
+msgid "المشاهد:"
+msgstr "閲覧者:"
+
+msgid "المشترك"
+msgstr "購読者"
+
+msgid "المشتركون"
+msgstr "購読者"
+
+msgid "المقاس"
+msgstr "サイズ"
+
+msgid "المكتبة فارغة"
+msgstr "ライブラリは空です"
+
+msgid "المملكة المتحدة"
+msgstr "イギリス"
+
+msgid "المناسبات"
+msgstr "記念日・行事"
+
+msgid "المنافسون"
+msgstr "競合"
+
+msgid "المنامة (GMT+3)"
+msgstr "マナーマ(GMT+3)"
+
+msgid "المنتجات والخدمات"
+msgstr "商品・サービス"
+
+msgid "المنشور التالي"
+msgstr "次の投稿"
+
+msgid "المنشور السابق"
+msgstr "前の投稿"
+
+msgid "المنشور منشور بالفعل."
+msgstr "この投稿はすでに公開済みです。"
+
+msgid "المنشورات"
+msgstr "投稿"
+
+msgid "المنشورات القادمة"
+msgstr "予定の投稿"
+
+msgid "المنشورات:"
+msgstr "投稿:"
+
+msgid "المنصات"
+msgstr "プラットフォーム"
+
+msgid "المنطقة الزمنية"
+msgstr "タイムゾーン"
+
+msgid "المهام"
+msgstr "タスク"
+
+msgid "المهام والأخطاء"
+msgstr "タスクとエラー"
+
+msgid "المهمة"
+msgstr "タスク"
+
+msgid "الموقع الإلكتروني"
+msgstr "ウェブサイト"
+
+msgid "الموقع يعيد التوجيه مرات كثيرة."
+msgstr "ウェブサイトのリダイレクトが多すぎます。"
+
+msgid "الميزانية اليومية"
+msgstr "1日の予算"
+
+msgid "النبرة:"
+msgstr "トーン:"
+
+msgid "النتيجة"
+msgstr "結果"
+
+msgid "النسخ الاحتياطي"
+msgstr "バックアップ"
+
+msgid "النسخ المحفوظة"
+msgstr "保持するバックアップ"
+
+msgid "النشاط والجمهور"
+msgstr "ビジネスとオーディエンス"
+
+msgid "النشاط والجمهور والنبرة والهوية البصرية."
+msgstr "ビジネス、オーディエンス、トーン、ビジュアルアイデンティティ。"
+
+msgid "النشر التلقائي"
+msgstr "自動公開"
+
+msgid "النشر التلقائي في الموعد"
+msgstr "スケジュールに従って自動公開"
+
+msgid "النشر التلقائي مفعّل"
+msgstr "自動公開はオンです"
+
+msgid "النشر عبر Meta"
+msgstr "Meta経由で公開"
+
+msgid "النشر على فيسبوك وإنستغرام"
+msgstr "FacebookとInstagramに公開"
+
+msgid "النشر متاح للمالك والمديرين فقط."
+msgstr "公開できるのはオーナーと管理者のみです。"
+
+msgid "النظام"
+msgstr "システム"
+
+msgid "النموذج"
+msgstr "モデル"
+
+msgid "النموذج · التكلفة"
+msgstr "モデル · 費用"
+
+msgid "الهاتف"
+msgstr "電話"
+
+msgid "الهاتف:"
+msgstr "電話:"
+
+msgid "الهدف"
+msgstr "目標"
+
+msgid "الهوية البصرية"
+msgstr "ビジュアルアイデンティティ"
+
+msgid "الوسوم"
+msgstr "タグ"
+
+msgid "الوصف"
+msgstr "説明"
+
+msgid "الوصول"
+msgstr "リーチ"
+
+msgid "الوكالات"
+msgstr "エージェンシー"
+
+msgid "اليوم"
+msgstr "今日"
+
+msgid "اليوم الرياضي للدولة في قطر"
+msgstr "カタール・スポーツデー"
+
+msgid "اليوم الوطني"
+msgstr "建国記念日"
+
+msgid "اليوم الوطني السعودي"
+msgstr "サウジ建国記念日"
+
+msgid "اليوم الوطني العُماني"
+msgstr "オマーン建国記念日"
+
+msgid "اليوم الوطني القطري"
+msgstr "カタール建国記念日"
+
+msgid "املأ من الموقع"
+msgstr "ウェブサイトから入力"
+
+msgid "انتقل إلى شركة أخرى:"
+msgstr "別の会社に切り替え:"
+
+msgid "انتهت جلسة الربط. حاول مرة أخرى."
+msgstr "接続セッションの有効期限が切れました。もう一度お試しください。"
+
+msgid "انتهى اشتراك %(name)s"
+msgstr "%(name)sのサブスクリプションの有効期限が切れました"
+
+msgid "انتهى الاشتراك منذ "
+msgstr "サブスクリプションの期限切れ: "
+
+msgid "انشر"
+msgstr "公開"
+
+msgid "انشر الآن"
+msgstr "今すぐ公開"
+
+msgid "انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها."
+msgstr "承認済みの投稿をスケジュールに従って接続済みアカウントに公開します。"
+
+msgid "انضم في"
+msgstr "参加日"
+
+msgid "انطلاق"
+msgstr "ローンチ"
+
+msgid "اهتمامات تضيفها في مدير الإعلانات"
+msgstr "広告マネージャで追加する関心"
+
+msgid "بألوان علامتك وخطوطها وشعارها"
+msgstr "ブランドの色、フォント、ロゴで"
+
+msgid "بؤرة"
+msgstr "スポットライト"
+
+msgid "بانتظار الاعتماد"
+msgstr "承認待ち"
+
+msgid "بانتظار الرد"
+msgstr "返信待ち"
+
+msgid "بانتظار المراجعة"
+msgstr "レビュー待ち"
+
+msgid "بانتظار الموافقة"
+msgstr "承認待ち"
+
+msgid "بانتظار نافذة تيك توك…"
+msgstr "TikTokのウィンドウを待機中…"
+
+msgid "بانتظار نافذة فيسبوك…"
+msgstr "Facebookのウィンドウを待機中…"
+
+msgid "بحاجة لتحديث التصميم"
+msgstr "デザインの更新が必要です"
+
+msgid "بحث في الاشتراكات"
+msgstr "サブスクリプションを検索"
+
+msgid "بحث في الفريق"
+msgstr "チームを検索"
+
+msgid "بحث في المهام"
+msgstr "タスクを検索"
+
+msgid "بحساب مالكها ("
+msgstr "オーナーのアカウントで("
+
+msgid "بدأ تصميم الصور…"
+msgstr "画像をデザイン中…"
+
+msgid "بداية الاشتراك"
+msgstr "サブスクリプション開始"
+
+msgid "بداية العشر الأواخر من رمضان"
+msgstr "ラマダン最後の10日間の開始"
+
+msgid "بداية شهر رمضان"
+msgstr "ラマダンの開始"
+
+msgid "بداية عشر ذي الحجة"
+msgstr "ズル・ヒッジャ最初の10日間の開始"
+
+msgid "بدون"
+msgstr "なし"
+
+msgid "بدون انتهاء"
+msgstr "終了日なし"
+
+msgid "بدون تاريخ انتهاء"
+msgstr "終了日なし"
+
+msgid "بدون حساب إنستغرام"
+msgstr "Instagramアカウントなし"
+
+msgid "بدون وصف"
+msgstr "説明なし"
+
+msgid "بديل ذكي لوكالات التسويق"
+msgstr "マーケティング代理店に代わるスマートな選択肢"
+
+msgid "برج"
+msgstr "タワー"
+
+msgid "برجر"
+msgstr "バーガー"
+
+msgid "برمجة"
+msgstr "コード"
+
+msgid "بريد"
+msgstr "メールアドレス"
+
+msgid "بريد التواصل مع المشترك."
+msgstr "購読者の連絡先メールアドレス。"
+
+msgid "بريد العميل"
+msgstr "クライアントのメールアドレス"
+
+msgid "بسيط"
+msgstr "ミニマル"
+
+msgid "بصفتك مشرف النظام."
+msgstr "システム管理者として。"
+
+msgid "بصمة"
+msgstr "指紋"
+
+msgid "بطاقة"
+msgstr "カード"
+
+msgid "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل"
+msgstr "有効になったら、会社を追加するとWakeelが作業を開始します"
+
+msgid "بقع لونية"
+msgstr "カラーブロブ"
+
+msgid "بلا زخرفة"
+msgstr "モチーフなし"
+
+msgid "بلا مستند"
+msgstr "ドキュメントなし"
+
+msgid "بناء"
+msgstr "建設"
+
+msgid "بنك"
+msgstr "銀行"
+
+msgid "بودكاست"
+msgstr "ポッドキャスト"
+
+msgid "بيئة"
+msgstr "環境"
+
+msgid "بيانات"
+msgstr "データ"
+
+msgid "بيانات إضافية"
+msgstr "追加情報"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "会社の詳細とアイデンティティ"
+
+msgid "بيانات النشاط"
+msgstr "事業の詳細"
+
+msgid "بيتزا"
+msgstr "ピザ"
+
+msgid "بين 1 و%(max)s يوماً."
+msgstr "1〜%(max)s日の間で指定してください。"
+
+msgid "بين 1 و%(max)s."
+msgstr "1〜%(max)sの間で指定してください。"
+
+msgid "تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى."
+msgstr ""
+"Instagramの画像準備に時間がかかりすぎました。もう一度公開してください。"
+
+msgid "تأخر تيك توك في استلام الصورة. حاول الإرسال مرة أخرى."
+msgstr ""
+"TikTokへの画像の受け取りに時間がかかっています。もう一度送信してください。"
+
+msgid "تأكيد كلمة المرور"
+msgstr "パスワードの確認"
+
+msgid "تاريخ الاعتماد"
+msgstr "承認日"
+
+msgid "تاريخ غير صالح."
+msgstr "無効な日付です。"
+
+msgid "تبدأ مع وكيل فور وصول البريد"
+msgstr "メールが届き次第、Wakeelをご利用いただけます"
+
+msgid "تجاهل"
+msgstr "閉じる"
+
+msgid "تجديد"
+msgstr "更新"
+
+msgid "تجديد %(name)s"
+msgstr "%(name)sを更新"
+
+msgid "تجديد الاشتراك"
+msgstr "サブスクリプションを更新"
+
+msgid "تجريبي"
+msgstr "トライアル"
+
+msgid "تحديث"
+msgstr "更新"
+
+msgid "تحديث أرقام الأداء"
+msgstr "パフォーマンス数値を更新"
+
+msgid "تحديث الأرقام"
+msgstr "数値を更新"
+
+msgid "تحديث التصميم"
+msgstr "デザインを更新"
+
+msgid "تحديث التصميم…"
+msgstr "デザインを更新中…"
+
+msgid "تحديد الكل"
+msgstr "すべて選択"
+
+msgid "تحقق من بريدك"
+msgstr "メールをご確認ください"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "メールをご確認ください"
+
+msgid "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة"
+msgstr "購読者、使用量、費用、プラットフォーム運用の一元管理"
+
+msgid "تحليل المنافسين"
+msgstr "競合分析"
+
+msgid "تخييم"
+msgstr "キャンプ"
+
+msgid "تدريب"
+msgstr "トレーニング"
+
+msgid "تدرّج"
+msgstr "グラデーション"
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "使った分だけお支払い"
+
+msgid "تذكير"
+msgstr "リマインダー"
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "翻訳、要約、抽出"
+
+msgid "ترويج"
+msgstr "プロモーション"
+
+msgid "تسجيل الخروج"
+msgstr "ログアウト"
+
+msgid "تسجيل الدخول"
+msgstr "ログイン"
+
+msgid "تسوق"
+msgstr "ショッピング"
+
+msgid "تسويق"
+msgstr "マーケティング"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "マーケティング、ドキュメント、チームを一か所に"
+
+msgid "تشغيل المخطط الآلي"
+msgstr "自動プランナーをオンにする"
+
+msgid "تصاميم احترافية بألوانك وخطوطك وشعارك"
+msgstr "あなたの色・フォント・ロゴによるプロ品質のデザイン"
+
+msgid "تصاميم بهويتك"
+msgstr "ブランドに沿ったデザイン"
+
+msgid "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق"
+msgstr "投稿はTikTokの受信箱に届き、アプリで仕上げられます"
+
+msgid "تصميم الصور"
+msgstr "画像デザイン"
+
+msgid "تصميم الصور: %(done)s من %(total)s"
+msgstr "画像をデザイン中: %(done)s / %(total)s"
+
+msgid "تصميم الصورة…"
+msgstr "画像をデザイン中…"
+
+msgid "تصميم المنشور: %(headline)s"
+msgstr "投稿デザイン: %(headline)s"
+
+msgid "تصميم بهويتك"
+msgstr "あなたのアイデンティティでデザイン"
+
+msgid "تصميم ثابت"
+msgstr "静止画デザイン"
+
+msgid "تصميم جديد"
+msgstr "新しいデザイン"
+
+msgid "تصميم صور الخطة"
+msgstr "プランの画像をデザイン中"
+
+msgid "تصميم صورة منشور"
+msgstr "投稿画像をデザイン中"
+
+msgid "تصوير"
+msgstr "写真"
+
+msgid "تطبيق Meta"
+msgstr "Metaアプリ"
+
+msgid "تطبيق Meta غير مضبوط بعد."
+msgstr "Metaアプリがまだ設定されていません。"
+
+msgid "تعديل"
+msgstr "編集"
+
+msgid "تعديل %(name)s"
+msgstr "%(name)sを編集"
+
+msgid "تعديل المنافس"
+msgstr "競合を編集"
+
+msgid "تعديل نص"
+msgstr "テキスト編集"
+
+msgid "تعذّر"
+msgstr "失敗"
+
+msgid "تعذّر إعداد التقرير."
+msgstr "レポートを作成できませんでした。"
+
+msgid "تعذّر إعداد الخطة"
+msgstr "プランを作成できませんでした"
+
+msgid "تعذّر إعداد خطة المحتوى: {error}"
+msgstr "コンテンツプランを作成できませんでした: {error}"
+
+msgid "تعذّر الإعداد"
+msgstr "作成に失敗しました"
+
+msgid "تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى."
+msgstr ""
+"ウェブサイトに接続できませんでした。サイトが稼働しているか確認して、もう一度"
+"お試しください。"
+
+msgid "تعذّر التحليل"
+msgstr "分析に失敗しました"
+
+msgid "تعذّر الربط"
+msgstr "接続できませんでした"
+
+msgid "تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح."
+msgstr "このウェブサイトが見つかりません。リンクのスペルを確認してください。"
+
+msgid "تعذّر النشر"
+msgstr "公開できませんでした"
+
+msgid "تعذّر النشر:"
+msgstr "公開できませんでした:"
+
+msgid "تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل."
+msgstr ""
+"AIサービスに接続できませんでした。しばらくしてからもう一度お試しください。"
+
+msgid "تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت."
+msgstr ""
+"Metaのサーバーに接続できませんでした。サーバーのインターネット接続を確認して"
+"ください。"
+
+msgid "تعذّر الوصول إلى خوادم واتساب."
+msgstr "WhatsAppのサーバーに接続できませんでした。"
+
+msgid "تعذّر تحديث التصميم"
+msgstr "デザインを更新できませんでした"
+
+msgid "تعذّر تصميم الصور"
+msgstr "画像をデザインできませんでした"
+
+msgid "تعذّر قراءة الأرقام: %(problem)s"
+msgstr "数値を読み取れませんでした: %(problem)s"
+
+msgid "تعذّر نشر «{title}»: {error}"
+msgstr "“{title}”を公開できませんでした: {error}"
+
+msgid "تعذّرت إعادة الكتابة"
+msgstr "投稿を書き直せませんでした"
+
+msgid "تعذّرت قراءة الموقع."
+msgstr "ウェブサイトを読み取れませんでした。"
+
+msgid "تعليق"
+msgstr "コメント"
+
+msgid "تعليق %(name)s"
+msgstr "%(name)sを停止"
+
+msgid "تعليق «%(name)s»؟"
+msgstr "“%(name)s”を停止しますか?"
+
+msgid "تعليق العميل"
+msgstr "クライアントのコメント"
+
+msgid "تعليق عاجل"
+msgstr "緊急のコメント"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "返信待ちのコメント"
+
+msgid "تعليقات جديدة: %(new)s، قُرئ منها %(read)s."
+msgstr "新しいコメント %(new)s 件、既読 %(read)s 件。"
+
+msgid "تعليقك"
+msgstr "あなたのコメント"
+
+msgid "تعليم"
+msgstr "教育"
+
+msgid "تعليم الكل كمقروء"
+msgstr "すべて既読にする"
+
+msgid "تعلّم من %(pending_signals)s ملاحظة جديدة"
+msgstr "新しいメモ %(pending_signals)s 件から学習"
+
+msgid "تعلّم وكيل من %(count)s ملاحظة."
+msgstr "Wakeelが %(count)s 件のメモから学習しました。"
+
+msgid "تعلّمها وكيل"
+msgstr "Wakeelが学習した内容"
+
+msgid "تغيير كلمة المرور"
+msgstr "パスワードを変更"
+
+msgid "تغيّرت حالة المنشور، فلم يُنشر تلقائياً."
+msgstr "投稿のステータスが変更されたため、自動公開されませんでした。"
+
+msgid "تفاعل"
+msgstr "インタラクション"
+
+msgid "تفعيل"
+msgstr "オンにする"
+
+msgid "تفعيل الرابط"
+msgstr "リンクをオンにする"
+
+msgid "تقرير"
+msgstr "レポート"
+
+msgid "تقرير %(m)s"
+msgstr "%(m)sのレポート"
+
+msgid "تقرير %(m)s · %(name)s"
+msgstr "%(m)sのレポート · %(name)s"
+
+msgid "تقرير أداء %(m)s"
+msgstr "%(m)sのパフォーマンスレポート"
+
+msgid "تقرير أداء %(month)s جاهز."
+msgstr "%(month)sのパフォーマンスレポートができました。"
+
+msgid "تقرير أداء %(month)s: %(name)s"
+msgstr "%(month)sのパフォーマンスレポート: %(name)s"
+
+msgid "تقرير من %(name)s"
+msgstr "%(name)sによるレポート"
+
+msgid "تقويم النشر"
+msgstr "公開カレンダー"
+
+msgid "تقويم نشر ومراجعة واعتماد في مكان واحد"
+msgstr "公開カレンダー、レビュー、承認を一か所で"
+
+msgid "تقويم ونشر"
+msgstr "カレンダーと公開"
+
+msgid "تقييم"
+msgstr "評価"
+
+msgid "تكامل"
+msgstr "連携"
+
+msgid "تكلفة 12 شهراً"
+msgstr "12か月の費用"
+
+msgid "تكلفة آخر 12 شهراً"
+msgstr "過去12か月の費用"
+
+msgid "تكلفة الذكاء الاصطناعي"
+msgstr "AI費用"
+
+msgid "تكلفة الذكاء الاصطناعي لكل شهر"
+msgstr "月別のAI費用"
+
+msgid "تكلفة الشهر"
+msgstr "今月の費用"
+
+msgid "تكلفة هذا الشهر"
+msgstr "今月の費用"
+
+msgid "تلقائي"
+msgstr "自動"
+
+msgid "تم إرسال الرد."
+msgstr "返信を送信しました。"
+
+msgid "تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…"
+msgstr "%(count)s 件の投稿を作成しました。画像をデザイン中…"
+
+msgid "تم إعداد الخطة و%(count)s منشوراً."
+msgstr "プランと %(count)s 件の投稿を作成しました。"
+
+msgid "تم إعداد تقرير %(month)s."
+msgstr "%(month)sのレポートができました。"
+
+msgid "تم إنشاء اشتراك «%(name)s» ومالكه %(email)s."
+msgstr "サブスクリプション“%(name)s”を作成しました。オーナーは%(email)sです。"
+
+msgid "تم إيقاف إشعارات البريد."
+msgstr "メール通知をオフにしました。"
+
+msgid "تم إيقاف الرد التلقائي."
+msgstr "自動返信はオフです。"
+
+msgid "تم إيقاف المخطط الآلي."
+msgstr "自動プランナーはオフです。"
+
+msgid "تم إيقاف النشر التلقائي."
+msgstr "自動公開はオフです。"
+
+msgid "تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل."
+msgstr "クライアント用リンクをオフにしました。以前のリンクは使えなくなります。"
+
+msgid "تم اختيار "
+msgstr "選択済み"
+
+msgid "تم اختيار الحساب الإعلاني."
+msgstr "広告アカウントを選択しました。"
+
+msgid "تم استلام طلب"
+msgstr "次のリクエストを受け付けました:"
+
+msgid "تم اعتماد "
+msgstr "承認日時: "
+
+msgid "تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد."
+msgstr "“%(name)s”を承認し、オーナーにメールを送信しました。"
+
+msgid "تم اعتماد «%(title)s» ✅"
+msgstr "“%(title)s”を承認しました ✅"
+
+msgid "تم اعتماد حساب %(company)s في وكيل، ويمكنك البدء الآن."
+msgstr "Wakeelの%(company)sアカウントが承認されました。今すぐ始められます。"
+
+msgid "تم الحفظ الساعة "
+msgstr "保存日時: "
+
+msgid "تم الربط بنجاح"
+msgstr "接続に成功しました"
+
+msgid "تم الرد"
+msgstr "返信済み"
+
+msgid "تم النشر"
+msgstr "公開済み"
+
+msgid "تم النشر يدوياً"
+msgstr "手動で公開済み"
+
+msgid "تم تجديد «%(name)s» حتى %(date)s."
+msgstr "“%(name)s”を%(date)sまで更新しました。"
+
+msgid "تم تحديث أرقام %(count)s منشور."
+msgstr "%(count)s 件の投稿の数値を更新しました。"
+
+msgid "تم تحديث التصميم."
+msgstr "デザインを更新しました。"
+
+msgid "تم تحديث الحالة: "
+msgstr "ステータスを更新しました: "
+
+msgid "تم تحديث الدور."
+msgstr "ロールを更新しました。"
+
+msgid "تم تحديث رابط التقرير."
+msgstr "レポートリンクを更新しました。"
+
+msgid "تم تشغيل الرد التلقائي على الأسئلة البسيطة والإشادات."
+msgstr "簡単な質問や称賛への自動返信はオンです。"
+
+msgid "تم تشغيل المخطط الآلي."
+msgstr "自動プランナーはオンです。"
+
+msgid "تم تصميم %(count)s صورة."
+msgstr "%(count)s 枚の画像をデザインしました。"
+
+msgid "تم تعديل الرصيد."
+msgstr "残高を変更しました。"
+
+msgid "تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه."
+msgstr "“%(name)s”を停止しました。再開するまでチームは作業できません。"
+
+msgid "تم تعيين كلمة المرور"
+msgstr "パスワードを設定しました"
+
+msgid "تم تغيير كلمة المرور"
+msgstr "パスワードを変更しました"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "パスワードを変更しました。"
+
+msgid "تم تغيير موعد النشر"
+msgstr "公開日を変更しました"
+
+msgid "تم تفعيل إشعارات البريد."
+msgstr "メール通知をオンにしました。"
+
+msgid "تم تفعيل النشر التلقائي."
+msgstr "自動公開はオンです。"
+
+msgid "تم تفعيل حساب %(name)s، وأُبلغ بالبريد."
+msgstr "%(name)sのアカウントが有効になり、メールを送信しました。"
+
+msgid "تم تفعيل حسابك في وكيل"
+msgstr "Wakeelアカウントが有効になりました"
+
+msgid "تم تفعيل حسابك في وكيل: %(name)s"
+msgstr "Wakeelアカウントが有効になりました: %(name)s"
+
+msgid "تم تنشيط «%(name)s»."
+msgstr "“%(name)s”を再開しました。"
+
+msgid "تم حذف «%(name)s» وكل بياناتها نهائياً."
+msgstr "“%(name)s”とそのすべてのデータを完全に削除しました。"
+
+msgid "تم حذف الخطة ومنشوراتها."
+msgstr "プランとその投稿を削除しました。"
+
+msgid "تم حذف الصورة."
+msgstr "画像を削除しました。"
+
+msgid "تم حذف المنافس."
+msgstr "競合を削除しました。"
+
+msgid "تم حذف المنشور."
+msgstr "投稿を削除しました。"
+
+msgid "تم حذف حسابك وكل بياناته نهائياً."
+msgstr "アカウントとそのすべてのデータを完全に削除しました。"
+
+msgid "تم حفظ الإعدادات."
+msgstr "設定を保存しました。"
+
+msgid "تم حفظ المنافس."
+msgstr "競合を保存しました。"
+
+msgid "تم حفظ بيانات «%(name)s»."
+msgstr "“%(name)s”を保存しました。"
+
+msgid "تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات."
+msgstr ""
+"ブランドアイデンティティを保存しました。変更を反映するには画像を再デザインし"
+"てください。"
+
+msgid "تم حفظ هوية الوكالة."
+msgstr "エージェンシーブランドを保存しました。"
+
+msgid "تم ربط تيك توك"
+msgstr "TikTokが接続されました"
+
+msgid "تم ربط صفحة «%(page)s»"
+msgstr "ページ「%(page)s」が接続されました"
+
+msgid "تم رفض طلب %(name)s وحذفه."
+msgstr "%(name)sのリクエストを拒否し、削除しました。"
+
+msgid "تم رفع %(count)s صورة."
+msgstr "%(count)s 枚の画像をアップロードしました。"
+
+msgid "تم فصل الحساب."
+msgstr "アカウントの接続を解除しました。"
+
+msgid "تم نشرها"
+msgstr "公開済み"
+
+msgid "تمت إزالة العضو."
+msgstr "メンバーを削除しました。"
+
+msgid "تمت إضافة العضو."
+msgstr "メンバーを追加しました。"
+
+msgid "تمت إعادة الكتابة."
+msgstr "書き直しが完了しました。"
+
+msgid "تميّز"
+msgstr "スパークル"
+
+msgid "تنبيه"
+msgstr "警告"
+
+msgid "تنزيل"
+msgstr "ダウンロード"
+
+msgid "تنزيل نصوص المنشورات"
+msgstr "投稿テキストをダウンロード"
+
+msgid "تنشيط"
+msgstr "再開"
+
+msgid "تنشيط %(name)s"
+msgstr "%(name)sを再開"
+
+msgid "تنفيذ"
+msgstr "適用"
+
+msgid "توجيهات هذا الشهر"
+msgstr "今月のブリーフ"
+
+msgid "توجيهاتك:"
+msgstr "あなたのブリーフ:"
+
+msgid "توسيع القائمة"
+msgstr "メニューを開く"
+
+msgid "توصيات الشهر القادم"
+msgstr "来月への提案"
+
+msgid "توصيل"
+msgstr "配信"
+
+msgid "تيك توك"
+msgstr "TikTok"
+
+msgid "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات."
+msgstr "これらの色とフォントはすべての投稿デザインに使われます。"
+
+msgid "تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات."
+msgstr "合う場合に投稿へ追加されます。スペースで区切ってください。"
+
+msgid "جائزة"
+msgstr "アワード"
+
+msgid "جارٍ التحليل…"
+msgstr "分析中…"
+
+msgid "جارٍ التحميل…"
+msgstr "読み込み中…"
+
+msgid "جارٍ التصميم…"
+msgstr "デザイン中…"
+
+msgid "جارٍ النشر…"
+msgstr "公開中…"
+
+msgid "جارٍ تصميم الصور…"
+msgstr "画像をデザイン中…"
+
+msgid "جارٍ قراءة أرقام الشهر…"
+msgstr "今月の数値を読み取り中…"
+
+msgid "جاهز"
+msgstr "準備完了"
+
+msgid "جاهزة"
+msgstr "準備完了"
+
+msgid "جديد"
+msgstr "新規"
+
+msgid "جري"
+msgstr "実行中"
+
+msgid "جريء"
+msgstr "ボールド"
+
+msgid "جريئة وحماسية"
+msgstr "大胆でエネルギッシュ"
+
+msgid "جوال"
+msgstr "モバイル"
+
+msgid "جودة"
+msgstr "品質"
+
+msgid "جُهّز «%(title)s» لإعادة النشر."
+msgstr "“%(title)s”を再び公開できます。"
+
+msgid "حاسوب"
+msgstr "ノートPC"
+
+msgid "حالة الاشتراك"
+msgstr "サブスクリプションの状態"
+
+msgid "حالة الخدمات"
+msgstr "サービスの状態"
+
+msgid "حالة المنشورات"
+msgstr "投稿のステータス"
+
+msgid "حالة النظام"
+msgstr "システムの状態"
+
+msgid "حالة غير معروفة."
+msgstr "不明なステータスです。"
+
+msgid "حاول مرة أخرى"
+msgstr "再試行"
+
+msgid "حب"
+msgstr "愛"
+
+msgid "حدث خطأ غير متوقع."
+msgstr "予期しない問題が発生しました。"
+
+msgid "حدّد دولة واحدة على الأقل."
+msgstr "国を1つ以上選択してください。"
+
+msgid "حذف"
+msgstr "削除"
+
+msgid "حذف %(name)s"
+msgstr "%(name)sを削除"
+
+msgid "حذف %(name)s؟"
+msgstr "%(name)sを削除しますか?"
+
+msgid "حذف «%(name)s» نهائياً؟"
+msgstr "“%(name)s”を完全に削除しますか?"
+
+msgid "حذف الاقتراح"
+msgstr "提案を削除"
+
+msgid "حذف الحساب"
+msgstr "アカウントを削除"
+
+msgid "حذف الخطة"
+msgstr "プランを削除"
+
+msgid "حذف الخطة؟"
+msgstr "プランを削除しますか?"
+
+msgid "حذف الشركة"
+msgstr "会社を削除"
+
+msgid "حذف الشركة متاح لمالكها فقط."
+msgstr "会社を削除できるのはオーナーのみです。"
+
+msgid "حذف الشركة نهائياً"
+msgstr "会社を完全に削除"
+
+msgid "حذف الصورة"
+msgstr "画像を削除"
+
+msgid "حذف الصورة؟"
+msgstr "画像を削除しますか?"
+
+msgid "حذف القاعدة"
+msgstr "ルールを削除"
+
+msgid "حذف المنشور"
+msgstr "投稿を削除"
+
+msgid "حذف المنشور؟"
+msgstr "投稿を削除しますか?"
+
+msgid "حذف حسابك نهائياً؟"
+msgstr "アカウントを完全に削除しますか?"
+
+msgid "حذف حسابك والشركات التي تملكها نهائياً."
+msgstr "アカウントと、所有する会社を完全に削除します。"
+
+msgid "حذف حسابي"
+msgstr "アカウントを削除"
+
+msgid "حذف حسابي نهائياً"
+msgstr "アカウントを完全に削除"
+
+msgid "حذف نهائي"
+msgstr "完全に削除"
+
+msgid "حذف هذه القاعدة؟"
+msgstr "このルールを削除しますか?"
+
+msgid "حساب %(name)s مفعّل بالفعل."
+msgstr "%(name)sのアカウントはすでに有効です。"
+
+msgid "حساب إنستغرام"
+msgstr "Instagramアカウント"
+
+msgid "حساب احترافي ومربوط بصفحة الشركة"
+msgstr "会社のページにリンクされたプロアカウント"
+
+msgid "حساب تجريبي"
+msgstr "トライアルアカウント"
+
+msgid "حساب تواصل"
+msgstr "SNSアカウント"
+
+msgid "حساب تيك توك"
+msgstr "TikTokアカウント"
+
+msgid "حساب مالك النشاط"
+msgstr "事業主のアカウント"
+
+msgid "حسابات التواصل"
+msgstr "SNSアカウント"
+
+msgid "حسابات النشر"
+msgstr "公開アカウント"
+
+msgid "حسابات النشر:"
+msgstr "公開アカウント:"
+
+msgid "حسابك قيد المراجعة"
+msgstr "アカウントは審査中です"
+
+msgid "حسابك قيد المراجعة."
+msgstr "アカウントは審査中です。"
+
+msgid "حسابي احترافي، التالي"
+msgstr "プロアカウントです。次へ"
+
+msgid "حسب التصميم"
+msgstr "レイアウト別"
+
+msgid "حسب الشركة"
+msgstr "会社別"
+
+msgid "حسب المحور"
+msgstr "柱別"
+
+msgid "حسب النموذج"
+msgstr "モデル別"
+
+msgid "حسب تكلفة الذكاء الاصطناعي"
+msgstr "AI費用別"
+
+msgid "حسب نوع المهمة"
+msgstr "タスク種別"
+
+msgid "حسب يوم النشر"
+msgstr "曜日別"
+
+msgid "حصة"
+msgstr "共有"
+
+msgid "حفظ"
+msgstr "保存"
+
+msgid "حفظ التغييرات"
+msgstr "変更を保存"
+
+msgid "حفظ المنشورات…"
+msgstr "投稿を保存中…"
+
+msgid "حفظ كلمة المرور"
+msgstr "パスワードを保存"
+
+msgid "حقيقي (مدفوع)"
+msgstr "実費(有料)"
+
+msgid "حلقات"
+msgstr "リング"
+
+msgid "حلويات"
+msgstr "スイーツ"
+
+msgid "حلّل المنافسين"
+msgstr "競合を分析"
+
+msgid "حماس"
+msgstr "ワクワク"
+
+msgid "حوّل حساب إنستغرام إلى احترافي"
+msgstr "Instagramをプロアカウントに切り替える"
+
+msgid "حُذفت القاعدة."
+msgstr "ルールを削除しました。"
+
+msgid "خادم"
+msgstr "サーバー"
+
+msgid "خارج الذروة"
+msgstr "オフピーク"
+
+msgid "خارج الذروة (DeepSeek)"
+msgstr "オフピーク(DeepSeek)"
+
+msgid "خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل."
+msgstr ""
+"AIサービスが現在混み合っています。しばらくしてからもう一度お試しください。"
+
+msgid "خريطة"
+msgstr "マップ"
+
+msgid "خصم"
+msgstr "割引"
+
+msgid "خط العناوين"
+msgstr "見出しフォント"
+
+msgid "خط النصوص"
+msgstr "本文フォント"
+
+msgid "خطة"
+msgstr "プラン"
+
+msgid "خطة %(upcoming)s موجودة: افتحها"
+msgstr "%(upcoming)sのプランがあります。開く"
+
+msgid "خطة {title} جاهزة: {count} منشوراً بانتظار المراجعة."
+msgstr "{title}のプランができました。レビュー待ちの投稿が{count}件あります。"
+
+msgid "خطة الشهر القادم"
+msgstr "来月のプラン"
+
+msgid "خطة المحتوى"
+msgstr "コンテンツプラン"
+
+msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
+msgstr "レビュー待ちのコンテンツプラン: %(name)s"
+
+msgid "خطة المحتوى — الشهر القادم"
+msgstr "コンテンツプラン — 来月"
+
+msgid "خطة جديدة"
+msgstr "新しいプラン"
+
+msgid "خطة شهرية ومنشورات"
+msgstr "月次プランと投稿"
+
+msgid "خطة قيد الإعداد"
+msgstr "プラン作成中"
+
+msgid "خطة محتوى"
+msgstr "コンテンツプラン"
+
+msgid "خطة محتوى جديدة"
+msgstr "新しいコンテンツプラン"
+
+msgid "خطط المحتوى"
+msgstr "コンテンツプラン"
+
+msgid "خطوط مائلة"
+msgstr "ストライプ"
+
+msgid "خلال 7 أيام، مع السبب التقني"
+msgstr "過去7日間、技術的な原因付き"
+
+msgid "خيارات الرابط"
+msgstr "リンクのオプション"
+
+msgid "داكن عميق"
+msgstr "ディープ"
+
+msgid "دبي (GMT+4)"
+msgstr "ドバイ(GMT+4)"
+
+msgid "دخول"
+msgstr "ログイン"
+
+msgid "دخول كمدير %(name)s"
+msgstr "%(name)sの管理者としてログイン"
+
+msgid "دخول كمدير المشترك"
+msgstr "購読者の管理者としてログイン"
+
+msgid "دعم فني"
+msgstr "サポート"
+
+msgid "دفع"
+msgstr "お支払い"
+
+msgid "دهان"
+msgstr "ペイント"
+
+msgid "دواء"
+msgstr "医療"
+
+msgid "دور %(display_name)s"
+msgstr "%(display_name)sのロール"
+
+msgid "ديس"
+msgstr "12月"
+
+msgid "ديسمبر"
+msgstr "12月"
+
+msgid "ذكاء"
+msgstr "インテリジェンス"
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "AI: インタラクティブ(人が待機中)"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "AI: 最高品質"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "AI: バックグラウンド"
+
+msgid "ذكرى انتصارات أكتوبر"
+msgstr "10月の勝利記念日"
+
+msgid "ذكرى ثورة 23 يوليو"
+msgstr "7月23日革命記念日"
+
+msgid "ذكية"
+msgstr "スマートプラットフォーム"
+
+msgid "رأس السنة الميلادية"
+msgstr "元日"
+
+msgid "رأس السنة الهجرية"
+msgstr "イスラム暦の新年"
+
+msgid "رابط العميل"
+msgstr "クライアント用リンク"
+
+msgid "رابط العميل جاهز. انسخه وأرسله للعميل."
+msgstr ""
+"クライアント用リンクができました。コピーしてクライアントに送ってください。"
+
+msgid "رابط جديد"
+msgstr "新しいリンク"
+
+msgid "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة."
+msgstr "ハイライトされたステップの必須項目または無効な項目を確認してください。"
+
+msgid "راجع الحقول المظللة."
+msgstr "ハイライトされた項目を確認してください。"
+
+msgid "راجع الصلاحيات واضغط «متابعة» للموافقة عليها."
+msgstr "権限を確認し、「続行」を押して承認してください。"
+
+msgid "راجع الطلب ووافق عليه من لوحة مشرف النظام:"
+msgstr "システム管理コンソールで確認して承認してください:"
+
+msgid "راجع واعتمد"
+msgstr "確認して承認"
+
+msgid "راسلنا وسنرد عليك في أقرب وقت."
+msgstr "メールでお問い合わせください。まもなくご返信します。"
+
+msgid "ربط"
+msgstr "接続"
+
+msgid "ربط إنستغرام الآن"
+msgstr "今すぐInstagramをリンク"
+
+msgid "ربط تيك توك"
+msgstr "TikTokを接続"
+
+msgid "ربط حسابات النشر"
+msgstr "公開アカウントを接続"
+
+msgid "ربط فيسبوك وإنستغرام"
+msgstr "FacebookとInstagramを接続"
+
+msgid "ربطتهما، التالي"
+msgstr "リンク済みです。次へ"
+
+msgid "ربطه الآن"
+msgstr "今すぐリンク"
+
+msgid "ربما استُخدم الرابط من قبل أو انتهت صلاحيته. اطلب رابطاً جديداً."
+msgstr ""
+"リンクはすでに使用済みか、期限切れの可能性があります。新しいリンクをリクエス"
+"トしてください。"
+
+msgid "رجال"
+msgstr "男性"
+
+msgid "رجوع"
+msgstr "戻る"
+
+msgid "رد الموقع برمز %(code)s. تأكد من الرابط."
+msgstr ""
+"ウェブサイトがコード %(code)s で応答しました。リンクを確認してください。"
+
+msgid "رد تلقائي من وكيل"
+msgstr "Wakeelによる自動返信"
+
+msgid "رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات."
+msgstr ""
+"プランの準備完了時や、変更依頼・コメントがあったときにメールでお知らせしま"
+"す。"
+
+msgid "رفض"
+msgstr "拒否"
+
+msgid "رفض تيك توك الطلب: %(detail)s"
+msgstr "TikTokがリクエストを拒否しました: %(detail)s"
+
+msgid "رفض طلب %(display_name)s؟"
+msgstr "%(display_name)sのリクエストを拒否しますか?"
+
+msgid "رفض واتساب الرسالة: %(detail)s"
+msgstr "WhatsAppがメッセージを拒否しました: %(detail)s"
+
+msgid "رفض وحذف"
+msgstr "拒否して削除"
+
+msgid "رفضت Meta الطلب: %(detail)s"
+msgstr "Metaがリクエストを拒否しました: %(detail)s"
+
+msgid "رفع"
+msgstr "アップロード"
+
+msgid "رقم التواصل"
+msgstr "連絡先番号"
+
+msgid "رقم السجل التجاري"
+msgstr "商業登記番号"
+
+msgid "رقم الهاتف"
+msgstr "電話番号"
+
+msgid "رقم بارز"
+msgstr "大きな数字"
+
+msgid "رمز %(code)s"
+msgstr "コード %(code)s"
+
+msgid "رمز QR"
+msgstr "QRコード"
+
+msgid "رمز مُخرج"
+msgstr "出力トークン"
+
+msgid "رمز مُدخل"
+msgstr "入力トークン"
+
+msgid "رمضان"
+msgstr "ラマダン"
+
+msgid "رموز الدول، مثل: QA SA AE"
+msgstr "国コード(例: QA SA AE)"
+
+msgid "رموز مُخرجة"
+msgstr "出力トークン"
+
+msgid "رموز مُدخلة"
+msgstr "入力トークン"
+
+msgid "روابط أو أسماء حسابات، مفصولة بمسافات."
+msgstr "リンクまたはアカウント名をスペースで区切って入力してください。"
+
+msgid "روبوت"
+msgstr "ロボット"
+
+msgid "ريادة"
+msgstr "リーダーシップ"
+
+msgid "رياضة"
+msgstr "フィットネス"
+
+msgid "زوايا تميّزك"
+msgstr "差別化につながる切り口"
+
+msgid "سؤال"
+msgstr "質問"
+
+msgid "سبت"
+msgstr "9月"
+
+msgid "سبتمبر"
+msgstr "9月"
+
+msgid "ستدخل مساحة عمل"
+msgstr "次のワークスペースに入ります:"
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "このデバイスで通知を受け取ります"
+
+msgid "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات."
+msgstr "プランの準備完了、レビュー、コメントの通知がここに表示されます。"
+
+msgid "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:"
+msgstr "TikTokのウィンドウが開きます。そこでの操作は次のとおりです:"
+
+msgid "ستفتح نافذة من فيسبوك. هذا ما ستفعله فيها:"
+msgstr "Facebookのウィンドウが開きます。そこでの操作は次のとおりです:"
+
+msgid "ستُحذف هذه الخطة نهائياً."
+msgstr "このプランは完全に削除されます。"
+
+msgid "سجّل %(date_joined)s"
+msgstr "登録から %(date_joined)s"
+
+msgid "سجّل الدخول"
+msgstr "ログイン"
+
+msgid "سجّل الدخول بحساب تيك توك الخاص بالشركة."
+msgstr "会社のTikTokアカウントでログインしてください。"
+
+msgid "سجّل الدخول لمتابعة تسويق شركتك."
+msgstr "ログインして、会社のマーケティングを続けましょう。"
+
+msgid "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:"
+msgstr "ログインして、最初のコンテンツプランの作成を始めましょう:"
+
+msgid "سحابة"
+msgstr "クラウド"
+
+msgid "سعادة"
+msgstr "幸せ"
+
+msgid "سعر"
+msgstr "価格"
+
+msgid "سفر"
+msgstr "旅行"
+
+msgid "سلبي"
+msgstr "ネガティブ"
+
+msgid "سلّم حسابات شركتك"
+msgstr "会社のアカウントを引き渡す"
+
+msgid "سنة"
+msgstr "1年"
+
+msgid "سنجهّز الحساب ثم نعيد الربط"
+msgstr "アカウントを設定してから再接続します"
+
+msgid "سنجهّزه معاً خطوة بخطوة"
+msgstr "一緒にステップごとに設定します"
+
+msgid "سننشئها معاً في دقيقتين"
+msgstr "2分で一緒に作成します"
+
+msgid "سيارة"
+msgstr "車"
+
+msgid "سياسة الخصوصية"
+msgstr "プライバシーポリシー"
+
+msgid "سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى."
+msgstr "投稿は、コンテンツ編集者へのメモ付きで下書きに戻ります。"
+
+msgid "سيناريو الفيديو"
+msgstr "動画スクリプト"
+
+msgid "سيناريوهات الفيديو"
+msgstr "動画スクリプト"
+
+msgid "سيُفعَّل حساب"
+msgstr "次のアカウントを有効にします:"
+
+msgid "سيُنشر فوراً على: "
+msgstr "すぐに次へ公開されます: "
+
+msgid "شاطئ"
+msgstr "ビーチ"
+
+msgid "شبكة"
+msgstr "グリッド"
+
+msgid "شجرة"
+msgstr "ツリー"
+
+msgid "شخص آخر يدير الصفحة"
+msgstr "他の人がページを管理しています"
+
+msgid "شراكة وخدمة"
+msgstr "パートナーシップとサービス"
+
+msgid "شركاتك"
+msgstr "あなたの会社"
+
+msgid "شركة"
+msgstr "会社"
+
+msgid "شركة جديدة"
+msgstr "新しい会社"
+
+msgid "شركة نشطة هذا الشهر"
+msgstr "今月のアクティブな会社"
+
+msgid "شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)"
+msgstr "会社: %(name)s(プラン、投稿、画像、すべてのデータを含む)"
+
+msgid "شروط الاستخدام"
+msgstr "利用規約"
+
+msgid "شريط جانبي"
+msgstr "サイドバー"
+
+msgid "شعار الوكالة"
+msgstr "エージェンシーのロゴ"
+
+msgid "شكراً، تم اعتماد المنشور"
+msgstr "ありがとうございます。投稿を承認しました"
+
+msgid "شكوى"
+msgstr "苦情"
+
+msgid "شمس"
+msgstr "日"
+
+msgid "شهادة"
+msgstr "証明書"
+
+msgid "شهر"
+msgstr "1か月"
+
+msgid "صالح لإعادة النشر بصياغة جديدة بعد مدة."
+msgstr "しばらくしてから、新しい文面で再び公開できます。"
+
+msgid "صالون"
+msgstr "サロン"
+
+msgid "صحة"
+msgstr "健康"
+
+msgid "صحي"
+msgstr "健全"
+
+msgid "صحيح"
+msgstr "正しい"
+
+msgid "صفحة «%(name)s» · ربطها %(display_name)s"
+msgstr "ページ「%(name)s」· %(display_name)sが接続"
+
+msgid "صفحة فيسبوك"
+msgstr "Facebookページ"
+
+msgid "صلاحيتك في هذه الشركة للمشاهدة فقط."
+msgstr "この会社では閲覧のみ可能です。"
+
+msgid "صلاحيتك للمشاهدة فقط."
+msgstr "閲覧のみ可能です。"
+
+msgid "صندوق"
+msgstr "ボックス"
+
+msgid "صورة"
+msgstr "画像"
+
+msgid "صورة الخلفية"
+msgstr "背景画像"
+
+msgid "صورة كاملة"
+msgstr "全面写真"
+
+msgid "صيانة"
+msgstr "メンテナンス"
+
+msgid "ضعف:"
+msgstr "弱み:"
+
+msgid "طابور المهام"
+msgstr "タスクキュー"
+
+msgid "طاقة"
+msgstr "エネルギー"
+
+msgid "طبخ"
+msgstr "料理"
+
+msgid "طبيب"
+msgstr "医師"
+
+msgid "طرد"
+msgstr "荷物"
+
+msgid "طلاب"
+msgstr "学生"
+
+msgid "طلب {name} تعديل {subject}: {note}"
+msgstr "{name}さんが{subject}の変更を依頼しました: {note}"
+
+msgid "طلب إعادة كتابة"
+msgstr "書き直しリクエスト"
+
+msgid "طلب اشتراك جديد بانتظار الاعتماد."
+msgstr "承認待ちの新規サブスクリプションリクエスト。"
+
+msgid "طلب تسجيل جديد بانتظار الموافقة."
+msgstr "承認待ちの新規登録リクエスト。"
+
+msgid "طلب تسجيل جديد في وكيل بانتظار الموافقة:"
+msgstr "Wakeelの新規登録が承認待ちです:"
+
+msgid "طلب تسجيل جديد في وكيل: %(name)s"
+msgstr "Wakeelの新規登録: %(name)s"
+
+msgid "طلب تعديل"
+msgstr "変更を依頼"
+
+msgid "طلب تعديل ✏️"
+msgstr "変更を依頼 ✏️"
+
+msgid "طلب رابط جديد"
+msgstr "新しいリンクをリクエスト"
+
+msgid "طلب غير صالح."
+msgstr "無効なリクエストです。"
+
+msgid "طلبات التسجيل"
+msgstr "登録リクエスト"
+
+msgid "طولي 4:5"
+msgstr "縦 4:5"
+
+msgid "طيّ القائمة"
+msgstr "メニューを閉じる"
+
+msgid "عاجل"
+msgstr "緊急"
+
+msgid "عادي"
+msgstr "通常"
+
+msgid "عبارات مفضلة، أو أسلوب معين في الكتابة."
+msgstr "お気に入りのフレーズや特定の書き方。"
+
+msgid "عبارة الدعوة"
+msgstr "行動喚起"
+
+msgid "عدالة"
+msgstr "法律"
+
+msgid "عدد الأيام"
+msgstr "日数"
+
+msgid "عدد المنشورات أسبوعياً"
+msgstr "週あたりの投稿数"
+
+msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
+msgstr "クリックひとつで何でも変更でき、投稿を公開用に承認できます。"
+
+msgid "عرض"
+msgstr "オファー"
+
+msgid "عرض %(name)s"
+msgstr "%(name)sを表示"
+
+msgid "عرض الاشتراكات"
+msgstr "サブスクリプションを表示"
+
+msgid "عرض التقويم"
+msgstr "カレンダーを表示"
+
+msgid "عرض الكل"
+msgstr "すべて表示"
+
+msgid "عرض المزيد"
+msgstr "もっと見る"
+
+msgid "عرض تقديمي"
+msgstr "プレゼンテーション"
+
+msgid "عرض محدود"
+msgstr "期間限定オファー"
+
+msgid "عروض، مناسبات، منتجات جديدة، أو أي شيء تريد التركيز عليه."
+msgstr "オファー、記念日、新商品など、注力したいこと。"
+
+msgid "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها."
+msgstr "会社をWakeelに紹介すると、マーケティングチームとして働きます。"
+
+msgid "عرّفنا بشركتك"
+msgstr "会社を紹介"
+
+msgid "عضو"
+msgstr "メンバー"
+
+msgid "عضوية"
+msgstr "メンバーシップ"
+
+msgid "عطور"
+msgstr "香水"
+
+msgid "علامات زائد"
+msgstr "プラス記号"
+
+msgid "علّق على"
+msgstr "コメントしました:"
+
+msgid "عملة"
+msgstr "コイン"
+
+msgid "عمودي 9:16"
+msgstr "縦 9:16"
+
+msgid "عميل"
+msgstr "顧客"
+
+msgid "عمّان"
+msgstr "アンマン"
+
+msgid "عن وكيل"
+msgstr "Wakeelについて"
+
+msgid "عند تفعيله، ينشر وكيل كل منشور"
+msgstr "オンにすると、Wakeelは毎回公開します"
+
+msgid "عندك سؤال؟"
+msgstr "ご質問はありますか?"
+
+msgid "عنوان المنشور يظهر هنا"
+msgstr "投稿の見出しがここに表示されます"
+
+msgid "عيد استقلال الأردن"
+msgstr "ヨルダン独立記念日"
+
+msgid "عيد استقلال السودان"
+msgstr "スーダン独立記念日"
+
+msgid "عيد الأضحى"
+msgstr "犠牲祭(イード・アル=アドハー)"
+
+msgid "عيد الأم"
+msgstr "母の日"
+
+msgid "عيد الاتحاد الإماراتي"
+msgstr "UAE建国記念日(連邦記念日)"
+
+msgid "عيد التحرير في الكويت"
+msgstr "クウェート解放記念日"
+
+msgid "عيد الفطر"
+msgstr "断食明け大祭(イード・アル=フィトル)"
+
+msgid "عيون"
+msgstr "目"
+
+msgid "عُمان"
+msgstr "オマーン"
+
+msgid "غادرت «%(name)s»."
+msgstr "“%(name)s”から退出しました。"
+
+msgid "غرفة نوم"
+msgstr "寝室"
+
+msgid "غروب"
+msgstr "夕暮れ"
+
+msgid "غلاف الفيديو (اختياري)"
+msgstr "動画カバー(任意)"
+
+msgid "غير مجدول"
+msgstr "未スケジュール"
+
+msgid "غير مربوط"
+msgstr "未接続"
+
+msgid "غير مربوطة"
+msgstr "未接続"
+
+msgid "غير مضبوط"
+msgstr "未設定"
+
+msgid "غير مضبوط (يُطبع في الطرفية)"
+msgstr "未設定(コンソールに出力)"
+
+msgid "غير مفعّلة على هذا الجهاز."
+msgstr "このデバイスではオフです。"
+
+msgid "فاتح"
+msgstr "ライト"
+
+msgid "فاتورة"
+msgstr "請求書"
+
+msgid "فاخرة وراقية"
+msgstr "高級感と洗練"
+
+msgid "فارغ = الافتراضي للقالب."
+msgstr "空欄 = レイアウトの既定値。"
+
+msgid "فارغ = الافتراضية للقالب."
+msgstr "空欄 = レイアウトの既定値。"
+
+msgid "فارغ = بدون انتهاء."
+msgstr "空欄 = 無期限。"
+
+msgid "فبر"
+msgstr "2月"
+
+msgid "فبراير"
+msgstr "2月"
+
+msgid "فتح إعدادات الربط في فيسبوك"
+msgstr "Facebookでリンク設定を開く"
+
+msgid "فتح صفحة الإنشاء"
+msgstr "ページ作成を開く"
+
+msgid "فتح كما يراه العميل"
+msgstr "クライアント表示で開く"
+
+msgid "فتح نافذة تيك توك"
+msgstr "TikTokのウィンドウを開く"
+
+msgid "فتح نافذة فيسبوك"
+msgstr "Facebookのウィンドウを開く"
+
+msgid "فجوات يتركونها"
+msgstr "相手が残している隙間"
+
+msgid "فخامة"
+msgstr "ラグジュアリー"
+
+msgid "فريق"
+msgstr "チーム"
+
+msgid "فريق تسويق كامل،"
+msgstr "完全なマーケティングチーム、"
+
+msgid "فريق وكيل"
+msgstr "Wakeelチーム"
+
+msgid "فريقك وبريدك"
+msgstr "チームとメール"
+
+msgid "فشل"
+msgstr "失敗"
+
+msgid "فشل النسخ الاحتياطي لوكيل"
+msgstr "Wakeelのバックアップに失敗しました"
+
+msgid "فشلت"
+msgstr "失敗"
+
+msgid "فشلت: %(error)s"
+msgstr "失敗: %(error)s"
+
+msgid "فصل"
+msgstr "接続解除"
+
+msgid "فصل إنستغرام؟"
+msgstr "Instagramの接続を解除しますか?"
+
+msgid "فصل تيك توك؟"
+msgstr "TikTokの接続を解除しますか?"
+
+msgid "فصل فيسبوك؟"
+msgstr "Facebookの接続を解除しますか?"
+
+msgid "فعّل"
+msgstr "オンにする"
+
+msgid "فكرة"
+msgstr "アイデア"
+
+msgid "فواكه"
+msgstr "フルーツ"
+
+msgid "فور التفعيل."
+msgstr "有効になり次第。"
+
+msgid "فوز"
+msgstr "トロフィー"
+
+msgid "في الانتظار"
+msgstr "保留中"
+
+msgid "في التقويم"
+msgstr "カレンダー内"
+
+msgid "في اليوم المحدد من كل شهر"
+msgstr "毎月、選択した日"
+
+msgid "في انتظار بدء المهمة…"
+msgstr "タスクの開始を待機中…"
+
+msgid "في منصة واحدة"
+msgstr "ひとつに"
+
+msgid "في هذه الصفحة"
+msgstr "このページ"
+
+msgid "فيديو"
+msgstr "動画"
+
+msgid "فيديو قصير"
+msgstr "ショート動画"
+
+msgid "فيديو قصير (ريلز / تيك توك)"
+msgstr "ショート動画(リール / TikTok)"
+
+msgid "فيديو قصير: سيناريو التصوير"
+msgstr "ショート動画: 撮影スクリプト"
+
+msgid "فيسبوك"
+msgstr "Facebook"
+
+msgid "فيسبوك فقط الآن"
+msgstr "今はFacebookのみ"
+
+msgid "فيلا"
+msgstr "ヴィラ"
+
+msgid "قائمة مهام"
+msgstr "チェックリスト"
+
+msgid "قراءة التعليقات"
+msgstr "コメントを読む"
+
+msgid "قراءة مواقع المنافسين…"
+msgstr "競合のウェブサイトを読み込み中…"
+
+msgid "قراءة وكيل"
+msgstr "Wakeelの読み取り"
+
+msgid "قصاصات"
+msgstr "紙吹雪"
+
+msgid "قصة (ستوري)"
+msgstr "ストーリー"
+
+msgid "قطر"
+msgstr "カタール"
+
+msgid "قطري"
+msgstr "斜め"
+
+msgid "قنوات التواصل"
+msgstr "連絡チャネル"
+
+msgid "قهوة"
+msgstr "コーヒー"
+
+msgid "قوة:"
+msgstr "強み:"
+
+msgid "قوس"
+msgstr "アーチ"
+
+msgid "قياس"
+msgstr "メジャー"
+
+msgid "قيد الإعداد"
+msgstr "準備中"
+
+msgid "قيد الاعتماد"
+msgstr "承認待ち"
+
+msgid "قيد الاقتراح"
+msgstr "提案中"
+
+msgid "قيد التحليل"
+msgstr "分析中"
+
+msgid "قيد التعديل"
+msgstr "修正中"
+
+msgid "قيد التنفيذ"
+msgstr "実行中"
+
+msgid "قُرئ الموقع"
+msgstr "ウェブサイト読み取り"
+
+msgid "كتاب"
+msgstr "本"
+
+msgid "كتابة"
+msgstr "執筆中"
+
+msgid "كتابة المنشورات"
+msgstr "投稿の執筆"
+
+msgid "كرة قدم"
+msgstr "サッカー"
+
+msgid "كل الأنواع"
+msgstr "すべての種類"
+
+msgid "كل الإشعارات"
+msgstr "すべての通知"
+
+msgid "كل الترويجات"
+msgstr "すべてのプロモーション"
+
+msgid "كل التقارير"
+msgstr "すべてのレポート"
+
+msgid "كل الحالات"
+msgstr "すべてのステータス"
+
+msgid "كل الشركات"
+msgstr "すべての会社"
+
+msgid "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق."
+msgstr "投稿の承認、ブランドとチームの管理を含むすべて。"
+
+msgid "كل المنصات"
+msgstr "すべてのプラットフォーム"
+
+msgid "كل المهام"
+msgstr "すべてのタスク"
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "会社に必要なすべてを、ひとつのプラットフォームで"
+
+msgid "كل ما تقدمه وكالة التسويق، في منصة واحدة"
+msgstr "マーケティング代理店の仕事をすべて、ひとつのプラットフォームで"
+
+msgid "كلمات تساعد في اختيار الصورة المناسبة للمنشور."
+msgstr "投稿に合う画像を選ぶ手がかりとなる言葉。"
+
+msgid "كلمة المرور"
+msgstr "パスワード"
+
+msgid "كلمة المرور غير صحيحة."
+msgstr "パスワードが正しくありません。"
+
+msgid "كلمة المرور مطلوبة لإنشاء حساب المالك."
+msgstr "オーナーのアカウントを作成するにはパスワードが必要です。"
+
+msgid "كلمة مرور المشرف غير صحيحة."
+msgstr "管理者パスワードが正しくありません。"
+
+msgid "كلمة مرور المشرف للتأكيد"
+msgstr "確認用の管理者パスワード"
+
+msgid "كلمة مرور جديدة"
+msgstr "新しいパスワード"
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "2つのパスワードが一致しません。"
+
+msgid "كما سيظهر في إنستغرام وفيسبوك"
+msgstr "InstagramとFacebookでの表示イメージ"
+
+msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
+msgstr "投稿の実際のパフォーマンスと、Wakeelがそこから学ぶこと。"
+
+msgid "كيف يعمل؟"
+msgstr "仕組みは?"
+
+msgid "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك."
+msgstr "Wakeelからのメールを止めるには、アカウント設定でオフにしてください。"
+
+msgid "لا أخطاء خلال آخر 7 أيام."
+msgstr "過去7日間にエラーはありません。"
+
+msgid "لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة."
+msgstr "この会社でこの操作を行う権限がありません。"
+
+msgid "لا توجد إشعارات"
+msgstr "通知なし"
+
+msgid "لا توجد إشعارات بعد."
+msgstr "まだ通知はありません。"
+
+msgid "لا توجد اشتراكات"
+msgstr "サブスクリプションなし"
+
+msgid "لا توجد اشتراكات بعد"
+msgstr "まだサブスクリプションはありません"
+
+msgid "لا توجد بيانات"
+msgstr "データなし"
+
+msgid "لا توجد بيانات كافية بعد."
+msgstr "データがまだ十分ではありません。"
+
+msgid "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا."
+msgstr "まだコメントはありません。チームへのメモをここに書いてください。"
+
+msgid "لا توجد تعليقات هنا"
+msgstr "ここにコメントはありません"
+
+msgid "لا توجد تغييرات"
+msgstr "変更なし"
+
+msgid "لا توجد تقارير بعد"
+msgstr "まだレポートはありません"
+
+msgid "لا توجد حسابات إعلانية نشطة"
+msgstr "有効な広告アカウントなし"
+
+msgid "لا توجد خطة محتوى لهذا الشهر بعد"
+msgstr "今月のコンテンツプランはまだありません"
+
+msgid "لا توجد شركات تملكها."
+msgstr "所有している会社はありません。"
+
+msgid "لا توجد طلبات جديدة"
+msgstr "新しいリクエストなし"
+
+msgid "لا توجد ملاحظات جديدة."
+msgstr "新しいフィードバックはありません。"
+
+msgid "لا توجد مناسبات خاصة في هذا الشهر."
+msgstr "今月は特別な記念日はありません。"
+
+msgid "لا توجد منشورات"
+msgstr "投稿なし"
+
+msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
+msgstr "このプランにレビュー待ちの投稿はありません。ありがとうございます!"
+
+msgid "لا توجد منشورات في هذه الخطة"
+msgstr "このプランに投稿はありません"
+
+msgid "لا توجد منشورات قادمة"
+msgstr "予定の投稿なし"
+
+msgid "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد."
+msgstr "Wakeel経由でFacebookに公開された投稿はまだありません。"
+
+msgid "لا توجد مهام"
+msgstr "タスクなし"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "待機中のものはありません。すべて整っています。"
+
+msgid "لا يحتاج الرابط إلى حساب أو كلمة مرور."
+msgstr "このリンクにはアカウントもパスワードも不要です。"
+
+msgid "لا يمكن التراجع عن ذلك."
+msgstr "この操作は元に戻せません。"
+
+msgid "لا يمكن قراءة هذا العنوان."
+msgstr "このアドレスは読み取れません。"
+
+msgid "لا يوجد"
+msgstr "なし"
+
+msgid "لا يوجد أعضاء"
+msgstr "メンバーなし"
+
+msgid "لا يوجد اتصال · وكيل"
+msgstr "接続なし · Wakeel"
+
+msgid "لا يوجد اتصال بالإنترنت"
+msgstr "インターネット接続なし"
+
+msgid "لا يوجد استهلاك بعد"
+msgstr "まだ使用実績なし"
+
+msgid "لا يوجد استهلاك هذا الشهر."
+msgstr "今月の使用実績はありません。"
+
+msgid "لا يوجد حساب إنستغرام احترافي مربوط بهذه الصفحة."
+msgstr "このページにはInstagramプロアカウントがリンクされていません。"
+
+msgid "لا يوجد مالك نشط لـ «%(name)s»."
+msgstr "“%(name)s”にはアクティブなオーナーがいません。"
+
+msgid "لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً."
+msgstr ""
+"このメールアドレスのユーザーはいません。先にWakeelアカウントを作成してもらっ"
+"てください。"
+
+msgid "لا، ليس بعد"
+msgstr "いいえ、まだです"
+
+msgid "لدى الشركة موقع إلكتروني؟"
+msgstr "会社にウェブサイトはありますか?"
+
+msgid "لديك حساب بالفعل؟"
+msgstr "アカウントをお持ちですか?"
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "正式名称と住所の言語"
+
+msgid "لغة المحتوى"
+msgstr "コンテンツの言語"
+
+msgid "لغة النسخة"
+msgstr "バージョンの言語"
+
+msgid "لـ"
+msgstr "〜 "
+
+msgid "لكل مليون رمز"
+msgstr "100万トークンあたり"
+
+msgid "لكل مليون رمز (مدخلات / مخرجات)."
+msgstr "100万トークンあたり(入力 / 出力)。"
+
+msgid "لم أحدد الصفحة في النافذة"
+msgstr "ウィンドウでページを選択しませんでした"
+
+msgid "لم تُصمَّم الصورة بعد"
+msgstr "画像はまだデザインされていません"
+
+msgid "لم تُصمَّم الصورة بعد."
+msgstr "画像はまだデザインされていません。"
+
+msgid "لم تُعدّ أي خطة بعد."
+msgstr "プランはまだ作成されていません。"
+
+msgid "لم تُعدّ خطة"
+msgstr "次のプラン:"
+
+msgid "لم تُقرأ أرقام بعد."
+msgstr "数値はまだ読み取られていません。"
+
+msgid "لم تُنفَّذ أي نسخة بعد"
+msgstr "バックアップはまだ実行されていません"
+
+msgid "لم يجد وكيل معلومات جديدة لإضافتها."
+msgstr "Wakeelは追加できる新しい情報を見つけられませんでした。"
+
+msgid "لم يشارك فيسبوك أي صفحة مع وكيل"
+msgstr "FacebookがWakeelにページを共有していません"
+
+msgid "لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AIサービスから応答がありませんでした。もう一度お試しください。"
+
+msgid "لم يكتمل الربط"
+msgstr "接続が完了しませんでした"
+
+msgid "لم يُصمَّم بعد"
+msgstr "未デザイン"
+
+msgid "لم يُقرأ بعد"
+msgstr "未読み取り"
+
+msgid "لماذا هذا الترويج"
+msgstr "このプロモーションの理由"
+
+msgid "لماذا يختار العميل هذه الشركة دون منافسيها؟"
+msgstr "お客様が競合ではなくこの会社を選ぶ理由は何ですか?"
+
+msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
+msgstr "プラン全体を確認するには、次を開いてください: %(link)s"
+
+msgid "لن يتمكن %(display_name)s من الوصول إلى %(name)s بعد الآن."
+msgstr "%(display_name)sは%(name)sにアクセスできなくなります。"
+
+msgid "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن."
+msgstr "Wakeelはこのアカウントに投稿を送らなくなります。"
+
+msgid "لن يلتزم بها وكيل في الخطط القادمة."
+msgstr "Wakeelは今後のプランでこれに従いません。"
+
+msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
+msgstr "Wakeelはこのアカウントに公開しなくなります。"
+
+msgid "لن ينشر وكيل على هذه الصفحة بعد الآن."
+msgstr "Wakeelはこのページに公開しなくなります。"
+
+msgid "لنبدأ بالمعلومات الأساسية عن الشركة."
+msgstr "まず会社の基本情報から始めましょう。"
+
+msgid "لندن"
+msgstr "ロンドン"
+
+msgid "لوحة التحكم"
+msgstr "ダッシュボード"
+
+msgid "لوحة التحكم الرئيسية"
+msgstr "メインダッシュボード"
+
+msgid "لوحة تحكم"
+msgstr "ダッシュボード"
+
+msgid "لوحة مشرف النظام"
+msgstr "管理ダッシュボード"
+
+msgid "لون التمييز"
+msgstr "アクセントカラー"
+
+msgid "لون الوكالة"
+msgstr "エージェンシーカラー"
+
+msgid "ليس لدي صفحة"
+msgstr "ページを持っていません"
+
+msgid "ليس لديك حساب؟"
+msgstr "アカウントをお持ちでないですか?"
+
+msgid "ليكتب وكيل محتوى يشبه علامتك."
+msgstr "Wakeelがあなたのブランドらしい文章を書けるようにします。"
+
+msgid "ليكتمل ذلك دون تدخل"
+msgstr "手間なくこれを完了するために"
+
+msgid "ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها."
+msgstr "収集するデータ、その理由、管理・削除の方法。"
+
+msgid "ما الذي تريد تعديله؟"
+msgstr "何を変更しますか?"
+
+msgid "ما الذي يحتاج إلى تعديل؟"
+msgstr "何を変更する必要がありますか?"
+
+msgid "ما تعلّمه وكيل"
+msgstr "Wakeelが学んだこと"
+
+msgid "ما رآه المشترك:"
+msgstr "購読者が見た内容:"
+
+msgid "ما نجح"
+msgstr "うまくいったこと"
+
+msgid "ما يجب تجنبه"
+msgstr "絶対にしないこと"
+
+msgid "ما يجب فعله"
+msgstr "必ずすること"
+
+msgid "ما يُنشر تلقائياً"
+msgstr "自動で公開される内容"
+
+msgid "ماء"
+msgstr "水"
+
+msgid "ماذا تقدم الشركة، ولمن، وما الذي يميزها."
+msgstr "会社が何を、誰に提供し、何が強みか。"
+
+msgid "ماذا سيحدث؟"
+msgstr "このあとどうなりますか?"
+
+msgid "مار"
+msgstr "3月"
+
+msgid "مارد، مساعدك"
+msgstr "Marid、あなたのアシスタント"
+
+msgid "مارس"
+msgstr "3月"
+
+msgid "ماي"
+msgstr "5月"
+
+msgid "مايو"
+msgstr "5月"
+
+msgid "مباشرة"
+msgstr "ライブ"
+
+msgid "متابعة هنا"
+msgstr "ここで続ける"
+
+msgid "متجر"
+msgstr "ストア"
+
+msgid "متدرّج"
+msgstr "グラデーション"
+
+msgid "متصل"
+msgstr "接続済み"
+
+msgid "متوسط التفاعل · معدل التفاعل"
+msgstr "平均インタラクション · エンゲージメント率"
+
+msgid "متوقف"
+msgstr "停止中"
+
+msgid "متوقف الآن."
+msgstr "現在オフです。"
+
+msgid "متوقف — شغّل"
+msgstr "停止中 — 実行してください"
+
+msgid "مثال: أحمد، مدير التسويق"
+msgstr "例: Ahmed、マーケティングマネージャー"
+
+msgid "مثال: غيّر الصورة واذكر موعد انتهاء العرض"
+msgstr "例: 画像を変更し、オファーの終了日を入れる"
+
+msgid "مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات."
+msgstr "例: 認知度向上、リード増加、売上増加。"
+
+msgid "مجمع"
+msgstr "コンパウンド"
+
+msgid "محادثة"
+msgstr "チャット"
+
+msgid "محاسبة"
+msgstr "経理"
+
+msgid "محاور المحتوى"
+msgstr "コンテンツの柱"
+
+msgid "محايد"
+msgstr "ニュートラル"
+
+msgid "محتوى دائم"
+msgstr "定番"
+
+msgid "محرر المحتوى:"
+msgstr "コンテンツ編集者:"
+
+msgid "محرر محتوى"
+msgstr "コンテンツ編集者"
+
+msgid "محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً."
+msgstr "ブラウザの設定でブロックされています。先にそちらで許可してください。"
+
+msgid "محفظة"
+msgstr "ウォレット"
+
+msgid "مخرجات"
+msgstr "出力"
+
+msgid "مدة الاشتراك"
+msgstr "サブスクリプション期間"
+
+msgid "مدير"
+msgstr "管理者"
+
+msgid "مدير التسويق الذكي"
+msgstr "あなたのAIマーケティングマネージャー"
+
+msgid "مدير التسويق الذكي لشركتك"
+msgstr "あなたの会社のAIマーケティングマネージャー"
+
+msgid "مراجعة %(title)s"
+msgstr "%(title)sをレビュー"
+
+msgid "مراجعة الطلب"
+msgstr "レビューを依頼"
+
+msgid "مراجعة الطلبات"
+msgstr "レビューリクエスト"
+
+msgid "مربع 1:1"
+msgstr "正方形 1:1"
+
+msgid "مرحباً %(name)s،"
+msgstr "%(name)sさん、こんにちは。"
+
+msgid "مرحباً بعودتك"
+msgstr "おかえりなさい"
+
+msgid "مرحباً بك في وكيل ✨"
+msgstr "Wakeelへようこそ ✨"
+
+msgid "مرحباً،"
+msgstr "こんにちは。"
+
+msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
+msgstr "こんにちは。%(name)sの%(month)sのパフォーマンスレポートができました。"
+
+msgid "مرحة وخفيفة"
+msgstr "楽しく軽やか"
+
+msgid "مزعج"
+msgstr "スパム"
+
+msgid "مزوّد الذكاء الاصطناعي"
+msgstr "AIプロバイダー"
+
+msgid "مستخدم"
+msgstr "ユーザー"
+
+msgid "مستند"
+msgstr "ドキュメント"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "ソースとしてライブラリのドキュメントを使用"
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "レターヘッド入りのドキュメント"
+
+msgid "مستودع"
+msgstr "倉庫"
+
+msgid "مسجد"
+msgstr "モスク"
+
+msgid "مسح التصفية"
+msgstr "フィルターをクリア"
+
+msgid "مسقط (GMT+4)"
+msgstr "マスカット(GMT+4)"
+
+msgid "مسودة"
+msgstr "下書き"
+
+msgid "مشاهد"
+msgstr "閲覧者"
+
+msgid "مشتريات"
+msgstr "購入"
+
+msgid "مشرف النظام"
+msgstr "システム管理者"
+
+msgid "مصر"
+msgstr "エジプト"
+
+msgid "مضبوط"
+msgstr "設定済み"
+
+msgid "مطعم"
+msgstr "レストラン"
+
+msgid "مطلوبة للحساب الجديد فقط."
+msgstr "新規アカウントの場合のみ必要です。"
+
+msgid "معالج"
+msgstr "チップ"
+
+msgid "معالج يرافقك خطوة بخطوة"
+msgstr "ウィザードがステップごとにご案内します"
+
+msgid "معاينة التصميم"
+msgstr "デザインプレビュー"
+
+msgid "معاينة المنشور في المنصة"
+msgstr "プラットフォーム上の投稿プレビュー"
+
+msgid "معاينة حية"
+msgstr "ライブプレビュー"
+
+msgid "معتمد"
+msgstr "承認済み"
+
+msgid "معتمدة للنشر"
+msgstr "公開承認済み"
+
+msgid "معدل التفاعل"
+msgstr "エンゲージメント率"
+
+msgid "معفاة"
+msgstr "対象外"
+
+msgid "معلومة"
+msgstr "事実"
+
+msgid "معلّق"
+msgstr "停止中"
+
+msgid "مغادرة"
+msgstr "退出"
+
+msgid "مغادرة الشركة"
+msgstr "会社から退出"
+
+msgid "مغادرة الشركة؟"
+msgstr "会社から退出しますか?"
+
+msgid "مغامرة"
+msgstr "冒険"
+
+msgid "مفتاح"
+msgstr "キー"
+
+msgid "مفعّل — أوقفه في الإنتاج"
+msgstr "オン — 本番ではオフにしてください"
+
+msgid "مفعّل,متوقف"
+msgstr "on,off"
+
+msgid "مقترح"
+msgstr "提案済み"
+
+msgid "مقسوم"
+msgstr "分割"
+
+msgid "مكتبة"
+msgstr "ライブラリ"
+
+msgid "مكتبة المستندات"
+msgstr "ドキュメントライブラリ"
+
+msgid "مكتبة الوسائط"
+msgstr "メディアライブラリ"
+
+msgid "ملأ وكيل "
+msgstr "Wakeelが入力: "
+
+msgid "ملابس"
+msgstr "衣料品"
+
+msgid "ملاحظات"
+msgstr "メモ"
+
+msgid "ملاحظات المراجعة"
+msgstr "レビューメモ"
+
+msgid "ملاحظات على الأسلوب"
+msgstr "スタイルに関するメモ"
+
+msgid "ملاحظة"
+msgstr "メモ"
+
+msgid "ملاحظة المراجعة:"
+msgstr "レビューメモ:"
+
+msgid "ملخص الاستراتيجية"
+msgstr "戦略の要約"
+
+msgid "ملخص الشهر"
+msgstr "今月のまとめ"
+
+msgid "ملصق"
+msgstr "ポスター"
+
+msgid "ملف الشركة غير مكتمل، فستكون الخطة عامة."
+msgstr "会社プロフィールが未完成のため、プランは一般的な内容になります。"
+
+msgid "ملهمة وتحفيزية"
+msgstr "心に響く、やる気を引き出す"
+
+msgid "من"
+msgstr "差出人"
+
+msgid "من الاستراتيجية إلى التصميم إلى تقويم النشر."
+msgstr "戦略からデザイン、公開カレンダーまで。"
+
+msgid "من المدخلات cache hit"
+msgstr "の入力がキャッシュヒットでした"
+
+msgid "من يعمل على تسويق %(name)s، وما صلاحياته."
+msgstr "%(name)sのマーケティングに携わる人と、その権限。"
+
+msgid "مناسبات الشهر"
+msgstr "今月の記念日・行事"
+
+msgid "مناسبة"
+msgstr "記念日・行事"
+
+msgid "مناسبة خاصة"
+msgstr "特別な日"
+
+msgid "منتج"
+msgstr "商品"
+
+msgid "منتجات"
+msgstr "商品"
+
+msgid "منتهي"
+msgstr "期限切れ"
+
+msgid "منخفض"
+msgstr "低"
+
+msgid "منزل"
+msgstr "ホーム"
+
+msgid "منسوخ من:"
+msgstr "コピー元:"
+
+msgid "منشور"
+msgstr "公開済み"
+
+msgid "منشور أُنشئ هذا الشهر"
+msgstr "今月作成した投稿"
+
+msgid "منشور جديد"
+msgstr "新しい投稿"
+
+msgid "منشور جديد في هذا اليوم"
+msgstr "この日の新しい投稿"
+
+msgid "منشور نُشر هذا الشهر"
+msgstr "今月公開した投稿"
+
+msgid "منشورات %(month_name)s"
+msgstr "%(month_name)sの投稿"
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "レビュー待ちの投稿"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "公開時刻を過ぎた投稿"
+
+msgid "منشورات تستحق الترويج"
+msgstr "プロモーションに適した投稿"
+
+msgid "منشورات تستحق العودة"
+msgstr "再投稿に適した投稿"
+
+msgid "منشورات تم قياسها"
+msgstr "測定済みの投稿"
+
+msgid "منشورات دائمة يُعاد نشرها شهرياً"
+msgstr "毎月再投稿する定番投稿"
+
+msgid "منشوراً"
+msgstr "件の投稿"
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr "会社のマーケティング、ドキュメント、チームをひとつのプラットフォームで"
+
+msgid "مهام فشلت خلال 7 أيام"
+msgstr "過去7日間に失敗したタスク"
+
+msgid "مهام كل الشركات مع تفاصيلها التقنية"
+msgstr "全社のタスクと技術的な詳細"
+
+msgid "مهمة فشلت خلال 7 أيام"
+msgstr "7日間で失敗したタスク"
+
+msgid "مهنية وموثوقة"
+msgstr "プロフェッショナルで信頼できる"
+
+msgid "موافقة العميل"
+msgstr "クライアント承認"
+
+msgid "موجات"
+msgstr "波"
+
+msgid "موظف"
+msgstr "従業員"
+
+msgid "موعد"
+msgstr "予約"
+
+msgid "موعد النشر"
+msgstr "公開時刻"
+
+msgid "موقع"
+msgstr "所在地"
+
+msgid "موقع الوكالة"
+msgstr "エージェンシーのウェブサイト"
+
+msgid "مُتجاهَل"
+msgstr "却下済み"
+
+msgid "مُخرجة"
+msgstr "出力"
+
+msgid "مُدخلة"
+msgstr "入力"
+
+msgid "ناعم"
+msgstr "ソフト"
+
+msgid "نبات"
+msgstr "植物"
+
+msgid "نبذة عن الشركة"
+msgstr "会社について"
+
+msgid "نبرة الخطاب"
+msgstr "文体・トーン"
+
+msgid "نجحت"
+msgstr "成功"
+
+msgid "نساء"
+msgstr "女性"
+
+msgid "نسخ"
+msgstr "コピー"
+
+msgid "نسخ النص مع الوسوم"
+msgstr "ハッシュタグ付きでテキストをコピー"
+
+msgid "نسخ منه:"
+msgstr "コピー:"
+
+msgid "نسخة بلغة أو لهجة أخرى"
+msgstr "別の言語または方言のバージョン"
+
+msgid "نسخة جديدة من هذا المنشور:"
+msgstr "この投稿の新しいバージョン:"
+
+msgid "نسيت كلمة المرور؟"
+msgstr "パスワードをお忘れですか?"
+
+msgid "نشر المنشور الآن؟"
+msgstr "今すぐ投稿を公開しますか?"
+
+msgid "نشر منشور"
+msgstr "投稿の公開"
+
+msgid "نشط"
+msgstr "有効"
+
+msgid "نص المنشور"
+msgstr "投稿テキスト"
+
+msgid "نص قصير بارز مثل: جديد، خصم 20%."
+msgstr "目を引く短いテキスト(例: 新登場、20%オフ)。"
+
+msgid "نظام الألوان"
+msgstr "配色"
+
+msgid "نظرة على تسويق %(name)s لشهر %(month_label)s"
+msgstr "%(name)sの%(month_label)sのマーケティング"
+
+msgid "نعم، لدينا صفحة"
+msgstr "はい、ページがあります"
+
+msgid "نعم، لكن لست متأكداً"
+msgstr "はい、ただし確かではありません"
+
+msgid "نعم، وحسابي جاهز"
+msgstr "はい、アカウントの準備もできています"
+
+msgid "نفّذ"
+msgstr "行く"
+
+msgid "نقاط"
+msgstr "ドット"
+
+msgid "نقاط التميز"
+msgstr "際立つポイント"
+
+msgid "نقد"
+msgstr "現金"
+
+msgid "نمو"
+msgstr "成長"
+
+msgid "نهاية الاشتراك"
+msgstr "サブスクリプション終了"
+
+msgid "نهاية الاشتراك قبل بدايته."
+msgstr "サブスクリプションが開始前に終了します。"
+
+msgid "نوع الحساب"
+msgstr "アカウントの種類"
+
+msgid "نوع المنشور"
+msgstr "投稿の種類"
+
+msgid "نوع المهمة"
+msgstr "タスクの種類"
+
+msgid "نوف"
+msgstr "11月"
+
+msgid "نوفمبر"
+msgstr "11月"
+
+msgid "نُشر «{title}» على {platforms}."
+msgstr "“{title}”を{platforms}に公開しました。"
+
+msgid "نُشر على %(platforms)s."
+msgstr "%(platforms)sに公開しました。"
+
+msgid "نُشر هذا المنشور بالفعل."
+msgstr "この投稿はすでに公開済みです。"
+
+msgid "هدف"
+msgstr "目標"
+
+msgid "هدية"
+msgstr "ギフト"
+
+msgid "هذا الإجراء نهائي ولا يمكن التراجع عنه"
+msgstr "この操作は完全で、元に戻せません"
+
+msgid "هذا الحساب غير مفعّل."
+msgstr "このアカウントは有効ではありません。"
+
+msgid "هذا الشهر:"
+msgstr "今月:"
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "このブラウザは通知に対応していません。"
+
+msgid "هذا المستخدم عضو في الشركة بالفعل."
+msgstr "このユーザーはすでに会社のメンバーです。"
+
+msgid "هذا حساب مشرف نظام، ولا يكون مالكاً لاشتراك."
+msgstr ""
+"これはシステム管理者アカウントのため、サブスクリプションを所有できません。"
+
+msgid "هل تريد النشر على إنستغرام أيضاً؟"
+msgstr "Instagramにも投稿しますか?"
+
+msgid "هل لدى شركتك صفحة على فيسبوك؟"
+msgstr "会社にFacebookページはありますか?"
+
+msgid "هوية العلامة"
+msgstr "ブランドアイデンティティ"
+
+msgid "هوية وعروض تقديمية"
+msgstr "アイデンティティとプレゼンテーション"
+
+msgid "و"
+msgstr "と"
+
+msgid "وأنا أديرها من حسابي على فيسبوك"
+msgstr "自分のFacebookアカウントで管理しています"
+
+msgid "واتساب"
+msgstr "WhatsApp"
+
+msgid "واتساب العميل"
+msgstr "クライアントのWhatsApp"
+
+msgid "واتساب غير مفعّل على هذا الخادم."
+msgstr "このサーバーではWhatsAppが有効になっていません。"
+
+msgid "وثائق وكيل"
+msgstr "Wakeelドキュメント"
+
+msgid "ودودة وقريبة"
+msgstr "親しみやすい"
+
+msgid "وسوم اختيارية: منتج، فريق، مكتب…"
+msgstr "任意のタグ: 商品、チーム、オフィスなど…"
+
+msgid "وسوم العلامة"
+msgstr "ブランドのハッシュタグ"
+
+msgid "وصف اختياري للصور"
+msgstr "画像の説明(任意)"
+
+msgid "وصف الصورة المقترحة"
+msgstr "提案するビジュアル"
+
+msgid "وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AIサービスから予期しない応答が返されました。もう一度お試しください。"
+
+msgid "وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AIサービスから不完全な応答が返されました。もう一度お試しください。"
+
+msgid "وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "AIサービスから一部のみの応答が返されました。もう一度お試しください。"
+
+msgid "وصلت ملاحظتك إلى الفريق"
+msgstr "メモがチームに届きました"
+
+msgid "وصلت ملاحظتك على «%(title)s» إلى الفريق. شكراً!"
+msgstr "“%(title)s”へのメモがチームに届きました。ありがとうございます!"
+
+msgid "وضع الوكالة"
+msgstr "エージェンシーモード"
+
+msgid "وقت"
+msgstr "時間"
+
+msgid "وقود"
+msgstr "燃料"
+
+msgid "وكالة"
+msgstr "エージェンシー"
+
+msgid "وكيل"
+msgstr "Wakeel"
+
+msgid "وكيل · مدير التسويق الذكي"
+msgstr "Wakeel · あなたのAIマーケティングマネージャー"
+
+msgid "وكيل يحلّل المنافسين…"
+msgstr "Wakeelが競合を分析しています…"
+
+msgid "وكيل يدرس هوية الشركة ويضع الاستراتيجية…"
+msgstr "Wakeelがブランドを研究し、戦略を立てています…"
+
+msgid "وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…"
+msgstr "Wakeelがこれまでのフィードバックを確認し、学習しています…"
+
+msgid "وكيل يعمل على خطة %(month_label)s"
+msgstr "Wakeelが%(month_label)sのプランを作成中です"
+
+msgid "وكيل يعيد صياغة المنشور…"
+msgstr "Wakeelが投稿の表現を変えています…"
+
+msgid "وكيل يعيد كتابة المنشور…"
+msgstr "Wakeelが投稿を書き直しています…"
+
+msgid "وكيل يقرأ التعليقات…"
+msgstr "Wakeelがコメントを読んでいます…"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeelが元のドキュメントを読んでいます…"
+
+msgid "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة."
+msgstr "Wakeelがウェブサイトを読んでいます…1分ほどかかることがあります。"
+
+msgid "وكيل يكتب النسخة…"
+msgstr "Wakeelがバージョンを作成しています…"
+
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — あなたのAIマーケティングマネージャー"
+
+msgid "وهذا نص فرعي قصير يشرح الفكرة."
+msgstr "そして、これはアイデアを説明する短いサブ見出しです。"
+
+msgid "ويُبلَّغ مالكه بالبريد."
+msgstr "、オーナーにメールを送信します。"
+
+msgid "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة."
+msgstr "Wakeelは30分ごとに新しいコメントを確認します。"
+
+msgid "يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة."
+msgstr "Wakeelが競合を分析中です。1分後にページを再読み込みしてください。"
+
+msgid "يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره."
+msgstr "会社のコンテンツを計画し、執筆し、デザインし、公開します。"
+
+msgid "يدرس وكيل هوية %(name)s وجمهورها وأهدافها."
+msgstr "Wakeelは%(name)sのアイデンティティ、オーディエンス、目標を研究します。"
+
+msgid "يراجع فريقنا بيانات حسابك"
+msgstr "チームがアカウント情報を確認します"
+
+msgid "يراجع فريقنا بيانات شركتك"
+msgstr "チームが会社の情報を確認します"
+
+msgid "يرسل رابط المراجعة للعميل"
+msgstr "レビュー用リンクをクライアントに送信します"
+
+msgid "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق."
+msgstr "作成には通常2〜5分かかります。"
+
+msgid "يصمم المنشورات"
+msgstr "投稿をデザイン"
+
+msgid "يصمم صورة كل منشور بألوانك وخطوطك وشعارك."
+msgstr "すべての投稿の画像を、あなたの色・フォント・ロゴでデザインします。"
+
+msgid "يطّلع على الخطط والتقويم فقط."
+msgstr "プランとカレンダーの閲覧のみ可能です。"
+
+msgid "يظهر أول "
+msgstr "最初の約"
+
+msgid "يعتمد المنشورات أو يطلب تعديلها دون حساب"
+msgstr "アカウント不要で、投稿を承認または変更を依頼できます"
+
+msgid "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة."
+msgstr "プランを作成し、投稿を編集してレビューに送ります。"
+
+msgid "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr "Wakeelが戦略、すべての投稿、そのデザインを作成します。"
+
+msgid "يعمل"
+msgstr "オン"
+
+msgid "يعمل لشركتك على مدار الساعة."
+msgstr "24時間365日、会社のために働きます。"
+
+msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."
+msgstr "オン: 次のプランは%(run_on)sに作成されます。"
+
+msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
+msgstr "Wakeelは次の投稿をスケジュールする際、これらの時間帯を優先します:"
+
+msgid "يفهم علامتك"
+msgstr "ブランドを理解する"
+
+msgid "يقرأ وكيل التعليقات الجديدة الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr ""
+"Wakeelが新しいコメントを読んでいます。しばらくしてからページを再読み込みして"
+"ください。"
+
+msgid "يمكن إضافة %(n)s منافسين كحد أقصى."
+msgstr "競合は最大%(n)s社まで追加できます。"
+
+msgid "يمكنك إضافة إنستغرام لاحقاً"
+msgstr "Instagramは後から追加できます"
+
+msgid "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+msgstr "新しいパスワードでログインできます。"
+
+msgid "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد."
+msgstr "承認済みの投稿のページから、いつでもすぐに公開できます。"
+
+msgid "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)"
+msgstr "複数の画像を一度にアップロードできます(1枚あたり最大10 MB)"
+
+msgid "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية."
+msgstr "このページを離れても、作業はバックグラウンドで続行されます。"
+
+msgid "ينا"
+msgstr "1月"
+
+msgid "يناير"
+msgstr "1月"
+
+msgid "ينتظرك"
+msgstr "あなたの対応待ち"
+
+msgid "ينتهي الاشتراك اليوم"
+msgstr "サブスクリプションは本日終了します"
+
+msgid "ينتهي الاشتراك خلال "
+msgstr "サブスクリプション終了まで "
+
+msgid "ينتهي الاشتراك في %(date)s."
+msgstr "サブスクリプションは%(date)sに終了します。"
+
+msgid "ينشر المعتمد في موعده"
+msgstr "承認済みの内容をスケジュールどおりに公開します"
+
+msgid "ينقص"
+msgstr "不足"
+
+msgid "يوجد حساب مسجل بهذا البريد الإلكتروني."
+msgstr "このメールアドレスのアカウントはすでに存在します。"
+
+msgid "يول"
+msgstr "7月"
+
+msgid "يوليو"
+msgstr "7月"
+
+msgid "يوم إعداد الخطة"
+msgstr "プラン作成日"
+
+msgid "يوم التأسيس السعودي"
+msgstr "サウジ建国記念日(創立記念日)"
+
+msgid "يوم عرفة"
+msgstr "アラファの日"
+
+msgid "يومياً ·"
+msgstr "毎日 ·"
+
+msgid "يون"
+msgstr "6月"
+
+msgid "يونيو"
+msgstr "6月"
+
+msgid "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr ""
+"Wakeelが提案を準備中です。しばらくしてからページを再読み込みしてください。"
+
+msgid "— وكيل، مساحة عمل %(company)s"
+msgstr "— Wakeel、%(company)sワークスペース"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "アイデンティティ、レター、証明書を、あなた専用のレターヘッドで。"
 

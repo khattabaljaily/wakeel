@@ -7506,6 +7506,5017 @@ msgstr "Pregunta: %(q)s"
 msgid "The answer was saved as a note."
 msgstr "La respuesta se guardó como nota."
 
+msgid " حرفاً تقريباً قبل «"
+msgstr " caracteres aparecen antes de “"
+
+msgid " حقلاً من الموقع. راجعها في كل الخطوات."
+msgstr " campos del sitio web. Revísalos en cada paso."
+
+msgid " صورة"
+msgstr " imágenes"
+
+msgid " من "
+msgstr " de "
+
+msgid " منشوراً"
+msgstr " publicaciones"
+
+msgid " منشوراً؟"
+msgstr " publicaciones?"
+
+msgid " يوم"
+msgstr " días"
+
+msgid "%(all)s منشوراً"
+msgstr "%(all)s publicaciones"
+
+msgid "%(company)s · عبر وكيل"
+msgstr "%(company)s · vía Wakeel"
+
+msgid "%(company)s · وكيل"
+msgstr "%(company)s · Wakeel"
+
+msgid "%(count)s × %(unit)s"
+msgstr "%(count)s × %(unit)s"
+
+msgid "%(count)s منشور"
+msgstr "%(count)s publicaciones"
+
+msgid "%(db_runs)s لقاعدة البيانات · %(media_runs)s للملفات"
+msgstr "%(db_runs)s de la base de datos · %(media_runs)s de los archivos"
+
+msgid "%(display_name)s · %(created_at)s"
+msgstr "%(display_name)s · %(created_at)s"
+
+msgid "%(finished_at)s (منذ %(finished_at2)s)"
+msgstr "%(finished_at)s (hace %(finished_at2)s)"
+
+msgid "%(get_kind_display)s · منذ %(created_at)s"
+msgstr "%(get_kind_display)s · hace %(created_at)s"
+
+msgid "%(jobs)s مهمة"
+msgstr "%(jobs)s tareas"
+
+msgid "%(jobs)s مهمة · %(input)s رمز"
+msgstr "%(jobs)s tareas · %(input)s tokens"
+
+msgid "%(jobs)s مهمة · cache hit %(cache_rate)s%%"
+msgstr "%(jobs)s tareas · acierto de caché %(cache_rate)s%%"
+
+msgid "%(month)s (%(n)s منشوراً، %(get_status_display)s)"
+msgstr "%(month)s (%(n)s publicaciones, %(get_status_display)s)"
+
+msgid "%(month_label)s · %(posts_per_week)s منشورات أسبوعياً ·"
+msgstr "%(month_label)s · %(posts_per_week)s publicaciones por semana ·"
+
+msgid "%(name)s (%(count)s عضو)"
+msgstr "%(name)s (%(count)s miembros)"
+
+msgid "%(name)s (العميل): %(body)s"
+msgstr "%(name)s (cliente): %(body)s"
+
+msgid "%(name)s · لوحة النظام"
+msgstr "%(name)s · Consola del sistema"
+
+msgid "%(new_companies)s جديدة هذا الشهر"
+msgstr "%(new_companies)s nuevas este mes"
+
+msgid "%(pending)s بانتظار رأيك"
+msgstr "%(pending)s esperan tus comentarios"
+
+msgid "%(pending)s قيد الانتظار"
+msgstr "%(pending)s pendientes"
+
+msgid "%(plans_month)s خطة محتوى"
+msgstr "%(plans_month)s planes de contenido"
+
+msgid "%(running_jobs)s مهمة قيد التنفيذ الآن"
+msgstr "%(running_jobs)s tareas en ejecución ahora"
+
+msgid "%(total_bytes)s (المساحة الحرة: %(free_bytes)s)"
+msgstr "%(total_bytes)s (espacio libre: %(free_bytes)s)"
+
+msgid "%(unpriced)s مهمة بلا سعر"
+msgstr "%(unpriced)s tareas sin precio"
+
+msgid "%(unscheduled)s منشور بلا موعد"
+msgstr "%(unscheduled)s publicaciones sin fecha"
+
+msgid "(%(unread_notifications)s غير مقروءة)"
+msgstr "(%(unread_notifications)s sin leer)"
+
+msgid "(أنت)"
+msgstr "(tú)"
+
+msgid "(دون %(unpriced)s مهمة بلا سعر)"
+msgstr "(sin contar %(unpriced)s tareas sin precio)"
+
+msgid "(قد يتغير يوماً حسب رؤية الهلال)"
+msgstr "(puede variar un día según la visión de la luna)"
+
+msgid ") ليعمل معه تلقائياً، أو شغّل"
+msgstr ") para que se ejecute junto con él, o ejecuta"
+
+msgid "). الأسعار في"
+msgstr "). Precios en"
+
+msgid ". سيراجعه فريقنا، وسيصلك بريد على"
+msgstr ". Nuestro equipo la revisará y recibirás un correo en"
+
+msgid "12 شهراً"
+msgstr "12 meses"
+
+msgid "14 يوماً (تجربة)"
+msgstr "14 días (prueba)"
+
+msgid "16 منشوراً جاهزاً"
+msgstr "16 publicaciones listas"
+
+msgid "3 أشهر"
+msgstr "3 meses"
+
+msgid "6 أشهر"
+msgstr "6 meses"
+
+msgid "<i class=\"bi bi-patch-check\"></i> اعتماد"
+msgstr "<i class=\"bi bi-patch-check\"></i> Aprobar"
+
+msgid "<span class=\"spinner-border spinner-border-sm\"></span> جارٍ النشر…"
+msgstr "<span class=\"spinner-border spinner-border-sm\"></span> Publicando…"
+
+msgid "<span class=\"text-warning\">● تغييرات غير محفوظة</span>"
+msgstr "<span class=\"text-warning\">● Cambios sin guardar</span>"
+
+msgid "A product of"
+msgstr "Un producto de"
+
+msgid "Added a contact"
+msgstr "Añadió un contacto"
+
+msgid "Added a task"
+msgstr "Añadió una tarea"
+
+msgid "Attach from Wakeel"
+msgstr "Adjuntar desde Wakeel"
+
+msgid "Attached a file to a task"
+msgstr "Adjuntó un archivo a una tarea"
+
+msgid "Build a month of social media content from this document."
+msgstr ""
+"Crea un mes de contenido para redes sociales a partir de este documento."
+
+msgid "Changed a contact"
+msgstr "Modificó un contacto"
+
+msgid "Changed a document of the library"
+msgstr "Modificó un documento de la biblioteca"
+
+msgid "Changed a task"
+msgstr "Modificó una tarea"
+
+msgid "Changed an announcement"
+msgstr "Modificó un anuncio"
+
+msgid "Changed the settings of a form"
+msgstr "Modificó los ajustes de un formulario"
+
+msgid "Changed the status of a task"
+msgstr "Cambió el estado de una tarea"
+
+msgid "Choose a file"
+msgstr "Elige un archivo"
+
+msgid "Closed a form"
+msgstr "Cerró un formulario"
+
+msgid "Content plan from it"
+msgstr "Plan de contenido a partir de él"
+
+msgid "Created a form"
+msgstr "Creó un formulario"
+
+msgid "Ctrl + S للحفظ"
+msgstr "Ctrl + S para guardar"
+
+msgid "Deleted a contact and its history"
+msgstr "Eliminó un contacto y su historial"
+
+msgid "Deleted a document from the library"
+msgstr "Eliminó un documento de la biblioteca"
+
+msgid "Deleted a form and its answers"
+msgstr "Eliminó un formulario y sus respuestas"
+
+msgid "Deleted a presentation"
+msgstr "Eliminó una presentación"
+
+msgid "Deleted a task"
+msgstr "Eliminó una tarea"
+
+msgid "Deleted an announcement"
+msgstr "Eliminó un anuncio"
+
+msgid "Document services"
+msgstr "Servicios de documentos"
+
+msgid "Documents waiting for your approval"
+msgstr "Documentos pendientes de tu aprobación"
+
+msgid "Downloaded the answers of a form"
+msgstr "Descargó las respuestas de un formulario"
+
+msgid "Exported all the data of the company"
+msgstr "Exportó todos los datos de la empresa"
+
+msgid "Invited someone to the company"
+msgstr "Invitó a alguien a la empresa"
+
+msgid "It did not work. You were not charged."
+msgstr "No funcionó. No se te cobró."
+
+msgid "Joined the company"
+msgstr "Se unió a la empresa"
+
+msgid "Letterheads"
+msgstr "Papel con membrete"
+
+msgid "Make a content plan"
+msgstr "Crear un plan de contenido"
+
+msgid "Never charged (internal and demo companies)."
+msgstr "Nunca se cobra (empresas internas y de demostración)."
+
+msgid "Nobody else is in this company yet."
+msgstr "Todavía no hay nadie más en esta empresa."
+
+msgid "Only members of this company can open it."
+msgstr "Solo los miembros de esta empresa pueden abrirlo."
+
+msgid "Only the people of this company, one answer each"
+msgstr "Solo las personas de esta empresa, una respuesta cada una"
+
+msgid "Open the card again and approve it from there."
+msgstr "Abre de nuevo la tarjeta y apruébala desde allí."
+
+msgid "Opened a form for answers"
+msgstr "Abrió un formulario para respuestas"
+
+msgid "Ordered a presentation"
+msgstr "Encargó una presentación"
+
+msgid "Papers expired or expiring within 30 days"
+msgstr "Documentos vencidos o que vencen en 30 días"
+
+msgid "Post"
+msgstr "Publicación"
+
+msgid "Post from it"
+msgstr "Publicación a partir de él"
+
+msgid "Published an announcement"
+msgstr "Publicó un anuncio"
+
+msgid "Reading the document. The answer will be saved as a note."
+msgstr "Leyendo el documento. La respuesta se guardará como una nota."
+
+msgid "Reading the document… the details will appear here in a moment."
+msgstr "Leyendo el documento… los detalles aparecerán aquí en un momento."
+
+msgid "Removed a file from a task"
+msgstr "Quitó un archivo de una tarea"
+
+msgid "Rewrite a post"
+msgstr "Reescribir una publicación"
+
+msgid "Rewriting the post. Refresh the page in a moment."
+msgstr "Reescribiendo la publicación. Actualiza la página en un momento."
+
+msgid "Shared with Wakeel"
+msgstr "Compartido con Wakeel"
+
+msgid "Tasks assigned to you"
+msgstr "Tareas asignadas a ti"
+
+msgid "Tasks of yours are overdue"
+msgstr "Tienes tareas vencidas"
+
+msgid "Thank you. The balance is added as soon as the payment is confirmed."
+msgstr "Gracias. El saldo se añade en cuanto se confirme el pago."
+
+msgid "The AI is writing. This can take up to a minute; you can wait here."
+msgstr ""
+"La IA está escribiendo. Puede tardar hasta un minuto; puedes esperar aquí."
+
+msgid "The form was created. Check its questions."
+msgstr "El formulario se creó. Revisa sus preguntas."
+
+msgid "The mailbox will be disconnected from Wakeel."
+msgstr "El buzón se desconectará de Wakeel."
+
+msgid "The service is busy at the moment. Please try again later."
+msgstr ""
+"El servicio está ocupado en este momento. Inténtalo de nuevo más tarde."
+
+msgid "This company is not charged."
+msgstr "Esta empresa no recibe cobros."
+
+msgid "This suggestion is no longer available. Ask Marid again."
+msgstr "Esta sugerencia ya no está disponible. Pregunta de nuevo a Marid."
+
+msgid "Uploaded a document to the library"
+msgstr "Subió un documento a la biblioteca"
+
+msgid "Verified by Wakeel"
+msgstr "Verificado por Wakeel"
+
+msgid "Wakeel credit: $%(amount)s"
+msgstr "Crédito de Wakeel: $%(amount)s"
+
+msgid "Wallet"
+msgstr "Monedero"
+
+msgid "What the services cost"
+msgstr "Lo que cuestan los servicios"
+
+msgid "What to change"
+msgstr "Qué cambiar"
+
+msgid "Working on it. This page shows the plan as soon as it is ready."
+msgstr "Trabajando en ello. Esta página mostrará el plan en cuanto esté listo."
+
+msgid "Write a post from a document"
+msgstr "Escribir una publicación a partir de un documento"
+
+msgid "Writing the post from the document. Refresh the page in a moment."
+msgstr ""
+"Escribiendo la publicación a partir del documento. Actualiza la página en un "
+"momento."
+
+msgid "You are charged only if the work is delivered."
+msgstr "Solo se te cobra si el trabajo se entrega."
+
+msgid "You changed the server or the user name: type the password again."
+msgstr ""
+"Cambiaste el servidor o el nombre de usuario: escribe la contraseña de nuevo."
+
+msgid "You reached today's limit of messages to Marid. Try again tomorrow."
+msgstr ""
+"Alcanzaste el límite de hoy de mensajes a Marid. Inténtalo de nuevo mañana."
+
+msgid "You receive this because you set this reminder in Wakeel."
+msgstr "Recibes esto porque configuraste este recordatorio en Wakeel."
+
+msgid "You were not charged."
+msgstr "No se te cobró."
+
+msgid "Your balance: $%(balance)s. It takes about half a minute."
+msgstr "Tu saldo: $%(balance)s. Tarda aproximadamente medio minuto."
+
+msgid "[سيناريو الفيديو]"
+msgstr "[Guion de vídeo]"
+
+msgid "files chosen"
+msgstr "archivos elegidos"
+
+msgid "free"
+msgstr "gratis"
+
+msgid "month"
+msgstr "mes"
+
+msgid "or drop it here"
+msgstr "o suéltalo aquí"
+
+msgid "page"
+msgstr "página"
+
+msgid "platforms"
+msgstr "plataformas"
+
+msgid "post"
+msgstr "publicación"
+
+msgid "posts per week"
+msgstr "publicaciones por semana"
+
+msgid "slide"
+msgstr "diapositiva"
+
+msgid "this month's brief"
+msgstr "el resumen de este mes"
+
+msgid "{count} منشورات"
+msgstr "{count} publicaciones"
+
+msgid "{label} على «{post}»: {text}"
+msgstr "{label} en “{post}”: {text}"
+
+msgid "{name} (العميل)"
+msgstr "{name} (cliente)"
+
+msgid "«%(name)s» معتمد بالفعل."
+msgstr "“%(name)s” ya está aprobado."
+
+msgid "· %(industry)s · %(country)s · منذ %(created_at)s"
+msgstr "· %(industry)s · %(country)s · desde %(created_at)s"
+
+msgid "· اللغة:"
+msgstr "· Idioma:"
+
+msgid "· النشر التلقائي: %(auto_publish)s"
+msgstr "· Publicación automática: %(auto_publish)s"
+
+msgid "· الهدف: %(objective)s"
+msgstr "· Objetivo: %(objective)s"
+
+msgid "· منذ"
+msgstr "· desde"
+
+msgid "· وكيل"
+msgstr "· Wakeel"
+
+msgid "· يعمل"
+msgstr "· el"
+
+msgid "»، فاجعل البداية قوية."
+msgstr "”, así que haz que el inicio sea fuerte."
+
+msgid "، "
+msgstr ", "
+
+msgid "، لذلك لم تبدأ المهمة. شغّل الخادم في وضع التطوير ("
+msgstr ""
+", así que la tarea no ha comenzado. Ejecuta el servidor en modo de "
+"desarrollo ("
+
+msgid "، و%(pending)s مهمة تنتظر"
+msgstr ", y %(pending)s tareas están en espera"
+
+msgid "، وأضف"
+msgstr ", añade"
+
+msgid "، واجعل رابط إعادة التوجيه:"
+msgstr ", y establece el URI de redirección en:"
+
+msgid "، وتُحسب تكلفة كل مهمة لحظة تنفيذها."
+msgstr ", y el costo de cada tarea se calcula cuando se ejecuta."
+
+msgid "؛ المفاتيح السرية لا تُعرض"
+msgstr "; las claves secretas no se muestran"
+
+msgid "؟"
+msgstr "?"
+
+msgid "آخر 12 شهراً"
+msgstr "Últimos 12 meses"
+
+msgid "آخر 30 يوماً"
+msgstr "Últimos 30 días"
+
+msgid "آخر 90 يوماً"
+msgstr "Últimos 90 días"
+
+msgid "آخر الأخطاء"
+msgstr "Últimos errores"
+
+msgid "آخر المهام"
+msgstr "Últimas tareas"
+
+msgid "آخر تحديث:"
+msgstr "Última actualización:"
+
+msgid "آخر تحديث: %(when)s"
+msgstr "Última actualización: %(when)s"
+
+msgid "آخر نسخة"
+msgstr "Última copia de seguridad"
+
+msgid "آيس كريم"
+msgstr "Helados"
+
+msgid "أبر"
+msgstr "abr"
+
+msgid "أبريل"
+msgstr "Abril"
+
+msgid "أثاث"
+msgstr "Muebles"
+
+msgid "أحدث الاشتراكات"
+msgstr "Últimas suscripciones"
+
+msgid "أخبار"
+msgstr "Noticias"
+
+msgid "أخبر وكيل بما يهمك هذا الشهر، وسيتولى الباقي."
+msgstr "Dile a Wakeel lo que te importa este mes y él se encarga del resto."
+
+msgid "أخرى"
+msgstr "Otro"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr ""
+"Introduce tu correo y te enviaremos un enlace para establecer una nueva "
+"contraseña."
+
+msgid "أدخل رابط الموقع أولاً."
+msgstr "Introduce primero el enlace del sitio web."
+
+msgid "أدخل كلمة المرور للتأكيد"
+msgstr "Introduce tu contraseña para confirmar"
+
+msgid "أدخل لوناً بصيغة ‎#RRGGBB."
+msgstr "Introduce un color en formato #RRGGBB."
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "Introduce un importe válido en dólares (hasta 1000)."
+
+msgid "أدوات"
+msgstr "Herramientas"
+
+msgid "أرسل {name} {subject} للمراجعة."
+msgstr "{name} envió {subject} para revisión."
+
+msgid "أرسل رابط الاستعادة"
+msgstr "Enviar enlace de restablecimiento"
+
+msgid "أرسل للعميل على واتساب"
+msgstr "Enviar al cliente por WhatsApp"
+
+msgid "أزمة"
+msgstr "Crisis"
+
+msgid "أزمة محتملة"
+msgstr "Posible crisis"
+
+msgid "أسعار ثابتة:"
+msgstr "Precios fijos:"
+
+msgid "أسعار هذا النموذج غير معروفة. أضف"
+msgstr "Se desconocen los precios de este modelo. Añade"
+
+msgid "أسنان"
+msgstr "Dental"
+
+msgid "أسود"
+msgstr "Oscuro"
+
+msgid "أشرطة"
+msgstr "Bandas"
+
+msgid "أشعة"
+msgstr "Rayos"
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "El cobro al saldo de la empresa vuelve a estar activo."
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "La empresa ahora está exenta de cobros."
+
+msgid "أضف دعوة أوضح لاتخاذ إجراء"
+msgstr "Añade una llamada a la acción más clara"
+
+msgid "أضف رقم واتساب العميل أولاً من إعدادات المخطط الآلي."
+msgstr ""
+"Añade primero el número de WhatsApp del cliente en los ajustes del "
+"planificador automático."
+
+msgid "أضف قاعدة، مثل: لا تستخدم كلمة «عروض» في العناوين"
+msgstr "Añade una regla, p. ej.: No uses la palabra “ofertas” en los titulares"
+
+msgid "أضف منافساً"
+msgstr "Añadir un competidor"
+
+msgid "أضف منافساً واحداً على الأقل."
+msgstr "Añade al menos un competidor."
+
+msgid "أضف منافسيك"
+msgstr "Añade a tus competidores"
+
+msgid "أضفتموها"
+msgstr "Añadido por ti"
+
+msgid "أضيفت القاعدة، وسيلتزم بها وكيل من الآن."
+msgstr "Regla añadida. Wakeel la seguirá a partir de ahora."
+
+msgid "أطفال"
+msgstr "Niños"
+
+msgid "أعاد وكيل كتابة المنشور"
+msgstr "Wakeel reescribió la publicación"
+
+msgid "أعد الإعداد"
+msgstr "Preparar de nuevo"
+
+msgid "أعد المحاولة واضغط «تعديل الإعدادات» لتحديدها"
+msgstr "Inténtalo de nuevo y pulsa “Editar ajustes” para seleccionarla"
+
+msgid "أعد نشره"
+msgstr "Republicar"
+
+msgid "أعد نشره بصياغة جديدة"
+msgstr "Republicar con redacción nueva"
+
+msgid "أعدّ الخطة"
+msgstr "Preparar el plan"
+
+msgid "أعدّ الخطة الآن"
+msgstr "Preparar el plan ahora"
+
+msgid "أعدّ المخطط الآلي خطة {title}."
+msgstr "El planificador automático preparó el plan de {title}."
+
+msgid "أعدّ تقريراً لشهر"
+msgstr "Preparar un informe de"
+
+msgid "أعدّ خطة الشهر"
+msgstr "Preparar el plan de este mes"
+
+msgid "أعدّ خطة المحتوى"
+msgstr "Preparar un plan de contenido"
+
+msgid "أعدّ خطة محتوى أو أنشئ منشوراً يدوياً."
+msgstr "Prepara un plan de contenido o crea una publicación a mano."
+
+msgid "أعدّ خطة محتوى ليملأ وكيل تقويمك بالمنشورات."
+msgstr ""
+"Prepara un plan de contenido y Wakeel llenará tu calendario con "
+"publicaciones."
+
+msgid "أعدّت هذه الخطة %(name)s"
+msgstr "Este plan fue preparado por %(name)s"
+
+msgid "أعضاء"
+msgstr "miembros"
+
+msgid "أعضاء الفريق · المنشورات"
+msgstr "Miembros del equipo · publicaciones"
+
+msgid "أعمال"
+msgstr "Negocios"
+
+msgid "أغس"
+msgstr "ago"
+
+msgid "أغسطس"
+msgstr "Agosto"
+
+msgid "أغلقتها؟ تابع"
+msgstr "¿Lo cerraste? Continuar"
+
+msgid "أفضل ساعات النشر لجمهورك"
+msgstr "Mejores horas para publicar para tu audiencia"
+
+msgid "أقدم مهمة منتظرة"
+msgstr "Tarea en espera más antigua"
+
+msgid "أقواس"
+msgstr "Arcos"
+
+msgid "أكت"
+msgstr "oct"
+
+msgid "أكتوبر"
+msgstr "Octubre"
+
+msgid "أكمل الخطوات هناك وسنتابع هنا تلقائياً."
+msgstr "Termina los pasos allí y continuaremos aquí automáticamente."
+
+msgid "أكمل الملف"
+msgstr "Completar perfil"
+
+msgid "أكمل الملف أولاً"
+msgstr "Completa primero el perfil"
+
+msgid "أكمل ملف شركتك"
+msgstr "Completa el perfil de tu empresa"
+
+msgid "ألغاه المستخدم."
+msgstr "Cancelado por el usuario."
+
+msgid "أمان"
+msgstr "Seguridad"
+
+msgid "أمثلة من منشوراتهم"
+msgstr "Ejemplos de sus publicaciones"
+
+msgid "أنت داخل حساب"
+msgstr "Estás dentro de la cuenta de"
+
+msgid "أنشأت الصفحة، التالي"
+msgstr "Ya la creé, siguiente"
+
+msgid "أنشئ النسخة"
+msgstr "Crear versión"
+
+msgid "أنشئ تطبيقاً في"
+msgstr "Crear una aplicación en"
+
+msgid "أنشئ حساباً"
+msgstr "Crear una cuenta"
+
+msgid "أنشئ صفحة لشركتك"
+msgstr "Crea una Página para tu empresa"
+
+msgid "أنشئ صفحة لشركتك أولاً"
+msgstr "Crea primero una Página para tu empresa"
+
+msgid "أنشئه في Meta متوقفاً"
+msgstr "Crearlo en Meta, en pausa"
+
+msgid "أهداف التسويق"
+msgstr "Objetivos de marketing"
+
+msgid "أهلاً %(display_name)s 👋"
+msgstr "Hola %(display_name)s 👋"
+
+msgid "أو افتحها من المتصفح"
+msgstr "O ábrelo en el navegador"
+
+msgid "أوقفت الإشعارات على هذا الجهاز"
+msgstr "Notificaciones desactivadas en este dispositivo"
+
+msgid "أول يوم في الشهر."
+msgstr "El primer día del mes."
+
+msgid "أُرسلت دعوة المراجعة إلى واتساب العميل."
+msgstr "La invitación de revisión se envió al WhatsApp del cliente."
+
+msgid "أُعدّت هذه الخطة بواسطة وكيل · مدير التسويق الذكي"
+msgstr "Este plan fue preparado por Wakeel · Tu director de marketing con IA"
+
+msgid "أُلغي"
+msgstr "Cancelado"
+
+msgid "أُلغي إعداد الخطة. يمكنك المحاولة مرة أخرى أو حذف الخطة."
+msgstr ""
+"Se canceló la preparación del plan. Puedes intentarlo de nuevo o eliminar el "
+"plan."
+
+msgid "أُنشئ متوقفاً في Meta"
+msgstr "Creado en pausa en Meta"
+
+msgid "أُنشئت نسخة %(label)s."
+msgstr "Versión %(label)s creada."
+
+msgid "أُوقف وضع الوكالة؛ يرى عملاؤك علامة وكيل من جديد."
+msgstr ""
+"El modo agencia está desactivado; tus clientes vuelven a ver la marca Wakeel."
+
+msgid "إحصاءات"
+msgstr "Estadísticas"
+
+msgid "إخفاء كلمة المرور"
+msgstr "Ocultar contraseña"
+
+msgid "إدارة الفريق متاحة للمالك والمديرين فقط."
+msgstr "Solo los propietarios y administradores pueden gestionar el equipo."
+
+msgid "إدارة المشتركين ومتابعة نشاطهم"
+msgstr "Gestiona los suscriptores y sigue su actividad"
+
+msgid "إدارة المكتبة"
+msgstr "Gestionar biblioteca"
+
+msgid "إدارة المنصة"
+msgstr "Administrador de la plataforma"
+
+msgid "إدارة قاعدة البيانات"
+msgstr "Administrador de la base de datos"
+
+msgid "إدارة وكيل"
+msgstr "Administración de Wakeel"
+
+msgid "إرجاع"
+msgstr "Restaurar"
+
+msgid "إرسال"
+msgstr "Enviar"
+
+msgid "إرسال الرد"
+msgstr "Enviar respuesta"
+
+msgid "إرسال الملاحظة"
+msgstr "Enviar nota"
+
+msgid "إرسال للمراجعة"
+msgstr "Enviar para revisión"
+
+msgid "إزالة"
+msgstr "Quitar"
+
+msgid "إزالة %(display_name)s"
+msgstr "Quitar a %(display_name)s"
+
+msgid "إزالة العضو؟"
+msgstr "¿Quitar al miembro?"
+
+msgid "إسعاف"
+msgstr "Primeros auxilios"
+
+msgid "إشادة"
+msgstr "Elogio"
+
+msgid "إشعار"
+msgstr "Notificación"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "Notificaciones por correo"
+
+msgid "إشعارات هذا الجهاز"
+msgstr "Notificaciones en este dispositivo"
+
+msgid "إضافة"
+msgstr "Añadir"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "Añadir saldo ($, negativo para devolver)"
+
+msgid "إضافة شركاتك"
+msgstr "Añade tus empresas"
+
+msgid "إضافة شركة"
+msgstr "Añadir una empresa"
+
+msgid "إضافة عضو"
+msgstr "Añadir un miembro"
+
+msgid "إطار"
+msgstr "Marco"
+
+msgid "إظهار كلمة المرور"
+msgstr "Mostrar contraseña"
+
+msgid "إعادة إعداد الخطة"
+msgstr "Preparar el plan de nuevo"
+
+msgid "إعادة إعداد الخطة؟"
+msgstr "¿Preparar el plan de nuevo?"
+
+msgid "إعادة إلى المسودة"
+msgstr "Volver a borrador"
+
+msgid "إعادة الإعداد"
+msgstr "Preparar de nuevo"
+
+msgid "إعادة الربط أو تغيير الصفحة"
+msgstr "Reconectar o cambiar la Página"
+
+msgid "إعادة المحاولة"
+msgstr "Reintentar"
+
+msgid "إعادة تصميم كل الصور"
+msgstr "Rediseñar todas las imágenes"
+
+msgid "إعادة كتابة منشور"
+msgstr "Reescribiendo una publicación"
+
+msgid "إعادة نشر تلقائية كل شهر"
+msgstr "Republicar automáticamente cada mes"
+
+msgid "إعادة نشر محتوى دائم"
+msgstr "Republicación de contenido perenne"
+
+msgid "إعجاب"
+msgstr "Me gusta"
+
+msgid "إعداد التقرير"
+msgstr "Preparar informe"
+
+msgid "إعداد الخطط، التصميم، النشر، والنشر المجدول"
+msgstr "Preparación de planes, diseño, publicación y publicación programada"
+
+msgid "إعداد النشر التلقائي"
+msgstr "Configurar la publicación automática"
+
+msgid "إعداد تقرير الأداء"
+msgstr "Redactar informe de rendimiento"
+
+msgid "إعداد خطة المحتوى"
+msgstr "Preparando el plan de contenido"
+
+msgid "إعدادات"
+msgstr "Ajustes"
+
+msgid "إعدادات الحساب"
+msgstr "Ajustes de la cuenta"
+
+msgid "إعفاء من الخصم"
+msgstr "Exenta de cobros"
+
+msgid "إعلان"
+msgstr "Anuncio"
+
+msgid "إغلاق"
+msgstr "Cerrar"
+
+msgid "إلغاء"
+msgstr "Cancelar"
+
+msgid "إلغاء الإعفاء"
+msgstr "Quitar la exención"
+
+msgid "إلى"
+msgstr "a"
+
+msgid "إلى ملف"
+msgstr "al"
+
+msgid "إنترنت"
+msgstr "Internet"
+
+msgid "إنجاز"
+msgstr "Hecho"
+
+msgid "إنستغرام"
+msgstr "Instagram"
+
+msgid "إنشاء الإعلان في Meta؟"
+msgstr "¿Crear el anuncio en Meta?"
+
+msgid "إنشاء الاشتراك"
+msgstr "Crear suscripción"
+
+msgid "إنشاء الحساب"
+msgstr "Cuenta creada"
+
+msgid "إنشاء حساب"
+msgstr "Crear una cuenta"
+
+msgid "إنشاء رابط جديد؟"
+msgstr "¿Crear un enlace nuevo?"
+
+msgid "إنشاء رابط للعميل"
+msgstr "Crear un enlace para el cliente"
+
+msgid "إنشاء متوقفاً"
+msgstr "Crear en pausa"
+
+msgid "إنشاء مساحة العمل"
+msgstr "Crear espacio de trabajo"
+
+msgid "إيجابي"
+msgstr "Positivo"
+
+msgid "إيقاف"
+msgstr "Detener"
+
+msgid "إيقاف إعداد الخطة؟"
+msgstr "¿Detener la preparación del plan?"
+
+msgid "إيقاف الإعداد"
+msgstr "Detener la preparación"
+
+msgid "إيقاف الرابط"
+msgstr "Desactivar enlace"
+
+msgid "إيقاف وضع الوكالة"
+msgstr "Desactivar el modo agencia"
+
+msgid "إيقافه يعلّق الاشتراك."
+msgstr "Al desactivarlo se suspende la suscripción."
+
+msgid "ابحث بالاسم أو البريد أو المدينة…"
+msgstr "Buscar por nombre, correo o ciudad…"
+
+msgid "ابحث بالاسم أو البريد…"
+msgstr "Buscar por nombre o correo…"
+
+msgid "ابحث بالشركة أو الخطأ أو النموذج…"
+msgstr "Buscar por empresa, error o modelo…"
+
+msgid "ابحث في المنشورات…"
+msgstr "Buscar publicaciones…"
+
+msgid "ابدأ الآن"
+msgstr "Empezar"
+
+msgid "ابدأ بخطتك الأولى"
+msgstr "Empieza con tu primer plan"
+
+msgid "ابدأ مع وكيل"
+msgstr "Empieza con Wakeel"
+
+msgid "اتصال"
+msgstr "Llamada"
+
+msgid "اجعل الأسلوب أكثر حماساً وجاذبية"
+msgstr "Haz el tono más enérgico y atractivo"
+
+msgid "اجعل النص أقصر وأكثر تركيزاً"
+msgstr "Haz el texto más corto y más centrado"
+
+msgid "احتفال"
+msgstr "Celebración"
+
+msgid "احفظ المنشور ليُصمَّم، ثم تظهر الصورة هنا."
+msgstr "Guarda la publicación para diseñarla y la imagen aparecerá aquí."
+
+msgid "اختر الصفحة"
+msgstr "Elegir la Página"
+
+msgid "اختر اللغة أو اللهجة."
+msgstr "Elige el idioma o dialecto."
+
+msgid "اختر ثلاثة رسوم كحد أقصى."
+msgstr "Elige tres dibujos como máximo."
+
+msgid "اختر حساباً إعلانياً من صفحة الترويج أولاً."
+msgstr "Elige primero una cuenta publicitaria en la página de promoción."
+
+msgid "اختر صفحة فيسبوك"
+msgstr "Elige una Página de Facebook"
+
+msgid "اختر كلمة مرور جديدة لحسابك."
+msgstr "Elige una nueva contraseña para tu cuenta."
+
+msgid "اختر ما ينطبق عليك:"
+msgstr "Elige lo que se aplica a ti:"
+
+msgid "اختر مدة صحيحة للتجديد."
+msgstr "Elige un período de renovación válido."
+
+msgid "اختر منصة واحدة على الأقل."
+msgstr "Elige al menos una plataforma."
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "Elige un día entre 1 y 28."
+
+msgid "اختيار"
+msgstr "Elegir"
+
+msgid "ادخار"
+msgstr "Ahorros"
+
+msgid "اربط إنستغرام بصفحة فيسبوك"
+msgstr "Vincular Instagram a la Página de Facebook"
+
+msgid "اربط حساب تيك توك"
+msgstr "Conecta tu cuenta de TikTok"
+
+msgid "اربط حسابات فيسبوك أو إنستغرام"
+msgstr "Conectar cuentas de Facebook o Instagram"
+
+msgid "اربط فيسبوك أو إنستغرام"
+msgstr "Conectar Facebook o Instagram"
+
+msgid "ارتفاع"
+msgstr "Ascenso"
+
+msgid "استدامة"
+msgstr "Sostenibilidad"
+
+msgid "استراتيجية الشهر"
+msgstr "La estrategia de este mes"
+
+msgid "استراتيجية شهرية"
+msgstr "Estrategia mensual"
+
+msgid "استراتيجية شهرية مبنية على فهم نشاطك وجمهورك"
+msgstr "Una estrategia mensual basada en entender tu negocio y tu audiencia"
+
+msgid "استراتيجية كل شهر ومنشوراته، كما أعدّها وكيل."
+msgstr ""
+"La estrategia y las publicaciones de cada mes, tal como las preparó Wakeel."
+
+msgid "استعادة كلمة المرور"
+msgstr "Restablecer contraseña"
+
+msgid "استعادة كلمة المرور في وكيل"
+msgstr "Restablece tu contraseña de Wakeel"
+
+msgid "استعادة كلمة المرور والإشعارات"
+msgstr "Restablecimiento de contraseña y notificaciones"
+
+msgid "استهلاك الذكاء الاصطناعي لكل المنصة خلال آخر 12 شهراً"
+msgstr "Uso de IA en toda la plataforma durante los últimos 12 meses"
+
+msgid "اسحب الصور هنا أو اضغط للاختيار"
+msgstr "Arrastra imágenes aquí o toca para elegir"
+
+msgid "اسحب المنشور إلى يوم آخر لتغيير موعده."
+msgstr "Arrastra una publicación a otro día para cambiar su fecha."
+
+msgid "اسم الشركة"
+msgstr "Nombre de la empresa"
+
+msgid "اسم الوكالة"
+msgstr "Nombre de la agencia"
+
+msgid "اسمك"
+msgstr "Tu nombre"
+
+msgid "اشتراك %(name)s معلّق"
+msgstr "La suscripción de %(name)s está suspendida"
+
+msgid "اشتراك جديد"
+msgstr "Nueva suscripción"
+
+msgid "اشتراك غير صالح."
+msgstr "Suscripción no válida."
+
+msgid "اشتراك نشط"
+msgstr "Suscripciones activas"
+
+msgid "اشتراك نشط بدون تاريخ انتهاء"
+msgstr "Suscripción activa sin fecha de fin"
+
+msgid "اشتراك نشط، باقٍ "
+msgstr "Suscripción activa, quedan "
+
+msgid "اشتراك ينتهي خلال 7 أيام."
+msgstr "suscripción(es) que terminan en 7 días."
+
+msgid "اشتراكات جديدة"
+msgstr "Nuevas suscripciones"
+
+msgid "اضغط على القائمة ☰ ثم «نوع الحساب والأدوات»."
+msgstr "Toca el menú ☰ y luego “Tipo de cuenta y herramientas”."
+
+msgid "اطلب الآن ←"
+msgstr "Pedir ahora →"
+
+msgid "اطلب خطة الشهر"
+msgstr "Pedir el plan del mes"
+
+msgid "اطلب من وكيل تعديل المنشور"
+msgstr "Pedir a Wakeel que cambie la publicación"
+
+msgid "اعتماد"
+msgstr "Aprobar"
+
+msgid "اعتماد "
+msgstr "Aprobar "
+
+msgid "اعتماد %(name)s"
+msgstr "Aprobar %(name)s"
+
+msgid "اعتماد الحساب؟"
+msgstr "¿Aprobar la cuenta?"
+
+msgid "اعتماد المشتركين الجدد، وتجديد الاشتراكات وتعليقها وحذفها"
+msgstr ""
+"Aprueba nuevos suscriptores y renueva, suspende o elimina suscripciones"
+
+msgid "اعتماد المنشورات ونشرها متاح للمالك والمديرين فقط."
+msgstr ""
+"Solo los propietarios y administradores pueden aprobar y publicar "
+"publicaciones."
+
+msgid "اعتماد كل ما بانتظار المراجعة (%(review_ids)s)"
+msgstr "Aprobar todo lo que espera revisión (%(review_ids)s)"
+
+msgid "اعتماد ✅"
+msgstr "Aprobar ✅"
+
+msgid "اعتمد"
+msgstr "aprobado"
+
+msgid "اعتمد {name} {subject}."
+msgstr "{name} aprobó {subject}."
+
+msgid "اعتمد المنشور أولاً، ثم انشره."
+msgstr "Aprueba primero la publicación y luego publícala."
+
+msgid "افتح تطبيق إنستغرام وادخل إلى ملفك الشخصي."
+msgstr "Abre la aplicación de Instagram y ve a tu perfil."
+
+msgid "افتح مدير الإعلانات"
+msgstr "Abrir el Administrador de anuncios"
+
+msgid "اقتباس"
+msgstr "Cita"
+
+msgid "اقتراح الترويج جاهز."
+msgstr "La sugerencia de promoción está lista."
+
+msgid "اقتراح ترويج"
+msgstr "Sugerencia de promoción"
+
+msgid "اقترح ترويجاً"
+msgstr "Sugerir una promoción"
+
+msgid "اكتب اسمك أولاً"
+msgstr "Escribe primero tu nombre"
+
+msgid "اكتب اسمك أولاً ليعرف الفريق صاحب الملاحظة."
+msgstr "Escribe primero tu nombre para que el equipo sepa quién dejó la nota."
+
+msgid "اكتب الرد أولاً."
+msgstr "Escribe primero la respuesta."
+
+msgid "اكتب الرد…"
+msgstr "Escribe la respuesta…"
+
+msgid "اكتب تعليقاً…"
+msgstr "Escribe un comentario…"
+
+msgid "اكتب تعليقك أولاً."
+msgstr "Escribe primero tu comentario."
+
+msgid "اكتب عنواناً أقوى يلفت الانتباه"
+msgstr "Escribe un titular más fuerte y que llame la atención"
+
+msgid "اكتب فكرة مختلفة تماماً لنفس المحور"
+msgstr "Escribe una idea completamente distinta para el mismo pilar"
+
+msgid "اكتب ما تريد تغييره في المنشور."
+msgstr "Escribe lo que te gustaría cambiar en la publicación."
+
+msgid "اكتب ملاحظتك أولاً."
+msgstr "Escribe primero tu nota."
+
+msgid "اكتمل"
+msgstr "Hecho"
+
+msgid "اكتمل الربط"
+msgstr "Conexión terminada"
+
+msgid "اكتمل تحليل المنافسين."
+msgstr "Análisis de la competencia completado."
+
+msgid "الآن"
+msgstr "Ahora mismo"
+
+msgid "الآن · 🌐"
+msgstr "Ahora mismo · 🌐"
+
+msgid "الآن نربط حساباتك بوكيل"
+msgstr "Ahora conectemos tus cuentas a Wakeel"
+
+msgid "الأحد"
+msgstr "Domingo"
+
+msgid "الأحدث"
+msgstr "Más recientes"
+
+msgid "الأداء"
+msgstr "Rendimiento"
+
+msgid "الأدوار"
+msgstr "Roles"
+
+msgid "الأربعاء"
+msgstr "Miércoles"
+
+msgid "الأردن"
+msgstr "Jordania"
+
+msgid "الأساسيات"
+msgstr "Básicos"
+
+msgid "الأسلوب والنبرة"
+msgstr "Estilo y tono"
+
+msgid "الأضعف أداءً"
+msgstr "Menor rendimiento"
+
+msgid "الأعضاء"
+msgstr "Miembros"
+
+msgid "الأعلى استهلاكاً هذا الشهر"
+msgstr "Mayor uso este mes"
+
+msgid "الأفضل أداءً"
+msgstr "Mejor rendimiento"
+
+msgid "الأقدم"
+msgstr "Más antiguos"
+
+msgid "الألوان والزخرفة"
+msgstr "Colores y motivo"
+
+msgid "الأهداف"
+msgstr "Objetivos"
+
+msgid "الإثنين"
+msgstr "Lunes"
+
+msgid "الإجمالي الأقصى: %(total)s %(cur)s"
+msgstr "Total máximo: %(total)s %(cur)s"
+
+msgid "الإدارة"
+msgstr "Administración"
+
+msgid "الإشعارات"
+msgstr "Notificaciones"
+
+msgid "الإعدادات"
+msgstr "Ajustes"
+
+msgid "الإعلان موجود في Meta وهو متوقف. لن يُصرف شيء حتى تفعّله."
+msgstr ""
+"El anuncio está en Meta y en pausa. No se gasta nada hasta que lo actives."
+
+msgid "الإمارات"
+msgstr "Emiratos Árabes Unidos"
+
+msgid "الإنجليزية"
+msgstr "Inglés"
+
+msgid "الاستراتيجية"
+msgstr "Estrategia"
+
+msgid "الاستهلاك حسب الشهر"
+msgstr "Uso por mes"
+
+msgid "الاستهلاك والتفاصيل"
+msgstr "Uso y detalles"
+
+msgid "الاستهلاك والتكلفة"
+msgstr "Uso y costo"
+
+msgid "الاسم"
+msgstr "Nombre"
+
+msgid "الاسم القانوني"
+msgstr "Razón social"
+
+msgid "الاسم الكامل"
+msgstr "Nombre completo"
+
+msgid "الاسم:"
+msgstr "Nombre:"
+
+msgid "الاشتراك"
+msgstr "Suscripción"
+
+msgid "الاشتراك معلّق"
+msgstr "Suscripción suspendida"
+
+msgid "الاشتراكات"
+msgstr "Suscripciones"
+
+msgid "الاشتراكات الجديدة لكل شهر"
+msgstr "Nuevas suscripciones por mes"
+
+msgid "الاعتماد"
+msgstr "Aprobación"
+
+msgid "الاكتفاء بفيسبوك"
+msgstr "Quedarse con Facebook"
+
+msgid "البحرين"
+msgstr "Baréin"
+
+msgid "البريد الإلكتروني"
+msgstr "Correo electrónico"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "Correo o contraseña incorrectos."
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "Correo de la empresa"
+
+msgid "البريد:"
+msgstr "Correo:"
+
+msgid "البيانات الرسمية"
+msgstr "Datos oficiales"
+
+msgid "التاريخ"
+msgstr "Fecha"
+
+msgid "التالي"
+msgstr "Siguiente"
+
+msgid "التحليل قيد الإعداد. أعد تحميل الصفحة بعد دقيقة."
+msgstr "El análisis se está preparando. Recarga la página en un minuto."
+
+msgid "التحويل إلى العربية"
+msgstr "Cambiar a árabe"
+
+msgid "الترويج المدفوع"
+msgstr "Promoción de pago"
+
+msgid "التسجيل خلال آخر 12 شهراً"
+msgstr "Registros de los últimos 12 meses"
+
+msgid "التسجيل مغلق حالياً."
+msgstr "El registro está cerrado por el momento."
+
+msgid "التسعير المستخدم"
+msgstr "Precios usados"
+
+msgid "التسويق"
+msgstr "Marketing"
+
+msgid "التشغيل"
+msgstr "Operaciones"
+
+msgid "التصميم"
+msgstr "Diseño"
+
+msgid "التصميم تغيّر منذ آخر تحديث للصورة."
+msgstr "El diseño cambió desde la última actualización de la imagen."
+
+msgid "التصميم قيد الإعداد"
+msgstr "Diseño en curso"
+
+msgid "التعليقات"
+msgstr "Comentarios"
+
+msgid "التعلّم من الملاحظات"
+msgstr "Aprendiendo de los comentarios"
+
+msgid "التفاصيل"
+msgstr "Detalles"
+
+msgid "التفاصيل التقنية"
+msgstr "Detalles técnicos"
+
+msgid "التفاعل"
+msgstr "Interacción"
+
+msgid "التفعيل"
+msgstr "Activación"
+
+msgid "التقارير الشهرية"
+msgstr "Informes mensuales"
+
+msgid "التقرير الكامل بالأرقام وتوصيات الشهر القادم:"
+msgstr ""
+"El informe completo con las cifras y las recomendaciones del próximo mes:"
+
+msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
+msgstr "El informe se está preparando. Recarga la página en un momento."
+
+msgid "التقويم"
+msgstr "Calendario"
+
+msgid "التقويم الكامل"
+msgstr "Calendario completo"
+
+msgid "التكلفة"
+msgstr "Costo"
+
+msgid "التكلفة لكل شهر"
+msgstr "Costo por mes"
+
+msgid "الثلاثاء"
+msgstr "Martes"
+
+msgid "الجمعة"
+msgstr "Viernes"
+
+msgid "الجمعة البيضاء (عروض التسوق)"
+msgstr "Viernes Blanco (ofertas de compras)"
+
+msgid "الجمهور المستهدف"
+msgstr "Público objetivo"
+
+msgid "الجميع"
+msgstr "Todos"
+
+msgid "الجنس"
+msgstr "Género"
+
+msgid "الحالة"
+msgstr "Estado"
+
+msgid "الحساب"
+msgstr "Cuenta"
+
+msgid "الحساب الإعلاني"
+msgstr "Cuenta publicitaria"
+
+msgid "الحساب تجريبي."
+msgstr "Esta es una cuenta de prueba."
+
+msgid "الحساب غير مربوط. اربطه من «حسابات النشر»."
+msgstr "La cuenta no está conectada. Conéctala desde “Cuentas de publicación”."
+
+msgid "الحسابات المربوطة"
+msgstr "Cuentas conectadas"
+
+msgid "الخدمات"
+msgstr "Servicios"
+
+msgid "الخدمات والإعدادات التي تعمل بها المنصة"
+msgstr "Los servicios y ajustes sobre los que funciona la plataforma"
+
+msgid "الخرطوم (GMT+2)"
+msgstr "Jartum (GMT+2)"
+
+msgid "الخطط:"
+msgstr "Planes:"
+
+msgid "الخطوة "
+msgstr "Paso "
+
+msgid "الخميس"
+msgstr "Jueves"
+
+msgid "الدخول كمدير المشترك"
+msgstr "Iniciar sesión como administrador del suscriptor"
+
+msgid "الدوحة (GMT+3)"
+msgstr "Doha (GMT+3)"
+
+msgid "الدور"
+msgstr "Rol"
+
+msgid "الدول"
+msgstr "Países"
+
+msgid "الدولة"
+msgstr "País"
+
+msgid "الذروة"
+msgstr "Pico"
+
+msgid "الذكاء الاصطناعي"
+msgstr "IA"
+
+msgid "الذكاء الاصطناعي غير مفعّل"
+msgstr "IA sin configurar"
+
+msgid "الذكاء الاصطناعي غير مفعّل (ينقص"
+msgstr "La IA no está configurada (falta"
+
+msgid "الذكاء الاصطناعي غير مفعّل بعد. أضف"
+msgstr "La IA aún no está configurada. Añade"
+
+msgid "الذكاء الاصطناعي متصل"
+msgstr "IA conectada"
+
+msgid "الرابط غير صالح"
+msgstr "Enlace no válido"
+
+msgid "الرابط غير صالح. استخدم رابطاً يبدأ بـ http أو https."
+msgstr "Enlace no válido. Usa uno que empiece por http o https."
+
+msgid "الرابط لا يشير إلى صفحة ويب."
+msgstr "El enlace no apunta a una página web."
+
+msgid "الربط"
+msgstr "Conectar"
+
+msgid "الرد التلقائي على التعليقات البسيطة"
+msgstr "Respuesta automática a comentarios sencillos"
+
+msgid "الرد التلقائي: متوقف"
+msgstr "Respuesta automática: desactivada"
+
+msgid "الرد التلقائي: يعمل"
+msgstr "Respuesta automática: activada"
+
+msgid "الرسوم"
+msgstr "Dibujos"
+
+msgid "الرصيد"
+msgstr "Saldo"
+
+msgid "الرقم الضريبي"
+msgstr "N.º de identificación fiscal"
+
+msgid "الرموز (مُدخلة · cache · مُخرجة)"
+msgstr "Tokens (entrada · caché · salida)"
+
+msgid "الرياض (GMT+3)"
+msgstr "Riad (GMT+3)"
+
+msgid "الزخرفة"
+msgstr "Motivo"
+
+msgid "السابق"
+msgstr "Anterior"
+
+msgid "السبت"
+msgstr "Sábado"
+
+msgid "السعودية"
+msgstr "Arabia Saudita"
+
+msgid "السودان"
+msgstr "Sudán"
+
+msgid "الشارة"
+msgstr "Insignia"
+
+msgid "الشركات"
+msgstr "Empresas"
+
+msgid "الشركات التي تظهر لعملائها هوية الوكالة"
+msgstr "Empresas cuyos clientes ven la marca de la agencia"
+
+msgid "الشركة"
+msgstr "Empresa"
+
+msgid "الشعار"
+msgstr "Logotipo"
+
+msgid "الشهر"
+msgstr "Mes"
+
+msgid "الشهر التالي"
+msgstr "Mes siguiente"
+
+msgid "الشهر السابق"
+msgstr "Mes anterior"
+
+msgid "الشهر القادم"
+msgstr "mes siguiente"
+
+msgid "الصفحة الرئيسية"
+msgstr "Página de inicio"
+
+msgid "الصورة"
+msgstr "Imagen"
+
+msgid "الصورة المعروضة هي آخر نسخة محفوظة."
+msgstr "La imagen mostrada es la última versión guardada."
+
+msgid "الصورة النهائية"
+msgstr "Imagen final"
+
+msgid "الصورة محدّثة وجاهزة للنشر."
+msgstr "La imagen está actualizada y lista para publicar."
+
+msgid "العامل الخلفي"
+msgstr "Proceso en segundo plano"
+
+msgid "العامل الخلفي متوقف"
+msgstr "El proceso en segundo plano está detenido"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "العربية الفصحى"
+msgstr "Árabe estándar moderno"
+
+msgid "العربية بلهجة السوق المحلي"
+msgstr "Árabe en el dialecto local"
+
+msgid "العربية والإنجليزية معاً"
+msgstr "Árabe e inglés juntos"
+
+msgid "العضو"
+msgstr "Miembro"
+
+msgid "العضويات"
+msgstr "Membresías"
+
+msgid "العمر إلى"
+msgstr "Edad hasta"
+
+msgid "العمر من"
+msgstr "Edad desde"
+
+msgid "العميل"
+msgstr "Cliente"
+
+msgid "العميل (واتساب +%(phone)s)"
+msgstr "Cliente (WhatsApp +%(phone)s)"
+
+msgid "العنوان"
+msgstr "Título"
+
+msgid "العنوان الرئيسي"
+msgstr "Titular"
+
+msgid "العنوان الفرعي"
+msgstr "Subtítulo"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "Volver a iniciar sesión"
+
+msgid "العودة للوحة الإدارة"
+msgstr "Volver a la consola de administración"
+
+msgid "العيد الوطني البحريني"
+msgstr "Día Nacional de Baréin"
+
+msgid "العيد الوطني الكويتي"
+msgstr "Día Nacional de Kuwait"
+
+msgid "الفريق"
+msgstr "Equipo"
+
+msgid "الفكرة"
+msgstr "Idea"
+
+msgid "الفيديوهات القصيرة تُنشر يدوياً بعد تصويرها."
+msgstr "Los vídeos cortos se publican a mano después de grabarlos."
+
+msgid "القائمة"
+msgstr "Menú"
+
+msgid "القائمة الرئيسية"
+msgstr "Menú principal"
+
+msgid "القالب"
+msgstr "Plantilla"
+
+msgid "القاهرة"
+msgstr "El Cairo"
+
+msgid "القيمة"
+msgstr "Valor"
+
+msgid "الكل"
+msgstr "Todos"
+
+msgid "الكويت"
+msgstr "Kuwait"
+
+msgid "الكويت (GMT+3)"
+msgstr "Kuwait (GMT+3)"
+
+msgid "اللغة"
+msgstr "Idioma"
+
+msgid "اللهجة الخليجية"
+msgstr "Dialecto del Golfo"
+
+msgid "اللهجة السودانية"
+msgstr "Dialecto sudanés"
+
+msgid "اللهجة الشامية"
+msgstr "Dialecto levantino"
+
+msgid "اللهجة المصرية"
+msgstr "Dialecto egipcio"
+
+msgid "اللون الأساسي"
+msgstr "Color principal"
+
+msgid "اللون الثانوي"
+msgstr "Color secundario"
+
+msgid "المالك"
+msgstr "Propietario"
+
+msgid "المالك والمدير:"
+msgstr "Propietario y administrador:"
+
+msgid "المجال"
+msgstr "Sector"
+
+msgid "المحتوى"
+msgstr "Contenido"
+
+msgid "المحفظة"
+msgstr "Monedero"
+
+msgid "المحور"
+msgstr "Pilar"
+
+msgid "المخصوم (صافي)"
+msgstr "Cobrado (neto)"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "Cobrado a los clientes (neto de reembolsos)"
+
+msgid "المخطط الآلي"
+msgstr "Planificador automático"
+
+msgid "المدة"
+msgstr "Período"
+
+msgid "المدينة"
+msgstr "Ciudad"
+
+msgid "المدينة والدولة"
+msgstr "Ciudad y país"
+
+msgid "المراجعة والتعليقات"
+msgstr "Revisión y comentarios"
+
+msgid "المزيد"
+msgstr "más"
+
+msgid "المساحة المستخدمة"
+msgstr "Espacio usado"
+
+msgid "المستخدمون"
+msgstr "Usuarios"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "Los documentos necesitan aprobación"
+
+msgid "المشاهد:"
+msgstr "Espectador:"
+
+msgid "المشترك"
+msgstr "Suscriptor"
+
+msgid "المشتركون"
+msgstr "Suscriptores"
+
+msgid "المقاس"
+msgstr "Tamaño"
+
+msgid "المكتبة فارغة"
+msgstr "La biblioteca está vacía"
+
+msgid "المملكة المتحدة"
+msgstr "Reino Unido"
+
+msgid "المناسبات"
+msgstr "Ocasiones"
+
+msgid "المنافسون"
+msgstr "Competidores"
+
+msgid "المنامة (GMT+3)"
+msgstr "Manama (GMT+3)"
+
+msgid "المنتجات والخدمات"
+msgstr "Productos y servicios"
+
+msgid "المنشور التالي"
+msgstr "Publicación siguiente"
+
+msgid "المنشور السابق"
+msgstr "Publicación anterior"
+
+msgid "المنشور منشور بالفعل."
+msgstr "La publicación ya está publicada."
+
+msgid "المنشورات"
+msgstr "Publicaciones"
+
+msgid "المنشورات القادمة"
+msgstr "Próximas publicaciones"
+
+msgid "المنشورات:"
+msgstr "Publicaciones:"
+
+msgid "المنصات"
+msgstr "Plataformas"
+
+msgid "المنطقة الزمنية"
+msgstr "Zona horaria"
+
+msgid "المهام"
+msgstr "Tareas"
+
+msgid "المهام والأخطاء"
+msgstr "Tareas y errores"
+
+msgid "المهمة"
+msgstr "Tarea"
+
+msgid "الموقع الإلكتروني"
+msgstr "Sitio web"
+
+msgid "الموقع يعيد التوجيه مرات كثيرة."
+msgstr "El sitio web redirige demasiadas veces."
+
+msgid "الميزانية اليومية"
+msgstr "Presupuesto diario"
+
+msgid "النبرة:"
+msgstr "Tono:"
+
+msgid "النتيجة"
+msgstr "Resultado"
+
+msgid "النسخ الاحتياطي"
+msgstr "Copias de seguridad"
+
+msgid "النسخ المحفوظة"
+msgstr "Copias de seguridad conservadas"
+
+msgid "النشاط والجمهور"
+msgstr "Negocio y audiencia"
+
+msgid "النشاط والجمهور والنبرة والهوية البصرية."
+msgstr "Negocio, audiencia, tono e identidad visual."
+
+msgid "النشر التلقائي"
+msgstr "Publicación automática"
+
+msgid "النشر التلقائي في الموعد"
+msgstr "Publicar automáticamente según el calendario"
+
+msgid "النشر التلقائي مفعّل"
+msgstr "La publicación automática está activada"
+
+msgid "النشر عبر Meta"
+msgstr "Publicación a través de Meta"
+
+msgid "النشر على فيسبوك وإنستغرام"
+msgstr "Publicación en Facebook e Instagram"
+
+msgid "النشر متاح للمالك والمديرين فقط."
+msgstr "Solo los propietarios y administradores pueden publicar."
+
+msgid "النظام"
+msgstr "Sistema"
+
+msgid "النموذج"
+msgstr "Modelo"
+
+msgid "النموذج · التكلفة"
+msgstr "Modelo · costo"
+
+msgid "الهاتف"
+msgstr "Teléfono"
+
+msgid "الهاتف:"
+msgstr "Teléfono:"
+
+msgid "الهدف"
+msgstr "Objetivo"
+
+msgid "الهوية البصرية"
+msgstr "Identidad visual"
+
+msgid "الوسوم"
+msgstr "Etiquetas"
+
+msgid "الوصف"
+msgstr "Descripción"
+
+msgid "الوصول"
+msgstr "Alcance"
+
+msgid "الوكالات"
+msgstr "Agencias"
+
+msgid "اليوم"
+msgstr "Hoy"
+
+msgid "اليوم الرياضي للدولة في قطر"
+msgstr "Día Nacional del Deporte de Catar"
+
+msgid "اليوم الوطني"
+msgstr "Día Nacional"
+
+msgid "اليوم الوطني السعودي"
+msgstr "Día Nacional de Arabia Saudita"
+
+msgid "اليوم الوطني العُماني"
+msgstr "Día Nacional de Omán"
+
+msgid "اليوم الوطني القطري"
+msgstr "Día Nacional de Catar"
+
+msgid "املأ من الموقع"
+msgstr "Rellenar desde el sitio web"
+
+msgid "انتقل إلى شركة أخرى:"
+msgstr "Cambiar a otra empresa:"
+
+msgid "انتهت جلسة الربط. حاول مرة أخرى."
+msgstr "La sesión de conexión caducó. Inténtalo de nuevo."
+
+msgid "انتهى اشتراك %(name)s"
+msgstr "La suscripción de %(name)s ha caducado"
+
+msgid "انتهى الاشتراك منذ "
+msgstr "Suscripción caducada "
+
+msgid "انشر"
+msgstr "Publicar"
+
+msgid "انشر الآن"
+msgstr "Publicar ahora"
+
+msgid "انشر المنشورات المعتمدة على الحسابات المربوطة في موعدها."
+msgstr ""
+"Publica las publicaciones aprobadas en las cuentas conectadas según el "
+"calendario."
+
+msgid "انضم في"
+msgstr "Se unió"
+
+msgid "انطلاق"
+msgstr "Lanzamiento"
+
+msgid "اهتمامات تضيفها في مدير الإعلانات"
+msgstr "Intereses para añadir en el Administrador de anuncios"
+
+msgid "بألوان علامتك وخطوطها وشعارها"
+msgstr "Con los colores, tipos de letra y logotipo de tu marca"
+
+msgid "بؤرة"
+msgstr "Destacado"
+
+msgid "بانتظار الاعتماد"
+msgstr "Esperando aprobación"
+
+msgid "بانتظار الرد"
+msgstr "Esperando una respuesta"
+
+msgid "بانتظار المراجعة"
+msgstr "Esperando revisión"
+
+msgid "بانتظار الموافقة"
+msgstr "Esperando aprobación"
+
+msgid "بانتظار نافذة تيك توك…"
+msgstr "Esperando la ventana de TikTok…"
+
+msgid "بانتظار نافذة فيسبوك…"
+msgstr "Esperando la ventana de Facebook…"
+
+msgid "بحاجة لتحديث التصميم"
+msgstr "El diseño necesita actualizarse"
+
+msgid "بحث في الاشتراكات"
+msgstr "Buscar suscripciones"
+
+msgid "بحث في الفريق"
+msgstr "Buscar en el equipo"
+
+msgid "بحث في المهام"
+msgstr "Buscar tareas"
+
+msgid "بحساب مالكها ("
+msgstr "con la cuenta de su propietario ("
+
+msgid "بدأ تصميم الصور…"
+msgstr "Diseñando las imágenes…"
+
+msgid "بداية الاشتراك"
+msgstr "Inicio de la suscripción"
+
+msgid "بداية العشر الأواخر من رمضان"
+msgstr "Inicio de los últimos diez días de Ramadán"
+
+msgid "بداية شهر رمضان"
+msgstr "Inicio de Ramadán"
+
+msgid "بداية عشر ذي الحجة"
+msgstr "Inicio de los primeros diez días de Dhu al-Hiyyah"
+
+msgid "بدون"
+msgstr "Ninguno"
+
+msgid "بدون انتهاء"
+msgstr "Sin fecha de fin"
+
+msgid "بدون تاريخ انتهاء"
+msgstr "Sin fecha de fin"
+
+msgid "بدون حساب إنستغرام"
+msgstr "Sin cuenta de Instagram"
+
+msgid "بدون وصف"
+msgstr "Sin descripción"
+
+msgid "بديل ذكي لوكالات التسويق"
+msgstr "Una alternativa inteligente a las agencias de marketing"
+
+msgid "برج"
+msgstr "Torre"
+
+msgid "برجر"
+msgstr "Hamburguesa"
+
+msgid "برمجة"
+msgstr "Código"
+
+msgid "بريد"
+msgstr "Correo electrónico"
+
+msgid "بريد التواصل مع المشترك."
+msgstr "Correo de contacto del suscriptor."
+
+msgid "بريد العميل"
+msgstr "Correo del cliente"
+
+msgid "بسيط"
+msgstr "Minimalista"
+
+msgid "بصفتك مشرف النظام."
+msgstr "como administrador del sistema."
+
+msgid "بصمة"
+msgstr "Huella digital"
+
+msgid "بطاقة"
+msgstr "Tarjeta"
+
+msgid "بعد التفعيل، تضيف شركاتك ويبدأ وكيل العمل"
+msgstr "Una vez activa, añades tus empresas y Wakeel se pone manos a la obra"
+
+msgid "بقع لونية"
+msgstr "Manchas de color"
+
+msgid "بلا زخرفة"
+msgstr "Sin motivo"
+
+msgid "بلا مستند"
+msgstr "Sin documento"
+
+msgid "بناء"
+msgstr "Construcción"
+
+msgid "بنك"
+msgstr "Banco"
+
+msgid "بودكاست"
+msgstr "Pódcast"
+
+msgid "بيئة"
+msgstr "Medio ambiente"
+
+msgid "بيانات"
+msgstr "Datos"
+
+msgid "بيانات إضافية"
+msgstr "Detalles adicionales"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "Datos e identidad de la empresa"
+
+msgid "بيانات النشاط"
+msgstr "Datos del negocio"
+
+msgid "بيتزا"
+msgstr "Pizza"
+
+msgid "بين 1 و%(max)s يوماً."
+msgstr "Entre 1 y %(max)s días."
+
+msgid "بين 1 و%(max)s."
+msgstr "Entre 1 y %(max)s."
+
+msgid "تأخر إنستغرام في تجهيز الصورة. حاول النشر مرة أخرى."
+msgstr ""
+"Instagram tardó demasiado en preparar la imagen. Intenta publicar de nuevo."
+
+msgid "تأخر تيك توك في استلام الصورة. حاول الإرسال مرة أخرى."
+msgstr ""
+"TikTok tarda demasiado en recibir la imagen. Intenta enviarla de nuevo."
+
+msgid "تأكيد كلمة المرور"
+msgstr "Confirmar contraseña"
+
+msgid "تاريخ الاعتماد"
+msgstr "Fecha de aprobación"
+
+msgid "تاريخ غير صالح."
+msgstr "Fecha no válida."
+
+msgid "تبدأ مع وكيل فور وصول البريد"
+msgstr "Empiezas con Wakeel en cuanto llegue el correo"
+
+msgid "تجاهل"
+msgstr "Descartar"
+
+msgid "تجديد"
+msgstr "Renovar"
+
+msgid "تجديد %(name)s"
+msgstr "Renovar %(name)s"
+
+msgid "تجديد الاشتراك"
+msgstr "Renovar suscripción"
+
+msgid "تجريبي"
+msgstr "Prueba"
+
+msgid "تحديث"
+msgstr "Actualizar"
+
+msgid "تحديث أرقام الأداء"
+msgstr "Actualizar las cifras de rendimiento"
+
+msgid "تحديث الأرقام"
+msgstr "Actualizar cifras"
+
+msgid "تحديث التصميم"
+msgstr "Actualizar diseño"
+
+msgid "تحديث التصميم…"
+msgstr "Actualizando el diseño…"
+
+msgid "تحديد الكل"
+msgstr "Seleccionar todo"
+
+msgid "تحقق من بريدك"
+msgstr "Revisa tu correo"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "Revisa tu correo"
+
+msgid "تحكم مركزي في المشتركين والاستهلاك والتكلفة وتشغيل المنصة"
+msgstr ""
+"Control central de suscriptores, uso, costos y operaciones de la plataforma"
+
+msgid "تحليل المنافسين"
+msgstr "Análisis de la competencia"
+
+msgid "تخييم"
+msgstr "Camping"
+
+msgid "تدريب"
+msgstr "Formación"
+
+msgid "تدرّج"
+msgstr "Degradado"
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "Pagas por lo que usas"
+
+msgid "تذكير"
+msgstr "Recordatorio"
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "Traducir, resumir, extraer"
+
+msgid "ترويج"
+msgstr "Promoción"
+
+msgid "تسجيل الخروج"
+msgstr "Cerrar sesión"
+
+msgid "تسجيل الدخول"
+msgstr "Iniciar sesión"
+
+msgid "تسوق"
+msgstr "Compras"
+
+msgid "تسويق"
+msgstr "Marketing"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "Tu marketing, tus documentos y tu equipo"
+
+msgid "تشغيل المخطط الآلي"
+msgstr "Activar el planificador automático"
+
+msgid "تصاميم احترافية بألوانك وخطوطك وشعارك"
+msgstr "Diseños profesionales con tus colores, tipos de letra y logotipo"
+
+msgid "تصاميم بهويتك"
+msgstr "Diseños acordes con tu marca"
+
+msgid "تصل المنشورات إلى صندوق تيك توك لتكمل نشرها من التطبيق"
+msgstr ""
+"Las publicaciones llegan a tu bandeja de TikTok para que las termines en la "
+"aplicación"
+
+msgid "تصميم الصور"
+msgstr "Diseño de imágenes"
+
+msgid "تصميم الصور: %(done)s من %(total)s"
+msgstr "Diseñando imágenes: %(done)s de %(total)s"
+
+msgid "تصميم الصورة…"
+msgstr "Diseñando la imagen…"
+
+msgid "تصميم المنشور: %(headline)s"
+msgstr "Diseño de la publicación: %(headline)s"
+
+msgid "تصميم بهويتك"
+msgstr "Diseños con tu identidad"
+
+msgid "تصميم ثابت"
+msgstr "Diseño estático"
+
+msgid "تصميم جديد"
+msgstr "Nuevo diseño"
+
+msgid "تصميم صور الخطة"
+msgstr "Diseñando las imágenes del plan"
+
+msgid "تصميم صورة منشور"
+msgstr "Diseñando la imagen de una publicación"
+
+msgid "تصوير"
+msgstr "Fotografía"
+
+msgid "تطبيق Meta"
+msgstr "Aplicación de Meta"
+
+msgid "تطبيق Meta غير مضبوط بعد."
+msgstr "La aplicación de Meta aún no está configurada."
+
+msgid "تعديل"
+msgstr "Editar"
+
+msgid "تعديل %(name)s"
+msgstr "Editar %(name)s"
+
+msgid "تعديل المنافس"
+msgstr "Editar competidor"
+
+msgid "تعديل نص"
+msgstr "Edición de texto"
+
+msgid "تعذّر"
+msgstr "Falló"
+
+msgid "تعذّر إعداد التقرير."
+msgstr "No se pudo preparar el informe."
+
+msgid "تعذّر إعداد الخطة"
+msgstr "No se pudo preparar el plan"
+
+msgid "تعذّر إعداد خطة المحتوى: {error}"
+msgstr "No se pudo preparar el plan de contenido: {error}"
+
+msgid "تعذّر الإعداد"
+msgstr "Falló la preparación"
+
+msgid "تعذّر الاتصال بالموقع. تأكد من أنه يعمل ثم حاول مرة أخرى."
+msgstr ""
+"No se pudo conectar con el sitio web. Asegúrate de que esté en línea e "
+"inténtalo de nuevo."
+
+msgid "تعذّر التحليل"
+msgstr "Falló el análisis"
+
+msgid "تعذّر الربط"
+msgstr "No se pudo conectar"
+
+msgid "تعذّر العثور على هذا الموقع. تأكد من كتابة الرابط بشكل صحيح."
+msgstr ""
+"No se encontró este sitio web. Comprueba que el enlace esté bien escrito."
+
+msgid "تعذّر النشر"
+msgstr "No se pudo publicar"
+
+msgid "تعذّر النشر:"
+msgstr "No se pudo publicar:"
+
+msgid "تعذّر الوصول إلى خدمة الذكاء الاصطناعي. حاول مرة أخرى بعد قليل."
+msgstr "No se pudo acceder al servicio de IA. Inténtalo de nuevo en breve."
+
+msgid "تعذّر الوصول إلى خوادم Meta. تحقق من اتصال الخادم بالإنترنت."
+msgstr ""
+"No se pudo acceder a los servidores de Meta. Comprueba la conexión a "
+"internet del servidor."
+
+msgid "تعذّر الوصول إلى خوادم واتساب."
+msgstr "No se pudo acceder a los servidores de WhatsApp."
+
+msgid "تعذّر تحديث التصميم"
+msgstr "No se pudo actualizar el diseño"
+
+msgid "تعذّر تصميم الصور"
+msgstr "No se pudieron diseñar las imágenes"
+
+msgid "تعذّر قراءة الأرقام: %(problem)s"
+msgstr "No se pudieron leer las cifras: %(problem)s"
+
+msgid "تعذّر نشر «{title}»: {error}"
+msgstr "No se pudo publicar “{title}”: {error}"
+
+msgid "تعذّرت إعادة الكتابة"
+msgstr "No se pudo reescribir la publicación"
+
+msgid "تعذّرت قراءة الموقع."
+msgstr "No se pudo leer el sitio web."
+
+msgid "تعليق"
+msgstr "Comentario"
+
+msgid "تعليق %(name)s"
+msgstr "Suspender %(name)s"
+
+msgid "تعليق «%(name)s»؟"
+msgstr "¿Suspender “%(name)s”?"
+
+msgid "تعليق العميل"
+msgstr "Comentario del cliente"
+
+msgid "تعليق عاجل"
+msgstr "Comentario urgente"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "Comentarios en espera de respuesta"
+
+msgid "تعليقات جديدة: %(new)s، قُرئ منها %(read)s."
+msgstr "Comentarios nuevos: %(new)s, %(read)s leídos."
+
+msgid "تعليقك"
+msgstr "Tu comentario"
+
+msgid "تعليم"
+msgstr "Educación"
+
+msgid "تعليم الكل كمقروء"
+msgstr "Marcar todo como leído"
+
+msgid "تعلّم من %(pending_signals)s ملاحظة جديدة"
+msgstr "Aprender de %(pending_signals)s notas nuevas"
+
+msgid "تعلّم وكيل من %(count)s ملاحظة."
+msgstr "Wakeel aprendió de %(count)s notas."
+
+msgid "تعلّمها وكيل"
+msgstr "Aprendido por Wakeel"
+
+msgid "تغيير كلمة المرور"
+msgstr "Cambiar contraseña"
+
+msgid "تغيّرت حالة المنشور، فلم يُنشر تلقائياً."
+msgstr ""
+"El estado de la publicación cambió, así que no se publicó automáticamente."
+
+msgid "تفاعل"
+msgstr "interacciones"
+
+msgid "تفعيل"
+msgstr "Activar"
+
+msgid "تفعيل الرابط"
+msgstr "Activar el enlace"
+
+msgid "تقرير"
+msgstr "Informe"
+
+msgid "تقرير %(m)s"
+msgstr "Informe de %(m)s"
+
+msgid "تقرير %(m)s · %(name)s"
+msgstr "Informe de %(m)s · %(name)s"
+
+msgid "تقرير أداء %(m)s"
+msgstr "Informe de rendimiento de %(m)s"
+
+msgid "تقرير أداء %(month)s جاهز."
+msgstr "El informe de rendimiento de %(month)s está listo."
+
+msgid "تقرير أداء %(month)s: %(name)s"
+msgstr "Informe de rendimiento de %(month)s: %(name)s"
+
+msgid "تقرير من %(name)s"
+msgstr "Informe de %(name)s"
+
+msgid "تقويم النشر"
+msgstr "Calendario de publicación"
+
+msgid "تقويم نشر ومراجعة واعتماد في مكان واحد"
+msgstr "Calendario de publicación, revisión y aprobación en un solo lugar"
+
+msgid "تقويم ونشر"
+msgstr "Calendario y publicación"
+
+msgid "تقييم"
+msgstr "Valoración"
+
+msgid "تكامل"
+msgstr "Integración"
+
+msgid "تكلفة 12 شهراً"
+msgstr "Costo de 12 meses"
+
+msgid "تكلفة آخر 12 شهراً"
+msgstr "Costo de los últimos 12 meses"
+
+msgid "تكلفة الذكاء الاصطناعي"
+msgstr "Costo de IA"
+
+msgid "تكلفة الذكاء الاصطناعي لكل شهر"
+msgstr "Costo de IA por mes"
+
+msgid "تكلفة الشهر"
+msgstr "Costo de este mes"
+
+msgid "تكلفة هذا الشهر"
+msgstr "Costo de este mes"
+
+msgid "تلقائي"
+msgstr "Auto"
+
+msgid "تم إرسال الرد."
+msgstr "Respuesta enviada."
+
+msgid "تم إعداد %(count)s منشوراً. جارٍ تصميم الصور…"
+msgstr "%(count)s publicaciones preparadas. Diseñando las imágenes…"
+
+msgid "تم إعداد الخطة و%(count)s منشوراً."
+msgstr "Plan y %(count)s publicaciones preparados."
+
+msgid "تم إعداد تقرير %(month)s."
+msgstr "El informe de %(month)s está listo."
+
+msgid "تم إنشاء اشتراك «%(name)s» ومالكه %(email)s."
+msgstr "Suscripción “%(name)s” creada, con %(email)s como propietario."
+
+msgid "تم إيقاف إشعارات البريد."
+msgstr "Notificaciones por correo desactivadas."
+
+msgid "تم إيقاف الرد التلقائي."
+msgstr "La respuesta automática está desactivada."
+
+msgid "تم إيقاف المخطط الآلي."
+msgstr "El planificador automático está desactivado."
+
+msgid "تم إيقاف النشر التلقائي."
+msgstr "La publicación automática está desactivada."
+
+msgid "تم إيقاف رابط العميل. لم يعد الرابط القديم يعمل."
+msgstr "Enlace del cliente desactivado. El enlace anterior ya no funciona."
+
+msgid "تم اختيار "
+msgstr "Seleccionada"
+
+msgid "تم اختيار الحساب الإعلاني."
+msgstr "Cuenta publicitaria seleccionada."
+
+msgid "تم استلام طلب"
+msgstr "Hemos recibido la solicitud de"
+
+msgid "تم اعتماد "
+msgstr "Aprobado "
+
+msgid "تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد."
+msgstr "“%(name)s” aprobado y se envió un correo a su propietario."
+
+msgid "تم اعتماد «%(title)s» ✅"
+msgstr "“%(title)s” aprobado ✅"
+
+msgid "تم اعتماد حساب %(company)s في وكيل، ويمكنك البدء الآن."
+msgstr "La cuenta de %(company)s en Wakeel está aprobada y ya puedes empezar."
+
+msgid "تم الحفظ الساعة "
+msgstr "Guardado a las "
+
+msgid "تم الربط بنجاح"
+msgstr "Conectado correctamente"
+
+msgid "تم الرد"
+msgstr "Respondido"
+
+msgid "تم النشر"
+msgstr "Publicado"
+
+msgid "تم النشر يدوياً"
+msgstr "Publicado manualmente"
+
+msgid "تم تجديد «%(name)s» حتى %(date)s."
+msgstr "“%(name)s” renovado hasta el %(date)s."
+
+msgid "تم تحديث أرقام %(count)s منشور."
+msgstr "Cifras actualizadas para %(count)s publicaciones."
+
+msgid "تم تحديث التصميم."
+msgstr "Diseño actualizado."
+
+msgid "تم تحديث الحالة: "
+msgstr "Estado actualizado: "
+
+msgid "تم تحديث الدور."
+msgstr "Rol actualizado."
+
+msgid "تم تحديث رابط التقرير."
+msgstr "Enlace del informe actualizado."
+
+msgid "تم تشغيل الرد التلقائي على الأسئلة البسيطة والإشادات."
+msgstr "La respuesta automática a preguntas sencillas y elogios está activada."
+
+msgid "تم تشغيل المخطط الآلي."
+msgstr "El planificador automático está activado."
+
+msgid "تم تصميم %(count)s صورة."
+msgstr "%(count)s imágenes diseñadas."
+
+msgid "تم تعديل الرصيد."
+msgstr "Se cambió el saldo."
+
+msgid "تم تعليق «%(name)s»؛ لن يتمكن فريقها من العمل حتى تعيد تنشيطه."
+msgstr ""
+"“%(name)s” suspendido; su equipo no puede trabajar hasta que lo reactives."
+
+msgid "تم تعيين كلمة المرور"
+msgstr "Contraseña establecida"
+
+msgid "تم تغيير كلمة المرور"
+msgstr "Contraseña cambiada"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "Tu contraseña se ha cambiado."
+
+msgid "تم تغيير موعد النشر"
+msgstr "Fecha de publicación cambiada"
+
+msgid "تم تفعيل إشعارات البريد."
+msgstr "Notificaciones por correo activadas."
+
+msgid "تم تفعيل النشر التلقائي."
+msgstr "La publicación automática está activada."
+
+msgid "تم تفعيل حساب %(name)s، وأُبلغ بالبريد."
+msgstr "La cuenta de %(name)s ya está activa y se le envió un correo."
+
+msgid "تم تفعيل حسابك في وكيل"
+msgstr "Tu cuenta de Wakeel está activa"
+
+msgid "تم تفعيل حسابك في وكيل: %(name)s"
+msgstr "Tu cuenta de Wakeel está activa: %(name)s"
+
+msgid "تم تنشيط «%(name)s»."
+msgstr "“%(name)s” reactivado."
+
+msgid "تم حذف «%(name)s» وكل بياناتها نهائياً."
+msgstr "“%(name)s” y todos sus datos se eliminaron de forma permanente."
+
+msgid "تم حذف الخطة ومنشوراتها."
+msgstr "El plan y sus publicaciones se han eliminado."
+
+msgid "تم حذف الصورة."
+msgstr "Imagen eliminada."
+
+msgid "تم حذف المنافس."
+msgstr "Competidor eliminado."
+
+msgid "تم حذف المنشور."
+msgstr "Publicación eliminada."
+
+msgid "تم حذف حسابك وكل بياناته نهائياً."
+msgstr "Tu cuenta y todos sus datos se eliminaron de forma permanente."
+
+msgid "تم حفظ الإعدادات."
+msgstr "Ajustes guardados."
+
+msgid "تم حفظ المنافس."
+msgstr "Competidor guardado."
+
+msgid "تم حفظ بيانات «%(name)s»."
+msgstr "“%(name)s” guardado."
+
+msgid "تم حفظ هوية العلامة. أعد تصميم الصور لتطبيق التغييرات."
+msgstr ""
+"Identidad de marca guardada. Rediseña las imágenes para aplicar los cambios."
+
+msgid "تم حفظ هوية الوكالة."
+msgstr "Marca de la agencia guardada."
+
+msgid "تم ربط تيك توك"
+msgstr "TikTok está conectado"
+
+msgid "تم ربط صفحة «%(page)s»"
+msgstr "La Página “%(page)s” está conectada"
+
+msgid "تم رفض طلب %(name)s وحذفه."
+msgstr "La solicitud de %(name)s fue rechazada y eliminada."
+
+msgid "تم رفع %(count)s صورة."
+msgstr "%(count)s imagen(es) subida(s)."
+
+msgid "تم فصل الحساب."
+msgstr "Cuenta desconectada."
+
+msgid "تم نشرها"
+msgstr "Publicado"
+
+msgid "تمت إزالة العضو."
+msgstr "Miembro eliminado."
+
+msgid "تمت إضافة العضو."
+msgstr "Miembro añadido."
+
+msgid "تمت إعادة الكتابة."
+msgstr "Reescritura terminada."
+
+msgid "تميّز"
+msgstr "Destello"
+
+msgid "تنبيه"
+msgstr "Advertencia"
+
+msgid "تنزيل"
+msgstr "Descargar"
+
+msgid "تنزيل نصوص المنشورات"
+msgstr "Descargar los textos de las publicaciones"
+
+msgid "تنشيط"
+msgstr "Reactivar"
+
+msgid "تنشيط %(name)s"
+msgstr "Reactivar %(name)s"
+
+msgid "تنفيذ"
+msgstr "Aplicar"
+
+msgid "توجيهات هذا الشهر"
+msgstr "El resumen de este mes"
+
+msgid "توجيهاتك:"
+msgstr "Tu resumen:"
+
+msgid "توسيع القائمة"
+msgstr "Expandir menú"
+
+msgid "توصيات الشهر القادم"
+msgstr "Recomendaciones para el próximo mes"
+
+msgid "توصيل"
+msgstr "Entrega"
+
+msgid "تيك توك"
+msgstr "TikTok"
+
+msgid "تُستخدم هذه الألوان والخطوط في كل تصاميم المنشورات."
+msgstr ""
+"Estos colores y tipos de letra se usan en el diseño de cada publicación."
+
+msgid "تُضاف إلى المنشورات عند الحاجة، مفصولة بمسافات."
+msgstr "Se añaden a las publicaciones cuando encajan, separados por espacios."
+
+msgid "جائزة"
+msgstr "Premio"
+
+msgid "جارٍ التحليل…"
+msgstr "Analizando…"
+
+msgid "جارٍ التحميل…"
+msgstr "Cargando…"
+
+msgid "جارٍ التصميم…"
+msgstr "Diseñando…"
+
+msgid "جارٍ النشر…"
+msgstr "Publicando…"
+
+msgid "جارٍ تصميم الصور…"
+msgstr "Diseñando las imágenes…"
+
+msgid "جارٍ قراءة أرقام الشهر…"
+msgstr "Leyendo las cifras del mes…"
+
+msgid "جاهز"
+msgstr "Listo"
+
+msgid "جاهزة"
+msgstr "Listo"
+
+msgid "جديد"
+msgstr "Nuevo"
+
+msgid "جري"
+msgstr "En ejecución"
+
+msgid "جريء"
+msgstr "Audaz"
+
+msgid "جريئة وحماسية"
+msgstr "Audaz y enérgico"
+
+msgid "جوال"
+msgstr "Móvil"
+
+msgid "جودة"
+msgstr "Calidad"
+
+msgid "جُهّز «%(title)s» لإعادة النشر."
+msgstr "“%(title)s” está listo para publicarse de nuevo."
+
+msgid "حاسوب"
+msgstr "Portátil"
+
+msgid "حالة الاشتراك"
+msgstr "Estado de la suscripción"
+
+msgid "حالة الخدمات"
+msgstr "Estado del servicio"
+
+msgid "حالة المنشورات"
+msgstr "Estado de la publicación"
+
+msgid "حالة النظام"
+msgstr "Estado del sistema"
+
+msgid "حالة غير معروفة."
+msgstr "Estado desconocido."
+
+msgid "حاول مرة أخرى"
+msgstr "Intentar de nuevo"
+
+msgid "حب"
+msgstr "Amor"
+
+msgid "حدث خطأ غير متوقع."
+msgstr "Algo inesperado salió mal."
+
+msgid "حدّد دولة واحدة على الأقل."
+msgstr "Elige al menos un país."
+
+msgid "حذف"
+msgstr "Eliminar"
+
+msgid "حذف %(name)s"
+msgstr "Eliminar %(name)s"
+
+msgid "حذف %(name)s؟"
+msgstr "¿Eliminar %(name)s?"
+
+msgid "حذف «%(name)s» نهائياً؟"
+msgstr "¿Eliminar “%(name)s” de forma permanente?"
+
+msgid "حذف الاقتراح"
+msgstr "Eliminar sugerencia"
+
+msgid "حذف الحساب"
+msgstr "Eliminar cuenta"
+
+msgid "حذف الخطة"
+msgstr "Eliminar plan"
+
+msgid "حذف الخطة؟"
+msgstr "¿Eliminar el plan?"
+
+msgid "حذف الشركة"
+msgstr "Eliminar empresa"
+
+msgid "حذف الشركة متاح لمالكها فقط."
+msgstr "Solo el propietario puede eliminar la empresa."
+
+msgid "حذف الشركة نهائياً"
+msgstr "Eliminar empresa de forma permanente"
+
+msgid "حذف الصورة"
+msgstr "Eliminar imagen"
+
+msgid "حذف الصورة؟"
+msgstr "¿Eliminar la imagen?"
+
+msgid "حذف القاعدة"
+msgstr "Eliminar regla"
+
+msgid "حذف المنشور"
+msgstr "Eliminar publicación"
+
+msgid "حذف المنشور؟"
+msgstr "¿Eliminar la publicación?"
+
+msgid "حذف حسابك نهائياً؟"
+msgstr "¿Eliminar tu cuenta de forma permanente?"
+
+msgid "حذف حسابك والشركات التي تملكها نهائياً."
+msgstr ""
+"Elimina tu cuenta y las empresas de las que eres propietario, de forma "
+"permanente."
+
+msgid "حذف حسابي"
+msgstr "Eliminar mi cuenta"
+
+msgid "حذف حسابي نهائياً"
+msgstr "Eliminar mi cuenta de forma permanente"
+
+msgid "حذف نهائي"
+msgstr "Eliminar de forma permanente"
+
+msgid "حذف هذه القاعدة؟"
+msgstr "¿Eliminar esta regla?"
+
+msgid "حساب %(name)s مفعّل بالفعل."
+msgstr "La cuenta de %(name)s ya está activa."
+
+msgid "حساب إنستغرام"
+msgstr "Cuenta de Instagram"
+
+msgid "حساب احترافي ومربوط بصفحة الشركة"
+msgstr "Una cuenta profesional vinculada a la Página de la empresa"
+
+msgid "حساب تجريبي"
+msgstr "Cuenta de prueba"
+
+msgid "حساب تواصل"
+msgstr "Cuenta social"
+
+msgid "حساب تيك توك"
+msgstr "Cuenta de TikTok"
+
+msgid "حساب مالك النشاط"
+msgstr "Cuenta del propietario del negocio"
+
+msgid "حسابات التواصل"
+msgstr "Cuentas sociales"
+
+msgid "حسابات النشر"
+msgstr "Cuentas de publicación"
+
+msgid "حسابات النشر:"
+msgstr "Cuentas de publicación:"
+
+msgid "حسابك قيد المراجعة"
+msgstr "Tu cuenta está en revisión"
+
+msgid "حسابك قيد المراجعة."
+msgstr "Tu cuenta está en revisión."
+
+msgid "حسابي احترافي، التالي"
+msgstr "Es profesional, siguiente"
+
+msgid "حسب التصميم"
+msgstr "Por diseño"
+
+msgid "حسب الشركة"
+msgstr "Por empresa"
+
+msgid "حسب المحور"
+msgstr "Por pilar"
+
+msgid "حسب النموذج"
+msgstr "Por modelo"
+
+msgid "حسب تكلفة الذكاء الاصطناعي"
+msgstr "Por costo de IA"
+
+msgid "حسب نوع المهمة"
+msgstr "Por tipo de tarea"
+
+msgid "حسب يوم النشر"
+msgstr "Por día de la semana"
+
+msgid "حصة"
+msgstr "Compartir"
+
+msgid "حفظ"
+msgstr "Guardar"
+
+msgid "حفظ التغييرات"
+msgstr "Guardar cambios"
+
+msgid "حفظ المنشورات…"
+msgstr "Guardando las publicaciones…"
+
+msgid "حفظ كلمة المرور"
+msgstr "Guardar contraseña"
+
+msgid "حقيقي (مدفوع)"
+msgstr "Real (de pago)"
+
+msgid "حلقات"
+msgstr "Anillos"
+
+msgid "حلويات"
+msgstr "Dulces"
+
+msgid "حلّل المنافسين"
+msgstr "Analizar competidores"
+
+msgid "حماس"
+msgstr "Emoción"
+
+msgid "حوّل حساب إنستغرام إلى احترافي"
+msgstr "Cambia Instagram a una cuenta profesional"
+
+msgid "حُذفت القاعدة."
+msgstr "Regla eliminada."
+
+msgid "خادم"
+msgstr "Servidor"
+
+msgid "خارج الذروة"
+msgstr "Horas valle"
+
+msgid "خارج الذروة (DeepSeek)"
+msgstr "Horas valle (DeepSeek)"
+
+msgid "خدمة الذكاء الاصطناعي مشغولة الآن. حاول مرة أخرى بعد قليل."
+msgstr ""
+"El servicio de IA está ocupado en este momento. Inténtalo de nuevo en breve."
+
+msgid "خريطة"
+msgstr "Mapa"
+
+msgid "خصم"
+msgstr "Descuento"
+
+msgid "خط العناوين"
+msgstr "Tipo de letra de los títulos"
+
+msgid "خط النصوص"
+msgstr "Tipo de letra del cuerpo"
+
+msgid "خطة"
+msgstr "Plan"
+
+msgid "خطة %(upcoming)s موجودة: افتحها"
+msgstr "El plan de %(upcoming)s ya existe: ábrelo"
+
+msgid "خطة {title} جاهزة: {count} منشوراً بانتظار المراجعة."
+msgstr ""
+"El plan de {title} está listo: {count} publicaciones en espera de revisión."
+
+msgid "خطة الشهر القادم"
+msgstr "el plan del próximo mes"
+
+msgid "خطة المحتوى"
+msgstr "Plan de contenido"
+
+msgid "خطة المحتوى جاهزة للمراجعة: %(name)s"
+msgstr "Plan de contenido listo para revisión: %(name)s"
+
+msgid "خطة المحتوى — الشهر القادم"
+msgstr "Plan de contenido — próximo mes"
+
+msgid "خطة جديدة"
+msgstr "Nuevo plan"
+
+msgid "خطة شهرية ومنشورات"
+msgstr "Un plan mensual y publicaciones"
+
+msgid "خطة قيد الإعداد"
+msgstr "Plan en preparación"
+
+msgid "خطة محتوى"
+msgstr "Plan de contenido"
+
+msgid "خطة محتوى جديدة"
+msgstr "Nuevo plan de contenido"
+
+msgid "خطط المحتوى"
+msgstr "Planes de contenido"
+
+msgid "خطوط مائلة"
+msgstr "Rayas"
+
+msgid "خلال 7 أيام، مع السبب التقني"
+msgstr "En los últimos 7 días, con la causa técnica"
+
+msgid "خيارات الرابط"
+msgstr "Opciones del enlace"
+
+msgid "داكن عميق"
+msgstr "Profundo"
+
+msgid "دبي (GMT+4)"
+msgstr "Dubái (GMT+4)"
+
+msgid "دخول"
+msgstr "Iniciar sesión"
+
+msgid "دخول كمدير %(name)s"
+msgstr "Iniciar sesión como administrador de %(name)s"
+
+msgid "دخول كمدير المشترك"
+msgstr "Iniciar sesión como administrador del suscriptor"
+
+msgid "دعم فني"
+msgstr "Soporte"
+
+msgid "دفع"
+msgstr "Pago"
+
+msgid "دهان"
+msgstr "Pintura"
+
+msgid "دواء"
+msgstr "Medicina"
+
+msgid "دور %(display_name)s"
+msgstr "Rol de %(display_name)s"
+
+msgid "ديس"
+msgstr "dic"
+
+msgid "ديسمبر"
+msgstr "Diciembre"
+
+msgid "ذكاء"
+msgstr "Inteligencia"
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "IA: interactiva (hay una persona esperando)"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "IA: máxima calidad"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "IA: segundo plano"
+
+msgid "ذكرى انتصارات أكتوبر"
+msgstr "Aniversario de la victoria de octubre"
+
+msgid "ذكرى ثورة 23 يوليو"
+msgstr "Aniversario de la Revolución del 23 de julio"
+
+msgid "ذكية"
+msgstr "plataforma inteligente"
+
+msgid "رأس السنة الميلادية"
+msgstr "Año Nuevo"
+
+msgid "رأس السنة الهجرية"
+msgstr "Año Nuevo islámico"
+
+msgid "رابط العميل"
+msgstr "Enlace del cliente"
+
+msgid "رابط العميل جاهز. انسخه وأرسله للعميل."
+msgstr "Enlace del cliente listo. Cópialo y envíaselo a tu cliente."
+
+msgid "رابط جديد"
+msgstr "Nuevo enlace"
+
+msgid "راجع الحقول المطلوبة أو غير الصحيحة في الخطوات المظللة."
+msgstr "Revisa los campos obligatorios o no válidos en los pasos resaltados."
+
+msgid "راجع الحقول المظللة."
+msgstr "Revisa los campos resaltados."
+
+msgid "راجع الصلاحيات واضغط «متابعة» للموافقة عليها."
+msgstr "Revisa los permisos y pulsa “Continuar” para aprobarlos."
+
+msgid "راجع الطلب ووافق عليه من لوحة مشرف النظام:"
+msgstr "Revísala y apruébala desde la consola de administración del sistema:"
+
+msgid "راجع واعتمد"
+msgstr "Revisar y aprobar"
+
+msgid "راسلنا وسنرد عليك في أقرب وقت."
+msgstr "Escríbenos por correo y te responderemos pronto."
+
+msgid "ربط"
+msgstr "Conectar"
+
+msgid "ربط إنستغرام الآن"
+msgstr "Vincular Instagram ahora"
+
+msgid "ربط تيك توك"
+msgstr "Conectar TikTok"
+
+msgid "ربط حسابات النشر"
+msgstr "Conectar cuentas de publicación"
+
+msgid "ربط فيسبوك وإنستغرام"
+msgstr "Conectar Facebook e Instagram"
+
+msgid "ربطتهما، التالي"
+msgstr "Ya están vinculadas, siguiente"
+
+msgid "ربطه الآن"
+msgstr "Vincularla ahora"
+
+msgid "ربما استُخدم الرابط من قبل أو انتهت صلاحيته. اطلب رابطاً جديداً."
+msgstr ""
+"Puede que el enlace ya se haya usado o haya caducado. Solicita uno nuevo."
+
+msgid "رجال"
+msgstr "Hombres"
+
+msgid "رجوع"
+msgstr "Atrás"
+
+msgid "رد الموقع برمز %(code)s. تأكد من الرابط."
+msgstr "El sitio web respondió con el código %(code)s. Comprueba el enlace."
+
+msgid "رد تلقائي من وكيل"
+msgstr "Respuesta automática de Wakeel"
+
+msgid "رسائل عند جاهزية الخطط وطلبات التعديل والتعليقات."
+msgstr ""
+"Correos cuando los planes estén listos, y para solicitudes de cambios y "
+"comentarios."
+
+msgid "رفض"
+msgstr "Rechazar"
+
+msgid "رفض تيك توك الطلب: %(detail)s"
+msgstr "TikTok rechazó la solicitud: %(detail)s"
+
+msgid "رفض طلب %(display_name)s؟"
+msgstr "¿Rechazar la solicitud de %(display_name)s?"
+
+msgid "رفض واتساب الرسالة: %(detail)s"
+msgstr "WhatsApp rechazó el mensaje: %(detail)s"
+
+msgid "رفض وحذف"
+msgstr "Rechazar y eliminar"
+
+msgid "رفضت Meta الطلب: %(detail)s"
+msgstr "Meta rechazó la solicitud: %(detail)s"
+
+msgid "رفع"
+msgstr "Subir"
+
+msgid "رقم التواصل"
+msgstr "Número de contacto"
+
+msgid "رقم السجل التجاري"
+msgstr "N.º de registro mercantil"
+
+msgid "رقم الهاتف"
+msgstr "Número de teléfono"
+
+msgid "رقم بارز"
+msgstr "Número grande"
+
+msgid "رمز %(code)s"
+msgstr "código %(code)s"
+
+msgid "رمز QR"
+msgstr "Código QR"
+
+msgid "رمز مُخرج"
+msgstr "tokens de salida"
+
+msgid "رمز مُدخل"
+msgstr "tokens de entrada"
+
+msgid "رمضان"
+msgstr "Ramadán"
+
+msgid "رموز الدول، مثل: QA SA AE"
+msgstr "Códigos de país, p. ej.: QA SA AE"
+
+msgid "رموز مُخرجة"
+msgstr "Tokens de salida"
+
+msgid "رموز مُدخلة"
+msgstr "Tokens de entrada"
+
+msgid "روابط أو أسماء حسابات، مفصولة بمسافات."
+msgstr "Enlaces o nombres de cuenta, separados por espacios."
+
+msgid "روبوت"
+msgstr "Robot"
+
+msgid "ريادة"
+msgstr "Liderazgo"
+
+msgid "رياضة"
+msgstr "Fitness"
+
+msgid "زوايا تميّزك"
+msgstr "Enfoques que te diferencian"
+
+msgid "سؤال"
+msgstr "Pregunta"
+
+msgid "سبت"
+msgstr "sep"
+
+msgid "سبتمبر"
+msgstr "Septiembre"
+
+msgid "ستدخل مساحة عمل"
+msgstr "Entrarás al espacio de trabajo de"
+
+msgid "ستصلك الإشعارات على هذا الجهاز"
+msgstr "Recibirás notificaciones en este dispositivo"
+
+msgid "ستصلك هنا تنبيهات جاهزية الخطط والمراجعات والتعليقات."
+msgstr ""
+"Aquí aparecerán las alertas de planes listos, revisiones y comentarios."
+
+msgid "ستفتح نافذة من تيك توك. هذا ما ستفعله فيها:"
+msgstr "Se abrirá una ventana de TikTok. Esto es lo que debes hacer en ella:"
+
+msgid "ستفتح نافذة من فيسبوك. هذا ما ستفعله فيها:"
+msgstr "Se abrirá una ventana de Facebook. Esto es lo que debes hacer en ella:"
+
+msgid "ستُحذف هذه الخطة نهائياً."
+msgstr "Este plan se eliminará de forma permanente."
+
+msgid "سجّل %(date_joined)s"
+msgstr "Se registró hace %(date_joined)s"
+
+msgid "سجّل الدخول"
+msgstr "Iniciar sesión"
+
+msgid "سجّل الدخول بحساب تيك توك الخاص بالشركة."
+msgstr "Inicia sesión con la cuenta de TikTok de la empresa."
+
+msgid "سجّل الدخول لمتابعة تسويق شركتك."
+msgstr "Inicia sesión para que el marketing de tu empresa siga adelante."
+
+msgid "سجّل الدخول وابدأ بإعداد خطة المحتوى الأولى:"
+msgstr "Inicia sesión y empieza a preparar tu primer plan de contenido:"
+
+msgid "سحابة"
+msgstr "Nube"
+
+msgid "سعادة"
+msgstr "Felicidad"
+
+msgid "سعر"
+msgstr "Precio"
+
+msgid "سفر"
+msgstr "Viajes"
+
+msgid "سلبي"
+msgstr "Negativo"
+
+msgid "سلّم حسابات شركتك"
+msgstr "Entrega las cuentas de tu empresa"
+
+msgid "سنة"
+msgstr "1 año"
+
+msgid "سنجهّز الحساب ثم نعيد الربط"
+msgstr "Configuraremos la cuenta y luego volveremos a conectar"
+
+msgid "سنجهّزه معاً خطوة بخطوة"
+msgstr "Lo configuraremos juntos paso a paso"
+
+msgid "سننشئها معاً في دقيقتين"
+msgstr "Crearemos una juntos en dos minutos"
+
+msgid "سيارة"
+msgstr "Coche"
+
+msgid "سياسة الخصوصية"
+msgstr "Política de privacidad"
+
+msgid "سيعود المنشور إلى المسودة مع ملاحظتك لمحرر المحتوى."
+msgstr ""
+"La publicación vuelve a borrador con tu nota para el editor de contenido."
+
+msgid "سيناريو الفيديو"
+msgstr "Guion de vídeo"
+
+msgid "سيناريوهات الفيديو"
+msgstr "Guiones de vídeo"
+
+msgid "سيُفعَّل حساب"
+msgstr "Esto activará la cuenta de"
+
+msgid "سيُنشر فوراً على: "
+msgstr "Se publicará de inmediato en: "
+
+msgid "شاطئ"
+msgstr "Playa"
+
+msgid "شبكة"
+msgstr "Cuadrícula"
+
+msgid "شجرة"
+msgstr "Árbol"
+
+msgid "شخص آخر يدير الصفحة"
+msgstr "Otra persona administra la Página"
+
+msgid "شراكة وخدمة"
+msgstr "Alianza y servicio"
+
+msgid "شركاتك"
+msgstr "Tus empresas"
+
+msgid "شركة"
+msgstr "Empresa"
+
+msgid "شركة جديدة"
+msgstr "Nueva empresa"
+
+msgid "شركة نشطة هذا الشهر"
+msgstr "Empresas activas este mes"
+
+msgid "شركة: %(name)s (مع خططها ومنشوراتها وصورها وكل بياناتها)"
+msgstr ""
+"Empresa: %(name)s (con sus planes, publicaciones, imágenes y todos sus datos)"
+
+msgid "شروط الاستخدام"
+msgstr "Términos de uso"
+
+msgid "شريط جانبي"
+msgstr "Barra lateral"
+
+msgid "شعار الوكالة"
+msgstr "Logotipo de la agencia"
+
+msgid "شكراً، تم اعتماد المنشور"
+msgstr "Gracias, la publicación está aprobada"
+
+msgid "شكوى"
+msgstr "Queja"
+
+msgid "شمس"
+msgstr "Sol"
+
+msgid "شهادة"
+msgstr "Certificado"
+
+msgid "شهر"
+msgstr "1 mes"
+
+msgid "صالح لإعادة النشر بصياغة جديدة بعد مدة."
+msgstr "Apta para publicarse de nuevo, con redacción nueva, pasado un tiempo."
+
+msgid "صالون"
+msgstr "Salón"
+
+msgid "صحة"
+msgstr "Salud"
+
+msgid "صحي"
+msgstr "Saludable"
+
+msgid "صحيح"
+msgstr "Correcto"
+
+msgid "صفحة «%(name)s» · ربطها %(display_name)s"
+msgstr "Página “%(name)s” · conectada por %(display_name)s"
+
+msgid "صفحة فيسبوك"
+msgstr "Página de Facebook"
+
+msgid "صلاحيتك في هذه الشركة للمشاهدة فقط."
+msgstr "Tienes acceso de solo lectura en esta empresa."
+
+msgid "صلاحيتك للمشاهدة فقط."
+msgstr "Tienes acceso de solo lectura."
+
+msgid "صندوق"
+msgstr "Caja"
+
+msgid "صورة"
+msgstr "Imagen"
+
+msgid "صورة الخلفية"
+msgstr "Imagen de fondo"
+
+msgid "صورة كاملة"
+msgstr "Foto completa"
+
+msgid "صيانة"
+msgstr "Mantenimiento"
+
+msgid "ضعف:"
+msgstr "Puntos débiles:"
+
+msgid "طابور المهام"
+msgstr "Cola de tareas"
+
+msgid "طاقة"
+msgstr "Energía"
+
+msgid "طبخ"
+msgstr "Cocina"
+
+msgid "طبيب"
+msgstr "Médico"
+
+msgid "طرد"
+msgstr "Paquete"
+
+msgid "طلاب"
+msgstr "Estudiantes"
+
+msgid "طلب {name} تعديل {subject}: {note}"
+msgstr "{name} pidió cambios en {subject}: {note}"
+
+msgid "طلب إعادة كتابة"
+msgstr "Solicitud de reescritura"
+
+msgid "طلب اشتراك جديد بانتظار الاعتماد."
+msgstr "nueva(s) solicitud(es) de suscripción en espera de aprobación."
+
+msgid "طلب تسجيل جديد بانتظار الموافقة."
+msgstr "nueva(s) solicitud(es) de registro en espera de aprobación."
+
+msgid "طلب تسجيل جديد في وكيل بانتظار الموافقة:"
+msgstr "Un nuevo registro en Wakeel está esperando aprobación:"
+
+msgid "طلب تسجيل جديد في وكيل: %(name)s"
+msgstr "Nuevo registro en Wakeel: %(name)s"
+
+msgid "طلب تعديل"
+msgstr "Solicitar cambios"
+
+msgid "طلب تعديل ✏️"
+msgstr "Solicitar cambios ✏️"
+
+msgid "طلب رابط جديد"
+msgstr "Solicitar un enlace nuevo"
+
+msgid "طلب غير صالح."
+msgstr "Solicitud no válida."
+
+msgid "طلبات التسجيل"
+msgstr "Solicitudes de registro"
+
+msgid "طولي 4:5"
+msgstr "Vertical 4:5"
+
+msgid "طيّ القائمة"
+msgstr "Contraer menú"
+
+msgid "عاجل"
+msgstr "Urgente"
+
+msgid "عادي"
+msgstr "Normal"
+
+msgid "عبارات مفضلة، أو أسلوب معين في الكتابة."
+msgstr "Frases favoritas o una forma particular de escribir."
+
+msgid "عبارة الدعوة"
+msgstr "Llamada a la acción"
+
+msgid "عدالة"
+msgstr "Derecho"
+
+msgid "عدد الأيام"
+msgstr "Número de días"
+
+msgid "عدد المنشورات أسبوعياً"
+msgstr "Publicaciones por semana"
+
+msgid "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر."
+msgstr ""
+"Cambia cualquier cosa con un clic y aprueba publicaciones para publicar."
+
+msgid "عرض"
+msgstr "Oferta"
+
+msgid "عرض %(name)s"
+msgstr "Ver %(name)s"
+
+msgid "عرض الاشتراكات"
+msgstr "Ver suscripciones"
+
+msgid "عرض التقويم"
+msgstr "Ver calendario"
+
+msgid "عرض الكل"
+msgstr "Ver todo"
+
+msgid "عرض المزيد"
+msgstr "Ver más"
+
+msgid "عرض تقديمي"
+msgstr "Presentación"
+
+msgid "عرض محدود"
+msgstr "Oferta limitada"
+
+msgid "عروض، مناسبات، منتجات جديدة، أو أي شيء تريد التركيز عليه."
+msgstr ""
+"Ofertas, ocasiones, productos nuevos o cualquier cosa en la que quieras "
+"centrarte."
+
+msgid "عرّف وكيل بشركتك ليعمل كفريق التسويق الخاص بها."
+msgstr ""
+"Presenta tu empresa a Wakeel para que trabaje como su equipo de marketing."
+
+msgid "عرّفنا بشركتك"
+msgstr "Presenta tu empresa"
+
+msgid "عضو"
+msgstr "miembro"
+
+msgid "عضوية"
+msgstr "Membresía"
+
+msgid "عطور"
+msgstr "Perfume"
+
+msgid "علامات زائد"
+msgstr "Signos más"
+
+msgid "علّق على"
+msgstr "comentó en"
+
+msgid "عملة"
+msgstr "Moneda"
+
+msgid "عمودي 9:16"
+msgstr "Vertical 9:16"
+
+msgid "عميل"
+msgstr "Cliente"
+
+msgid "عمّان"
+msgstr "Amán"
+
+msgid "عن وكيل"
+msgstr "Acerca de Wakeel"
+
+msgid "عند تفعيله، ينشر وكيل كل منشور"
+msgstr "Cuando está activado, Wakeel publica cada"
+
+msgid "عندك سؤال؟"
+msgstr "¿Tienes una pregunta?"
+
+msgid "عنوان المنشور يظهر هنا"
+msgstr "El titular de la publicación aparece aquí"
+
+msgid "عيد استقلال الأردن"
+msgstr "Día de la Independencia de Jordania"
+
+msgid "عيد استقلال السودان"
+msgstr "Día de la Independencia de Sudán"
+
+msgid "عيد الأضحى"
+msgstr "Eid al-Adha"
+
+msgid "عيد الأم"
+msgstr "Día de la Madre"
+
+msgid "عيد الاتحاد الإماراتي"
+msgstr "Día Nacional de los EAU (Día de la Unión)"
+
+msgid "عيد التحرير في الكويت"
+msgstr "Día de la Liberación de Kuwait"
+
+msgid "عيد الفطر"
+msgstr "Eid al-Fitr"
+
+msgid "عيون"
+msgstr "Ojos"
+
+msgid "عُمان"
+msgstr "Omán"
+
+msgid "غادرت «%(name)s»."
+msgstr "Saliste de “%(name)s”."
+
+msgid "غرفة نوم"
+msgstr "Dormitorio"
+
+msgid "غروب"
+msgstr "Crepúsculo"
+
+msgid "غلاف الفيديو (اختياري)"
+msgstr "Portada del vídeo (opcional)"
+
+msgid "غير مجدول"
+msgstr "Sin programar"
+
+msgid "غير مربوط"
+msgstr "No conectado"
+
+msgid "غير مربوطة"
+msgstr "No conectado"
+
+msgid "غير مضبوط"
+msgstr "Sin configurar"
+
+msgid "غير مضبوط (يُطبع في الطرفية)"
+msgstr "Sin configurar (se imprime en la consola)"
+
+msgid "غير مفعّلة على هذا الجهاز."
+msgstr "Desactivado en este dispositivo."
+
+msgid "فاتح"
+msgstr "Claro"
+
+msgid "فاتورة"
+msgstr "Factura"
+
+msgid "فاخرة وراقية"
+msgstr "Lujoso y refinado"
+
+msgid "فارغ = الافتراضي للقالب."
+msgstr "Vacío = el valor predeterminado del diseño."
+
+msgid "فارغ = الافتراضية للقالب."
+msgstr "Vacío = el valor predeterminado del diseño."
+
+msgid "فارغ = بدون انتهاء."
+msgstr "Vacío = nunca caduca."
+
+msgid "فبر"
+msgstr "feb"
+
+msgid "فبراير"
+msgstr "Febrero"
+
+msgid "فتح إعدادات الربط في فيسبوك"
+msgstr "Abrir los ajustes de vinculación en Facebook"
+
+msgid "فتح صفحة الإنشاء"
+msgstr "Abrir la creación de Páginas"
+
+msgid "فتح كما يراه العميل"
+msgstr "Abrir como lo ve el cliente"
+
+msgid "فتح نافذة تيك توك"
+msgstr "Abrir la ventana de TikTok"
+
+msgid "فتح نافذة فيسبوك"
+msgstr "Abrir la ventana de Facebook"
+
+msgid "فجوات يتركونها"
+msgstr "Vacíos que dejan"
+
+msgid "فخامة"
+msgstr "Lujo"
+
+msgid "فريق"
+msgstr "Equipo"
+
+msgid "فريق تسويق كامل،"
+msgstr "Un equipo de marketing completo,"
+
+msgid "فريق وكيل"
+msgstr "El equipo de Wakeel"
+
+msgid "فريقك وبريدك"
+msgstr "Tu equipo y correo"
+
+msgid "فشل"
+msgstr "Falló"
+
+msgid "فشل النسخ الاحتياطي لوكيل"
+msgstr "Falló la copia de seguridad de Wakeel"
+
+msgid "فشلت"
+msgstr "Falló"
+
+msgid "فشلت: %(error)s"
+msgstr "Falló: %(error)s"
+
+msgid "فصل"
+msgstr "Desconectar"
+
+msgid "فصل إنستغرام؟"
+msgstr "¿Desconectar Instagram?"
+
+msgid "فصل تيك توك؟"
+msgstr "¿Desconectar TikTok?"
+
+msgid "فصل فيسبوك؟"
+msgstr "¿Desconectar Facebook?"
+
+msgid "فعّل"
+msgstr "Activar"
+
+msgid "فكرة"
+msgstr "Idea"
+
+msgid "فواكه"
+msgstr "Fruta"
+
+msgid "فور التفعيل."
+msgstr "en cuanto esté activa."
+
+msgid "فوز"
+msgstr "Trofeo"
+
+msgid "في الانتظار"
+msgstr "Pendiente"
+
+msgid "في التقويم"
+msgstr "En el calendario"
+
+msgid "في اليوم المحدد من كل شهر"
+msgstr "El día elegido de cada mes"
+
+msgid "في انتظار بدء المهمة…"
+msgstr "Esperando a que la tarea comience…"
+
+msgid "في منصة واحدة"
+msgstr "en una"
+
+msgid "في هذه الصفحة"
+msgstr "En esta página"
+
+msgid "فيديو"
+msgstr "Vídeo"
+
+msgid "فيديو قصير"
+msgstr "Vídeo corto"
+
+msgid "فيديو قصير (ريلز / تيك توك)"
+msgstr "Vídeo corto (Reels / TikTok)"
+
+msgid "فيديو قصير: سيناريو التصوير"
+msgstr "Vídeo corto: guion de grabación"
+
+msgid "فيسبوك"
+msgstr "Facebook"
+
+msgid "فيسبوك فقط الآن"
+msgstr "Solo Facebook por ahora"
+
+msgid "فيلا"
+msgstr "Villa"
+
+msgid "قائمة مهام"
+msgstr "Lista de verificación"
+
+msgid "قراءة التعليقات"
+msgstr "Leer comentarios"
+
+msgid "قراءة مواقع المنافسين…"
+msgstr "Leyendo los sitios web de los competidores…"
+
+msgid "قراءة وكيل"
+msgstr "Lectura de Wakeel"
+
+msgid "قصاصات"
+msgstr "Confeti"
+
+msgid "قصة (ستوري)"
+msgstr "Historia"
+
+msgid "قطر"
+msgstr "Catar"
+
+msgid "قطري"
+msgstr "Diagonal"
+
+msgid "قنوات التواصل"
+msgstr "Canales de contacto"
+
+msgid "قهوة"
+msgstr "Café"
+
+msgid "قوة:"
+msgstr "Puntos fuertes:"
+
+msgid "قوس"
+msgstr "Arco"
+
+msgid "قياس"
+msgstr "Medir"
+
+msgid "قيد الإعداد"
+msgstr "Preparando"
+
+msgid "قيد الاعتماد"
+msgstr "Esperando aprobación"
+
+msgid "قيد الاقتراح"
+msgstr "Sugiriendo"
+
+msgid "قيد التحليل"
+msgstr "Analizando"
+
+msgid "قيد التعديل"
+msgstr "En revisión"
+
+msgid "قيد التنفيذ"
+msgstr "En ejecución"
+
+msgid "قُرئ الموقع"
+msgstr "Sitio web leído"
+
+msgid "كتاب"
+msgstr "Libro"
+
+msgid "كتابة"
+msgstr "Redactando"
+
+msgid "كتابة المنشورات"
+msgstr "Redacción de publicaciones"
+
+msgid "كرة قدم"
+msgstr "Fútbol"
+
+msgid "كل الأنواع"
+msgstr "Todos los tipos"
+
+msgid "كل الإشعارات"
+msgstr "Todas las notificaciones"
+
+msgid "كل الترويجات"
+msgstr "Todas las promociones"
+
+msgid "كل التقارير"
+msgstr "Todos los informes"
+
+msgid "كل الحالات"
+msgstr "Todos los estados"
+
+msgid "كل الشركات"
+msgstr "Todas las empresas"
+
+msgid "كل الصلاحيات، ومنها اعتماد المنشورات وإدارة الهوية والفريق."
+msgstr ""
+"Todo, incluida la aprobación de publicaciones y la gestión de la marca y del "
+"equipo."
+
+msgid "كل المنصات"
+msgstr "Todas las plataformas"
+
+msgid "كل المهام"
+msgstr "Todas las tareas"
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "Todo lo que tu empresa necesita, en una sola plataforma"
+
+msgid "كل ما تقدمه وكالة التسويق، في منصة واحدة"
+msgstr "Todo lo que hace una agencia de marketing, en una sola plataforma"
+
+msgid "كلمات تساعد في اختيار الصورة المناسبة للمنشور."
+msgstr "Palabras que ayudan a elegir la imagen adecuada para una publicación."
+
+msgid "كلمة المرور"
+msgstr "Contraseña"
+
+msgid "كلمة المرور غير صحيحة."
+msgstr "Contraseña incorrecta."
+
+msgid "كلمة المرور مطلوبة لإنشاء حساب المالك."
+msgstr "Se necesita una contraseña para crear la cuenta del propietario."
+
+msgid "كلمة مرور المشرف غير صحيحة."
+msgstr "Contraseña de administrador incorrecta."
+
+msgid "كلمة مرور المشرف للتأكيد"
+msgstr "Contraseña de administrador para confirmar"
+
+msgid "كلمة مرور جديدة"
+msgstr "Nueva contraseña"
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "Las dos contraseñas no coinciden."
+
+msgid "كما سيظهر في إنستغرام وفيسبوك"
+msgstr "Tal como se verá en Instagram y Facebook"
+
+msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
+msgstr ""
+"Cómo funcionaron realmente tus publicaciones y qué aprende Wakeel de ello."
+
+msgid "كيف يعمل؟"
+msgstr "¿Cómo funciona?"
+
+msgid "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك."
+msgstr ""
+"Para dejar de recibir correos de Wakeel, desactívalos en los ajustes de tu "
+"cuenta."
+
+msgid "لا أخطاء خلال آخر 7 أيام."
+msgstr "Sin errores en los últimos 7 días."
+
+msgid "لا تملك صلاحية تنفيذ هذا الإجراء في هذه الشركة."
+msgstr "No tienes permiso para hacer esto en esta empresa."
+
+msgid "لا توجد إشعارات"
+msgstr "Sin notificaciones"
+
+msgid "لا توجد إشعارات بعد."
+msgstr "Aún no hay notificaciones."
+
+msgid "لا توجد اشتراكات"
+msgstr "Sin suscripciones"
+
+msgid "لا توجد اشتراكات بعد"
+msgstr "Aún no hay suscripciones"
+
+msgid "لا توجد بيانات"
+msgstr "Sin datos"
+
+msgid "لا توجد بيانات كافية بعد."
+msgstr "Aún no hay suficientes datos."
+
+msgid "لا توجد تعليقات بعد. اكتب ملاحظتك للفريق هنا."
+msgstr "Aún no hay comentarios. Escribe aquí tu nota para el equipo."
+
+msgid "لا توجد تعليقات هنا"
+msgstr "No hay comentarios aquí"
+
+msgid "لا توجد تغييرات"
+msgstr "Sin cambios"
+
+msgid "لا توجد تقارير بعد"
+msgstr "Aún no hay informes"
+
+msgid "لا توجد حسابات إعلانية نشطة"
+msgstr "No hay cuentas publicitarias activas"
+
+msgid "لا توجد خطة محتوى لهذا الشهر بعد"
+msgstr "Aún no hay plan de contenido para este mes"
+
+msgid "لا توجد شركات تملكها."
+msgstr "No eres propietario de ninguna empresa."
+
+msgid "لا توجد طلبات جديدة"
+msgstr "No hay solicitudes nuevas"
+
+msgid "لا توجد ملاحظات جديدة."
+msgstr "No hay comentarios nuevos."
+
+msgid "لا توجد مناسبات خاصة في هذا الشهر."
+msgstr "No hay ocasiones especiales este mes."
+
+msgid "لا توجد منشورات"
+msgstr "Sin publicaciones"
+
+msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
+msgstr "No hay publicaciones en espera de revisión en este plan. ¡Gracias!"
+
+msgid "لا توجد منشورات في هذه الخطة"
+msgstr "No hay publicaciones en este plan"
+
+msgid "لا توجد منشورات قادمة"
+msgstr "No hay próximas publicaciones"
+
+msgid "لا توجد منشورات منشورة على فيسبوك عبر وكيل بعد."
+msgstr ""
+"Aún no se ha publicado ninguna publicación en Facebook a través de Wakeel."
+
+msgid "لا توجد مهام"
+msgstr "Sin tareas"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "Nada te está esperando. Todo está en su sitio."
+
+msgid "لا يحتاج الرابط إلى حساب أو كلمة مرور."
+msgstr "El enlace no necesita una cuenta ni una contraseña."
+
+msgid "لا يمكن التراجع عن ذلك."
+msgstr "Esto no se puede deshacer."
+
+msgid "لا يمكن قراءة هذا العنوان."
+msgstr "No se puede leer esta dirección."
+
+msgid "لا يوجد"
+msgstr "Ninguno"
+
+msgid "لا يوجد أعضاء"
+msgstr "Sin miembros"
+
+msgid "لا يوجد اتصال · وكيل"
+msgstr "Sin conexión · Wakeel"
+
+msgid "لا يوجد اتصال بالإنترنت"
+msgstr "Sin conexión a internet"
+
+msgid "لا يوجد استهلاك بعد"
+msgstr "Aún no hay uso"
+
+msgid "لا يوجد استهلاك هذا الشهر."
+msgstr "No hay uso este mes."
+
+msgid "لا يوجد حساب إنستغرام احترافي مربوط بهذه الصفحة."
+msgstr "Ninguna cuenta profesional de Instagram está vinculada a esta Página."
+
+msgid "لا يوجد مالك نشط لـ «%(name)s»."
+msgstr "“%(name)s” no tiene un propietario activo."
+
+msgid "لا يوجد مستخدم بهذا البريد. اطلب منه إنشاء حساب في وكيل أولاً."
+msgstr ""
+"Ningún usuario tiene este correo. Pídele que cree primero una cuenta de "
+"Wakeel."
+
+msgid "لا، ليس بعد"
+msgstr "No, todavía no"
+
+msgid "لدى الشركة موقع إلكتروني؟"
+msgstr "¿La empresa tiene un sitio web?"
+
+msgid "لديك حساب بالفعل؟"
+msgstr "¿Ya tienes una cuenta?"
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "Idioma del nombre oficial y la dirección"
+
+msgid "لغة المحتوى"
+msgstr "Idioma del contenido"
+
+msgid "لغة النسخة"
+msgstr "Idioma de la versión"
+
+msgid "لـ"
+msgstr "a "
+
+msgid "لكل مليون رمز"
+msgstr "por millón de tokens"
+
+msgid "لكل مليون رمز (مدخلات / مخرجات)."
+msgstr "por millón de tokens (entrada / salida)."
+
+msgid "لم أحدد الصفحة في النافذة"
+msgstr "No seleccioné la Página en la ventana"
+
+msgid "لم تُصمَّم الصورة بعد"
+msgstr "La imagen aún no se ha diseñado"
+
+msgid "لم تُصمَّم الصورة بعد."
+msgstr "La imagen aún no se ha diseñado."
+
+msgid "لم تُعدّ أي خطة بعد."
+msgstr "Aún no se ha preparado ningún plan."
+
+msgid "لم تُعدّ خطة"
+msgstr "El plan de"
+
+msgid "لم تُقرأ أرقام بعد."
+msgstr "Aún no se han leído cifras."
+
+msgid "لم تُنفَّذ أي نسخة بعد"
+msgstr "Aún no se ha ejecutado ninguna copia de seguridad"
+
+msgid "لم يجد وكيل معلومات جديدة لإضافتها."
+msgstr "Wakeel no encontró información nueva que añadir."
+
+msgid "لم يشارك فيسبوك أي صفحة مع وكيل"
+msgstr "Facebook no compartió ninguna Página con Wakeel"
+
+msgid "لم يصل رد من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "No llegó respuesta del servicio de IA. Inténtalo de nuevo."
+
+msgid "لم يكتمل الربط"
+msgstr "La conexión no se completó"
+
+msgid "لم يُصمَّم بعد"
+msgstr "Aún sin diseñar"
+
+msgid "لم يُقرأ بعد"
+msgstr "Aún sin leer"
+
+msgid "لماذا هذا الترويج"
+msgstr "Por qué esta promoción"
+
+msgid "لماذا يختار العميل هذه الشركة دون منافسيها؟"
+msgstr ""
+"¿Por qué los clientes eligen a esta empresa en lugar de a sus competidores?"
+
+msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
+msgstr "Para revisar todo el plan, abre: %(link)s"
+
+msgid "لن يتمكن %(display_name)s من الوصول إلى %(name)s بعد الآن."
+msgstr "%(display_name)s ya no podrá acceder a %(name)s."
+
+msgid "لن يرسل وكيل منشورات إلى هذا الحساب بعد الآن."
+msgstr "Wakeel ya no enviará publicaciones a esta cuenta."
+
+msgid "لن يلتزم بها وكيل في الخطط القادمة."
+msgstr "Wakeel no lo seguirá en los próximos planes."
+
+msgid "لن ينشر وكيل على هذا الحساب بعد الآن."
+msgstr "Wakeel ya no publicará en esta cuenta."
+
+msgid "لن ينشر وكيل على هذه الصفحة بعد الآن."
+msgstr "Wakeel ya no publicará en esta Página."
+
+msgid "لنبدأ بالمعلومات الأساسية عن الشركة."
+msgstr "Empecemos con los datos básicos de la empresa."
+
+msgid "لندن"
+msgstr "Londres"
+
+msgid "لوحة التحكم"
+msgstr "Panel"
+
+msgid "لوحة التحكم الرئيسية"
+msgstr "Panel principal"
+
+msgid "لوحة تحكم"
+msgstr "Panel"
+
+msgid "لوحة مشرف النظام"
+msgstr "Panel de administración"
+
+msgid "لون التمييز"
+msgstr "Color de acento"
+
+msgid "لون الوكالة"
+msgstr "Color de la agencia"
+
+msgid "ليس لدي صفحة"
+msgstr "No tengo una Página"
+
+msgid "ليس لديك حساب؟"
+msgstr "¿No tienes una cuenta?"
+
+msgid "ليكتب وكيل محتوى يشبه علامتك."
+msgstr "para que Wakeel escriba contenido que suene a tu marca."
+
+msgid "ليكتمل ذلك دون تدخل"
+msgstr "para completar esto sin mover un dedo"
+
+msgid "ما البيانات التي نجمعها، ولماذا، وكيف تتحكم بها وتحذفها."
+msgstr "Qué datos recopilamos, por qué y cómo los controlas y eliminas."
+
+msgid "ما الذي تريد تعديله؟"
+msgstr "¿Qué te gustaría cambiar?"
+
+msgid "ما الذي يحتاج إلى تعديل؟"
+msgstr "¿Qué hay que cambiar?"
+
+msgid "ما تعلّمه وكيل"
+msgstr "Lo que aprendió Wakeel"
+
+msgid "ما رآه المشترك:"
+msgstr "Lo que vio el suscriptor:"
+
+msgid "ما نجح"
+msgstr "Lo que funcionó"
+
+msgid "ما يجب تجنبه"
+msgstr "No hacer nunca"
+
+msgid "ما يجب فعله"
+msgstr "Hacer siempre"
+
+msgid "ما يُنشر تلقائياً"
+msgstr "Lo que se publica automáticamente"
+
+msgid "ماء"
+msgstr "Agua"
+
+msgid "ماذا تقدم الشركة، ولمن، وما الذي يميزها."
+msgstr "Qué ofrece la empresa, a quién y qué la distingue."
+
+msgid "ماذا سيحدث؟"
+msgstr "¿Qué pasa después?"
+
+msgid "مار"
+msgstr "mar"
+
+msgid "مارد، مساعدك"
+msgstr "Marid, tu asistente"
+
+msgid "مارس"
+msgstr "Marzo"
+
+msgid "ماي"
+msgstr "may"
+
+msgid "مايو"
+msgstr "Mayo"
+
+msgid "مباشرة"
+msgstr "En vivo"
+
+msgid "متابعة هنا"
+msgstr "Continuar aquí"
+
+msgid "متجر"
+msgstr "Tienda"
+
+msgid "متدرّج"
+msgstr "Degradado"
+
+msgid "متصل"
+msgstr "Conectado"
+
+msgid "متوسط التفاعل · معدل التفاعل"
+msgstr "Interacciones promedio · tasa de interacción"
+
+msgid "متوقف"
+msgstr "Detenido"
+
+msgid "متوقف الآن."
+msgstr "Desactivado por ahora."
+
+msgid "متوقف — شغّل"
+msgstr "Detenido — ejecuta"
+
+msgid "مثال: أحمد، مدير التسويق"
+msgstr "Por ejemplo: Ahmed, director de marketing"
+
+msgid "مثال: غيّر الصورة واذكر موعد انتهاء العرض"
+msgstr "Por ejemplo: cambia la imagen y menciona cuándo termina la oferta"
+
+msgid "مثل: زيادة الوعي، جلب عملاء محتملين، زيادة المبيعات."
+msgstr "Por ejemplo: más notoriedad, más clientes potenciales, más ventas."
+
+msgid "مجمع"
+msgstr "Compuesto"
+
+msgid "محادثة"
+msgstr "Chat"
+
+msgid "محاسبة"
+msgstr "Contabilidad"
+
+msgid "محاور المحتوى"
+msgstr "Pilares de contenido"
+
+msgid "محايد"
+msgstr "Neutro"
+
+msgid "محتوى دائم"
+msgstr "Perenne"
+
+msgid "محرر المحتوى:"
+msgstr "Editor de contenido:"
+
+msgid "محرر محتوى"
+msgstr "Editor de contenido"
+
+msgid "محظورة من إعدادات المتصفح؛ اسمح بها من هناك أولاً."
+msgstr "Bloqueadas en los ajustes del navegador; permítelas allí primero."
+
+msgid "محفظة"
+msgstr "Monedero"
+
+msgid "مخرجات"
+msgstr "salida"
+
+msgid "مدة الاشتراك"
+msgstr "Duración de la suscripción"
+
+msgid "مدير"
+msgstr "Administrador"
+
+msgid "مدير التسويق الذكي"
+msgstr "Tu director de marketing con IA"
+
+msgid "مدير التسويق الذكي لشركتك"
+msgstr "El director de marketing con IA de tu empresa"
+
+msgid "مراجعة %(title)s"
+msgstr "Revisar %(title)s"
+
+msgid "مراجعة الطلب"
+msgstr "Solicitar revisión"
+
+msgid "مراجعة الطلبات"
+msgstr "Solicitudes de revisión"
+
+msgid "مربع 1:1"
+msgstr "Cuadrado 1:1"
+
+msgid "مرحباً %(name)s،"
+msgstr "Hola %(name)s:"
+
+msgid "مرحباً بعودتك"
+msgstr "Te damos la bienvenida de nuevo"
+
+msgid "مرحباً بك في وكيل ✨"
+msgstr "Te damos la bienvenida a Wakeel ✨"
+
+msgid "مرحباً،"
+msgstr "Hola:"
+
+msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
+msgstr "Hola, el informe de rendimiento de %(month)s de %(name)s está listo."
+
+msgid "مرحة وخفيفة"
+msgstr "Divertido y ligero"
+
+msgid "مزعج"
+msgstr "Spam"
+
+msgid "مزوّد الذكاء الاصطناعي"
+msgstr "Proveedor de IA"
+
+msgid "مستخدم"
+msgstr "Usuario"
+
+msgid "مستند"
+msgstr "Documento"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "Un documento de la biblioteca como fuente"
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "Documentos con tu papel con membrete"
+
+msgid "مستودع"
+msgstr "Almacén"
+
+msgid "مسجد"
+msgstr "Mezquita"
+
+msgid "مسح التصفية"
+msgstr "Borrar filtros"
+
+msgid "مسقط (GMT+4)"
+msgstr "Mascate (GMT+4)"
+
+msgid "مسودة"
+msgstr "Borrador"
+
+msgid "مشاهد"
+msgstr "Espectador"
+
+msgid "مشتريات"
+msgstr "Compras"
+
+msgid "مشرف النظام"
+msgstr "Administrador del sistema"
+
+msgid "مصر"
+msgstr "Egipto"
+
+msgid "مضبوط"
+msgstr "Configurado"
+
+msgid "مطعم"
+msgstr "Restaurante"
+
+msgid "مطلوبة للحساب الجديد فقط."
+msgstr "Solo se necesita para una cuenta nueva."
+
+msgid "معالج"
+msgstr "Chip"
+
+msgid "معالج يرافقك خطوة بخطوة"
+msgstr "Un asistente te guía paso a paso"
+
+msgid "معاينة التصميم"
+msgstr "Vista previa del diseño"
+
+msgid "معاينة المنشور في المنصة"
+msgstr "Vista previa de la publicación en la plataforma"
+
+msgid "معاينة حية"
+msgstr "Vista previa en vivo"
+
+msgid "معتمد"
+msgstr "Aprobado"
+
+msgid "معتمدة للنشر"
+msgstr "Aprobado para publicar"
+
+msgid "معدل التفاعل"
+msgstr "Tasa de interacción"
+
+msgid "معفاة"
+msgstr "Exenta"
+
+msgid "معلومة"
+msgstr "Dato"
+
+msgid "معلّق"
+msgstr "Suspendida"
+
+msgid "مغادرة"
+msgstr "Salir"
+
+msgid "مغادرة الشركة"
+msgstr "Salir de la empresa"
+
+msgid "مغادرة الشركة؟"
+msgstr "¿Salir de la empresa?"
+
+msgid "مغامرة"
+msgstr "Aventura"
+
+msgid "مفتاح"
+msgstr "Llave"
+
+msgid "مفعّل — أوقفه في الإنتاج"
+msgstr "Activado — desactívalo en producción"
+
+msgid "مفعّل,متوقف"
+msgstr "activado,desactivado"
+
+msgid "مقترح"
+msgstr "Sugerido"
+
+msgid "مقسوم"
+msgstr "Dividido"
+
+msgid "مكتبة"
+msgstr "Biblioteca"
+
+msgid "مكتبة المستندات"
+msgstr "Una biblioteca de documentos"
+
+msgid "مكتبة الوسائط"
+msgstr "Biblioteca de medios"
+
+msgid "ملأ وكيل "
+msgstr "Wakeel completó "
+
+msgid "ملابس"
+msgstr "Ropa"
+
+msgid "ملاحظات"
+msgstr "Notas"
+
+msgid "ملاحظات المراجعة"
+msgstr "Notas de revisión"
+
+msgid "ملاحظات على الأسلوب"
+msgstr "Notas sobre el estilo"
+
+msgid "ملاحظة"
+msgstr "Nota"
+
+msgid "ملاحظة المراجعة:"
+msgstr "Nota de revisión:"
+
+msgid "ملخص الاستراتيجية"
+msgstr "Resumen de la estrategia"
+
+msgid "ملخص الشهر"
+msgstr "El mes en breve"
+
+msgid "ملصق"
+msgstr "Póster"
+
+msgid "ملف الشركة غير مكتمل، فستكون الخطة عامة."
+msgstr ""
+"El perfil de la empresa está incompleto, así que el plan será genérico."
+
+msgid "ملهمة وتحفيزية"
+msgstr "Inspirador y motivador"
+
+msgid "من"
+msgstr "De"
+
+msgid "من الاستراتيجية إلى التصميم إلى تقويم النشر."
+msgstr "De la estrategia al diseño y al calendario de publicación."
+
+msgid "من المدخلات cache hit"
+msgstr "de las entradas fueron aciertos de caché"
+
+msgid "من يعمل على تسويق %(name)s، وما صلاحياته."
+msgstr "Quién trabaja en el marketing de %(name)s y qué puede hacer."
+
+msgid "مناسبات الشهر"
+msgstr "Las ocasiones de este mes"
+
+msgid "مناسبة"
+msgstr "Ocasión"
+
+msgid "مناسبة خاصة"
+msgstr "Día especial"
+
+msgid "منتج"
+msgstr "Producto"
+
+msgid "منتجات"
+msgstr "Productos"
+
+msgid "منتهي"
+msgstr "Caducado"
+
+msgid "منخفض"
+msgstr "Bajo"
+
+msgid "منزل"
+msgstr "Inicio"
+
+msgid "منسوخ من:"
+msgstr "Copiado de:"
+
+msgid "منشور"
+msgstr "Publicado"
+
+msgid "منشور أُنشئ هذا الشهر"
+msgstr "Publicaciones creadas este mes"
+
+msgid "منشور جديد"
+msgstr "Nueva publicación"
+
+msgid "منشور جديد في هذا اليوم"
+msgstr "Nueva publicación en este día"
+
+msgid "منشور نُشر هذا الشهر"
+msgstr "Publicaciones publicadas este mes"
+
+msgid "منشورات %(month_name)s"
+msgstr "Publicaciones de %(month_name)s"
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "Publicaciones en espera de revisión"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "Publicaciones que pasaron su hora de publicación"
+
+msgid "منشورات تستحق الترويج"
+msgstr "Publicaciones que vale la pena promocionar"
+
+msgid "منشورات تستحق العودة"
+msgstr "Publicaciones que vale la pena recuperar"
+
+msgid "منشورات تم قياسها"
+msgstr "Publicaciones medidas"
+
+msgid "منشورات دائمة يُعاد نشرها شهرياً"
+msgstr "Publicaciones perennes republicadas cada mes"
+
+msgid "منشوراً"
+msgstr "publicaciones"
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr ""
+"Una plataforma para el marketing, los documentos y el equipo de tu empresa"
+
+msgid "مهام فشلت خلال 7 أيام"
+msgstr "Tareas que fallaron en los últimos 7 días"
+
+msgid "مهام كل الشركات مع تفاصيلها التقنية"
+msgstr "Las tareas de todas las empresas con sus detalles técnicos"
+
+msgid "مهمة فشلت خلال 7 أيام"
+msgstr "Tareas fallidas en 7 días"
+
+msgid "مهنية وموثوقة"
+msgstr "Profesional y digno de confianza"
+
+msgid "موافقة العميل"
+msgstr "Aprobación del cliente"
+
+msgid "موجات"
+msgstr "Olas"
+
+msgid "موظف"
+msgstr "Empleado"
+
+msgid "موعد"
+msgstr "Cita"
+
+msgid "موعد النشر"
+msgstr "Hora de publicación"
+
+msgid "موقع"
+msgstr "Ubicación"
+
+msgid "موقع الوكالة"
+msgstr "Sitio web de la agencia"
+
+msgid "مُتجاهَل"
+msgstr "Descartado"
+
+msgid "مُخرجة"
+msgstr "salida"
+
+msgid "مُدخلة"
+msgstr "entrada"
+
+msgid "ناعم"
+msgstr "Suave"
+
+msgid "نبات"
+msgstr "Planta"
+
+msgid "نبذة عن الشركة"
+msgstr "Acerca de la empresa"
+
+msgid "نبرة الخطاب"
+msgstr "Tono de voz"
+
+msgid "نجحت"
+msgstr "Completada"
+
+msgid "نساء"
+msgstr "Mujeres"
+
+msgid "نسخ"
+msgstr "Copiar"
+
+msgid "نسخ النص مع الوسوم"
+msgstr "Copiar el texto con hashtags"
+
+msgid "نسخ منه:"
+msgstr "Copias:"
+
+msgid "نسخة بلغة أو لهجة أخرى"
+msgstr "Versión en otro idioma o dialecto"
+
+msgid "نسخة جديدة من هذا المنشور:"
+msgstr "Nueva versión de esta publicación:"
+
+msgid "نسيت كلمة المرور؟"
+msgstr "¿Olvidaste tu contraseña?"
+
+msgid "نشر المنشور الآن؟"
+msgstr "¿Publicar la publicación ahora?"
+
+msgid "نشر منشور"
+msgstr "Publicando una publicación"
+
+msgid "نشط"
+msgstr "Activa"
+
+msgid "نص المنشور"
+msgstr "Texto de la publicación"
+
+msgid "نص قصير بارز مثل: جديد، خصم 20%."
+msgstr "Un texto corto y llamativo como: Novedad, 20 % de descuento."
+
+msgid "نظام الألوان"
+msgstr "Combinación de colores"
+
+msgid "نظرة على تسويق %(name)s لشهر %(month_label)s"
+msgstr "El marketing de %(name)s para %(month_label)s"
+
+msgid "نعم، لدينا صفحة"
+msgstr "Sí, tenemos una Página"
+
+msgid "نعم، لكن لست متأكداً"
+msgstr "Sí, pero no estoy seguro"
+
+msgid "نعم، وحسابي جاهز"
+msgstr "Sí, y mi cuenta está lista"
+
+msgid "نفّذ"
+msgstr "Ir"
+
+msgid "نقاط"
+msgstr "Puntos"
+
+msgid "نقاط التميز"
+msgstr "Qué la hace destacar"
+
+msgid "نقد"
+msgstr "Efectivo"
+
+msgid "نمو"
+msgstr "Crecimiento"
+
+msgid "نهاية الاشتراك"
+msgstr "Fin de la suscripción"
+
+msgid "نهاية الاشتراك قبل بدايته."
+msgstr "La suscripción termina antes de empezar."
+
+msgid "نوع الحساب"
+msgstr "Tipo de cuenta"
+
+msgid "نوع المنشور"
+msgstr "Tipo de publicación"
+
+msgid "نوع المهمة"
+msgstr "Tipo de tarea"
+
+msgid "نوف"
+msgstr "nov"
+
+msgid "نوفمبر"
+msgstr "Noviembre"
+
+msgid "نُشر «{title}» على {platforms}."
+msgstr "“{title}” se publicó en {platforms}."
+
+msgid "نُشر على %(platforms)s."
+msgstr "Publicado en %(platforms)s."
+
+msgid "نُشر هذا المنشور بالفعل."
+msgstr "Esta publicación ya se ha publicado."
+
+msgid "هدف"
+msgstr "Objetivo"
+
+msgid "هدية"
+msgstr "Regalo"
+
+msgid "هذا الإجراء نهائي ولا يمكن التراجع عنه"
+msgstr "Esto es permanente y no se puede deshacer"
+
+msgid "هذا الحساب غير مفعّل."
+msgstr "Esta cuenta no está activa."
+
+msgid "هذا الشهر:"
+msgstr "Este mes:"
+
+msgid "هذا المتصفح لا يدعم الإشعارات."
+msgstr "Este navegador no admite notificaciones."
+
+msgid "هذا المستخدم عضو في الشركة بالفعل."
+msgstr "Este usuario ya es miembro de la empresa."
+
+msgid "هذا حساب مشرف نظام، ولا يكون مالكاً لاشتراك."
+msgstr ""
+"Esta es una cuenta de administrador del sistema, que no puede ser "
+"propietaria de una suscripción."
+
+msgid "هل تريد النشر على إنستغرام أيضاً؟"
+msgstr "¿Quieres publicar también en Instagram?"
+
+msgid "هل لدى شركتك صفحة على فيسبوك؟"
+msgstr "¿Tu empresa tiene una Página de Facebook?"
+
+msgid "هوية العلامة"
+msgstr "Identidad de marca"
+
+msgid "هوية وعروض تقديمية"
+msgstr "Identidad y presentaciones"
+
+msgid "و"
+msgstr "y"
+
+msgid "وأنا أديرها من حسابي على فيسبوك"
+msgstr "Y la administro desde mi cuenta de Facebook"
+
+msgid "واتساب"
+msgstr "WhatsApp"
+
+msgid "واتساب العميل"
+msgstr "WhatsApp del cliente"
+
+msgid "واتساب غير مفعّل على هذا الخادم."
+msgstr "WhatsApp no está habilitado en este servidor."
+
+msgid "وثائق وكيل"
+msgstr "Documentos de Wakeel"
+
+msgid "ودودة وقريبة"
+msgstr "Cercano y accesible"
+
+msgid "وسوم اختيارية: منتج، فريق، مكتب…"
+msgstr "Etiquetas opcionales: producto, equipo, oficina…"
+
+msgid "وسوم العلامة"
+msgstr "Hashtags de la marca"
+
+msgid "وصف اختياري للصور"
+msgstr "Descripción opcional para las imágenes"
+
+msgid "وصف الصورة المقترحة"
+msgstr "Imagen sugerida"
+
+msgid "وصل رد بصيغة غير متوقعة من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr ""
+"El servicio de IA devolvió una respuesta inesperada. Inténtalo de nuevo."
+
+msgid "وصل رد غير مكتمل من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr ""
+"El servicio de IA devolvió una respuesta incompleta. Inténtalo de nuevo."
+
+msgid "وصل رد ناقص من خدمة الذكاء الاصطناعي. حاول مرة أخرى."
+msgstr "El servicio de IA devolvió una respuesta parcial. Inténtalo de nuevo."
+
+msgid "وصلت ملاحظتك إلى الفريق"
+msgstr "Tu nota ha llegado al equipo"
+
+msgid "وصلت ملاحظتك على «%(title)s» إلى الفريق. شكراً!"
+msgstr "Tu nota sobre “%(title)s” llegó al equipo. ¡Gracias!"
+
+msgid "وضع الوكالة"
+msgstr "Modo agencia"
+
+msgid "وقت"
+msgstr "Hora"
+
+msgid "وقود"
+msgstr "Combustible"
+
+msgid "وكالة"
+msgstr "Agencia"
+
+msgid "وكيل"
+msgstr "Wakeel"
+
+msgid "وكيل · مدير التسويق الذكي"
+msgstr "Wakeel · Tu director de marketing con IA"
+
+msgid "وكيل يحلّل المنافسين…"
+msgstr "Wakeel está analizando a los competidores…"
+
+msgid "وكيل يدرس هوية الشركة ويضع الاستراتيجية…"
+msgstr "Wakeel está estudiando la marca y definiendo la estrategia…"
+
+msgid "وكيل يراجع ملاحظاتكم السابقة ليتعلم منها…"
+msgstr ""
+"Wakeel está repasando tus comentarios anteriores para aprender de ellos…"
+
+msgid "وكيل يعمل على خطة %(month_label)s"
+msgstr "Wakeel está trabajando en el plan de %(month_label)s"
+
+msgid "وكيل يعيد صياغة المنشور…"
+msgstr "Wakeel está reformulando la publicación…"
+
+msgid "وكيل يعيد كتابة المنشور…"
+msgstr "Wakeel está reescribiendo la publicación…"
+
+msgid "وكيل يقرأ التعليقات…"
+msgstr "Wakeel está leyendo los comentarios…"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeel está leyendo el documento de origen…"
+
+msgid "وكيل يقرأ الموقع… قد يستغرق ذلك دقيقة."
+msgstr "Wakeel está leyendo el sitio web… esto puede tardar un minuto."
+
+msgid "وكيل يكتب النسخة…"
+msgstr "Wakeel está redactando la versión…"
+
+msgid "وكيل — مدير التسويق الذكي"
+msgstr "Wakeel — tu director de marketing con IA"
+
+msgid "وهذا نص فرعي قصير يشرح الفكرة."
+msgstr "Y este es un breve subtítulo que explica la idea."
+
+msgid "ويُبلَّغ مالكه بالبريد."
+msgstr "y enviar un correo a su propietario."
+
+msgid "يتحقق وكيل من التعليقات الجديدة كل نصف ساعة."
+msgstr "Wakeel busca comentarios nuevos cada media hora."
+
+msgid "يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة."
+msgstr ""
+"Wakeel está analizando a los competidores ahora. Recarga la página en un "
+"minuto."
+
+msgid "يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره."
+msgstr "Planifica, redacta, diseña y publica el contenido de tu empresa."
+
+msgid "يدرس وكيل هوية %(name)s وجمهورها وأهدافها."
+msgstr "Wakeel estudia la identidad, la audiencia y los objetivos de %(name)s."
+
+msgid "يراجع فريقنا بيانات حسابك"
+msgstr "Nuestro equipo revisa los datos de tu cuenta"
+
+msgid "يراجع فريقنا بيانات شركتك"
+msgstr "Nuestro equipo revisa los datos de tu empresa"
+
+msgid "يرسل رابط المراجعة للعميل"
+msgstr "Envía el enlace de revisión a tu cliente"
+
+msgid "يستغرق الإعداد عادة من دقيقتين إلى خمس دقائق."
+msgstr "La preparación suele tardar de dos a cinco minutos."
+
+msgid "يصمم المنشورات"
+msgstr "Diseña las publicaciones"
+
+msgid "يصمم صورة كل منشور بألوانك وخطوطك وشعارك."
+msgstr ""
+"Diseña la imagen de cada publicación con tus colores, tipos de letra y "
+"logotipo."
+
+msgid "يطّلع على الخطط والتقويم فقط."
+msgstr "Solo ve los planes y el calendario."
+
+msgid "يظهر أول "
+msgstr "Alrededor de los primeros "
+
+msgid "يعتمد المنشورات أو يطلب تعديلها دون حساب"
+msgstr "Aprueban publicaciones o piden cambios, sin necesidad de cuenta"
+
+msgid "يعدّ الخطط ويعدّل المنشورات ويرسلها للمراجعة."
+msgstr "Prepara planes, edita publicaciones y las envía a revisión."
+
+msgid "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها."
+msgstr "Wakeel prepara la estrategia, cada publicación y su diseño."
+
+msgid "يعمل"
+msgstr "Activado"
+
+msgid "يعمل لشركتك على مدار الساعة."
+msgstr "trabajando para tu empresa las 24 horas."
+
+msgid "يعمل: الخطة القادمة تُعدّ يوم %(run_on)s."
+msgstr "Activado: el próximo plan se prepara el %(run_on)s."
+
+msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
+msgstr "Wakeel prefiere estas horas al programar tus próximas publicaciones:"
+
+msgid "يفهم علامتك"
+msgstr "que entiende tu marca"
+
+msgid "يقرأ وكيل التعليقات الجديدة الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr ""
+"Wakeel está leyendo los comentarios nuevos ahora. Recarga la página en un "
+"momento."
+
+msgid "يمكن إضافة %(n)s منافسين كحد أقصى."
+msgstr "Puedes añadir hasta %(n)s competidores."
+
+msgid "يمكنك إضافة إنستغرام لاحقاً"
+msgstr "Puedes añadir Instagram más tarde"
+
+msgid "يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة."
+msgstr "Ya puedes iniciar sesión con tu nueva contraseña."
+
+msgid "يمكنك دائماً النشر فوراً من صفحة المنشور المعتمد."
+msgstr ""
+"Siempre puedes publicar de inmediato desde la página de una publicación "
+"aprobada."
+
+msgid "يمكنك رفع عدة صور معاً (حتى 10 ميغابايت للصورة)"
+msgstr "Puedes subir varias imágenes a la vez (hasta 10 MB cada una)"
+
+msgid "يمكنك مغادرة هذه الصفحة؛ سيستمر العمل في الخلفية."
+msgstr "Puedes salir de esta página; el trabajo continúa en segundo plano."
+
+msgid "ينا"
+msgstr "ene"
+
+msgid "يناير"
+msgstr "Enero"
+
+msgid "ينتظرك"
+msgstr "Te están esperando"
+
+msgid "ينتهي الاشتراك اليوم"
+msgstr "La suscripción termina hoy"
+
+msgid "ينتهي الاشتراك خلال "
+msgstr "La suscripción termina en "
+
+msgid "ينتهي الاشتراك في %(date)s."
+msgstr "La suscripción termina el %(date)s."
+
+msgid "ينشر المعتمد في موعده"
+msgstr "Publica lo aprobado según el calendario"
+
+msgid "ينقص"
+msgstr "Falta"
+
+msgid "يوجد حساب مسجل بهذا البريد الإلكتروني."
+msgstr "Ya existe una cuenta con este correo."
+
+msgid "يول"
+msgstr "jul"
+
+msgid "يوليو"
+msgstr "Julio"
+
+msgid "يوم إعداد الخطة"
+msgstr "Día de preparación del plan"
+
+msgid "يوم التأسيس السعودي"
+msgstr "Día de la Fundación de Arabia Saudita"
+
+msgid "يوم عرفة"
+msgstr "Día de Arafat"
+
+msgid "يومياً ·"
+msgstr "Diario ·"
+
+msgid "يون"
+msgstr "jun"
+
+msgid "يونيو"
+msgstr "Junio"
+
+msgid "يُعدّ وكيل الاقتراح الآن. أعد تحميل الصفحة بعد لحظات."
+msgstr ""
+"Wakeel está preparando la sugerencia ahora. Recarga la página en un momento."
+
+msgid "— وكيل، مساحة عمل %(company)s"
+msgstr "— Wakeel, el espacio de trabajo de %(company)s"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identidad, cartas y certificados, en tu propio papel membretado."
 

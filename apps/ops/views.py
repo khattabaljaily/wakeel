@@ -589,6 +589,9 @@ def ledger(request):
 @superuser_required
 def prices(request):
     """The price list as it is now (a draft until the owner settles it): what each service costs the customer."""
+    from django.utils.translation import get_language
+    lang = 'ar' if (get_language() or '').startswith('ar') else 'en'
+    fixed = set(catalog.load().get('price_overrides') or {})
     rows = []
     for key in sorted(catalog.service_keys()):
         service = catalog.service(key)
@@ -596,9 +599,9 @@ def prices(request):
             points = catalog.price_points(key) if not catalog.is_free(key) else 0
         except Exception:
             points = None
-        rows.append({'key': key, 'name': catalog.service_name(key, 'ar'), 'free': catalog.is_free(key),
+        rows.append({'key': key, 'name': catalog.service_name(key, lang), 'free': catalog.is_free(key),
                      'price': catalog.format_points(points) if points is not None else '—',
-                     'per_page': bool(catalog.page_pricing(key)), 'launched': catalog.is_launched(key)})
+                     'per_page': bool(catalog.page_pricing(key)) and key not in fixed, 'launched': catalog.is_launched(key)})
     return render(request, 'ops/prices.html', {'rows': rows})
 
 

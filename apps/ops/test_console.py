@@ -38,6 +38,14 @@ class PagesTests(ConsoleBase):
         self.assertContains(page, 'zz-note')
         self.assertNotContains(self.client.get(reverse('ops:ledger'), {'action': 'refund'}), 'zz-note')
 
+    def test_the_price_list_follows_the_page_language(self):
+        self.client.post(reverse('core:set_language'), {'language': 'en'})
+        page = self.client.get(reverse('ops:prices'))
+        self.assertContains(page, 'Write the month plan')
+        self.assertNotContains(page, 'إعداد خطة الشهر')
+        self.client.post(reverse('core:set_language'), {'language': 'ar'})
+        self.assertContains(self.client.get(reverse('ops:prices')), 'إعداد خطة الشهر')
+
     def test_activity_lists_every_company(self):
         AuditEvent.all_companies.create(company=self.company, user_email='owner@x.test', action='RECORD_OPEN', target='x')
         self.assertContains(self.client.get(reverse('ops:activity')), 'RECORD_OPEN')

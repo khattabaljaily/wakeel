@@ -12678,6 +12678,79 @@ msgstr ""
 msgid "Your company is now served and billed by %(operator)s"
 msgstr "Şirketinize artık %(operator)s hizmet veriyor ve fatura kesiyor"
 
+msgid "عمل شركتك في مكان واحد"
+msgstr "Şirketinizin işleri tek bir yerde"
+
+msgid "تسويق ومستندات وفريق،"
+msgstr "Pazarlama, belgeler ve ekip,"
+
+msgid "كلها بذكاء في تطبيق واحد."
+msgstr "hepsi akıllıca tek bir uygulamada."
+
+msgid ""
+"يدير وكيل تسويق شركتك على وسائل التواصل، ويحفظ مستنداتها ويصدرها بورق رسمي، "
+"ويترجم ويلخص ويستخرج بياناتها بالذكاء الاصطناعي، وينظم بريد فريقها ومهامه. "
+"تدفع حسب ما تستهلك فقط."
+msgstr ""
+"Wakeel, şirketinizin sosyal medya pazarlamasını yürütür, belgelerini saklar "
+"ve resmî antetli kâğıtla düzenler, yapay zekâ ile çeviri, özet ve veri "
+"çıkarma yapar, ekibinizin postasını ve görevlerini düzenler. Yalnızca "
+"kullandığınız kadar ödersiniz."
+
+msgid "التسويق الذكي"
+msgstr "Akıllı pazarlama"
+
+msgid "خطة محتوى شهرية، ومنشورات وتصاميم بهويتك، وتقويم ونشر"
+msgstr ""
+"Aylık içerik planı, kimliğinize uygun gönderiler ve tasarımlar, takvim ve "
+"yayınlama"
+
+msgid "الأوراق والمستندات"
+msgstr "Evraklar ve belgeler"
+
+msgid "مكتبة بتنبيهات الانتهاء، ومستندات صادرة بورق رسمي ورمز تحقق"
+msgstr ""
+"Süre dolum uyarılı bir kütüphane ve doğrulama kodlu, resmî antetli kâğıtla "
+"düzenlenen belgeler"
+
+msgid "خدمات الذكاء الاصطناعي"
+msgstr "Yapay zekâ hizmetleri"
+
+msgid "ترجمة وتلخيص واستخراج بيانات وقراءة المستندات"
+msgstr "Çeviri, özetleme, veri çıkarma ve belge okuma"
+
+msgid "استوديو الهوية"
+msgstr "Kimlik stüdyosu"
+
+msgid "شعار وألوان وخطوط وأوراق وبطاقات لعلامتك"
+msgstr ""
+"Markanız için logo, renkler, yazı tipleri, kurumsal evraklar ve kartlar"
+
+msgid "البريد والتواصل"
+msgstr "Posta ve iletişim"
+
+msgid "صندوق بريد الشركة، وإعلانات داخلية، ونماذج واستبيانات"
+msgstr "Şirket posta kutusu, iç duyurular, formlar ve anketler"
+
+msgid "مساحة الفريق ومارد"
+msgstr "Ekip alanı ve Marid"
+
+msgid "مهام وجهات اتصال وملاحظات، ومساعد يقترح ولا ينفذ إلا بموافقتك"
+msgstr ""
+"Görevler, kişiler ve notlar; öneren ama yalnızca onayınızla harekete geçen "
+"bir asistan"
+
+msgid "وكيل · عمل شركتك في مكان واحد"
+msgstr "Wakeel · şirketinizin işleri tek bir yerde"
+
+msgid "سجّل الدخول لمتابعة عمل شركتك."
+msgstr "Şirketinizin işlerini sürdürmek için giriş yapın."
+
+msgid "أنشئ حسابك، وبعد تفعيله تضيف شركتك وتبدأ باستخدام كل خدمات وكيل."
+msgstr ""
+"Hesabınızı oluşturun; etkinleştirildikten sonra şirketinizi ekleyip "
+"Wakeel’in tüm hizmetlerini kullanmaya başlayın."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
 

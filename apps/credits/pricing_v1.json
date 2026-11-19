@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "DRAFT 2026-11-18. Prices follow the owner's rule (2026-11-03, MyDocHub): after every cost the net profit is half the total cost ($1 of total cost sells at $1.50), rounded up to the price step. A service is priced by its real cost: `measured_cost_usd` (from real runs) or, until measured, an `estimated` one. Costs are for the model of the service's tier (apps/ai/client.py): interactive = Claude Sonnet, background = DeepSeek. A service priced by units (posts of a plan) has a fixed part and a part per unit.",
+  "status": "APPROVED 2026-11-19 by the owner on the condition that every price is profitable: each price is cost + 50% profit + failures 10% + card fees 6% by the formula below, so it is. Items marked `estimated` or `Not yet measured in Wakeel` stay to be measured with a real run, and their price is revised if the real cost is higher. Prices follow the owner's rule (2026-11-03, MyDocHub): after every cost the net profit is half the total cost ($1 of total cost sells at $1.50), rounded up to the price step. A service is priced by its real cost: `measured_cost_usd` (from real runs) or, until measured, an `estimated` one. Costs are for the model of the service's tier (apps/ai/client.py): interactive = Claude Sonnet, background = DeepSeek. A service priced by units (posts of a plan) has a fixed part and a part per unit.",
   "currency": "USD",
   "points_per_dollar": 1000,
   "rules": {

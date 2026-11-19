@@ -6117,3 +6117,82 @@ msgstr "Owns:"
 
 msgid "ينتهي اشتراك الشركة بعد %(n)s يوماً."
 msgstr "The company subscription ends in %(n)s days."
+
+msgid ""
+"قائمة الأسعار المعتمدة للعملاء (اعتمدها المالك في 19/11/2026، وتُراجع إن زادت "
+"التكلفة الفعلية). للقراءة فقط."
+msgstr ""
+"The approved customer price list (approved by the owner on 2026-11-19, "
+"revised if the real cost rises). Read only."
+
+msgid "عمل شركتك في مكان واحد"
+msgstr "Your company’s work in one place"
+
+msgid "تسويق ومستندات وفريق،"
+msgstr "Marketing, documents and a team,"
+
+msgid "كلها بذكاء في تطبيق واحد."
+msgstr "all of it, smartly, in one app."
+
+msgid ""
+"يدير وكيل تسويق شركتك على وسائل التواصل، ويحفظ مستنداتها ويصدرها بورق رسمي، "
+"ويترجم ويلخص ويستخرج بياناتها بالذكاء الاصطناعي، وينظم بريد فريقها ومهامه. "
+"تدفع حسب ما تستهلك فقط."
+msgstr ""
+"Wakeel runs your company’s social media marketing, keeps and issues its "
+"documents on official letterhead, translates, summarises and extracts their "
+"data with AI, and organises your team’s mail and tasks. You pay only for "
+"what you use."
+
+msgid "التسويق الذكي"
+msgstr "Smart marketing"
+
+msgid "خطة محتوى شهرية، ومنشورات وتصاميم بهويتك، وتقويم ونشر"
+msgstr ""
+"A monthly content plan, posts and designs in your identity, a calendar and "
+"publishing"
+
+msgid "الأوراق والمستندات"
+msgstr "Papers and documents"
+
+msgid "مكتبة بتنبيهات الانتهاء، ومستندات صادرة بورق رسمي ورمز تحقق"
+msgstr ""
+"A library with expiry alerts, and documents issued on official letterhead "
+"with a verification code"
+
+msgid "خدمات الذكاء الاصطناعي"
+msgstr "AI services"
+
+msgid "ترجمة وتلخيص واستخراج بيانات وقراءة المستندات"
+msgstr "Translation, summaries, data extraction and document reading"
+
+msgid "استوديو الهوية"
+msgstr "Identity studio"
+
+msgid "شعار وألوان وخطوط وأوراق وبطاقات لعلامتك"
+msgstr "A logo, colours, fonts, stationery and cards for your brand"
+
+msgid "البريد والتواصل"
+msgstr "Mail and communication"
+
+msgid "صندوق بريد الشركة، وإعلانات داخلية، ونماذج واستبيانات"
+msgstr "The company mailbox, internal announcements, forms and surveys"
+
+msgid "مساحة الفريق ومارد"
+msgstr "Team space and Marid"
+
+msgid "مهام وجهات اتصال وملاحظات، ومساعد يقترح ولا ينفذ إلا بموافقتك"
+msgstr ""
+"Tasks, contacts and notes, and an assistant that suggests and only acts with "
+"your approval"
+
+msgid "وكيل · عمل شركتك في مكان واحد"
+msgstr "Wakeel · your company’s work in one place"
+
+msgid "سجّل الدخول لمتابعة عمل شركتك."
+msgstr "Sign in to keep your company’s work going."
+
+msgid "أنشئ حسابك، وبعد تفعيله تضيف شركتك وتبدأ باستخدام كل خدمات وكيل."
+msgstr ""
+"Create your account, and once it is activated you add your company and start "
+"using all of Wakeel’s services."

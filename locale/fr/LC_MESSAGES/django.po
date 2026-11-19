@@ -12881,6 +12881,79 @@ msgstr ""
 msgid "Your company is now served and billed by %(operator)s"
 msgstr "Votre entreprise est désormais servie et facturée par %(operator)s"
 
+msgid "عمل شركتك في مكان واحد"
+msgstr "Le travail de votre entreprise en un seul endroit"
+
+msgid "تسويق ومستندات وفريق،"
+msgstr "Marketing, documents et équipe,"
+
+msgid "كلها بذكاء في تطبيق واحد."
+msgstr "le tout, intelligemment, dans une seule appli."
+
+msgid ""
+"يدير وكيل تسويق شركتك على وسائل التواصل، ويحفظ مستنداتها ويصدرها بورق رسمي، "
+"ويترجم ويلخص ويستخرج بياناتها بالذكاء الاصطناعي، وينظم بريد فريقها ومهامه. "
+"تدفع حسب ما تستهلك فقط."
+msgstr ""
+"Wakeel gère le marketing de votre entreprise sur les réseaux sociaux, "
+"conserve et émet ses documents sur papier à en-tête officiel, traduit, "
+"résume et extrait leurs données grâce à l’IA, et organise le courrier et les "
+"tâches de votre équipe. Vous ne payez que ce que vous utilisez."
+
+msgid "التسويق الذكي"
+msgstr "Marketing intelligent"
+
+msgid "خطة محتوى شهرية، ومنشورات وتصاميم بهويتك، وتقويم ونشر"
+msgstr ""
+"Un plan de contenu mensuel, des publications et des visuels à votre image, "
+"un calendrier et la publication"
+
+msgid "الأوراق والمستندات"
+msgstr "Papiers et documents"
+
+msgid "مكتبة بتنبيهات الانتهاء، ومستندات صادرة بورق رسمي ورمز تحقق"
+msgstr ""
+"Une bibliothèque avec alertes d’expiration, et des documents émis sur papier "
+"à en-tête officiel avec code de vérification"
+
+msgid "خدمات الذكاء الاصطناعي"
+msgstr "Services d’IA"
+
+msgid "ترجمة وتلخيص واستخراج بيانات وقراءة المستندات"
+msgstr "Traduction, résumés, extraction de données et lecture de documents"
+
+msgid "استوديو الهوية"
+msgstr "Studio d’identité"
+
+msgid "شعار وألوان وخطوط وأوراق وبطاقات لعلامتك"
+msgstr "Logo, couleurs, polices, papeterie et cartes pour votre marque"
+
+msgid "البريد والتواصل"
+msgstr "Courrier et communication"
+
+msgid "صندوق بريد الشركة، وإعلانات داخلية، ونماذج واستبيانات"
+msgstr ""
+"La boîte mail de l’entreprise, annonces internes, formulaires et sondages"
+
+msgid "مساحة الفريق ومارد"
+msgstr "Espace d’équipe et Marid"
+
+msgid "مهام وجهات اتصال وملاحظات، ومساعد يقترح ولا ينفذ إلا بموافقتك"
+msgstr ""
+"Tâches, contacts et notes, et un assistant qui suggère et n’agit qu’avec "
+"votre accord"
+
+msgid "وكيل · عمل شركتك في مكان واحد"
+msgstr "Wakeel · le travail de votre entreprise en un seul endroit"
+
+msgid "سجّل الدخول لمتابعة عمل شركتك."
+msgstr "Connectez-vous pour poursuivre le travail de votre entreprise."
+
+msgid "أنشئ حسابك، وبعد تفعيله تضيف شركتك وتبدأ باستخدام كل خدمات وكيل."
+msgstr ""
+"Créez votre compte et, une fois activé, ajoutez votre entreprise et "
+"commencez à utiliser tous les services de Wakeel."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr ""
 #~ "Identité, lettres et certificats, sur votre propre papier à en-tête."

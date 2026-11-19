@@ -12735,6 +12735,78 @@ msgstr ""
 msgid "Your company is now served and billed by %(operator)s"
 msgstr "Perusahaan Anda kini dilayani dan ditagih oleh %(operator)s"
 
+msgid "عمل شركتك في مكان واحد"
+msgstr "Pekerjaan perusahaan Anda di satu tempat"
+
+msgid "تسويق ومستندات وفريق،"
+msgstr "Pemasaran, dokumen, dan tim,"
+
+msgid "كلها بذكاء في تطبيق واحد."
+msgstr "semuanya cerdas dalam satu aplikasi."
+
+msgid ""
+"يدير وكيل تسويق شركتك على وسائل التواصل، ويحفظ مستنداتها ويصدرها بورق رسمي، "
+"ويترجم ويلخص ويستخرج بياناتها بالذكاء الاصطناعي، وينظم بريد فريقها ومهامه. "
+"تدفع حسب ما تستهلك فقط."
+msgstr ""
+"Wakeel menjalankan pemasaran media sosial perusahaan Anda, menyimpan dan "
+"menerbitkan dokumennya di atas kop surat resmi, menerjemahkan, merangkum, "
+"dan mengekstrak datanya dengan AI, serta mengatur surel dan tugas tim Anda. "
+"Anda hanya membayar sesuai pemakaian."
+
+msgid "التسويق الذكي"
+msgstr "Pemasaran cerdas"
+
+msgid "خطة محتوى شهرية، ومنشورات وتصاميم بهويتك، وتقويم ونشر"
+msgstr ""
+"Rencana konten bulanan, unggahan dan desain sesuai identitas Anda, kalender, "
+"dan penerbitan"
+
+msgid "الأوراق والمستندات"
+msgstr "Berkas dan dokumen"
+
+msgid "مكتبة بتنبيهات الانتهاء، ومستندات صادرة بورق رسمي ورمز تحقق"
+msgstr ""
+"Pustaka dengan peringatan masa berlaku, serta dokumen terbit di atas kop "
+"surat resmi dengan kode verifikasi"
+
+msgid "خدمات الذكاء الاصطناعي"
+msgstr "Layanan AI"
+
+msgid "ترجمة وتلخيص واستخراج بيانات وقراءة المستندات"
+msgstr "Terjemahan, ringkasan, ekstraksi data, dan pembacaan dokumen"
+
+msgid "استوديو الهوية"
+msgstr "Studio identitas"
+
+msgid "شعار وألوان وخطوط وأوراق وبطاقات لعلامتك"
+msgstr "Logo, warna, font, alat tulis, dan kartu untuk merek Anda"
+
+msgid "البريد والتواصل"
+msgstr "Surel dan komunikasi"
+
+msgid "صندوق بريد الشركة، وإعلانات داخلية، ونماذج واستبيانات"
+msgstr "Kotak surat perusahaan, pengumuman internal, formulir, dan survei"
+
+msgid "مساحة الفريق ومارد"
+msgstr "Ruang tim dan Marid"
+
+msgid "مهام وجهات اتصال وملاحظات، ومساعد يقترح ولا ينفذ إلا بموافقتك"
+msgstr ""
+"Tugas, kontak, dan catatan, serta asisten yang memberi saran dan hanya "
+"bertindak dengan persetujuan Anda"
+
+msgid "وكيل · عمل شركتك في مكان واحد"
+msgstr "Wakeel · pekerjaan perusahaan Anda di satu tempat"
+
+msgid "سجّل الدخول لمتابعة عمل شركتك."
+msgstr "Masuk untuk melanjutkan pekerjaan perusahaan Anda."
+
+msgid "أنشئ حسابك، وبعد تفعيله تضيف شركتك وتبدأ باستخدام كل خدمات وكيل."
+msgstr ""
+"Buat akun Anda, dan setelah diaktifkan Anda menambahkan perusahaan dan mulai "
+"memakai semua layanan Wakeel."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
 

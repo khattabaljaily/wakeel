@@ -402,6 +402,15 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
 .wk-auth__feats li { display: flex; align-items: center; gap: .75rem; color: #dcdbf5; }
 .wk-auth__feats i { width: 36px; height: 36px; border-radius: 11px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
   background: rgba(255,255,255,.08); color: var(--wk-gold); font-size: 1.05rem; }
+.wk-auth__cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+.wk-auth__cards li { display: flex; align-items: flex-start; gap: .7rem; padding: .85rem .9rem; border-radius: 16px; min-width: 0;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(6px); transition: transform .15s, background .15s; }
+.wk-auth__cards li:hover { transform: translateY(-2px); background: rgba(255,255,255,.1); }
+.wk-auth__cards i { width: 38px; height: 38px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  background: rgba(255,176,32,.14); color: var(--wk-gold); font-size: 1.1rem; }
+.wk-auth__cards strong { display: block; color: #fff; font-size: .93rem; margin-bottom: .15rem; }
+.wk-auth__cards span { display: block; color: #bdbbe3; font-size: .78rem; line-height: 1.6; }
+.wk-auth__pitch { max-width: 600px; }
 .wk-auth__copy { position: relative; font-size: .8rem; color: #7d7aa8; }
 
 .wk-auth__main { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; padding: 2.5rem 1.5rem;
@@ -458,6 +467,11 @@ a.wk-stat:hover { transform: translateY(-2px); box-shadow: var(--wk-shadow-lg); 
   .wk-auth__pitch h2 br { display: none; }
   .wk-auth__pitch p { display: none; }
   .wk-auth__feats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
+  .wk-auth__cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+  .wk-auth__cards li { flex-direction: column; align-items: center; text-align: center; gap: .35rem; padding: .65rem .3rem; border-radius: 16px; }
+  .wk-auth__cards i { width: 34px; height: 34px; font-size: .95rem; }
+  .wk-auth__cards strong { font-size: .72rem; margin: 0; line-height: 1.5; }
+  .wk-auth__cards span { display: none; }
   .wk-auth__feats li { flex-direction: column; justify-content: center; gap: .4rem; padding: .7rem .3rem; border-radius: 16px; min-width: 0;
     background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.09); font-size: .76rem; font-weight: 600; line-height: 1.4; color: #e4e3fa; }
   .wk-auth__feats i { width: 34px; height: 34px; border-radius: 11px; font-size: .95rem; background: rgba(255,176,32,.14); }

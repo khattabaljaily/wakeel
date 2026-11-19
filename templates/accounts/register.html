@@ -4,7 +4,7 @@
 {% block auth_content %}
 <div class="wk-auth__head">
     <h1>{% translate "ابدأ مع وكيل" %}</h1>
-    <p>{% translate "أنشئ حسابك، وبعد تفعيله تضيف شركتك ويبدأ وكيل العمل." %}</p>
+    <p>{% translate "أنشئ حسابك، وبعد تفعيله تضيف شركتك وتبدأ باستخدام كل خدمات وكيل." %}</p>
 </div>
 <form method="post" novalidate>{% csrf_token %}
     {% for e in form.non_field_errors %}<div class="alert alert-danger py-2 small">{{ e }}</div>{% endfor %}

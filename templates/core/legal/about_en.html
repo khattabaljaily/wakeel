@@ -44,7 +44,7 @@
     <div class="wk-about__who">
         <div>
             <h2>Who we are</h2>
-            <p>Wakeel{% if legal_entity %}, developed by {{ developer }} and operated by {{ legal_entity }},{% endif %} is built for companies that want their marketing, documents and team working in one place and with intelligence, without the cost of a marketing agency or a pile of separate tools. We believe every company deserves professional tools in its own language and identity.</p>
+            <p>Wakeel{% if legal_entity %}, {% if developer == legal_entity %}developed and operated by {{ legal_entity }},{% else %}developed by {{ developer }} and operated by {{ legal_entity }},{% endif %}{% endif %} is built for companies that want their marketing, documents and team working in one place and with intelligence, without the cost of a marketing agency or a pile of separate tools. We believe every company deserves professional tools in its own language and identity.</p>
             {% if support_email %}<p class="mb-0"><i class="bi bi-envelope"></i> <a href="mailto:{{ support_email }}" dir="ltr">{{ support_email }}</a></p>{% endif %}
         </div>
         {% if not user.is_authenticated %}<a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> Get started</a>{% endif %}

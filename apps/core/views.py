@@ -27,7 +27,7 @@ def _legal_entity(lang):
 
 def _developer(lang):
     from apps.companies import operators
-    return operators.registry.developer(lang)['name']
+    return operators.registry.developer(lang, operators.PRODUCT)['name']
 
 
 def _public_page(request, template, page, **context):

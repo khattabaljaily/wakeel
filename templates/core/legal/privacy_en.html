@@ -1,8 +1,8 @@
-<p>Wakeel ("we") is a service{% if legal_entity %} developed by {{ developer }} and operated by {{ legal_entity }}{% endif %} that brings together social media marketing, document keeping and issuing, AI services and team work for businesses. This policy explains what data we collect when you use Wakeel at <a href="{{ site_url }}">{{ site_url }}</a>, how we use and protect it, and how to delete it.</p>
+<p>Wakeel ("we") is a service{% if legal_entity %} {% if developer == legal_entity %}developed and operated by {{ legal_entity }}{% else %}developed by {{ developer }} and operated by {{ legal_entity }}{% endif %}{% endif %} that brings together social media marketing, document keeping and issuing, AI services and team work for businesses. This policy explains what data we collect when you use Wakeel at <a href="{{ site_url }}">{{ site_url }}</a>, how we use and protect it, and how to delete it.</p>
 
 <h2>1. Who is responsible for your data</h2>
 {% include 'operators/company.html' %}
-<p>{{ operator.legal_name }} is the controller of your personal data under {{ operator.data_law }}. {{ developer }} develops and maintains Wakeel on its behalf and processes the data only on its instructions and only for that purpose.</p>
+<p>{{ operator.legal_name }} is the controller of your personal data under {{ operator.data_law }}.{% if developer != legal_entity %} {{ developer }} develops and maintains Wakeel on its behalf and processes the data only on its instructions and only for that purpose.{% endif %}</p>
 <h2>2. Data we collect</h2>
 <ul>
     <li><strong>Account data:</strong> your name, email address, password (stored hashed; we can't read it) and interface language.</li>

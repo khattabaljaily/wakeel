@@ -216,7 +216,7 @@ class LegalPagesTests(TestCase):
 
     def test_the_provider_is_the_default_operator_unless_the_owner_sets_another(self):
         page = self.client.get(reverse('core:privacy'))
-        self.assertContains(page, 'طوّرتها إنجاز لتقنية المعلومات وتشغّلها بنان لتقنية المعلومات ذ.م.م')
+        self.assertContains(page, 'طوّرتها وتشغّلها بنان لتقنية المعلومات ذ.م.م')
         self.assertNotContains(page, 'جوفيا')
         with self.settings(LEGAL_ENTITY='Example Co', LEGAL_ENTITY_AR='شركة المثال'):
             self.assertContains(self.client.get(reverse('core:privacy')), 'وتشغّلها شركة المثال')
@@ -235,7 +235,7 @@ class AboutPageTests(TestCase):
         with self.settings(LEGAL_ENTITY='Enjaz Information Technology', LEGAL_ENTITY_AR='إنجاز لتقنية المعلومات'):
             page = self.client.get(reverse('core:about'))
             self.assertContains(page, 'ماذا يفعل وكيل؟')
-            self.assertContains(page, 'من تطوير إنجاز لتقنية المعلومات وتشغيل إنجاز لتقنية المعلومات')
+            self.assertContains(page, 'من تطوير بنان لتقنية المعلومات ذ.م.م وتشغيل إنجاز لتقنية المعلومات')
             self.client.post(reverse('core:set_language'), {'language': 'en'})
-            self.assertContains(self.client.get(reverse('core:about')), 'developed by Enjaz Information Technology and operated by Enjaz Information Technology')
+            self.assertContains(self.client.get(reverse('core:about')), 'developed by Banan for Information Technology W.L.L. and operated by Enjaz Information Technology')
         self.assertContains(self.client.get(reverse('core:privacy')), reverse('core:about'))

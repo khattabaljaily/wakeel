@@ -17,6 +17,17 @@ These tell us what the move really touches. Output only; nothing is edited.
 6. `ls -l /home/banan/projects/wakeel/secrets.json` (permissions to keep).
 7. Which Linux user the other Enjaz projects' services run as (`systemctl cat <one of them>`), so Wakeel follows the same convention.
 
+## Phase 0 results (2026-11-19, read only, nothing changed)
+
+- **Services** `wakeel` and `wakeel-worker` run as `khattab:www-data`, the same as the sibling Enjaz projects (e.g. `enjazims`), so the move changes paths only, not users. `/home/enjaz/projects/` exists (owned by `khattab`) and holds the other Enjaz projects; `wakeel` is not there yet. The disk has 695 GB free; the project is 335 MB (295 MB of it the virtualenv, which is rebuilt).
+- **Paths to change:** the units `wakeel.service`, `wakeel-worker.service` and `wakeel-backup.service` (the nightly 03:30 timer stays); **two** nginx sites, `wakeel` (wakeel.enjaztechnology.com, direct) and `wakeelservice` (wakeelservice.com, behind Cloudflare), each with `static` and `media` aliases; the worker log path. The backups go to `/home/banan/backups/wakeel` (`/home/enjaz/backups` already exists for the other projects).
+- **No cron exists for Wakeel today.** The merged product needs `send_expiry_reminders` (daily) and `send_note_reminders` (every few minutes): add them as systemd timers beside the backup timer.
+- **Production is on the old `main`** (commit `6b618ac`), before the merge. Deploying means merging `merge-mydochub` into `main` and pushing it, which only the owner can order.
+- **The server's working tree has two local edits** (`README.md` and `deploy.sh`, both only the old `APP_DIR` path) which would block `git pull`; they are reverted with `git checkout -- README.md deploy.sh` before the pull (owner's approval first). Six `secrets.json.bak-*` copies of the secrets sit in the project folder: move them out of the project (owner's approval) so they are not copied again.
+- **Python 3.10.12 on the server** (3.12 here). No 3.11+ syntax found (the whole code base parses as 3.10) and no 3.11+ library call by search, and both Enjaz packages declare `>=3.10`; still, Phase 2 runs `manage.py check` and the tests inside the new virtualenv on the server before anything is switched.
+- **GitHub over SSH works from the server** for `wakeel`, `enjaz-operators` and `enjaz-docai`; Google Chrome is installed (PDF rendering).
+- **Stripe:** the webhook is registered at `https://wakeelservice.com/billing/webhook/` (the default-operator address that now exists in the code).
+
 ## Phase 1: backups (before touching anything)
 
 1. Dump the database: `mysqldump --single-transaction wakeel > /home/enjaz/backups/wakeel-<date>.sql` (or wherever the existing backup job writes), and check the file is not empty.

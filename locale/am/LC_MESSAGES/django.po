@@ -12501,6 +12501,36 @@ msgstr ""
 "የኩባንያው ቡድን መሥራት አይችልም፤ እስኪያነቃቁት ድረስ ራስ-ሰር ህትመትና የደንበኛ አገናኝ ይቆማሉ። ውሂቡ እንዳለ "
 "ይቆያል።"
 
+msgid "Added this month"
+msgstr "በዚህ ወር የታከለ"
+
+msgid "Used this month"
+msgstr "በዚህ ወር የተጠቀሙት"
+
+msgid "Paid services run"
+msgstr "የተከናወኑ የክፍያ አገልግሎቶች"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "ቀሪ ሂሳቡ ዝቅተኛ ነው። የክፍያ አገልግሎቶችን መጠቀም ለመቀጠል ይሙሉት።"
+
+msgid "%(points)s points"
+msgstr "%(points)s ነጥቦች"
+
+msgid "Pay by card"
+msgstr "በካርድ ይክፈሉ"
+
+msgid "Search a service"
+msgstr "አገልግሎት ይፈልጉ"
+
+msgid "No service matches."
+msgstr "ምንም የሚዛመድ አገልግሎት የለም።"
+
+msgid "Added"
+msgstr "የታከለ"
+
+msgid "Charges"
+msgstr "ክፍያዎች"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "መለያ፣ ደብዳቤዎችና ሰርተፍኬቶች በራስዎ የደብዳቤ ራስጌ።"
 

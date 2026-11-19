@@ -24,6 +24,14 @@ from .models import Payment
 
 logger = logging.getLogger(__name__)
 
+# Every Wakeel payment names itself 'wakeel-<id>' to Stripe. One Stripe account serves several products, and each webhook endpoint
+# receives the events of all of them: a bare number from another product must never settle one of ours.
+REFERENCE_PREFIX = 'wakeel-'
+
+
+def reference(payment):
+    return f'{REFERENCE_PREFIX}{payment.pk}'
+
 
 @company_required(manage=True)
 @require_POST
@@ -42,7 +50,7 @@ def checkout(request):
         # The package's Stripe payment link, naming this payment: the webhook credits it once, at the right amount.
         payment = Payment.objects.create(company=request.company, user=request.user, amount_usd=amount, points=points,
                                          operator=operator, currency='USD')
-        query = {'client_reference_id': str(payment.pk)}
+        query = {'client_reference_id': reference(payment)}
         if request.user.email:
             query['prefilled_email'] = request.user.email
         return redirect(f'{link}{"&" if "?" in link else "?"}{urlencode(query)}')
@@ -55,7 +63,7 @@ def checkout(request):
     base = request.build_absolute_uri('/').rstrip('/')     # the host the member is on, so a local run returns to itself
     try:
         done = gateway.checkout(
-            payment_id=payment.pk, amount=amount, currency='USD', email=request.user.email,
+            payment_id=reference(payment), amount=amount, currency='USD', email=request.user.email,
             name=_('Wakeel credit: $%(amount)s') % {'amount': f'{amount:,.2f}'},
             success_url=base + reverse('credits:wallet') + '?paid=1', cancel_url=base + reverse('credits:wallet'),
             metadata={'company_id': request.company.pk})
@@ -87,12 +95,13 @@ def webhook(request, operator):
         return HttpResponse(status=404)
     try:
         event = gateway.parse_webhook(request.body, request.headers)
-    except GatewayError:
+    except (GatewayError, TypeError):                                              # TypeError: a signature that is not plain ASCII
         return HttpResponse(status=400)
-    if event.status == 'ignored' or not event.payment_id.isdigit():
-        return HttpResponse(status=200)
+    number = event.payment_id[len(REFERENCE_PREFIX):] if event.payment_id.startswith(REFERENCE_PREFIX) else ''
+    if event.status == 'ignored' or not number.isdigit():
+        return HttpResponse(status=200)                                           # another product's payment, or nothing of ours
     with transaction.atomic():
-        payment = Payment.objects.select_for_update().filter(pk=event.payment_id, operator=operator).first()
+        payment = Payment.objects.select_for_update().filter(pk=number, operator=operator).first()
         if payment is None or payment.status == Payment.PAID:
             return HttpResponse(status=200)                                       # unknown, another operator's, or already credited
         if event.status == 'expired':

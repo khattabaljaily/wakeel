@@ -7718,6 +7718,36 @@ msgstr "غيّرت الخادم أو اسم المستخدم: اكتب كلمة 
 msgid "Your company is now served and billed by %(operator)s"
 msgstr "تخدم شركتك الآن ويحاسبها %(operator)s"
 
+msgid "Added this month"
+msgstr "أُضيف هذا الشهر"
+
+msgid "Used this month"
+msgstr "المستخدم هذا الشهر"
+
+msgid "Paid services run"
+msgstr "خدمات مدفوعة نُفّذت"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "الرصيد منخفض. اشحنه لتواصل استخدام الخدمات المدفوعة."
+
+msgid "%(points)s points"
+msgstr "%(points)s نقطة"
+
+msgid "Pay by card"
+msgstr "ادفع بالبطاقة"
+
+msgid "Search a service"
+msgstr "ابحث عن خدمة"
+
+msgid "No service matches."
+msgstr "لا توجد خدمة مطابقة."
+
+msgid "Added"
+msgstr "المُضاف"
+
+msgid "Charges"
+msgstr "الخصومات"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

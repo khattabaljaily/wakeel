@@ -12685,6 +12685,36 @@ msgstr ""
 "회사 팀은 작업할 수 없으며, 다시 활성화할 때까지 자동 게시와 클라이언트 링크"
 "가 중지됩니다. 데이터는 그대로 유지됩니다."
 
+msgid "Added this month"
+msgstr "이번 달 추가"
+
+msgid "Used this month"
+msgstr "이번 달 사용"
+
+msgid "Paid services run"
+msgstr "실행한 유료 서비스"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "잔액이 부족합니다. 유료 서비스를 계속 이용하려면 충전하세요."
+
+msgid "%(points)s points"
+msgstr "%(points)s 포인트"
+
+msgid "Pay by card"
+msgstr "카드로 결제"
+
+msgid "Search a service"
+msgstr "서비스 검색"
+
+msgid "No service matches."
+msgstr "일치하는 서비스가 없습니다."
+
+msgid "Added"
+msgstr "추가됨"
+
+msgid "Charges"
+msgstr "차감"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "아이덴티티, 레터, 증명서를 우리 회사 레터헤드로."
 

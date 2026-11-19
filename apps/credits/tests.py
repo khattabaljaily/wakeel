@@ -268,8 +268,8 @@ class WalletPageTests(TestCase):
         self.assertIn('$2.31', page)                                 # 2500 - 190 points
         self.assertIn('generate_plan', page)
         self.assertIn('/ 9 <bdi>post</bdi>', page)
-        for amount in ('10', '25', '50'):
-            self.assertIn(f'>${amount}</button>', page)                   # the packages, as they are
+        for amount in ('10', '25', '50', '100'):
+            self.assertIn(f'>${amount}</span>', page)                     # the packages, as they are
         self.client.cookies['wakeel_lang'] = 'ar'
         self.assertIn('/ 9 <bdi>منشور</bdi>', self.client.get(reverse('credits:wallet')).content.decode())
 

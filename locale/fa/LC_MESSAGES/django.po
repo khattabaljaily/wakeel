@@ -12729,6 +12729,36 @@ msgstr ""
 "تیم شرکت نمی‌تواند کار کند و انتشار خودکار و پیوند مشتری تا زمان فعال‌سازی "
 "مجدد متوقف می‌شود. داده‌ها بدون تغییر باقی می‌مانند."
 
+msgid "Added this month"
+msgstr "افزوده‌شده در این ماه"
+
+msgid "Used this month"
+msgstr "مصرف‌شده در این ماه"
+
+msgid "Paid services run"
+msgstr "خدمات پولی اجراشده"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "موجودی کم است. برای ادامهٔ استفاده از خدمات پولی آن را شارژ کنید."
+
+msgid "%(points)s points"
+msgstr "%(points)s امتیاز"
+
+msgid "Pay by card"
+msgstr "پرداخت با کارت"
+
+msgid "Search a service"
+msgstr "جستجوی خدمت"
+
+msgid "No service matches."
+msgstr "هیچ خدمتی مطابقت ندارد."
+
+msgid "Added"
+msgstr "افزوده‌شده"
+
+msgid "Charges"
+msgstr "کسورات"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "هویت، نامه‌ها و گواهی‌ها، روی سربرگ خودتان."
 

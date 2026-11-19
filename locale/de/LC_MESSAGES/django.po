@@ -12974,8 +12974,10 @@ msgid "إزالة التصفية"
 msgstr "Filter entfernen"
 
 msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
-msgstr "Neue Abonnenten freigeben, ihr Guthaben aufladen, Firmen sperren und löschen"
-"Neue Abonnenten freigeben, ihr Guthaben aufladen, Firmen sperren und löschen"
+msgstr ""
+"Neue Abonnenten freigeben, ihr Guthaben aufladen, Firmen sperren und "
+"löschenNeue Abonnenten freigeben, ihr Guthaben aufladen, Firmen sperren und "
+"löschen"
 
 msgid "الحساب معلّق"
 msgstr "Das Konto ist gesperrt"
@@ -13028,6 +13030,38 @@ msgstr ""
 "Das Team der Firma kann nicht arbeiten, und die automatische "
 "Veröffentlichung sowie der Kundenlink pausieren, bis Sie sie wieder "
 "aktivieren. Die Daten bleiben unverändert."
+
+msgid "Added this month"
+msgstr "Diesen Monat hinzugefügt"
+
+msgid "Used this month"
+msgstr "Diesen Monat verbraucht"
+
+msgid "Paid services run"
+msgstr "Ausgeführte kostenpflichtige Dienste"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr ""
+"Das Guthaben ist niedrig. Laden Sie es auf, um die kostenpflichtigen Dienste "
+"weiter zu nutzen."
+
+msgid "%(points)s points"
+msgstr "%(points)s Punkte"
+
+msgid "Pay by card"
+msgstr "Mit Karte zahlen"
+
+msgid "Search a service"
+msgstr "Dienst suchen"
+
+msgid "No service matches."
+msgstr "Kein Dienst gefunden."
+
+msgid "Added"
+msgstr "Hinzugefügt"
+
+msgid "Charges"
+msgstr "Abbuchungen"
 
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identität, Briefe und Zertifikate auf Ihrem eigenen Briefpapier."

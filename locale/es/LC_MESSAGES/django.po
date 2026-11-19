@@ -12865,8 +12865,10 @@ msgid "إزالة التصفية"
 msgstr "Quitar el filtro"
 
 msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
-msgstr "Aprobar nuevos suscriptores, recargar su saldo, suspender y eliminar empresas"
-"Aprobar nuevos suscriptores, recargar su saldo, suspender y eliminar empresas"
+msgstr ""
+"Aprobar nuevos suscriptores, recargar su saldo, suspender y eliminar "
+"empresasAprobar nuevos suscriptores, recargar su saldo, suspender y eliminar "
+"empresas"
 
 msgid "الحساب معلّق"
 msgstr "La cuenta está suspendida"
@@ -12918,6 +12920,36 @@ msgstr ""
 "El equipo de la empresa no podrá trabajar, y la publicación automática y el "
 "enlace del cliente se detienen hasta que la reactives. Los datos se "
 "conservan tal cual."
+
+msgid "Added this month"
+msgstr "Añadidos este mes"
+
+msgid "Used this month"
+msgstr "Usados este mes"
+
+msgid "Paid services run"
+msgstr "Servicios de pago ejecutados"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "El saldo es bajo. Recárgalo para seguir usando los servicios de pago."
+
+msgid "%(points)s points"
+msgstr "%(points)s puntos"
+
+msgid "Pay by card"
+msgstr "Pagar con tarjeta"
+
+msgid "Search a service"
+msgstr "Buscar un servicio"
+
+msgid "No service matches."
+msgstr "Ningún servicio coincide."
+
+msgid "Added"
+msgstr "Añadidos"
+
+msgid "Charges"
+msgstr "Cargos"
 
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identidad, cartas y certificados, en tu propio papel membretado."

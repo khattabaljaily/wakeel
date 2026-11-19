@@ -12961,9 +12961,10 @@ msgid "إزالة التصفية"
 msgstr "Retirer le filtre"
 
 msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
-msgstr "Approuver les nouveaux abonnés, recharger leur solde, suspendre et supprimer des entreprises"
+msgstr ""
 "Approuver les nouveaux abonnés, recharger leur solde, suspendre et supprimer "
-"des entreprises"
+"des entreprisesApprouver les nouveaux abonnés, recharger leur solde, "
+"suspendre et supprimer des entreprises"
 
 msgid "الحساب معلّق"
 msgstr "Le compte est suspendu"
@@ -13016,6 +13017,38 @@ msgstr ""
 "L’équipe de l’entreprise ne pourra plus travailler, et la publication "
 "automatique et le lien client sont suspendus jusqu’à sa réactivation. Les "
 "données sont conservées."
+
+msgid "Added this month"
+msgstr "Ajoutés ce mois-ci"
+
+msgid "Used this month"
+msgstr "Utilisés ce mois-ci"
+
+msgid "Paid services run"
+msgstr "Services payants exécutés"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr ""
+"Le solde est faible. Rechargez-le pour continuer à utiliser les services "
+"payants."
+
+msgid "%(points)s points"
+msgstr "%(points)s points"
+
+msgid "Pay by card"
+msgstr "Payer par carte"
+
+msgid "Search a service"
+msgstr "Rechercher un service"
+
+msgid "No service matches."
+msgstr "Aucun service ne correspond."
+
+msgid "Added"
+msgstr "Ajoutés"
+
+msgid "Charges"
+msgstr "Débits"
 
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr ""

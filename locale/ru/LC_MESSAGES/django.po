@@ -12799,9 +12799,10 @@ msgid "إزالة التصفية"
 msgstr "Убрать фильтр"
 
 msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
-msgstr "Одобрение новых участников, пополнение их балансов, приостановка и удаление компаний"
+msgstr ""
 "Одобрение новых участников, пополнение их балансов, приостановка и удаление "
-"компаний"
+"компанийОдобрение новых участников, пополнение их балансов, приостановка и "
+"удаление компаний"
 
 msgid "الحساب معلّق"
 msgstr "Аккаунт приостановлен"
@@ -12852,6 +12853,38 @@ msgid ""
 msgstr ""
 "Команда компании не сможет работать, а автопубликация и ссылка для клиента "
 "остановятся, пока вы не активируете её снова. Данные сохранятся."
+
+msgid "Added this month"
+msgstr "Добавлено в этом месяце"
+
+msgid "Used this month"
+msgstr "Использовано в этом месяце"
+
+msgid "Paid services run"
+msgstr "Выполнено платных услуг"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr ""
+"Баланс низкий. Пополните его, чтобы продолжить пользоваться платными "
+"услугами."
+
+msgid "%(points)s points"
+msgstr "%(points)s баллов"
+
+msgid "Pay by card"
+msgstr "Оплатить картой"
+
+msgid "Search a service"
+msgstr "Поиск услуги"
+
+msgid "No service matches."
+msgstr "Подходящих услуг нет."
+
+msgid "Added"
+msgstr "Пополнения"
+
+msgid "Charges"
+msgstr "Списания"
 
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Фирменный стиль, письма и сертификаты на вашем бланке."

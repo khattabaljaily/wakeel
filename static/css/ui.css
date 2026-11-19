@@ -87,3 +87,35 @@ input[type=file].form-control:hover::file-selector-button { background: var(--wk
 .wk-op__btn img { width: 26px; height: 26px; object-fit: contain; border-radius: 0; background: none; }
 .wk-pay { padding: 1rem 1.25rem; border: 1px dashed #d8dcee; border-radius: 14px; background: #fff; color: var(--wk-text); }
 .wk-pay i { color: var(--wk-primary); }
+
+/* Wallet */
+.wk-wallet-hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; margin-bottom: 1.5rem; padding: 1.5rem 1.75rem; border-radius: 22px; color: #fff;
+  background: radial-gradient(circle at 90% 0%, rgba(143, 130, 255, .55), transparent 45%), linear-gradient(135deg, #1b1840, #2f2a7a); box-shadow: 0 18px 40px -22px rgba(47, 42, 122, .7); }
+.wk-wallet-hero.is-low { background: radial-gradient(circle at 90% 0%, rgba(255, 176, 32, .4), transparent 45%), linear-gradient(135deg, #2a1d12, #5a3a14); }
+.wk-wallet-hero__main { display: flex; align-items: center; gap: 1.1rem; }
+.wk-wallet-hero__icon { width: 58px; height: 58px; border-radius: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; background: rgba(255, 255, 255, .12); color: #ffd58a; }
+.wk-wallet-hero__label { font-size: .85rem; opacity: .75; }
+.wk-wallet-hero__num { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; }
+.wk-wallet-chip { display: inline-block; margin-top: .35rem; padding: .2rem .7rem; border-radius: 999px; font-size: .78rem; background: rgba(255, 255, 255, .14); }
+.wk-wallet-chip--warn { background: rgba(255, 176, 32, .22); color: #ffe2a8; }
+.wk-wallet-hero__stats { display: grid; grid-template-columns: repeat(3, auto); gap: 1.25rem 2rem; margin: 0; }
+.wk-wallet-hero__stats dt { font-size: .76rem; font-weight: 500; opacity: .7; }
+.wk-wallet-hero__stats dd { margin: 0; font-size: 1.15rem; font-weight: 700; }
+@media (max-width: 575.98px) { .wk-wallet-hero { padding: 1.25rem; } .wk-wallet-hero__stats { grid-template-columns: repeat(3, 1fr); gap: .75rem; width: 100%; } .wk-wallet-hero__stats dd { font-size: 1rem; } }
+.wk-packages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.wk-package { display: grid; gap: .15rem; justify-items: center; padding: 1rem .75rem; border: 1.5px solid var(--wk-border); border-radius: 16px; background: #fff; color: var(--wk-ink); text-align: center;
+  transition: border-color .15s, box-shadow .15s, transform .15s; }
+.wk-package:not(:disabled):hover { border-color: var(--wk-primary); box-shadow: 0 10px 24px -14px rgba(79, 59, 219, .55); transform: translateY(-2px); }
+.wk-package:disabled { opacity: .55; cursor: not-allowed; }
+.wk-package__usd { font-size: 1.6rem; font-weight: 800; }
+.wk-package__pts { font-size: .78rem; color: var(--wk-muted); }
+.wk-package__go { margin-top: .35rem; font-size: .8rem; font-weight: 700; color: var(--wk-primary); }
+.wk-price-list { max-height: 26rem; overflow-y: auto; border-top: 1px solid var(--wk-border); }
+.wk-price-row { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 1.25rem; font-size: .9rem; border-bottom: 1px solid #eef0f7; }
+.wk-price-row[hidden] { display: none; }
+.wk-price-row__v { white-space: nowrap; font-weight: 600; }
+.wk-ledger-row { display: flex; align-items: center; gap: .9rem; padding: .85rem 1.25rem; border-top: 1px solid #eef0f7; }
+.wk-ledger-row__icon { width: 36px; height: 36px; border-radius: 11px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.wk-ledger-row__icon.is-in { background: #dcf7ec; color: #0f7a4f; } .wk-ledger-row__icon.is-out { background: #fee4e2; color: #b42318; } .wk-ledger-row__icon.is-refund { background: #e4ecff; color: #3a55c4; }
+.wk-ledger-row__body { flex: 1 1 auto; min-width: 0; }
+.wk-ledger-row__amt { white-space: nowrap; }

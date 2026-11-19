@@ -12624,6 +12624,36 @@ msgstr ""
 "कंपनी की टीम काम नहीं कर पाएगी, और दोबारा सक्रिय करने तक स्वचालित प्रकाशन और क्लाइंट "
 "लिंक बंद रहेंगे। डेटा जस का तस रहेगा।"
 
+msgid "Added this month"
+msgstr "इस महीने जोड़े गए"
+
+msgid "Used this month"
+msgstr "इस महीने उपयोग किए गए"
+
+msgid "Paid services run"
+msgstr "चलाई गई सशुल्क सेवाएँ"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "बैलेंस कम है। सशुल्क सेवाओं का उपयोग जारी रखने के लिए इसे टॉप अप करें।"
+
+msgid "%(points)s points"
+msgstr "%(points)s पॉइंट"
+
+msgid "Pay by card"
+msgstr "कार्ड से भुगतान करें"
+
+msgid "Search a service"
+msgstr "सेवा खोजें"
+
+msgid "No service matches."
+msgstr "कोई सेवा मेल नहीं खाती।"
+
+msgid "Added"
+msgstr "जोड़े गए"
+
+msgid "Charges"
+msgstr "शुल्क"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "पहचान, पत्र और प्रमाणपत्र, आपके अपने लेटरहेड पर।"
 

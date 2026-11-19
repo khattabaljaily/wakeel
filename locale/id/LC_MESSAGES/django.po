@@ -12814,9 +12814,10 @@ msgid "إزالة التصفية"
 msgstr "Hapus filter"
 
 msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
-msgstr "Menyetujui pelanggan baru, mengisi saldo mereka, menangguhkan dan menghapus perusahaan"
+msgstr ""
 "Menyetujui pelanggan baru, mengisi saldo mereka, menangguhkan dan menghapus "
-"perusahaan"
+"perusahaanMenyetujui pelanggan baru, mengisi saldo mereka, menangguhkan dan "
+"menghapus perusahaan"
 
 msgid "الحساب معلّق"
 msgstr "Akun ditangguhkan"
@@ -12869,6 +12870,36 @@ msgid ""
 msgstr ""
 "Tim perusahaan tidak dapat bekerja, dan penerbitan otomatis serta tautan "
 "klien berhenti sampai Anda mengaktifkannya kembali. Data tetap utuh."
+
+msgid "Added this month"
+msgstr "Ditambahkan bulan ini"
+
+msgid "Used this month"
+msgstr "Terpakai bulan ini"
+
+msgid "Paid services run"
+msgstr "Layanan berbayar dijalankan"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "Saldo menipis. Isi ulang untuk terus menggunakan layanan berbayar."
+
+msgid "%(points)s points"
+msgstr "%(points)s poin"
+
+msgid "Pay by card"
+msgstr "Bayar dengan kartu"
+
+msgid "Search a service"
+msgstr "Cari layanan"
+
+msgid "No service matches."
+msgstr "Tidak ada layanan yang cocok."
+
+msgid "Added"
+msgstr "Ditambahkan"
+
+msgid "Charges"
+msgstr "Biaya"
 
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."

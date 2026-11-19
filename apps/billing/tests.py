@@ -62,7 +62,7 @@ class BillingTests(TestCase):
 
     def event(self, payment, kind='checkout.session.completed', **session):
         return {'type': kind, 'data': {'object': {
-            'client_reference_id': str(payment.pk), 'payment_status': 'paid', 'amount_total': int(payment.amount_usd * 100),
+            'client_reference_id': f'wakeel-{payment.pk}', 'payment_status': 'paid', 'amount_total': int(payment.amount_usd * 100),
             'currency': 'usd', **session}}}
 
     def send(self, event, **kwargs):
@@ -174,7 +174,7 @@ class PaymentLinkTests(TestCase):
 
     def send(self, payment, amount_cents=None):
         event = {'type': 'checkout.session.completed', 'data': {'object': {
-            'client_reference_id': str(payment.pk), 'payment_status': 'paid', 'currency': 'usd', 'payment_link': 'plink_1',
+            'client_reference_id': f'wakeel-{payment.pk}', 'payment_status': 'paid', 'currency': 'usd', 'payment_link': 'plink_1',
             'amount_total': int(payment.amount_usd * 100) if amount_cents is None else amount_cents}}}
         payload, header = signed(event)
         return self.client.post(reverse('billing:operator_webhook', args=['jovia']), payload, content_type='application/json', HTTP_STRIPE_SIGNATURE=header)
@@ -182,7 +182,7 @@ class PaymentLinkTests(TestCase):
     def test_a_package_with_a_link_opens_it_naming_the_payment(self):
         response = self.client.post(reverse('billing:checkout'), {'amount': '25'})
         payment = Payment.objects.get()
-        self.assertEqual(response['Location'], f'https://buy.stripe.com/test_25?client_reference_id={payment.pk}&prefilled_email=o%40example.com')
+        self.assertEqual(response['Location'], f'https://buy.stripe.com/test_25?client_reference_id=wakeel-{payment.pk}&prefilled_email=o%40example.com')
         self.assertEqual((payment.amount_usd, payment.points, payment.status, payment.operator), (25, 25000, 'created', 'jovia'))
         self.assertEqual(get_wallet(self.company).balance, 0)
 
@@ -197,12 +197,30 @@ class PaymentLinkTests(TestCase):
         self.assertEqual((payment.status, get_wallet(self.company).balance), (Payment.PAID, 10000))
         self.assertEqual(WalletTransaction.objects.filter(action=WalletTransaction.TOPUP).count(), 1)
 
+    def test_another_products_payment_with_a_bare_number_never_settles_ours(self):
+        # One Stripe account serves several products; each endpoint also receives the others' events.
+        self.client.post(reverse('billing:checkout'), {'amount': '10'})
+        payment = Payment.objects.get()
+        event = {'type': 'checkout.session.completed', 'data': {'object': {
+            'client_reference_id': str(payment.pk), 'payment_status': 'paid', 'currency': 'usd', 'amount_total': 1000}}}
+        payload, header = signed(event)
+        response = self.client.post(reverse('billing:operator_webhook', args=['jovia']), payload, content_type='application/json',
+                                    HTTP_STRIPE_SIGNATURE=header)
+        self.assertEqual(response.status_code, 200)
+        payment.refresh_from_db()
+        self.assertEqual((payment.status, get_wallet(self.company).balance), ('created', 0))
+
+    def test_a_signature_that_is_not_ascii_is_refused_not_a_server_error(self):
+        response = self.client.post(reverse('billing:webhook'), b'{}', content_type='application/json',
+                                    HTTP_STRIPE_SIGNATURE='t=1,v1=é')
+        self.assertEqual(response.status_code, 400)
+
     def test_the_address_without_an_operator_reaches_the_default_operator(self):
         # The first address given to Stripe was /billing/webhook/ (no operator in it).
         self.client.post(reverse('billing:checkout'), {'amount': '10'})
         payment = Payment.objects.get()
         event = {'type': 'checkout.session.completed', 'data': {'object': {
-            'client_reference_id': str(payment.pk), 'payment_status': 'paid', 'currency': 'usd', 'payment_link': 'plink_1',
+            'client_reference_id': f'wakeel-{payment.pk}', 'payment_status': 'paid', 'currency': 'usd', 'payment_link': 'plink_1',
             'amount_total': 1000}}}
         payload, header = signed(event)
         response = self.client.post(reverse('billing:webhook'), payload, content_type='application/json', HTTP_STRIPE_SIGNATURE=header)

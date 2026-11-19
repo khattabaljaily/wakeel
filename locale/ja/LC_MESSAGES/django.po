@@ -12770,6 +12770,38 @@ msgstr ""
 "会社のチームは作業できなくなり、再度有効にするまで自動投稿とクライアントリン"
 "クが停止します。データはそのまま残ります。"
 
+msgid "Added this month"
+msgstr "今月の追加分"
+
+msgid "Used this month"
+msgstr "今月の使用分"
+
+msgid "Paid services run"
+msgstr "実行した有料サービス"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr ""
+"残高が少なくなっています。有料サービスを引き続きご利用いただくには、チャージ"
+"してください。"
+
+msgid "%(points)s points"
+msgstr "%(points)s ポイント"
+
+msgid "Pay by card"
+msgstr "カードで支払う"
+
+msgid "Search a service"
+msgstr "サービスを検索"
+
+msgid "No service matches."
+msgstr "一致するサービスはありません。"
+
+msgid "Added"
+msgstr "追加"
+
+msgid "Charges"
+msgstr "利用料"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "アイデンティティ、レター、証明書を、あなた専用のレターヘッドで。"
 

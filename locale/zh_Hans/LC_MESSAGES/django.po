@@ -12471,6 +12471,36 @@ msgid ""
 msgstr ""
 "公司团队将无法工作,自动发布和客户链接将停止,直到您重新启用。数据保持不变。"
 
+msgid "Added this month"
+msgstr "本月新增"
+
+msgid "Used this month"
+msgstr "本月已用"
+
+msgid "Paid services run"
+msgstr "已运行的付费服务"
+
+msgid "The balance is low. Top it up to keep using the paid services."
+msgstr "余额不足。请充值以继续使用付费服务。"
+
+msgid "%(points)s points"
+msgstr "%(points)s 积分"
+
+msgid "Pay by card"
+msgstr "银行卡支付"
+
+msgid "Search a service"
+msgstr "搜索服务"
+
+msgid "No service matches."
+msgstr "没有匹配的服务。"
+
+msgid "Added"
+msgstr "已添加"
+
+msgid "Charges"
+msgstr "扣费"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "标识、信函和证书,都用您自己的信笺。"
 

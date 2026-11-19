@@ -213,6 +213,21 @@ def post_from_document(request, pk):
     return redirect('content:post_edit', pk=post.pk)
 
 
+# Where to finish a post by hand on each platform (the manual "publish it yourself" card of the post page).
+MANUAL_PUBLISH_LINKS = {
+    'facebook': 'https://business.facebook.com/latest/composer',
+    'instagram': 'https://business.facebook.com/latest/composer',
+    'tiktok': 'https://www.tiktok.com/tiktokstudio/upload',
+}
+
+
+def manual_publish_links(post):
+    """(platform label, icon, url) for each platform of the post that has a place to finish it by hand."""
+    from .models import PLATFORM_ICONS
+    return [(Platform(k).label, PLATFORM_ICONS[k], MANUAL_PUBLISH_LINKS[k])
+            for k in post.platforms if k in MANUAL_PUBLISH_LINKS and k in Platform.values]
+
+
 @company_required
 def post_edit(request, pk):
     post = get_object_or_404(Post.objects.select_related('background', 'plan'), pk=pk, company=request.company)
@@ -246,7 +261,7 @@ def post_edit(request, pk):
         'schemes': [{'key': key, 'name': v['name'], **palette(key, request.company.primary_color, request.company.secondary_color,
                                                               request.company.accent_color)} for key, v in SCHEMES.items()],
         'assets': MediaAsset.objects.filter(company=request.company)[:60],
-        'statuses': Post.Status,
+        'statuses': Post.Status, 'manual_links': manual_publish_links(post),
         'comments': post.comments.select_related('user'),
         'publish_targets': [a.get_platform_display() for a in publish_targets(post)] if post.format in PUBLISHABLE_FORMATS else [],
         'plan_posts': list(post.plan.posts.order_by('scheduled_at').values_list('pk', flat=True)) if post.plan else [],

@@ -12915,6 +12915,47 @@ msgstr ""
 msgid "قريباً"
 msgstr "Segera"
 
+msgid "انشر بنفسك في دقيقة"
+msgstr "Terbitkan sendiri dalam semenit"
+
+msgid "انسخ النص وافتح %(label)s"
+msgstr "Salin teks dan buka %(label)s"
+
+msgid "مشاركة من الجوال (نص وصورة)"
+msgstr "Bagikan dari ponsel (teks dan gambar)"
+
+msgid "الصق النص في الصفحة التي تفتح، ثم أضف الصورة:"
+msgstr "Tempel teks di halaman yang terbuka, lalu tambahkan gambar:"
+
+msgid "انسخ الصورة (للصقها مباشرة)"
+msgstr "Salin gambar (untuk langsung ditempel)"
+
+msgid "نزّل الصورة"
+msgstr "Unduh gambar"
+
+msgid "انسخ النص فقط"
+msgstr "Salin teks saja"
+
+msgid "موعده المقترح:"
+msgstr "Waktu yang disarankan:"
+
+msgid "(اختر «جدولة» في Business Suite لنشره في موعده)."
+msgstr "(pilih “Jadwalkan” di Business Suite agar terbit pada waktu itu)."
+
+msgid ""
+"قريباً: النشر المباشر على فيسبوك وإنستغرام سيكون مؤتمتاً بالكامل، فيُنشر "
+"المنشور المعتمد في موعده دون أي خطوة منك."
+msgstr ""
+"Segera hadir: penerbitan langsung ke Facebook dan Instagram akan sepenuhnya "
+"otomatis, sehingga postingan yang disetujui terbit pada waktunya tanpa "
+"langkah apa pun dari Anda."
+
+msgid "نُسخت الصورة، الصقها في المنشور."
+msgstr "Gambar disalin. Tempelkan ke postingan."
+
+msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
+msgstr "Gambar tidak dapat disalin; unduh saja."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
 

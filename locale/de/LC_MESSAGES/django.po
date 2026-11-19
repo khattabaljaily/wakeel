@@ -13077,6 +13077,52 @@ msgstr ""
 msgid "قريباً"
 msgstr "Bald"
 
+msgid "انشر بنفسك في دقيقة"
+msgstr "In einer Minute selbst veröffentlichen"
+
+msgid "انسخ النص وافتح %(label)s"
+msgstr "Text kopieren und %(label)s öffnen"
+
+msgid "مشاركة من الجوال (نص وصورة)"
+msgstr "Vom Handy teilen (Text und Bild)"
+
+msgid "الصق النص في الصفحة التي تفتح، ثم أضف الصورة:"
+msgstr ""
+"Fügen Sie den Text auf der geöffneten Seite ein und ergänzen Sie dann das "
+"Bild:"
+
+msgid "انسخ الصورة (للصقها مباشرة)"
+msgstr "Bild kopieren (zum direkten Einfügen)"
+
+msgid "نزّل الصورة"
+msgstr "Bild herunterladen"
+
+msgid "انسخ النص فقط"
+msgstr "Nur den Text kopieren"
+
+msgid "موعده المقترح:"
+msgstr "Vorgeschlagene Zeit:"
+
+msgid "(اختر «جدولة» في Business Suite لنشره في موعده)."
+msgstr ""
+"(wählen Sie in der Business Suite „Planen“, damit er zu dieser Zeit "
+"erscheint)."
+
+msgid ""
+"قريباً: النشر المباشر على فيسبوك وإنستغرام سيكون مؤتمتاً بالكامل، فيُنشر "
+"المنشور المعتمد في موعده دون أي خطوة منك."
+msgstr ""
+"Bald: Die direkte Veröffentlichung auf Facebook und Instagram wird "
+"vollautomatisch, sodass ein freigegebener Beitrag ohne Ihr Zutun zur "
+"geplanten Zeit erscheint."
+
+msgid "نُسخت الصورة، الصقها في المنشور."
+msgstr "Bild kopiert. Fügen Sie es in den Beitrag ein."
+
+msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
+msgstr ""
+"Das Bild konnte nicht kopiert werden; laden Sie es stattdessen herunter."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identität, Briefe und Zertifikate auf Ihrem eigenen Briefpapier."
 

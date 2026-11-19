@@ -12856,6 +12856,47 @@ msgstr ""
 msgid "قريباً"
 msgstr "Yakında"
 
+msgid "انشر بنفسك في دقيقة"
+msgstr "Bir dakikada kendiniz yayınlayın"
+
+msgid "انسخ النص وافتح %(label)s"
+msgstr "Metni kopyala ve %(label)s uygulamasını aç"
+
+msgid "مشاركة من الجوال (نص وصورة)"
+msgstr "Telefondan paylaş (metin ve görsel)"
+
+msgid "الصق النص في الصفحة التي تفتح، ثم أضف الصورة:"
+msgstr "Açılan sayfaya metni yapıştırın, ardından görseli ekleyin:"
+
+msgid "انسخ الصورة (للصقها مباشرة)"
+msgstr "Görseli kopyala (doğrudan yapıştırmak için)"
+
+msgid "نزّل الصورة"
+msgstr "Görseli indir"
+
+msgid "انسخ النص فقط"
+msgstr "Yalnızca metni kopyala"
+
+msgid "موعده المقترح:"
+msgstr "Önerilen zaman:"
+
+msgid "(اختر «جدولة» في Business Suite لنشره في موعده)."
+msgstr ""
+"(o saatte yayınlanması için Business Suite’te “Zamanla” seçeneğini seçin)."
+
+msgid ""
+"قريباً: النشر المباشر على فيسبوك وإنستغرام سيكون مؤتمتاً بالكامل، فيُنشر "
+"المنشور المعتمد في موعده دون أي خطوة منك."
+msgstr ""
+"Yakında: Facebook ve Instagram’a doğrudan yayın tamamen otomatik olacak; "
+"onaylanan gönderi, siz hiçbir şey yapmadan zamanında yayınlanacak."
+
+msgid "نُسخت الصورة، الصقها في المنشور."
+msgstr "Görsel kopyalandı. Gönderiye yapıştırın."
+
+msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
+msgstr "Görsel kopyalanamadı; bunun yerine indirin."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
 

@@ -221,6 +221,24 @@
             </div>
         </div>
     </div>
+    <div class="wk-card mt-3 {% if post.status != 'approved' %}d-none{% endif %}" id="manualPublish">
+        <div class="wk-card-head"><h2><i class="bi bi-send-check text-primary"></i> {% translate "انشر بنفسك في دقيقة" %}</h2></div>
+        <div class="wk-card-body">
+            <div class="d-flex gap-2 flex-wrap mb-2">
+                {% for label, icon, url in manual_links %}<a href="{{ url }}" target="_blank" rel="noopener" class="btn btn-primary manual-open"><i class="bi {{ icon }}"></i> {% blocktranslate %}انسخ النص وافتح {{ label }}{% endblocktranslate %}</a>{% endfor %}
+                <button type="button" class="btn btn-primary d-none" id="manualShare"><i class="bi bi-share"></i> {% translate "مشاركة من الجوال (نص وصورة)" %}</button>
+            </div>
+            <div class="small text-muted mb-2">{% translate "الصق النص في الصفحة التي تفتح، ثم أضف الصورة:" %}</div>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+                <button type="button" class="btn btn-sm btn-light d-none" id="manualCopyImg"><i class="bi bi-image"></i> {% translate "انسخ الصورة (للصقها مباشرة)" %}</button>
+                <a href="{% url 'content:post_download' post.pk %}" class="btn btn-sm btn-light {% if not post.image %}disabled{% endif %}"><i class="bi bi-download"></i> {% translate "نزّل الصورة" %}</a>
+                <button type="button" class="btn btn-sm btn-light" id="manualCopy"><i class="bi bi-clipboard"></i> {% translate "انسخ النص فقط" %}</button>
+            </div>
+            {% if post.scheduled_at %}<div class="small mb-2"><i class="bi bi-calendar-event text-primary"></i> {% translate "موعده المقترح:" %} <strong dir="ltr">{{ post.scheduled_at|date:"Y-m-d H:i" }}</strong> {% translate "(اختر «جدولة» في Business Suite لنشره في موعده)." %}</div>{% endif %}
+            <button type="button" class="btn btn-sm btn-success" id="manualDone"><i class="bi bi-send-check"></i> {% translate "تم النشر" %}</button>
+            <div class="small-muted mt-3"><i class="bi bi-lightning-charge"></i> {% translate "قريباً: النشر المباشر على فيسبوك وإنستغرام سيكون مؤتمتاً بالكامل، فيُنشر المنشور المعتمد في موعده دون أي خطوة منك." %}</div>
+        </div>
+    </div>
     <div class="wk-card mt-3" id="comments">
         <div class="wk-card-head"><h2><i class="bi bi-chat-left-text text-primary"></i> {% translate "المراجعة والتعليقات" %}</h2><span class="small-muted" id="commentCount">{{ comments|length }}</span></div>
         <div class="wk-card-body">
@@ -466,6 +484,45 @@
     var repostBtn = document.getElementById('repostBtn');
     if (repostBtn) repostBtn.addEventListener('click', function () { makeCopy('/api/posts/' + POST_ID + '/repost/', { expected_points: AI_PRICES.repost }, repostBtn); });
 
+    // ---------- Manual publishing card ----------
+    function captionText() { return [F.caption.value.trim(), F.hashtags.value.trim()].filter(Boolean).join('\n\n'); }
+    function imageBlob() {
+        var img = document.getElementById('finalImg');
+        if (!img || !img.src || img.classList.contains('d-none')) return Promise.reject();
+        return fetch(img.src).then(function (r) { return r.blob(); });
+    }
+    document.querySelectorAll('#manualPublish .manual-open').forEach(function (a) {
+        a.addEventListener('click', function () { Wakeel.copy(captionText()); });  // the link still opens the platform
+    });
+    var manualCopy = document.getElementById('manualCopy');
+    if (manualCopy) manualCopy.addEventListener('click', function () { Wakeel.copy(captionText()); });
+    var manualCopyImg = document.getElementById('manualCopyImg');
+    if (manualCopyImg && window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        manualCopyImg.classList.remove('d-none');
+        manualCopyImg.addEventListener('click', function () {
+            imageBlob().then(function (b) {
+                return navigator.clipboard.write([new ClipboardItem({ 'image/png': b.type === 'image/png' ? b : b.slice(0, b.size, 'image/png') })]);
+            }).then(function () { Wakeel.toast('{{ _("نُسخت الصورة، الصقها في المنشور.")|escapejs }}'); })
+              .catch(function () { Wakeel.toast('{{ _("تعذّر نسخ الصورة، نزّلها بدلاً من ذلك.")|escapejs }}', 'error'); });
+        });
+    }
+    var manualShare = document.getElementById('manualShare');
+    if (manualShare && navigator.share) {
+        manualShare.classList.remove('d-none');
+        manualShare.addEventListener('click', function () {
+            var send = function (files) {
+                var data = { text: captionText() };
+                if (files && navigator.canShare && navigator.canShare({ files: files })) data.files = files;
+                navigator.share(data).catch(function () {});
+            };
+            imageBlob().then(function (b) {
+                send([new File([b], 'wakeel-post-' + POST_ID + '.png', { type: b.type || 'image/png' })]);
+            }).catch(function () { send(null); });
+        });
+    }
+    var manualDone = document.getElementById('manualDone');
+    if (manualDone) manualDone.addEventListener('click', function () { setStatus('published'); });
+
     // ---------- Status workflow ----------
     var LABELS = { draft: ['{{ _("مسودة")|escapejs }}', 'draft'], review: ['{{ _("بانتظار المراجعة")|escapejs }}', 'review'], approved: ['{{ _("معتمد")|escapejs }}', 'approved'], published: ['{{ _("منشور")|escapejs }}', 'published'] };
     function setStatus(next, note) {
@@ -497,6 +554,8 @@
         }).finally(renderStatusActions);
     }
     function renderStatusActions() {
+        var mp = document.getElementById('manualPublish');
+        if (mp) mp.classList.toggle('d-none', status !== 'approved');
         var box = document.getElementById('statusActions');
         box.innerHTML = '';
         function add(label, icon, cls, next) {

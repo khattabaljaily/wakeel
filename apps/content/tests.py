@@ -194,6 +194,22 @@ class PostWorkflowTests(TestCase):
         self.post.refresh_from_db()
         self.assertIsNotNone(self.post.published_at)
 
+    def test_manual_publish_card_links_the_posts_platforms(self):
+        self.post.platforms = ['facebook', 'tiktok', 'instagram']
+        self.post.status = Post.Status.APPROVED
+        self.post.save()
+        self.client.force_login(self.owner)
+        r = self.client.get(reverse('content:post_edit', args=[self.post.pk]))
+        self.assertContains(r, 'id="manualPublish"')
+        self.assertNotContains(r, 'mt-3 d-none" id="manualPublish"')
+        self.assertContains(r, 'https://business.facebook.com/latest/composer', count=2)  # Facebook and Instagram
+        self.assertContains(r, 'https://www.tiktok.com/tiktokstudio/upload', count=1)
+
+    def test_manual_publish_card_hidden_until_approved(self):
+        self.client.force_login(self.owner)
+        r = self.client.get(reverse('content:post_edit', args=[self.post.pk]))
+        self.assertContains(r, 'mt-3 d-none" id="manualPublish"')
+
     def test_reschedule_keeps_time_of_day(self):
         self.client.force_login(self.editor)
         r = self.client.post(reverse('api:post_reschedule', args=[self.post.pk]), {'date': '2026-04-20'}, content_type='application/json')

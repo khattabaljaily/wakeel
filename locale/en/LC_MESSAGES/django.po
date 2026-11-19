@@ -6257,3 +6257,43 @@ msgstr ""
 
 msgid "قريباً"
 msgstr "Soon"
+
+msgid "انشر بنفسك في دقيقة"
+msgstr "Publish it yourself in a minute"
+
+msgid "انسخ النص وافتح %(label)s"
+msgstr "Copy the text and open %(label)s"
+
+msgid "مشاركة من الجوال (نص وصورة)"
+msgstr "Share from your phone (text and image)"
+
+msgid "الصق النص في الصفحة التي تفتح، ثم أضف الصورة:"
+msgstr "Paste the text on the page that opens, then add the image:"
+
+msgid "انسخ الصورة (للصقها مباشرة)"
+msgstr "Copy the image (to paste it directly)"
+
+msgid "نزّل الصورة"
+msgstr "Download the image"
+
+msgid "انسخ النص فقط"
+msgstr "Copy the text only"
+
+msgid "موعده المقترح:"
+msgstr "Suggested time:"
+
+msgid "(اختر «جدولة» في Business Suite لنشره في موعده)."
+msgstr "(choose “Schedule” in Business Suite to post it at that time)."
+
+msgid ""
+"قريباً: النشر المباشر على فيسبوك وإنستغرام سيكون مؤتمتاً بالكامل، فيُنشر "
+"المنشور المعتمد في موعده دون أي خطوة منك."
+msgstr ""
+"Coming soon: direct publishing to Facebook and Instagram will be fully "
+"automated, so an approved post goes out at its time with no step from you."
+
+msgid "نُسخت الصورة، الصقها في المنشور."
+msgstr "Image copied. Paste it into the post."
+
+msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
+msgstr "Couldn't copy the image; download it instead."

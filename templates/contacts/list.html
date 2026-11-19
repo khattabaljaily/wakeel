@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Contacts" %}{% endblock %}
+{% block page_title %}{% translate "Contacts" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Clients, suppliers and partners in one book, with how to reach them and what was done with them." %}</div>{% endblock %}
+{% block actions %}{% if can_edit %}<button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#newContact" aria-expanded="{% if open_form %}true{% else %}false{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "New contact" %}</button>{% endif %}{% endblock %}
+{% block content %}
+{% if can_edit %}<div class="collapse {% if open_form %}show{% endif %} mb-3" id="newContact">
+<form class="wk-card" style="max-width:860px" method="post" action="{% url 'contacts:new' %}" novalidate data-once><div class="wk-card-body">{% csrf_token %}
+  {% include "contacts/_fields.html" %}
+  <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+</div></form></div>{% endif %}
+
+<form class="mb-2" method="get" role="search" style="max-width:420px">
+  {% if kind %}<input type="hidden" name="kind" value="{{ kind }}">{% endif %}
+  <input class="form-control" type="search" name="q" value="{{ q }}" placeholder="{% translate 'Search' %}" aria-label="{% translate 'Search' %}" autocomplete="off">
+</form>
+<div class="d-flex flex-wrap gap-2 mb-3">
+  <a class="btn btn-sm {% if not kind %}btn-primary{% else %}btn-light{% endif %}" href="?{% if q %}q={{ q|urlencode }}{% endif %}"{% if not kind %} aria-current="page"{% endif %}>{% translate "All" %} <span class="badge text-bg-light">{{ total }}</span></a>
+  {% for key, label, n in kinds %}<a class="btn btn-sm {% if kind == key %}btn-primary{% else %}btn-light{% endif %}" href="?kind={{ key }}{% if q %}&amp;q={{ q|urlencode }}{% endif %}"{% if kind == key %} aria-current="page"{% endif %}>{{ label }} <span class="badge text-bg-light">{{ n }}</span></a>{% endfor %}
+</div>
+<div class="wk-card"><div class="list-group list-group-flush">
+  {% for c in contacts %}
+  <a class="list-group-item list-group-item-action" href="{% url 'contacts:detail' c.pk %}">
+    <div class="d-flex justify-content-between gap-2"><span class="fw-semibold text-truncate" dir="auto">{{ c.name }}</span><span class="badge text-bg-light border flex-shrink-0">{{ c.get_kind_display }}</span></div>
+    <div class="small opacity-75 text-truncate"><span dir="auto">{{ c.organization }}</span>{% if c.organization and c.phone %} · {% endif %}<span dir="ltr">{{ c.phone }}</span></div>
+  </a>
+  {% empty %}<div class="p-4 text-center small-muted">{% if q %}{% translate "Nothing matches your search." %}{% else %}{% translate "No contacts yet." %}{% endif %}</div>{% endfor %}
+</div></div>
+{% endblock %}

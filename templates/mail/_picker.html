@@ -1,0 +1,7 @@
+{% load i18n %}
+<div class="pk-section"><h4>{% translate "Issued documents" %}</h4>
+  {% for d in documents %}<label class="pk-row"><input class="form-check-input" type="checkbox" value="{{ d.pk }}" data-kind="doc" data-title="{{ d.title }}"><span class="pk-t" dir="auto">{{ d.title }}</span><small class="small-muted" dir="ltr">{{ d.created_at|date:"Y-m-d" }} · PDF</small></label>
+  {% empty %}<p class="small-muted">{% translate "No issued documents yet." %}</p>{% endfor %}</div>
+<div class="pk-section"><h4>{% translate "Papers in the library" %}</h4>
+  {% for r in records %}<label class="pk-row"><input class="form-check-input" type="checkbox" value="{{ r.pk }}" data-kind="rec" data-title="{{ r.title }}"><span class="pk-t" dir="auto">{{ r.title }}</span><small class="small-muted">{{ r.get_category_display }}</small></label>
+  {% empty %}<p class="small-muted">{% translate "No papers in the library yet." %}</p>{% endfor %}</div>

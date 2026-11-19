@@ -1,0 +1,21 @@
+<script>
+/* The member's own time zone goes with the form (a reminder is at their 9:00, wherever the server is), and the quick choices
+   fill the date and the time in their own clock. */
+(function () {
+  var zone = '';
+  try { zone = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* the server falls back to UTC */ }
+  document.querySelectorAll('input[data-tz]').forEach(function (input) { if (!input.value && zone) input.value = zone; });
+  function two(n) { return (n < 10 ? '0' : '') + n; }
+  document.addEventListener('click', function (e) {
+    var chip = e.target.closest('[data-remind]');
+    if (!chip) return;
+    var form = chip.closest('form'), day = form.querySelector('[name=remind_date]'), clock = form.querySelector('[name=remind_time]');
+    var when = new Date(), kind = chip.getAttribute('data-remind');
+    if (kind === 'clear') { day.value = ''; clock.value = ''; return; }
+    if (kind === 'hour') when.setHours(when.getHours() + 1);
+    else { when.setDate(when.getDate() + (kind === 'week' ? 7 : 1)); when.setHours(9, 0, 0, 0); }
+    day.value = when.getFullYear() + '-' + two(when.getMonth() + 1) + '-' + two(when.getDate());
+    clock.value = two(when.getHours()) + ':' + two(when.getMinutes());
+  });
+})();
+</script>

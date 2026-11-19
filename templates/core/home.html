@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% block title %}{% translate "مدير التسويق الذكي لشركتك" %}{% endblock %}
+{% block title %}{% translate "عمل شركتك في مكان واحد" %}{% endblock %}
 {% block body_class %}wk-landing{% endblock %}
 {% block body %}
 <nav>
@@ -19,9 +19,9 @@
     <div class="container">
         <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6">
-                <span class="pill mb-3"><i class="bi bi-stars"></i> {% translate "بديل ذكي لوكالات التسويق" %}</span>
-                <h1 class="mb-3">{% translate "سلّم حسابات شركتك" %}<br>{% translate "لـ" %}<span class="grad">{% translate "وكيل" %}</span> {% translate "يفهم علامتك" %}</h1>
-                <p class="lead mb-4">{% translate "وكيل يضع استراتيجية المحتوى الشهرية، ويكتب المنشورات بلغة جمهورك، ويصمم الصور بهويتك البصرية، ويرتبها في تقويم جاهز للمراجعة والنشر على فيسبوك وإنستغرام وتيك توك." %}</p>
+                <span class="pill mb-3"><i class="bi bi-stars"></i> {% translate "منصة واحدة لتسويق شركتك ومستنداتها وفريقها" %}</span>
+                <h1 class="mb-3">{% translate "تسويقك ومستنداتك وفريقك" %}<br>{% translate "في منصة واحدة" %} <span class="grad">{% translate "ذكية" %}</span></h1>
+                <p class="lead mb-4">{% translate "وكيل يضع خطة المحتوى الشهرية ويكتب المنشورات ويصممها وينشرها، ويحفظ مستندات شركتك ويصدرها بالذكاء الاصطناعي ويترجمها ويلخصها، ويدير مهام فريقك وبريده، ومساعده مارد ينفّذ ما تطلبه بموافقتك." %}</p>
                 <div class="d-flex gap-2 flex-wrap">
                     <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> {% translate "ابدأ الآن" %}</a>
                     <a href="#how" class="btn btn-light btn-lg">{% translate "كيف يعمل؟" %}</a>
@@ -50,15 +50,20 @@
 <section class="py-5" id="how">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">{% translate "كل ما تقدمه وكالة التسويق، في منصة واحدة" %}</h2>
-            <p class="text-muted">{% translate "من الاستراتيجية إلى التصميم إلى تقويم النشر." %}</p>
+            <h2 class="fw-bold">{% translate "كل ما تحتاجه شركتك، في منصة واحدة" %}</h2>
+            <p class="text-muted">{% translate "من التسويق إلى المستندات إلى الفريق، ويربط بينها مساعد واحد." %}</p>
         </div>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-primary"><i class="bi bi-bullseye"></i></div><h3>{% translate "استراتيجية شهرية" %}</h3><p>{% translate "أهداف ومحاور محتوى ومناسبات السوق، مبنية على نشاط شركتك وجمهورها." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-review"><i class="bi bi-pen"></i></div><h3>{% translate "كتابة المنشورات" %}</h3><p>{% translate "نصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم وأفضل أوقات النشر." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-approved"><i class="bi bi-palette"></i></div><h3>{% translate "تصميم الصور" %}</h3><p>{% translate "قوالب احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-published"><i class="bi bi-camera-reels"></i></div><h3>{% translate "سيناريوهات الفيديو" %}</h3><p>{% translate "نصوص تصوير جاهزة للريلز وتيك توك: الافتتاحية والمشاهد والدعوة." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-primary"><i class="bi bi-bullseye"></i></div><h3>{% translate "خطة شهرية ومنشورات" %}</h3><p>{% translate "أهداف ومحاور ومناسبات السوق، ونصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم وأفضل أوقات النشر." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-approved"><i class="bi bi-palette"></i></div><h3>{% translate "تصميم بهويتك" %}</h3><p>{% translate "صور احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة، وسيناريوهات جاهزة للفيديو." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-review"><i class="bi bi-folder2"></i></div><h3>{% translate "مكتبة المستندات" %}</h3><p>{% translate "التراخيص والعقود والمراسلات في مكان واحد مشفّر، مع تنبيهات قبل انتهائها وقراءة تفاصيلها بالذكاء الاصطناعي." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-published"><i class="bi bi-file-earmark-richtext"></i></div><h3>{% translate "مستندات صادرة بورق شركتك" %}</h3><p>{% translate "يكتب وكيل المستند بقوالب مصممة لك، بالورق الرسمي، ويصدره PDF أو Word مع رمز تحقق QR." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-primary"><i class="bi bi-translate"></i></div><h3>{% translate "ترجمة وتلخيص واستخراج" %}</h3><p>{% translate "ترجمة المستندات وتلخيصها واستخراج بياناتها وتحويلها إلى Word بـ16 لغة، بسعر معروض قبل التنفيذ." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-approved"><i class="bi bi-easel"></i></div><h3>{% translate "هوية وعروض تقديمية" %}</h3><p>{% translate "شعار وألوان وبطاقات وورق مروّس وعروض تقديمية بهوية شركتك، من وصف قصير." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-review"><i class="bi bi-people"></i></div><h3>{% translate "فريقك وبريدك" %}</h3><p>{% translate "مهام وجهات اتصال وإعلانات داخلية ونماذج واستبيانات، وصندوق بريد الشركة، بصلاحيات لكل دور." %}</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-published"><i class="bi bi-chat-heart"></i></div><h3>{% translate "مارد، مساعدك" %}</h3><p>{% translate "اطلب بجملة: خطة أو منشور أو ترجمة أو مهمة. يقترح مارد ويعرض السعر، ولا ينفّذ إلا بموافقتك." %}</p></div></div>
         </div>
+        <div class="wk-pay text-center mt-5"><i class="bi bi-wallet2"></i> <strong>{% translate "تدفع بقدر ما تستخدم" %}</strong> {% translate "السعر يظهر قبل كل خدمة، ويُخصم من محفظتك كما هو بالضبط." %}</div>
     </div>
 </section>
 

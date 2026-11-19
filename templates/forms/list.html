@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Forms and surveys" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "Forms and surveys" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Make a form, share it by a link or a QR code, and read the answers here." %}</div>{% endblock %}
+{% block actions %}<button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#newForm" aria-expanded="{% if open_form %}true{% else %}false{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "New form" %}</button>{% endblock %}
+{% block content %}
+<div class="collapse {% if open_form %}show{% endif %} mb-3" id="newForm">
+<form class="wk-card" style="max-width:760px" method="post" action="{% url 'forms:new' %}" novalidate data-once><div class="wk-card-body">{% csrf_token %}
+  <input type="hidden" name="expected_points" value="{{ quote.total }}">
+  <p class="small-muted">{% blocktranslate with price=quote.usd limit=limit %}Creating a form costs ${{ price }} from the balance, once. Its answers are free (up to {{ limit }} answers).{% endblocktranslate %}</p>
+  {% if form.non_field_errors %}<div class="alert alert-danger">{% for e in form.non_field_errors %}{{ e }}{% endfor %}</div>{% endif %}
+  {% for field in form %}{% include "forms/_field.html" %}{% endfor %}
+  <button type="submit" class="btn btn-primary">{% translate "Create the form" %} <span class="badge bg-white bg-opacity-25 ms-1" dir="ltr">${{ quote.usd }}</span></button>
+</div></form></div>
+
+<div class="wk-card"><div class="list-group list-group-flush">
+  {% for f in forms %}
+  <a class="list-group-item list-group-item-action" href="{% url 'forms:detail' f.pk %}">
+    <div class="d-flex justify-content-between gap-2"><span class="fw-semibold text-truncate" dir="auto"><i class="bi bi-ui-checks"></i> {{ f.title }}</span>
+      {% if f.accepting %}<span class="badge text-bg-success">{% translate "Open" context "form status" %}</span>{% else %}<span class="badge text-bg-secondary">{% translate "Closed" context "form status" %}</span>{% endif %}</div>
+    <div class="small opacity-75">{{ f.get_audience_display }} · {% blocktranslate count n=f.answered %}{{ n }} answer{% plural %}{{ n }} answers{% endblocktranslate %} · {% blocktranslate count n=f.asked %}{{ n }} question{% plural %}{{ n }} questions{% endblocktranslate %}</div>
+  </a>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "No forms yet." %}</div>{% endfor %}
+</div></div>
+{% endblock %}

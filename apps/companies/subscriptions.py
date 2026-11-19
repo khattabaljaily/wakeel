@@ -40,7 +40,7 @@ def valid_days(value):
     return days if 0 < days <= MAX_DAYS else None
 
 
-def approve(company, *, is_demo, days=None):
+def approve(company, *, is_demo=False, days=None):
     company.is_approved, company.approved_at, company.is_demo = True, timezone.now(), is_demo
     if days:
         extend(company, days)

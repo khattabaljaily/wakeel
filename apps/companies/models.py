@@ -1,5 +1,7 @@
 import datetime
+import uuid
 import zoneinfo
+from pathlib import Path
 
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
@@ -7,7 +9,15 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
+from apps.core.storage import private_storage
+
 hex_color = RegexValidator(r'^#[0-9a-fA-F]{6}$', _('أدخل لوناً بصيغة ‎#RRGGBB.'))
+
+
+def upload_letterhead(instance, filename):
+    # The private files live under the company's id (that is how they are encrypted); a random name, because the original
+    # name may carry personal or company details.
+    return f'{instance.pk}/letterhead-{uuid.uuid4().hex}{Path(filename).suffix.lower()}'
 
 
 class Agency(models.Model):
@@ -83,6 +93,10 @@ class Company(models.Model):
     # About the business
     industry = models.CharField(_('المجال'), max_length=150)
     country = models.CharField(_('الدولة'), max_length=80)
+    # The country as an ISO 3166 code and the operator that serves the company there (enjaz-operators). Set from the
+    # country the company wrote, by apps.companies.operators.assign; a change of operator is the console's.
+    country_code = models.CharField(max_length=2, blank=True, editable=False)
+    operator = models.CharField(max_length=20, blank=True, editable=False)
     city = models.CharField(_('المدينة'), max_length=80, blank=True)
     description = models.TextField(_('نبذة عن الشركة'), help_text=_('ماذا تقدم الشركة، ولمن، وما الذي يميزها.'))
     products = models.TextField(_('المنتجات والخدمات'), blank=True)
@@ -110,6 +124,24 @@ class Company(models.Model):
     website = models.CharField(_('الموقع الإلكتروني'), max_length=200, blank=True)
     phone = models.CharField(_('رقم التواصل'), max_length=30, blank=True)
     whatsapp = models.CharField(_('واتساب'), max_length=30, blank=True)
+
+    # The company's official details: what letters, templates and certificates are built from (the documents section).
+    # The name and address are in `main_language`; `other_names` holds them in other languages ({'en': {'name': ..., 'address': ...}}),
+    # used when a document is written in that language.
+    main_language = models.CharField(_('لغة الاسم والعنوان الرسميين'), max_length=8, choices=settings.LANGUAGES, default='ar')
+    legal_name = models.CharField(_('الاسم القانوني'), max_length=200, blank=True)
+    address = models.TextField(_('العنوان'), blank=True)
+    cr_number = models.CharField(_('رقم السجل التجاري'), max_length=60, blank=True)
+    tax_number = models.CharField(_('الرقم الضريبي'), max_length=60, blank=True)
+    official_email = models.EmailField(_('البريد الإلكتروني للشركة'), blank=True)
+    other_names = models.JSONField(default=dict, blank=True, editable=False)
+    # When on, a document written by a member must be approved by the owner or an administrator before it can be printed,
+    # downloaded or sent.
+    documents_need_approval = models.BooleanField(_('المستندات تحتاج اعتماداً'), default=False)
+    # The letterhead (an image; a PDF is turned into its first page) in the main language, kept encrypted. Letterheads in other
+    # languages are `identity.LetterheadVariant` rows.
+    letterhead = models.ImageField(_('الورق الرسمي'), upload_to=upload_letterhead, storage=private_storage, blank=True)
+    asset_sources = models.JSONField(default=dict, blank=True, editable=False)     # {'letterhead': 'uploaded' | 'created'}
     facebook_page = models.CharField(_('صفحة فيسبوك'), max_length=200, blank=True)
     instagram_handle = models.CharField(_('حساب إنستغرام'), max_length=100, blank=True)
     tiktok_handle = models.CharField(_('حساب تيك توك'), max_length=100, blank=True)
@@ -178,6 +210,9 @@ class Company(models.Model):
             while Company.objects.filter(slug=slug).exclude(pk=self.pk).exists():
                 slug, n = f'{base}-{n}', n + 1
             self.slug = slug
+        if not self.operator:
+            from . import operators
+            operators.assign(self, operators.code_from_name(self.country))
         super().save(*args, **kwargs)
 
     @property
@@ -194,8 +229,6 @@ class Company(models.Model):
             return 'pending'
         if not self.is_active:
             return 'suspended'
-        if self.subscription_expires and self.days_until_expiry < 0:
-            return 'expired'
         return 'active'
 
     STATUS_LABELS = {'pending': _('قيد الاعتماد'), 'suspended': _('معلّق'), 'expired': _('منتهي'), 'active': _('نشط')}
@@ -208,6 +241,17 @@ class Company(models.Model):
     def is_usable(self):
         """Whether the company's team may work in the app."""
         return self.subscription_status == 'active'
+
+    def _in(self, language, key):
+        other = (self.other_names or {}).get(language) or {}
+        return other.get(key) or getattr(self, key)
+
+    def name_for(self, language):
+        """The company name for a document written in `language`, falling back to the main one."""
+        return self._in(language, 'name')
+
+    def address_for(self, language):
+        return self._in(language, 'address')
 
     @property
     def tzinfo(self):
@@ -226,6 +270,8 @@ class Membership(models.Model):
         ADMIN = 'admin', _('مدير')
         EDITOR = 'editor', _('محرر محتوى')
         VIEWER = 'viewer', _('مشاهد')
+        # An outside client of the company: sees what is shared with them (announcements, forms), never edits.
+        CLIENT = 'client', _('عميل')
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='memberships')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='memberships')
@@ -247,7 +293,7 @@ class Membership(models.Model):
 
     @property
     def can_edit(self):
-        return self.role != self.Role.VIEWER
+        return self.role not in (self.Role.VIEWER, self.Role.CLIENT)
 
 
 class MediaAsset(models.Model):

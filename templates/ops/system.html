@@ -50,7 +50,9 @@
     <div class="wk-card-body py-2 small">
         <div class="adm-status">SITE_URL<span class="adm-status__val" dir="ltr">{{ system.site_url }}</span></div>
         <div class="adm-status">DEBUG<span class="adm-status__val">{% if system.debug %}<span class="text-danger">{% translate "مفعّل — أوقفه في الإنتاج" %}</span>{% else %}{% translate "متوقف" %}{% endif %}</span></div>
-        <div class="adm-status">{% translate "مزوّد الذكاء الاصطناعي" %}<span class="adm-status__val">{{ system.provider }}</span></div>
+        <div class="adm-status">{% translate "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)" %}<span class="adm-status__val" dir="ltr">{% if system.routes.interactive %}{{ system.routes.interactive.model }}{% else %}—{% endif %}</span></div>
+        <div class="adm-status">{% translate "ذكاء اصطناعي: خلفي" %}<span class="adm-status__val" dir="ltr">{% if system.routes.background %}{{ system.routes.background.model }}{% else %}—{% endif %}</span></div>
+        <div class="adm-status">{% translate "ذكاء اصطناعي: جودة قصوى" %}<span class="adm-status__val" dir="ltr">{% if system.routes.premium %}{{ system.routes.premium.model }}{% else %}—{% endif %}</span></div>
         <div class="adm-status">{% translate "خارج الذروة (DeepSeek)" %}<span class="adm-status__val" dir="ltr">{{ system.off_peak.0 }}–{{ system.off_peak.1 }} UTC</span></div>
     </div>
 </div>

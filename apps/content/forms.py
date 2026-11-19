@@ -31,6 +31,10 @@ class PlanForm(forms.ModelForm):
     posts_per_week = forms.TypedChoiceField(label=_('عدد المنشورات أسبوعياً'), coerce=int, initial=4,
                                             choices=[(n, str(n)) for n in (2, 3, 4, 5, 6, 7, 10)])
 
+    source = forms.ModelChoiceField(queryset=None, required=False, label=_('مستند من المكتبة كمصدر'),
+                                    help_text=_('اختياري: يقرأ وكيل المستند (كتالوج، عرض، قائمة أسعار…) ويبني الخطة على ما فيه. القراءة مجانية ضمن سعر الخطة.'),
+                                    widget=forms.Select(attrs={'class': 'form-select'}))
+
     class Meta:
         model = ContentPlan
         fields = ['month', 'platforms', 'posts_per_week', 'brief']
@@ -38,6 +42,9 @@ class PlanForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        from apps.library.models import Record
+        self.fields['source'].queryset = Record.objects.order_by('title')       # this company's papers only (the active company)
+        self.fields['source'].empty_label = _('بلا مستند')
         self.fields['month'].choices = month_choices()
         # Late in the month, the next month is the one worth planning.
         if timezone.localdate().day > 20:

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Company announcements" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "Company announcements" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Circulars, announcements and alerts for the whole team, and who has read them." %}</div>{% endblock %}
+{% block actions %}{% if can_manage %}<button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#newAnnouncement" aria-expanded="{% if open_form %}true{% else %}false{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "New announcement" %}</button>{% endif %}{% endblock %}
+{% block content %}
+{% if can_manage %}<div class="collapse {% if open_form %}show{% endif %} mb-3" id="newAnnouncement">
+<form class="wk-card" style="max-width:760px" method="post" action="{% url 'announcements:new' %}" novalidate data-once><div class="wk-card-body">{% csrf_token %}
+  {% include "announcements/_fields.html" %}
+  <button type="submit" class="btn btn-primary"><i class="bi bi-megaphone"></i> {% translate "Publish" %}</button>
+</div></form></div>{% endif %}
+
+<div class="d-flex flex-wrap gap-2 mb-3">
+  <a class="btn btn-sm {% if show == 'all' %}btn-primary{% else %}btn-light{% endif %}" href="?show=all"{% if show == 'all' %} aria-current="page"{% endif %}>{% translate "All" %}</a>
+  <a class="btn btn-sm {% if show == 'unread' %}btn-primary{% else %}btn-light{% endif %}" href="?show=unread"{% if show == 'unread' %} aria-current="page"{% endif %}>{% translate "Unread" %}{% if unread %} <span class="badge text-bg-danger">{{ unread }}</span>{% endif %}</a>
+</div>
+<div class="wk-card"><div class="list-group list-group-flush">
+  {% for i in items %}
+  <a class="list-group-item list-group-item-action{% if i.unread %} fw-semibold{% endif %}" href="{% url 'announcements:detail' i.a.pk %}">
+    <div class="d-flex justify-content-between gap-2"><span class="text-truncate" dir="auto">{% if i.unread %}<i class="bi bi-circle-fill text-primary small" aria-label="{% translate 'Unread' %}"></i> {% endif %}<i class="bi bi-megaphone"></i> {{ i.a.title }}</span>
+      <span class="d-flex gap-1 flex-shrink-0">{% if i.needs_ack %}<span class="badge text-bg-warning">{% translate "Needs your confirmation" %}</span>{% endif %}{% include "announcements/_kind.html" with a=i.a %}</span></div>
+    <div class="small opacity-75 fw-normal text-truncate" dir="auto">{{ i.a.body|truncatechars:140 }}</div>
+    <div class="small opacity-75 fw-normal"><span dir="ltr">{{ i.a.created_at|date:"Y-m-d" }}</span>{% if i.a.author %} · <span dir="auto">{{ i.a.author.first_name|default:i.a.author.email }}</span>{% endif %}</div>
+  </a>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "No announcements yet." %}</div>{% endfor %}
+</div></div>
+{% endblock %}

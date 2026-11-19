@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n credits %}
 {% block title %}{% translate "التقارير الشهرية" %}{% endblock %}
 {% block page_title %}{% translate "التقارير الشهرية" %}{% endblock %}
 {% block subtitle %}<div class="subtitle">{% translate "تقرير بنهاية كل شهر بالأرقام وتوصيات وكيل للشهر التالي، يمكن إرساله للعميل برابط." %}</div>{% endblock %}
@@ -7,10 +7,10 @@
 {% block content %}
 {% if membership.can_edit %}
 <form method="post" action="{% url 'insights:report_create' %}" class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-2 align-items-center">
-    {% csrf_token %}
+    {% csrf_token %}<input type="hidden" name="expected_points" value="{% quote 'generate_report' as q %}{{ q.total }}">
     <label class="mb-0 fw-semibold" for="rm">{% translate "أعدّ تقريراً لشهر" %}</label>
     <select name="month" id="rm" class="form-select" style="max-width:220px">{% for m in months %}<option value="{{ m|date:'Y-m-d' }}">{{ m|date:"F Y" }}</option>{% endfor %}</select>
-    <button class="btn btn-ai"><i class="bi bi-magic"></i> {% translate "إعداد التقرير" %}</button>
+    <button class="btn btn-ai"><i class="bi bi-magic"></i> {% translate "إعداد التقرير" %} <span dir="ltr">· ${% price 'generate_report' %}</span></button>
 </div></form>
 {% endif %}
 <div class="row g-3">

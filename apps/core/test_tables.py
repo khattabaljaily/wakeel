@@ -29,13 +29,13 @@ class DataTableEndpointTests(TestCase):
     def test_paging_and_totals(self):
         data = self.get('subscriptions_data', start=20)
         self.assertEqual((data['recordsTotal'], data['recordsFiltered'], len(data['data'])), (30, 30, 10))
-        self.assertEqual(set(data['data'][0]), {'name', 'industry', 'end', 'members', 'status', 'actions', 'card', 'DT_RowClass'})
+        self.assertEqual(set(data['data'][0]), {'name', 'industry', 'balance', 'members', 'status', 'actions', 'card', 'DT_RowClass'})
 
     def test_sorting_by_a_column(self):
-        # Column 2 is "end" (subscription_expires).
-        data = self.get('subscriptions_data', **{'order[0][column]': 2, 'order[0][dir]': 'asc',
+        # Column 0 is the name.
+        data = self.get('subscriptions_data', **{'order[0][column]': 0, 'order[0][dir]': 'asc',
                                                   **{f'columns[{i}][data]': k for i, k in enumerate(
-                                                      ['name', 'industry', 'end', 'members', 'status', 'actions'])}})
+                                                      ['name', 'industry', 'balance', 'members', 'status', 'actions'])}})
         self.assertIn('شركة 00', data['data'][0]['name'])
 
     def test_search_reaches_owner_emails(self):

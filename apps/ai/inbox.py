@@ -44,4 +44,4 @@ def triage(company, items):
 {lines}
 
 Read every comment above."""
-    return call_json(SYSTEM_PROMPT, prompt, SCHEMA, max_tokens=8000, effort='low')
+    return call_json(SYSTEM_PROMPT, prompt, SCHEMA, max_tokens=8000, effort='low', tier='background')

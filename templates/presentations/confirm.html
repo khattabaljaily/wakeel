@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Confirm the presentation" %}{% endblock %}
+{% block page_title %}{% translate "Confirm the presentation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Nothing is charged until you confirm." %}</div>{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'presentations:list' %}">← {% translate "Smart presentations" context "navigation" %}</a>{% endblock %}
+{% block content %}
+<div class="wk-card" style="max-width:760px"><div class="wk-card-body">
+  <dl class="row mb-3">
+    <dt class="col-sm-4">{% translate "title" context "presentation" %}</dt><dd class="col-sm-8" dir="auto">{{ p.title }}</dd>
+    <dt class="col-sm-4">{% translate "Quality" context "presentation quality" %}</dt><dd class="col-sm-8">{{ p.get_tier_display }}</dd>
+    <dt class="col-sm-4">{% translate "language of the slides" %}</dt><dd class="col-sm-8">{{ p.get_language_display }}</dd>
+    <dt class="col-sm-4">{% translate "number of slides" %}</dt><dd class="col-sm-8">{{ p.slides }}</dd>
+    {% if source %}<dt class="col-sm-4">{% translate "Document" %}</dt><dd class="col-sm-8" dir="auto">{{ source.title }} · {% blocktranslate count n=source_pages %}{{ n }} page is read{% plural %}{{ n }} pages are read{% endblocktranslate %}</dd>{% endif %}
+    <dt class="col-sm-4">{% translate "Price" %}</dt><dd class="col-sm-8"><b dir="ltr">${{ quote.usd }}</b> · {% blocktranslate with balance=balance %}your balance: <bdi dir="ltr">${{ balance }}</bdi>{% endblocktranslate %}</dd>
+  </dl>
+  <form method="post" action="{% url 'presentations:new' %}" data-once>{% csrf_token %}
+    {% for name, value in fields %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endfor %}
+    {% if source %}<input type="hidden" name="source_record" value="{{ source.pk }}">{% endif %}
+    <input type="hidden" name="confirm" value="1">
+    <input type="hidden" name="expected_points" value="{{ quote.total }}">
+    <p class="small-muted">{% translate "It takes a few minutes. You can leave the page: the result waits in your presentations. If it fails, the price goes back to your balance." %}</p>
+    <button type="submit" class="btn btn-primary"{% if blocked %} disabled{% endif %}>{% blocktranslate with price=quote.usd %}Create it for ${{ price }}{% endblocktranslate %}</button>
+    <a class="btn btn-light" href="{% url 'presentations:list' %}">{% translate "Cancel" %}</a>
+  </form>
+</div></div>
+{% endblock %}

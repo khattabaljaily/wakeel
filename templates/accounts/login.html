@@ -4,7 +4,7 @@
 {% block auth_content %}
 <div class="wk-auth__head">
     <h1>{% translate "مرحباً بعودتك" %}</h1>
-    <p>{% translate "سجّل الدخول لمتابعة تسويق شركتك." %}</p>
+    <p>{% translate "سجّل الدخول لمتابعة عمل شركتك." %}</p>
 </div>
 <form method="post" novalidate>{% csrf_token %}
     {% for e in form.non_field_errors %}<div class="alert alert-danger py-2 small"><i class="bi bi-exclamation-circle"></i> {{ e }}</div>{% endfor %}

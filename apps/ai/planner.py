@@ -9,6 +9,8 @@ import calendar
 from apps.studio.designs import MOTIFS, SCHEMES, TEMPLATES
 from apps.studio.vectors import VECTORS
 
+from apps.content import doc_source
+
 from .client import call_json
 
 PLATFORMS = ['facebook', 'instagram', 'tiktok']
@@ -205,7 +207,7 @@ def generate_plan(plan):
 <brief>
 {brief}
 </brief>
-<local_occasions>
+{doc_source.block(plan.source_facts)}<local_occasions>
 {occasions}
 </local_occasions>
 
@@ -238,7 +240,7 @@ Art direction (you are also the art director; a feed that repeats one look reads
     return call_json(SYSTEM_PROMPT, prompt, PLAN_SCHEMA, max_tokens=64000, effort='high')
 
 
-def rewrite_post(post, instruction):
+def rewrite_post(post, instruction, source_facts=''):
     fields = '\n'.join(f'{field}: {getattr(post, field)}' for field in _REWRITE_FIELDS)
     prompt = f"""<brand_profile>
 {brand_profile(post.company)}
@@ -248,7 +250,7 @@ def rewrite_post(post, instruction):
 {fields}
 </post>
 
-<instruction>
+{doc_source.block(source_facts)}<instruction>
 {instruction}
 </instruction>
 

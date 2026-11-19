@@ -36,4 +36,4 @@ def write_report(company, month_label, stats, language='Arabic (Modern Standard 
 </results>
 
 Write the monthly report."""
-    return call_json(SYSTEM_PROMPT.format(language=language), prompt, REPORT_SCHEMA, max_tokens=4000, effort='medium')
+    return call_json(SYSTEM_PROMPT.format(language=language), prompt, REPORT_SCHEMA, max_tokens=4000, effort='medium', tier='background')

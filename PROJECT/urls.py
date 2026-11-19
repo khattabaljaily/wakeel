@@ -2,6 +2,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+
+from apps.documents import verify as documents_verify
+from apps.forms.public import fill as form_fill
 from django.utils.translation import gettext_lazy as _
 from django.views.i18n import JavaScriptCatalog
 
@@ -15,6 +18,27 @@ urlpatterns = [
     path('accounts/', include('apps.accounts.urls')),
     path('company/social/', include('apps.social.urls')),
     path('meta/', include('apps.social.public_urls')),
+    path('company/activity/', include('apps.audit.urls')),
+    path('company/wallet/', include('apps.credits.urls')),
+    path('app/documents/', include('apps.library.urls')),
+    path('app/documents/d/', include('apps.documents.urls')),
+    path('app/documents/share/', include('apps.sharing.urls')),
+    path('s/', include('apps.sharing.public_urls')),
+    path('app/ai/identity/', include('apps.brand.urls')),
+    path('app/ai/presentations/', include('apps.presentations.urls')),
+    path('app/forms/', include('apps.forms.urls')),
+    path('app/tasks/', include('apps.tasks.urls')),
+    path('app/notes/', include('apps.notes.urls')),
+    path('app/contacts/', include('apps.contacts.urls')),
+    path('app/announcements/', include('apps.announcements.urls')),
+    path('app/mail/', include('apps.mail.urls')),
+    path('app/ai/marid/', include('apps.assistant.urls')),
+    path('app/ai/', include('apps.docops.urls')),
+    path('app/ai/', include('apps.docops.service_urls')),
+    path('v/<str:code>/', documents_verify.verify, name='verify'),
+    path('f/<str:code>/', form_fill, name='fill'),
+    path('company/letterheads/', include('apps.identity.urls')),
+    path('billing/', include('apps.billing.urls')),
     path('company/', include('apps.companies.urls')),
     path('app/', include('apps.content.urls')),
     path('app/insights/', include('apps.insights.urls')),

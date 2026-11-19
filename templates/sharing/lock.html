@@ -1,0 +1,37 @@
+{% load i18n static %}<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>{{ company }} · Wakeel</title>
+<link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
+<style>
+  :root { --muted: #71717a; --line: #e4e4e7; --bad: #dc2626; --bad-soft: #fef2f2; --accent: #6d5ef8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f4f4f5; color: #18181b; font-family: "Cairo", system-ui, sans-serif; }
+  .vp { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; padding: 1.5rem 1rem 2rem; }
+  .vp-card { width: 100%; max-width: 28rem; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 1.6rem 1.4rem; box-shadow: 0 24px 50px -24px rgba(24,24,27,.35); text-align: center; }
+  .vp-bad h1 { color: var(--bad); font-size: 1.3rem; margin: 0 0 .8rem; }
+  .vp-from { margin: 0; color: var(--muted); font-size: .88rem; }
+  .vp-company { margin: .15rem 0 1rem; font-size: 1.5rem; font-weight: 800; overflow-wrap: anywhere; }
+  .vp-note { margin: 0 0 1rem; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+  .vp-warn { margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px; background: var(--bad-soft); color: var(--bad); font-weight: 700; font-size: .9rem; }
+  .vp input { width: 100%; padding: .65rem .8rem; border: 1px solid var(--line); border-radius: 12px; font: inherit; margin: .3rem 0 .9rem; }
+  .vp button, .sh .btn { background: var(--accent); color: #fff; border: 0; border-radius: 12px; padding: .65rem 1.4rem; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
+  .vp-by { display: flex; align-items: center; gap: .45rem; margin: 0; color: var(--muted); font-size: .8rem; }
+  .sh { min-height: 100vh; display: flex; flex-direction: column; }
+  .sh-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding: .8rem 1.2rem; background: #fff; border-bottom: 1px solid var(--line); }
+  .sh-who small, .sh-title small, .sh-end small { display: block; color: var(--muted); font-size: .75rem; }
+  .sh-title { flex: 1; font-weight: 800; text-align: center; } .sh-end { text-align: end; }
+  .sh-view { flex: 1; display: flex; justify-content: center; padding: 1rem; }
+  .sh-view iframe { width: min(100%, 60rem); height: calc(100vh - 8rem); border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+  .sh-view img { max-width: 100%; height: auto; align-self: flex-start; border-radius: 14px; }
+</style></head><body>
+<main class="vp"><section class="vp-card">
+  <p class="vp-from">{% translate "Shared by" %}</p><p class="vp-company" dir="auto">{{ company }}</p>
+  <p class="vp-note" dir="auto">{{ title }}</p>
+  {% if blocked %}<p class="vp-warn">{% translate "Too many wrong tries. Please wait a while and try again." %}</p>
+  {% else %}<form method="post">{% csrf_token %}
+    <label for="pw">{% translate "Password" %}</label><input id="pw" name="password" type="password" autocomplete="off" autofocus dir="ltr" required>
+    {% if wrong %}<p class="vp-warn" role="alert">{% translate "The password is not right." %}</p>{% endif %}
+    <button type="submit">{% translate "Open" %}</button></form>{% endif %}
+</section><p class="vp-by"><img src="{% static 'img/logo.svg' %}" alt="" width="20" height="20"><span>Wakeel</span></p></main>
+</body></html>

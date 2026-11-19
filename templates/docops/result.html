@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ op.get_kind_display }} · {{ record.title }}{% endblock %}
+{% block page_title %}{{ op.get_kind_display }}{% if op.language %} <span class="small-muted">· {{ op.get_language_display }}</span>{% endif %}{% endblock %}
+{% block subtitle %}<div class="subtitle" dir="auto">{{ record.title }} · {{ op.get_tier_display }}{% if op.length %} · {{ op.get_length_display }}{% endif %} · {{ op.created_at|date:"Y-m-d H:i" }}</div>{% endblock %}
+{% block actions %}
+  <a class="btn btn-light" href="{% url 'library:list' %}?rec={{ record.pk }}">← {{ record.title }}</a>
+  {% for fmt in formats %}<a class="btn {% if forloop.first %}btn-primary{% else %}btn-light{% endif %}" href="{% url 'docops:download' op.pk fmt %}"><i class="bi bi-download"></i> {% if fmt == 'file' %}{% if op.kind == 'word' %}Word{% else %}PDF{% endif %}{% elif fmt == 'designed-pdf' %}{% translate "Designed PDF" %}{% elif fmt == 'designed-docx' %}{% translate "Designed Word" %}{% elif fmt == 'txt' %}{% translate "Text" %}{% elif fmt == 'docx' %}Word{% else %}PDF{% endif %}</a>{% endfor %}
+  {% if membership.can_edit and not op.is_working %}<form method="post" action="{% url 'docops:delete' op.pk %}" data-confirm="{% translate 'This result will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button type="submit" class="btn btn-outline-danger">{% translate "Delete" %}</button></form>{% endif %}
+{% endblock %}
+{% block content %}
+{% if op.is_working %}
+<div class="wk-card" role="status" id="opWorking" data-job="{{ op.job_id }}"><div class="wk-card-body text-center py-5"><div class="spinner-border mb-3"></div>
+  <h2 class="h5">{% translate "Working on it…" %}</h2>
+  <p class="small-muted">{% translate "This can take a few minutes for the original design. You can leave this page: the result is kept in the document's results." %}</p></div></div>
+{% elif op.status == 'failed' %}
+<div class="alert alert-danger" role="alert">{{ op.error|default:_("The service had a problem. You were not charged; please try again.") }} <strong>{% translate "You were not charged." %}</strong></div>
+{% else %}
+{% if op.was_cut %}<div class="alert alert-warning">{% blocktranslate with read=op.pages total=op.pages_total %}Only the first {{ read }} of {{ total }} pages were read.{% endblocktranslate %}</div>{% endif %}
+<div class="wk-card" dir="{% if op.is_rtl %}rtl{% else %}auto{% endif %}"{% if op.language %} lang="{{ op.language }}"{% endif %}><div class="wk-card-body">
+  {% if op.kind == 'extract' %}
+    {% for key, label, items in sections %}{% if items %}<h3 class="h6">{{ label }}</h3><ul>{% for item in items %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}{% endfor %}
+  {% elif op.kind == 'word' %}
+    <p>{% translate "The Word file is ready. Download it and edit it in Word or any word processor." %}</p>
+  {% elif op.file %}
+    <p>{% translate "The translated document is ready in its original design. Download the PDF, or the Word file in the same design." %}</p>
+  {% else %}
+    {{ op.text|linebreaks }}
+  {% endif %}
+</div></div>
+<p class="small-muted mt-2">{% translate "Written by AI from the uploaded file. Check it before you rely on it." %}</p>
+{% endif %}
+{% endblock %}
+{% block scripts %}{% if op.is_working %}<script>
+(function () { var b = document.getElementById('opWorking'); if (!b || !b.dataset.job) { setTimeout(function () { location.reload(); }, 5000); return; }
+  Wakeel.pollJob(b.dataset.job).then(function () { location.reload(); }, function () { location.reload(); }); })();
+</script>{% endif %}{% endblock %}

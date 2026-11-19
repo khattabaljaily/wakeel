@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "status": "APPROVED 2026-11-19 by the owner on the condition that every price is profitable: each price is cost + 50% profit + failures 10% + card fees 6% by the formula below, so it is. Items marked `estimated` or `Not yet measured in Wakeel` stay to be measured with a real run, and their price is revised if the real cost is higher. Prices follow the owner's rule (2026-11-03, MyDocHub): after every cost the net profit is half the total cost ($1 of total cost sells at $1.50), rounded up to the price step. A service is priced by its real cost: `measured_cost_usd` (from real runs) or, until measured, an `estimated` one. Costs are for the model of the service's tier (apps/ai/client.py): interactive = Claude Sonnet, background = DeepSeek. A service priced by units (posts of a plan) has a fixed part and a part per unit.",
+  "currency": "USD",
+  "points_per_dollar": 1000,
+  "rules": {
+    "price": {
+      "profit": 0.5,
+      "failures": 0.1,
+      "card_fees": 0.06,
+      "tax": 0
+    },
+    "price_step_usd": 0.01,
+    "topup_packages_usd": [10, 25, 50, 100]
+  },
+  "services": {
+    "extract_data": {
+      "name_en": "Extract the data of a document (per page, up to 10)",
+      "name_ar": "استخراج بيانات مستند (بالصفحة، حتى 10 صفحات)",
+      "per_page": {
+        "max_pages": 10,
+        "fixed_cost_usd": 0.01
+      },
+      "parts": [
+        {
+          "model": "opus-5-5",
+          "calls": 1,
+          "in": 20000,
+          "out": 5000
+        }
+      ],
+      "measured_cost_usd": 0.021,
+      "density": {
+        "in_per_page": 1664,
+        "in_per_text": 1,
+        "out_per_page": 195,
+        "margin": 1.1
+      },
+      "note": "Per dense page (2026-11-03): the PDF goes to Opus as a document block, a full page of Arabic text is 3,764 input tokens (free token count) = $0.0151, and the facts grow by ~195 output tokens a page (fit of the real runs of 2026-11-02: 604 / 1,766 / 2,358 output tokens on 1 / 4 / 10 pages) = $0.0039; +10% = $0.021 a page. Fixed: the instructions (~330 tokens) and the ~410 output tokens every answer has = $0.0095 -> $0.01. out raised to 5000 so 10 dense pages are never cut off.",
+      "tier": "premium"
+    },
+    "generate_template": {
+      "name_en": "Design a template of a document",
+      "name_ar": "تصميم قالب مستند",
+      "tier": "premium",
+      "fixed_cost_usd": 0.15,
+      "note": "Measured 2026-11-02 in MyDocHub on Claude Opus: a sales invoice $0.106, an experience certificate $0.109, a cash receipt $0.103, a quotation $0.148, an employment contract $0.159. The figure used is about the 90th percentile; a very long contract can reach $0.20. Not yet measured in Wakeel."
+    },
+    "fill_document": {
+      "name_en": "Fill a template with the details of one document",
+      "name_ar": "تعبئة قالب ببيانات مستند",
+      "tier": "premium",
+      "fixed_cost_usd": 0.04,
+      "note": "Measured 2026-11-02 in MyDocHub: $0.017 (20 blanks), $0.017 (29), $0.035 (47), $0.040 (57). The highest seen is used."
+    },
+    "generate_document": {
+      "name_en": "Create a document from a description",
+      "name_ar": "إنشاء مستند من وصف",
+      "tier": "premium",
+      "fixed_cost_usd": 0.05,
+      "note": "Measured 2026-11-01/02 in MyDocHub: average $0.027, highest $0.037; the figure used is the highest seen plus a margin for long documents. Writes a text template, or revises a text document."
+    },
+    "import_template": {
+      "name_en": "Turn an uploaded document into a template (free for the customer)",
+      "name_ar": "تحويل مستند مرفوع إلى قالب (مجاني للعميل)",
+      "tier": "premium",
+      "free": true,
+      "fixed_cost_usd": 0.15,
+      "note": "A gift of the platform: run, tracked, never charged. Limited per company per day (apps.documents.jobs.FREE_IMPORTS_PER_DAY). The cost is listed only so the spend is tracked."
+    },
+    "extract_document": {
+      "name_en": "Read a document and fill in its details",
+      "name_ar": "قراءة مستند وتعبئة تفاصيله",
+      "tier": "premium",
+      "fixed_cost_usd": 0.0378,
+      "note": "Measured 2026-11-01 in MyDocHub on Claude Opus: a 2-page PDF licence $0.018, an invoice image $0.013; about 1,600 input tokens per PDF page, so the cost is scaled to the worst case the service allows (the first 5 pages): about $0.0378. Not yet measured in Wakeel."
+    },
+    "generate_plan": {
+      "name_en": "Write the month plan",
+      "name_ar": "إعداد خطة الشهر",
+      "tier": "interactive",
+      "unit": "post",
+      "fixed_cost_usd": 0.027,
+      "unit_cost_usd": 0.0085,
+      "max_units": 40,
+      "note": "Re-measured 2026-11-18 inside Wakeel with real keys: 9 posts built from a library document on Claude Sonnet cost $0.104 (8,215 in / 8,117 out), of which about $0.015 is reading the source document (free to the person, so it sits in the fixed part). Earlier measure without a source: $0.066-0.069. Cost = 0.027 + 0.0085 per post. Draft."
+    },
+    "rewrite_post": {
+      "name_en": "Rewrite a post",
+      "name_ar": "إعادة كتابة منشور",
+      "tier": "interactive",
+      "fixed_cost_usd": 0.015,
+      "note": "Measured on DeepSeek in production: average $0.0094, highest $0.0145 (10 runs). Not yet measured on Sonnet: the highest seen is used."
+    },
+    "variant_post": {
+      "name_en": "Version of a post in another language or dialect",
+      "name_ar": "نسخة بلغة أو لهجة أخرى",
+      "tier": "interactive",
+      "fixed_cost_usd": 0.015,
+      "estimated": true,
+      "note": "Same work as a rewrite."
+    },
+    "repost": {
+      "name_en": "Reword an evergreen post",
+      "name_ar": "إعادة صياغة منشور دائم",
+      "tier": "interactive",
+      "fixed_cost_usd": 0.015,
+      "estimated": true,
+      "note": "Same work as a rewrite."
+    },
+    "generate_report": {
+      "name_en": "Performance report",
+      "name_ar": "تقرير الأداء",
+      "tier": "background",
+      "fixed_cost_usd": 0.0102,
+      "note": "Measured on DeepSeek in production: average $0.0085, highest $0.0102 (3 runs)."
+    },
+    "competitors": {
+      "name_en": "Analyse the competitors",
+      "name_ar": "تحليل المنافسين",
+      "tier": "interactive",
+      "fixed_cost_usd": 0.04,
+      "estimated": true,
+      "note": "Not measured yet: about 8,000 input and 2,000 output tokens on Sonnet. Measure with a real run before launch."
+    },
+    "ad_suggest": {
+      "name_en": "Suggest a promotion",
+      "name_ar": "اقتراح ترويج",
+      "tier": "interactive",
+      "fixed_cost_usd": 0.012,
+      "estimated": true,
+      "note": "Not measured yet: about 1,000 input and 700 output tokens on Sonnet."
+    },
+    "fetch_inbox": {
+      "name_en": "Read and label the comments",
+      "name_ar": "قراءة التعليقات وتصنيفها",
+      "tier": "background",
+      "free": true,
+      "note": "Runs on its own every 30 minutes. A gift of the platform for now (cost tracked per job): charging for an automatic job without a person asking for it is not fair until a limit per month exists."
+    },
+    "learn": {
+      "name_en": "Learn from the team's notes",
+      "name_ar": "التعلّم من الملاحظات",
+      "tier": "background",
+      "free": true,
+      "note": "Measured $0.007. Runs on its own after feedback: a gift of the platform (cost tracked per job)."
+    },
+    "create_letterhead": {
+      "name_en": "Create a letterhead (A4 header and footer)",
+      "name_ar": "إنشاء ورق مروس (ترويسة وتذييل A4)",
+      "tier": "premium",
+      "fixed_cost_usd": 0.071364,
+      "note": "Measured 2026-11-01 in MyDocHub on Claude Opus (one run). Not yet measured in Wakeel."
+    },
+    "detect_identity": {
+      "name_en": "Read the company details from a document",
+      "name_ar": "قراءة بيانات الشركة من مستند",
+      "tier": "premium",
+      "fixed_cost_usd": 0.05,
+      "note": "Measured 2026-11-01 in MyDocHub on Claude Opus (one run). Not yet measured in Wakeel."
+    },
+    "generate_mail_template": {
+      "name_en": "Design an e-mail template for the company",
+      "name_ar": "تصميم قالب بريد إلكتروني للشركة",
+      "tier": "premium",
+      "fixed_cost_usd": 0.07,
+      "note": "Measured 2026-11-02 in MyDocHub with the real key on Claude Opus (4 runs): classic $0.058, modern in Arabic $0.069, minimal $0.065, elegant $0.062; the highest seen is used. Not yet measured in Wakeel. Its price is a fixed value set by the owner (price_overrides: $0.24, 2026-11-18)."
+    },
+    "create_form": {
+      "name_en": "Create a form or survey",
+      "name_ar": "إنشاء نموذج أو استبيان",
+      "fixed_cost_usd": 0.01,
+      "note": "No AI: the cost is hosting and storage. Its price is a fixed value set by the owner (price_overrides, 2026-11-06 in MyDocHub), charged once when the form is created; its answers are not charged, a cap per form (FORM_MAX_RESPONSES) keeps the cost bounded."
+    }
+  },
+  "price_overrides": {
+    "create_form": 0.25,
+    "generate_mail_template": 0.24,
+    "brand_logo": 3,
+    "brand_logo_premium": 12,
+    "brand_logo_variants": 2,
+    "brand_logo_variants_premium": 5,
+    "brand_colors": 1,
+    "brand_colors_premium": 3,
+    "brand_typography": 1,
+    "brand_typography_premium": 3,
+    "brand_letterhead": 2,
+    "brand_letterhead_premium": 6,
+    "brand_business_card": 2,
+    "brand_business_card_premium": 6,
+    "brand_envelope": 1,
+    "brand_envelope_premium": 3,
+    "brand_invoice": 2,
+    "brand_invoice_premium": 5,
+    "brand_receipt": 1.5,
+    "brand_receipt_premium": 4,
+    "brand_file_jacket": 1.5,
+    "brand_file_jacket_premium": 4,
+    "brand_email_signature": 1,
+    "brand_email_signature_premium": 3,
+    "brand_social_kit": 3,
+    "brand_social_kit_premium": 9,
+    "brand_favicon": 1,
+    "brand_favicon_premium": 3,
+    "brand_pattern": 2,
+    "brand_pattern_premium": 6,
+    "brand_deck_template": 3,
+    "brand_deck_template_premium": 8,
+    "brand_guidelines": 4,
+    "brand_guidelines_premium": 12
+  },
+  "brand_kit_discount": 0.2,
+  "price_overrides_note": "Fixed prices set by the owner, in USD, not cost + profit: the brand studio (2026-11, MyDocHub: the price of one design) creating a form (2026-11-06) and designing an e-mail template (2026-11-18)."
+}

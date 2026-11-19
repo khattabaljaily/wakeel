@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n humanize %}
+{% load i18n humanize credits %}
 {% block title %}{% translate "الأداء" %}{% endblock %}
 {% block page_title %}{% translate "الأداء" %}{% endblock %}
 {% block subtitle %}<div class="subtitle">{% translate "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها." %}</div>{% endblock %}
@@ -42,7 +42,7 @@
     <div class="d-flex align-items-center gap-3 py-2 {% if not forloop.last %}border-bottom{% endif %}">
         <div class="flex-grow-1 overflow-hidden"><a href="{% url 'content:post_edit' post.pk %}" class="fw-semibold text-truncate d-block">{{ post.title }}</a>
             <div class="small-muted">{% if post.evergreen %}{% translate "محتوى دائم" %} · {% endif %}{{ post.published_at|date:"j F Y" }} · {{ engagement }} {% translate "تفاعل" %}</div></div>
-        {% if membership.can_edit %}<form method="post" action="{% url 'insights:repost' post.pk %}">{% csrf_token %}<button class="btn btn-sm btn-soft"><i class="bi bi-recycle"></i> {% translate "أعد نشره" %}</button></form>{% endif %}
+        {% if membership.can_edit %}<form method="post" action="{% url 'insights:repost' post.pk %}">{% csrf_token %}<input type="hidden" name="expected_points" value="{% quote 'repost' as q %}{{ q.total }}"><button class="btn btn-sm btn-soft"><i class="bi bi-recycle"></i> {% translate "أعد نشره" %} <span dir="ltr">· ${% price 'repost' %}</span></button></form>{% endif %}
     </div>
     {% endfor %}
 </div></div>

@@ -45,6 +45,18 @@ HANDLERS = {
 }
 
 
+def run_call(job):
+    """Run the function a generic job names. Only functions inside this project's apps can be named."""
+    from django.utils.module_loading import import_string
+    path = job.params.get('func', '')
+    if not path.startswith('apps.'):
+        raise ValueError(f'Not an allowed job function: {path!r}')
+    return import_string(path)(job)
+
+
+HANDLERS[Job.Kind.CALL] = run_call
+
+
 def claim_next():
     with transaction.atomic():
         job = (Job.objects.select_for_update(skip_locked=True)
@@ -68,6 +80,7 @@ def _run(job):
         message = HANDLERS[job.kind](job)
         if job.was_cancelled():
             job.status = Job.Status.CANCELLED
+            job.settle()
             return job
     except (AIError, social.PublishError) as exc:  # messages written for the user
         job.status, job.error = Job.Status.FAILED, str(exc)
@@ -80,9 +93,11 @@ def _run(job):
         job.status, job.progress, job.message = Job.Status.DONE, 100, (message or '')[:255]
     if job.was_cancelled():  # cancelled while running: keep it that way
         job.status = Job.Status.CANCELLED
+        job.settle()
         return job
     job.finished_at = timezone.now()
     job.save()
+    job.settle()  # a failed job gives its charge back
     return job
 
 

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "المستخدمون" %}{% endblock %}
+{% block page_title %}{% translate "المستخدمون" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "كل الحسابات على المنصة، بأي شركة وبأي دور." %}</div>{% endblock %}
+{% block content %}
+<form method="get" class="d-flex flex-wrap gap-2 mb-3">
+    <input type="search" name="q" value="{{ q }}" class="form-control" style="max-width:20rem" placeholder="{% translate "ابحث بالبريد أو الاسم" %}">
+    <select name="status" class="form-select" style="max-width:12rem" onchange="this.form.submit()">
+        <option value="">{% translate "كل الحسابات" %}</option>
+        <option value="pending" {% if status == 'pending' %}selected{% endif %}>{% translate "بانتظار الموافقة" %}</option>
+        <option value="inactive" {% if status == 'inactive' %}selected{% endif %}>{% translate "معطّلة" %}</option>
+        <option value="superuser" {% if status == 'superuser' %}selected{% endif %}>{% translate "مشرفو النظام" %}</option>
+    </select>
+    <button class="btn btn-light"><i class="bi bi-search"></i></button>
+</form>
+<div class="wk-card"><div class="list-group list-group-flush">
+{% for u in page %}
+    <div class="list-group-item d-flex flex-wrap gap-3 align-items-center">
+        <span class="wk-avatar">{{ u.display_name|slice:":1" }}</span>
+        <div class="flex-grow-1">
+            <div class="fw-semibold">{{ u.display_name }}
+                {% if u.is_superuser %}<span class="adm-pill adm-pill--info">{% translate "مشرف نظام" %}</span>{% endif %}
+                {% if not u.is_active %}<span class="adm-pill adm-pill--bad">{% translate "معطّل" %}</span>{% endif %}
+                {% if not u.is_approved and not u.is_superuser %}<span class="adm-pill adm-pill--warn">{% translate "بانتظار الموافقة" %}</span>{% endif %}</div>
+            <div class="small-muted"><span dir="ltr">{{ u.email }}</span> · {% blocktranslate trimmed with n=u.n_companies %}{{ n }} شركة{% endblocktranslate %} · {{ u.date_joined|date:"j/n/Y" }}</div>
+            {% if u.owned %}<div class="small">{% translate "يملك:" %} {% for c in u.owned %}<a href="{% url 'ops:company' c.pk %}">{{ c.name }}</a>{% if not forloop.last %}، {% endif %}{% endfor %}</div>{% endif %}
+        </div>
+        <form method="post" action="{% url 'ops:user_active' u.pk %}">{% csrf_token %}
+            <button class="btn btn-light btn-sm" {% if u.pk == request.user.pk %}disabled{% endif %}>{% if u.is_active %}{% translate "تعطيل" %}{% else %}{% translate "تفعيل" %}{% endif %}</button></form>
+        {% if not u.last_superuser %}
+        <button type="button" class="btn btn-light btn-sm text-danger" data-bs-toggle="modal" data-bs-target="#deleteUser"
+                data-action="{% url 'ops:user_delete' u.pk %}" data-email="{{ u.email }}" data-owned="{{ u.owned|length }}"><i class="bi bi-trash"></i> {% translate "حذف" %}</button>
+        {% endif %}
+    </div>
+{% empty %}<div class="p-4 text-center small-muted">{% translate "لا توجد نتائج." %}</div>{% endfor %}
+</div>{% include "ops/_pager.html" with keep=request.GET.dict %}</div>
+
+<div class="modal fade" id="deleteUser" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><form method="post" class="modal-content">{% csrf_token %}
+    <div class="modal-header"><h2 class="modal-title h5">{% translate "حذف مستخدم نهائياً" %}</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate "إغلاق" %}"></button></div>
+    <div class="modal-body">
+        <p>{% translate "سيُحذف الحساب" %} <strong dir="ltr" data-f="email"></strong> {% translate "مع كل شركة يملكها وكل بياناتها وملفاتها، ولا رجعة فيه. عضويته في شركات الآخرين تنتهي فقط." %}</p>
+        <p class="text-danger small" data-f="owned-note" data-text="{% translate "تنبيه: يملك %n شركة ستُحذف معه." %}" hidden></p>
+        <label class="form-label" for="deleteUserPassword">{% translate "كلمة مرور المشرف للتأكيد" %}</label>
+        <input type="password" name="password" id="deleteUserPassword" class="form-control" autocomplete="current-password" required>
+    </div>
+    <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">{% translate "إلغاء" %}</button><button class="btn btn-danger">{% translate "حذف نهائي" %}</button></div>
+</form></div></div>
+<script>
+document.getElementById('deleteUser').addEventListener('show.bs.modal', function (e) {
+    var b = e.relatedTarget, m = this;
+    m.querySelector('form').action = b.dataset.action;
+    m.querySelector('[data-f=email]').textContent = b.dataset.email;
+    m.querySelector('input[name=password]').value = '';
+    var note = m.querySelector('[data-f=owned-note]');
+    note.hidden = !(+b.dataset.owned);
+    note.textContent = note.hidden ? '' : note.dataset.text.replace('%n', b.dataset.owned);
+});
+</script>
+{% endblock %}

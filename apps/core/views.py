@@ -8,11 +8,26 @@ from django.utils.translation import gettext_lazy as _
 from apps.companies.decorators import company_required
 from apps.content.forms import ARABIC_MONTHS
 from apps.content.models import ContentPlan, Post
+from apps.core.attention import overview as product_overview, waiting
 from apps.jobs.models import Job
 
 
 # The date the terms and privacy texts last changed; update it with them.
-LEGAL_UPDATED = datetime.date(2026, 10, 17)
+LEGAL_UPDATED = datetime.date(2026, 11, 19)
+
+
+def _legal_entity(lang):
+    """Who provides the service, as the public pages name it: the owner's setting if there is one, else the product's default
+    operator. Enjaz develops Wakeel and the operator runs it for the company (the same model as the other Enjaz products)."""
+    from django.conf import settings
+    from apps.companies import operators
+    configured = settings.LEGAL_ENTITY if lang == 'en' else settings.LEGAL_ENTITY_AR
+    return configured or operators.registry.default(operators.PRODUCT).name(lang)
+
+
+def _developer(lang):
+    from apps.companies import operators
+    return operators.registry.developer(lang)['name']
 
 
 def _public_page(request, template, page, **context):
@@ -23,7 +38,7 @@ def _public_page(request, template, page, **context):
     return render(request, template, {
         'body_template': f'core/legal/{page}_{lang}.html', 'updated': LEGAL_UPDATED,
         'support_email': settings.SUPPORT_EMAIL, 'site_url': settings.SITE_URL,
-        'legal_entity': settings.LEGAL_ENTITY if lang == 'en' else settings.LEGAL_ENTITY_AR, **context,
+        'legal_entity': _legal_entity(lang), 'developer': _developer(lang), **context,
     })
 
 
@@ -47,7 +62,7 @@ def home(request):
     return render(request, 'core/home.html')
 
 
-@company_required
+@company_required(client=True)
 def dashboard(request):
     company = request.company
     now = timezone.localtime()
@@ -86,6 +101,8 @@ def dashboard(request):
         'month_name': ARABIC_MONTHS[month_start.month - 1],
         'plans': plans[:4],
         'plan_reminder': plan_reminder,
+        'waiting': waiting(company, request.user, request.membership),
+        'overview': product_overview(company, request.user, request.membership),
         'running_jobs': Job.objects.filter(company=company, status__in=[Job.Status.PENDING, Job.Status.RUNNING]).count(),
         'now': now,
     })
@@ -105,7 +122,7 @@ def manifest(request):
     from django.http import JsonResponse
     from django.templatetags.static import static
     return JsonResponse({
-        'name': _('وكيل · مدير التسويق الذكي'),
+        'name': _('وكيل · عمل شركتك في مكان واحد'),
         'short_name': _('وكيل'),
         'description': _('يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره.'),
         'lang': 'ar', 'dir': 'rtl',

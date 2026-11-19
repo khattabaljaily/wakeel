@@ -1,0 +1,9 @@
+{% load i18n %}{% autoescape off %}{% blocktranslate with title=note.title when=when company=company %}Reminder: {{ title }} ({{ when }}, {{ company }}){% endblocktranslate %}
+{% if note.body %}
+{{ note.body }}
+{% endif %}
+{{ url }}
+
+{% translate "You receive this because you set this reminder in Wakeel." %}
+{% translate "لإيقاف رسائل البريد من وكيل، عطّلها من إعدادات حسابك." %}
+{% endautoescape %}

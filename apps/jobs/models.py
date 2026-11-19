@@ -25,6 +25,9 @@ class Job(models.Model):
         ANALYZE_COMPETITORS = 'competitors', _('تحليل المنافسين')
         FETCH_INBOX = 'fetch_inbox', _('قراءة التعليقات')
         AD_SUGGEST = 'ad_suggest', _('اقتراح ترويج')
+        # A job of the document section (and later ones): `params['func']` is the dotted path of the function that does the work,
+        # `params['service']` the price-list service it is charged as. Set by server code only, never from a request.
+        CALL = 'call', _('مهمة عامة')
 
     class Status(models.TextChoices):
         PENDING = 'pending', _('في الانتظار')
@@ -49,6 +52,9 @@ class Job(models.Model):
     # Worked out per call (prices vary with the model, the cache and the time of day); null = prices unknown.
     cost_usd = models.DecimalField(max_digits=10, decimal_places=6, null=True, blank=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
+    # What was taken from the company's wallet for this job (None: free, or a company that is not charged). Given back once
+    # when the job fails or is cancelled (see `settle`).
+    charge_txn = models.ForeignKey('credits.WalletTransaction', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     created_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
     finished_at = models.DateTimeField(null=True, blank=True)
@@ -61,8 +67,29 @@ class Job(models.Model):
         return f'{self.get_kind_display()} #{self.pk} ({self.status})'
 
     @classmethod
-    def enqueue(cls, company, kind, user=None, **params):
-        return cls.objects.create(company=company, kind=kind, params=params, created_by=user)
+    def enqueue(cls, company, kind, user=None, expected_points=None, **params):
+        """Queue a job. A paid kind is charged here, at its quote, before it is queued (`expected_points` is the total the
+        person was shown: a different price refuses the job, see apps.credits.charging); the charge is given back when the
+        job fails or is cancelled. Raises InsufficientCredits / PriceChanged, which the middleware turns into a page or a 402."""
+        from django.db import transaction
+
+        from apps.credits import charging
+        from apps.credits.jobs import quote_for
+
+        quote = quote_for(kind, company, params)
+        with transaction.atomic():
+            txn = charging.charge(company, user, quote, expected_total=expected_points) if quote else None
+            job = cls.objects.create(company=company, kind=kind, params=params, created_by=user, charge_txn=txn)
+            if txn is not None:
+                txn.reference = f'job:{job.pk}'
+                txn.save(update_fields=['reference'])
+        return job
+
+    def settle(self):
+        """Give the charge back when the job did not deliver (failed or cancelled). Once: a second call does nothing."""
+        if self.charge_txn_id and self.status in (self.Status.FAILED, self.Status.CANCELLED):
+            from apps.credits import charging
+            charging.refund(self.charge_txn, self.status)
 
     def set_progress(self, progress, message=''):
         self.progress = progress

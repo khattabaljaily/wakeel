@@ -1,0 +1,1 @@
+{% load i18n %}{% if r.status == 'expired' %}<span class="badge text-bg-danger">{% translate "Expired" %}</span>{% elif r.status == 'soon' %}<span class="badge text-bg-warning">{% translate "Expiring soon" %}</span>{% elif r.status == 'valid' %}<span class="badge text-bg-light border">{% translate "Valid" %}</span>{% endif %}

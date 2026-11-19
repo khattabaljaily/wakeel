@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load i18n credits %}
+{% block title %}{% if document.pk %}{{ document.title }}{% else %}{% translate "New document" %}{% endif %}{% endblock %}
+{% block page_title %}{% if document.pk %}{{ document.title }}{% else %}{% translate "New document" %}{% endif %}{% endblock %}
+{% block actions %}{% if document.pk %}
+  <a class="btn btn-light" href="{% url 'documents:print' document.pk %}" target="_blank"><i class="bi bi-printer"></i> {% translate "Preview and print" %}</a>
+  <a class="btn btn-light" href="{% url 'documents:docx' document.pk %}"><i class="bi bi-file-earmark-word"></i> {% translate "Word file" %}</a>
+  {% if pdf_available %}<a class="btn btn-light" href="{% url 'documents:pdf' document.pk %}"><i class="bi bi-download"></i> {% translate "Download PDF" %}</a>
+  <div class="dropdown"><button class="btn btn-light" data-bs-toggle="dropdown" data-bs-auto-close="outside" type="button"><i class="bi bi-envelope"></i> {% translate "Send by e-mail" %}</button>
+    <form class="dropdown-menu dropdown-menu-end p-3" style="min-width:320px" method="post" action="{% url 'documents:email' document.pk %}" data-once>{% csrf_token %}
+      <h6>{% translate "Send this document" %}</h6>
+      <p class="small-muted">{% translate "It is sent as a PDF file from Wakeel, and your address is the reply address." %}</p>
+      <label class="form-label" for="mail-to">{% translate "To" %}</label><input type="email" class="form-control mb-2" id="mail-to" name="to" required autocomplete="off" dir="ltr">
+      <label class="form-label" for="mail-msg">{% translate "Message" %}</label><textarea class="form-control mb-2" id="mail-msg" name="message" rows="3" maxlength="1000"></textarea>
+      <button type="submit" class="btn btn-primary">{% translate "Send" %}</button>
+    </form></div>{% endif %}
+{% endif %}{% endblock %}
+{% block content %}
+<div class="row g-3">
+<div class="{% if document.pk %}col-xl-7{% else %}col-12{% endif %}">
+{% if document.is_designed %}
+<form method="post" action="{% url 'documents:values' document.pk %}" class="wk-card mb-3" data-once>{% csrf_token %}
+  <div class="wk-card-head"><h2>{% translate "The details" %}</h2></div>
+  <div class="wk-card-body">
+  <p class="small-muted">{% translate "Each field is a blank of the design. An empty field prints as a dotted line." %}</p>
+  <div class="row">
+    {% for i, name, value in value_fields %}<div class="col-md-6 mb-3"><label class="form-label" for="v-{{ i }}" dir="auto">{{ name }}</label>
+      {% if value|length > 70 %}<textarea class="form-control" id="v-{{ i }}" name="v-{{ i }}" rows="3" maxlength="500" dir="auto">{{ value }}</textarea>{% else %}<input type="text" class="form-control" id="v-{{ i }}" name="v-{{ i }}" value="{{ value }}" maxlength="500" dir="auto">{% endif %}</div>{% endfor %}
+  </div>
+  <button type="submit" class="btn btn-primary">{% translate "Save the details" %}</button>
+  </div>
+</form>
+{% endif %}
+<form method="post" novalidate class="wk-card mb-3" data-once>{% csrf_token %}{% if not document.pk %}<input type="hidden" name="manual" value="1">{% endif %}
+  <div class="wk-card-head"><h2>{% translate "The document" %}</h2></div>
+  <div class="wk-card-body">
+  {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+  <div class="row">
+    <div class="col-12">{% include "_field.html" with field=form.title %}</div>
+    <div class="col-md-6">{% include "_field.html" with field=form.category %}</div>
+    <div class="col-md-6">{% include "_field.html" with field=form.doc_type %}</div>
+    <div class="col-md-6">{% include "_field.html" with field=form.recipient %}</div>
+    <div class="col-md-6">{% include "_field.html" with field=form.language %}</div>
+    <div class="col-md-6">{% include "_field.html" with field=form.doc_date %}</div>
+    {% if not document.is_designed %}<div class="col-md-6">{% include "_field.html" with field=form.subject %}</div>
+    <div class="col-12">
+      <div class="d-flex flex-wrap gap-1 mb-2" role="toolbar" aria-label="{% translate 'Insert into the text' %}">
+        {% for label, snippet in tools %}<button type="button" class="btn btn-sm btn-light" data-insert="{{ snippet }}">{{ label }}</button>{% endfor %}
+      </div>
+      {% include "_field.html" with field=form.body %}
+    </div>{% endif %}
+    {% if can_add_qr %}<div class="col-12"><div class="form-check mb-3">{{ form.include_qr }} <label class="form-check-label" for="{{ form.include_qr.id_for_label }}">{{ form.include_qr.label }}</label><div class="form-text">{{ form.include_qr.help_text }}</div></div></div>{% endif %}
+  </div>
+  <button type="submit" name="action" value="save" class="btn btn-primary">{% translate "Save" %}</button>
+  </div>
+</form>
+{% if document.pk and company.documents_need_approval %}
+<div class="wk-card mb-3"><div class="wk-card-head"><h2>{% translate "Approval" %}</h2><span class="badge {% if document.status == 'approved' %}text-bg-success{% elif document.status == 'rejected' %}text-bg-danger{% elif document.status == 'pending' %}text-bg-warning{% else %}text-bg-light border{% endif %}">{{ document.get_status_display }}</span></div>
+  <div class="wk-card-body">
+  {% if document.status == 'rejected' and document.review_note %}<p class="small-muted" dir="auto">{{ document.review_note }}</p>{% endif %}
+  {% if document.status == 'draft' or document.status == 'rejected' %}
+  <p class="small-muted">{% translate "This document cannot be printed, downloaded or sent until the owner or an administrator approves it." %}</p>
+  <form method="post" action="{% url 'documents:submit' document.pk %}" data-once>{% csrf_token %}<button type="submit" class="btn btn-primary">{% translate "Send for approval" %}</button></form>
+  {% elif document.status == 'pending' %}
+    {% if membership.can_manage %}
+    <form method="post" action="{% url 'documents:review' document.pk %}" data-once>{% csrf_token %}
+      <label class="form-label" for="rv-note">{% translate "Note (optional)" %}</label><input type="text" class="form-control mb-2" id="rv-note" name="note" maxlength="300" dir="auto">
+      <button type="submit" name="decision" value="approve" class="btn btn-primary">{% translate "Approve" %}</button>
+      <button type="submit" name="decision" value="reject" class="btn btn-outline-danger">{% translate "Reject" %}</button>
+    </form>
+    {% else %}<p class="small-muted">{% translate "Waiting for the owner or an administrator." %}</p>{% endif %}
+  {% elif document.reviewed_by %}<p class="small-muted">{% blocktranslate with who=document.reviewed_by.email date=document.reviewed_at|date:"Y-m-d" %}Approved by {{ who }} on {{ date }}.{% endblocktranslate %}</p>{% endif %}
+  </div></div>
+{% endif %}
+{% if document.pk %}
+<form method="post" action="{% url 'documents:rewrite' document.pk %}" class="wk-card mb-3" data-once>{% csrf_token %}
+  <div class="wk-card-head"><h2><i class="bi bi-stars"></i> {% translate "Improve it with AI" %}</h2></div>
+  <div class="wk-card-body">
+  <input type="hidden" name="expected_points" value="{{ rewrite_quote.total }}">
+  <label class="form-label" for="rw-notes">{% translate "What should change?" %}</label>
+  <textarea class="form-control" id="rw-notes" name="notes" rows="3" maxlength="2000" required></textarea>
+  <div class="form-text mb-3">{% translate "For example: make it shorter, add a clause about confidentiality, change the amount to 1,500." %}</div>
+  <button type="submit" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Rewrite it" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ rewrite_quote.usd }}</span></button>
+  <small class="small-muted d-block mt-2">{% translate "Save your edits first: the AI works on the saved text. You are charged only if the new text is delivered." %}</small>
+  </div>
+</form>
+{% if not document.is_designed %}<form method="post" action="{% url 'documents:template_save' document.pk %}" class="wk-card mb-3" data-once>{% csrf_token %}
+  <div class="wk-card-head"><h2>{% translate "Save as a template" %}</h2></div>
+  <div class="wk-card-body">
+  <p class="small-muted">{% translate "Keep this text to use again. Write {{like this}} for a blank to fill each time." %}</p>
+  <label class="form-label" for="tpl-name">{% translate "Template name" %}</label><input type="text" class="form-control mb-2" id="tpl-name" name="name" maxlength="200" value="{{ document.title }}" dir="auto">
+  <button type="submit" class="btn btn-light">{% translate "Save as a template" %}</button>
+  </div>
+</form>{% endif %}
+{% if membership.can_manage and document.status == 'approved' and not document.revoked_at %}<div class="wk-card mb-3"><div class="wk-card-head"><h2>{% translate "Sharing" %}</h2></div><div class="wk-card-body">
+  <p class="small-muted">{% translate "Give someone outside the company a link to look at this document, for a limited time and with an optional password." %}</p>
+  <a class="btn btn-light" href="{% url 'sharing:new' 'document' document.pk %}"><i class="bi bi-link-45deg"></i> {% translate "Share with someone outside the company" %}</a>
+  <a class="btn btn-link" href="{% url 'sharing:list' %}">{% translate "Sharing links" %}</a></div></div>
+{% endif %}
+{% if document.verify_code and membership.can_manage %}
+<form method="post" action="{% url 'documents:revoke' document.pk %}" class="wk-card mb-3" data-confirm="{% if document.revoked_at %}{% translate 'The document will be valid again.' %}{% else %}{% translate 'Its verification page will say that this document is cancelled.' %}{% endif %}" data-confirm-yes="{% if document.revoked_at %}{% translate 'Reinstate' %}{% else %}{% translate 'Cancel the document' %}{% endif %}">{% csrf_token %}
+  <div class="wk-card-head"><h2>{% translate "Validity" %}</h2></div><div class="wk-card-body">
+  {% if document.revoked_at %}<p class="small-muted">{% blocktranslate with date=document.revoked_at|date:"Y-m-d" %}This document was cancelled on {{ date }}. Anyone who scans its QR code sees that.{% endblocktranslate %}</p>
+  <input type="hidden" name="undo" value="1"><button type="submit" class="btn btn-light">{% translate "Reinstate" %}</button>
+  {% else %}<p class="small-muted">{% translate "If this printed document must no longer be trusted, cancel it: its QR code will say so." %}</p>
+  <button type="submit" class="btn btn-outline-danger">{% translate "Cancel the document" %}</button>{% endif %}
+  </div>
+</form>
+{% endif %}
+<form method="post" action="{% url 'documents:delete' document.pk %}" data-confirm="{% translate 'This document will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}
+  <button type="submit" class="btn btn-outline-danger">{% translate "Delete" %}</button></form>
+{% endif %}
+</div>
+{% if document.pk %}<aside class="col-xl-5" aria-label="{% translate 'Preview' %}"><div class="wk-card overflow-hidden" style="position:sticky;top:1rem">
+  {% if pdf_available %}<iframe src="{% url 'documents:pdf' document.pk %}?preview=1#toolbar=0&amp;navpanes=0&amp;view=FitH" title="{{ document.title }}" style="width:100%;height:80vh;border:0"></iframe>
+  {% else %}<iframe src="{% url 'documents:print' document.pk %}?embed=1" title="{{ document.title }}" tabindex="-1" style="width:100%;height:80vh;border:0"></iframe>{% endif %}
+</div></aside>{% endif %}
+</div>
+{% endblock %}
+{% block scripts %}<script>
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('[data-insert]'); if (!b) return;
+  var t = document.getElementById('id_body'); if (!t) return;
+  var s = t.selectionStart, v = t.value, add = (s && v[s - 1] !== '\n' ? '\n' : '') + b.dataset.insert + '\n';
+  t.value = v.slice(0, s) + add + v.slice(t.selectionEnd); t.focus(); t.selectionStart = t.selectionEnd = s + add.length;
+});
+</script>{% endblock %}

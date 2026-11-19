@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "New e-mail template" %}{% endblock %}
+{% block page_title %}{% translate "New e-mail template" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "The AI designs a template with your logo, brand colours and company details. You see it before you use it, and you are charged only if a usable design is delivered." %}</div>{% endblock %}
+{% block extra_head %}{% include "mail/_head.html" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'mail:templates' %}">← {% translate "E-mail templates" %}</a>{% endblock %}
+{% block content %}
+<div class="wk-mail">
+<form method="post" novalidate data-once class="wk-card" style="max-width:860px">{% csrf_token %}<div class="wk-card-body">
+  <input type="hidden" name="expected_points" value="{{ quote.total }}">
+  {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+  <fieldset class="mb-3"><legend class="form-label fs-6">{{ form.style.label }}</legend>
+    <div class="style-pick">{% for key, spec in styles %}
+      <label class="style-card"><input type="radio" name="style" value="{{ key }}"{% if form.style.value == key or not form.style.value and forloop.first %} checked{% endif %}>
+        <span class="style-art style-{{ key }}" aria-hidden="true"><i></i><i></i><i></i></span><b>{{ spec.0 }}</b></label>{% endfor %}</div>
+    {% for e in form.style.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}</fieldset>
+  <div class="row">
+    <div class="col-md-6 mb-3"><label class="form-label" for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>{{ form.name }}<div class="form-text">{{ form.name.help_text }}</div></div>
+    <div class="col-md-6 mb-3"><label class="form-label" for="{{ form.language.id_for_label }}">{{ form.language.label }}</label>{{ form.language }}</div>
+  </div>
+  <div class="mb-3"><label class="form-label" for="{{ form.notes.id_for_label }}">{{ form.notes.label }}</label>{{ form.notes }}<div class="form-text">{{ form.notes.help_text }}</div></div>
+  <div class="d-flex flex-wrap align-items-center gap-3">
+    <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-stars"></i> {% translate "Design my template" %} <span class="badge bg-white bg-opacity-25" dir="ltr">${{ quote.usd }}</span></button>
+    <small class="small-muted">{% blocktranslate with balance=balance %}Your balance: ${{ balance }}. It takes about half a minute.{% endblocktranslate %}</small>
+  </div>
+</div></form>
+</div>
+{% endblock %}

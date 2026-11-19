@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Mailbox settings" %}{% endblock %}
+{% block page_title %}{% if account %}{% translate "Mailbox settings" %}{% else %}{% translate "Connect the company mailbox" %}{% endif %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Add the company e-mail address once, then read and write company mail inside Wakeel." %}</div>{% endblock %}
+{% block actions %}{% if account %}<a class="btn btn-light" href="{% url 'mail:box' %}">← {% translate "Back to the mailbox" %}</a>{% endif %}{% endblock %}
+{% block content %}
+<form method="post" class="wk-card mb-3" style="max-width:860px" novalidate data-once>{% csrf_token %}<div class="wk-card-body">
+  {% if form.non_field_errors %}<div class="alert alert-danger" dir="auto">{% for e in form.non_field_errors %}{{ e }}{% endfor %}</div>{% endif %}
+  <div class="row">
+    {% for field in form %}{% if field.name == 'address' or field.name == 'display_name' or field.name == 'password' %}
+    <div class="col-md-6 mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+      {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}{% for e in field.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}</div>
+    {% endif %}{% endfor %}
+  </div>
+  <details class="mb-3"{% if advanced %} open{% endif %}><summary class="fw-semibold mb-2">{% translate "Server details" %}</summary>
+    <p class="small-muted">{% translate "Guessed from the address when left empty. Change them only if the connection fails." %}</p>
+    <div class="row">
+      {% for field in form %}{% if field.name == 'username' or field.name == 'imap_host' or field.name == 'imap_port' or field.name == 'imap_security' or field.name == 'smtp_host' or field.name == 'smtp_port' or field.name == 'smtp_security' %}
+      <div class="{% if field.name == 'username' %}col-12{% elif 'host' in field.name %}col-md-6{% else %}col-md-3 col-6{% endif %} mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+        {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}{% for e in field.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}</div>
+      {% endif %}{% endfor %}
+    </div>
+  </details>
+  <div class="mb-3"><label class="form-label" for="{{ form.signature.id_for_label }}">{{ form.signature.label }}</label>{{ form.signature }}
+    <div class="form-text">{{ form.signature.help_text }}</div></div>
+  <p class="small-muted">{% translate "Everyone in the company who can edit will be able to read and send mail from this mailbox. Opening and sending are written in the activity log. The password is sealed with your company key." %}</p>
+  <button type="submit" class="btn btn-primary">{% if account %}{% translate "Save and test" %}{% else %}{% translate "Connect and test" %}{% endif %}</button>
+</div></form>
+{% if account %}
+<div class="wk-card" style="max-width:860px"><div class="wk-card-head"><h2>{% translate "Disconnect" %}</h2></div><div class="wk-card-body">
+  <p class="small-muted">{% translate "Removes the saved password from Wakeel. Your messages stay on your mail server." %}</p>
+  <form method="post" action="{% url 'mail:disconnect' %}" data-confirm="{% translate 'The mailbox will be disconnected from Wakeel.' %}" data-confirm-yes="{% translate 'Disconnect' %}">{% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger">{% translate "Disconnect the mailbox" %}</button></form>
+</div></div>
+{% endif %}
+{% endblock %}

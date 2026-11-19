@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Tasks" %}{% endblock %}
+{% block page_title %}{% translate "Tasks" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Share the work with the team, follow it, and keep its files with it." %}</div>{% endblock %}
+{% block actions %}{% if can_edit %}<button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#newTask" aria-expanded="{% if open_form %}true{% else %}false{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "New task" %}</button>{% endif %}{% endblock %}
+{% block content %}
+{% if can_edit %}<div class="collapse {% if open_form %}show{% endif %} mb-3" id="newTask">
+<form class="wk-card" style="max-width:860px" method="post" action="{% url 'tasks:new' %}" novalidate data-once><div class="wk-card-body">{% csrf_token %}
+  {% include "tasks/_fields.html" %}
+  <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+</div></form></div>{% endif %}
+
+<div class="d-flex flex-wrap gap-2 mb-3">
+  <a class="btn btn-sm {% if view == 'open' %}btn-primary{% else %}btn-light{% endif %}" href="?show=open"{% if view == 'open' %} aria-current="page"{% endif %}><i class="bi bi-list-task"></i> {% translate "Open" context "tasks filter" %} <span class="badge text-bg-light">{{ counts.open }}</span></a>
+  <a class="btn btn-sm {% if view == 'mine' %}btn-primary{% else %}btn-light{% endif %}" href="?show=mine"{% if view == 'mine' %} aria-current="page"{% endif %}><i class="bi bi-person"></i> {% translate "Mine" %} <span class="badge text-bg-light">{{ counts.mine }}</span></a>
+  <a class="btn btn-sm {% if view == 'done' %}btn-primary{% else %}btn-light{% endif %}" href="?show=done"{% if view == 'done' %} aria-current="page"{% endif %}><i class="bi bi-check2"></i> {% translate "Done" %} <span class="badge text-bg-light">{{ counts.done }}</span></a>
+</div>
+<div class="wk-card"><div class="list-group list-group-flush">
+  {% for t in tasks %}
+  <a class="list-group-item list-group-item-action" href="{% url 'tasks:detail' t.pk %}">
+    <div class="d-flex justify-content-between gap-2"><span class="fw-semibold text-truncate" dir="auto">{{ t.title }}</span>
+      <span class="d-flex gap-1 flex-shrink-0">
+        {% if t.is_overdue %}<span class="badge text-bg-danger">{% translate "Overdue" %}</span>{% endif %}
+        {% if t.priority == 'high' %}<span class="badge text-bg-warning">{{ t.get_priority_display }}</span>{% endif %}
+        <span class="badge {% if t.is_done %}text-bg-success{% elif t.status == 'doing' %}text-bg-primary{% else %}text-bg-light border{% endif %}">{{ t.get_status_display }}</span>
+      </span></div>
+    <div class="small opacity-75" dir="auto">{% if t.assignee %}{{ t.assignee.first_name|default:t.assignee.email }}{% else %}{% translate "Nobody yet" %}{% endif %}{% if t.due_date %} · <span dir="ltr">{{ t.due_date|date:"Y-m-d" }}</span>{% endif %}</div>
+  </a>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "No tasks here." %}</div>{% endfor %}
+</div></div>
+{% endblock %}

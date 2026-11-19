@@ -104,7 +104,7 @@ class ConsoleSeparationTests(TestCase):
         console = self.client.get(reverse('ops:overview')).content.decode()
         self.assertIn('مشرف النظام', console)
         self.assertIn(reverse('ops:subscriptions'), console)
-        self.assertNotIn('/ops/users/', console)
+        self.assertIn('/ops/users/', console)
         self.assertNotIn(reverse('content:plan_list'), console)
         self.assertNotIn('wk-bell__btn', console)
 

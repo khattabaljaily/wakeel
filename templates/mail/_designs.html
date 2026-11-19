@@ -1,0 +1,15 @@
+{% load i18n %}
+<div class="tpl-section">
+  <div class="tpl-head"><span class="clabel">{% translate "Message design" %}</span>
+    <a class="link-btn" href="{% url 'mail:templates' %}">{% translate "Manage templates" %}</a></div>
+  <div class="tpl-pick" role="radiogroup" aria-label="{% translate 'Message design' %}">
+    <label class="tpl-card"><input type="radio" name="template" value=""{% if not values.template %} checked{% endif %}>
+      <span class="tpl-thumb"><i class="bi bi-file-text"></i></span><b>{% translate "Plain message" %}</b><small>{% translate "Free" %}</small></label>
+    {% for t in templates %}
+    <label class="tpl-card"><input type="radio" name="template" value="{{ t.pk }}"{% if values.template == t.pk|stringformat:"d" %} checked{% endif %}>
+      <span class="tpl-thumb"><iframe src="{% url 'mail:template_preview' t.pk %}" loading="lazy" tabindex="-1" title="{{ t.name }}"></iframe></span>
+      <b><bdi>{{ t.name }}</bdi></b>{% if t.is_default %}<small>{% translate "Default" %}</small>{% endif %}</label>
+    {% endfor %}
+    <a class="tpl-card tpl-new" href="{% url 'mail:template_new' %}"><span class="tpl-thumb"><i class="bi bi-stars"></i></span><b>{% translate "New template" %}</b><small>{% translate "Made by AI" %}</small></a>
+  </div>
+</div>

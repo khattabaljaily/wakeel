@@ -1,0 +1,85 @@
+{% load i18n %}
+<form method="post" action="{% url 'mail:compose' %}" enctype="multipart/form-data" class="compose{% if modal %} in-modal{% endif %}" id="compose-form" novalidate
+      data-modal="{% if modal %}1{% endif %}" data-preview-url="{% url 'mail:preview' %}" data-max-files="{{ max_files }}" data-max-mb="20">{% csrf_token %}
+  <input type="hidden" name="ref" value="{{ ref }}"><input type="hidden" name="mode" value="{{ mode }}"><input type="hidden" name="f" value="{{ f }}">
+  <input type="hidden" name="body_html" id="body-html">{% if modal %}<input type="hidden" name="modal" value="1">{% endif %}
+  <div class="compose-bar">
+    <h1>{% translate "New message" %}</h1>
+    <div class="compose-actions">
+      {% if modal %}<button type="button" class="btn btn-light" id="compose-close" data-discard="{% translate 'Discard?' %}" aria-label="{% translate 'Close' %}"><i class="bi bi-x-lg"></i></button>{% endif %}
+      <button type="button" class="btn btn-light" id="preview-btn"><i class="bi bi-eye"></i> {% translate "Preview" %}</button>
+      <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> {% translate "Send" %}</button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger" id="compose-error" role="alert" hidden></div>
+  <div class="compose-card">
+    <div class="crow"><span class="clabel">{% translate "From" %}</span><span class="from-chip"><bdi dir="ltr">{{ account.address }}</bdi></span></div>
+    <div class="crow">
+      <label class="clabel" for="to-input">{% translate "To" %}</label>
+      <div class="chips" data-chips data-target="to"><span class="chip-list"></span><input type="text" id="to-input" class="chip-input" dir="ltr" autocomplete="off" placeholder="name@company.com"></div>
+      <input type="hidden" name="to" id="f-to" value="{{ values.to }}">
+      <span class="cc-links"><button type="button" class="link-btn" data-show="cc-row">{% translate "Cc" %}</button><button type="button" class="link-btn" data-show="bcc-row">{% translate "Bcc" %}</button></span>
+    </div>
+    <div class="crow" id="cc-row"{% if not values.cc %} hidden{% endif %}>
+      <label class="clabel" for="cc-input">{% translate "Cc" %}</label>
+      <div class="chips" data-chips data-target="cc"><span class="chip-list"></span><input type="text" id="cc-input" class="chip-input" dir="ltr" autocomplete="off"></div>
+      <input type="hidden" name="cc" id="f-cc" value="{{ values.cc }}">
+    </div>
+    <div class="crow" id="bcc-row"{% if not values.bcc %} hidden{% endif %}>
+      <label class="clabel" for="bcc-input">{% translate "Bcc" %}</label>
+      <div class="chips" data-chips data-target="bcc"><span class="chip-list"></span><input type="text" id="bcc-input" class="chip-input" dir="ltr" autocomplete="off"></div>
+      <input type="hidden" name="bcc" id="f-bcc" value="{{ values.bcc }}">
+    </div>
+    <div class="crow">
+      <label class="clabel" for="subject">{% translate "Subject" %}</label>
+      <input type="text" id="subject" name="subject" class="subject-input" value="{{ values.subject }}" maxlength="300" placeholder="{% translate 'What is this about?' %}" dir="auto">
+    </div>
+    {% if designs_template %}{% include designs_template %}{% endif %}
+    <div class="editor">
+      <div class="rte-bar" role="toolbar" aria-label="{% translate 'Formatting' %}">
+        <button type="button" data-cmd="bold" title="{% translate 'Bold' %}" aria-label="{% translate 'Bold' %}"><b>B</b></button>
+        <button type="button" data-cmd="italic" title="{% translate 'Italic' %}" aria-label="{% translate 'Italic' %}"><i>I</i></button>
+        <button type="button" data-cmd="underline" title="{% translate 'Underline' %}" aria-label="{% translate 'Underline' %}"><u>U</u></button>
+        <span class="sep"></span>
+        <button type="button" data-cmd="insertUnorderedList" title="{% translate 'Bulleted list' %}" aria-label="{% translate 'Bulleted list' %}"><i class="bi bi-list-ul"></i></button>
+        <button type="button" data-cmd="insertOrderedList" title="{% translate 'Numbered list' %}" aria-label="{% translate 'Numbered list' %}"><span class="ol">1.</span></button>
+        <span class="sep"></span>
+        <button type="button" data-dir="rtl" title="{% translate 'Right to left' %}" aria-label="{% translate 'Right to left' %}"><span class="dirb">¶◂</span></button>
+        <button type="button" data-dir="ltr" title="{% translate 'Left to right' %}" aria-label="{% translate 'Left to right' %}"><span class="dirb">▸¶</span></button>
+        <span class="sep"></span>
+        <button type="button" data-link title="{% translate 'Link' %}" aria-label="{% translate 'Link' %}"><i class="bi bi-link-45deg"></i></button>
+        <button type="button" data-cmd="removeFormat" title="{% translate 'Clear formatting' %}" aria-label="{% translate 'Clear formatting' %}"><i class="bi bi-eraser"></i></button>
+        <span class="link-pop" hidden><input class="form-control form-control-sm" type="url" dir="ltr" placeholder="https://" aria-label="{% translate 'Web address' %}"><button type="button" class="btn btn-light btn-sm" data-link-ok>{% translate "Add" %}</button></span>
+      </div>
+      <div class="rte" id="rte" contenteditable="true" role="textbox" aria-multiline="true" aria-label="{% translate 'Message' %}" data-placeholder="{% translate 'Write your message…' %}">{{ values.body_html|safe }}</div>
+    </div>
+
+    <div class="attach" id="attach">
+      <input type="file" id="files" name="files" multiple hidden>
+      <div class="drop" id="drop" tabindex="0" role="button" aria-label="{% translate 'Attach files' %}">
+        <i class="bi bi-paperclip"></i>
+        <span><b>{% translate "Attach files" %}</b> <span class="small-muted">{% translate "or drop them here" %}</span></span>
+        <small>{% blocktranslate with n=max_files %}Up to {{ n }} files, 20 MB together.{% endblocktranslate %}</small>
+      </div>
+      <div class="pick-row"><button type="button" class="btn btn-light btn-sm" id="pick-btn" data-url="{% url 'mail:picker' %}"><i class="bi bi-folder2"></i> {% translate "From your documents" %}</button>
+        <small class="small-muted">{% translate "Issued documents go as PDF files." %}</small></div>
+      <ul class="file-list" id="file-list"></ul>
+      <ul class="file-list" id="picked-list"></ul>
+      <p class="attach-error" id="attach-error" hidden></p>
+    </div>
+  </div>
+</form>
+
+<dialog id="picker-dialog" class="picker-dialog" aria-labelledby="picker-title">
+  <div class="pd-head"><h3 id="picker-title">{% translate "Attach from Wakeel" %}</h3><span class="sub"></span>
+    <button type="button" class="btn btn-light btn-sm" id="picker-close" aria-label="{% translate 'Close' %}"><i class="bi bi-x-lg"></i></button></div>
+  <div class="pk-search"><input class="form-control" type="search" id="picker-q" placeholder="{% translate 'Search by title' %}" autocomplete="off"></div>
+  <div class="pk-body" id="picker-body"></div>
+  <div class="pk-foot"><button type="button" class="btn btn-primary" id="picker-add">{% translate "Attach the selected" %}</button></div>
+</dialog>
+<dialog id="preview-dialog" class="preview-dialog" aria-labelledby="preview-title">
+  <div class="pd-head"><h3 id="preview-title">{% translate "Preview" %}</h3><span class="sub" id="preview-sub"></span>
+    <button type="button" class="btn btn-light btn-sm" id="preview-close" aria-label="{% translate 'Close' %}"><i class="bi bi-x-lg"></i></button></div>
+  <div class="pd-body"><iframe id="preview-frame" sandbox="allow-same-origin" title="{% translate 'Preview' %}"></iframe></div>
+</dialog>

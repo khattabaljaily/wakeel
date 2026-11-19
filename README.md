@@ -2,7 +2,7 @@
 
 An AI marketing manager for companies, built to replace a marketing agency. It learns a company's brand, writes a monthly social media strategy, writes every post, designs the post images in the brand's colours, fonts and logo, and lays everything out in a calendar for review and approval.
 
-It is multi-tenant SaaS: one account can run several companies (the pilots are Enjaz in Sudan and Banan in Qatar), and each company has its own team, roles, brand kit, media library, plans and posts.
+It is multi-tenant SaaS: one account can run several companies (Enjaz develops it and an operator, JOVIA SAT LTD by default, runs it for each company), and each company has its own team, roles, brand kit, media library, plans and posts.
 
 ---
 
@@ -110,7 +110,8 @@ Amounts use English digits with thousands separators and two decimals (`1,000.00
 | Owner / Admin | Everything in their company, including approving and publishing posts, brand kit, team, client links, publishing accounts |
 | Editor | Create plans, edit posts, send them for review, comment |
 | Viewer | Read and comment |
-| Superuser | The system admin console at `/ops/` (its own sidebar, like enjazpms): overview, subscriptions, AI usage (model, tokens, cache hits) and cost, failed jobs with their technical cause, and service status. Subscribers never see technical details: AI errors carry a plain message for them and a `detail` kept on the job for this panel |
+| Client | Reads and comments on the marketing work shown to them; no access to documents, tasks, contacts, mail or the team (every page is closed to this role by default) |
+| Superuser | The system console at `/ops/` (its own sidebar): overview (money, documents, users, AI budget), sign-up requests, subscriptions (with the operator switch and hard delete), users, wallet ledger, prices (read only), AI usage and cost, jobs and errors, the platform activity log and service status |
 
 ---
 
@@ -185,7 +186,7 @@ before they sign in). The browser's language is ignored on purpose.
 
 ## Production
 
-Live at https://wakeelservice.com (Banan for Information Technology W.L.L.) on `Server` (`/home/general/projects/wakeel`):
+Live at https://wakeelservice.com (developed by Enjaz Information Technology, operated by JOVIA SAT LTD) on `Server` (`/home/enjaz/projects/wakeel`):
 
 | | |
 |---|---|
@@ -195,7 +196,7 @@ Live at https://wakeelservice.com (Banan for Information Technology W.L.L.) on `
 | Database | MySQL `wakeel` (user `wakeel`); secrets in the server's `secrets.json` only |
 | Rendering | Playwright's bundled Chromium (`CHROME_PATH` empty) |
 
-Deploy updates with `./deploy.sh` after pushing to `origin/main`.
+Deploy updates with `./deploy.sh` after pushing to `origin/main`. The full checklist (secrets, crons, packages, migrations, Chrome, outbound mail ports) is in [docs/DEPLOY.md](docs/DEPLOY.md). Nothing is deployed, pushed or restarted unless the owner asks.
 
 ## Project layout
 
@@ -214,7 +215,15 @@ apps/
   api/         JSON endpoints used by the front-end (status, reschedule, rewrite, render, comments, publish, job polling)
   notifications/  in-app + email notifications
   social/      Meta connection (Facebook Page + Instagram) and publishing
-  ops/         system admin panel for superusers (/ops/)
+  ops/         the system console for superusers (/ops/): subscribers, users, ledger, prices, usage, jobs, activity, status
+  core/        dashboard and its "waiting for you" panel, tenancy base classes, encrypted private storage, throttling
+  credits/     the pay-as-you-go wallet, price file (pricing_v1.json), quotes (shown price = charged price), spend guards
+  billing/     card top-ups through the company's operator (enjaz-operators)
+  audit/       the activity log of every company
+  library/     the paper library with expiry reminders; documents/ issued documents, templates, PDF/Word, approval, QR verification
+  docops/      translate, summarise, extract, Word, OCR through enjaz-docai; brand/ the identity studio; identity/ letterheads
+  sharing/     share links; presentations/, forms/, tasks/, notes/, contacts/, announcements/
+  mail/        the company mailbox (IMAP/SMTP) and AI mail templates; assistant/ Marid, which proposes and never acts alone
 templates/     pages (RTL Arabic UI)
 static/        css, js, fonts, logo
 ```

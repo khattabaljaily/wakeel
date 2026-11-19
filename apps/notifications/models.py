@@ -4,6 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Company
 
+from .registry import KINDS
+
 
 class Notification(models.Model):
     """Something a team member should know about: a post waiting for review, a plan that is ready, a comment…"""
@@ -11,7 +13,12 @@ class Notification(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='notifications')
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='notifications')
     icon = models.CharField(max_length=40, default='bi-bell')
-    message = models.CharField(max_length=300)
+    # A notification is either a finished sentence (`message`, the marketing section's) or a `kind` with its `params`
+    # (registry.KINDS): the sentence is then made when it is read, in the reader's language.
+    message = models.CharField(max_length=300, blank=True)
+    kind = models.CharField(max_length=40, blank=True)
+    params = models.JSONField(default=dict, blank=True)
+    dedupe_key = models.CharField(max_length=120, blank=True)  # the same thing is never told twice to a person
     url = models.CharField(max_length=300, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     read_at = models.DateTimeField(null=True, blank=True)
@@ -20,10 +27,25 @@ class Notification(models.Model):
         verbose_name = _('إشعار')
         verbose_name_plural = _('الإشعارات')
         ordering = ['-created_at']
-        indexes = [models.Index(fields=['user', 'read_at'])]
+        indexes = [models.Index(fields=['user', 'read_at']), models.Index(fields=['user', 'dedupe_key'])]
 
     def __str__(self):
-        return self.message
+        return self.text
+
+    @property
+    def text(self):
+        """The sentence, in the language of whoever reads it now."""
+        spec = KINDS.get(self.kind)
+        if spec is None:
+            return self.message or str(self.params.get('title', ''))
+        try:
+            return str(spec[1]) % self.params
+        except (KeyError, TypeError, ValueError):
+            return str(spec[1])
+
+    @property
+    def body(self):
+        return self.params.get('body', '')
 
 
 class PushSubscription(models.Model):

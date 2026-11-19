@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Letterheads" %}{% endblock %}
+{% block page_title %}{% translate "Letterheads" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% blocktranslate with language=main_name %}A letter is printed on the letterhead of its own language. Your main language is {{ language }}; add one for every other language you write in.{% endblocktranslate %}</div>{% endblock %}
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="wk-card"><div class="wk-card-body">
+            {% if rows %}
+            <div class="row g-3">
+                {% for row in rows %}
+                <div class="col-sm-6">
+                    <div class="border rounded-3 p-2 bg-white text-center">
+                        <img src="{{ row.url }}" alt="{{ row.name }}" class="img-fluid rounded-2" style="max-height:340px">
+                        <div class="d-flex justify-content-between align-items-center mt-2 px-1">
+                            <strong lang="{{ row.language }}">{{ row.name }}</strong>
+                            <span>
+                                {% if row.main %}<span class="adm-pill adm-pill--info">{% translate "main" %}</span>{% endif %}
+                                {% if row.source == 'created' %}<span class="adm-pill">AI</span>{% elif row.source == 'uploaded' %}<span class="adm-pill">{% translate "uploaded" %}</span>{% endif %}
+                                {% if can_manage %}
+                                <form method="post" action="{% url 'identity:letterhead_delete' row.language %}" class="d-inline">{% csrf_token %}
+                                    <button class="btn btn-sm btn-light text-danger" data-confirm-title="{% translate "Delete" %}" data-confirm="{% translate 'This letterhead will be deleted for good.' %}" data-confirm-ok="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button>
+                                </form>
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="wk-empty"><div class="icon"><i class="bi bi-file-earmark-richtext"></i></div><h3>{% translate "No letterhead yet." %}</h3></div>
+            {% endif %}
+        </div></div>
+    </div>
+    {% if can_manage %}
+    <div class="col-lg-4">
+        <form method="post" action="{% url 'identity:letterhead_add' %}" enctype="multipart/form-data" class="wk-card">{% csrf_token %}
+            <div class="wk-card-body">
+                <h2 class="wk-section-title"><i class="bi bi-upload text-primary"></i> {% translate "I have it" %}</h2>
+                <div class="mb-3"><label class="form-label" for="lhLang">{% translate "Language" %}</label>
+                    <select id="lhLang" name="language" class="form-select">{% for code, name in languages %}<option value="{{ code }}"{% if code == request.company.main_language %} selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
+                <div class="mb-3"><label class="form-label" for="lhFile">{% translate "Letterhead" %}</label>
+                    <input id="lhFile" type="file" name="file" required class="form-control" accept="application/pdf,image/png,image/jpeg,image/webp">
+                    <div class="form-text">{% translate 'PDF, PNG, JPG or WebP, up to 5 MB' %}</div></div>
+                <button class="btn btn-primary w-100">{% translate "Upload" %}</button>
+            </div>
+        </form>
+        <form method="post" action="{% url 'identity:letterhead_create' %}" class="wk-card mt-3" data-once>{% csrf_token %}
+            <div class="wk-card-body">
+                <h2 class="wk-section-title"><i class="bi bi-stars text-primary"></i> {% translate "Create it for me" %}</h2>
+                <p class="small-muted">{% translate "The AI designs an A4 letterhead from your company details: a header, a footer and an empty page between them." %}</p>
+                <input type="hidden" name="expected_points" value="{{ create_quote.total }}">
+                <div class="mb-3"><label class="form-label" for="lhNewLang">{% translate "Language" %}</label>
+                    <select id="lhNewLang" name="language" class="form-select">{% for code, name in languages %}<option value="{{ code }}"{% if code == request.company.main_language %} selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
+                <div class="mb-3"><label class="form-label" for="lhNote">{% translate "Anything to tell the designer?" %}</label>
+                    <textarea id="lhNote" name="note" rows="2" maxlength="500" class="form-control" dir="auto"></textarea></div>
+                <button class="btn btn-primary w-100"><i class="bi bi-stars"></i> {% translate "Create" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ create_quote.usd }}</span></button>
+                <div class="form-text">{% translate "You are charged only if the result is delivered." %}</div>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

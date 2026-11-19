@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Edit the note" %}{% endblock %}
+{% block page_title %}{% translate "Edit the note" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'notes:list' %}">← {% translate "Personal notes" context "navigation" %}</a>{% endblock %}
+{% block content %}
+<form method="post" class="wk-card" style="max-width:760px" novalidate data-once>{% csrf_token %}<div class="wk-card-body">
+  {% include "notes/_fields.html" %}
+  <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+</div></form>
+{% endblock %}
+{% block scripts %}{% include "notes/_script.html" %}{% endblock %}

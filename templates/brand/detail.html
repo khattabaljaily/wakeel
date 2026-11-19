@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ name }}{% endblock %}
+{% block page_title %}{{ name }}{% endblock %}
+{% block subtitle %}<div class="subtitle">{{ a.get_tier_display }} · {{ a.created_at|date:"Y-m-d H:i" }}</div>{% endblock %}
+{% block actions %}
+  <a class="btn btn-light" href="{% url 'brand:studio' %}">← {% translate "Company identity" context "navigation" %}</a>
+  {% if a.status == 'done' %}<a class="btn btn-primary" href="{% url 'brand:zip' a.pk %}"><i class="bi bi-download"></i> {% translate "Download everything (ZIP)" %}</a>{% endif %}
+  {% if not a.is_working %}<form method="post" action="{% url 'brand:delete' a.pk %}" data-confirm="{% translate 'This design will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash"></i> {% translate "Delete" %}</button></form>{% endif %}
+{% endblock %}
+{% block content %}
+{% if a.is_working %}
+<div class="wk-card" role="status" id="assetWorking" data-job="{{ a.job_id }}"><div class="wk-card-body text-center py-5"><div class="spinner-border mb-3"></div><h2 class="h5">{% translate "Working on it…" %}</h2>
+  <p class="small-muted">{% translate "A design can take a minute or two. You can leave this page: the result waits in the studio." %}</p></div></div>
+{% elif a.status == 'failed' %}
+<div class="alert alert-danger" role="alert">{{ a.error|default:_("The service had a problem. You were not charged; please try again.") }} <strong>{% translate "You were not charged." %}</strong></div>
+{% else %}
+{% if concepts %}
+<div class="wk-card mb-3"><div class="wk-card-body">
+  <h2 class="h5">{% if a.chosen %}{% translate "Your logo" %}{% else %}{% translate "Choose your logo" %}{% endif %}</h2>
+  <p class="small-muted">{% translate "Each concept is a different idea. Choosing one makes it your logo and its colours your brand colours; everything you make next is built from it." %}</p>
+  <div class="row g-3">
+    {% for c in concepts %}
+    <div class="col-md-4"><div class="border rounded-3 p-2 h-100 {% if a.chosen == c.n %}border-success border-2{% endif %}">
+      {% if c.white %}<img class="img-fluid rounded mb-2" src="{% url 'brand:file' a.pk c.white.name %}?w=700" alt="{{ c.name }}">{% endif %}
+      {% if c.dark %}<img class="img-fluid rounded mb-2" src="{% url 'brand:file' a.pk c.dark.name %}?w=700" alt="">{% endif %}
+      <h3 class="h6" dir="auto">{{ c.name }}</h3><p class="small-muted" dir="auto">{{ c.idea }}</p>
+      {% if a.chosen == c.n %}<span class="badge text-bg-success">{% translate "Your logo" %}</span>
+      {% else %}<form method="post" action="{% url 'brand:choose' a.pk c.n %}" data-once>{% csrf_token %}<button type="submit" class="btn btn-primary btn-sm">{% translate "Choose this logo" %}</button></form>{% endif %}
+    </div></div>
+    {% endfor %}
+  </div>
+</div></div>
+{% endif %}
+{% if designs %}
+<div class="wk-card mb-3"><div class="wk-card-body"><h2 class="h5">{% translate "Your designs" %}</h2>
+  <div class="row g-3">
+    {% for d in designs %}
+    <div class="col-md-4"><div class="border rounded-3 p-2 h-100">
+      {% for f in d.images %}<img class="img-fluid rounded mb-2" src="{% url 'brand:file' a.pk f.name %}?w=700" alt="{{ d.style }}" loading="lazy">{% endfor %}
+      <h3 class="h6">{% blocktranslate with n=d.n %}Design {{ n }}{% endblocktranslate %} · {{ d.style }}</h3>
+      {% if d.pdf %}<a class="btn btn-sm btn-light" href="{% url 'brand:file' a.pk d.pdf.name %}?download=1"><i class="bi bi-download"></i> {% translate "Print-ready PDF" %}</a>{% endif %}
+    </div></div>
+    {% endfor %}
+  </div>
+</div></div>
+{% endif %}
+{% if files %}
+<div class="wk-card"><div class="wk-card-body"><h2 class="h5">{% translate "Files" %}</h2>
+  <div class="row g-3">
+    {% for f in images %}<div class="col-6 col-md-3"><a href="{% url 'brand:file' a.pk f.name %}" target="_blank" rel="noopener" class="text-reset"><img class="img-fluid border rounded" src="{% url 'brand:file' a.pk f.name %}?w=420" alt="{{ f.name }}" loading="lazy"><span class="small d-block text-truncate">{{ f.name }}</span></a></div>{% endfor %}
+  </div>
+  {% if others %}<ul class="mt-3">{% for f in others %}<li><a href="{% url 'brand:file' a.pk f.name %}?download=1">{{ f.name }}</a> <span class="small-muted">{{ f.size|filesizeformat }}</span></li>{% endfor %}</ul>{% endif %}
+</div></div>
+{% endif %}
+{% endif %}
+{% endblock %}
+{% block scripts %}{% if a.is_working %}<script>
+(function () { var b = document.getElementById('assetWorking'); if (!b || !b.dataset.job) { setTimeout(function () { location.reload(); }, 5000); return; }
+  Wakeel.pollJob(b.dataset.job, null, 3000).then(function () { location.reload(); }, function () { location.reload(); }); })();
+</script>{% endif %}{% endblock %}

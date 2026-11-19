@@ -3,6 +3,7 @@ import datetime
 from django import forms
 from django.core.exceptions import PermissionDenied
 from django.contrib import messages
+from django.db import transaction
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -11,6 +12,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_POST
 
 from apps.companies.decorators import company_required
+from apps.credits.jobs import expected_points
 from apps.jobs.models import Job
 from apps.social.models import SocialAccount
 
@@ -73,7 +75,7 @@ def refresh(request):
 @require_POST
 def repost(request, pk):
     post = get_object_or_404(Post, pk=pk, company=request.company, status=Post.Status.PUBLISHED)
-    Job.enqueue(request.company, Job.Kind.REPOST, request.user, post_id=post.pk)
+    Job.enqueue(request.company, Job.Kind.REPOST, request.user, expected_points=expected_points(request.POST), post_id=post.pk)
     messages.success(request, _('يعيد وكيل صياغة «%(title)s» وتصميمه، وستجده في المنشورات بانتظار المراجعة خلال لحظات.') % {'title': post.title})
     return redirect('insights:dashboard')
 
@@ -94,13 +96,15 @@ def report_create(request):
     except ValueError:
         raise Http404
     month = month.replace(day=1)
-    rep, created = MonthlyReport.objects.get_or_create(company=request.company, month=month)
-    if created or rep.status == MonthlyReport.Status.FAILED or request.POST.get('again'):
-        import secrets
-        rep.status, rep.error = MonthlyReport.Status.GENERATING, ''
-        rep.share_token = rep.share_token or secrets.token_urlsafe(24)
-        rep.save()
-        Job.enqueue(request.company, Job.Kind.GENERATE_REPORT, request.user, report_id=rep.pk)
+    with transaction.atomic():   # a refused payment leaves no report stuck in "generating"
+        rep, created = MonthlyReport.objects.get_or_create(company=request.company, month=month)
+        if created or rep.status == MonthlyReport.Status.FAILED or request.POST.get('again'):
+            import secrets
+            rep.status, rep.error = MonthlyReport.Status.GENERATING, ''
+            rep.share_token = rep.share_token or secrets.token_urlsafe(24)
+            rep.save()
+            Job.enqueue(request.company, Job.Kind.GENERATE_REPORT, request.user,
+                        expected_points=expected_points(request.POST), report_id=rep.pk)
     return redirect('insights:report', pk=rep.pk)
 
 
@@ -190,7 +194,9 @@ def competitor_analyse(request):
         messages.error(request, _('أضف منافساً واحداً على الأقل.'))
         return redirect('competitors:list')
     if not CompetitorAnalysis.objects.filter(company=company, status=CompetitorAnalysis.Status.GENERATING).exists():
-        analysis = CompetitorAnalysis.objects.create(company=company)
-        Job.enqueue(company, Job.Kind.ANALYZE_COMPETITORS, request.user, analysis_id=analysis.pk)
+        with transaction.atomic():
+            analysis = CompetitorAnalysis.objects.create(company=company)
+            Job.enqueue(company, Job.Kind.ANALYZE_COMPETITORS, request.user,
+                        expected_points=expected_points(request.POST), analysis_id=analysis.pk)
     messages.success(request, _('يحلّل وكيل المنافسين الآن. أعد تحميل الصفحة بعد دقيقة.'))
     return redirect('competitors:list')

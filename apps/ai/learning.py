@@ -39,4 +39,4 @@ def distill(current, signals, language='Arabic (Modern Standard Arabic)'):
 </new_feedback>
 
 Update the lessons."""
-    return call_json(SYSTEM_PROMPT.format(max=MAX_LESSONS, language=language), prompt, LESSONS_SCHEMA, max_tokens=4000, effort='medium')
+    return call_json(SYSTEM_PROMPT.format(max=MAX_LESSONS, language=language), prompt, LESSONS_SCHEMA, max_tokens=4000, effort='medium', tier='background')

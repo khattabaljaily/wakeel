@@ -214,12 +214,14 @@ class LegalPagesTests(TestCase):
             self.assertContains(self.client.get(reverse(name)), en)
             self.client.post(reverse('core:set_language'), {'language': 'ar'})
 
-    def test_operator_appears_only_when_set(self):
-        self.assertNotContains(self.client.get(reverse('core:privacy')), 'تقدمها')
+    def test_the_provider_is_the_default_operator_unless_the_owner_sets_another(self):
+        page = self.client.get(reverse('core:privacy'))
+        self.assertContains(page, 'طوّرتها إنجاز لتقنية المعلومات وتشغّلها شركة جوفيا سات المحدودة')
+        self.assertNotContains(page, 'بنان')
         with self.settings(LEGAL_ENTITY='Example Co', LEGAL_ENTITY_AR='شركة المثال'):
-            self.assertContains(self.client.get(reverse('core:privacy')), 'تقدمها شركة المثال')
+            self.assertContains(self.client.get(reverse('core:privacy')), 'وتشغّلها شركة المثال')
             self.client.post(reverse('core:set_language'), {'language': 'en'})
-            self.assertContains(self.client.get(reverse('core:privacy')), 'provided by Example Co')
+            self.assertContains(self.client.get(reverse('core:privacy')), 'operated by Example Co')
 
     def test_linked_from_landing_and_sign_in(self):
         for url in (reverse('core:home'), reverse('accounts:login')):
@@ -233,7 +235,7 @@ class AboutPageTests(TestCase):
         with self.settings(LEGAL_ENTITY='Enjaz Information Technology', LEGAL_ENTITY_AR='إنجاز لتقنية المعلومات'):
             page = self.client.get(reverse('core:about'))
             self.assertContains(page, 'ماذا يفعل وكيل؟')
-            self.assertContains(page, 'خدمة من إنجاز لتقنية المعلومات')
+            self.assertContains(page, 'من تطوير إنجاز لتقنية المعلومات وتشغيل إنجاز لتقنية المعلومات')
             self.client.post(reverse('core:set_language'), {'language': 'en'})
-            self.assertContains(self.client.get(reverse('core:about')), 'a service by Enjaz Information Technology')
+            self.assertContains(self.client.get(reverse('core:about')), 'developed by Enjaz Information Technology and operated by Enjaz Information Technology')
         self.assertContains(self.client.get(reverse('core:privacy')), reverse('core:about'))

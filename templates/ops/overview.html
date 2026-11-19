@@ -40,11 +40,6 @@
     <span><strong>{{ counts.pending_approval }}</strong> {% translate "طلب اشتراك جديد بانتظار الاعتماد." %}</span>
     <a href="{% url 'ops:subscriptions' %}?status=pending" class="alert-link ms-auto">{% translate "مراجعة الطلبات" %}</a></div>
 {% endif %}
-{% if counts.expiring %}
-<div class="alert alert-info d-flex align-items-center gap-2"><i class="bi bi-calendar-event"></i>
-    <span><strong>{{ counts.expiring }}</strong> {% translate "اشتراك ينتهي خلال 7 أيام." %}</span>
-    <a href="{% url 'ops:subscriptions' %}?status=active" class="alert-link ms-auto">{% translate "عرض الاشتراكات" %}</a></div>
-{% endif %}
 
 <div class="adm-kpis">
     <a href="{% url 'ops:subscriptions' %}?status=active" class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-buildings"></i></div>
@@ -56,6 +51,21 @@
     <a href="{% url 'ops:jobs' %}?status=failed" class="wk-card adm-kpi {% if counts.failed_week %}adm-kpi--alert{% endif %}"><div class="adm-kpi__icon {% if counts.failed_week %}tone-danger{% else %}tone-published{% endif %}"><i class="bi bi-bug"></i></div>
         <div><div class="adm-kpi__num">{{ counts.failed_week }}</div><div class="adm-kpi__lbl">{% translate "مهمة فشلت خلال 7 أيام" %}</div>{% if counts.pending %}<div class="adm-kpi__sub">{% blocktranslate trimmed with pending=counts.pending %}{{ pending }} قيد الانتظار{% endblocktranslate %}</div>{% endif %}</div></a>
 </div>
+
+<div class="adm-kpis">
+    <a href="{% url 'ops:ledger' %}" class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-cart"></i></div>
+        <div><div class="adm-kpi__num" dir="ltr">${{ product.net|money }}</div><div class="adm-kpi__lbl">{% translate "المخصوم من العملاء هذا الشهر" %}</div><div class="adm-kpi__sub" dir="ltr">{% translate "شحن" %} ${{ product.topups }}</div></div></a>
+    <a href="{% url 'ops:ledger' %}" class="wk-card adm-kpi {% if product.empty_wallets %}adm-kpi--alert{% endif %}"><div class="adm-kpi__icon tone-gold"><i class="bi bi-wallet2"></i></div>
+        <div><div class="adm-kpi__num" dir="ltr">${{ product.held }}</div><div class="adm-kpi__lbl">{% translate "أرصدة العملاء الحالية" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with n=product.empty_wallets %}{{ n }} محفظة فارغة{% endblocktranslate %}</div></div></a>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-file-earmark-text"></i></div>
+        <div><div class="adm-kpi__num">{{ product.documents_month }}</div><div class="adm-kpi__lbl">{% translate "مستند صادر هذا الشهر" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with n=product.records %}{{ n }} ورقة في المكتبات{% endblocktranslate %}</div></div></div>
+    <a href="{% url 'ops:users' %}" class="wk-card adm-kpi"><div class="adm-kpi__icon tone-review"><i class="bi bi-people"></i></div>
+        <div><div class="adm-kpi__num">{{ product.users }}</div><div class="adm-kpi__lbl">{% translate "مستخدم" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with n=product.new_users %}{{ n }} جديد هذا الشهر{% endblocktranslate %}</div></div></a>
+</div>
+{% if budget.limit %}<div class="wk-card mb-3"><div class="wk-card-body">
+    <div class="d-flex justify-content-between small mb-1"><a href="{% url 'ops:usage' %}"><strong>{% translate "ميزانية الذكاء الاصطناعي لهذا الشهر" %}</strong></a><span dir="ltr">${{ budget.spent|money }} / ${{ budget.limit|money }}</span></div>
+    <div class="progress" style="height:.6rem"><div class="progress-bar {% if budget.percent >= 90 %}bg-danger{% elif budget.percent >= 70 %}bg-warning{% endif %}" style="width:{{ budget.percent }}%"></div></div>
+</div></div>{% endif %}
 
 <div class="adm-grid-3">
     <div class="wk-card">

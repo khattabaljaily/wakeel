@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load wakeel %}
+{% load wakeel credits %}
 {% block title %}{% blocktranslate trimmed with name=target.name %}{{ name }} · لوحة النظام{% endblocktranslate %}{% endblock %}
 {% block page_title %}{{ target.name }}{% endblock %}
 {% block subtitle %}<div class="subtitle"><a href="{% url 'ops:subscriptions' %}">{% translate "الاشتراكات" %}</a> {% blocktranslate trimmed with industry=target.industry country=target.country created_at=target.created_at|date:"j/n/Y" %}· {{ industry }} · {{ country }} · منذ {{ created_at }}{% endblocktranslate %}</div>{% endblock %}
@@ -10,8 +10,6 @@
 {% block content %}
 <div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-4 align-items-center">
     <div><div class="small-muted">{% translate "الحالة" %}</div>{% include "ops/_subscription_state.html" with c=target %}</div>
-    <div><div class="small-muted">{% translate "بداية الاشتراك" %}</div><strong>{{ target.subscription_start|date:"j/n/Y" }}</strong></div>
-    <div><div class="small-muted">{% translate "نهاية الاشتراك" %}</div>{% include "ops/_subscription_end.html" with c=target %}</div>
     <div><div class="small-muted">{% translate "الاعتماد" %}</div>{% if target.approved_at %}{{ target.approved_at|date:"j/n/Y" }}{% elif target.is_approved %}—{% else %}<span class="text-warning">{% translate "بانتظار الاعتماد" %}</span>{% endif %}</div>
     <div><div class="small-muted">{% translate "المالك" %}</div><span dir="ltr">{{ owner.email|default:"—" }}</span></div>
 </div></div>
@@ -21,6 +19,30 @@
     <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-lightning-charge"></i></div><div><div class="wk-stat__value">{{ total.cache_rate }}%</div><div class="wk-stat__label">cache hit</div></div></div></div>
     <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-review"><i class="bi bi-box-arrow-up"></i></div><div><div class="wk-stat__value">{{ total.output|thousands }}</div><div class="wk-stat__label">{% translate "رموز مُخرجة" %}</div></div></div></div>
 </div>
+
+<div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-4 align-items-center">
+    <div><div class="small-muted">{% translate "الرصيد" %}</div><strong class="fs-4" dir="ltr">${{ wallet_usd }}</strong>{% if wallet.is_exempt %} <span class="adm-pill adm-pill--info">{% translate "معفاة" %}</span>{% endif %}</div>
+    <div><div class="small-muted">{% translate "المخصوم (صافي)" %}</div><strong dir="ltr">${{ revenue.2|money }}</strong></div>
+    <form method="post" action="{% url 'ops:wallet_grant' target.pk %}" class="d-flex gap-2 align-items-end ms-auto">{% csrf_token %}
+        <div><label class="small-muted d-block" for="grantAmount">{% translate "إضافة رصيد ($، سالب للسحب)" %}</label><input id="grantAmount" name="amount" class="form-control" dir="ltr" placeholder="10" required style="width:130px"></div>
+        <div><label class="small-muted d-block" for="grantNote">{% translate "ملاحظة" %}</label><input id="grantNote" name="note" class="form-control" maxlength="200"></div>
+        <button class="btn btn-primary">{% translate "تنفيذ" %}</button>
+    </form>
+    <form method="post" action="{% url 'ops:wallet_exempt' target.pk %}">{% csrf_token %}<button class="btn btn-light">{% if wallet.is_exempt %}{% translate "إلغاء الإعفاء" %}{% else %}{% translate "إعفاء من الخصم" %}{% endif %}</button></form>
+</div>
+{% if wallet_rows %}<div class="d-flex justify-content-between align-items-center px-3 py-2 border-top small"><strong>{% translate "آخر الحركات على الرصيد" %}</strong><a href="{% url 'ops:ledger' %}?company={{ target.pk }}" class="fw-semibold">{% translate "سجل الشحن والخصم الكامل" %}</a></div>
+<div class="list-group list-group-flush">{% for t in wallet_rows %}
+    <div class="list-group-item d-flex justify-content-between gap-2 small"><span>{{ t.get_action_display }}{% if t.service_key %} · {{ t.service_key }}{% endif %} <span class="small-muted">{{ t.created_at|date:"j/n H:i" }}{% if t.description %} · {{ t.description|truncatechars:50 }}{% endif %}</span></span><strong dir="ltr">{% if t.delta > 0 %}+{% endif %}${{ t.delta|usd }}</strong></div>
+{% endfor %}</div>{% endif %}</div>
+
+<div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-3 align-items-end">
+    <div><div class="small-muted">{% translate "المشغّل (من يخدم الشركة ويحصّل منها)" %}</div><strong>{{ current_operator.name }}</strong></div>
+    <form method="post" action="{% url 'ops:company_operator' target.pk %}" class="d-flex gap-2 align-items-end ms-auto">{% csrf_token %}
+        <div><label class="small-muted d-block" for="operatorSelect">{% translate "نقل إلى مشغّل" %}</label>
+        <select id="operatorSelect" name="operator" class="form-select">{% for o in operators_list %}<option value="{{ o.key }}" {% if o.key == current_operator.key %}selected{% endif %}>{{ o.name }}</option>{% endfor %}</select></div>
+        <button class="btn btn-light" data-confirm-title="{% translate "نقل الشركة إلى مشغّل آخر؟" %}" data-confirm="{% translate "سيُبلَّغ مالك الشركة ومديروها، وتتغير الجهة المذكورة في صفحات الشركة وفي الدفع." %}" data-confirm-ok="{% translate "نقل" %}">{% translate "نقل" %}</button>
+    </form>
+</div></div>
 
 <div class="row g-4 mb-4">
     <div class="col-xl-7">

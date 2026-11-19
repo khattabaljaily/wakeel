@@ -2,6 +2,7 @@
 whole platform: subscribers, users, AI usage and cost, jobs and errors, and service status."""
 import datetime
 import json
+from decimal import Decimal
 from functools import wraps
 
 from django.conf import settings
@@ -9,6 +10,7 @@ from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.models import Count, Max, Q
@@ -25,11 +27,17 @@ from apps.companies import subscriptions as subscriptions_service
 from apps.companies.middleware import SESSION_KEY as COMPANY_SESSION_KEY
 from apps.companies.models import Company, Membership
 from apps.content.models import ContentPlan, Post
+from apps.credits import catalog, charging
+from apps.credits.models import WalletTransaction
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
 
-from . import stats, tables
-from .forms import DURATIONS, SubscriptionCreateForm, SubscriptionEditForm
+from enjaz_operators import registry, web as operator_names
+
+from apps.companies import operators as operators_service
+
+from . import purge, stats, tables
+from .forms import SubscriptionCreateForm, SubscriptionEditForm
 
 
 def superuser_required(view):
@@ -43,14 +51,23 @@ def superuser_required(view):
 
 
 def _system():
-    deepseek = settings.AI_PROVIDER == 'deepseek'
-    model = settings.DEEPSEEK_MODEL if deepseek else settings.ANTHROPIC_MODEL
+    from apps.ai.client import resolve
+
+    def route(tier):
+        try:
+            provider, model = resolve(tier)
+        except Exception:
+            return None
+        return {'provider': 'DeepSeek' if provider == 'deepseek' else 'Claude (Anthropic)', 'model': model}
+
+    routes = {tier: route(tier) for tier in ('interactive', 'background', 'premium')}
+    first = next((r for r in routes.values() if r), {'provider': '—', 'model': ''})
     return {
-        'provider': 'DeepSeek' if deepseek else 'Claude (Anthropic)', 'model': model,
+        'provider': first['provider'], 'model': first['model'], 'routes': routes,
         'ai_enabled': settings.AI_ENABLED, 'ai_key_name': settings.AI_KEY_NAME,
         'worker_alive': worker_alive(), 'email': bool(settings.EMAIL_HOST), 'meta': settings.META_ENABLED,
         'site_url': settings.SITE_URL, 'debug': settings.DEBUG,
-        'prices': DEEPSEEK_PRICES.get(deepseek_tier(model)) if deepseek else None,
+        'prices': DEEPSEEK_PRICES.get(deepseek_tier(settings.DEEPSEEK_MODEL)) if settings.DEEPSEEK_API_KEY else None,
         'off_peak': settings.DEEPSEEK_OFF_PEAK_UTC,
         'flat_prices': (settings.AI_PRICE_INPUT_PER_MTOK, settings.AI_PRICE_OUTPUT_PER_MTOK),
     }
@@ -76,6 +93,24 @@ def _company_rows(companies, year_jobs):
     return [{'company': c, 'owner': owners.get(c.pk), **by_company.get(c.pk, empty)} for c in companies]
 
 
+def _product_totals(month_start):
+    """What the other sections of the product are doing, platform-wide: documents, money, people."""
+    from django.db.models import Sum
+    from apps.documents.models import Document
+    from apps.library.models import Record
+    from apps.credits.models import Wallet
+    charged, refunded, net = charging.revenue_usd(since=month_start)
+    topups = WalletTransaction.objects.filter(created_at__gte=month_start, action=WalletTransaction.TOPUP).aggregate(s=Sum('delta'))['s'] or 0
+    held = Wallet.objects.filter(is_exempt=False).aggregate(s=Sum('balance'))['s'] or 0
+    empty = Wallet.objects.filter(is_exempt=False, balance__lte=0, company__is_active=True).count()
+    return {
+        'net': net, 'topups': catalog.format_points(topups), 'held': catalog.format_points(held), 'empty_wallets': empty,
+        'documents_month': Document.all_companies.filter(created_at__gte=month_start).count(),
+        'records': Record.all_companies.count(),
+        'users': User.objects.count(), 'new_users': User.objects.filter(date_joined__gte=month_start).count(),
+    }
+
+
 @superuser_required
 def overview(request):
     now = timezone.now()
@@ -97,8 +132,6 @@ def overview(request):
             'companies': Company.objects.count(),
             'active_subscriptions': _status_filter(Company.objects.all(), 'active').count(),
             'pending_approval': Company.objects.filter(is_approved=False).count(),
-            'expiring': _status_filter(Company.objects.all(), 'active').filter(
-                subscription_expires__lte=timezone.localdate() + datetime.timedelta(days=7)).count(),
             'active_companies': len(active),
             'new_companies': Company.objects.filter(created_at__gte=month_start).count(),
             'posts_month': Post.objects.filter(created_at__gte=month_start).count(),
@@ -107,6 +140,8 @@ def overview(request):
             'failed_week': Job.objects.filter(status=Job.Status.FAILED, created_at__gte=week_ago).count(),
             'pending': Job.objects.filter(status__in=[Job.Status.PENDING, Job.Status.RUNNING]).count(),
         },
+        'revenue': charging.revenue_usd(since=stats.year_start()),
+        'product': _product_totals(month_start), 'budget': _budget(),
         'cost_series': stats.monthly_series(year_jobs, lambda j: j.created_at, lambda j: float(j.cost_usd or 0)),
         'signup_series': stats.monthly_series(Company.objects.filter(created_at__gte=stats.year_start()),
                                               lambda c: c.created_at),
@@ -119,31 +154,26 @@ def overview(request):
     })
 
 
-STATUS_FILTERS = [('', _('الكل')), ('active', _('نشط')), ('suspended', _('معلّق')), ('expired', _('منتهي')), ('pending', _('قيد الاعتماد'))]
+STATUS_FILTERS = [('', _('الكل')), ('active', _('نشط')), ('suspended', _('معلّق')), ('pending', _('قيد الاعتماد'))]
 IMPERSONATOR_KEY = '_impersonator_id'
 
 
 def _status_filter(qs, status):
-    today = timezone.localdate()
-    live = Q(subscription_expires__isnull=True) | Q(subscription_expires__gte=today)
     return {
         'pending': qs.filter(is_approved=False),
         'suspended': qs.filter(is_approved=True, is_active=False),
-        'expired': qs.filter(is_approved=True, is_active=True, subscription_expires__lt=today),
-        'active': qs.filter(live, is_approved=True, is_active=True),
+        'active': qs.filter(is_approved=True, is_active=True),
     }.get(status, qs)
 
 
-def _subscription_data(company, owner=None, members=None, posts=None):
+def _subscription_data(company, owner=None, members=None, posts=None, balance=''):
     """Everything the view / edit dialogs show for one subscription, as JSON for the row's buttons."""
     return json.dumps(cls=DjangoJSONEncoder, obj={
         'id': company.pk, 'name': company.name, 'initials': company.initials, 'color': company.primary_color,
         'industry': company.industry, 'email': company.email, 'phone': company.phone, 'city': company.city,
-        'country': company.country, 'timezone': company.timezone, 'is_demo': company.is_demo,
+        'country': company.country, 'timezone': company.timezone,
         'is_active': company.is_active, 'is_approved': company.is_approved,
-        'subscription_start': company.subscription_start.isoformat() if company.subscription_start else '',
-        'subscription_expires': company.subscription_expires.isoformat() if company.subscription_expires else '',
-        'days': company.days_until_expiry, 'status': company.subscription_status,
+        'balance': balance, 'status': company.subscription_status,
         'status_label': company.subscription_status_label,
         'created': timezone.localtime(company.created_at).strftime('%Y-%m-%d'),
         'owner_name': owner.display_name if owner else '', 'owner_email': owner.email if owner else '',
@@ -161,17 +191,14 @@ def subscriptions(request, create_form=None, edit_form=None, edit_target=None):
         'table': tables.subscriptions(), 'status': status if status in dict(STATUS_FILTERS) else '',
         'filters': STATUS_FILTERS,
         'stats': {key: _status_filter(all_companies, key).count() for key, _ in STATUS_FILTERS},
-        'create_form': create_form or SubscriptionCreateForm(initial={
-            'timezone': 'Asia/Qatar', 'subscription_start': timezone.localdate(),
-            'subscription_expires': timezone.localdate() + datetime.timedelta(days=30)}),
+        'create_form': create_form or SubscriptionCreateForm(initial={'timezone': 'Asia/Qatar'}),
         'edit_form': edit_form or SubscriptionEditForm(), 'edit_target': edit_target,
-        'durations': DURATIONS[1:],
     }, status=400 if (create_form or edit_form) else 200)
 
 
 @superuser_required
 def subscriptions_data(request):
-    queryset = _status_filter(Company.objects.annotate(members=Count('memberships', distinct=True),
+    queryset = _status_filter(Company.objects.select_related('wallet').annotate(members=Count('memberships', distinct=True),
                                                        post_count=Count('posts', distinct=True)),
                               request.GET.get('status', '')).order_by('-created_at')
 
@@ -180,9 +207,20 @@ def subscriptions_data(request):
             company__in=companies, role=Membership.Role.OWNER).select_related('user')}
         for c in companies:
             c.owner = owners.get(c.pk)
-            c.data = _subscription_data(c, c.owner, c.members, c.post_count)
+            wallet = getattr(c, 'wallet', None)
+            c.balance_usd = catalog.format_points(wallet.balance if wallet else 0)
+            c.data = _subscription_data(c, c.owner, c.members, c.post_count, c.balance_usd)
 
     return tables.subscriptions().json(request, queryset, prepare=prepare)
+
+
+def _back_to(request, pk):
+    """Back to the page the form came from (same site only), else the company's page."""
+    from django.utils.http import url_has_allowed_host_and_scheme
+    target = request.POST.get('next') or ''
+    if target and url_has_allowed_host_and_scheme(target, allowed_hosts={request.get_host()}):
+        return redirect(target)
+    return redirect('ops:company', pk=pk)
 
 
 def _back(request):
@@ -228,25 +266,8 @@ def subscription_approve(request, pk):
     if company.is_approved:
         messages.info(request, _('«%(name)s» معتمد بالفعل.') % {'name': company.name})
     else:
-        subscriptions_service.approve(company, is_demo=request.POST.get('is_demo') == '1',
-                                      days=subscriptions_service.valid_days(request.POST.get('days')))
+        subscriptions_service.approve(company)
         messages.success(request, _('تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد.') % {'name': company.name})
-    return _back(request)
-
-
-@superuser_required
-@require_POST
-def subscription_renew(request, pk):
-    company = get_object_or_404(Company, pk=pk)
-    days = subscriptions_service.valid_days(request.POST.get('days'))
-    if not days:
-        messages.error(request, _('اختر مدة صحيحة للتجديد.'))
-        return _back(request)
-    subscriptions_service.extend(company, days)
-    if request.POST.get('is_demo') in ('0', '1'):  # renewing is also when a trial becomes paid
-        company.is_demo = request.POST['is_demo'] == '1'
-    company.save(update_fields=['subscription_expires', 'is_demo', 'updated_at'])
-    messages.success(request, _('تم تجديد «%(name)s» حتى %(date)s.') % {'name': company.name, 'date': f'{company.subscription_expires:%Y-%m-%d}'})
     return _back(request)
 
 
@@ -269,7 +290,7 @@ def subscription_delete(request, pk):
         messages.error(request, _('الاسم المكتوب لا يطابق اسم الشركة، فلم يُحذف شيء.'))
         return _back(request)
     name = company.name
-    company.delete()  # cascades to plans, posts, media and their files
+    purge.delete_company(company)  # the rows and the uploaded files
     messages.success(request, _('تم حذف اشتراك «%(name)s» وكل بياناته نهائياً.') % {'name': name})
     return redirect('ops:subscriptions')
 
@@ -332,14 +353,59 @@ def company_detail(request, pk):
         'target': company, 'total': total, 'owner': owner,
         'months_table': months_table, 'months_rows': months_table.rows(months, request),
         'jobs_table': tables.jobs(company),
-        'data': _subscription_data(company, owner, company.memberships.count(), company.posts.count()),
-        'edit_form': SubscriptionEditForm(), 'durations': DURATIONS[1:],
+        'data': _subscription_data(company, owner, company.memberships.count(), company.posts.count(),
+                                   catalog.format_points(charging.get_wallet(company).balance)),
+        'edit_form': SubscriptionEditForm(),
         'members': company.memberships.select_related('user').order_by('created_at'),
         'plans': company.plans.annotate(n=Count('posts'))[:12],
         'posts_by_status': {Post.Status(s).label: n for s, n in
                             company.posts.order_by().values_list('status').annotate(n=Count('pk'))},
         'accounts': company.social_accounts.all(),
+        'wallet': charging.get_wallet(company), 'wallet_usd': catalog.format_points(charging.get_wallet(company).balance),
+        'wallet_rows': WalletTransaction.objects.filter(company=company)[:10],
+        'revenue': charging.revenue_usd(company=company),
+        'current_operator': operator_names.bind(operators_service.of_company(company)),
+        'operators_list': [operator_names.bind(o) for o in registry.operators(operators_service.PRODUCT)],
     })
+
+
+@superuser_required
+@require_POST
+def wallet_grant(request, pk):
+    """Add (or take back, with a minus) balance by hand: the way a company is funded until its operator's online payment is open."""
+    from decimal import Decimal, InvalidOperation
+    company = get_object_or_404(Company, pk=pk)
+    try:
+        amount = Decimal(request.POST.get('amount', ''))
+        points = int(amount * 1000)
+        if not points or abs(amount) > 1000:
+            raise ValueError
+    except (InvalidOperation, ValueError):
+        messages.error(request, _('أدخل مبلغاً صحيحاً بالدولار (حتى 1000).'))
+        return _back_to(request, pk)
+    charging.add_points(company, points, action=WalletTransaction.ADMIN_GRANT, user=request.user,
+                        description=(request.POST.get('note') or '')[:200] or 'Admin grant')
+    messages.success(request, _('تم تعديل الرصيد.'))
+    return _back_to(request, pk)
+
+
+@superuser_required
+@require_POST
+def wallet_exempt(request, pk):
+    """An exempt company is never charged (the owner's own and demo companies)."""
+    company = get_object_or_404(Company, pk=pk)
+    wallet = charging.get_wallet(company)
+    wallet.is_exempt = not wallet.is_exempt
+    wallet.save(update_fields=['is_exempt'])
+    messages.success(request, _('أصبحت الشركة معفاة من الخصم.') if wallet.is_exempt else _('أصبح الخصم من رصيد الشركة يعمل.'))
+    return redirect('ops:company', pk=pk)
+
+
+def _budget():
+    from apps.credits import guards
+    limit = Decimal(str(settings.AI_MONTHLY_BUDGET_USD))
+    spent = guards.spend_this_month_usd()
+    return {'limit': limit, 'spent': spent, 'percent': min(100, int(spent / limit * 100)) if limit > 0 else 0}
 
 
 @superuser_required
@@ -356,7 +422,7 @@ def usage(request):
     by_model, by_kind = tables.breakdown('modelsTable', _('النموذج')), tables.breakdown('kindsTable', _('المهمة'))
     months_table, companies_table = tables.usage_months(), tables.usage_companies()
     return render(request, 'ops/usage.html', {
-        'system': _system(), 'total': total,
+        'system': _system(), 'total': total, 'budget': _budget(),
         'months_table': months_table, 'months_rows': months_table.rows(months, request),
         'models_table': by_model, 'models_rows': by_model.rows(models.values(), request),
         'kinds_table': by_kind, 'kinds_rows': by_kind.rows(kinds.values(), request),
@@ -398,3 +464,163 @@ def system(request):
                   .order_by().values_list('status').annotate(n=Count('pk'))},
         'oldest_pending': Job.objects.filter(status=Job.Status.PENDING).order_by('created_at').first(),
     })
+
+
+# ── Users, ledger, prices, activity, operators ───────────────────────────────
+
+PAGE_SIZE = 50
+PASSWORD_TRIES, PASSWORD_WINDOW = 5, 600
+
+
+def _page(request, queryset):
+    return Paginator(queryset, PAGE_SIZE).get_page(request.GET.get('page'))
+
+
+def _password_ok(request) -> bool:
+    """The superuser's own password, asked again before anything is deleted for good (a few tries, then a pause)."""
+    key = f'ops-delete-fails-{request.user.pk}'
+    fails = cache.get(key, 0)
+    if fails >= PASSWORD_TRIES:
+        messages.error(request, _('محاولات خاطئة كثيرة. حاول بعد دقائق. لم يُحذف شيء.'))
+        return False
+    if request.user.check_password(request.POST.get('password', '')):
+        cache.delete(key)
+        return True
+    cache.set(key, fails + 1, PASSWORD_WINDOW)
+    messages.error(request, _('كلمة المرور غير صحيحة. لم يُحذف شيء.'))
+    return False
+
+
+@superuser_required
+def users(request):
+    q = request.GET.get('q', '').strip()
+    status = request.GET.get('status', '')
+    queryset = User.objects.annotate(n_companies=Count('memberships')).order_by('-date_joined')
+    if q:
+        queryset = queryset.filter(Q(email__icontains=q) | Q(first_name__icontains=q) | Q(last_name__icontains=q))
+    if status == 'inactive':
+        queryset = queryset.filter(is_active=False)
+    elif status == 'pending':
+        queryset = queryset.filter(is_approved=False, is_superuser=False)
+    elif status == 'superuser':
+        queryset = queryset.filter(is_superuser=True)
+    page = _page(request, queryset)
+    owned = {}
+    for m in (Membership.objects.filter(user__in=list(page), role=Membership.Role.OWNER)
+              .select_related('company').order_by('company__name')):
+        owned.setdefault(m.user_id, []).append(m.company)
+    last_superuser = User.objects.filter(is_superuser=True).count() == 1
+    for u in page:
+        u.owned = owned.get(u.pk, [])
+        u.last_superuser = last_superuser and u.is_superuser
+    return render(request, 'ops/users.html', {'page': page, 'q': q, 'status': status})
+
+
+@superuser_required
+@require_POST
+def user_toggle_active(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    if user.pk == request.user.pk:
+        messages.error(request, _('لا يمكنك تعطيل حسابك بنفسك.'))
+        return redirect('ops:users')
+    user.is_active = not user.is_active
+    user.save(update_fields=['is_active'])
+    messages.success(request, _('يستطيع %(email)s الدخول من جديد.') % {'email': user.email} if user.is_active
+                     else _('لم يعد %(email)s يستطيع الدخول.') % {'email': user.email})
+    return redirect('ops:users')
+
+
+@superuser_required
+@require_POST
+def user_delete(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    if user.is_superuser and User.objects.filter(is_superuser=True).count() == 1:
+        messages.error(request, _('هذا آخر مشرف نظام فلا يُحذف.'))
+        return redirect('ops:users')
+    if not _password_ok(request):
+        return redirect('ops:users')
+    myself = user.pk == request.user.pk
+    done = purge.delete_user(user)
+    if myself:
+        return redirect('admin:login')
+    messages.success(request, _('حُذف %(email)s مع %(n)s شركة يملكها.') % {'email': done['email'], 'n': len(done['companies'])})
+    return redirect('ops:users')
+
+
+@superuser_required
+def ledger(request):
+    """Every movement of every wallet: top-ups, admin grants, AI sales and refunds."""
+    q = request.GET.get('q', '').strip()
+    action = request.GET.get('action', '')
+    entries = WalletTransaction.objects.select_related('company', 'user').order_by('-created_at', '-id')
+    only = Company.objects.filter(pk=request.GET['company']).first() if request.GET.get('company', '').isdigit() else None
+    if only:
+        entries = entries.filter(company=only)
+    if action in dict(WalletTransaction.ACTION_CHOICES):
+        entries = entries.filter(action=action)
+    if q:
+        entries = entries.filter(Q(company__name__icontains=q) | Q(user__email__icontains=q) | Q(description__icontains=q))
+    month = timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    month_rows = WalletTransaction.objects.filter(created_at__gte=month)
+    topups = sum(month_rows.filter(action=WalletTransaction.TOPUP).values_list('delta', flat=True))
+    grants = sum(month_rows.filter(action__in=[WalletTransaction.ADMIN_GRANT, WalletTransaction.TRIAL]).values_list('delta', flat=True))
+    charged, refunded, net = charging.revenue_usd(since=month)
+    page = _page(request, entries)
+    for t in page:
+        t.usd = catalog.format_points(abs(t.delta))
+    return render(request, 'ops/ledger.html', {
+        'page': page, 'q': q, 'action': action, 'only': only, 'actions': WalletTransaction.ACTION_CHOICES,
+        'month': {'topups': catalog.format_points(topups), 'grants': catalog.format_points(grants), 'charged': charged, 'net': net},
+    })
+
+
+@superuser_required
+def prices(request):
+    """The price list as it is now (a draft until the owner settles it): what each service costs the customer."""
+    from django.utils.translation import get_language
+    lang = 'ar' if (get_language() or '').startswith('ar') else 'en'
+    fixed = set(catalog.load().get('price_overrides') or {})
+    rows = []
+    for key in sorted(catalog.service_keys()):
+        service = catalog.service(key)
+        try:
+            points = catalog.price_points(key) if not catalog.is_free(key) else 0
+        except Exception:
+            points = None
+        rows.append({'key': key, 'name': catalog.service_name(key, lang), 'free': catalog.is_free(key),
+                     'price': catalog.format_points(points) if points is not None else '—',
+                     'per_page': bool(catalog.page_pricing(key)) and key not in fixed, 'launched': catalog.is_launched(key)})
+    return render(request, 'ops/prices.html', {'rows': rows})
+
+
+@superuser_required
+def activity(request):
+    """The activity log of every company (who opened, issued, shared, invited...), newest first."""
+    from apps.audit.models import AuditEvent
+    q = request.GET.get('q', '').strip()
+    events = AuditEvent.all_companies.select_related('company').order_by('-created_at', '-id')
+    if q:
+        events = events.filter(Q(user_email__icontains=q) | Q(action__icontains=q) | Q(target__icontains=q) | Q(company__name__icontains=q))
+    return render(request, 'ops/activity.html', {'page': _page(request, events), 'q': q})
+
+
+@superuser_required
+@require_POST
+def company_operator(request, pk):
+    """Move a company to another operator (the one that serves and bills it); its owner and admins are told."""
+    from apps.companies import operators
+    from apps.notifications.services import notify_event
+    from enjaz_operators import registry
+    company = get_object_or_404(Company, pk=pk)
+    key = request.POST.get('operator', '')
+    allowed = {o.key: o for o in registry.operators(operators.PRODUCT)}
+    if key not in allowed:
+        messages.error(request, _('مشغّل غير صالح.'))
+        return redirect('ops:company', pk=pk)
+    if key != operators.of_company(company).key:
+        company.operator = key
+        company.save(update_fields=['operator'])
+        team = [m.user for m in company.memberships.select_related('user') if m.role in (Membership.Role.OWNER, Membership.Role.ADMIN)]
+        notify_event(team, 'operator_changed', company=company, url='', operator=allowed[key].name('en'))
+        messages.success(request, _('أصبحت الشركة تتبع «%(name)s».') % {'name': allowed[key].name('ar')})
+    return redirect('ops:company', pk=pk)

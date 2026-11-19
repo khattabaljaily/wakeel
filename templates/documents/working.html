@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Working on it…" %}{% endblock %}
+{% block page_title %}{% translate "Working on it…" %}{% endblock %}
+{% block content %}
+<div class="wk-card" style="max-width:640px"><div class="wk-card-body text-center py-5" id="working" data-job="{{ job.pk }}" data-back="{{ back }}">
+    <div class="spinner-border mb-3" role="status"></div>
+    <p class="mb-1 fw-semibold" id="workingText">{% translate "The AI is writing. This can take up to a minute; you can wait here." %}</p>
+    <p class="small-muted mb-0">{% translate "You are charged only if the work is delivered." %}</p>
+    <div class="alert alert-danger text-start mt-3 d-none" id="workingError"></div>
+    <a class="btn btn-light mt-3 d-none" id="workingBack" href="{{ back }}">{% translate "Back" %}</a>
+</div></div>
+{% endblock %}
+{% block scripts %}<script>
+(function () {
+  var box = document.getElementById('working');
+  Wakeel.pollJob(box.dataset.job, function (job) { if (job.message) document.getElementById('workingText').textContent = job.message; })
+    .then(function (job) { location.href = job.result_url || box.dataset.back; },
+          function (job) {
+            box.querySelector('.spinner-border').classList.add('d-none');
+            var e = document.getElementById('workingError'); e.textContent = (job && job.error) || '{% translate "It did not work. You were not charged." %}'; e.classList.remove('d-none');
+            document.getElementById('workingBack').classList.remove('d-none');
+          });
+})();
+</script>{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Sharing links" %}{% endblock %}
+{% block page_title %}{% translate "Sharing links" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Documents you shared with people outside the company, and who opened them." %}</div>{% endblock %}
+{% block content %}
+{% if new %}<div class="wk-card mb-3"><div class="wk-card-body">
+  <b>{% translate "Your link" %}</b>
+  <div class="input-group my-2"><input id="share-url" class="form-control" type="text" readonly value="{{ new_url }}" dir="ltr" onclick="this.select()">
+    <button class="btn btn-primary" type="button" onclick="Wakeel.copy(document.getElementById('share-url').value)"><i class="bi bi-clipboard"></i> {% translate "Copy" %}</button></div>
+  <small class="small-muted">{% if new.has_password %}{% translate "It asks for the password you set." %} {% endif %}{% blocktranslate with d=new.expires_at|date:"Y-m-d H:i" %}It works until {{ d }}.{% endblocktranslate %}</small>
+</div></div>{% endif %}
+<div class="wk-card"><div class="table-responsive"><table class="table align-middle mb-0">
+  <thead><tr><th>{% translate "Document" %}</th><th>{% translate "Status" %}</th><th>{% translate "Opened" %}</th><th>{% translate "Until" %}</th><th></th></tr></thead>
+  <tbody>{% for l in page %}
+  <tr>
+    <td><a href="{% url 'sharing:detail' l.pk %}" dir="auto">{{ l.title }}</a><br><small class="small-muted">{{ l.created_by.first_name|default:l.created_by.email }} · {{ l.created_at|date:"Y-m-d" }}{% if l.has_password %} · {% translate "password" %}{% endif %}{% if l.allow_download %} · {% translate "copy allowed" %}{% endif %}</small></td>
+    <td>{% if l.status == 'active' %}<span class="badge text-bg-success">{% translate "Active" %}</span>{% elif l.status == 'revoked' %}<span class="badge text-bg-danger">{% translate "Cancelled" %}</span>{% else %}<span class="badge text-bg-light border">{% translate "Ended" %}</span>{% endif %}</td>
+    <td>{{ l.views }}{% if l.last_seen %}<br><small class="small-muted">{{ l.last_seen|date:"Y-m-d H:i" }}</small>{% endif %}</td>
+    <td dir="ltr" class="text-start">{{ l.expires_at|date:"Y-m-d H:i" }}</td>
+    <td>{% if l.status == 'active' %}<form method="post" action="{% url 'sharing:revoke' l.pk %}" data-confirm="{% translate 'Cancel this link? It will stop opening at once.' %}">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" type="submit">{% translate "Cancel" %}</button></form>{% endif %}</td>
+  </tr>
+  {% empty %}<tr><td class="text-center small-muted p-4" colspan="5">{% translate "Nothing shared yet. Open a paper or an issued document and choose Share." %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% if page.has_other_pages %}<p class="d-flex gap-2 align-items-center mt-3">{% if page.has_previous %}<a class="btn btn-sm btn-light" href="?page={{ page.previous_page_number }}">←</a>{% endif %}
+  <span class="small-muted">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a class="btn btn-sm btn-light" href="?page={{ page.next_page_number }}">→</a>{% endif %}</p>{% endif %}
+{% endblock %}

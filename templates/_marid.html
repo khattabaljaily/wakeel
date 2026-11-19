@@ -1,0 +1,9 @@
+{% load i18n marid_tags %}{% comment %}Marid, the assistant's mascot: an orange genie who lives in the top bar, flies around the screen once a minute and settles back
+with a greeting. static/js/marid.js drives it; it never takes clicks while flying and stays still for anyone who asked for less motion.{% endcomment %}
+{% marid_data as marid %}{{ marid|json_script:"marid-data" }}
+<div class="marid-layer" id="marid-layer" aria-hidden="true"><div class="marid" id="marid" data-state="hidden">{% include "_marid_svg.html" %}</div></div>
+<div class="marid-bubble" id="marid-bubble" role="status" aria-live="polite" hidden>
+  <span class="marid-line"></span>
+  <button type="button" class="marid-bar" hidden>{% translate "Marid command bar" %}</button>
+  <button type="button" class="marid-switch"></button>
+</div>

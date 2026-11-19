@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ f.title }}{% endblock %}
+{% block page_title %}<span dir="auto">{{ f.title }}</span>{% endblock %}
+{% block subtitle %}<div class="subtitle">{% if f.accepting %}<span class="badge text-bg-success">{% translate "Open" context "form status" %}</span>{% else %}<span class="badge text-bg-secondary">{% translate "Closed" context "form status" %}</span>{% endif %}
+  · {{ f.get_audience_display }}{% if f.closes_on %} · {% translate "Closes on" %} <span dir="ltr">{{ f.closes_on|date:"Y-m-d" }}</span>{% endif %}</div>{% endblock %}
+{% block actions %}
+  <a class="btn btn-light" href="{% url 'forms:list' %}">← {% translate "Forms and surveys" context "navigation" %}</a>
+  <a class="btn btn-primary" href="{% url 'forms:results' f.pk %}"><i class="bi bi-bar-chart"></i> {% translate "Answers" %}{% if answered %} <span class="badge bg-white bg-opacity-25">{{ answered }}</span>{% endif %}</a>
+  <a class="btn btn-light" href="{% url 'forms:edit' f.pk %}"><i class="bi bi-gear"></i> {% translate "Settings" %}</a>
+  <form method="post" action="{% url 'forms:toggle' f.pk %}" data-once>{% csrf_token %}<button type="submit" class="btn btn-light">{% if f.is_open %}{% translate "Close the form" %}{% else %}{% translate "Open the form again" %}{% endif %}</button></form>
+  <form method="post" action="{% url 'forms:delete' f.pk %}" data-confirm="{% translate 'The form and all its answers will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button type="submit" class="btn btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>
+{% endblock %}
+{% block content %}
+{% if answered >= limit %}<div class="alert alert-warning">{% blocktranslate %}This form has reached the limit of {{ limit }} answers and takes no more. Download the answers, or delete some, to make room.{% endblocktranslate %}</div>{% endif %}
+<div class="wk-card mb-3"><div class="wk-card-head"><h2><i class="bi bi-link-45deg"></i> {% translate "Share the form" %}</h2></div><div class="wk-card-body">
+  <div class="row g-3 align-items-center">
+    <div class="col-md-9">
+      <p class="small-muted">{% if f.audience == 'team' %}{% translate "Send this link to your team. They sign in, and each person answers once." %}{% else %}{% translate "Anyone who opens this link or scans the code can answer. Nothing is asked about them." %}{% endif %}</p>
+      <div class="input-group mb-2"><input id="form-url" class="form-control" type="text" readonly dir="ltr" value="{{ url }}" onclick="this.select()">
+        <button class="btn btn-primary" type="button" onclick="Wakeel.copy(document.getElementById('form-url').value)"><i class="bi bi-clipboard"></i> {% translate "Copy" %}</button></div>
+      <a class="btn btn-light btn-sm" href="{{ url }}" target="_blank" rel="noopener"><i class="bi bi-eye"></i> {% translate "Open the form" %}</a>
+    </div>
+    <div class="col-md-3"><div role="img" aria-label="{% translate 'QR code of the form' %}" style="max-width:150px;margin-inline:auto">{{ qr|safe }}</div></div>
+  </div>
+</div></div>
+
+<div class="wk-card"><div class="wk-card-head d-flex justify-content-between align-items-center"><h2>{% translate "Questions" %}</h2>
+  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#newQuestion" aria-expanded="{% if open_question %}true{% else %}false{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "Add a question" %}</button></div>
+  <div class="collapse {% if open_question %}show{% endif %}" id="newQuestion"><form class="wk-card-body border-bottom" method="post" action="{% url 'forms:question_new' f.pk %}" novalidate data-once>{% csrf_token %}
+    {% for field in qform %}{% include "forms/_field.html" %}{% endfor %}
+    <button type="submit" class="btn btn-primary">{% translate "Add" %}</button></form></div>
+  <div class="list-group list-group-flush">{% for q in questions %}
+    <div class="list-group-item d-flex justify-content-between align-items-start gap-2">
+      <div><div class="fw-semibold" dir="auto">{{ forloop.counter }}. {{ q.text }}</div>
+        <div class="small-muted">{{ q.get_kind_display }}{% if q.required %} · {% translate "required" %}{% endif %}{% if q.choices %} · <bdi dir="auto">{{ q.choices|join:" / " }}</bdi>{% endif %}</div></div>
+      <div class="d-flex gap-1">
+        {% if not forloop.first %}<form method="post" action="{% url 'forms:question_move' f.pk q.pk %}">{% csrf_token %}<input type="hidden" name="to" value="up"><button class="btn btn-light btn-sm" type="submit" aria-label="{% translate 'Move up' %}"><i class="bi bi-arrow-up"></i></button></form>{% endif %}
+        {% if not forloop.last %}<form method="post" action="{% url 'forms:question_move' f.pk q.pk %}">{% csrf_token %}<input type="hidden" name="to" value="down"><button class="btn btn-light btn-sm" type="submit" aria-label="{% translate 'Move down' %}"><i class="bi bi-arrow-down"></i></button></form>{% endif %}
+        <a class="btn btn-light btn-sm" href="{% url 'forms:question_edit' f.pk q.pk %}" aria-label="{% translate 'Edit' %}"><i class="bi bi-pencil"></i></a>
+        <form method="post" action="{% url 'forms:question_delete' f.pk q.pk %}" data-confirm="{% translate 'This question and its answers will be deleted.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button type="submit" class="btn btn-outline-danger btn-sm" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>
+      </div></div>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "No questions yet. Add the first one." %}</div>{% endfor %}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "سجل النشاط العام" %}{% endblock %}
+{% block page_title %}{% translate "سجل النشاط العام" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "ما فعله الناس في كل الشركات، من الأحدث." %}</div>{% endblock %}
+{% block content %}
+<form method="get" class="d-flex gap-2 mb-3"><input type="search" name="q" value="{{ q }}" class="form-control" style="max-width:24rem" placeholder="{% translate "ابحث بالبريد أو الإجراء أو الشركة" %}"><button class="btn btn-light"><i class="bi bi-search"></i></button></form>
+<div class="wk-card"><div class="list-group list-group-flush">
+{% for e in page %}
+    <div class="list-group-item d-flex flex-wrap justify-content-between gap-2 small">
+        <span><a href="{% url 'ops:company' e.company_id %}">{{ e.company.name }}</a> · <code dir="ltr">{{ e.action }}</code>{% if e.target %} · {{ e.target }}{% endif %} <span class="small-muted" dir="ltr">{{ e.user_email }}</span></span>
+        <span class="small-muted text-nowrap">{{ e.created_at|date:"j/n/Y H:i" }}{% if e.ip %} · <span dir="ltr">{{ e.ip }}</span>{% endif %}</span>
+    </div>
+{% empty %}<div class="p-4 text-center small-muted">{% translate "لا يوجد نشاط." %}</div>{% endfor %}
+</div>{% include "ops/_pager.html" with keep=request.GET.dict %}</div>
+{% endblock %}

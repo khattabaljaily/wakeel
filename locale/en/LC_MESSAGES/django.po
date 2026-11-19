@@ -607,7 +607,8 @@ msgstr "next month"
 #, python-brace-format
 msgid "أعدّ المخطط الآلي خطة {title} وأُرسل رابط المراجعة إلى {email}."
 msgstr ""
-"The auto planner prepared the {title} plan and sent the review link to {email}."
+"The auto planner prepared the {title} plan and sent the review link to "
+"{email}."
 
 #, python-brace-format
 msgid "أعدّ المخطط الآلي خطة {title}."
@@ -1054,7 +1055,8 @@ msgid "شروط الاستخدام"
 msgstr "Terms of use"
 
 msgid "القواعد التي تنظّم استخدامك لوكيل، وما لك وما عليك."
-msgstr "The rules for using Wakeel: what you can expect, and what we expect of you."
+msgstr ""
+"The rules for using Wakeel: what you can expect, and what we expect of you."
 
 msgid "سياسة الخصوصية"
 msgstr "Privacy policy"
@@ -4346,8 +4348,12 @@ msgstr "Country codes, e.g. QA SA AE"
 msgid "اقتراح الترويج جاهز."
 msgstr "The promotion suggestion is ready."
 
-msgid "يلزم حساب فيسبوك مربوط بصلاحية الإعلانات، وحساب إعلاني مختار، ومنشور منشور على فيسبوك."
-msgstr "This needs a connected Facebook account with ads permission, a chosen ad account, and a post published on Facebook."
+msgid ""
+"يلزم حساب فيسبوك مربوط بصلاحية الإعلانات، وحساب إعلاني مختار، ومنشور منشور "
+"على فيسبوك."
+msgstr ""
+"This needs a connected Facebook account with ads permission, a chosen ad "
+"account, and a post published on Facebook."
 
 msgid "حدّد دولة واحدة على الأقل."
 msgstr "Choose at least one country."
@@ -4359,7 +4365,8 @@ msgid "بين 1 و%(max)s يوماً."
 msgstr "Between 1 and %(max)s days."
 
 msgid "العمر بين 18 و65، والحد الأعلى لا يقل عن الأدنى."
-msgstr "Age is between 18 and 65, and the upper limit can't be below the lower one."
+msgstr ""
+"Age is between 18 and 65, and the upper limit can't be below the lower one."
 
 msgid "تم اختيار الحساب الإعلاني."
 msgstr "Ad account selected."
@@ -4367,8 +4374,11 @@ msgstr "Ad account selected."
 msgid "تم حفظ الإعدادات."
 msgstr "Settings saved."
 
-msgid "أُنشئ الإعلان متوقفاً في Meta. راجعه وفعّله من مدير الإعلانات حين تكون جاهزاً."
-msgstr "The ad was created paused in Meta. Review it and turn it on in Ads Manager when you're ready."
+msgid ""
+"أُنشئ الإعلان متوقفاً في Meta. راجعه وفعّله من مدير الإعلانات حين تكون جاهزاً."
+msgstr ""
+"The ad was created paused in Meta. Review it and turn it on in Ads Manager "
+"when you're ready."
 
 msgid "اختر اللغة أو اللهجة."
 msgstr "Choose the language or dialect."
@@ -4394,8 +4404,11 @@ msgstr "Agencies"
 msgid "واتساب العميل"
 msgstr "Client's WhatsApp"
 
-msgid "يصله كل منشور بزرّي «اعتماد» و«طلب تعديل». مع رمز الدولة، مثل ‎+97455551234."
-msgstr "Each post reaches it with “Approve” and “Request changes” buttons. Include the country code, e.g. +97455551234."
+msgid ""
+"يصله كل منشور بزرّي «اعتماد» و«طلب تعديل». مع رمز الدولة، مثل ‎+97455551234."
+msgstr ""
+"Each post reaches it with “Approve” and “Request changes” buttons. Include "
+"the country code, e.g. +97455551234."
 
 msgid "الرد التلقائي على التعليقات البسيطة"
 msgstr "Auto-reply to simple comments"
@@ -4557,7 +4570,9 @@ msgid "أمثلة من منشوراتهم"
 msgstr "Examples of their posts"
 
 msgid "الصق نصوص منشورات حديثة لهم أو صف ما ينشرونه؛ يقرأها وكيل في التحليل."
-msgstr "Paste the text of their recent posts or describe what they post; Wakeel reads it in the analysis."
+msgstr ""
+"Paste the text of their recent posts or describe what they post; Wakeel "
+"reads it in the analysis."
 
 msgid "قيد التحليل"
 msgstr "Analysing"
@@ -4590,10 +4605,16 @@ msgid "آخر 90 يوماً"
 msgstr "Last 90 days"
 
 msgid "جارٍ تحديث الأرقام من فيسبوك وإنستغرام. أعد تحميل الصفحة بعد لحظات."
-msgstr "Updating the numbers from Facebook and Instagram. Reload the page in a moment."
+msgstr ""
+"Updating the numbers from Facebook and Instagram. Reload the page in a "
+"moment."
 
-msgid "يعيد وكيل صياغة «%(title)s» وتصميمه، وستجده في المنشورات بانتظار المراجعة خلال لحظات."
-msgstr "Wakeel is rewording and redesigning “%(title)s”; you'll find it in Posts awaiting review in a moment."
+msgid ""
+"يعيد وكيل صياغة «%(title)s» وتصميمه، وستجده في المنشورات بانتظار المراجعة "
+"خلال لحظات."
+msgstr ""
+"Wakeel is rewording and redesigning “%(title)s”; you'll find it in Posts "
+"awaiting review in a moment."
 
 msgid "تم تحديث رابط التقرير."
 msgstr "Report link updated."
@@ -4733,8 +4754,11 @@ msgstr "Add the client's WhatsApp number first, in the Auto planner settings."
 msgid "لا توجد منشورات بانتظار المراجعة في هذه الخطة. شكراً لك!"
 msgstr "There are no posts awaiting review in this plan. Thank you!"
 
-msgid "سأرسل لك %(count)s منشوراً، واحداً تلو الآخر. اعتمد ما يعجبك أو اطلب التعديل."
-msgstr "I'll send you %(count)s posts, one after another. Approve the ones you like or ask for changes."
+msgid ""
+"سأرسل لك %(count)s منشوراً، واحداً تلو الآخر. اعتمد ما يعجبك أو اطلب التعديل."
+msgstr ""
+"I'll send you %(count)s posts, one after another. Approve the ones you like "
+"or ask for changes."
 
 msgid "اعتماد ✅"
 msgstr "Approve ✅"
@@ -4749,7 +4773,8 @@ msgid "تم اعتماد «%(title)s» ✅"
 msgstr "“%(title)s” approved ✅"
 
 msgid "اكتب ملاحظتك على «%(title)s» في رسالة واحدة، وستصل إلى الفريق."
-msgstr "Write your note on “%(title)s” in one message and it will reach the team."
+msgstr ""
+"Write your note on “%(title)s” in one message and it will reach the team."
 
 msgid "لمراجعة الخطة كاملة افتح الرابط: %(link)s"
 msgstr "To review the whole plan, open: %(link)s"
@@ -4788,7 +4813,9 @@ msgid "إنشاء الإعلان في Meta؟"
 msgstr "Create the ad in Meta?"
 
 msgid "سيُنشأ متوقفاً، ولا يُصرف شيء حتى تفعّله من مدير الإعلانات."
-msgstr "It will be created paused; nothing is spent until you turn it on in Ads Manager."
+msgstr ""
+"It will be created paused; nothing is spent until you turn it on in Ads "
+"Manager."
 
 msgid "إنشاء متوقفاً"
 msgstr "Create paused"
@@ -4802,11 +4829,21 @@ msgstr "Choose an ad account on the promotion page first."
 msgid "حذف الاقتراح"
 msgstr "Delete suggestion"
 
-msgid "يقترح وكيل ترويج المنشورات الناجحة بميزانية تجريبية صغيرة، وينشئ الإعلان في Meta متوقفاً. لا يُصرف أي مبلغ حتى تفعّله أنت من مدير الإعلانات."
-msgstr "Wakeel suggests promoting posts that did well with a small test budget, and creates the ad in Meta paused. Nothing is spent until you turn it on in Ads Manager."
+msgid ""
+"يقترح وكيل ترويج المنشورات الناجحة بميزانية تجريبية صغيرة، وينشئ الإعلان في "
+"Meta متوقفاً. لا يُصرف أي مبلغ حتى تفعّله أنت من مدير الإعلانات."
+msgstr ""
+"Wakeel suggests promoting posts that did well with a small test budget, and "
+"creates the ad in Meta paused. Nothing is spent until you turn it on in Ads "
+"Manager."
 
-msgid "الترويج يحتاج ربط فيسبوك بصلاحية إدارة الإعلانات. إن كانت مفعّلة على الخادم، أعد ربط الحساب من «حسابات النشر» ووافق عليها."
-msgstr "Promotion needs Facebook connected with the ads management permission. If it's enabled on the server, reconnect the account from “Publishing accounts” and allow it."
+msgid ""
+"الترويج يحتاج ربط فيسبوك بصلاحية إدارة الإعلانات. إن كانت مفعّلة على الخادم، "
+"أعد ربط الحساب من «حسابات النشر» ووافق عليها."
+msgstr ""
+"Promotion needs Facebook connected with the ads management permission. If "
+"it's enabled on the server, reconnect the account from “Publishing accounts” "
+"and allow it."
 
 msgid "لا توجد حسابات إعلانية نشطة"
 msgstr "No active ad accounts"
@@ -4832,8 +4869,13 @@ msgstr "Paid promotion"
 msgid "وضع الوكالة"
 msgstr "Agency mode"
 
-msgid "إن كنت وكالة تسويق تدير شركات عملائك هنا، يرى عملاؤك اسم وكالتك وشعارها في صفحات مراجعة الخطط والتقارير والرسائل، بدل علامة وكيل."
-msgstr "If you are a marketing agency running your clients' companies here, your clients see your agency's name and logo on plan review pages, reports and emails instead of the Wakeel brand."
+msgid ""
+"إن كنت وكالة تسويق تدير شركات عملائك هنا، يرى عملاؤك اسم وكالتك وشعارها في "
+"صفحات مراجعة الخطط والتقارير والرسائل، بدل علامة وكيل."
+msgstr ""
+"If you are a marketing agency running your clients' companies here, your "
+"clients see your agency's name and logo on plan review pages, reports and "
+"emails instead of the Wakeel brand."
 
 msgid "الشركات التي تظهر لعملائها هوية الوكالة"
 msgstr "Companies whose clients see the agency brand"
@@ -4871,11 +4913,18 @@ msgstr "New design"
 msgid "أعدّت هذه الخطة %(name)s"
 msgstr "This plan was prepared by %(name)s"
 
-msgid "تعليقات فيسبوك وإنستغرام على منشوراتك في مكان واحد. يقرأها وكيل، وينبّهك للعاجل منها، ويقترح ردّاً بنبرة علامتك."
-msgstr "Facebook and Instagram comments on your posts in one place. Wakeel reads them, alerts you to urgent ones, and suggests a reply in your brand's voice."
+msgid ""
+"تعليقات فيسبوك وإنستغرام على منشوراتك في مكان واحد. يقرأها وكيل، وينبّهك "
+"للعاجل منها، ويقترح ردّاً بنبرة علامتك."
+msgstr ""
+"Facebook and Instagram comments on your posts in one place. Wakeel reads "
+"them, alerts you to urgent ones, and suggests a reply in your brand's voice."
 
-msgid "يرد وكيل وحده على الأسئلة البسيطة والإشادات. الشكاوى والعاجل تبقى لك دائماً."
-msgstr "Wakeel answers simple questions and praise on its own. Complaints and urgent comments always stay with you."
+msgid ""
+"يرد وكيل وحده على الأسئلة البسيطة والإشادات. الشكاوى والعاجل تبقى لك دائماً."
+msgstr ""
+"Wakeel answers simple questions and praise on its own. Complaints and urgent "
+"comments always stay with you."
 
 msgid "الرد التلقائي: يعمل"
 msgstr "Auto-reply: on"
@@ -4890,7 +4939,9 @@ msgid "اربط فيسبوك أو إنستغرام"
 msgstr "Connect Facebook or Instagram"
 
 msgid "يقرأ وكيل التعليقات على المنشورات التي نشرها عبر حساباتك المربوطة."
-msgstr "Wakeel reads comments on the posts it published through your connected accounts."
+msgstr ""
+"Wakeel reads comments on the posts it published through your connected "
+"accounts."
 
 msgid "لم يُقرأ بعد"
 msgstr "Not read yet"
@@ -4952,8 +5003,12 @@ msgstr "The report couldn't be prepared."
 msgid "التقرير قيد الإعداد. أعد تحميل الصفحة بعد لحظات."
 msgstr "The report is being prepared. Reload the page in a moment."
 
-msgid "يقرأ وكيل مواقع منافسيك وما تلصقه من منشوراتهم، ويستخرج الفجوات التي تميّز علامتك، ثم يستخدمها في خطط الأشهر القادمة."
-msgstr "Wakeel reads your competitors' websites and the posts you paste, finds the gaps that set your brand apart, and uses them in the coming months' plans."
+msgid ""
+"يقرأ وكيل مواقع منافسيك وما تلصقه من منشوراتهم، ويستخرج الفجوات التي تميّز "
+"علامتك، ثم يستخدمها في خطط الأشهر القادمة."
+msgstr ""
+"Wakeel reads your competitors' websites and the posts you paste, finds the "
+"gaps that set your brand apart, and uses them in the coming months' plans."
 
 msgid "جارٍ التحليل…"
 msgstr "Analysing…"
@@ -4991,8 +5046,12 @@ msgstr "The analysis is being prepared. Reload the page in a minute."
 msgid "أضف منافسيك"
 msgstr "Add your competitors"
 
-msgid "أضف حتى 8 منافسين بموقعهم، والصق أمثلة من منشوراتهم إن أمكن، ثم اضغط «حلّل المنافسين»."
-msgstr "Add up to 8 competitors with their websites, paste examples of their posts if you can, then press “Analyse competitors”."
+msgid ""
+"أضف حتى 8 منافسين بموقعهم، والصق أمثلة من منشوراتهم إن أمكن، ثم اضغط «حلّل "
+"المنافسين»."
+msgstr ""
+"Add up to 8 competitors with their websites, paste examples of their posts "
+"if you can, then press “Analyse competitors”."
 
 msgid "كيف أدّت منشوراتك فعلاً على المنصات، وما الذي يتعلّمه وكيل منها."
 msgstr "How your posts actually performed, and what Wakeel learns from it."
@@ -5003,8 +5062,12 @@ msgstr "Update numbers"
 msgid "اربط حسابات فيسبوك أو إنستغرام"
 msgstr "Connect Facebook or Instagram accounts"
 
-msgid "يقرأ وكيل أرقام المنشورات التي نشرها عبر حساباتك المربوطة، ثم يستخدمها في خطط الأشهر القادمة."
-msgstr "Wakeel reads the numbers of the posts it published through your connected accounts, and uses them in the coming months' plans."
+msgid ""
+"يقرأ وكيل أرقام المنشورات التي نشرها عبر حساباتك المربوطة، ثم يستخدمها في "
+"خطط الأشهر القادمة."
+msgstr ""
+"Wakeel reads the numbers of the posts it published through your connected "
+"accounts, and uses them in the coming months' plans."
 
 msgid "آخر تحديث: %(when)s"
 msgstr "Last updated: %(when)s"
@@ -5012,11 +5075,18 @@ msgstr "Last updated: %(when)s"
 msgid "لم تُقرأ أرقام بعد."
 msgstr "No numbers read yet."
 
-msgid "لم تصل أرقام بعد. اضغط «تحديث الأرقام»؛ وإن بقيت فارغة فأعد ربط حساب Meta من «حسابات النشر» ووافق على صلاحية قراءة الإحصاءات."
-msgstr "No numbers yet. Press “Update numbers”; if it stays empty, reconnect the Meta account from “Publishing accounts” and allow reading insights."
+msgid ""
+"لم تصل أرقام بعد. اضغط «تحديث الأرقام»؛ وإن بقيت فارغة فأعد ربط حساب Meta من "
+"«حسابات النشر» ووافق على صلاحية قراءة الإحصاءات."
+msgstr ""
+"No numbers yet. Press “Update numbers”; if it stays empty, reconnect the "
+"Meta account from “Publishing accounts” and allow reading insights."
 
-msgid "لا توجد منشورات منشورة بعد. تظهر الأرقام هنا بعد نشر أول منشور عبر وكيل."
-msgstr "Nothing published yet. Numbers appear here after the first post is published through Wakeel."
+msgid ""
+"لا توجد منشورات منشورة بعد. تظهر الأرقام هنا بعد نشر أول منشور عبر وكيل."
+msgstr ""
+"Nothing published yet. Numbers appear here after the first post is published "
+"through Wakeel."
 
 msgid "الأضعف أداءً"
 msgstr "Weakest performing"
@@ -5048,8 +5118,12 @@ msgstr "Best posting hours for your audience"
 msgid "يفضّل وكيل هذه الساعات عند جدولة منشوراتك القادمة:"
 msgstr "Wakeel prefers these hours when scheduling your next posts:"
 
-msgid "تحتاج 3 منشورات على الأقل في الساعة نفسها لتحديد أفضل وقت. يزداد دقة كلما نُشر أكثر."
-msgstr "At least 3 posts at the same hour are needed to find the best time. It gets more accurate the more you publish."
+msgid ""
+"تحتاج 3 منشورات على الأقل في الساعة نفسها لتحديد أفضل وقت. يزداد دقة كلما "
+"نُشر أكثر."
+msgstr ""
+"At least 3 posts at the same hour are needed to find the best time. It gets "
+"more accurate the more you publish."
 
 msgid "مرحباً، تقرير أداء %(month)s لـ %(name)s جاهز."
 msgstr "Hello, the %(month)s performance report for %(name)s is ready."
@@ -5081,8 +5155,12 @@ msgstr "Turn on the link"
 msgid "التقارير الشهرية"
 msgstr "Monthly reports"
 
-msgid "تقرير بنهاية كل شهر بالأرقام وتوصيات وكيل للشهر التالي، يمكن إرساله للعميل برابط."
-msgstr "A report at the end of each month with the numbers and Wakeel's recommendations for the next, which you can send to the client by link."
+msgid ""
+"تقرير بنهاية كل شهر بالأرقام وتوصيات وكيل للشهر التالي، يمكن إرساله للعميل "
+"برابط."
+msgstr ""
+"A report at the end of each month with the numbers and Wakeel's "
+"recommendations for the next, which you can send to the client by link."
 
 msgid "أعدّ تقريراً لشهر"
 msgstr "Prepare a report for"
@@ -5094,10 +5172,14 @@ msgid "لا توجد تقارير بعد"
 msgstr "No reports yet"
 
 msgid "يُعدّ وكيل تقرير الشهر السابق تلقائياً في أول الشهر عند توفر أرقام الأداء."
-msgstr "Wakeel prepares the previous month's report automatically at the start of each month when performance numbers are available."
+msgstr ""
+"Wakeel prepares the previous month's report automatically at the start of "
+"each month when performance numbers are available."
 
 msgid "حتى ثلاثة؛ الأول يُرسم أكبر. اتركها فارغة ليختار وكيل حسب الموضوع."
-msgstr "Up to three; the first is drawn biggest. Leave empty and Wakeel picks them from the topic."
+msgstr ""
+"Up to three; the first is drawn biggest. Leave empty and Wakeel picks them "
+"from the topic."
 
 msgid "اختر ثلاثة رسوم كحد أقصى."
 msgstr "Choose three drawings at most."
@@ -5536,3 +5618,628 @@ msgstr "National Day"
 
 msgid "مناسبة خاصة"
 msgstr "Special day"
+
+msgid "اختر يوماً بين 1 و28."
+msgstr "Choose a day between 1 and 28."
+
+msgid "منشوراً"
+msgstr "posts"
+
+msgid "الرصيد"
+msgstr "Balance"
+
+msgid "المحفظة"
+msgstr "Wallet"
+
+msgid ""
+"سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك. "
+"السعر $%(price)s."
+msgstr ""
+"Wakeel will write the plan again, and all its current posts, including your "
+"edits, will be replaced. Price: $%(price)s."
+
+msgid "معفاة"
+msgstr "Exempt"
+
+msgid "المخصوم (صافي)"
+msgstr "Charged (net)"
+
+msgid "إضافة رصيد ($، سالب للسحب)"
+msgstr "Add balance ($, negative to take back)"
+
+msgid "ملاحظة"
+msgstr "Note"
+
+msgid "تنفيذ"
+msgstr "Apply"
+
+msgid "إلغاء الإعفاء"
+msgstr "Remove the exemption"
+
+msgid "إعفاء من الخصم"
+msgstr "Exempt from charges"
+
+msgid "المخصوم من العملاء (صافي بعد الاسترجاع)"
+msgstr "Charged to customers (net of refunds)"
+
+msgid "أدخل مبلغاً صحيحاً بالدولار (حتى 1000)."
+msgstr "Enter a valid amount in dollars (up to 1000)."
+
+msgid "تم تعديل الرصيد."
+msgstr "The balance was changed."
+
+msgid "أصبحت الشركة معفاة من الخصم."
+msgstr "The company is now exempt from charges."
+
+msgid "أصبح الخصم من رصيد الشركة يعمل."
+msgstr "Charging the company's balance is on again."
+
+msgid "ذكاء اصطناعي: تفاعلي (المستخدم ينتظر)"
+msgstr "AI: interactive (a person is waiting)"
+
+msgid "ذكاء اصطناعي: خلفي"
+msgstr "AI: background"
+
+msgid "ذكاء اصطناعي: جودة قصوى"
+msgstr "AI: best quality"
+
+msgid "بيانات الشركة وهويتها"
+msgstr "Company details and identity"
+
+msgid "البيانات الرسمية"
+msgstr "Official details"
+
+msgid "الاسم والعنوان الرسمي الذي يُطبع على الخطابات والشهادات والمستندات."
+msgstr ""
+"The official name and address printed on letters, certificates and documents."
+
+msgid "لغة الاسم والعنوان الرسميين"
+msgstr "Language of the official name and address"
+
+msgid "الاسم القانوني"
+msgstr "Legal name"
+
+msgid "رقم السجل التجاري"
+msgstr "Commercial registration no."
+
+msgid "الرقم الضريبي"
+msgstr "Tax no."
+
+msgid "البريد الإلكتروني للشركة"
+msgstr "Company e-mail"
+
+msgid "المستندات تحتاج اعتماداً"
+msgstr "Documents need approval"
+
+msgid "القائمة الرئيسية"
+msgstr "Main menu"
+
+msgid "الإدارة"
+msgstr "Administration"
+
+msgid "طيّ القائمة"
+msgstr "Collapse menu"
+
+msgid "توسيع القائمة"
+msgstr "Expand menu"
+
+msgid "التسويق"
+msgstr "Marketing"
+
+msgid "ينتظرك"
+msgstr "Waiting for you"
+
+msgid "لا شيء ينتظرك الآن. كل شيء في موضعه."
+msgstr "Nothing is waiting for you. Everything is in its place."
+
+msgid "منشورات بانتظار المراجعة"
+msgstr "Posts waiting for review"
+
+msgid "منشورات تجاوزت موعد نشرها"
+msgstr "Posts past their publishing time"
+
+msgid "تعليقات بانتظار الرد"
+msgstr "Comments waiting for a reply"
+
+msgid "مستند من المكتبة كمصدر"
+msgstr "A library document as the source"
+
+msgid ""
+"اختياري: يقرأ وكيل المستند (كتالوج، عرض، قائمة أسعار…) ويبني الخطة على ما "
+"فيه. القراءة مجانية ضمن سعر الخطة."
+msgstr ""
+"Optional: Wakeel reads the document (a catalogue, an offer, a price list…) "
+"and builds the plan on it. Reading is free within the plan price."
+
+msgid "بلا مستند"
+msgstr "No document"
+
+msgid "وكيل يقرأ المستند المصدر…"
+msgstr "Wakeel is reading the source document…"
+
+msgid "وكيل يكتب المنشور من المستند، وسيظهر النص هنا خلال لحظات. حدّث الصفحة."
+msgstr ""
+"Wakeel is writing the post from the document; the text will appear here in a "
+"moment. Refresh the page."
+
+msgid "منصة واحدة لتسويق شركتك ومستنداتها وفريقها"
+msgstr "One platform for your company's marketing, documents and team"
+
+msgid "تسويقك ومستنداتك وفريقك"
+msgstr "Your marketing, documents and team"
+
+msgid "في منصة واحدة"
+msgstr "in one"
+
+msgid "ذكية"
+msgstr "smart platform"
+
+msgid ""
+"وكيل يضع خطة المحتوى الشهرية ويكتب المنشورات ويصممها وينشرها، ويحفظ مستندات "
+"شركتك ويصدرها بالذكاء الاصطناعي ويترجمها ويلخصها، ويدير مهام فريقك وبريده، "
+"ومساعده مارد ينفّذ ما تطلبه بموافقتك."
+msgstr ""
+"Wakeel plans your monthly content, writes, designs and publishes the posts; "
+"keeps your company's documents, issues them with AI, translates and "
+"summarises them; runs your team's tasks and mail; and its assistant Marid "
+"does what you ask, with your approval."
+
+msgid "خطة شهرية ومنشورات"
+msgstr "A monthly plan and posts"
+
+msgid ""
+"أهداف ومحاور ومناسبات السوق، ونصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم "
+"وأفضل أوقات النشر."
+msgstr ""
+"Goals, content pillars and local occasions, and persuasive copy in Arabic or "
+"English, with hashtags and the best times to publish."
+
+msgid "تصميم بهويتك"
+msgstr "Designs in your identity"
+
+msgid ""
+"صور احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة، وسيناريوهات جاهزة "
+"للفيديو."
+msgstr ""
+"Professional images in your colours, fonts and logo, sized for every "
+"platform, and ready video scripts."
+
+msgid "مكتبة المستندات"
+msgstr "A document library"
+
+msgid ""
+"التراخيص والعقود والمراسلات في مكان واحد مشفّر، مع تنبيهات قبل انتهائها "
+"وقراءة تفاصيلها بالذكاء الاصطناعي."
+msgstr ""
+"Licences, contracts and letters in one encrypted place, with alerts before "
+"they expire and AI that reads their details."
+
+msgid "مستندات صادرة بورق شركتك"
+msgstr "Documents on your letterhead"
+
+msgid ""
+"يكتب وكيل المستند بقوالب مصممة لك، بالورق الرسمي، ويصدره PDF أو Word مع رمز "
+"تحقق QR."
+msgstr ""
+"Wakeel writes the document with templates designed for you, on your official "
+"letterhead, and issues it as PDF or Word with a QR verification code."
+
+msgid "ترجمة وتلخيص واستخراج"
+msgstr "Translate, summarise, extract"
+
+msgid ""
+"ترجمة المستندات وتلخيصها واستخراج بياناتها وتحويلها إلى Word بـ16 لغة، بسعر "
+"معروض قبل التنفيذ."
+msgstr ""
+"Translate documents, summarise them, extract their data and turn them into "
+"Word in 16 languages, at a price shown before it runs."
+
+msgid "هوية وعروض تقديمية"
+msgstr "Identity and presentations"
+
+msgid "شعار وألوان وبطاقات وورق مروّس وعروض تقديمية بهوية شركتك، من وصف قصير."
+msgstr ""
+"A logo, colours, cards, letterhead and presentations in your identity, from "
+"a short description."
+
+msgid "فريقك وبريدك"
+msgstr "Your team and mail"
+
+msgid ""
+"مهام وجهات اتصال وإعلانات داخلية ونماذج واستبيانات، وصندوق بريد الشركة، "
+"بصلاحيات لكل دور."
+msgstr ""
+"Tasks, contacts, internal announcements, forms and surveys, and the company "
+"mailbox, with permissions for every role."
+
+msgid "مارد، مساعدك"
+msgstr "Marid, your assistant"
+
+msgid ""
+"اطلب بجملة: خطة أو منشور أو ترجمة أو مهمة. يقترح مارد ويعرض السعر، ولا ينفّذ "
+"إلا بموافقتك."
+msgstr ""
+"Ask in a sentence: a plan, a post, a translation, a task. Marid suggests it "
+"and shows the price, and runs it only with your approval."
+
+msgid "كل ما تحتاجه شركتك، في منصة واحدة"
+msgstr "Everything your company needs, in one platform"
+
+msgid "من التسويق إلى المستندات إلى الفريق، ويربط بينها مساعد واحد."
+msgstr ""
+"From marketing to documents to your team, tied together by one assistant."
+
+msgid "تدفع بقدر ما تستخدم"
+msgstr "You pay for what you use"
+
+msgid "السعر يظهر قبل كل خدمة، ويُخصم من محفظتك كما هو بالضبط."
+msgstr ""
+"The price is shown before every service and charged from your wallet exactly "
+"as shown."
+
+msgid "%(n)s تنتهي قريباً"
+msgstr "%(n)s expiring soon"
+
+msgid "%(n)s جديد هذا الشهر"
+msgstr "%(n)s new this month"
+
+msgid "%(n)s سجل"
+msgstr "%(n)s records"
+
+msgid "%(n)s شركة"
+msgstr "%(n)s companies"
+
+msgid "%(n)s محفظة فارغة"
+msgstr "%(n)s empty wallets"
+
+msgid "%(n)s ورقة في المكتبات"
+msgstr "%(n)s papers in libraries"
+
+msgid "أرصدة العملاء الحالية"
+msgstr "Current customer balances"
+
+msgid "أصبحت الشركة تتبع «%(name)s»."
+msgstr "The company now belongs to “%(name)s”."
+
+msgid "أنشئ مستنداً"
+msgstr "Create a document"
+
+msgid "ابحث بالبريد أو الإجراء أو الشركة"
+msgstr "Search by email, action or company"
+
+msgid "ابحث بالبريد أو الاسم"
+msgstr "Search by email or name"
+
+msgid "ابحث بالشركة أو البريد أو الوصف"
+msgstr "Search by company, email or description"
+
+msgid "ابدأ من هنا"
+msgstr "Start here"
+
+msgid "ارفع ورقة"
+msgstr "Upload a paper"
+
+msgid "اسأل مارد"
+msgstr "Ask Marid"
+
+msgid "اشحن المحفظة"
+msgstr "Top up the wallet"
+
+msgid "الأسعار"
+msgstr "Prices"
+
+msgid "التسويق هذا الشهر"
+msgstr "Marketing this month"
+
+msgid "الخدمة"
+msgstr "Service"
+
+msgid "السعر ($)"
+msgstr "Price ($)"
+
+msgid "المال"
+msgstr "Money"
+
+msgid "المخصوم من العملاء هذا الشهر"
+msgstr "Charged to customers this month"
+
+msgid "المخصوم هذا الشهر (صافي بعد الاسترجاع)"
+msgstr "Charged this month (net of refunds)"
+
+msgid "المشغّل (من يخدم الشركة ويحصّل منها)"
+msgstr "Operator (who serves and bills the company)"
+
+msgid "المفتاح"
+msgstr "Key"
+
+msgid "انتهى اشتراك الشركة."
+msgstr "The company subscription has ended."
+
+msgid "تعطيل"
+msgstr "Deactivate"
+
+msgid "تنبيه: يملك %n شركة ستُحذف معه."
+msgstr "Warning: this person owns %n companies that will be deleted too."
+
+msgid "حذف مستخدم نهائياً"
+msgstr "Delete a user permanently"
+
+msgid "حُذف %(email)s مع %(n)s شركة يملكها."
+msgstr "%(email)s was deleted, with %(n)s companies they owned."
+
+msgid "رصيد المحفظة"
+msgstr "Wallet balance"
+
+msgid "رصيد المحفظة منخفض، فقد تتوقف الخدمات المدفوعة. اشحنه ليستمر العمل."
+msgstr ""
+"The wallet balance is low and paid services may stop. Top it up to keep "
+"working."
+
+msgid "رصيدك منخفض"
+msgstr "Your balance is low"
+
+msgid "سجل المحافظ"
+msgstr "Wallet ledger"
+
+msgid "سجل النشاط العام"
+msgstr "Platform activity log"
+
+msgid ""
+"سيُبلَّغ مالك الشركة ومديروها، وتتغير الجهة المذكورة في صفحات الشركة وفي الدفع."
+msgstr ""
+"The company’s owner and admins will be told, and the operator named on the "
+"company’s pages and in payment will change."
+
+msgid "سيُحذف الحساب"
+msgstr "The account will be deleted"
+
+msgid "شحن"
+msgstr "Top-up"
+
+msgid "شحن هذا الشهر"
+msgstr "Top-ups this month"
+
+msgid ""
+"عند بلوغها تتوقف الخدمات المدفوعة لكل الشركات. تُضبط من AI_MONTHLY_BUDGET_USD "
+"في secrets.json."
+msgstr ""
+"When it is reached, paid services stop for every company. Set it with "
+"AI_MONTHLY_BUDGET_USD in secrets.json."
+
+msgid "غير مفعّلة بعد"
+msgstr "Not enabled yet"
+
+msgid "قائمة الأسعار الحالية للعملاء (مسودة حتى يعتمدها المالك). للقراءة فقط."
+msgstr ""
+"The current customer price list (a draft until the owner approves it). Read "
+"only."
+
+msgid "كل الحسابات"
+msgstr "All accounts"
+
+msgid "كل الحسابات على المنصة، بأي شركة وبأي دور."
+msgstr "Every account on the platform, in which company and role."
+
+msgid ""
+"كل حركة على رصيد أي شركة: شحن، ومنح من الإدارة، وبيع الخدمات، والاسترجاع."
+msgstr ""
+"Every movement on any company’s balance: top-ups, admin grants, service "
+"sales and refunds."
+
+msgid "كلمة المرور غير صحيحة. لم يُحذف شيء."
+msgstr "The password is wrong. Nothing was deleted."
+
+msgid "لا توجد حركات."
+msgstr "No movements."
+
+msgid "لا توجد نتائج."
+msgstr "No results."
+
+msgid "لا يمكنك تعطيل حسابك بنفسك."
+msgstr "You cannot deactivate your own account."
+
+msgid "لا يوجد نشاط."
+msgstr "No activity."
+
+msgid "لم يعد %(email)s يستطيع الدخول."
+msgstr "%(email)s can no longer sign in."
+
+msgid "ما فعله الناس في كل الشركات، من الأحدث."
+msgstr "What people did in every company, newest first."
+
+msgid "مجاني"
+msgstr "Free"
+
+msgid "محاولات خاطئة كثيرة. حاول بعد دقائق. لم يُحذف شيء."
+msgstr ""
+"Too many wrong attempts. Try again in a few minutes. Nothing was deleted."
+
+msgid "مستند صادر هذا الشهر"
+msgstr "Documents issued this month"
+
+msgid "مشرف نظام"
+msgstr "System admin"
+
+msgid "مشرفو النظام"
+msgstr "System admins"
+
+msgid "مشغّل غير صالح."
+msgstr "Invalid operator."
+
+msgid ""
+"مع كل شركة يملكها وكل بياناتها وملفاتها، ولا رجعة فيه. عضويته في شركات "
+"الآخرين تنتهي فقط."
+msgstr ""
+"together with every company they own, all its data and files. This cannot be "
+"undone. Their membership in other people’s companies simply ends."
+
+msgid "معطّل"
+msgstr "Deactivated"
+
+msgid "معطّلة"
+msgstr "Deactivated"
+
+msgid "منح من الإدارة هذا الشهر"
+msgstr "Admin grants this month"
+
+msgid "مهمة جديدة"
+msgstr "New task"
+
+msgid "مهمة مفتوحة لك"
+msgstr "Open tasks for you"
+
+msgid "ميزانية الذكاء الاصطناعي لهذا الشهر"
+msgstr "AI budget this month"
+
+msgid "نقل"
+msgstr "Move"
+
+msgid "نقل إلى مشغّل"
+msgstr "Move to operator"
+
+msgid "نقل الشركة إلى مشغّل آخر؟"
+msgstr "Move the company to another operator?"
+
+msgid "هذا آخر مشرف نظام فلا يُحذف."
+msgstr "This is the last system admin, so it cannot be deleted."
+
+msgid "ورقة في المكتبة"
+msgstr "Papers in the library"
+
+msgid "يزيد حسب الصفحات"
+msgstr "Rises with the pages"
+
+msgid "يستطيع %(email)s الدخول من جديد."
+msgstr "%(email)s can sign in again."
+
+msgid "يملك:"
+msgstr "Owns:"
+
+msgid "ينتهي اشتراك الشركة بعد %(n)s يوماً."
+msgstr "The company subscription ends in %(n)s days."
+
+msgid ""
+"قائمة الأسعار المعتمدة للعملاء (اعتمدها المالك في 19/11/2026، وتُراجع إن زادت "
+"التكلفة الفعلية). للقراءة فقط."
+msgstr ""
+"The approved customer price list (approved by the owner on 2026-11-19, "
+"revised if the real cost rises). Read only."
+
+msgid "عمل شركتك في مكان واحد"
+msgstr "Your company’s work in one place"
+
+msgid "تسويق ومستندات وفريق،"
+msgstr "Marketing, documents and a team,"
+
+msgid "كلها بذكاء في تطبيق واحد."
+msgstr "all of it, smartly, in one app."
+
+msgid ""
+"يدير وكيل تسويق شركتك على وسائل التواصل، ويحفظ مستنداتها ويصدرها بورق رسمي، "
+"ويترجم ويلخص ويستخرج بياناتها بالذكاء الاصطناعي، وينظم بريد فريقها ومهامه. "
+"تدفع حسب ما تستهلك فقط."
+msgstr ""
+"Wakeel runs your company’s social media marketing, keeps and issues its "
+"documents on official letterhead, translates, summarises and extracts their "
+"data with AI, and organises your team’s mail and tasks. You pay only for "
+"what you use."
+
+msgid "التسويق الذكي"
+msgstr "Smart marketing"
+
+msgid "خطة محتوى شهرية، ومنشورات وتصاميم بهويتك، وتقويم ونشر"
+msgstr ""
+"A monthly content plan, posts and designs in your identity, a calendar and "
+"publishing"
+
+msgid "الأوراق والمستندات"
+msgstr "Papers and documents"
+
+msgid "مكتبة بتنبيهات الانتهاء، ومستندات صادرة بورق رسمي ورمز تحقق"
+msgstr ""
+"A library with expiry alerts, and documents issued on official letterhead "
+"with a verification code"
+
+msgid "خدمات الذكاء الاصطناعي"
+msgstr "AI services"
+
+msgid "ترجمة وتلخيص واستخراج بيانات وقراءة المستندات"
+msgstr "Translation, summaries, data extraction and document reading"
+
+msgid "استوديو الهوية"
+msgstr "Identity studio"
+
+msgid "شعار وألوان وخطوط وأوراق وبطاقات لعلامتك"
+msgstr "A logo, colours, fonts, stationery and cards for your brand"
+
+msgid "البريد والتواصل"
+msgstr "Mail and communication"
+
+msgid "صندوق بريد الشركة، وإعلانات داخلية، ونماذج واستبيانات"
+msgstr "The company mailbox, internal announcements, forms and surveys"
+
+msgid "مساحة الفريق ومارد"
+msgstr "Team space and Marid"
+
+msgid "مهام وجهات اتصال وملاحظات، ومساعد يقترح ولا ينفذ إلا بموافقتك"
+msgstr ""
+"Tasks, contacts and notes, and an assistant that suggests and only acts with "
+"your approval"
+
+msgid "وكيل · عمل شركتك في مكان واحد"
+msgstr "Wakeel · your company’s work in one place"
+
+msgid "سجّل الدخول لمتابعة عمل شركتك."
+msgstr "Sign in to keep your company’s work going."
+
+msgid "أنشئ حسابك، وبعد تفعيله تضيف شركتك وتبدأ باستخدام كل خدمات وكيل."
+msgstr ""
+"Create your account, and once it is activated you add your company and start "
+"using all of Wakeel’s services."
+
+msgid "آخر الحركات على الرصيد"
+msgstr "Latest balance movements"
+
+msgid "إزالة التصفية"
+msgstr "Remove the filter"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Approve new subscribers, top up their balances, and suspend or delete companies"
+"Approve new subscribers, top up their balances, and suspend or delete "
+"companies"
+
+msgid "الحساب معلّق"
+msgstr "The account is suspended"
+
+msgid "الرصيد ($)"
+msgstr "Balance ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Amount ($, negative to withdraw)"
+
+msgid "حساب نشط"
+msgstr "Active account"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Full top-up and charge history"
+
+msgid "شحن الرصيد"
+msgstr "Top up the balance"
+
+msgid "شحن رصيد"
+msgstr "Top up the balance of"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Top up the balance of %(name)s"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "For example: bank transfer no. …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Note (shown in the ledger)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr "by hand (after receiving payment, or as a grant). Current balance:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "It is recorded in the wallet ledger."

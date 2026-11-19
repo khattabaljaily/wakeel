@@ -87,7 +87,30 @@ INSTALLED_APPS = [
     'apps.inbox',
     'apps.ads',
     'apps.ops',
+    'apps.audit',
+    'apps.credits',
+    'apps.billing',
+    'apps.identity',
+    'apps.library',
+    'apps.documents',
+    'apps.docops',
+    'apps.sharing',
+    'apps.brand',
+    'apps.presentations',
+    'apps.forms',
+    'apps.tasks',
+    'apps.notes',
+    'apps.contacts',
+    'apps.announcements',
+    'apps.mail',
+    'apps.assistant',
+    'enjaz_operators',
 ]
+
+RUNNING_TESTS = 'test' in sys.argv[1:2]
+if RUNNING_TESTS:
+    # A company-scoped model used only by the isolation tests (apps/core/tests_tenancy.py).
+    INSTALLED_APPS += ['apps.core.testapp']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -99,6 +122,7 @@ MIDDLEWARE = [
     'apps.core.middleware.LanguageMiddleware',
     'apps.accounts.middleware.PendingAccountMiddleware',
     'apps.companies.middleware.CurrentCompanyMiddleware',
+    'apps.credits.middleware.PaymentRefusedMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -121,6 +145,9 @@ TEMPLATES = [
                 'apps.companies.context_processors.current_company',
                 'apps.notifications.context_processors.notifications',
                 'apps.ops.context_processors.ops',
+                'apps.credits.context_processors.wallet',
+                'apps.library.context_processors.library_alerts',
+                'enjaz_operators.context_processors.operator',
             ],
         },
     },
@@ -149,16 +176,39 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 LANGUAGE_CODE = 'ar'
+# The same 16 languages as MyDocHub and TakeWing (the names are the languages' own). Wakeel's own texts are written in
+# Arabic and translated to English; the texts that came from MyDocHub are written in English. A language without a
+# translation of a text shows it in the language it was written in.
 LANGUAGES = [
     ('ar', 'العربية'),
     ('en', 'English'),
+    ('tr', 'Türkçe'),
+    ('de', 'Deutsch'),
+    ('fr', 'Français'),
+    ('es', 'Español'),
+    ('pt', 'Português'),
+    ('it', 'Italiano'),
+    ('ru', 'Русский'),
+    ('zh-hans', '简体中文'),
+    ('ja', '日本語'),
+    ('ko', '한국어'),
+    ('hi', 'हिन्दी'),
+    ('id', 'Bahasa Indonesia'),
+    ('fa', 'فارسی'),
+    ('am', 'አማርኛ'),
 ]
+# Django ships no Amharic; register it so get_language_info and the language menu know its name.
+from django.conf.locale import LANG_INFO  # noqa: E402
+LANG_INFO.setdefault('am', {'bidi': False, 'code': 'am', 'name': 'Amharic', 'name_local': 'አማርኛ'})
 # Arabic unless the user picked another language (saved on their account, or in this cookie before
 # they sign in). The browser's language is deliberately ignored: many phones in our markets are set
 # to English while their owners expect Arabic. See apps.core.middleware.LanguageMiddleware.
 LANGUAGE_COOKIE_NAME = 'wakeel_lang'
 LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365
-LOCALE_PATHS = [BASE_DIR / 'locale']
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+    BASE_DIR / 'locale_extra',      # Amharic for Django's humanize texts (makemessages leaves this folder alone)
+]
 # Server-side default only: every company works in its own timezone
 # (see CurrentCompanyMiddleware).
 TIME_ZONE = 'Asia/Qatar'
@@ -183,6 +233,18 @@ if 'test' in sys.argv:
     STORAGES['staticfiles']['BACKEND'] = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+# Private files (company documents, letterheads, the library): NOT under MEDIA, never served by the web server, only by a
+# view that checks access, and encrypted on disk with a key per company derived from FILE_ENCRYPTION_KEY
+# (apps/core/filecrypto.py, apps/core/storage.py).
+PRIVATE_ROOT = BASE_DIR / 'private'
+if RUNNING_TESTS:
+    # Tests write private files to a throwaway folder, never into the real private one.
+    import tempfile
+    PRIVATE_ROOT = Path(tempfile.mkdtemp(prefix='wakeel-test-private-'))
+# Keep a copy of the master key OUTSIDE the server: without it the files cannot be read again. Production refuses to
+# start without one (create it with: manage.py make_file_key).
+from apps.core.filecrypto import load_key  # noqa: E402
+FILE_ENCRYPTION_KEY = load_key(get_secret('FILE_ENCRYPTION_KEY', ''), dev=DEBUG or RUNNING_TESTS, secret_key=SECRET_KEY)
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 
@@ -248,25 +310,61 @@ SUPPORT_EMAIL = get_secret('SUPPORT_EMAIL', '')
 PASSWORD_RESET_TIMEOUT = 60 * 60 * 24  # 1 day
 
 # Wakeel is a SaaS: anyone can sign up and create their own company workspace.
+# The operating model (enjaz-operators): Enjaz develops Wakeel, an operator offers it to each company, chosen by the
+# company's country. Each operator's payment keys: secrets.json "GATEWAYS": {"jovia": {...}}.
+ENJAZ_OPERATORS = {'PRODUCT': 'wakeel', 'ACCOUNT': 'apps.companies.operators.of_request'}
+
+# Card payments for top-ups go through the company's operator (enjaz-operators). Each operator's keys live only in secrets.json:
+#   "GATEWAYS": {"jovia": {"secret_key": ..., "webhook_secret": ...}}
+# or, with no secret key, one Stripe payment link per package: "PAYMENT_LINKS": {"jovia": {"10": "https://buy.stripe.com/...", ...}}
+# (link: fixed price in USD, quantity not adjustable, after payment back to SITE_URL/company/wallet/?paid=1) plus the webhook secret.
+# Point the operator's Stripe webhook at SITE_URL/billing/webhook/<operator>/ (events checkout.session.completed,
+# checkout.session.async_payment_succeeded, checkout.session.expired). Without keys the Pay buttons stay disabled.
+GATEWAY_KEYS = get_secret('GATEWAYS', {}) or {}
+PAYMENT_LINKS = get_secret('PAYMENT_LINKS', {}) or {}
+
 ALLOW_REGISTRATION = get_secret('ALLOW_REGISTRATION', True)
 
 
-# AI: strategy, captions and rewrites all go through apps.ai.
-# AI_PROVIDER picks the model vendor: 'anthropic' (Claude) or 'deepseek'.
-AI_PROVIDER = get_secret('AI_PROVIDER', 'anthropic')
+# AI: strategy, captions and rewrites all go through apps.ai, which routes each call by its tier (apps/ai/client.py):
+#   interactive  a person is waiting (the month plan, a rewrite, brand autofill)  -> Claude Sonnet: fast, same cost as DeepSeek
+#   background   nobody waits (reports, lessons, comment triage)                    -> DeepSeek: the cheapest
+#   premium      the best quality, for a service that asks for it                   -> Claude Opus
+# Measured 2026-11-18 on the same month plans: quality was close, Sonnet took 36-43 s against DeepSeek's 160-177 s and cost the
+# same (about $0.07 a plan), Opus about $0.21. A tier whose provider has no key falls back to the other one.
+AI_PROVIDER = get_secret('AI_PROVIDER', 'anthropic')   # which provider's key is named when no key is set at all
 ANTHROPIC_API_KEY = get_secret('ANTHROPIC_API_KEY', '')
-ANTHROPIC_MODEL = get_secret('ANTHROPIC_MODEL', 'claude-opus-5')
+ANTHROPIC_MODEL = get_secret('ANTHROPIC_MODEL', 'claude-opus-5-5')                 # premium
+ANTHROPIC_MODEL_FAST = get_secret('ANTHROPIC_MODEL_FAST', 'claude-sonnet-5-5')     # interactive
 DEEPSEEK_API_KEY = get_secret('DEEPSEEK_API_KEY', '')
-DEEPSEEK_MODEL = get_secret('DEEPSEEK_MODEL', 'deepseek-v4-pro')
+DEEPSEEK_MODEL = get_secret('DEEPSEEK_MODEL', 'deepseek-v4-pro')                   # background
 DEEPSEEK_BASE_URL = get_secret('DEEPSEEK_BASE_URL', 'https://api.deepseek.com')
+AI_TIERS = get_secret('AI_TIERS', {
+    'interactive': ['anthropic', ANTHROPIC_MODEL_FAST],
+    'background': ['deepseek', DEEPSEEK_MODEL],
+    'assistant': ['deepseek', DEEPSEEK_MODEL],         # Marid's free chat (short turns, tools): the cheapest
+    'premium': ['anthropic', ANTHROPIC_MODEL],
+})
+# Spend guards (apps/credits/guards.py): the platform's monthly AI budget in USD (0 = no limit), and per company the paid jobs an
+# hour and the refunds a day.
+AI_MONTHLY_BUDGET_USD = get_secret('AI_MONTHLY_BUDGET_USD', 100)
+AI_MAX_CHARGES_PER_HOUR = get_secret('AI_MAX_CHARGES_PER_HOUR', 120)
+AI_MAX_REFUNDS_PER_DAY = get_secret('AI_MAX_REFUNDS_PER_DAY', 30)
+# A form is paid once when it is made; its answers are free up to this many (keeps the cost of one form bounded).
+FORM_MAX_RESPONSES = int(get_secret('FORM_MAX_RESPONSES', 1000))
+# Marid (apps.assistant): the chat is free for the person, so what it costs the platform is bounded per person per day.
+ASSISTANT_DAILY_MESSAGES = int(get_secret('ASSISTANT_DAILY_MESSAGES', 60))
+ASSISTANT_HISTORY = 12               # the last messages the assistant reads each time
+# The company mailbox (apps.mail) connects only to public mail servers; the tests run a local fake server.
+MAIL_ALLOW_PRIVATE_HOSTS = RUNNING_TESTS
 # DeepSeek charges less off-peak. The window, in UTC as [start, end], may cross midnight.
 DEEPSEEK_OFF_PEAK_UTC = get_secret('DEEPSEEK_OFF_PEAK_UTC', ['16:30', '00:30'])
-# Prices (USD per million tokens) for models other than DeepSeek, whose prices are built in (apps.ai.pricing).
+# Prices (USD per million tokens) for models other than DeepSeek and Claude, whose prices are built in (apps.ai.pricing).
 # 0 means unknown: those calls show no cost.
 AI_PRICE_INPUT_PER_MTOK = get_secret('AI_PRICE_INPUT_PER_MTOK', 0)
 AI_PRICE_OUTPUT_PER_MTOK = get_secret('AI_PRICE_OUTPUT_PER_MTOK', 0)
 AI_KEY_NAME = 'DEEPSEEK_API_KEY' if AI_PROVIDER == 'deepseek' else 'ANTHROPIC_API_KEY'
-AI_ENABLED = bool(DEEPSEEK_API_KEY if AI_PROVIDER == 'deepseek' else ANTHROPIC_API_KEY)
+AI_ENABLED = bool(DEEPSEEK_API_KEY or ANTHROPIC_API_KEY)
 
 
 # Direct publishing to Facebook and Instagram through a Meta app (developers.facebook.com).
@@ -307,6 +405,8 @@ TIKTOK_ENABLED = bool(TIKTOK_CLIENT_KEY and TIKTOK_CLIENT_SECRET)
 CHROME_PATH = get_secret('CHROME_PATH', '')
 
 # Web Push (installed app / browser notifications). Generate keys with `manage.py vapid_keys`.
+# Notifications are kept this long (manage.py prune_notifications, once a day): read ones, then the ones nobody read.
+NOTIFICATION_KEEP_READ_DAYS, NOTIFICATION_KEEP_UNREAD_DAYS = 30, 90
 VAPID_PUBLIC_KEY = get_secret('VAPID_PUBLIC_KEY', '')
 VAPID_PRIVATE_KEY = get_secret('VAPID_PRIVATE_KEY', '')
 VAPID_SUBJECT = get_secret('VAPID_SUBJECT', 'mailto:no-reply@example.com')

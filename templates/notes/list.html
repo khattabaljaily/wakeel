@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Personal notes" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "Personal notes" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Your own notes and reminders. Only you can see them." %}</div>{% endblock %}
+{% block actions %}<button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#newNote" aria-expanded="{% if open_form %}true{% else %}false{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "New note" %}</button>{% endblock %}
+{% block content %}
+<div class="collapse {% if open_form %}show{% endif %} mb-3" id="newNote">
+<form class="wk-card" style="max-width:760px" method="post" action="{% url 'notes:new' %}" novalidate data-once><div class="wk-card-body">{% csrf_token %}
+  {% include "notes/_fields.html" %}
+  <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+</div></form></div>
+
+<div class="d-flex flex-wrap gap-2 mb-3">
+  <a class="btn btn-sm {% if show == 'all' %}btn-primary{% else %}btn-light{% endif %}" href="?show=all"{% if show == 'all' %} aria-current="page"{% endif %}><i class="bi bi-journal-text"></i> {% translate "All" %} <span class="badge text-bg-light">{{ counts.all }}</span></a>
+  <a class="btn btn-sm {% if show == 'reminders' %}btn-primary{% else %}btn-light{% endif %}" href="?show=reminders"{% if show == 'reminders' %} aria-current="page"{% endif %}><i class="bi bi-alarm"></i> {% translate "Reminders" %} <span class="badge text-bg-light">{{ counts.reminders }}</span></a>
+  <a class="btn btn-sm {% if show == 'done' %}btn-primary{% else %}btn-light{% endif %}" href="?show=done"{% if show == 'done' %} aria-current="page"{% endif %}><i class="bi bi-check2"></i> {% translate "Done" %} <span class="badge text-bg-light">{{ counts.done }}</span></a>
+</div>
+{% if notes %}<div class="row g-3">
+  {% for n in notes %}
+  <div class="col-md-6 col-xl-4"><article class="wk-card h-100{% if n.is_due %} border border-danger{% endif %}"><div class="wk-card-body d-flex flex-column h-100">
+    <header class="d-flex justify-content-between align-items-start gap-2 mb-2"><h2 class="h6 mb-0 text-break" dir="auto">{% if n.pinned %}<i class="bi bi-star-fill text-warning" aria-hidden="true"></i> {% endif %}{{ n.title }}</h2>
+      <div class="d-flex gap-1 flex-shrink-0">
+        <form method="post" action="{% url 'notes:pin' n.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <button type="submit" class="btn btn-light btn-sm" title="{% if n.pinned %}{% translate 'Unpin' %}{% else %}{% translate 'Pin to the top' %}{% endif %}" aria-label="{% if n.pinned %}{% translate 'Unpin' %}{% else %}{% translate 'Pin to the top' %}{% endif %}" aria-pressed="{% if n.pinned %}true{% else %}false{% endif %}"><i class="bi {% if n.pinned %}bi-star-fill text-warning{% else %}bi-star{% endif %}"></i></button></form>
+        <a class="btn btn-light btn-sm" href="{% url 'notes:edit' n.pk %}" title="{% translate 'Edit' %}" aria-label="{% translate 'Edit' %}"><i class="bi bi-pencil"></i></a>
+        <form method="post" action="{% url 'notes:delete' n.pk %}" data-confirm="{% translate 'This note will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}
+          <button type="submit" class="btn btn-outline-danger btn-sm" title="{% translate 'Delete' %}" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>
+      </div></header>
+    {% if n.body %}<p class="mb-2 text-break" dir="auto">{{ n.body|truncatechars:400|linebreaksbr }}</p>{% endif %}
+    {% if n.remind_at %}<div class="mt-auto pt-2 d-flex flex-wrap align-items-center justify-content-between gap-2">
+      <span class="small-muted"><i class="bi bi-alarm"></i> <span dir="ltr">{{ n.remind_display }}</span>{% if n.is_due %} <span class="badge text-bg-danger">{% translate "Due" %}</span>{% endif %}</span>
+      <form method="post" action="{% url 'notes:done' n.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" class="btn btn-light btn-sm"><i class="bi bi-check2"></i> {% if n.done %}{% translate "Reopen" %}{% else %}{% translate "Mark as done" %}{% endif %}</button></form>
+    </div>{% endif %}
+  </div></article></div>
+  {% endfor %}
+</div>{% else %}<div class="wk-card"><div class="p-4 text-center small-muted">{% if show == 'reminders' %}{% translate "No reminders." %}{% else %}{% translate "No notes yet." %}{% endif %}</div></div>{% endif %}
+{% endblock %}
+{% block scripts %}{% include "notes/_script.html" %}{% endblock %}

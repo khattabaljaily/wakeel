@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "E-mail" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "E-mail" context "navigation" %}{% endblock %}
+{% block content %}
+<div class="wk-card" style="max-width:640px"><div class="wk-card-body text-center py-5">
+  <i class="bi bi-envelope-at" style="font-size:3rem;opacity:.5"></i>
+  <h2 class="h5 mt-2">{% translate "The company mailbox is not connected" %}</h2>
+  <p class="small-muted">{% translate "Once the owner connects the company e-mail address, everyone who can edit reads and writes company mail here, without leaving Wakeel." %}</p>
+  {% if can_manage %}<a class="btn btn-primary" href="{% url 'mail:setup' %}"><i class="bi bi-plug"></i> {% translate "Connect the mailbox" %}</a>{% endif %}
+</div></div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}{% translate "New message" %}{% endblock %}
+{% block page_title %}{% translate "E-mail" context "navigation" %}{% endblock %}
+{% block extra_head %}{% include "mail/_head.html" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'mail:box' %}">← {% translate "E-mail" context "navigation" %}</a>{% endblock %}
+{% block content %}<div class="wk-mail">{% include "mail/_compose_form.html" %}</div>{% endblock %}
+{% block scripts %}<script src="{% static 'js/mail.js' %}" defer></script>{% endblock %}

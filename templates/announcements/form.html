@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Edit" %} · {{ announcement.title }}{% endblock %}
+{% block page_title %}{% translate "Edit" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'announcements:detail' announcement.pk %}">← <span dir="auto">{{ announcement.title }}</span></a>{% endblock %}
+{% block content %}
+<form method="post" class="wk-card" style="max-width:760px" novalidate data-once>{% csrf_token %}<div class="wk-card-body">
+  {% include "announcements/_fields.html" %}
+  <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+</div></form>
+{% endblock %}

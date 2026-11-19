@@ -1,4 +1,4 @@
-{% load static cache_bust wakeel i18n %}<!DOCTYPE html>
+{% load static cache_bust wakeel i18n operators credits %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
     <link rel="stylesheet" href="{% static_v 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static_v 'css/rail.css' %}">
+    <link rel="stylesheet" href="{% static_v 'css/marid.css' %}">
+    <link rel="stylesheet" href="{% static_v 'css/ui.css' %}">
+    <script>try { if (localStorage.getItem('wkSide') === 'collapsed') document.documentElement.classList.add('side-collapsed'); } catch (e) {}</script>
     {% if agency.logo %}<link rel="icon" href="{{ agency.logo.url }}">{% else %}<link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">{% endif %}
     <meta name="theme-color" content="#12112a">
     <link rel="manifest" href="{% url 'core:manifest' %}">
@@ -18,7 +22,7 @@
     <meta name="apple-mobile-web-app-title" content="{% translate "وكيل" %}">
     {% block extra_head %}{% endblock %}
 </head>
-<body class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% if impersonating %}wk-impersonating{% endif %} {% block body_class %}{% endblock %}">
+<body data-t-file-choose="{% translate 'Choose a file' %}" data-t-file-drop="{% translate 'or drop it here' %}" data-t-file-many="{% translate 'files chosen' %}" class="wk-app {% if user.is_superuser %}wk-console{% endif %} {% if impersonating %}wk-impersonating{% endif %} {% block body_class %}{% endblock %}">
 {% if impersonating %}
 <div class="wk-impersonation" role="status">
     <i class="bi bi-person-badge"></i>
@@ -29,7 +33,7 @@
 </div>
 {% endif %}
 {% block body %}
-<aside class="wk-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="wkSidebar">
+<aside class="wk-sidebar {% if not user.is_superuser %}wk-sidebar--rail {% endif %}offcanvas-lg offcanvas-start" tabindex="-1" id="wkSidebar">
     <div class="offcanvas-body">
         {% if user.is_superuser %}
         {# System admins get their own console navigation, separate from the subscribers' app. #}
@@ -49,10 +53,15 @@
                 {% if ops_pending_signups %}<span class="wk-nav__badge wk-nav__badge--gold" title="{% translate "بانتظار الموافقة" %}">{{ ops_pending_signups }}</span>{% endif %}</a>
             <a href="{% url 'ops:subscriptions' %}" class="{% nav_active '/ops/subscriptions/' %}"><i class="bi bi-buildings"></i> {% translate "الاشتراكات" %}
                 {% if ops_pending_approval %}<span class="wk-nav__badge wk-nav__badge--gold" title="{% translate "بانتظار الاعتماد" %}">{{ ops_pending_approval }}</span>{% endif %}</a>
+            <a href="{% url 'ops:users' %}" class="{% nav_active '/ops/users/' %}"><i class="bi bi-people"></i> {% translate "المستخدمون" %}</a>
+            <div class="wk-nav__label">{% translate "المال" %}</div>
+            <a href="{% url 'ops:ledger' %}" class="{% nav_active '/ops/ledger/' %}"><i class="bi bi-journal-text"></i> {% translate "سجل المحافظ" %}</a>
+            <a href="{% url 'ops:prices' %}" class="{% nav_active '/ops/prices/' %}"><i class="bi bi-tags"></i> {% translate "الأسعار" %}</a>
             <div class="wk-nav__label">{% translate "التشغيل" %}</div>
             <a href="{% url 'ops:usage' %}" class="{% nav_active '/ops/usage/' %}"><i class="bi bi-cpu"></i> {% translate "الاستهلاك والتكلفة" %}</a>
             <a href="{% url 'ops:jobs' %}" class="{% nav_active '/ops/jobs/' %}"><i class="bi bi-list-task"></i> {% translate "المهام والأخطاء" %}
                 {% if ops_failed_week %}<span class="wk-nav__badge" title="{% translate "مهام فشلت خلال 7 أيام" %}">{{ ops_failed_week }}</span>{% endif %}</a>
+            <a href="{% url 'ops:activity' %}" class="{% nav_active '/ops/activity/' %}"><i class="bi bi-activity"></i> {% translate "سجل النشاط العام" %}</a>
             <a href="{% url 'ops:system' %}" class="{% nav_active '/ops/system/' %}"><i class="bi bi-hdd-stack"></i> {% translate "حالة النظام" %}</a>
             <div class="wk-nav__label">{% translate "أدوات" %}</div>
             <a href="{% url 'admin:index' %}"><i class="bi bi-database-gear"></i> {% translate "إدارة قاعدة البيانات" %}</a>
@@ -62,7 +71,7 @@
             <img src="{% static 'img/logo.svg' %}" alt="">
             <div>
                 <div class="wk-brand__name">{% translate "وكيل" %}</div>
-                <div class="wk-brand__tag">{% translate "مدير التسويق الذكي" %}</div>
+                <div class="wk-brand__tag">{% translate "عمل شركتك في مكان واحد" %}</div>
             </div>
         </a>
 
@@ -94,36 +103,93 @@
         </div>
         {% endif %}
 
-        <nav class="wk-nav">
-            <a href="{% url 'core:dashboard' %}" class="{% if request.path == '/app/' %}active{% endif %}"><i class="bi bi-grid-1x2"></i> {% translate "لوحة التحكم" %}</a>
-            <div class="wk-nav__label">{% translate "المحتوى" %}</div>
-            <a href="{% url 'content:plan_list' %}" class="{% nav_active '/app/plans/' %}"><i class="bi bi-stars"></i> {% translate "خطط المحتوى" %}</a>
-            <a href="{% url 'content:calendar' %}" class="{% nav_active '/app/calendar/' %}"><i class="bi bi-calendar3"></i> {% translate "التقويم" %}</a>
-            {% if membership.can_manage %}<a href="{% url 'companies:autopilot' %}" class="{% nav_active '/company/autopilot/' %}"><i class="bi bi-calendar2-check"></i> {% translate "المخطط الآلي" %}
-                {% if company.autopilot %}<span class="wk-nav__badge wk-nav__badge--on" title="{% translate "يعمل" %}">●</span>{% endif %}</a>{% endif %}
-            <a href="{% url 'content:post_list' %}" class="{% nav_active '/app/posts/' %}"><i class="bi bi-collection"></i> {% translate "المنشورات" %}</a>
-            <a href="{% url 'inbox:inbox' %}" class="{% nav_active '/app/inbox/' %}"><i class="bi bi-chat-dots"></i> {% translate "التعليقات" %}
-                {% inbox_count company as inbox_new %}{% if inbox_new %}<span class="wk-nav__badge" title="{% translate "بانتظار الرد" %}">{{ inbox_new }}</span>{% endif %}</a>
-            <a href="{% url 'insights:dashboard' %}" class="{% nav_active '/app/insights/' %}"><i class="bi bi-graph-up"></i> {% translate "الأداء" %}</a>
-            <a href="{% url 'competitors:list' %}" class="{% nav_active '/app/competitors/' %}"><i class="bi bi-binoculars"></i> {% translate "المنافسون" %}</a>
-            <a href="{% url 'ads:list' %}" class="{% nav_active '/app/ads/' %}"><i class="bi bi-megaphone"></i> {% translate "الترويج المدفوع" %}</a>
-            <a href="{% url 'companies:media' %}" class="{% nav_active '/company/media/' %}"><i class="bi bi-images"></i> {% translate "مكتبة الوسائط" %}</a>
-            <div class="wk-nav__label">{% translate "الشركة" %}</div>
-            <a href="{% url 'companies:brand' %}" class="{% nav_active '/company/brand/' %}"><i class="bi bi-palette"></i> {% translate "هوية العلامة" %}</a>
-            <a href="{% url 'companies:team' %}" class="{% nav_active '/company/team/' %}"><i class="bi bi-people"></i> {% translate "الفريق" %}</a>
-            {% if membership.role == 'owner' %}<a href="{% url 'companies:agency' %}" class="{% nav_active '/company/agency/' %}"><i class="bi bi-briefcase"></i> {% translate "وضع الوكالة" %}</a>{% endif %}
-            {% if membership.can_manage %}<a href="{% url 'social:accounts' %}" class="{% nav_active '/company/social/' %}"><i class="bi bi-send"></i> {% translate "حسابات النشر" %}</a>{% endif %}
-        </nav>
+        {# One group per app of the product (the MyDocHub structure); a group is added when its app is moved in, so no link points at a missing page. #}
+        <nav class="rail-nav" aria-label="{% translate "القائمة الرئيسية" %}">
+            <a class="rail-btn" href="{% url 'core:dashboard' %}" data-tip="{% translate "لوحة التحكم" %}"{% if request.path == '/app/' %} aria-current="page"{% endif %}><i class="bi bi-grid-1x2"></i><span class="lbl">{% translate "لوحة التحكم" %}</span></a>
 
+            <div class="rail-grp {% nav_group '/app/documents/' %}" data-grp="docs">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "Documents and files" context "menu section" %}"><i class="bi bi-layers"></i><span class="lbl">{% translate "Documents and files" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "Documents and files" context "menu section" %}</span>
+                    <a class="rail-btn" href="{% url 'library:list' %}"{% if request.path == '/app/documents/' or '/app/documents/upload' in request.path or request.resolver_match.app_name == 'library' %} aria-current="page"{% endif %}><i class="bi bi-folder2"></i><span class="lbl">{% translate "Document management" context "navigation" %}</span>{% if library_alerts %}<span class="rail-badge" title="{% translate "Expired or expiring within 30 days" %}">{{ library_alerts }}</span>{% endif %}</a>
+                    <a class="rail-btn" href="{% url 'documents:issued' %}"{% nav_current '/app/documents/d/issued/' %}><i class="bi bi-files"></i><span class="lbl">{% translate "Issued documents" %}</span></a>
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'documents:new' 'document' %}"{% nav_current '/app/documents/d/new/' %}><i class="bi bi-pencil-square"></i><span class="lbl">{% translate "Create a document" context "navigation" %}</span></a>{% endif %}
+                    <a class="rail-btn" href="{% url 'documents:templates' %}"{% nav_current '/app/documents/d/templates/' %}><i class="bi bi-file-earmark-richtext"></i><span class="lbl">{% translate "Document templates" context "navigation" %}</span></a>
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'sharing:list' %}"{% nav_current '/app/documents/share/' %}><i class="bi bi-link-45deg"></i><span class="lbl">{% translate "Shared links" context "navigation" %}</span></a>{% endif %}
+                </div>
+            </div>
+
+            <div class="rail-grp {% nav_group '/app/ai/' %}" data-grp="studio">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "AI studio" context "menu section" %}"><i class="bi bi-palette"></i><span class="lbl">{% translate "AI studio" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "AI studio" context "menu section" %}</span>
+                    <a class="rail-btn" href="{% url 'services:hub' %}"{% if request.path|slice:':8' == '/app/ai/' and '/app/ai/identity/' not in request.path and '/app/ai/presentations/' not in request.path and '/app/ai/marid/' not in request.path %} aria-current="page"{% endif %}><i class="bi bi-stars"></i><span class="lbl">{% translate "AI services" context "navigation" %}</span></a>
+                    <a class="rail-btn" href="{% url 'brand:studio' %}"{% nav_current '/app/ai/identity/' %}><i class="bi bi-bezier2"></i><span class="lbl">{% translate "Company identity" context "navigation" %}</span></a>
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'presentations:list' %}"{% nav_current '/app/ai/presentations/' %}><i class="bi bi-easel"></i><span class="lbl">{% translate "Smart presentations" context "navigation" %}</span></a>{% endif %}
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'assistant:chat' %}"{% nav_current '/app/ai/marid/' %}><i class="bi bi-chat-heart"></i><span class="lbl">{% translate "Marid" context "navigation" %}</span></a>{% endif %}
+                </div>
+            </div>
+
+            {% if membership.role != 'client' %}<div class="rail-grp {% nav_group '/app/mail/' '/app/announcements/' '/app/forms/' %}" data-grp="comms">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "E-mail and communication" context "menu section" %}"><i class="bi bi-envelope"></i><span class="lbl">{% translate "E-mail and communication" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "E-mail and communication" context "menu section" %}</span>
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'mail:home' %}"{% nav_current '/app/mail/' %}><i class="bi bi-envelope"></i><span class="lbl">{% translate "E-mail" context "navigation" %}</span></a>{% endif %}
+                    <a class="rail-btn" href="{% url 'announcements:list' %}"{% nav_current '/app/announcements/' %}><i class="bi bi-megaphone"></i><span class="lbl">{% translate "Company announcements" context "navigation" %}</span></a>
+                    {% if membership.can_edit %}<a class="rail-btn" href="{% url 'forms:list' %}"{% nav_current '/app/forms/' %}><i class="bi bi-ui-checks"></i><span class="lbl">{% translate "Forms and surveys" context "navigation" %}</span></a>{% endif %}
+                </div>
+            </div>{% endif %}
+
+            <div class="rail-grp {% nav_group '/app/tasks/' '/app/contacts/' '/app/notes/' %}" data-grp="team">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "Team workspace" context "menu section" %}"><i class="bi bi-people"></i><span class="lbl">{% translate "Team workspace" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "Team workspace" context "menu section" %}</span>
+                    {% if membership.role != 'client' %}<a class="rail-btn" href="{% url 'tasks:list' %}"{% nav_current '/app/tasks/' %}><i class="bi bi-check2-square"></i><span class="lbl">{% translate "Tasks" %}</span></a>{% endif %}
+                    {% if membership.role != 'client' %}<a class="rail-btn" href="{% url 'contacts:list' %}"{% nav_current '/app/contacts/' %}><i class="bi bi-person-lines-fill"></i><span class="lbl">{% translate "Contacts" %}</span></a>{% endif %}
+                    <a class="rail-btn" href="{% url 'notes:list' %}"{% nav_current '/app/notes/' %}><i class="bi bi-journal-text"></i><span class="lbl">{% translate "Personal notes" context "navigation" %}</span></a>
+                </div>
+            </div>
+
+            <div class="rail-grp rail-grp-main {% nav_group '/app/plans/' '/app/calendar/' '/app/posts/' '/app/inbox/' '/app/insights/' '/app/competitors/' '/app/ads/' '/company/autopilot/' '/company/media/' '/company/social/' '/company/agency/' %}" data-grp="marketing">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "التسويق" %}"><i class="bi bi-stars"></i><span class="lbl">{% translate "التسويق" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "التسويق" %}</span>
+                    <a class="rail-btn" href="{% url 'content:plan_list' %}"{% nav_current '/app/plans/' %}><i class="bi bi-stars"></i><span class="lbl">{% translate "خطط المحتوى" %}</span></a>
+                    <a class="rail-btn" href="{% url 'content:calendar' %}"{% nav_current '/app/calendar/' %}><i class="bi bi-calendar3"></i><span class="lbl">{% translate "التقويم" %}</span></a>
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'companies:autopilot' %}"{% nav_current '/company/autopilot/' %}><i class="bi bi-calendar2-check"></i><span class="lbl">{% translate "المخطط الآلي" %}</span>{% if company.autopilot %}<span class="rail-badge rail-badge--on wk-nav__badge wk-nav__badge--on" title="{% translate "يعمل" %}">●</span>{% endif %}</a>{% endif %}
+                    <a class="rail-btn" href="{% url 'content:post_list' %}"{% nav_current '/app/posts/' %}><i class="bi bi-collection"></i><span class="lbl">{% translate "المنشورات" %}</span></a>
+                    <a class="rail-btn" href="{% url 'inbox:inbox' %}"{% nav_current '/app/inbox/' %}><i class="bi bi-chat-dots"></i><span class="lbl">{% translate "التعليقات" %}</span>
+                        {% inbox_count company as inbox_new %}{% if inbox_new %}<span class="rail-badge wk-nav__badge" title="{% translate "بانتظار الرد" %}">{{ inbox_new }}</span>{% endif %}</a>
+                    <a class="rail-btn" href="{% url 'insights:dashboard' %}"{% nav_current '/app/insights/' %}><i class="bi bi-graph-up"></i><span class="lbl">{% translate "الأداء" %}</span></a>
+                    <a class="rail-btn" href="{% url 'competitors:list' %}"{% nav_current '/app/competitors/' %}><i class="bi bi-binoculars"></i><span class="lbl">{% translate "المنافسون" %}</span></a>
+                    <a class="rail-btn" href="{% url 'ads:list' %}"{% nav_current '/app/ads/' %}><i class="bi bi-megaphone"></i><span class="lbl">{% translate "الترويج المدفوع" %}</span></a>
+                    <a class="rail-btn" href="{% url 'companies:media' %}"{% nav_current '/company/media/' %}><i class="bi bi-images"></i><span class="lbl">{% translate "مكتبة الوسائط" %}</span></a>
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'social:accounts' %}"{% nav_current '/company/social/' %}><i class="bi bi-send"></i><span class="lbl">{% translate "حسابات النشر" %}</span></a>{% endif %}
+                </div>
+            </div>
+
+            <div class="rail-sep" role="separator"></div>
+            <div class="rail-grp {% nav_group '/company/brand/' '/company/team/' '/company/wallet/' '/company/activity/' %}" data-grp="admin">
+                <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "الإدارة" %}"><i class="bi bi-shield-check"></i><span class="lbl">{% translate "الإدارة" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
+                <div class="rail-grp-body">
+                    <span class="rail-fly-title" aria-hidden="true">{% translate "الإدارة" %}</span>
+                    <a class="rail-btn" href="{% url 'companies:brand' %}"{% nav_current '/company/brand/' %}><i class="bi bi-palette"></i><span class="lbl">{% translate "بيانات الشركة وهويتها" %}</span></a>
+                    <a class="rail-btn" href="{% url 'companies:team' %}"{% nav_current '/company/team/' %}><i class="bi bi-people"></i><span class="lbl">{% translate "الفريق" %}</span></a>
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'audit:activity' %}"{% nav_current '/company/activity/' %}><i class="bi bi-clock-history"></i><span class="lbl">{% translate "Activity" %}</span></a>{% endif %}
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'credits:wallet' %}"{% nav_current '/company/wallet/' %}><i class="bi bi-wallet2"></i><span class="lbl">{% translate "Wallet" %}</span>{% if wallet_usd %}<span class="rail-badge rail-badge--money" dir="ltr">${{ wallet_usd }}</span>{% endif %}</a>{% endif %}
+                </div>
+            </div>
+        </nav>
         {% endif %}
 
-        <div class="wk-sidebar-foot">
+        <div class="wk-sidebar-foot rail-foot">
             {% if user.is_superuser %}
             <div class="wk-ai-status">
                 <span class="wk-dot {% if not ai_enabled %}off{% endif %}"></span>
                 {% if ai_enabled %}{% translate "الذكاء الاصطناعي متصل" %}{% else %}{% translate "الذكاء الاصطناعي غير مفعّل" %}{% endif %}
             </div>
             {% endif %}
+            {% if not user.is_superuser %}<button type="button" class="rail-btn rail-toggle" data-side-toggle data-tip="{% translate "توسيع القائمة" %}" aria-expanded="true"><i class="bi bi-layout-sidebar-inset"></i><span class="lbl">{% translate "طيّ القائمة" %}</span></button>{% endif %}
             <div class="wk-user">
                 <span class="wk-avatar">{{ user.display_name|slice:":1" }}</span>
                 <div class="flex-grow-1 overflow-hidden">
@@ -145,6 +211,7 @@
             <h1>{% block page_title %}{% endblock %}</h1>
             {% block subtitle %}{% endblock %}
         </div>
+        {% if company and membership.can_edit and not user.is_superuser %}<a class="genie" href="{% url 'assistant:chat' %}" data-marid-open><span class="marid-home" data-marid-home aria-hidden="true"></span><span class="genie-text">{% translate "Ask Marid to do something…" %}</span></a>{% endif %}
         <div class="actions">{% block actions %}{% endblock %}</div>
         <div class="wk-topbar__tools">
         {% include "_language_toggle.html" %}
@@ -161,7 +228,7 @@
                 {% for n in recent_notifications %}
                 <a class="wk-note {% if not n.read_at %}unread{% endif %}" href="{% url 'notifications:open' n.pk %}">
                     <i class="bi {{ n.icon }}"></i>
-                    <span><span class="d-block">{{ n.message|truncatechars:140 }}</span><span class="small-muted">{{ n.created_at|timesince }}{% if n.company_id != company.pk %} · {{ n.company.name }}{% endif %}</span></span>
+                    <span><span class="d-block">{{ n.text|truncatechars:140 }}</span><span class="small-muted">{{ n.created_at|timesince }}{% if n.company_id != company.pk %} · {{ n.company.name }}{% endif %}</span></span>
                 </a>
                 {% empty %}
                 <div class="px-3 py-4 text-center small-muted">{% translate "لا توجد إشعارات بعد." %}</div>
@@ -180,9 +247,11 @@
         </div>
         {% endfor %}
         {% block content %}{% endblock %}
+        <footer class="wk-credit">{% operator_credit %}</footer>
     </div>
 </main>
 {% endblock %}
+{% operator_card %}
 <div class="wk-toasts" id="wkToasts"></div>
 {% if user.is_authenticated %}
 <div class="wk-appbar" id="wkAppBar" hidden data-vapid="{{ vapid_public_key }}">
@@ -219,6 +288,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{% url 'javascript-catalog' %}"></script>
 <script src="{% static_v 'js/app.js' %}"></script>
+<script src="{% static_v 'js/rail.js' %}"></script>
+<script src="{% static_v 'js/ui.js' %}"></script>
+{% if company and membership.can_edit and not user.is_superuser %}{% include "_marid.html" %}<script src="{% static_v 'js/marid.js' %}" defer></script>{% endif %}
 {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -18,6 +18,21 @@ DEEPSEEK_PRICES = {
 }
 
 
+# USD per million tokens for Claude (input, output, cache read), from Anthropic's pricing page as read on 2026-10-23 (the same
+# figures as MyDocHub's price list). Matched on the model id, which may carry a date suffix.
+CLAUDE_PRICES = {
+    'haiku-5-5': (0.1, 0.5, 0.01),
+    'sonnet-5-5': (2.0, 10.0, 0.1),
+    'opus-5-5': (4.0, 20.0, 0.2),
+    'fable-5-1': (10.0, 50.0, 0.25),
+}
+
+
+def claude_prices(model):
+    model = (model or '').lower()
+    return next((prices for key, prices in CLAUDE_PRICES.items() if key in model), None)
+
+
 def deepseek_tier(model):
     model = (model or '').lower()
     if 'deepseek' not in model:
@@ -47,6 +62,11 @@ def cost(model, input_tokens, cache_hit_tokens, output_tokens, when):
         miss = max(input_tokens - cache_hit_tokens, 0)
         return (cache_hit_tokens * prices['cache_hit'][slot] + miss * prices['cache_miss'][slot]
                 + output_tokens * prices['output'][slot]) / MTOK
+    claude = claude_prices(model)
+    if claude:
+        # Cache writes (billed above the plain input price) are counted as plain input: a small, safe under-estimate.
+        miss = max(input_tokens - cache_hit_tokens, 0)
+        return (miss * claude[0] + cache_hit_tokens * claude[2] + output_tokens * claude[1]) / MTOK
     if settings.AI_PRICE_INPUT_PER_MTOK or settings.AI_PRICE_OUTPUT_PER_MTOK:
         return (input_tokens * settings.AI_PRICE_INPUT_PER_MTOK + output_tokens * settings.AI_PRICE_OUTPUT_PER_MTOK) / MTOK
     return None

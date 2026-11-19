@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Company identity" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "Company identity" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Everything that makes your company look like itself: logo, colours, fonts, stationery and digital pieces, designed for you in famous, professional fonts." %}</div>{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'companies:brand' %}"><i class="bi bi-building"></i> {% translate "Company details" context "navigation" %}</a>
+<a class="btn btn-light" href="{% url 'identity:letterheads' %}"><i class="bi bi-upload"></i> {% translate "Your own files" %}</a>{% endblock %}
+{% block content %}
+{% if not has_name %}<div class="alert alert-warning">{% translate "Add your company name in the company details first: every design is made from it." %}</div>{% endif %}
+<div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap align-items-center gap-3">
+  <div style="width:84px;height:84px" class="border rounded-3 p-2 d-flex align-items-center justify-content-center">{% if symbol_data %}{{ symbol_data|safe }}{% else %}<i class="bi bi-bezier2 fs-1 text-muted"></i>{% endif %}</div>
+  <div class="flex-grow-1">
+    <h2 class="h5 mb-1">{% if kit.chosen_name %}{{ kit.chosen_name }}{% else %}{% translate "Your brand kit" %}{% endif %}</h2>
+    {% if palette %}<div class="d-flex gap-1 mb-1">{% for name, hex in palette %}<i class="d-inline-block rounded-circle border" style="background:{{ hex }};width:22px;height:22px" title="{{ hex }}"></i>{% endfor %}</div>{% endif %}
+    <div class="small-muted">{% blocktranslate with made=made total=total %}{{ made }} of {{ total }} pieces made{% endblocktranslate %}</div>
+    <div class="progress mt-1" style="height:6px"><div class="progress-bar" style="width:{% widthratio made total 100 %}%"></div></div>
+  </div>
+  <div>
+    {% if not kit.symbol and has_name %}<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kitModal"><i class="bi bi-stars"></i> {% translate "Create the whole kit" %}</button>
+      <div class="small-muted mt-1">{% blocktranslate with n=discount %}{{ n }}% off everything{% endblocktranslate %}</div>
+    {% elif kit.symbol and remaining %}<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#restModal"><i class="bi bi-stars"></i> {% translate "Make the rest of the kit" %}</button>
+      <div class="small-muted mt-1">{% blocktranslate with n=remaining %}{{ n }} pieces left{% endblocktranslate %}</div>
+    {% elif kit.symbol %}<span class="badge text-bg-success">{% translate "Your kit is complete" %}</span>{% endif %}
+  </div>
+</div></div>
+
+{% for title, cards in sections %}
+<h2 class="h5 mt-4 mb-3">{{ title }}</h2>
+<div class="row g-3">
+  {% for c in cards %}
+  <div class="col-sm-6 col-xl-4"><div class="wk-card h-100 {% if c.locked %}opacity-75{% endif %}">
+    <div class="d-flex align-items-center justify-content-center bg-light rounded-top-4" style="height:150px;overflow:hidden">
+      {% if c.preview %}<img src="{% url 'brand:file' c.asset.pk c.preview.name %}?w=520" alt="{{ c.name }}" loading="lazy" style="max-width:100%;max-height:150px">{% else %}<i class="bi {{ c.icon }} fs-1 text-muted"></i>{% endif %}
+    </div>
+    <div class="wk-card-body">
+      <h3 class="h6 d-flex justify-content-between"><span>{{ c.name }}</span>{% if c.working %}<span class="badge text-bg-info">{% translate "Working" %}</span>{% elif c.asset %}<span class="badge text-bg-success">{{ c.asset.get_tier_display }}</span>{% endif %}</h3>
+      <div class="d-flex flex-wrap gap-2">
+        {% if c.working %}<a class="btn btn-sm btn-light" href="{% url 'brand:detail' c.working.pk %}">{% translate "Open" context "open the result" %}</a>
+        {% else %}
+          {% if c.asset %}<a class="btn btn-sm btn-primary" href="{% url 'brand:detail' c.asset.pk %}">{% translate "Open" context "open the result" %}</a>{% endif %}
+          {% if c.locked %}<span class="small-muted align-self-center">{% translate "Choose your logo first" %}</span>
+          {% else %}<button type="button" class="btn btn-sm {% if c.asset %}btn-light{% else %}btn-primary{% endif %}" data-bs-toggle="modal" data-bs-target="#d-{{ c.key }}">{% if c.asset %}{% translate "Create again" %}{% else %}{% translate "Create" %}{% endif %}</button>{% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div></div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+{% for title, cards in sections %}{% for c in cards %}{% if not c.locked %}
+<div class="modal fade" id="d-{{ c.key }}" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><form class="modal-content" method="post" action="{% url 'brand:create' c.key %}" data-once data-priced>{% csrf_token %}
+  <input type="hidden" name="expected_points" value="">
+  <div class="modal-header"><h2 class="modal-title h5">{{ c.name }}</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button></div>
+  <div class="modal-body">
+    <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
+      {% for value, label, quote, note in c.prices %}
+      <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}" data-points="{{ quote.total }}"{% if value == 'premium' %} checked{% endif %}>
+        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">${{ quote.usd }}</span></span><small class="small-muted">{{ note }}</small></span></label>
+      {% endfor %}
+    </fieldset>
+    {% if c.note %}<div class="mb-3"><label class="form-label" for="n-{{ c.key }}">{% translate "Anything to tell the designer?" %}</label>
+      <textarea class="form-control" id="n-{{ c.key }}" name="note" rows="3" maxlength="500" dir="auto"></textarea><div class="form-text">{% translate "Optional: what your company does, the feeling you want, things to avoid." %}</div></div>{% endif %}
+    {% if c.person %}
+    <div class="mb-2"><label class="form-label">{% translate "Full name" %}</label><input class="form-control" name="name" maxlength="120" dir="auto"></div>
+    <div class="mb-2"><label class="form-label">{% translate "Job title" %}</label><input class="form-control" name="title" maxlength="120" dir="auto"></div>
+    <div class="mb-2"><label class="form-label">{% translate "phone" %}</label><input class="form-control" name="phone" maxlength="120" dir="ltr"></div>
+    <div class="mb-2"><label class="form-label">{% translate "e-mail" %}</label><input class="form-control" name="email" maxlength="120" dir="ltr"></div>
+    {% endif %}
+  </div>
+  <div class="modal-footer"><button type="submit" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Create" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1" data-chip></span></button></div>
+</form></div></div>
+{% endif %}{% endfor %}{% endfor %}
+
+{% if not kit.symbol and has_name %}
+<div class="modal fade" id="kitModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><form class="modal-content" method="post" action="{% url 'brand:kit_start' %}" data-once data-priced>{% csrf_token %}
+  <input type="hidden" name="expected_points" value="">
+  <div class="modal-header"><h2 class="modal-title h5">{% translate "Create the whole kit" %}</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button></div>
+  <div class="modal-body">
+    <p class="small-muted">{% blocktranslate with n=discount %}It starts with your logo: three concepts to choose from. Once you choose, you can make every other piece at {{ n }}% off in one click.{% endblocktranslate %}</p>
+    <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
+      {% for value, label, total, logo in totals %}
+      <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}" data-points="{{ logo.total }}"{% if value == 'premium' %} checked{% endif %}>
+        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">${{ logo.usd }}</span></span>
+          <small class="small-muted">{% blocktranslate with t=total %}Today you pay for the logo; the whole kit comes to ${{ t }} with the discount.{% endblocktranslate %}</small></span></label>
+      {% endfor %}
+    </fieldset>
+    <label class="form-label" for="kit-note">{% translate "Anything to tell the designer?" %}</label><textarea class="form-control" id="kit-note" name="note" rows="3" maxlength="500" dir="auto"></textarea>
+  </div>
+  <div class="modal-footer"><button type="submit" class="btn btn-primary">{% translate "Start with the logo" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1" data-chip></span></button></div>
+</form></div></div>
+{% elif kit.symbol and remaining %}
+<div class="modal fade" id="restModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><form class="modal-content" method="post" action="{% url 'brand:kit_rest' %}" data-once data-priced>{% csrf_token %}
+  <input type="hidden" name="expected_points" value="">
+  <div class="modal-header"><h2 class="modal-title h5">{% translate "Make the rest of the kit" %}</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button></div>
+  <div class="modal-body">
+    <p class="small-muted">{% blocktranslate with n=remaining d=discount balance=balance %}{{ n }} pieces will be designed from your logo, {{ d }}% off. Your balance: ${{ balance }}.{% endblocktranslate %}</p>
+    <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
+      {% for value, label, quote in rest %}
+      <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}" data-points="{{ quote.total }}"{% if value == 'premium' %} checked{% endif %}>
+        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">${{ quote.usd }}</span></span>
+          <small class="small-muted">{% translate "Everything that is left, with the discount" %}</small></span></label>
+      {% endfor %}
+    </fieldset>
+  </div>
+  <div class="modal-footer"><button type="submit" class="btn btn-primary">{% translate "Make them all" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1" data-chip></span></button></div>
+</form></div></div>
+{% endif %}
+{% endblock %}
+{% block scripts %}<script>
+/* The price on the button is the price charged: the chosen quality's points go in expected_points, and the server checks them. */
+document.querySelectorAll('form[data-priced]').forEach(function (form) {
+  var out = form.querySelector('input[name=expected_points]'), chip = form.querySelector('[data-chip]');
+  function refresh() {
+    var r = form.querySelector('input[name=tier]:checked'), p = r ? parseInt(r.dataset.points, 10) : null;
+    out.value = p === null ? '' : p; if (chip) chip.textContent = p === null ? '' : '$' + (p / 1000).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  form.addEventListener('change', refresh); refresh();
+});
+</script>{% endblock %}

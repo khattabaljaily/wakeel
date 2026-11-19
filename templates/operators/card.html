@@ -1,0 +1,50 @@
+{% load i18n %}{# The operator's card, opened from {% operator_credit %}. Put {% operator_card %} once, near the end of the base template. #}
+<div class="op-modal" id="operatorCard" role="dialog" aria-modal="true" aria-labelledby="operatorCardName" hidden>
+  <div class="op-modal-card">
+    <button type="button" class="op-x" data-operator-close aria-label="{% translate 'Close' %}">×</button>
+    {% if operator.logo_url %}<img class="op-logo" src="{{ operator.logo_url }}" alt="" width="84" height="84">{% endif %}
+    <div class="op-role">{% translate "A product of" %}</div>
+    <h2 class="op-name" id="operatorCardName">{{ operator.name }}</h2>
+    {% if operator.tagline %}<div class="op-tagline">{{ operator.tagline }}</div>{% endif %}
+    <dl class="op-rows">
+      <div><dt>{% translate "Company details" %}</dt><dd>{{ operator.registration }}</dd></div>
+      {% for phone in operator.phones %}<div><dt>{% translate "Phone" %}</dt><dd dir="ltr"><a href="tel:{{ phone|cut:' ' }}">{{ phone }}</a></dd></div>{% endfor %}
+      <div><dt>{% translate "Email" %}</dt><dd dir="ltr"><a href="mailto:{{ operator.email }}">{{ operator.email }}</a></dd></div>
+      {% if operator.website %}<div><dt>{% translate "Website" %}</dt><dd dir="ltr"><a href="{{ operator.website }}" target="_blank" rel="noopener">{{ operator.website_host }}</a></dd></div>{% endif %}
+      <div><dt>{% translate "Registered office" %}</dt><dd>{{ operator.address }}</dd></div>
+    </dl>
+  </div>
+</div>
+<style>
+  .op-credit { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .35rem; }
+  .op-credit a.op-dev { color: inherit; text-decoration: none; }
+  .op-partner { display: inline-flex; align-items: center; gap: .3rem; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 700; cursor: pointer; }
+  .op-partner img { border-radius: 5px; object-fit: contain; }
+  .op-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 1rem; background: rgba(0, 0, 0, .45); }
+  .op-modal[hidden] { display: none; }
+  .op-modal-card { position: relative; width: 100%; max-width: 26rem; max-height: 90vh; overflow: auto; padding: 1.6rem 1.4rem 1.2rem; border-radius: 18px; background: var(--surface, #fff); color: var(--ink, #18181b); text-align: center; box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .4); }
+  .op-x { position: absolute; top: .6rem; inset-inline-end: .7rem; border: 0; background: none; color: inherit; font-size: 1.5rem; line-height: 1; cursor: pointer; opacity: .6; }
+  .op-logo { display: block; margin: 0 auto .6rem; border-radius: 14px; object-fit: contain; }
+  .op-role { font-size: .8rem; opacity: .65; }
+  .op-name { margin: .2rem 0 .1rem; font-size: 1.2rem; }
+  .op-tagline { font-size: .82rem; opacity: .7; }
+  .op-rows { margin: 1rem 0 .4rem; text-align: start; font-size: .88rem; }
+  .op-rows > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: .6rem; padding: .45rem 0; border-top: 1px solid rgba(128, 128, 128, .2); }
+  .op-rows dt { opacity: .65; }
+  .op-rows dd { margin: 0; overflow-wrap: anywhere; }
+  .op-rows a { color: inherit; }
+  .op-dev-line { margin-top: .6rem; font-size: .78rem; opacity: .65; }
+  .op-dev-line a { color: inherit; font-weight: 700; }
+</style>
+<script>
+(function () {
+  if (window.__operatorCard) return; window.__operatorCard = true;
+  document.addEventListener('click', function (e) {
+    var card = document.getElementById('operatorCard');
+    if (!card) return;
+    if (e.target.closest('[data-operator-open]')) { e.preventDefault(); card.hidden = false; card.querySelector('.op-x').focus(); }
+    else if (e.target === card || e.target.closest('[data-operator-close]')) { card.hidden = true; }
+  });
+  document.addEventListener('keydown', function (e) { var card = document.getElementById('operatorCard'); if (e.key === 'Escape' && card) card.hidden = true; });
+})();
+</script>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ template.name }}{% endblock %}
+{% block page_title %}<span dir="auto">{{ template.name }}</span>{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'documents:templates' %}">{% translate "Templates" %}</a>{% endblock %}
+{% block content %}
+<form method="post" class="wk-card" style="max-width:820px" novalidate data-once>{% csrf_token %}<div class="wk-card-body">
+  {% if fields %}
+  <div class="row">
+    {% for i, name, value in fields %}
+    <div class="col-md-6 mb-3"><label class="form-label" for="blank-{{ i }}" dir="auto">{{ name }}</label>
+      <input type="text" class="form-control" id="blank-{{ i }}" name="blank-{{ i }}" value="{{ value }}" maxlength="500" dir="auto" required></div>
+    {% endfor %}
+  </div>
+  {% else %}<p class="small-muted">{% translate "This template has no blanks. A copy of it will be made." %}</p>{% endif %}
+  <button type="submit" class="btn btn-primary">{% translate "Create the document" %} <span class="small">({% translate "free" %})</span></button>
+</div></form>
+{% endblock %}

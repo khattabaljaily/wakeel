@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Smart presentations" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "Smart presentations" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Describe the talk, or choose a document: get a designed PowerPoint in your company's colours and logo that you can still edit." %}</div>{% endblock %}
+{% block actions %}<button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#deckForm" aria-expanded="{% if open_form %}true{% else %}false{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "New presentation" %}</button>{% endblock %}
+{% block content %}
+<div class="collapse {% if open_form %}show{% endif %} mb-3" id="deckForm">
+<form class="wk-card" method="post" action="{% url 'presentations:new' %}" novalidate><div class="wk-card-body">{% csrf_token %}
+  {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+  {% for field in form %}{% if field.name != 'tier' %}
+  <div class="mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+    {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
+    {% for e in field.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}</div>
+  {% endif %}{% endfor %}
+  <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
+    {% for value, label, quote, note in tiers %}
+    <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}"{% if form.tier.value|default:'premium' == value %} checked{% endif %}>
+      <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border">{% blocktranslate with price=quote.usd %}from <bdi dir="ltr">${{ price }}</bdi>{% endblocktranslate %}</span></span>
+        <small class="small-muted">{{ note }}</small></span></label>
+    {% endfor %}
+    <div class="form-text">{% translate "The price shown is for 10 slides. You see the exact price before anything is charged." %}</div>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">{% translate "See the price" %}</button>
+</div></form></div>
+
+<div class="wk-card"><div class="list-group list-group-flush">
+  {% for p in items %}
+  <a class="list-group-item list-group-item-action" href="{% url 'presentations:detail' p.pk %}">
+    <div class="d-flex justify-content-between gap-2"><span class="fw-semibold text-truncate" dir="auto"><i class="bi bi-easel"></i> {{ p.title }}</span>
+      {% if p.status == 'done' %}<span class="badge text-bg-success">{% translate "Ready" context "presentation status" %}</span>{% elif p.status == 'failed' %}<span class="badge text-bg-danger">{% translate "Failed" %}</span>{% else %}<span class="badge text-bg-warning">{% translate "Working" %}</span>{% endif %}</div>
+    <div class="small opacity-75">{{ p.get_tier_display }} · {% blocktranslate count n=p.slides %}{{ n }} slide{% plural %}{{ n }} slides{% endblocktranslate %} · {{ p.get_language_display }} · <span dir="ltr">{{ p.created_at|date:"Y-m-d" }}</span></div>
+  </a>
+  {% empty %}<div class="p-4 text-center small-muted">{% translate "No presentations yet." %}</div>{% endfor %}
+</div></div>
+{% endblock %}

@@ -139,11 +139,17 @@ def _render(job, post):
 
 def schedule_evergreen(plan, user=None):
     """After a plan is generated: queue the company's monthly evergreen reposts into it."""
+    from apps.credits.charging import InsufficientCredits
     from apps.jobs.models import Job
     company = plan.company
     if not company.evergreen_per_month:
         return 0
     picked = candidates(company, limit=company.evergreen_per_month)
+    queued = 0
     for post, _engagement in picked:
-        Job.enqueue(company, Job.Kind.REPOST, user, post_id=post.pk, plan_id=plan.pk)
-    return len(picked)
+        try:
+            Job.enqueue(company, Job.Kind.REPOST, user, post_id=post.pk, plan_id=plan.pk)
+        except InsufficientCredits:   # the plan itself was paid and made: the extra reposts wait for a top-up
+            break
+        queued += 1
+    return queued

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Share" %}{% endblock %}
+{% block page_title %}{% translate "Share with someone outside the company" %}{% endblock %}
+{% block subtitle %}<div class="subtitle" dir="auto">{{ target.title }}</div>{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{{ back }}">{% translate "Back" %}</a>{% endblock %}
+{% block content %}
+<div class="row g-3">
+  <form class="col-lg-6" method="post">{% csrf_token %}<div class="wk-card"><div class="wk-card-body">
+    <p class="fw-semibold mb-2">{% translate "The link works for" %}</p>
+    <div class="d-flex flex-wrap gap-2 mb-3">{% for d in days %}<label class="btn btn-light"><input type="radio" class="form-check-input me-1" name="days" value="{{ d }}"{% if d == 7 %} checked{% endif %}>{% if d == 1 %}{% translate "1 day" %}{% else %}{% blocktranslate with n=d %}{{ n }} days{% endblocktranslate %}{% endif %}</label>{% endfor %}</div>
+    <label class="form-label" for="password">{% translate "Password (optional)" %}</label>
+    <input id="password" class="form-control" name="password" type="text" autocomplete="off" minlength="6" dir="ltr">
+    <div class="form-text mb-3">{% translate "Send the password by a different way than the link, for example by phone." %}</div>
+    <div class="form-check mb-3"><input type="checkbox" class="form-check-input" id="allow_download" name="allow_download">
+      <label class="form-check-label fw-semibold" for="allow_download">{% translate "Allow saving a copy" %}</label>
+      <div class="form-text">{% translate "Without it the person can only view it on the page. Nothing can stop a photo of the screen, so share only with people you trust." %}</div></div>
+    <button class="btn btn-primary" type="submit"><i class="bi bi-link-45deg"></i> {% translate "Make the link" %}</button>
+  </div></div></form>
+  <section class="col-lg-6"><div class="wk-card"><div class="wk-card-head"><h2>{% translate "Earlier links for this document" %}</h2><a class="btn btn-sm btn-light" href="{% url 'sharing:list' %}">{% translate "All sharing links" %}</a></div>
+    <div class="list-group list-group-flush">
+    {% for l in earlier %}
+    <a class="list-group-item list-group-item-action d-flex justify-content-between gap-2" href="{% url 'sharing:detail' l.pk %}">
+      <span>{{ l.created_at|date:"Y-m-d" }}{% if l.has_password %} · {% translate "password" %}{% endif %}{% if l.allow_download %} · {% translate "copy allowed" %}{% endif %}
+        <small class="d-block small-muted">{% blocktranslate with n=l.views %}Opened {{ n }} times{% endblocktranslate %} · {% blocktranslate with d=l.expires_at|date:"Y-m-d" %}until {{ d }}{% endblocktranslate %}</small></span>
+      {% if l.status == 'active' %}<span class="badge text-bg-success align-self-start">{% translate "Active" %}</span>{% elif l.status == 'revoked' %}<span class="badge text-bg-danger align-self-start">{% translate "Cancelled" %}</span>{% else %}<span class="badge text-bg-light border align-self-start">{% translate "Ended" %}</span>{% endif %}
+    </a>
+    {% empty %}<div class="p-4 text-center small-muted">{% translate "You have not shared this document before." %}</div>{% endfor %}
+    </div></div></section>
+</div>
+{% endblock %}

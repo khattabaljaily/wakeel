@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ link.title }}{% endblock %}
+{% block page_title %}<span dir="auto">{{ link.title }}</span>{% endblock %}
+{% block subtitle %}<div class="subtitle">{% blocktranslate with d=link.expires_at|date:"Y-m-d H:i" %}Works until {{ d }}{% endblocktranslate %} · {% if link.status == 'active' %}{% translate "Active" %}{% elif link.status == 'revoked' %}{% translate "Cancelled" %}{% else %}{% translate "Ended" %}{% endif %}</div>{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'sharing:list' %}">{% translate "Sharing links" %}</a>{% endblock %}
+{% block content %}
+{% if link.status == 'active' %}<div class="wk-card mb-3"><div class="wk-card-body"><div class="input-group"><input id="share-url" class="form-control" type="text" readonly value="{{ url }}" dir="ltr" onclick="this.select()">
+  <button class="btn btn-primary" type="button" onclick="Wakeel.copy(document.getElementById('share-url').value)"><i class="bi bi-clipboard"></i> {% translate "Copy" %}</button></div></div></div>{% endif %}
+<div class="wk-card"><div class="wk-card-head"><h2>{% translate "Who opened it" %}</h2></div>
+  <div class="list-group list-group-flush">{% for a in page %}
+    <div class="list-group-item"><span class="fw-semibold">{{ a.get_action_display }}</span>
+      <div class="small-muted">{{ a.created_at|date:"Y-m-d H:i" }}{% if a.ip %} · <span dir="ltr">{{ a.ip }}</span>{% endif %}{% if a.agent %} · <span dir="ltr">{{ a.agent|truncatechars:70 }}</span>{% endif %}</div></div>
+    {% empty %}<div class="p-4 text-center small-muted">{% translate "Nobody opened it yet." %}</div>{% endfor %}</div>
+</div>
+{% if page.has_other_pages %}<p class="d-flex gap-2 align-items-center mt-3">{% if page.has_previous %}<a class="btn btn-sm btn-light" href="?page={{ page.previous_page_number }}">←</a>{% endif %}
+  <span class="small-muted">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a class="btn btn-sm btn-light" href="?page={{ page.next_page_number }}">→</a>{% endif %}</p>{% endif %}
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load i18n credits %}
+{% block title %}{% translate "Wallet" %}{% endblock %}
+{% block page_title %}{% translate "Wallet" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "You pay only for what you use. Every price is shown before you run a service, and the same amount is charged." %}</div>{% endblock %}
+{% block content %}
+<section class="wk-wallet-hero {% if low %}is-low{% endif %}">
+    <div class="wk-wallet-hero__main">
+        <span class="wk-wallet-hero__icon"><i class="bi bi-wallet2"></i></span>
+        <div>
+            <div class="wk-wallet-hero__label">{% translate "Balance" %}</div>
+            <div class="wk-wallet-hero__num" dir="ltr">{% if wallet.is_exempt %}∞{% else %}${{ balance }}{% endif %}</div>
+            {% if wallet.is_exempt %}<span class="wk-wallet-chip">{% translate "This company is not charged." %}</span>
+            {% elif low %}<span class="wk-wallet-chip wk-wallet-chip--warn"><i class="bi bi-exclamation-triangle"></i> {% translate "The balance is low. Top it up to keep using the paid services." %}</span>{% endif %}
+        </div>
+    </div>
+    <dl class="wk-wallet-hero__stats">
+        <div><dt>{% translate "Added this month" %}</dt><dd dir="ltr">${{ month.added }}</dd></div>
+        <div><dt>{% translate "Used this month" %}</dt><dd dir="ltr">${{ month.used }}</dd></div>
+        <div><dt>{% translate "Paid services run" %}</dt><dd>{{ month.uses }}</dd></div>
+    </dl>
+</section>
+
+<div class="row g-4">
+    <div class="col-xl-5">
+        <section class="wk-card mb-4" id="topup">
+            <div class="wk-card-head"><h2><i class="bi bi-plus-circle text-primary"></i> {% translate "Top up" %}</h2></div>
+            <div class="wk-card-body">
+                {% if paid %}<div class="alert alert-success small"><i class="bi bi-check-circle"></i> {% translate "Thank you. The balance is added as soon as the payment is confirmed." %}</div>{% endif %}
+                <{% if payments_open %}form method="post" action="{% url 'billing:checkout' %}"{% else %}div{% endif %} class="wk-packages">{% if payments_open %}{% csrf_token %}{% endif %}
+                    {% for p in packages %}
+                    <button class="wk-package" name="amount" value="{{ p.usd }}" {% if not payments_open %}disabled{% endif %}>
+                        <span class="wk-package__usd" dir="ltr">${{ p.usd }}</span>
+                        <span class="wk-package__pts">{% blocktranslate trimmed with points=p.points|floatformat:"0g" %}{{ points }} points{% endblocktranslate %}</span>
+                        {% if payments_open %}<span class="wk-package__go"><i class="bi bi-credit-card"></i> {% translate "Pay by card" %}</span>{% endif %}
+                    </button>
+                    {% endfor %}
+                </{% if payments_open %}form{% else %}div{% endif %}>
+                <div class="small-muted mt-3"><i class="bi bi-shield-lock"></i>
+                    {% if payments_open %}{% translate "The balance is added once the payment is confirmed. 1 dollar = 1,000 points." %}
+                    {% else %}{% translate "Online payment is not open yet." %}{% endif %}</div>
+            </div>
+        </section>
+
+        <section class="wk-card">
+            <div class="wk-card-head"><h2><i class="bi bi-tags text-primary"></i> {% translate "What the services cost" %}</h2></div>
+            <div class="wk-card-body pb-2">
+                <label class="wk-dt-search w-100 mb-2"><i class="bi bi-search"></i>
+                    <input type="search" class="form-control" id="serviceFilter" placeholder="{% translate "Search a service" %}" aria-label="{% translate "Search a service" %}"></label>
+            </div>
+            <div class="wk-price-list" id="serviceList">
+                {% for s in services %}
+                <div class="wk-price-row" data-name="{{ s.name|lower }}"><span>{{ s.name }}</span>
+                    <span class="wk-price-row__v" dir="ltr">{% if s.free %}<span class="small-muted">{% translate "Free" %}</span>{% elif s.per_unit %}${{ s.nine }} <span class="small-muted">/ 9 <bdi>{{ s.per_unit }}</bdi></span>{% else %}${{ s.price }}{% endif %}</span></div>
+                {% endfor %}
+                <div class="p-3 text-center small-muted" id="serviceNone" hidden>{% translate "No service matches." %}</div>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-xl-7">
+        <section class="wk-card">
+            <div class="wk-card-head flex-wrap gap-2"><h2><i class="bi bi-receipt text-primary"></i> {% translate "Ledger" %}</h2>
+                <div class="adm-tabs" role="group" aria-label="{% translate "Ledger" %}">
+                    <a class="adm-tab {% if not kind %}active{% endif %}" href="?">{% translate "All" %}</a>
+                    <a class="adm-tab {% if kind == 'in' %}active{% endif %}" href="?type=in">{% translate "Added" %}</a>
+                    <a class="adm-tab {% if kind == 'out' %}active{% endif %}" href="?type=out">{% translate "Charges" %}</a>
+                    <a class="adm-tab {% if kind == 'refund' %}active{% endif %}" href="?type=refund">{% translate "Refunds" %}</a>
+                </div>
+            </div>
+            {% for t in page %}
+            <div class="wk-ledger-row">
+                <span class="wk-ledger-row__icon {% if t.action == 'refund' %}is-refund{% elif t.delta < 0 %}is-out{% else %}is-in{% endif %}"><i class="bi {% if t.action == 'refund' %}bi-arrow-counterclockwise{% elif t.delta < 0 %}bi-dash-lg{% else %}bi-plus-lg{% endif %}"></i></span>
+                <span class="wk-ledger-row__body"><span class="d-block fw-semibold">{{ t.get_action_display }}{% if t.service_key %} <span class="small-muted fw-normal">· {{ t.service_key }}</span>{% endif %}</span>
+                    {% if t.breakdown %}<span class="small-muted d-block" dir="ltr">{% for b in t.breakdown %}{{ b.key }}{% if b.count %} ×{{ b.count }}{% endif %} ${{ b.points|usd }}{% if not forloop.last %} + {% endif %}{% endfor %}</span>{% endif %}
+                    <span class="small-muted">{{ t.created_at|date:"Y-m-d H:i" }}</span></span>
+                <strong dir="ltr" class="wk-ledger-row__amt {% if t.delta < 0 %}text-danger{% else %}text-success{% endif %}">{% if t.delta > 0 %}+${{ t.delta|usd }}{% else %}−${{ t.delta|usd|cut:"-" }}{% endif %}</strong>
+            </div>
+            {% empty %}
+            <div class="wk-empty"><div class="icon"><i class="bi bi-receipt"></i></div><h3>{% translate "Nothing yet." %}</h3></div>
+            {% endfor %}
+            {% if page.has_other_pages %}
+            <div class="d-flex gap-2 align-items-center p-3">
+                {% if page.has_previous %}<a class="btn btn-light btn-sm" href="?page={{ page.previous_page_number }}{% if kind %}&amp;type={{ kind }}{% endif %}">←</a>{% endif %}
+                <span class="small-muted">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+                {% if page.has_next %}<a class="btn btn-light btn-sm" href="?page={{ page.next_page_number }}{% if kind %}&amp;type={{ kind }}{% endif %}">→</a>{% endif %}
+            </div>
+            {% endif %}
+        </section>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+(function () {
+    var box = document.getElementById('serviceFilter'); if (!box) return;
+    var rows = document.querySelectorAll('#serviceList .wk-price-row'), none = document.getElementById('serviceNone');
+    box.addEventListener('input', function () {
+        var q = box.value.trim().toLowerCase(), shown = 0;
+        rows.forEach(function (r) { var ok = !q || r.dataset.name.indexOf(q) !== -1; r.hidden = !ok; if (ok) shown++; });
+        none.hidden = shown > 0;
+    });
+})();
+</script>
+{% endblock %}

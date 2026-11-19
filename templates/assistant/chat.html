@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Marid" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "Marid" context "navigation" %}{% endblock %}
+{% block subtitle %}<div class="subtitle">{% translate "Tell it what you need. It finds your documents and suggests what to do; nothing runs until you approve it." %}</div>{% endblock %}
+{% block actions %}{% if rows %}<form method="post" action="{% url 'assistant:clear' %}" data-confirm="{% translate 'The whole conversation will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button type="submit" class="btn btn-light"><i class="bi bi-trash"></i> {% translate "Clear the conversation" %}</button></form>{% endif %}{% endblock %}
+{% block content %}
+<div class="wk-card"><div class="wk-card-body p-0">
+  <div class="chat" id="chat">
+    {% for row in rows %}
+      {% if row.m.text %}<div class="chat-msg {{ row.m.role }}" dir="auto">{{ row.m.text }}</div>{% endif %}
+      {% for c in row.cards %}
+      <div class="chat-card">
+        <h3><span dir="auto">{{ c.title }}</span>{% if c.free %}<span class="badge text-bg-success">{% translate "Free" %}</span>{% elif not c.error %}<span class="badge text-bg-warning" dir="ltr">${{ c.price }}</span>{% endif %}</h3>
+        <dl>{% for label, value in c.rows %}<dt>{{ label }}</dt><dd><bdi>{{ value }}</bdi></dd>{% endfor %}</dl>
+        {% if c.lines and c.p.status == 'proposed' %}<ul class="chat-lines">{% for text, usd in c.lines %}<li><span>{{ text }}</span><span dir="ltr">${{ usd }}</span></li>{% endfor %}</ul>{% endif %}
+        {% if c.error and c.p.status == 'proposed' %}<div class="alert alert-danger py-2">{{ c.error }}</div>{% endif %}
+        {% if c.p.can_approve and not c.error %}
+        <div class="chat-actions">
+          <form method="post" action="{% url 'assistant:approve' c.p.pk %}" data-once>{% csrf_token %}<input type="hidden" name="expected_points" value="{{ c.points }}"><button type="submit" class="btn btn-primary">{% if c.free %}{% translate "Do it" %}{% else %}{% blocktranslate with price=c.price %}Do it for ${{ price }}{% endblocktranslate %}{% endif %}</button></form>
+          <form method="post" action="{% url 'assistant:dismiss' c.p.pk %}">{% csrf_token %}<button type="submit" class="btn btn-light">{% translate "No thanks" %}</button></form>
+        </div>
+        {% elif c.p.status == 'proposed' %}<span class="badge text-bg-secondary">{% translate "Expired" context "suggestion" %}</span>
+        {% elif c.p.status == 'done' %}<div class="chat-actions"><span class="badge text-bg-success">{% translate "Done" %}</span>{% if c.p.url %}<a class="btn btn-light btn-sm" href="{{ c.p.url }}">{% translate "Open" context "open the result" %}</a>{% endif %}</div>
+        {% elif c.p.status == 'failed' %}<div class="alert alert-danger py-2 mb-0">{{ c.p.outcome }}</div>
+        {% elif c.p.status == 'dismissed' %}<span class="badge text-bg-secondary">{% translate "Dismissed" %}</span>
+        {% else %}<span class="badge text-bg-warning">{% translate "Running" %}</span>{% endif %}
+      </div>
+      {% endfor %}
+    {% empty %}
+      <div class="chat-empty">{% translate "Ask for a presentation, a translation, a task, a reminder, a contact or a form." %}</div>
+    {% endfor %}
+  </div>
+  {% if not rows %}<div class="chat-ideas">{% for idea in ideas %}<button type="button" class="btn btn-light" data-idea="{{ idea }}">{{ idea }}</button>{% endfor %}</div>{% endif %}
+  <form class="chat-compose" method="post" action="{% url 'assistant:send' %}" data-once>{% csrf_token %}
+    <input type="hidden" name="tz" value="" data-tz>
+    <textarea class="form-control" name="text" id="chat-text" rows="2" maxlength="2000" dir="auto" required placeholder="{% translate 'Write what you need…' %}" aria-label="{% translate 'Your message' %}"></textarea>
+    <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> {% translate "Send" %}</button>
+  </form>
+</div></div>
+<p class="small-muted mt-3">{% blocktranslate with limit=limit %}The conversation is free (up to {{ limit }} messages a day); only the services you approve are charged, and the price on each card is the price charged. Marid reads what you write and the details of the documents it searches, never their content; a document is read only when you approve a suggestion such as a question about it. It can make mistakes: check each suggestion.{% endblocktranslate %}</p>
+{% endblock %}
+{% block scripts %}
+<script>
+(function () {
+  var text = document.getElementById('chat-text');
+  var tz = document.querySelector('[data-tz]');
+  try { if (tz) tz.value = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  if (document.getElementById('chat')) window.scrollTo(0, document.body.scrollHeight);
+  document.querySelectorAll('[data-idea]').forEach(function (b) { b.addEventListener('click', function () { text.value = b.dataset.idea; text.focus(); }); });
+  if (text) text.addEventListener('keydown', function (e) { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) text.form.requestSubmit(); });
+})();
+</script>
+{% endblock %}

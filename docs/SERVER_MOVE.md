@@ -21,7 +21,7 @@ These tell us what the move really touches. Output only; nothing is edited.
 
 - **Services** `wakeel` and `wakeel-worker` run as `khattab:www-data`, the same as the sibling Enjaz projects (e.g. `enjazims`), so the move changes paths only, not users. `/home/enjaz/projects/` exists (owned by `khattab`) and holds the other Enjaz projects; `wakeel` is not there yet. The disk has 695 GB free; the project is 335 MB (295 MB of it the virtualenv, which is rebuilt).
 - **Paths to change:** the units `wakeel.service`, `wakeel-worker.service` and `wakeel-backup.service` (the nightly 03:30 timer stays); **two** nginx sites, `wakeel` (wakeel.enjaztechnology.com, direct) and `wakeelservice` (wakeelservice.com, behind Cloudflare), each with `static` and `media` aliases; the worker log path. The backups go to `/home/banan/backups/wakeel` (`/home/enjaz/backups` already exists for the other projects).
-- **No cron exists for Wakeel today.** The merged product needs `send_expiry_reminders` (daily) and `send_note_reminders` (every few minutes): add them as systemd timers beside the backup timer.
+- **No cron exists for Wakeel today.** The merged product needs `send_expiry_reminders` (daily, 09:00) and `send_note_reminders` (every minute): add them to the `khattab` crontab in the same way MyDocHub's six lines are written (`cd /home/enjaz/projects/wakeel && .env/bin/python manage.py … >> ~/logs/wakeel_….log 2>&1`), plus `prune_assistant` monthly.
 - **Production is on the old `main`** (commit `6b618ac`), before the merge. Deploying means merging `merge-mydochub` into `main` and pushing it, which only the owner can order.
 - **The server's working tree has two local edits** (`README.md` and `deploy.sh`, both only the old `APP_DIR` path) which would block `git pull`; they are reverted with `git checkout -- README.md deploy.sh` before the pull (owner's approval first). Six `secrets.json.bak-*` copies of the secrets sit in the project folder: move them out of the project (owner's approval) so they are not copied again.
 - **Python 3.10.12 on the server** (3.12 here). No 3.11+ syntax found (the whole code base parses as 3.10) and no 3.11+ library call by search, and both Enjaz packages declare `>=3.10`; still, Phase 2 runs `manage.py check` and the tests inside the new virtualenv on the server before anything is switched.
@@ -67,3 +67,13 @@ The old folder stays untouched until the owner confirms everything works: point 
 
 With the owner's approval only: remove `/home/banan/projects/wakeel`. Then `deploy.sh` (already pointing to the new path) is the
 only way to update the server.
+
+## Updating the server's `secrets.json` from the local one (owner's order)
+
+The local file must **not** be copied as it is (it holds development values). Key by key, with the owner's approval of the diff:
+
+- **Keep the server's:** `DEBUG` (false), `SECRET_KEY`, `DATABASE`, `USE_REVERSE_PROXY_SSL_HEADER`, `VAPID_*`, `META_*`, `TIKTOK_*`, `ANTHROPIC_API_KEY` / `DEEPSEEK_API_KEY` (and the per-provider model names), `CHROME_PATH`.
+- **Take from the local file:** the mail settings (`EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_USE_SSL`, `EMAIL_USE_TLS`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `DEFAULT_FROM_EMAIL`, `SUPPORT_EMAIL`: Enjaz's mailbox instead of Banan's), and `PAYMENT_LINKS` (the four packages).
+- **Change:** `LEGAL_ENTITY` and `LEGAL_ENTITY_AR` (now "Banan for Information Technology W.L.L."): emptied, so the public pages name the operator (JOVIA SAT). `SITE_URL` stays `https://wakeelservice.com`. After the old address is gone, `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` keep only `wakeelservice.com`.
+- **Add:** `FILE_ENCRYPTION_KEY` (the key given to the owner on 2026-11-19, copy kept outside the server), and `GATEWAYS: {"jovia": {"webhook_secret": "whsec_..."}}` (pasted as text by the owner).
+- Before the edit: a dated copy of the file is made **outside the project folder**; the server's file stays `chmod 600`; no value is ever printed.

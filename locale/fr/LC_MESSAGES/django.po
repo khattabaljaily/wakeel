@@ -13050,6 +13050,20 @@ msgstr "Ajoutés"
 msgid "Charges"
 msgstr "Débits"
 
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "La connexion de Facebook et Instagram arrive bientôt"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"Le service est en cours d'examen par Meta et n'est pas encore ouvert ; il "
+"sera bientôt disponible. Vous pouvez dès maintenant connecter TikTok et y "
+"publier."
+
+msgid "قريباً"
+msgstr "Bientôt"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr ""
 #~ "Identité, lettres et certificats, sur votre propre papier à en-tête."

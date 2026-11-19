@@ -25,6 +25,19 @@ SETUP_STEPS = {'page': 0, 'page-create': 0, 'instagram': 1, 'ig-pro': 1, 'ig-lin
 TIKTOK_RESULTS = ('tiktok-connected', 'tiktok-cancelled', 'tiktok-error')
 
 
+def meta_open(user):
+    """Whether this person may connect Facebook/Instagram now: everyone once the Meta app is approved, before that the system
+    admins and the listed testers only (Meta's reviewer needs to see the flow)."""
+    if not settings.META_ENABLED:
+        return False
+    return bool(settings.META_PUBLIC or user.is_superuser or (user.email or '').lower() in settings.META_PREVIEW_EMAILS)
+
+
+def _meta_soon(request):
+    """The accounts page says it ("coming soon") in its own notice."""
+    return redirect('social:accounts')
+
+
 def _redirect_uri():
     return settings.SITE_URL + reverse('social:meta_callback')
 
@@ -37,7 +50,7 @@ def _tiktok_redirect_uri():
 def accounts(request):
     return render(request, 'social/accounts.html', {
         'accounts': {a.platform: a for a in SocialAccount.objects.filter(company=request.company)},
-        'meta_enabled': settings.META_ENABLED, 'redirect_uri': _redirect_uri(),
+        'meta_enabled': settings.META_ENABLED, 'meta_open': meta_open(request.user), 'redirect_uri': _redirect_uri(),
         'tiktok_enabled': settings.TIKTOK_ENABLED, 'tiktok_redirect_uri': _tiktok_redirect_uri(),
     })
 
@@ -48,6 +61,9 @@ def setup(request):
     step = request.GET.get('step')
     if step not in SETUP_STEPS:
         step = 'page'
+    if step != 'tiktok' and request.GET.get('flow') != 'tiktok' and not (step == 'result' and request.session.get(RESULT_KEY) in TIKTOK_RESULTS) \
+            and settings.META_ENABLED and not meta_open(request.user):
+        return _meta_soon(request)
     accounts = {a.platform: a for a in SocialAccount.objects.filter(company=request.company)}
     flow = 'tiktok' if step == 'tiktok' or request.GET.get('flow') == 'tiktok' else 'meta'
     result = None
@@ -72,6 +88,8 @@ def setup(request):
 @company_required(manage=True)
 @require_POST
 def meta_connect(request):
+    if settings.META_ENABLED and not meta_open(request.user):
+        return _meta_soon(request)
     if not settings.META_ENABLED:
         messages.error(request, _('ربط فيسبوك وإنستغرام غير متاح حالياً. تواصل مع الدعم لتفعيله.'))
         return redirect('social:accounts')
@@ -125,6 +143,8 @@ def tiktok_callback(request):
 
 @company_required(manage=True)
 def meta_callback(request):
+    if not meta_open(request.user):
+        return _meta_soon(request)
     expected = request.session.pop(STATE_KEY, None) or {}
     popup = expected.get('popup', False)
     if not expected or request.GET.get('state') != expected.get('state') or expected.get('company') != request.company.pk:
@@ -150,6 +170,8 @@ def meta_callback(request):
 @company_required(manage=True)
 @require_POST
 def meta_choose(request):
+    if not meta_open(request.user):
+        return _meta_soon(request)
     stored = request.session.get(PAGES_KEY) or {}
     page = next((p for p in stored.get('pages', []) if p['id'] == request.POST.get('page')), None)
     if stored.get('company') != request.company.pk or page is None:

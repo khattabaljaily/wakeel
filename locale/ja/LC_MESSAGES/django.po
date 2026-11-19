@@ -12802,6 +12802,19 @@ msgstr "追加"
 msgid "Charges"
 msgstr "利用料"
 
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "FacebookとInstagramの連携は近日公開予定です"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"このサービスはMetaによる審査中で、まだ公開されていません。近日中に利用可能に"
+"なります。現在はTikTokを連携して投稿できます。"
+
+msgid "قريباً"
+msgstr "近日"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "アイデンティティ、レター、証明書を、あなた専用のレターヘッドで。"
 

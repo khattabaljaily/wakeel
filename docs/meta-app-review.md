@@ -121,3 +121,10 @@ Use a Page you admin + a linked Instagram professional account + a tester user. 
 - Business verification not completed (Advanced Access needs it).
 - Demo account can't log in, or the Page isn't linked to an Instagram professional account.
 - A permission is requested but not actually used by the product. Only submit permissions the feature behind it is on for.
+
+
+## While the app is under review: "coming soon" for the public (2026-11-19)
+
+Connecting Facebook/Instagram shows "coming soon" to every company except the system admins and the e-mails in `META_PREVIEW_EMAILS` (`secrets.json`, a list). TikTok stays open. **Put the reviewer's Wakeel login (the account named in "Test instructions for the reviewer", section 5) in `META_PREVIEW_EMAILS`, or Meta's reviewer will see "coming soon" instead of the flow and the review will fail.** Companies already connected keep working.
+
+When Meta approves the app: add `"META_PUBLIC": true` to `secrets.json` and restart `wakeel`; every company can then connect. (Code: `meta_open()` in `apps/social/views.py`; tests: `apps/social/test_meta_gate.py`.)

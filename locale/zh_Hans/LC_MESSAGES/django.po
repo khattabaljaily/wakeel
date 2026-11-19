@@ -12501,6 +12501,19 @@ msgstr "已添加"
 msgid "Charges"
 msgstr "扣费"
 
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "Facebook 和 Instagram 连接即将推出"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"该服务正在接受 Meta 审核，尚未开放，即将上线。您现在可以连接 TikTok 并发布内"
+"容。"
+
+msgid "قريباً"
+msgstr "即将推出"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "标识、信函和证书,都用您自己的信笺。"
 

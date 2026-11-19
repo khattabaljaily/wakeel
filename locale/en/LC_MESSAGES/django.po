@@ -6204,9 +6204,10 @@ msgid "إزالة التصفية"
 msgstr "Remove the filter"
 
 msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
-msgstr "Approve new subscribers, top up their balances, and suspend or delete companies"
+msgstr ""
 "Approve new subscribers, top up their balances, and suspend or delete "
-"companies"
+"companiesApprove new subscribers, top up their balances, and suspend or "
+"delete companies"
 
 msgid "الحساب معلّق"
 msgstr "The account is suspended"
@@ -6243,3 +6244,16 @@ msgstr "by hand (after receiving payment, or as a grant). Current balance:"
 
 msgid "يُسجَّل في سجل المحافظ."
 msgstr "It is recorded in the wallet ledger."
+
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "Connecting Facebook and Instagram is coming soon"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"The service is under review by Meta and is not open yet; it will be "
+"available soon. You can connect TikTok and publish to it now."
+
+msgid "قريباً"
+msgstr "Soon"

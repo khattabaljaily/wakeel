@@ -12715,6 +12715,19 @@ msgstr "추가됨"
 msgid "Charges"
 msgstr "차감"
 
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "Facebook 및 Instagram 연결은 곧 제공됩니다"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"이 서비스는 Meta의 심사 중이며 아직 열리지 않았습니다. 곧 이용할 수 있습니"
+"다. 지금은 TikTok을 연결하여 게시할 수 있습니다."
+
+msgid "قريباً"
+msgstr "예정"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "아이덴티티, 레터, 증명서를 우리 회사 레터헤드로."
 

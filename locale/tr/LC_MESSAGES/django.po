@@ -12843,6 +12843,19 @@ msgstr "Eklenenler"
 msgid "Charges"
 msgstr "Ücretler"
 
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "Facebook ve Instagram bağlantısı yakında geliyor"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"Hizmet Meta tarafından inceleniyor ve henüz açılmadı; yakında kullanılabilir "
+"olacak. Şimdi TikTok'u bağlayıp paylaşım yapabilirsiniz."
+
+msgid "قريباً"
+msgstr "Yakında"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
 

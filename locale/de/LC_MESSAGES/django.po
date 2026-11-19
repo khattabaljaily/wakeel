@@ -13063,6 +13063,20 @@ msgstr "Hinzugefügt"
 msgid "Charges"
 msgstr "Abbuchungen"
 
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "Facebook und Instagram können bald verbunden werden"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"Der Dienst wird derzeit von Meta geprüft und ist noch nicht freigeschaltet; "
+"er wird bald verfügbar sein. TikTok können Sie jetzt verbinden und dort "
+"veröffentlichen."
+
+msgid "قريباً"
+msgstr "Bald"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identität, Briefe und Zertifikate auf Ihrem eigenen Briefpapier."
 

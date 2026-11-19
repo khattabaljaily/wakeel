@@ -12951,6 +12951,19 @@ msgstr "Añadidos"
 msgid "Charges"
 msgstr "Cargos"
 
+msgid "ربط فيسبوك وإنستغرام قريباً"
+msgstr "Pronto podrás conectar Facebook e Instagram"
+
+msgid ""
+"الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن "
+"ربط تيك توك والنشر عليه."
+msgstr ""
+"El servicio está en revisión por Meta y aún no está abierto; estará "
+"disponible pronto. Ahora puedes conectar TikTok y publicar en él."
+
+msgid "قريباً"
+msgstr "Pronto"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identidad, cartas y certificados, en tu propio papel membretado."
 

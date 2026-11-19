@@ -373,6 +373,11 @@ META_APP_ID = get_secret('META_APP_ID', '')
 META_APP_SECRET = get_secret('META_APP_SECRET', '')
 META_GRAPH_VERSION = get_secret('META_GRAPH_VERSION', 'v23.0')
 META_ENABLED = bool(META_APP_ID and META_APP_SECRET)
+# While the Meta app is under review, connecting Facebook/Instagram is a "coming soon" for everyone except the system admins and
+# the e-mails listed here (the owner's testers and Meta's reviewer account). When Meta approves the app, set "META_PUBLIC": true
+# in secrets.json (and restart): every company can connect.
+META_PUBLIC = bool(get_secret('META_PUBLIC', False))
+META_PREVIEW_EMAILS = [str(e).strip().lower() for e in (get_secret('META_PREVIEW_EMAILS', []) or [])]
 # Extra Meta permissions asked at connect time, off by default: Meta refuses the whole login dialog when it asks
 # for a permission the app hasn't added. Add them to the Meta app (and pass app review), then list them here:
 # analytics: ["read_insights", "instagram_manage_insights"];

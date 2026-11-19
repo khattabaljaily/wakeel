@@ -68,8 +68,8 @@ class FakeGraph:
         return response
 
 
-@override_settings(META_APP_ID='app', META_APP_SECRET='secret', META_ENABLED=True, META_GRAPH_VERSION='v23.0',
-                   SITE_URL='https://app.wakeel.example')
+@override_settings(META_APP_ID='app', META_APP_SECRET='secret', META_ENABLED=True, META_PUBLIC=True, META_GRAPH_VERSION='v23.0',
+                   SITE_URL='https://app.wakeel.example')       # META_PUBLIC: the app is approved (see test_meta_gate.py for before)
 class ConnectTests(TestCase):
     def setUp(self):
         self.company = make_company()

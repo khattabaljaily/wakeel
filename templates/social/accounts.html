@@ -13,6 +13,11 @@
 <div class="alert alert-info"><i class="bi bi-info-circle"></i> {% translate "ربط فيسبوك وإنستغرام غير متاح لحسابك بعد. تواصل مع الدعم لتفعيله." %}</div>
 {% endif %}
 {% endif %}
+{% if meta_enabled and not meta_open %}
+<div class="alert alert-info d-flex gap-2 align-items-start"><i class="bi bi-hourglass-split mt-1"></i>
+    <div><strong>{% translate "ربط فيسبوك وإنستغرام قريباً" %}</strong><br>
+    {% translate "الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن ربط تيك توك والنشر عليه." %}</div></div>
+{% endif %}
 
 <div class="row g-4">
     <div class="col-xl-7">
@@ -58,7 +63,9 @@
                 {% endwith %}
             </div>
             <div class="wk-card-body border-top">
-                {% if accounts.facebook %}<a href="{% url 'social:setup' %}?step=connect" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "إعادة الربط أو تغيير الصفحة" %}</a>
+                {% if meta_enabled and not meta_open %}<button type="button" class="btn btn-primary" disabled><i class="bi bi-facebook"></i> {% translate "ربط فيسبوك وإنستغرام" %}</button>
+                    <span class="badge text-bg-warning ms-2">{% translate "قريباً" %}</span>
+                {% elif accounts.facebook %}<a href="{% url 'social:setup' %}?step=connect" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "إعادة الربط أو تغيير الصفحة" %}</a>
                 {% else %}<a href="{% url 'social:setup' %}" class="btn btn-primary"><i class="bi bi-facebook"></i> {% translate "ربط فيسبوك وإنستغرام" %}</a>
                     <span class="small-muted ms-2">{% translate "معالج يرافقك خطوة بخطوة" %}</span>{% endif %}
             </div>

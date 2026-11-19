@@ -72,7 +72,9 @@
   .side-collapsed .wk-sidebar--rail { --side-w: 4.4rem; }
   .side-collapsed .wk-sidebar--rail .offcanvas-body { overflow: visible; align-items: center; padding-inline: .6rem; }
   .side-collapsed .wk-sidebar--rail .wk-brand > div, .side-collapsed .wk-sidebar--rail .wk-company-switch,
-  .side-collapsed .rail-foot .wk-user > :not(.wk-avatar) { display: none; }
+  .side-collapsed .rail-foot .wk-user > div { display: none; }
+  .side-collapsed .rail-foot .wk-user { flex-direction: column; align-items: center; gap: .55rem; padding: .3rem 0; }
+  .side-collapsed .rail-foot .wk-ai-status { display: none; }
   .side-collapsed .wk-sidebar--rail .wk-brand { padding-inline: 0; }
   .side-collapsed .rail-nav, .side-collapsed .rail-foot { justify-items: center; width: 100%; }
   .side-collapsed .rail-btn { width: 2.75rem; height: 2.75rem; padding: 0; justify-content: center; }

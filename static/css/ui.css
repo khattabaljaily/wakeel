@@ -2,7 +2,7 @@
    Everything here overrides Bootstrap/app.css through shared classes, so a page improves without its template changing. */
 
 /* The page: a readable width on big screens, a clear title and a lighter subtitle */
-.wk-content { max-width: 1560px; margin-inline: auto; padding-top: 1.5rem; padding-inline: 2rem; }
+.wk-content { max-width: none; padding-top: 1.5rem; padding-inline: 2rem; }
 .wk-console .wk-content { max-width: none; }
 /* the arrow of a select sits at the end: keep the text clear of it (the padding above would otherwise cover Bootstrap's) */
 .form-select { padding-inline-end: 2.5rem !important; background-position: right .85rem center; }

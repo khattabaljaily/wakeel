@@ -37,7 +37,7 @@ from enjaz_operators import registry, web as operator_names
 from apps.companies import operators as operators_service
 
 from . import purge, stats, tables
-from .forms import DURATIONS, SubscriptionCreateForm, SubscriptionEditForm
+from .forms import SubscriptionCreateForm, SubscriptionEditForm
 
 
 def superuser_required(view):
@@ -132,8 +132,6 @@ def overview(request):
             'companies': Company.objects.count(),
             'active_subscriptions': _status_filter(Company.objects.all(), 'active').count(),
             'pending_approval': Company.objects.filter(is_approved=False).count(),
-            'expiring': _status_filter(Company.objects.all(), 'active').filter(
-                subscription_expires__lte=timezone.localdate() + datetime.timedelta(days=7)).count(),
             'active_companies': len(active),
             'new_companies': Company.objects.filter(created_at__gte=month_start).count(),
             'posts_month': Post.objects.filter(created_at__gte=month_start).count(),
@@ -156,31 +154,26 @@ def overview(request):
     })
 
 
-STATUS_FILTERS = [('', _('الكل')), ('active', _('نشط')), ('suspended', _('معلّق')), ('expired', _('منتهي')), ('pending', _('قيد الاعتماد'))]
+STATUS_FILTERS = [('', _('الكل')), ('active', _('نشط')), ('suspended', _('معلّق')), ('pending', _('قيد الاعتماد'))]
 IMPERSONATOR_KEY = '_impersonator_id'
 
 
 def _status_filter(qs, status):
-    today = timezone.localdate()
-    live = Q(subscription_expires__isnull=True) | Q(subscription_expires__gte=today)
     return {
         'pending': qs.filter(is_approved=False),
         'suspended': qs.filter(is_approved=True, is_active=False),
-        'expired': qs.filter(is_approved=True, is_active=True, subscription_expires__lt=today),
-        'active': qs.filter(live, is_approved=True, is_active=True),
+        'active': qs.filter(is_approved=True, is_active=True),
     }.get(status, qs)
 
 
-def _subscription_data(company, owner=None, members=None, posts=None):
+def _subscription_data(company, owner=None, members=None, posts=None, balance=''):
     """Everything the view / edit dialogs show for one subscription, as JSON for the row's buttons."""
     return json.dumps(cls=DjangoJSONEncoder, obj={
         'id': company.pk, 'name': company.name, 'initials': company.initials, 'color': company.primary_color,
         'industry': company.industry, 'email': company.email, 'phone': company.phone, 'city': company.city,
-        'country': company.country, 'timezone': company.timezone, 'is_demo': company.is_demo,
+        'country': company.country, 'timezone': company.timezone,
         'is_active': company.is_active, 'is_approved': company.is_approved,
-        'subscription_start': company.subscription_start.isoformat() if company.subscription_start else '',
-        'subscription_expires': company.subscription_expires.isoformat() if company.subscription_expires else '',
-        'days': company.days_until_expiry, 'status': company.subscription_status,
+        'balance': balance, 'status': company.subscription_status,
         'status_label': company.subscription_status_label,
         'created': timezone.localtime(company.created_at).strftime('%Y-%m-%d'),
         'owner_name': owner.display_name if owner else '', 'owner_email': owner.email if owner else '',
@@ -198,17 +191,14 @@ def subscriptions(request, create_form=None, edit_form=None, edit_target=None):
         'table': tables.subscriptions(), 'status': status if status in dict(STATUS_FILTERS) else '',
         'filters': STATUS_FILTERS,
         'stats': {key: _status_filter(all_companies, key).count() for key, _ in STATUS_FILTERS},
-        'create_form': create_form or SubscriptionCreateForm(initial={
-            'timezone': 'Asia/Qatar', 'subscription_start': timezone.localdate(),
-            'subscription_expires': timezone.localdate() + datetime.timedelta(days=30)}),
+        'create_form': create_form or SubscriptionCreateForm(initial={'timezone': 'Asia/Qatar'}),
         'edit_form': edit_form or SubscriptionEditForm(), 'edit_target': edit_target,
-        'durations': DURATIONS[1:],
     }, status=400 if (create_form or edit_form) else 200)
 
 
 @superuser_required
 def subscriptions_data(request):
-    queryset = _status_filter(Company.objects.annotate(members=Count('memberships', distinct=True),
+    queryset = _status_filter(Company.objects.select_related('wallet').annotate(members=Count('memberships', distinct=True),
                                                        post_count=Count('posts', distinct=True)),
                               request.GET.get('status', '')).order_by('-created_at')
 
@@ -217,9 +207,20 @@ def subscriptions_data(request):
             company__in=companies, role=Membership.Role.OWNER).select_related('user')}
         for c in companies:
             c.owner = owners.get(c.pk)
-            c.data = _subscription_data(c, c.owner, c.members, c.post_count)
+            wallet = getattr(c, 'wallet', None)
+            c.balance_usd = catalog.format_points(wallet.balance if wallet else 0)
+            c.data = _subscription_data(c, c.owner, c.members, c.post_count, c.balance_usd)
 
     return tables.subscriptions().json(request, queryset, prepare=prepare)
+
+
+def _back_to(request, pk):
+    """Back to the page the form came from (same site only), else the company's page."""
+    from django.utils.http import url_has_allowed_host_and_scheme
+    target = request.POST.get('next') or ''
+    if target and url_has_allowed_host_and_scheme(target, allowed_hosts={request.get_host()}):
+        return redirect(target)
+    return redirect('ops:company', pk=pk)
 
 
 def _back(request):
@@ -265,25 +266,8 @@ def subscription_approve(request, pk):
     if company.is_approved:
         messages.info(request, _('«%(name)s» معتمد بالفعل.') % {'name': company.name})
     else:
-        subscriptions_service.approve(company, is_demo=request.POST.get('is_demo') == '1',
-                                      days=subscriptions_service.valid_days(request.POST.get('days')))
+        subscriptions_service.approve(company)
         messages.success(request, _('تم اعتماد «%(name)s»، وأُبلغ مالكه بالبريد.') % {'name': company.name})
-    return _back(request)
-
-
-@superuser_required
-@require_POST
-def subscription_renew(request, pk):
-    company = get_object_or_404(Company, pk=pk)
-    days = subscriptions_service.valid_days(request.POST.get('days'))
-    if not days:
-        messages.error(request, _('اختر مدة صحيحة للتجديد.'))
-        return _back(request)
-    subscriptions_service.extend(company, days)
-    if request.POST.get('is_demo') in ('0', '1'):  # renewing is also when a trial becomes paid
-        company.is_demo = request.POST['is_demo'] == '1'
-    company.save(update_fields=['subscription_expires', 'is_demo', 'updated_at'])
-    messages.success(request, _('تم تجديد «%(name)s» حتى %(date)s.') % {'name': company.name, 'date': f'{company.subscription_expires:%Y-%m-%d}'})
     return _back(request)
 
 
@@ -369,8 +353,9 @@ def company_detail(request, pk):
         'target': company, 'total': total, 'owner': owner,
         'months_table': months_table, 'months_rows': months_table.rows(months, request),
         'jobs_table': tables.jobs(company),
-        'data': _subscription_data(company, owner, company.memberships.count(), company.posts.count()),
-        'edit_form': SubscriptionEditForm(), 'durations': DURATIONS[1:],
+        'data': _subscription_data(company, owner, company.memberships.count(), company.posts.count(),
+                                   catalog.format_points(charging.get_wallet(company).balance)),
+        'edit_form': SubscriptionEditForm(),
         'members': company.memberships.select_related('user').order_by('created_at'),
         'plans': company.plans.annotate(n=Count('posts'))[:12],
         'posts_by_status': {Post.Status(s).label: n for s, n in
@@ -397,11 +382,11 @@ def wallet_grant(request, pk):
             raise ValueError
     except (InvalidOperation, ValueError):
         messages.error(request, _('أدخل مبلغاً صحيحاً بالدولار (حتى 1000).'))
-        return redirect('ops:company', pk=pk)
+        return _back_to(request, pk)
     charging.add_points(company, points, action=WalletTransaction.ADMIN_GRANT, user=request.user,
                         description=(request.POST.get('note') or '')[:200] or 'Admin grant')
     messages.success(request, _('تم تعديل الرصيد.'))
-    return redirect('ops:company', pk=pk)
+    return _back_to(request, pk)
 
 
 @superuser_required
@@ -568,6 +553,9 @@ def ledger(request):
     q = request.GET.get('q', '').strip()
     action = request.GET.get('action', '')
     entries = WalletTransaction.objects.select_related('company', 'user').order_by('-created_at', '-id')
+    only = Company.objects.filter(pk=request.GET['company']).first() if request.GET.get('company', '').isdigit() else None
+    if only:
+        entries = entries.filter(company=only)
     if action in dict(WalletTransaction.ACTION_CHOICES):
         entries = entries.filter(action=action)
     if q:
@@ -581,7 +569,7 @@ def ledger(request):
     for t in page:
         t.usd = catalog.format_points(abs(t.delta))
     return render(request, 'ops/ledger.html', {
-        'page': page, 'q': q, 'action': action, 'actions': WalletTransaction.ACTION_CHOICES,
+        'page': page, 'q': q, 'action': action, 'only': only, 'actions': WalletTransaction.ACTION_CHOICES,
         'month': {'topups': catalog.format_points(topups), 'grants': catalog.format_points(grants), 'charged': charged, 'net': net},
     })
 

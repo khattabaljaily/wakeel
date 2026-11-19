@@ -12807,6 +12807,69 @@ msgstr ""
 "Buat akun Anda, dan setelah diaktifkan Anda menambahkan perusahaan dan mulai "
 "memakai semua layanan Wakeel."
 
+msgid "آخر الحركات على الرصيد"
+msgstr "Pergerakan saldo terbaru"
+
+msgid "إزالة التصفية"
+msgstr "Hapus filter"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Menyetujui pelanggan baru, mengisi saldo mereka, menangguhkan dan menghapus perusahaan"
+"Menyetujui pelanggan baru, mengisi saldo mereka, menangguhkan dan menghapus "
+"perusahaan"
+
+msgid "الحساب معلّق"
+msgstr "Akun ditangguhkan"
+
+msgid "الرصيد ($)"
+msgstr "Saldo ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Jumlah ($, negatif untuk penarikan)"
+
+msgid "حساب نشط"
+msgstr "Akun aktif"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Riwayat lengkap isi saldo dan pemotongan"
+
+msgid "شحن الرصيد"
+msgstr "Isi saldo"
+
+msgid "شحن رصيد"
+msgstr "Isi saldo milik"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Isi saldo %(name)s"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "Contoh: transfer bank no. …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Catatan (ditampilkan di buku besar)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr ""
+"secara manual (setelah menerima pembayaran, atau sebagai hibah). Saldo saat "
+"ini:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "Dicatat di buku besar dompet."
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. "
+"حسابات أعضائها تبقى."
+msgstr ""
+"Perusahaan beserta paket, postingan, gambar, dan semua datanya akan dihapus "
+"permanen. Akun para anggotanya tetap ada."
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"Tim perusahaan tidak dapat bekerja, dan penerbitan otomatis serta tautan "
+"klien berhenti sampai Anda mengaktifkannya kembali. Data tetap utuh."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
 

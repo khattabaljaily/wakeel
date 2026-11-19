@@ -95,5 +95,4 @@ def overview(company, user, membership):
         'issued_month': Document.objects.filter(created_at__gte=month).count(),
         'drafts': Document.objects.filter(status=Document.DRAFT, created_by=user).count(),
         'my_tasks': Task.objects.filter(assignee=user).exclude(status=Task.DONE).count(),
-        'days_left': company.days_until_expiry if company.subscription_expires else None,
     }

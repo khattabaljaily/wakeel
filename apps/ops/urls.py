@@ -15,7 +15,6 @@ urlpatterns = [
     path('subscriptions/<int:pk>/', views.company_detail, name='company'),
     path('subscriptions/<int:pk>/update/', views.subscription_update, name='subscription_update'),
     path('subscriptions/<int:pk>/approve/', views.subscription_approve, name='subscription_approve'),
-    path('subscriptions/<int:pk>/renew/', views.subscription_renew, name='subscription_renew'),
     path('subscriptions/<int:pk>/toggle/', views.subscription_toggle, name='subscription_toggle'),
     path('subscriptions/<int:pk>/delete/', views.subscription_delete, name='subscription_delete'),
     path('subscriptions/<int:pk>/wallet/grant/', views.wallet_grant, name='wallet_grant'),

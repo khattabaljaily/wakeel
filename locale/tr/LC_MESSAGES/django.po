@@ -12751,6 +12751,67 @@ msgstr ""
 "Hesabınızı oluşturun; etkinleştirildikten sonra şirketinizi ekleyip "
 "Wakeel’in tüm hizmetlerini kullanmaya başlayın."
 
+msgid "آخر الحركات على الرصيد"
+msgstr "Son bakiye hareketleri"
+
+msgid "إزالة التصفية"
+msgstr "Filtreyi kaldır"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Yeni kayıtları onaylayın, bakiyelerini yükleyin, şirketleri askıya alın veya silin"
+"Yeni kayıtları onaylayın, bakiyelerini yükleyin, şirketleri askıya alın veya "
+"silin"
+
+msgid "الحساب معلّق"
+msgstr "Hesap askıya alındı"
+
+msgid "الرصيد ($)"
+msgstr "Bakiye ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Tutar ($, çekmek için negatif)"
+
+msgid "حساب نشط"
+msgstr "Etkin hesap"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Tüm yükleme ve düşüm geçmişi"
+
+msgid "شحن الرصيد"
+msgstr "Bakiye yükle"
+
+msgid "شحن رصيد"
+msgstr "Şu hesabın bakiyesini yükle:"
+
+msgid "شحن رصيد %(name)s"
+msgstr "%(name)s bakiyesini yükle"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "Örneğin: banka havalesi no. …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Not (defterde görünür)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr "elle (ödeme alındıktan sonra veya hibe olarak). Mevcut bakiye:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "Cüzdan defterine kaydedilir."
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. "
+"حسابات أعضائها تبقى."
+msgstr ""
+"Şirket, planları, gönderileri, görselleri ve tüm verileri kalıcı olarak "
+"silinecek. Üyelerinin hesapları kalır."
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"Şirket ekibi çalışamaz; siz yeniden etkinleştirene kadar otomatik yayın ve "
+"müşteri bağlantısı durur. Veriler olduğu gibi kalır."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
 

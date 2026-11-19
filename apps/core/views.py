@@ -122,7 +122,7 @@ def manifest(request):
     from django.http import JsonResponse
     from django.templatetags.static import static
     return JsonResponse({
-        'name': _('وكيل · مدير التسويق الذكي'),
+        'name': _('وكيل · عمل شركتك في مكان واحد'),
         'short_name': _('وكيل'),
         'description': _('يخطط لمحتوى شركتك، ويكتبه، ويصممه، وينشره.'),
         'lang': 'ar', 'dir': 'rtl',

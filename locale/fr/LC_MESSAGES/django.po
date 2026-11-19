@@ -12954,6 +12954,69 @@ msgstr ""
 "Créez votre compte et, une fois activé, ajoutez votre entreprise et "
 "commencez à utiliser tous les services de Wakeel."
 
+msgid "آخر الحركات على الرصيد"
+msgstr "Derniers mouvements du solde"
+
+msgid "إزالة التصفية"
+msgstr "Retirer le filtre"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Approuver les nouveaux abonnés, recharger leur solde, suspendre et supprimer des entreprises"
+"Approuver les nouveaux abonnés, recharger leur solde, suspendre et supprimer "
+"des entreprises"
+
+msgid "الحساب معلّق"
+msgstr "Le compte est suspendu"
+
+msgid "الرصيد ($)"
+msgstr "Solde ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Montant ($, négatif pour retirer)"
+
+msgid "حساب نشط"
+msgstr "Compte actif"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Historique complet des recharges et débits"
+
+msgid "شحن الرصيد"
+msgstr "Recharger le solde"
+
+msgid "شحن رصيد"
+msgstr "Recharger le solde de"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Recharger le solde de %(name)s"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "Par exemple : virement bancaire n° …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Note (affichée dans l’historique)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr ""
+"manuellement (après réception du paiement, ou en cadeau). Solde actuel :"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "Elle est enregistrée dans l’historique du portefeuille."
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. "
+"حسابات أعضائها تبقى."
+msgstr ""
+"L’entreprise, ses plans, publications, images et toutes ses données seront "
+"définitivement supprimés. Les comptes de ses membres restent."
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"L’équipe de l’entreprise ne pourra plus travailler, et la publication "
+"automatique et le lien client sont suspendus jusqu’à sa réactivation. Les "
+"données sont conservées."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr ""
 #~ "Identité, lettres et certificats, sur votre propre papier à en-tête."

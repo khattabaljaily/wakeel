@@ -5,27 +5,12 @@ from django.utils.translation import gettext_lazy as _
 from apps.accounts.models import User
 from apps.companies.models import Company
 
-DURATIONS = [('', _('بدون تاريخ انتهاء')), ('14', _('14 يوماً (تجربة)')), ('30', _('شهر')), ('90', _('3 أشهر')),
-             ('180', _('6 أشهر')), ('365', _('سنة'))]
-
-DATE = forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')
-
-
 class SubscriptionEditForm(forms.ModelForm):
-    """The subscription's details, as in enjazpms' tenant form (without plans: one offer for everyone)."""
+    """The company's details (a company pays by use from its wallet: there is no subscription period)."""
 
     class Meta:
         model = Company
-        fields = ['name', 'industry', 'email', 'phone', 'city', 'country', 'timezone',
-                  'subscription_start', 'subscription_expires', 'is_demo']
-        widgets = {'subscription_start': DATE, 'subscription_expires': DATE}
-
-    def clean(self):
-        cleaned = super().clean()
-        start, end = cleaned.get('subscription_start'), cleaned.get('subscription_expires')
-        if start and end and end < start:
-            self.add_error('subscription_expires', _('نهاية الاشتراك قبل بدايته.'))
-        return cleaned
+        fields = ['name', 'industry', 'email', 'phone', 'city', 'country', 'timezone']
 
 
 class SubscriptionCreateForm(SubscriptionEditForm):
@@ -41,7 +26,7 @@ class SubscriptionCreateForm(SubscriptionEditForm):
 
     class Meta(SubscriptionEditForm.Meta):
         fields = SubscriptionEditForm.Meta.fields + ['description']
-        widgets = {**SubscriptionEditForm.Meta.widgets, 'description': forms.Textarea(attrs={'rows': 2})}
+        widgets = {'description': forms.Textarea(attrs={'rows': 2})}
 
     def clean_owner_email(self):
         email = self.cleaned_data['owner_email'].strip().lower()

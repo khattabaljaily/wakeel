@@ -41,14 +41,13 @@ class SignupApprovalTests(TestCase):
         post = Post.objects.create(company=self.company, title='م', platforms=['facebook'])
         self.assertEqual(self.client.get(reverse('api:post_detail', args=[post.pk])).status_code, 403)
 
-    def test_admin_approves_as_trial_for_14_days(self):
+    def test_admin_approves_and_the_owner_is_told(self):
         mail.outbox.clear()
         self.client.force_login(self.admin)
-        self.client.post(reverse('ops:subscription_approve', args=[self.company.pk]), {'is_demo': '1', 'days': '14'})
+        self.client.post(reverse('ops:subscription_approve', args=[self.company.pk]), {})
         self.company.refresh_from_db()
         self.assertEqual(self.company.subscription_status, 'active')
-        self.assertTrue(self.company.is_demo)
-        self.assertEqual(self.company.subscription_expires, timezone.localdate() + datetime.timedelta(days=14))
+        self.assertIsNone(self.company.subscription_expires)       # a company pays by use: no period
         self.assertIsNotNone(self.company.approved_at)
         self.assertEqual([m.to for m in mail.outbox], [['s@x.test']])  # the owner hears it's live
         self.client.force_login(self.owner)
@@ -99,45 +98,36 @@ class SubscriptionActionTests(TestCase):
         self.company.refresh_from_db()
         self.assertTrue(self.company.is_usable)
 
-    def test_expired_subscription_and_renewal(self):
-        today = timezone.localdate()
-        Company.objects.filter(pk=self.company.pk).update(subscription_expires=today - datetime.timedelta(days=3))
+    def test_an_old_end_date_no_longer_stops_a_company(self):
+        Company.objects.filter(pk=self.company.pk).update(subscription_expires=timezone.localdate() - datetime.timedelta(days=3))
+        self.company.refresh_from_db()
+        self.assertEqual(self.company.subscription_status, 'active')
         self.client.force_login(self.owner)
-        self.assertRedirects(self.client.get(reverse('core:dashboard')), reverse('companies:status'))
-        self.assertContains(self.client.get(reverse('companies:status')), 'انتهى اشتراك')
-        self.client.force_login(self.admin)
-        data = self.client.get(reverse('ops:subscriptions_data'), {'status': 'expired'}).json()
-        self.assertEqual(data['recordsTotal'], 1)
+        self.assertEqual(self.client.get(reverse('core:dashboard')).status_code, 200)
 
-        # Renewing a lapsed subscription counts from today (and a trial can become paid)...
-        Company.objects.filter(pk=self.company.pk).update(is_demo=True)
-        self.post('subscription_renew', {'days': '30', 'is_demo': '0'})
-        self.company.refresh_from_db()
-        self.assertEqual(self.company.subscription_expires, today + datetime.timedelta(days=30))
-        self.assertFalse(self.company.is_demo)
-        # ...and a running one from its current end.
-        self.post('subscription_renew', {'days': '30'})
-        self.company.refresh_from_db()
-        self.assertEqual(self.company.subscription_expires, today + datetime.timedelta(days=60))
-        self.assertEqual(self.post('subscription_renew', {'days': '0'}).status_code, 302)
-        self.company.refresh_from_db()
-        self.assertEqual(self.company.subscription_expires, today + datetime.timedelta(days=60))
+    def test_topping_up_from_the_list_goes_to_the_ledger_and_back_to_the_list(self):
+        from apps.credits import charging
+        url = reverse('ops:wallet_grant', args=[self.company.pk])
+        before = charging.get_wallet(self.company).balance
+        response = self.client.post(url, {'amount': '12.5', 'note': 'bank transfer 77', 'next': reverse('ops:subscriptions')})
+        self.assertRedirects(response, reverse('ops:subscriptions'), fetch_redirect_response=False)
+        self.assertEqual(charging.get_wallet(self.company).balance, before + 12500)
+        ledger = self.client.get(reverse('ops:ledger'), {'company': self.company.pk})
+        self.assertContains(ledger, 'bank transfer 77')
+        # a link to another site is ignored
+        response = self.client.post(url, {'amount': '1', 'next': 'https://evil.example/'})
+        self.assertRedirects(response, reverse('ops:company', args=[self.company.pk]), fetch_redirect_response=False)
+        # the list shows the balance
+        data = self.client.get(reverse('ops:subscriptions_data')).json()
+        from apps.credits import catalog
+        self.assertIn(catalog.format_points(before + 13500), str(data))
 
     def test_edit(self):
         self.post('subscription_update', {'name': 'إنجاز الجديدة', 'industry': 'تقنية', 'country': 'قطر', 'city': 'الدوحة',
-                                          'email': 'info@enjaz.test', 'phone': '+97455', 'timezone': 'Asia/Qatar',
-                                          'subscription_start': '2026-01-01', 'subscription_expires': '2027-01-31', 'is_demo': 'on'})
+                                          'email': 'info@enjaz.test', 'phone': '+97455', 'timezone': 'Asia/Qatar'})
         self.company.refresh_from_db()
-        self.assertEqual((self.company.name, self.company.email, self.company.city, self.company.is_demo),
-                         ('إنجاز الجديدة', 'info@enjaz.test', 'الدوحة', True))
-        self.assertEqual((self.company.subscription_start, self.company.subscription_expires),
-                         (datetime.date(2026, 1, 1), datetime.date(2027, 1, 31)))
-
-    def test_edit_rejects_end_before_start(self):
-        response = self.post('subscription_update', {'name': 'إنجاز', 'industry': 'ت', 'country': 'قطر', 'timezone': 'Asia/Qatar',
-                                                     'subscription_start': '2026-05-01', 'subscription_expires': '2026-04-01'})
-        self.assertContains(response, 'قبل بدايته', status_code=400)
-        self.assertContains(response, 'data-open', status_code=400)
+        self.assertEqual((self.company.name, self.company.email, self.company.city),
+                         ('إنجاز الجديدة', 'info@enjaz.test', 'الدوحة'))
 
     def test_delete_needs_the_exact_name(self):
         self.post('subscription_delete', {'confirm_name': 'غلط'})
@@ -148,13 +138,12 @@ class SubscriptionActionTests(TestCase):
 
     def test_create_with_new_or_existing_owner(self):
         data = {'name': 'بنان', 'industry': 'استشارات', 'country': 'قطر', 'timezone': 'Asia/Qatar', 'description': 'و',
-                'email': 'info@banan.test', 'subscription_start': '2026-10-01', 'subscription_expires': '2027-10-01',
+                'email': 'info@banan.test',
                 'owner_name': 'أحمد', 'owner_email': 'New@x.test', 'owner_password': 'Strong-pass-123',
                 'owner_password2': 'Strong-pass-123'}
         self.assertRedirects(self.client.post(reverse('ops:subscription_create'), data), reverse('ops:subscriptions'))
         company = Company.objects.get(name='بنان')
         self.assertEqual(company.subscription_status, 'active')
-        self.assertEqual(company.subscription_expires, datetime.date(2027, 10, 1))
         owner = Membership.objects.get(company=company, role='owner').user
         self.assertEqual(owner.email, 'new@x.test')
         self.assertTrue(owner.check_password('Strong-pass-123'))
@@ -166,7 +155,7 @@ class SubscriptionActionTests(TestCase):
 
     def test_create_errors_reopen_the_dialog(self):
         base = {'name': 'x', 'industry': 'x', 'country': 'x', 'timezone': 'Asia/Qatar', 'description': 'x',
-                'subscription_start': '2026-10-01', 'owner_name': 'x', 'owner_email': 'fresh@x.test'}
+                'owner_name': 'x', 'owner_email': 'fresh@x.test'}
         response = self.client.post(reverse('ops:subscription_create'), base)
         self.assertContains(response, 'كلمة المرور مطلوبة', status_code=400)
         self.assertContains(response, 'data-open', status_code=400)
@@ -202,7 +191,7 @@ class SubscriptionActionTests(TestCase):
 
     def test_subscribers_cannot_reach_the_actions(self):
         self.client.force_login(self.owner)
-        for name in ('subscription_approve', 'subscription_renew', 'subscription_toggle', 'subscription_delete',
+        for name in ('subscription_approve', 'subscription_toggle', 'subscription_delete',
                      'subscription_update', 'subscription_login_as'):
             self.assertEqual(self.post(name).status_code, 404, name)
         self.assertEqual(self.client.post(reverse('ops:subscription_create')).status_code, 404)

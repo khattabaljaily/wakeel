@@ -24,7 +24,7 @@ a.genie:hover { border-color: var(--md-accent); box-shadow: 0 0 0 4px var(--md-a
 a.genie:focus-visible { outline: 2px solid var(--md-accent); outline-offset: 2px; }
 .genie-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .marid-home { flex: none; inline-size: 2.3rem; block-size: 2rem; }
-.marid-layer { position: fixed; inset: 0; z-index: 45; overflow: hidden; pointer-events: none; contain: layout paint; }   /* whatever flies off the screen is cut here, so the page never widens */
+.marid-layer { position: fixed; inset: 0; z-index: 1030; overflow: hidden; pointer-events: none; contain: layout paint; }   /* whatever flies off the screen is cut here, so the page never widens */
 .marid { position: absolute; inset: 0 auto auto 0; width: 64px; height: 70px; opacity: 0; pointer-events: none; transform-origin: 50% 50%; will-change: transform; }
 .marid[data-state="home"], .marid[data-state="fly"] { opacity: 1; }
 .marid[data-state="home"] { pointer-events: auto; cursor: pointer; }
@@ -47,7 +47,7 @@ a.genie:focus-visible { outline: 2px solid var(--md-accent); outline-offset: 2px
 @keyframes md-flap-l { to { transform: rotate(18deg); } }
 .md-spark { position: absolute; z-index: 1; pointer-events: none; color: #FFB84D; font-size: 15px; line-height: 1; text-shadow: 0 0 6px rgb(255 184 77 / .8); animation: md-spark .95s ease-out forwards; }
 @keyframes md-spark { to { opacity: 0; transform: translateY(20px) scale(.3) rotate(140deg); } }
-.marid-bubble { position: fixed; z-index: 46; max-width: min(18rem, calc(100vw - 1.6rem)); display: grid; gap: .35rem; padding: .6rem .85rem; border: 1.5px solid #F4A135; border-radius: 14px;
+.marid-bubble { position: fixed; z-index: 1031; max-width: min(18rem, calc(100vw - 1.6rem)); display: grid; gap: .35rem; padding: .6rem .85rem; border: 1.5px solid #F4A135; border-radius: 14px;
   background: var(--md-surface); color: var(--md-ink); box-shadow: var(--wk-shadow-lg); font-weight: 700; font-size: .92rem; line-height: 1.5; text-align: start; }
 .marid-bubble[hidden] { display: none; }
 .marid-bubble.is-in { animation: md-pop .28s cubic-bezier(.2, 1.4, .4, 1); }

@@ -12858,6 +12858,67 @@ msgstr ""
 "Crea tu cuenta y, una vez activada, añade tu empresa y empieza a usar todos "
 "los servicios de Wakeel."
 
+msgid "آخر الحركات على الرصيد"
+msgstr "Últimos movimientos del saldo"
+
+msgid "إزالة التصفية"
+msgstr "Quitar el filtro"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Aprobar nuevos suscriptores, recargar su saldo, suspender y eliminar empresas"
+"Aprobar nuevos suscriptores, recargar su saldo, suspender y eliminar empresas"
+
+msgid "الحساب معلّق"
+msgstr "La cuenta está suspendida"
+
+msgid "الرصيد ($)"
+msgstr "Saldo ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Importe ($, negativo para retirar)"
+
+msgid "حساب نشط"
+msgstr "Cuenta activa"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Historial completo de recargas y cargos"
+
+msgid "شحن الرصيد"
+msgstr "Recargar el saldo"
+
+msgid "شحن رصيد"
+msgstr "Recargar el saldo de"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Recargar el saldo de %(name)s"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "Por ejemplo: transferencia bancaria n.º …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Nota (se muestra en el registro)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr "manualmente (tras recibir el pago, o como obsequio). Saldo actual:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "Se registra en el historial de la cartera."
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. "
+"حسابات أعضائها تبقى."
+msgstr ""
+"La empresa, sus planes, publicaciones, imágenes y todos sus datos se "
+"eliminarán definitivamente. Las cuentas de sus miembros se conservan."
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"El equipo de la empresa no podrá trabajar, y la publicación automática y el "
+"enlace del cliente se detienen hasta que la reactives. Los datos se "
+"conservan tal cual."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identidad, cartas y certificados, en tu propio papel membretado."
 

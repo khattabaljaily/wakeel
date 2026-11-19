@@ -11,6 +11,7 @@
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-cart"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ month.net|money }}</div><div class="adm-kpi__lbl">{% translate "المخصوم هذا الشهر (صافي بعد الاسترجاع)" %}</div></div></div>
 </div>
 <form method="get" class="d-flex flex-wrap gap-2 mb-3">
+    {% if only %}<input type="hidden" name="company" value="{{ only.pk }}"><span class="adm-pill adm-pill--info align-self-center">{{ only.name }} <a href="{% url 'ops:ledger' %}" aria-label="{% translate "إزالة التصفية" %}">×</a></span>{% endif %}
     <input type="search" name="q" value="{{ q }}" class="form-control" style="max-width:20rem" placeholder="{% translate "ابحث بالشركة أو البريد أو الوصف" %}">
     <select name="action" class="form-select" style="max-width:12rem" onchange="this.form.submit()">
         <option value="">{% translate "كل الأنواع" %}</option>

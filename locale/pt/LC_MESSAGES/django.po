@@ -12824,6 +12824,67 @@ msgstr ""
 "Crie a sua conta e, depois de ativada, adicione a sua empresa e comece a "
 "usar todos os serviços do Wakeel."
 
+msgid "آخر الحركات على الرصيد"
+msgstr "Últimos movimentos do saldo"
+
+msgid "إزالة التصفية"
+msgstr "Remover o filtro"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Aprovar novos inscritos, carregar os seus saldos, suspender e eliminar empresas"
+"Aprovar novos inscritos, carregar os seus saldos, suspender e eliminar "
+"empresas"
+
+msgid "الحساب معلّق"
+msgstr "A conta está suspensa"
+
+msgid "الرصيد ($)"
+msgstr "Saldo ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Valor ($, negativo para levantar)"
+
+msgid "حساب نشط"
+msgstr "Conta ativa"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Histórico completo de carregamentos e débitos"
+
+msgid "شحن الرصيد"
+msgstr "Carregar o saldo"
+
+msgid "شحن رصيد"
+msgstr "Carregar o saldo de"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Carregar o saldo de %(name)s"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "Por exemplo: transferência bancária n.º …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Nota (aparece no registo)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr "manualmente (após receber o pagamento, ou como oferta). Saldo atual:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "É registado no livro de carteiras."
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. "
+"حسابات أعضائها تبقى."
+msgstr ""
+"A empresa, os seus planos, publicações, imagens e todos os seus dados serão "
+"eliminados definitivamente. As contas dos seus membros permanecem."
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"A equipa da empresa não poderá trabalhar, e a publicação automática e o link "
+"do cliente ficam parados até a reativar. Os dados permanecem como estão."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identidade, cartas e certificados, no seu próprio papel timbrado."
 

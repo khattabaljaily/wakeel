@@ -40,11 +40,6 @@
     <span><strong>{{ counts.pending_approval }}</strong> {% translate "طلب اشتراك جديد بانتظار الاعتماد." %}</span>
     <a href="{% url 'ops:subscriptions' %}?status=pending" class="alert-link ms-auto">{% translate "مراجعة الطلبات" %}</a></div>
 {% endif %}
-{% if counts.expiring %}
-<div class="alert alert-info d-flex align-items-center gap-2"><i class="bi bi-calendar-event"></i>
-    <span><strong>{{ counts.expiring }}</strong> {% translate "اشتراك ينتهي خلال 7 أيام." %}</span>
-    <a href="{% url 'ops:subscriptions' %}?status=active" class="alert-link ms-auto">{% translate "عرض الاشتراكات" %}</a></div>
-{% endif %}
 
 <div class="adm-kpis">
     <a href="{% url 'ops:subscriptions' %}?status=active" class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-buildings"></i></div>

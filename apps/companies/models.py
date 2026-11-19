@@ -229,8 +229,6 @@ class Company(models.Model):
             return 'pending'
         if not self.is_active:
             return 'suspended'
-        if self.subscription_expires and self.days_until_expiry < 0:
-            return 'expired'
         return 'active'
 
     STATUS_LABELS = {'pending': _('قيد الاعتماد'), 'suspended': _('معلّق'), 'expired': _('منتهي'), 'active': _('نشط')}

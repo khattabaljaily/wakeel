@@ -12835,6 +12835,69 @@ msgstr ""
 "Crea il tuo account e, una volta attivato, aggiungi la tua azienda e inizia "
 "a usare tutti i servizi di Wakeel."
 
+msgid "آخر الحركات على الرصيد"
+msgstr "Ultimi movimenti del saldo"
+
+msgid "إزالة التصفية"
+msgstr "Rimuovi il filtro"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Approva i nuovi iscritti, ricarica i loro saldi, sospendi ed elimina le aziende"
+"Approva i nuovi iscritti, ricarica i loro saldi, sospendi ed elimina le "
+"aziende"
+
+msgid "الحساب معلّق"
+msgstr "L'account è sospeso"
+
+msgid "الرصيد ($)"
+msgstr "Saldo ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Importo ($, negativo per prelevare)"
+
+msgid "حساب نشط"
+msgstr "Account attivo"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Storico completo di ricariche e addebiti"
+
+msgid "شحن الرصيد"
+msgstr "Ricarica il saldo"
+
+msgid "شحن رصيد"
+msgstr "Ricarica il saldo di"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Ricarica il saldo di %(name)s"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "Ad esempio: bonifico bancario n. …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Nota (mostrata nel registro)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr ""
+"manualmente (dopo aver ricevuto il pagamento, o come omaggio). Saldo attuale:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "Viene registrato nel registro dei portafogli."
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. "
+"حسابات أعضائها تبقى."
+msgstr ""
+"L'azienda, i suoi piani, i post, le immagini e tutti i suoi dati verranno "
+"eliminati definitivamente. Gli account dei suoi membri restano."
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"Il team dell'azienda non potrà lavorare e la pubblicazione automatica e il "
+"link del cliente si interrompono finché non la riattivi. I dati restano "
+"invariati."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identità, lettere e certificati, sulla tua carta intestata."
 

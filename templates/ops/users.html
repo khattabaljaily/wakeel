@@ -37,7 +37,7 @@
 </div>{% include "ops/_pager.html" with keep=request.GET.dict %}</div>
 
 <div class="modal fade" id="deleteUser" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><form method="post" class="modal-content">{% csrf_token %}
-    <div class="modal-header"><h2 class="modal-title h5">{% translate "حذف مستخدم نهائياً" %}</h2><button type="button" class="btn-close ms-0 me-auto" data-bs-dismiss="modal" aria-label="{% translate "إغلاق" %}"></button></div>
+    <div class="modal-header"><h2 class="modal-title h5">{% translate "حذف مستخدم نهائياً" %}</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate "إغلاق" %}"></button></div>
     <div class="modal-body">
         <p>{% translate "سيُحذف الحساب" %} <strong dir="ltr" data-f="email"></strong> {% translate "مع كل شركة يملكها وكل بياناتها وملفاتها، ولا رجعة فيه. عضويته في شركات الآخرين تنتهي فقط." %}</p>
         <p class="text-danger small" data-f="owned-note" data-text="{% translate "تنبيه: يملك %n شركة ستُحذف معه." %}" hidden></p>

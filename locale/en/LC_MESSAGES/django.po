@@ -6196,3 +6196,50 @@ msgid "أنشئ حسابك، وبعد تفعيله تضيف شركتك وتبد�
 msgstr ""
 "Create your account, and once it is activated you add your company and start "
 "using all of Wakeel’s services."
+
+msgid "آخر الحركات على الرصيد"
+msgstr "Latest balance movements"
+
+msgid "إزالة التصفية"
+msgstr "Remove the filter"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Approve new subscribers, top up their balances, and suspend or delete companies"
+"Approve new subscribers, top up their balances, and suspend or delete "
+"companies"
+
+msgid "الحساب معلّق"
+msgstr "The account is suspended"
+
+msgid "الرصيد ($)"
+msgstr "Balance ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Amount ($, negative to withdraw)"
+
+msgid "حساب نشط"
+msgstr "Active account"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Full top-up and charge history"
+
+msgid "شحن الرصيد"
+msgstr "Top up the balance"
+
+msgid "شحن رصيد"
+msgstr "Top up the balance of"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Top up the balance of %(name)s"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "For example: bank transfer no. …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Note (shown in the ledger)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr "by hand (after receiving payment, or as a grant). Current balance:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "It is recorded in the wallet ledger."

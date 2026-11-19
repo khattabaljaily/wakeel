@@ -11,7 +11,7 @@ the mobile card and the subscription page (`detail` hides "view").{% endcomment 
         <button class="adm-act adm-act--ok" title="{% translate "تنشيط" %}" aria-label="{% blocktranslate trimmed with name=c.name %}تنشيط {{ name }}{% endblocktranslate %}"><i class="bi bi-play-circle"></i></button>
         {% endif %}
     </form>
-    <button type="button" class="adm-act adm-act--renew" data-sub-action="renew" data-sub="{{ data }}" title="{% translate "تجديد الاشتراك" %}" aria-label="{% blocktranslate trimmed with name=c.name %}تجديد {{ name }}{% endblocktranslate %}"><i class="bi bi-arrow-clockwise"></i></button>
+    <button type="button" class="adm-act adm-act--renew" data-sub-action="topup" data-sub="{{ data }}" title="{% translate "شحن الرصيد" %}" aria-label="{% blocktranslate trimmed with name=c.name %}شحن رصيد {{ name }}{% endblocktranslate %}"><i class="bi bi-wallet2"></i></button>
     <form method="post" action="{% url 'ops:subscription_delete' c.pk %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="confirm_name">
         <button class="adm-act adm-act--del" title="{% translate "حذف" %}" aria-label="{% blocktranslate trimmed with name=c.name %}حذف {{ name }}{% endblocktranslate %}" data-confirm-title="{% blocktranslate trimmed with name=c.name %}حذف «{{ name }}» نهائياً؟{% endblocktranslate %}" data-confirm="{% translate "ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. حسابات أعضائها تبقى." %}" data-confirm-ok="{% translate "حذف نهائي" %}" data-confirm-require="{{ c.name }}" data-confirm-field="confirm_name"><i class="bi bi-trash"></i></button>
     </form>

@@ -71,7 +71,7 @@
             <img src="{% static 'img/logo.svg' %}" alt="">
             <div>
                 <div class="wk-brand__name">{% translate "وكيل" %}</div>
-                <div class="wk-brand__tag">{% translate "مدير التسويق الذكي" %}</div>
+                <div class="wk-brand__tag">{% translate "عمل شركتك في مكان واحد" %}</div>
             </div>
         </a>
 
@@ -165,7 +165,6 @@
                     <a class="rail-btn" href="{% url 'ads:list' %}"{% nav_current '/app/ads/' %}><i class="bi bi-megaphone"></i><span class="lbl">{% translate "الترويج المدفوع" %}</span></a>
                     <a class="rail-btn" href="{% url 'companies:media' %}"{% nav_current '/company/media/' %}><i class="bi bi-images"></i><span class="lbl">{% translate "مكتبة الوسائط" %}</span></a>
                     {% if membership.can_manage %}<a class="rail-btn" href="{% url 'social:accounts' %}"{% nav_current '/company/social/' %}><i class="bi bi-send"></i><span class="lbl">{% translate "حسابات النشر" %}</span></a>{% endif %}
-                    {% if membership.role == 'owner' %}<a class="rail-btn" href="{% url 'companies:agency' %}"{% nav_current '/company/agency/' %}><i class="bi bi-briefcase"></i><span class="lbl">{% translate "وضع الوكالة" %}</span></a>{% endif %}
                 </div>
             </div>
 

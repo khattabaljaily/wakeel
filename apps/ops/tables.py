@@ -18,7 +18,7 @@ def subscriptions():
         'subsTable', 'ops/rows/subscription.html', [
             Col('name', _('المشترك'), order='name'),
             Col('industry', _('المجال'), order='industry'),
-            Col('end', _('الاشتراك'), order='subscription_expires'),
+            Col('balance', _('الرصيد ($)'), order='wallet__balance'),
             Col('members', _('الفريق'), order='members', cls='text-center'),
             Col('status', _('الحالة')),
             Col('actions', '', cls='text-end'),

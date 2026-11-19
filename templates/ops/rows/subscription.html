@@ -5,7 +5,7 @@
         <div class="small-muted text-truncate" dir="auto">{{ c.owner.email|default:c.email|default:"—" }}</div></div>
 </div>
 {% elif part == 'industry' %}<div class="small">{{ c.industry }}</div><div class="small-muted">{% if c.city %}{{ c.city }} · {% endif %}{{ c.country }}</div>
-{% elif part == 'end' %}<div class="small">{% include "ops/_subscription_end.html" %}</div>
+{% elif part == 'balance' %}<strong dir="ltr">${{ c.balance_usd }}</strong>
 {% elif part == 'members' %}{{ c.members }}
 {% elif part == 'status' %}{% include "ops/_subscription_state.html" %}
 {% elif part == 'actions' %}{% include "ops/_subscription_buttons.html" with data=c.data %}
@@ -21,8 +21,7 @@
     </div>
     <div class="wk-mcard__grid">
         <div><div class="wk-mcard__label">{% translate "المجال" %}</div><div class="wk-mcard__val">{{ c.industry }}</div><div class="wk-mcard__sub">{% if c.city %}{{ c.city }} · {% endif %}{{ c.country }}</div></div>
-        <div><div class="wk-mcard__label">{% translate "الاشتراك" %}</div><div class="wk-mcard__val">{% include "ops/_subscription_end.html" %}</div></div>
-        <div><div class="wk-mcard__label">{% translate "بداية الاشتراك" %}</div><div class="wk-mcard__val">{{ c.subscription_start|date:"j/n/Y" }}</div></div>
+        <div><div class="wk-mcard__label">{% translate "الرصيد ($)" %}</div><div class="wk-mcard__val" dir="ltr">${{ c.balance_usd }}</div></div>
         <div><div class="wk-mcard__label">{% translate "الفريق" %}</div><div class="wk-mcard__val">{{ c.members }} {% if c.members == 1 %}{% translate "عضو" %}{% else %}{% translate "أعضاء" %}{% endif %}</div></div>
     </div>
     <div class="wk-mcard__foot">{% include "ops/_subscription_buttons.html" with data=c.data %}</div>

@@ -12967,6 +12967,68 @@ msgstr ""
 "Erstellen Sie Ihr Konto. Nach der Aktivierung fügen Sie Ihr Unternehmen "
 "hinzu und nutzen alle Dienste von Wakeel."
 
+msgid "آخر الحركات على الرصيد"
+msgstr "Letzte Guthabenbewegungen"
+
+msgid "إزالة التصفية"
+msgstr "Filter entfernen"
+
+msgid "اعتماد المشتركين الجدد، وشحن أرصدتهم، وتعليق الشركات وحذفها"
+msgstr "Neue Abonnenten freigeben, ihr Guthaben aufladen, Firmen sperren und löschen"
+"Neue Abonnenten freigeben, ihr Guthaben aufladen, Firmen sperren und löschen"
+
+msgid "الحساب معلّق"
+msgstr "Das Konto ist gesperrt"
+
+msgid "الرصيد ($)"
+msgstr "Guthaben ($)"
+
+msgid "المبلغ ($، سالب للسحب)"
+msgstr "Betrag ($, negativ zum Abbuchen)"
+
+msgid "حساب نشط"
+msgstr "Aktives Konto"
+
+msgid "سجل الشحن والخصم الكامل"
+msgstr "Vollständiger Verlauf der Aufladungen und Abbuchungen"
+
+msgid "شحن الرصيد"
+msgstr "Guthaben aufladen"
+
+msgid "شحن رصيد"
+msgstr "Guthaben aufladen für"
+
+msgid "شحن رصيد %(name)s"
+msgstr "Guthaben von %(name)s aufladen"
+
+msgid "مثلاً: تحويل بنكي رقم…"
+msgstr "Zum Beispiel: Banküberweisung Nr. …"
+
+msgid "ملاحظة (تظهر في السجل)"
+msgstr "Notiz (im Verlauf sichtbar)"
+
+msgid "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:"
+msgstr ""
+"manuell (nach Zahlungseingang oder als Gutschrift). Aktuelles Guthaben:"
+
+msgid "يُسجَّل في سجل المحافظ."
+msgstr "Wird im Wallet-Verlauf erfasst."
+
+msgid ""
+"ستُحذف الشركة وخططها ومنشوراتها وصورها وكل بياناتها، ولا يمكن التراجع عن ذلك. "
+"حسابات أعضائها تبقى."
+msgstr ""
+"Die Firma, ihre Pläne, Beiträge, Bilder und alle Daten werden endgültig "
+"gelöscht. Die Konten der Mitglieder bleiben bestehen."
+
+msgid ""
+"لن يتمكن فريق الشركة من العمل، ويتوقف النشر التلقائي ورابط العميل حتى تعيد "
+"تنشيطه. البيانات تبقى كما هي."
+msgstr ""
+"Das Team der Firma kann nicht arbeiten, und die automatische "
+"Veröffentlichung sowie der Kundenlink pausieren, bis Sie sie wieder "
+"aktivieren. Die Daten bleiben unverändert."
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identität, Briefe und Zertifikate auf Ihrem eigenen Briefpapier."
 

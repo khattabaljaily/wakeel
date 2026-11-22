@@ -21,6 +21,7 @@ production command is shown to the owner first. Production: `Server`, `/home/enj
 6. **Migrations**: many (companies, jobs, notifications, accounts, credits, billing 0001-0002, audit, identity, library, documents, docops, sharing, brand, presentations, forms, tasks, notes, contacts, announcements, mail). Run `manage.py migrate`.
 7. **Crons**:
    - `manage.py send_expiry_reminders` daily
+   - `manage.py send_asset_reminders` daily (digital assets; it first re-reads domain end dates from the RDAP registry, `--no-check` skips that)
    - `manage.py send_note_reminders` every few minutes
    - `manage.py prune_assistant` monthly (optional)
    - the existing backup job

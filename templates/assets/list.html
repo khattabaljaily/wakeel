@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Digital assets" context "navigation" %}{% endblock %}
+{% block page_title %}{% translate "Digital assets" context "navigation" %}{% endblock %}
+{% block actions %}{% if membership.can_edit %}<a class="btn btn-primary" href="{% url 'assets:new' %}{% if kind %}?kind={{ kind }}{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "Add an asset" %}</a>{% endif %}{% endblock %}
+{% block content %}
+<div class="row g-3 mb-3">
+    <div class="col-6 col-xl-3"><a href="{% url 'assets:list' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-hdd-network"></i></div><div><div class="wk-stat__value">{{ count_all }}</div><div class="wk-stat__label">{% translate "Total assets" %}</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="?status=soon" class="wk-card wk-stat"><div class="wk-stat__icon tone-danger"><i class="bi bi-exclamation-octagon"></i></div><div><div class="wk-stat__value">{{ late_count }}</div><div class="wk-stat__label">{% translate "Late" %}</div></div></a></div>
+    <div class="col-6 col-xl-3"><a href="?status=soon" class="wk-card wk-stat"><div class="wk-stat__icon tone-gold"><i class="bi bi-clock-history"></i></div><div><div class="wk-stat__value">{{ soon_count }}</div><div class="wk-stat__label">{% translate "Due within 30 days" %}</div></div></a></div>
+    <div class="col-6 col-xl-3"><div class="wk-card wk-stat"><div class="wk-stat__icon tone-approved"><i class="bi bi-cash-coin"></i></div><div><div class="wk-stat__value" dir="ltr" style="font-size:1.3rem">{% for currency, total in yearly_totals %}{{ total|floatformat:0 }} <small>{{ currency }}</small>{% if not forloop.last %} · {% endif %}{% empty %}—{% endfor %}</div><div class="wk-stat__label">{% translate "Yearly cost" %}</div></div></div></div>
+</div>
+<p class="small-muted">{% translate "Domains, hosting, licences, cloud accounts, subscriptions and certificates in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day before each one ends. Never write a password here." %}</p>
+<div class="d-flex flex-wrap gap-2 mb-3">
+    <a class="btn btn-sm {% if not kind and not soon %}btn-primary{% else %}btn-light{% endif %}" href="{% url 'assets:list' %}"><i class="bi bi-grid"></i> {% translate "All" %} <span class="badge text-bg-light">{{ count_all }}</span></a>
+    {% for key, label, icon, n in kinds %}{% if n or kind == key %}<a class="btn btn-sm {% if kind == key %}btn-primary{% else %}btn-light{% endif %}" href="?kind={{ key }}"><i class="bi {{ icon }}"></i> {{ label }} <span class="badge text-bg-light">{{ n }}</span></a>{% endif %}{% endfor %}
+    <a class="btn btn-sm {% if soon %}btn-warning{% else %}btn-light{% endif %}" href="?{% if kind %}kind={{ kind }}&amp;{% endif %}{% if not soon %}status=soon{% endif %}"><i class="bi bi-clock"></i> {% translate "Due soon" %}{% if expiring_here %} <span class="badge text-bg-danger">{{ expiring_here }}</span>{% endif %}</a>
+</div>
+<form method="get" role="search" class="mb-3" style="max-width:420px">
+    {% if kind %}<input type="hidden" name="kind" value="{{ kind }}">{% endif %}{% if soon %}<input type="hidden" name="status" value="soon">{% endif %}
+    <input type="search" class="form-control" name="q" value="{{ q }}" placeholder="{% translate 'Search' %}" aria-label="{% translate 'Search' %}" autocomplete="off">
+</form>
+<div class="wk-card d-none d-md-block"><div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+        <thead class="small text-muted"><tr>
+            <th>{% translate "Asset" %}</th><th>{% translate "Status" %}</th><th class="text-nowrap">{% translate "Renewal date" %}</th><th>{% translate "Cost" %}</th><th>{% translate "Responsible" %}</th><th></th>
+        </tr></thead>
+        <tbody>
+        {% for a in assets %}
+        <tr{% if a.status == 'expired' %} style="--bs-table-bg:#fff6f5"{% endif %}>
+            <td style="min-width:300px">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="wk-stat__icon tone-primary" style="width:42px;height:42px;font-size:1.1rem;border-radius:12px"><i class="bi {{ a.icon }}"></i></span>
+                    <div style="min-width:0">
+                        <div class="fw-semibold">{{ a.name }}</div>
+                        <div class="small-muted text-truncate" style="max-width:380px">{{ a.get_kind_display }}{% if a.provider %} · <bdi>{{ a.provider }}</bdi>{% endif %}</div>
+                        {% if a.identifier and a.identifier != a.name %}<div class="small-muted text-truncate" style="max-width:380px"><bdi>{{ a.identifier }}</bdi></div>{% endif %}
+                        {% if a.check_status == 'failed' %}<div class="small text-danger">{{ a.check_note }}</div>{% endif %}
+                    </div>
+                </div>
+            </td>
+            <td class="text-nowrap">{% include "assets/_status.html" %}{% if a.expiry_date %}<div class="small-muted mt-1">{% include "assets/_when.html" %}</div>{% endif %}</td>
+            <td class="text-nowrap">{% if a.expiry_date %}<span dir="ltr">{{ a.expiry_date|date:"Y-m-d" }}</span>{% if a.auto_renew %} <i class="bi bi-arrow-repeat text-success" title="{% translate 'Renews automatically' %}"></i>{% endif %}{% else %}<span class="small-muted">—</span>{% endif %}</td>
+            <td class="text-nowrap">{% if a.cost is not None %}<div dir="ltr">{{ a.cost|floatformat:2 }} {{ a.currency }}</div><div class="small-muted">{{ a.get_cycle_display }}</div>{% else %}<span class="small-muted">—</span>{% endif %}</td>
+            <td class="text-nowrap">{% if a.responsible %}{% with who=a.responsible.get_full_name|default:a.responsible.email %}<span class="d-inline-flex align-items-center gap-2"><span class="wk-stat__icon tone-primary" style="width:30px;height:30px;font-size:.8rem;border-radius:50%;font-weight:700">{{ who|slice:":1"|upper }}</span><span dir="auto">{{ who }}</span></span>{% endwith %}{% else %}<span class="small-muted">—</span>{% endif %}</td>
+            <td class="text-end text-nowrap">
+                <div class="d-inline-flex gap-1">
+                {% if membership.can_edit %}
+                {% if a.checkable %}<form method="post" action="{% url 'assets:check' a.pk %}" data-once>{% csrf_token %}<button class="btn btn-sm btn-light" title="{% translate 'Read the end date from the domain registry' %}" aria-label="{% translate 'Check now' %}"><i class="bi bi-arrow-clockwise"></i></button></form>{% endif %}
+                <a class="btn btn-sm btn-light" href="{% url 'assets:edit' a.pk %}" title="{% translate 'Edit' %}" aria-label="{% translate 'Edit' %}"><i class="bi bi-pencil"></i></a>{% endif %}
+                {% if membership.can_manage %}<form method="post" action="{% url 'assets:delete' a.pk %}" data-confirm="{% translate 'This asset will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}
+                </div>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6" class="text-center py-5 small-muted">{% if q or kind or soon %}{% translate "Nothing matches." %}{% else %}{% translate "No assets yet. Add your first domain or subscription." %}{% endif %}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div></div>
+{# On a phone the table does not fit: one card per asset, with everything and its buttons in view. #}
+<div class="d-md-none">
+    {% for a in assets %}
+    <div class="wk-card mb-2"{% if a.status == 'expired' %} style="background:#fff6f5"{% endif %}><div class="wk-card-body">
+        <div class="d-flex justify-content-between align-items-start gap-2">
+            <div class="min-w-0">
+                <div class="fw-semibold"><i class="bi {{ a.icon }}"></i> {{ a.name }}</div>
+                {% if a.identifier and a.identifier != a.name %}<div class="small-muted text-break"><bdi>{{ a.identifier }}</bdi></div>{% endif %}
+                <div class="small-muted">{{ a.get_kind_display }}{% if a.provider %} · <bdi>{{ a.provider }}</bdi>{% endif %}</div>
+            </div>
+            <div class="text-end text-nowrap">{% include "assets/_status.html" %}{% if a.expiry_date %}<div class="small-muted mt-1">{% include "assets/_when.html" %}</div>{% endif %}</div>
+        </div>
+        <div class="d-flex flex-wrap gap-3 small mt-2">
+            <span><i class="bi bi-calendar-event"></i> {% if a.expiry_date %}<span dir="ltr">{{ a.expiry_date|date:"Y-m-d" }}</span>{% if a.auto_renew %} <i class="bi bi-arrow-repeat text-success" title="{% translate 'Renews automatically' %}"></i>{% endif %}{% else %}—{% endif %}</span>
+            {% if a.cost is not None %}<span><i class="bi bi-cash-coin"></i> <span dir="ltr">{{ a.cost|floatformat:2 }} {{ a.currency }}</span> <span class="small-muted">{{ a.get_cycle_display }}</span></span>{% endif %}
+            {% if a.responsible %}<span dir="auto"><i class="bi bi-person"></i> {{ a.responsible.get_full_name|default:a.responsible.email }}</span>{% endif %}
+        </div>
+        {% if a.check_status == 'failed' %}<div class="small text-danger mt-1">{{ a.check_note }}</div>{% endif %}
+        {% if membership.can_edit or membership.can_manage %}
+        <div class="d-flex gap-2 mt-3">
+            {% if membership.can_edit %}
+            <a class="btn btn-sm btn-light flex-fill" href="{% url 'assets:edit' a.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>
+            {% if a.checkable %}<form method="post" action="{% url 'assets:check' a.pk %}" class="flex-fill" data-once>{% csrf_token %}<button class="btn btn-sm btn-light w-100"><i class="bi bi-arrow-clockwise"></i> {% translate "Check now" %}</button></form>{% endif %}{% endif %}
+            {% if membership.can_manage %}<form method="post" action="{% url 'assets:delete' a.pk %}" data-confirm="{% translate 'This asset will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}
+        </div>
+        {% endif %}
+    </div></div>
+    {% empty %}
+    <div class="wk-card"><div class="wk-card-body text-center py-5 small-muted">{% if q or kind or soon %}{% translate "Nothing matches." %}{% else %}{% translate "No assets yet. Add your first domain or subscription." %}{% endif %}</div></div>
+    {% endfor %}
+</div>
+{% endblock %}

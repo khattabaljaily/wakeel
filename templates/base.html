@@ -119,6 +119,8 @@
                 </div>
             </div>
 
+            <a class="rail-btn" href="{% url 'assets:list' %}" data-tip="{% translate "Digital assets" context "navigation" %}"{% if request.resolver_match.app_name == 'assets' %} aria-current="page"{% endif %}><i class="bi bi-hdd-network"></i><span class="lbl">{% translate "Digital assets" context "navigation" %}</span>{% if asset_alerts %}<span class="rail-badge" title="{% translate "Due for renewal within 30 days, or late" %}">{{ asset_alerts }}</span>{% endif %}</a>
+
             <div class="rail-grp {% nav_group '/app/ai/' %}" data-grp="studio">
                 <button type="button" class="rail-btn rail-grp-head" data-grp-toggle aria-expanded="false" data-tip="{% translate "AI studio" context "menu section" %}"><i class="bi bi-palette"></i><span class="lbl">{% translate "AI studio" context "menu section" %}</span><i class="bi bi-chevron-down rail-chev"></i></button>
                 <div class="rail-grp-body">

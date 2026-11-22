@@ -1,0 +1,1 @@
+{% load i18n %}{% if a.days_left is not None %}{% if a.days_left < 0 %}{% blocktranslate count n=a.days_overdue %}{{ n }} day late{% plural %}{{ n }} days late{% endblocktranslate %}{% elif a.days_left == 0 %}{% translate "Today" %}{% else %}{% blocktranslate count n=a.days_left %}In {{ n }} day{% plural %}In {{ n }} days{% endblocktranslate %}{% endif %}{% endif %}

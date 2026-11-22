@@ -7748,6 +7748,215 @@ msgstr "المُضاف"
 msgid "Charges"
 msgstr "الخصومات"
 
+msgid "Domain"
+msgstr "دومين"
+
+msgid "Hosting"
+msgstr "استضافة"
+
+msgid "Software licence"
+msgstr "ترخيص برنامج"
+
+msgid "Cloud service account"
+msgstr "حساب خدمة سحابية"
+
+msgid "Subscription"
+msgstr "اشتراك"
+
+msgid "SSL certificate"
+msgstr "شهادة SSL"
+
+msgid "Yearly"
+msgstr "سنوي"
+
+msgid "Monthly"
+msgstr "شهري"
+
+msgid "One-time"
+msgstr "مرة واحدة"
+
+msgid "provider"
+msgstr "المزوّد"
+
+msgid "domain or address"
+msgstr "الدومين أو العنوان"
+
+msgid "account it is under"
+msgstr "الحساب المسجَّل تحته"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr ""
+"البريد أو اسم المستخدم للحساب ليسهل على أي أحد إيجاده. لا تكتب كلمة المرور "
+"أبداً."
+
+msgid "start date"
+msgstr "تاريخ البدء"
+
+msgid "renewal date"
+msgstr "تاريخ التجديد"
+
+msgid "renews automatically"
+msgstr "يتجدد تلقائياً"
+
+msgid "cost"
+msgstr "التكلفة"
+
+msgid "currency"
+msgstr "العملة"
+
+msgid "billing"
+msgstr "الدورة"
+
+msgid "responsible"
+msgstr "المسؤول"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "اكتب رمز العملة من 3 أحرف، مثل USD."
+
+msgid "The cost cannot be negative."
+msgstr "التكلفة لا يمكن أن تكون سالبة."
+
+msgid "The renewal date cannot be before the start date."
+msgstr "تاريخ التجديد لا يمكن أن يسبق تاريخ البدء."
+
+msgid "This is not a valid domain name."
+msgstr "هذا ليس اسم دومين صالحاً."
+
+msgid "The registry has no record of this domain."
+msgstr "لا يوجد سجل لهذا الدومين لدى جهة التسجيل."
+
+msgid "The registry did not answer."
+msgstr "لم تردّ جهة التسجيل."
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "جهة التسجيل لا تنشر تاريخ انتهاء هذا الدومين."
+
+msgid "Add a digital asset"
+msgstr "إضافة أصل رقمي"
+
+msgid "Edit the digital asset"
+msgstr "تعديل الأصل الرقمي"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "يمكن الفحص التلقائي للدومين الذي له عنوان فقط."
+
+msgid "The end date was read: %(date)s."
+msgstr "قُرئ تاريخ الانتهاء: %(date)s."
+
+msgid "Could not read the end date."
+msgstr "تعذّرت قراءة تاريخ الانتهاء."
+
+msgid "Late"
+msgstr "متأخر"
+
+msgid "Due soon"
+msgstr "يستحق قريباً"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "يستحق التجديد خلال 30 يوماً أو متأخر"
+
+msgid "Add an asset"
+msgstr "إضافة أصل"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"الدومينات والاستضافات والتراخيص والحسابات السحابية والاشتراكات والشهادات في "
+"مكان واحد مع تواريخ تجديدها. تُذكَّر قبل انتهاء كل منها بـ 90 و30 و7 ويوم واحد. "
+"لا تكتب كلمة مرور هنا أبداً."
+
+msgid "Yearly cost"
+msgstr "التكلفة السنوية"
+
+msgid "Renewal date"
+msgstr "تاريخ التجديد"
+
+msgid "Responsible"
+msgstr "المسؤول"
+
+msgid "Provider"
+msgstr "المزوّد"
+
+msgid "Renews automatically"
+msgstr "يتجدد تلقائياً"
+
+msgid "Read the end date from the domain registry"
+msgstr "قراءة تاريخ الانتهاء من جهة تسجيل الدومين"
+
+msgid "Check now"
+msgstr "افحص الآن"
+
+msgid "This asset will be deleted for good."
+msgstr "سيُحذف هذا الأصل نهائياً."
+
+msgid "Nothing matches."
+msgstr "لا شيء يطابق."
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "لا توجد أصول بعد. أضف أول دومين أو اشتراك."
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"للدومين: اضغط زر الفحص في القائمة فيُقرأ تاريخ الانتهاء من جهة التسجيل "
+"تلقائياً."
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr "لا تكتب كلمات مرور أو مفاتيح هنا. فقط من يوفّره ومتى ينتهي ومن يتابعه."
+
+msgid "Added a digital asset"
+msgstr "أضاف أصلاً رقمياً"
+
+msgid "Changed a digital asset"
+msgstr "عدّل أصلاً رقمياً"
+
+msgid "Deleted a digital asset"
+msgstr "حذف أصلاً رقمياً"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "الأصول الرقمية"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Total assets"
+msgstr "إجمالي الأصول"
+
+msgid "Asset"
+msgstr "الأصل"
+
+msgid "No date"
+msgstr "بلا تاريخ"
+
+msgid "Due within 30 days"
+msgstr "يستحق خلال 30 يوماً"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "متأخر"
+msgstr[1] "متأخر يوماً واحداً"
+msgstr[2] "متأخر يومين"
+msgstr[3] "متأخر %(n)s أيام"
+msgstr[4] "متأخر %(n)s يوماً"
+msgstr[5] "متأخر %(n)s يوم"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "اليوم"
+msgstr[1] "بعد يوم واحد"
+msgstr[2] "بعد يومين"
+msgstr[3] "بعد %(n)s أيام"
+msgstr[4] "بعد %(n)s يوماً"
+msgstr[5] "بعد %(n)s يوم"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

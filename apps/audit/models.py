@@ -20,6 +20,7 @@ class AuditEvent(CompanyScopedModel):
     TEAM_INVITED, TEAM_JOINED, TEAM_REMOVED = 'team.invited', 'team.joined', 'team.removed'
     TEAM_ROLE_CHANGED, TEAM_INVITE_REVOKED = 'team.role_changed', 'team.invite_revoked'
     RECORD_UPLOADED, RECORD_CHANGED, RECORD_DELETED = 'record.uploaded', 'record.changed', 'record.deleted'
+    ASSET_CREATED, ASSET_CHANGED, ASSET_DELETED = 'asset.created', 'asset.changed', 'asset.deleted'
     PRESENTATION_CREATED, PRESENTATION_DELETED = 'presentation.created', 'presentation.deleted'
     FORM_CREATED, FORM_UPDATED, FORM_DELETED = 'form.created', 'form.updated', 'form.deleted'
     FORM_OPENED, FORM_CLOSED, FORM_EXPORTED = 'form.opened', 'form.closed', 'form.exported'
@@ -54,6 +55,9 @@ class AuditEvent(CompanyScopedModel):
         RECORD_UPLOADED: _('Uploaded a document to the library'),
         RECORD_CHANGED: _('Changed a document of the library'),
         RECORD_DELETED: _('Deleted a document from the library'),
+        ASSET_CREATED: _('Added a digital asset'),
+        ASSET_CHANGED: _('Changed a digital asset'),
+        ASSET_DELETED: _('Deleted a digital asset'),
         PRESENTATION_CREATED: _('Ordered a presentation'),
         PRESENTATION_DELETED: _('Deleted a presentation'),
         FORM_CREATED: _('Created a form'),

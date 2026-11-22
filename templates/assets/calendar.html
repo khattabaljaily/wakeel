@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Renewal calendar" %}{% endblock %}
+{% block page_title %}{% translate "Renewal calendar" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'assets:list' %}">{% translate "Back" %}</a>{% endblock %}
+{% block content %}
+<div class="wk-card" style="max-width:820px"><div class="wk-card-body">
+    <p>{% translate "Subscribe to your renewals in the calendar of your phone or computer. Each asset with a renewal date appears as an all-day event, with a reminder a week before. The calendar updates by itself when you change the dates." %}</p>
+    {% if feed_url %}
+    <label class="form-label fw-semibold" for="feedUrl">{% translate "Calendar address" %}</label>
+    <div class="input-group mb-2" dir="ltr">
+        <input id="feedUrl" class="form-control" value="{{ feed_url }}" readonly>
+        <button type="button" class="btn btn-light" id="copyFeed"><i class="bi bi-clipboard"></i> {% translate "Copy" %}</button>
+    </div>
+    <p class="small-muted">{% translate "Anyone who has this address can see the names and dates of your assets, so keep it private. If it leaks, make a new one: the old one stops working at once." %}</p>
+    <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-primary" href="{{ webcal_url }}"><i class="bi bi-calendar-plus"></i> {% translate "Add to my calendar" %}</a>
+        <form method="post" data-confirm="{% translate 'The old address will stop working. Make a new one?' %}" data-confirm-yes="{% translate 'Make a new address' %}">{% csrf_token %}<button class="btn btn-outline-danger"><i class="bi bi-arrow-repeat"></i> {% translate "Make a new address" %}</button></form>
+    </div>
+    {% else %}
+    <form method="post">{% csrf_token %}<button class="btn btn-primary"><i class="bi bi-calendar-plus"></i> {% translate "Make the calendar address" %}</button></form>
+    {% endif %}
+</div></div>
+{% endblock %}
+{% block scripts %}<script>
+(function () { var b = document.getElementById('copyFeed'), i = document.getElementById('feedUrl'); if (!b) return;
+  b.addEventListener('click', function () { i.select(); (navigator.clipboard ? navigator.clipboard.writeText(i.value) : Promise.resolve(document.execCommand('copy'))).then(function () { var t = b.innerHTML; b.innerHTML = '<i class="bi bi-check2"></i>'; setTimeout(function () { b.innerHTML = t; }, 1500); }); }); })();
+</script>{% endblock %}

@@ -12857,6 +12857,395 @@ msgstr "画像をコピーしました。投稿に貼り付けてください。
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "画像をコピーできませんでした。代わりにダウンロードしてください。"
 
+msgid "Domain"
+msgstr "ドメイン"
+
+msgid "Hosting"
+msgstr "ホスティング"
+
+msgid "Software licence"
+msgstr "ソフトウェアライセンス"
+
+msgid "Cloud service account"
+msgstr "クラウドサービスのアカウント"
+
+msgid "Subscription"
+msgstr "サブスクリプション"
+
+msgid "SSL certificate"
+msgstr "SSL証明書"
+
+msgid "Yearly"
+msgstr "年額"
+
+msgid "Monthly"
+msgstr "月額"
+
+msgid "One-time"
+msgstr "一回払い"
+
+msgid "provider"
+msgstr "提供元"
+
+msgid "domain or address"
+msgstr "ドメインまたはアドレス"
+
+msgid "account it is under"
+msgstr "所属するアカウント"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr ""
+"アカウントのメールアドレスまたはユーザー名（誰でも見つけられるように）。パス"
+"ワードは絶対に書かないでください。"
+
+msgid "start date"
+msgstr "開始日"
+
+msgid "renewal date"
+msgstr "更新日"
+
+msgid "renews automatically"
+msgstr "自動更新"
+
+msgid "cost"
+msgstr "費用"
+
+msgid "currency"
+msgstr "通貨"
+
+msgid "billing"
+msgstr "請求"
+
+msgid "responsible"
+msgstr "担当者"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "3文字の通貨コードを入力してください（例：USD）。"
+
+msgid "The cost cannot be negative."
+msgstr "費用はマイナスにできません。"
+
+msgid "The renewal date cannot be before the start date."
+msgstr "更新日は開始日より前にはできません。"
+
+msgid "This is not a valid domain name."
+msgstr "有効なドメイン名ではありません。"
+
+msgid "The registry has no record of this domain."
+msgstr "レジストリにこのドメインの記録がありません。"
+
+msgid "The registry did not answer."
+msgstr "レジストリから応答がありませんでした。"
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "レジストリはこのドメインの有効期限を公開していません。"
+
+msgid "Add a digital asset"
+msgstr "デジタル資産を追加"
+
+msgid "Edit the digital asset"
+msgstr "デジタル資産を編集"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "自動で確認できるのは、アドレスのあるドメインだけです。"
+
+msgid "The end date was read: %(date)s."
+msgstr "有効期限を取得しました：%(date)s。"
+
+msgid "Could not read the end date."
+msgstr "有効期限を取得できませんでした。"
+
+msgid "Late"
+msgstr "期限超過"
+
+msgid "Due soon"
+msgstr "もうすぐ期限"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "30日以内に更新が必要、または期限超過"
+
+msgid "Add an asset"
+msgstr "資産を追加"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"ドメイン、ホスティング、ライセンス、クラウドアカウント、サブスクリプション、"
+"証明書を更新日とともに一か所で管理します。それぞれの期限の90日前、30日前、7日"
+"前、1日前にお知らせします。ここにパスワードは書かないでください。"
+
+msgid "Yearly cost"
+msgstr "年間費用"
+
+msgid "Renewal date"
+msgstr "更新日"
+
+msgid "Responsible"
+msgstr "担当者"
+
+msgid "Provider"
+msgstr "提供元"
+
+msgid "Renews automatically"
+msgstr "自動更新"
+
+msgid "Read the end date from the domain registry"
+msgstr "ドメインレジストリから有効期限を取得"
+
+msgid "Check now"
+msgstr "今すぐ確認"
+
+msgid "This asset will be deleted for good."
+msgstr "この資産は完全に削除されます。"
+
+msgid "Nothing matches."
+msgstr "一致するものはありません。"
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr ""
+"資産はまだありません。最初のドメインやサブスクリプションを追加してください。"
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"ドメインの場合は、一覧の確認ボタンを押すと、レジストリから有効期限が取得され"
+"ます。"
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr ""
+"ここにパスワードやキーは書かないでください。提供元、期限、担当者だけを記録し"
+"ます。"
+
+msgid "Added a digital asset"
+msgstr "デジタル資産を追加しました"
+
+msgid "Changed a digital asset"
+msgstr "デジタル資産を変更しました"
+
+msgid "Deleted a digital asset"
+msgstr "デジタル資産を削除しました"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "更新しました。次の更新日は%(date)sです。"
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr "この資産には移動する更新日がないか、一回払いの費用です。"
+
+msgid "%(n)s assets were added."
+msgstr "%(n)s件の資産を追加しました。"
+
+msgid "The file has no rows to add."
+msgstr "追加する行がファイルにありません。"
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr ""
+"カレンダーのアドレスを作成しました。以前のアドレスがある場合は使えなくなりま"
+"す。"
+
+msgid "Marked a digital asset as renewed"
+msgstr "デジタル資産を更新済みにしました"
+
+msgid "Imported digital assets from a file"
+msgstr "ファイルからデジタル資産をインポートしました"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "更新カレンダーの新しいアドレスを作成しました"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "ファイルは1 MB未満にしてください。"
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "ファイルはUTF-8で保存したCSVにしてください。"
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr ""
+"1行目に列名を書き、「name」から始めてください。テンプレートをダウンロードする"
+"と確認できます。"
+
+msgid "Only the first %(n)s rows are read."
+msgstr "先頭の%(n)s行だけを読み込みます。"
+
+msgid "Unknown type: %(v)s"
+msgstr "不明な種類：%(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "不明な請求：%(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)sは会社のメンバーではありません。"
+
+msgid "Renewals of %(company)s"
+msgstr "%(company)sの更新"
+
+msgid "Renewal: %(name)s"
+msgstr "更新：%(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s：更新が必要なデジタル資産が%(n)s件"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "%(company)sのデジタル資産で対応が必要なもの："
+
+msgid "Open the list:"
+msgstr "一覧を開く："
+
+msgid "You receive this summary every week because you manage the company."
+msgstr "あなたは会社を管理しているため、この概要が毎週届きます。"
+
+msgid "document in the library"
+msgstr "ライブラリの書類"
+
+msgid "renewed on"
+msgstr "更新した日"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "30日以内に更新が必要なデジタル資産"
+
+msgid "%(n)s due for renewal"
+msgstr "更新が必要：%(n)s件"
+
+msgid "digital assets"
+msgstr "デジタル資産"
+
+msgid "Calendar"
+msgstr "カレンダー"
+
+msgid "Import"
+msgstr "インポート"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr "更新日が次の期間に移り、リマインダーが最初からやり直されます。"
+
+msgid "Mark as renewed"
+msgstr "更新済みにする"
+
+msgid "Renewed"
+msgstr "更新済み"
+
+msgid "Renewal history"
+msgstr "更新履歴"
+
+msgid "renewed"
+msgstr "更新済み"
+
+msgid "Import assets from a file"
+msgstr "ファイルから資産をインポート"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"CSVファイルから多数の資産を一度に追加します（ExcelやGoogleスプレッドシートの"
+"「CSVとして保存」で作成できます）。誤りのある行はスキップして一覧表示し、残り"
+"を追加します。"
+
+msgid "Download the template and fill in one asset per row."
+msgstr "テンプレートをダウンロードし、1行に1つの資産を入力してください。"
+
+msgid "Download the template"
+msgstr "テンプレートをダウンロード"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"種類は domain、hosting、license、cloud、subscription、ssl、other のいずれかで"
+"す。請求は yearly、monthly、once のいずれかです。日付は 2027-03-14 のように書"
+"きます。担当者は会社のメンバーのメールアドレスです。"
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "500行、1 MBまで。ファイルにパスワードは絶対に入れないでください。"
+
+msgid "Rows that were not added"
+msgstr "追加されなかった行"
+
+msgid "Row %(n)s"
+msgstr "%(n)s行目"
+
+msgid "and %(n)s more"
+msgstr "ほか%(n)s件"
+
+msgid "Renewal calendar"
+msgstr "更新カレンダー"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"更新日をスマートフォンやパソコンのカレンダーで購読できます。更新日のある資産"
+"は、1週間前のリマインダー付きの終日の予定として表示されます。日付を変更する"
+"と、カレンダーは自動で更新されます。"
+
+msgid "Calendar address"
+msgstr "カレンダーのアドレス"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"このアドレスを知っている人は誰でも、資産の名前と日付を見られます。非公開にし"
+"てください。漏れた場合は新しく作成すると、古いアドレスはすぐに使えなくなりま"
+"す。"
+
+msgid "Add to my calendar"
+msgstr "自分のカレンダーに追加"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "古いアドレスは使えなくなります。新しく作成しますか？"
+
+msgid "Make a new address"
+msgstr "新しいアドレスを作成"
+
+msgid "Make the calendar address"
+msgstr "カレンダーのアドレスを作成"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Total assets"
+msgstr "資産の合計"
+
+msgid "Asset"
+msgstr "資産"
+
+msgid "No date"
+msgstr "日付なし"
+
+msgid "Due within 30 days"
+msgstr "30日以内に期限"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "デジタル資産"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "%(n)s日超過"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "%(n)s日後"
+
+msgid "Approved a suggestion of Marid"
+msgstr "Maridの提案を承認しました"
+
+msgid "Asked Marid a question about a document"
+msgstr "書類についてMaridに質問しました"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "アイデンティティ、レター、証明書を、あなた専用のレターヘッドで。"
 

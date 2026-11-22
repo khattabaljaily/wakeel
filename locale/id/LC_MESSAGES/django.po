@@ -12956,6 +12956,400 @@ msgstr "Gambar disalin. Tempelkan ke postingan."
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "Gambar tidak dapat disalin; unduh saja."
 
+msgid "Domain"
+msgstr "Domain"
+
+msgid "Hosting"
+msgstr "Hosting"
+
+msgid "Software licence"
+msgstr "Lisensi perangkat lunak"
+
+msgid "Cloud service account"
+msgstr "Akun layanan cloud"
+
+msgid "Subscription"
+msgstr "Langganan"
+
+msgid "SSL certificate"
+msgstr "Sertifikat SSL"
+
+msgid "Yearly"
+msgstr "Tahunan"
+
+msgid "Monthly"
+msgstr "Bulanan"
+
+msgid "One-time"
+msgstr "Sekali bayar"
+
+msgid "provider"
+msgstr "penyedia"
+
+msgid "domain or address"
+msgstr "domain atau alamat"
+
+msgid "account it is under"
+msgstr "akun yang digunakan"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr ""
+"Email atau nama pengguna akun, agar siapa pun bisa menemukannya. Jangan "
+"pernah kata sandi."
+
+msgid "start date"
+msgstr "tanggal mulai"
+
+msgid "renewal date"
+msgstr "tanggal perpanjangan"
+
+msgid "renews automatically"
+msgstr "diperpanjang otomatis"
+
+msgid "cost"
+msgstr "biaya"
+
+msgid "currency"
+msgstr "mata uang"
+
+msgid "billing"
+msgstr "penagihan"
+
+msgid "responsible"
+msgstr "penanggung jawab"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "Tulis kode mata uang 3 huruf, misalnya USD."
+
+msgid "The cost cannot be negative."
+msgstr "Biaya tidak boleh negatif."
+
+msgid "The renewal date cannot be before the start date."
+msgstr "Tanggal perpanjangan tidak boleh sebelum tanggal mulai."
+
+msgid "This is not a valid domain name."
+msgstr "Ini bukan nama domain yang valid."
+
+msgid "The registry has no record of this domain."
+msgstr "Registri tidak memiliki catatan tentang domain ini."
+
+msgid "The registry did not answer."
+msgstr "Registri tidak menjawab."
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "Registri tidak mempublikasikan tanggal berakhir domain ini."
+
+msgid "Add a digital asset"
+msgstr "Tambah aset digital"
+
+msgid "Edit the digital asset"
+msgstr "Ubah aset digital"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "Hanya domain dengan alamatnya yang dapat diperiksa otomatis."
+
+msgid "The end date was read: %(date)s."
+msgstr "Tanggal berakhir terbaca: %(date)s."
+
+msgid "Could not read the end date."
+msgstr "Tanggal berakhir tidak dapat dibaca."
+
+msgid "Late"
+msgstr "Terlambat"
+
+msgid "Due soon"
+msgstr "Segera jatuh tempo"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "Perlu diperpanjang dalam 30 hari, atau terlambat"
+
+msgid "Add an asset"
+msgstr "Tambah aset"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"Domain, hosting, lisensi, akun cloud, langganan, dan sertifikat di satu "
+"tempat, lengkap dengan tanggal perpanjangannya. Anda diingatkan 90, 30, 7, "
+"dan 1 hari sebelum masing-masing berakhir. Jangan pernah menulis kata sandi "
+"di sini."
+
+msgid "Yearly cost"
+msgstr "Biaya tahunan"
+
+msgid "Renewal date"
+msgstr "Tanggal perpanjangan"
+
+msgid "Responsible"
+msgstr "Penanggung jawab"
+
+msgid "Provider"
+msgstr "Penyedia"
+
+msgid "Renews automatically"
+msgstr "Diperpanjang otomatis"
+
+msgid "Read the end date from the domain registry"
+msgstr "Baca tanggal berakhir dari registri domain"
+
+msgid "Check now"
+msgstr "Periksa sekarang"
+
+msgid "This asset will be deleted for good."
+msgstr "Aset ini akan dihapus permanen."
+
+msgid "Nothing matches."
+msgstr "Tidak ada yang cocok."
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "Belum ada aset. Tambahkan domain atau langganan pertama Anda."
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"Untuk domain, tekan tombol periksa di daftar dan tanggal berakhir dibaca "
+"dari registri untuk Anda."
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr ""
+"Jangan tulis kata sandi atau kunci di sini. Cukup siapa penyedianya, kapan "
+"berakhir, dan siapa yang mengurusnya."
+
+msgid "Added a digital asset"
+msgstr "Menambahkan aset digital"
+
+msgid "Changed a digital asset"
+msgstr "Mengubah aset digital"
+
+msgid "Deleted a digital asset"
+msgstr "Menghapus aset digital"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "Diperpanjang: tanggal perpanjangan berikutnya %(date)s."
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr ""
+"Aset ini tidak memiliki tanggal perpanjangan untuk digeser, atau merupakan "
+"biaya sekali bayar."
+
+msgid "%(n)s assets were added."
+msgstr "%(n)s aset ditambahkan."
+
+msgid "The file has no rows to add."
+msgstr "Berkas tidak memiliki baris untuk ditambahkan."
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "Alamat kalender siap. Alamat lama, jika ada, tidak lagi berfungsi."
+
+msgid "Marked a digital asset as renewed"
+msgstr "Menandai aset digital sebagai diperpanjang"
+
+msgid "Imported digital assets from a file"
+msgstr "Mengimpor aset digital dari berkas"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "Membuat alamat baru untuk kalender perpanjangan"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "Ukuran berkas harus kurang dari 1 MB."
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "Berkas harus berupa CSV yang disimpan sebagai UTF-8."
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr ""
+"Baris pertama harus menamai kolom, dimulai dengan «name». Unduh templat "
+"untuk melihatnya."
+
+msgid "Only the first %(n)s rows are read."
+msgstr "Hanya %(n)s baris pertama yang dibaca."
+
+msgid "Unknown type: %(v)s"
+msgstr "Jenis tidak dikenal: %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "Penagihan tidak dikenal: %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s bukan anggota perusahaan."
+
+msgid "Renewals of %(company)s"
+msgstr "Perpanjangan %(company)s"
+
+msgid "Renewal: %(name)s"
+msgstr "Perpanjangan: %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s: %(n)s aset digital perlu diperpanjang"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "Aset digital %(company)s yang perlu perhatian:"
+
+msgid "Open the list:"
+msgstr "Buka daftar:"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr ""
+"Anda menerima ringkasan ini setiap minggu karena Anda mengelola perusahaan."
+
+msgid "document in the library"
+msgstr "dokumen di perpustakaan"
+
+msgid "renewed on"
+msgstr "diperpanjang pada"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "Aset digital yang perlu diperpanjang dalam 30 hari"
+
+msgid "%(n)s due for renewal"
+msgstr "%(n)s perlu diperpanjang"
+
+msgid "digital assets"
+msgstr "aset digital"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Import"
+msgstr "Impor"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr ""
+"Tanggal perpanjangan maju ke periode berikutnya dan pengingat dimulai lagi."
+
+msgid "Mark as renewed"
+msgstr "Tandai sudah diperpanjang"
+
+msgid "Renewed"
+msgstr "Sudah diperpanjang"
+
+msgid "Renewal history"
+msgstr "Riwayat perpanjangan"
+
+msgid "renewed"
+msgstr "diperpanjang"
+
+msgid "Import assets from a file"
+msgstr "Impor aset dari berkas"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"Tambahkan banyak aset sekaligus dari berkas CSV (Excel dan Google Sheets "
+"dapat menyimpannya dengan «Simpan sebagai CSV»). Baris yang salah dilewati "
+"dan didaftar, sisanya ditambahkan."
+
+msgid "Download the template and fill in one asset per row."
+msgstr "Unduh templat dan isi satu aset per baris."
+
+msgid "Download the template"
+msgstr "Unduh templat"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"Jenisnya adalah domain, hosting, license, cloud, subscription, ssl, atau "
+"other. Penagihan adalah yearly, monthly, atau once. Tanggal ditulis "
+"2027-03-14. Penanggung jawab adalah email anggota perusahaan."
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr ""
+"Hingga 500 baris dan 1 MB. Jangan pernah memasukkan kata sandi ke dalam "
+"berkas."
+
+msgid "Rows that were not added"
+msgstr "Baris yang tidak ditambahkan"
+
+msgid "Row %(n)s"
+msgstr "Baris %(n)s"
+
+msgid "and %(n)s more"
+msgstr "dan %(n)s lainnya"
+
+msgid "Renewal calendar"
+msgstr "Kalender perpanjangan"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"Berlangganan perpanjangan Anda di kalender ponsel atau komputer. Setiap aset "
+"yang memiliki tanggal perpanjangan muncul sebagai acara seharian dengan "
+"pengingat seminggu sebelumnya. Kalender diperbarui sendiri saat Anda "
+"mengubah tanggal."
+
+msgid "Calendar address"
+msgstr "Alamat kalender"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"Siapa pun yang memiliki alamat ini dapat melihat nama dan tanggal aset Anda, "
+"jadi jaga kerahasiaannya. Jika bocor, buat yang baru: yang lama langsung "
+"berhenti berfungsi."
+
+msgid "Add to my calendar"
+msgstr "Tambahkan ke kalender saya"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "Alamat lama akan berhenti berfungsi. Buat yang baru?"
+
+msgid "Make a new address"
+msgstr "Buat alamat baru"
+
+msgid "Make the calendar address"
+msgstr "Buat alamat kalender"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Total assets"
+msgstr "Total aset"
+
+msgid "Asset"
+msgstr "Aset"
+
+msgid "No date"
+msgstr "Tanpa tanggal"
+
+msgid "Due within 30 days"
+msgstr "Jatuh tempo dalam 30 hari"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "Aset digital"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "Terlambat %(n)s hari"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "Dalam %(n)s hari"
+
+msgid "Approved a suggestion of Marid"
+msgstr "Menyetujui saran dari Marid"
+
+msgid "Asked Marid a question about a document"
+msgstr "Mengajukan pertanyaan kepada Marid tentang dokumen"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identitas, surat, dan sertifikat, di kop surat Anda sendiri."
 

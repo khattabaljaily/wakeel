@@ -57,6 +57,12 @@ def waiting(company, user, membership):
         expiring = Record.objects.filter(expiry_date__isnull=False, expiry_date__lte=soon).count()
         if expiring:
             docs.append(_item('bi-hourglass-bottom', 'late', expiring, 'Papers expired or expiring within 30 days', reverse('library:list') + '?status=soon'))
+    if not is_client:
+        from apps.assets.models import SOON_DAYS as ASSET_SOON_DAYS, Asset
+        due = Asset.objects.filter(expiry_date__isnull=False,
+                                   expiry_date__lte=timezone.localdate() + datetime.timedelta(days=ASSET_SOON_DAYS)).count()
+        if due:
+            docs.append(_item('bi-hdd-network', 'late', due, 'Digital assets due for renewal within 30 days', reverse('assets:list') + '?status=soon'))
     if docs:
         groups.append({'title': pgettext('menu section', 'Documents and files'), 'icon': 'bi-layers', 'items': docs})
 
@@ -79,6 +85,7 @@ def overview(company, user, membership):
     """The company's whole product at a glance (not only marketing): money, papers, documents, tasks. None for a client."""
     if membership.role == Membership.Role.CLIENT:
         return None
+    from apps.assets.models import Asset
     from apps.credits import catalog, charging
     from apps.documents.models import Document
     from apps.library.models import SOON_DAYS, Record
@@ -92,6 +99,8 @@ def overview(company, user, membership):
         'balance': catalog.format_points(wallet.balance), 'exempt': wallet.is_exempt, 'low': low, 'spent_month': spent,
         'records': Record.objects.count(),
         'expiring': Record.objects.filter(expiry_date__isnull=False, expiry_date__lte=today + datetime.timedelta(days=SOON_DAYS)).count(),
+        'assets': Asset.objects.count(),
+        'assets_due': Asset.objects.filter(expiry_date__isnull=False, expiry_date__lte=today + datetime.timedelta(days=30)).count(),
         'issued_month': Document.objects.filter(created_at__gte=month).count(),
         'drafts': Document.objects.filter(status=Document.DRAFT, created_by=user).count(),
         'my_tasks': Task.objects.filter(assignee=user).exclude(status=Task.DONE).count(),

@@ -22,6 +22,7 @@ production command is shown to the owner first. Production: `Server`, `/home/enj
 7. **Crons**:
    - `manage.py send_expiry_reminders` daily
    - `manage.py send_asset_reminders` daily (digital assets; it first re-reads domain end dates from the RDAP registry, `--no-check` skips that)
+   - `manage.py send_asset_digest` weekly (e-mail summary of the assets late or due within 30 days to owners and admins)
    - `manage.py send_note_reminders` every few minutes
    - `manage.py prune_assistant` monthly (optional)
    - the existing backup job

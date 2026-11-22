@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %}{% translate "Digital assets" context "navigation" %}{% endblock %}
 {% block page_title %}{% translate "Digital assets" context "navigation" %}{% endblock %}
-{% block actions %}{% if membership.can_edit %}<a class="btn btn-primary" href="{% url 'assets:new' %}{% if kind %}?kind={{ kind }}{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "Add an asset" %}</a>{% endif %}{% endblock %}
+{% block actions %}{% if membership.can_manage %}<a class="btn btn-light" href="{% url 'assets:calendar' %}"><i class="bi bi-calendar-event"></i> {% translate "Calendar" %}</a>{% endif %}{% if membership.can_edit %}<a class="btn btn-light" href="{% url 'assets:import' %}"><i class="bi bi-file-earmark-arrow-up"></i> {% translate "Import" %}</a><a class="btn btn-primary" href="{% url 'assets:new' %}{% if kind %}?kind={{ kind }}{% endif %}"><i class="bi bi-plus-lg"></i> {% translate "Add an asset" %}</a>{% endif %}{% endblock %}
 {% block content %}
 <div class="row g-3 mb-3">
     <div class="col-6 col-xl-3"><a href="{% url 'assets:list' %}" class="wk-card wk-stat"><div class="wk-stat__icon tone-primary"><i class="bi bi-hdd-network"></i></div><div><div class="wk-stat__value">{{ count_all }}</div><div class="wk-stat__label">{% translate "Total assets" %}</div></div></a></div>
@@ -32,7 +32,7 @@
                 <div class="d-flex align-items-center gap-3">
                     <span class="wk-stat__icon tone-primary" style="width:42px;height:42px;font-size:1.1rem;border-radius:12px"><i class="bi {{ a.icon }}"></i></span>
                     <div style="min-width:0">
-                        <div class="fw-semibold">{{ a.name }}</div>
+                        <div class="fw-semibold">{{ a.name }}{% if a.document_id %} <a href="{% url 'library:list' %}?rec={{ a.document_id }}" class="text-muted" title="{% translate 'Open the document' %}"><i class="bi bi-paperclip"></i></a>{% endif %}</div>
                         <div class="small-muted text-truncate" style="max-width:380px">{{ a.get_kind_display }}{% if a.provider %} · <bdi>{{ a.provider }}</bdi>{% endif %}</div>
                         {% if a.identifier and a.identifier != a.name %}<div class="small-muted text-truncate" style="max-width:380px"><bdi>{{ a.identifier }}</bdi></div>{% endif %}
                         {% if a.check_status == 'failed' %}<div class="small text-danger">{{ a.check_note }}</div>{% endif %}
@@ -46,6 +46,7 @@
             <td class="text-end text-nowrap">
                 <div class="d-inline-flex gap-1">
                 {% if membership.can_edit %}
+                {% if a.expiry_date and a.cycle != 'once' %}<form method="post" action="{% url 'assets:renew' a.pk %}" data-confirm="{% translate 'The renewal date moves to the next period and the reminders start again.' %}" data-confirm-yes="{% translate 'Mark as renewed' %}">{% csrf_token %}<button class="btn btn-sm btn-success" title="{% translate 'Mark as renewed' %}" aria-label="{% translate 'Mark as renewed' %}"><i class="bi bi-check2-circle"></i></button></form>{% endif %}
                 {% if a.checkable %}<form method="post" action="{% url 'assets:check' a.pk %}" data-once>{% csrf_token %}<button class="btn btn-sm btn-light" title="{% translate 'Read the end date from the domain registry' %}" aria-label="{% translate 'Check now' %}"><i class="bi bi-arrow-clockwise"></i></button></form>{% endif %}
                 <a class="btn btn-sm btn-light" href="{% url 'assets:edit' a.pk %}" title="{% translate 'Edit' %}" aria-label="{% translate 'Edit' %}"><i class="bi bi-pencil"></i></a>{% endif %}
                 {% if membership.can_manage %}<form method="post" action="{% url 'assets:delete' a.pk %}" data-confirm="{% translate 'This asset will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}
@@ -64,7 +65,7 @@
     <div class="wk-card mb-2"{% if a.status == 'expired' %} style="background:#fff6f5"{% endif %}><div class="wk-card-body">
         <div class="d-flex justify-content-between align-items-start gap-2">
             <div class="min-w-0">
-                <div class="fw-semibold"><i class="bi {{ a.icon }}"></i> {{ a.name }}</div>
+                <div class="fw-semibold"><i class="bi {{ a.icon }}"></i> {{ a.name }}{% if a.document_id %} <a href="{% url 'library:list' %}?rec={{ a.document_id }}" class="text-muted"><i class="bi bi-paperclip"></i></a>{% endif %}</div>
                 {% if a.identifier and a.identifier != a.name %}<div class="small-muted text-break"><bdi>{{ a.identifier }}</bdi></div>{% endif %}
                 <div class="small-muted">{{ a.get_kind_display }}{% if a.provider %} · <bdi>{{ a.provider }}</bdi>{% endif %}</div>
             </div>
@@ -79,6 +80,7 @@
         {% if membership.can_edit or membership.can_manage %}
         <div class="d-flex gap-2 mt-3">
             {% if membership.can_edit %}
+            {% if a.expiry_date and a.cycle != 'once' %}<form method="post" action="{% url 'assets:renew' a.pk %}" class="flex-fill" data-confirm="{% translate 'The renewal date moves to the next period and the reminders start again.' %}" data-confirm-yes="{% translate 'Mark as renewed' %}">{% csrf_token %}<button class="btn btn-sm btn-success w-100"><i class="bi bi-check2-circle"></i> {% translate "Renewed" %}</button></form>{% endif %}
             <a class="btn btn-sm btn-light flex-fill" href="{% url 'assets:edit' a.pk %}"><i class="bi bi-pencil"></i> {% translate "Edit" %}</a>
             {% if a.checkable %}<form method="post" action="{% url 'assets:check' a.pk %}" class="flex-fill" data-once>{% csrf_token %}<button class="btn btn-sm btn-light w-100"><i class="bi bi-arrow-clockwise"></i> {% translate "Check now" %}</button></form>{% endif %}{% endif %}
             {% if membership.can_manage %}<form method="post" action="{% url 'assets:delete' a.pk %}" data-confirm="{% translate 'This asset will be deleted for good.' %}" data-confirm-yes="{% translate 'Delete' %}">{% csrf_token %}<button class="btn btn-sm btn-outline-danger" aria-label="{% translate 'Delete' %}"><i class="bi bi-trash"></i></button></form>{% endif %}

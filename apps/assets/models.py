@@ -55,6 +55,9 @@ class Asset(CompanyScopedModel):
     responsible = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL,
                                     related_name='+', verbose_name=_('responsible'))
     notes = models.TextField(_('notes'), blank=True)
+    # A paper of the library about it (the invoice, the proof of ownership, the licence): the file itself is kept there, encrypted.
+    document = models.ForeignKey('library.Record', null=True, blank=True, on_delete=models.SET_NULL, related_name='+',
+                                 verbose_name=_('document in the library'))
     # The last reminder stage sent for the current expiry date (90, 30, 7, 1 or 0 days before); cleared when it changes.
     reminded_days = models.SmallIntegerField(null=True, blank=True, editable=False)
     # The last automatic check: when, whether it read a date, and what went wrong if it did not.
@@ -107,3 +110,30 @@ class Asset(CompanyScopedModel):
         if self.cost is None or self.cycle == self.ONCE:
             return None
         return self.cost * 12 if self.cycle == self.MONTHLY else self.cost
+
+
+class RenewalLog(CompanyScopedModel):
+    """One renewal of an asset: when it was marked renewed, from which date to which, and at what cost."""
+
+    asset = models.ForeignKey(Asset, on_delete=models.CASCADE, related_name='renewals')
+    renewed_on = models.DateField(_('renewed on'))
+    old_expiry = models.DateField(null=True, blank=True)
+    new_expiry = models.DateField()
+    cost = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    currency = models.CharField(max_length=3, default='USD')
+    by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at', '-id']
+
+
+class AssetCalendar(CompanyScopedModel):
+    """The secret address of a company's renewal calendar (an .ics feed the phone's calendar can subscribe to). Anyone who has the
+    address can read the names and dates, so it can be replaced at any time and the old one stops working."""
+
+    token = models.CharField(max_length=64, unique=True, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['company'], name='one_asset_calendar_per_company')]

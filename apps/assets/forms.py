@@ -2,15 +2,19 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from apps.companies.models import Membership
+from apps.library.models import Record
 
 from .models import Asset
 
 
 class AssetForm(forms.ModelForm):
+    # Declared here with an empty list: the papers it offers belong to one company and are filled in when the form is built.
+    document = forms.ModelChoiceField(queryset=Record.all_companies.none(), required=False, label=_('document in the library'))
+
     class Meta:
         model = Asset
         fields = ['kind', 'name', 'provider', 'identifier', 'account', 'start_date', 'expiry_date', 'auto_renew', 'cost',
-                  'currency', 'cycle', 'responsible', 'notes']
+                  'currency', 'cycle', 'responsible', 'document', 'notes']
         widgets = {
             'start_date': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
             'expiry_date': forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
@@ -24,6 +28,9 @@ class AssetForm(forms.ModelForm):
         self.fields['responsible'].queryset = self.fields['responsible'].queryset.filter(
             pk__in=members.values_list('user_id', flat=True))
         self.fields['responsible'].required = False
+        # Only the company's own papers can be linked.
+        self.fields['document'].queryset = Record.objects.none() if company is None else Record.objects.for_company(company)
+        self.fields['document'].required = False
         # The name, provider and domain follow the page's direction (right-to-left in Arabic); the e-mail of the account and the notes
         # follow what is typed.
         for name in ('account', 'notes'):

@@ -621,5 +621,5 @@ class MarketingActions(Base):
         system, tools = chat.call_args.args[0], chat.call_args.args[2]
         for action in ('make_content_plan', 'post_from_document', 'rewrite_post', 'make_presentation', 'document_service'):
             self.assertIn(action, system)
-        self.assertEqual({t['function']['name'] for t in tools}, {'search_documents', 'search_posts', 'whats_waiting', 'propose_action'})
+        self.assertEqual({t['function']['name'] for t in tools}, {'search_documents', 'search_posts', 'search_assets', 'whats_waiting', 'propose_action'})
         self.assertIn('make_content_plan', tools[-1]['function']['parameters']['properties']['action']['enum'])

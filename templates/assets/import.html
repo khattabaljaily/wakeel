@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n asset_extras %}
+{% block title %}{% translate "Import assets from a file" %}{% endblock %}
+{% block page_title %}{% translate "Import assets from a file" %}{% endblock %}
+{% block actions %}<a class="btn btn-light" href="{% url 'assets:list' %}">{% translate "Back" %}</a>{% endblock %}
+{% block content %}
+<div class="wk-card" style="max-width:820px"><div class="wk-card-body">
+    <p>{% translate "Add many assets at once from a CSV file (Excel and Google Sheets can save one with Save as CSV). Rows that are wrong are skipped and listed, the others are added." %}</p>
+    <ol class="small">
+        <li>{% translate "Download the template and fill in one asset per row." %} <a href="{% url 'assets:import_template' %}"><i class="bi bi-download"></i> {% translate "Download the template" %}</a></li>
+        <li>{% filter keep_dates %}{% translate "The type is domain, hosting, license, cloud, subscription, ssl or other. The billing is yearly, monthly or once. Dates are written 2027-03-14. The responsible is the e-mail of a member of the company." %}{% endfilter %}</li>
+        <li>{% translate "Up to 500 rows and 1 MB. Never put passwords in the file." %}</li>
+    </ol>
+    <p class="small-muted" dir="ltr">{{ columns|join:", " }}</p>
+    <form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}
+        <div class="mb-3"><input type="file" class="form-control" name="file" accept=".csv,text/csv" required></div>
+        <button class="btn btn-primary"><i class="bi bi-upload"></i> {% translate "Import" %}</button>
+    </form>
+</div></div>
+{% if problems %}
+<div class="wk-card mt-3" style="max-width:820px"><div class="wk-card-body">
+    <h2 class="h6">{% translate "Rows that were not added" %}</h2>
+    <ul class="small mb-0">{% for number, why in problems %}<li>{% blocktranslate with n=number %}Row {{ n }}{% endblocktranslate %}: {{ why }}</li>{% endfor %}{% if more %}<li>{% blocktranslate with n=more %}and {{ n }} more{% endblocktranslate %}</li>{% endif %}</ul>
+</div></div>
+{% endif %}
+{% endblock %}

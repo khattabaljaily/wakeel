@@ -13123,6 +13123,407 @@ msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr ""
 "Das Bild konnte nicht kopiert werden; laden Sie es stattdessen herunter."
 
+msgid "Domain"
+msgstr "Domain"
+
+msgid "Hosting"
+msgstr "Hosting"
+
+msgid "Software licence"
+msgstr "Softwarelizenz"
+
+msgid "Cloud service account"
+msgstr "Cloud-Dienstkonto"
+
+msgid "Subscription"
+msgstr "Abonnement"
+
+msgid "SSL certificate"
+msgstr "SSL-Zertifikat"
+
+msgid "Yearly"
+msgstr "Jährlich"
+
+msgid "Monthly"
+msgstr "Monatlich"
+
+msgid "One-time"
+msgstr "Einmalig"
+
+msgid "provider"
+msgstr "Anbieter"
+
+msgid "domain or address"
+msgstr "Domain oder Adresse"
+
+msgid "account it is under"
+msgstr "Konto, unter dem es läuft"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr ""
+"E-Mail oder Benutzername des Kontos, damit es jeder finden kann. Niemals ein "
+"Passwort."
+
+msgid "start date"
+msgstr "Startdatum"
+
+msgid "renewal date"
+msgstr "Verlängerungsdatum"
+
+msgid "renews automatically"
+msgstr "verlängert sich automatisch"
+
+msgid "cost"
+msgstr "Kosten"
+
+msgid "currency"
+msgstr "Währung"
+
+msgid "billing"
+msgstr "Abrechnung"
+
+msgid "responsible"
+msgstr "Verantwortlich"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "Geben Sie den dreistelligen Währungscode ein, zum Beispiel USD."
+
+msgid "The cost cannot be negative."
+msgstr "Die Kosten dürfen nicht negativ sein."
+
+msgid "The renewal date cannot be before the start date."
+msgstr "Das Verlängerungsdatum darf nicht vor dem Startdatum liegen."
+
+msgid "This is not a valid domain name."
+msgstr "Das ist kein gültiger Domainname."
+
+msgid "The registry has no record of this domain."
+msgstr "Die Registry hat keinen Eintrag zu dieser Domain."
+
+msgid "The registry did not answer."
+msgstr "Die Registry hat nicht geantwortet."
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "Die Registry veröffentlicht das Ablaufdatum dieser Domain nicht."
+
+msgid "Add a digital asset"
+msgstr "Digitales Asset hinzufügen"
+
+msgid "Edit the digital asset"
+msgstr "Digitales Asset bearbeiten"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "Nur eine Domain mit Adresse kann automatisch geprüft werden."
+
+msgid "The end date was read: %(date)s."
+msgstr "Ablaufdatum gelesen: %(date)s."
+
+msgid "Could not read the end date."
+msgstr "Das Ablaufdatum konnte nicht gelesen werden."
+
+msgid "Late"
+msgstr "Überfällig"
+
+msgid "Due soon"
+msgstr "Bald fällig"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "Innerhalb von 30 Tagen zu verlängern oder überfällig"
+
+msgid "Add an asset"
+msgstr "Asset hinzufügen"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"Domains, Hosting, Lizenzen, Cloud-Konten, Abonnements und Zertifikate an "
+"einem Ort, mit ihren Verlängerungsterminen. Sie werden 90, 30, 7 und 1 Tag "
+"vor Ablauf erinnert. Schreiben Sie hier niemals ein Passwort."
+
+msgid "Yearly cost"
+msgstr "Jahreskosten"
+
+msgid "Renewal date"
+msgstr "Verlängerungsdatum"
+
+msgid "Responsible"
+msgstr "Verantwortlich"
+
+msgid "Provider"
+msgstr "Anbieter"
+
+msgid "Renews automatically"
+msgstr "Verlängert sich automatisch"
+
+msgid "Read the end date from the domain registry"
+msgstr "Ablaufdatum aus der Domain-Registry lesen"
+
+msgid "Check now"
+msgstr "Jetzt prüfen"
+
+msgid "This asset will be deleted for good."
+msgstr "Dieses Asset wird endgültig gelöscht."
+
+msgid "Nothing matches."
+msgstr "Keine Treffer."
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr ""
+"Noch keine Assets. Fügen Sie Ihre erste Domain oder Ihr erstes Abonnement "
+"hinzu."
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"Bei einer Domain klicken Sie in der Liste auf die Prüfen-Schaltfläche, dann "
+"wird das Ablaufdatum für Sie aus der Registry gelesen."
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr ""
+"Schreiben Sie hier keine Passwörter oder Schlüssel. Nur wer es bereitstellt, "
+"wann es endet und wer sich darum kümmert."
+
+msgid "Added a digital asset"
+msgstr "Digitales Asset hinzugefügt"
+
+msgid "Changed a digital asset"
+msgstr "Digitales Asset geändert"
+
+msgid "Deleted a digital asset"
+msgstr "Digitales Asset gelöscht"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "Verlängert: Das nächste Verlängerungsdatum ist %(date)s."
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr ""
+"Dieses Asset hat kein Verlängerungsdatum zum Verschieben, oder es sind "
+"einmalige Kosten."
+
+msgid "%(n)s assets were added."
+msgstr "%(n)s Assets wurden hinzugefügt."
+
+msgid "The file has no rows to add."
+msgstr "Die Datei enthält keine Zeilen zum Hinzufügen."
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr ""
+"Die Kalenderadresse ist bereit. Die alte, falls vorhanden, funktioniert "
+"nicht mehr."
+
+msgid "Marked a digital asset as renewed"
+msgstr "Ein digitales Asset als verlängert markiert"
+
+msgid "Imported digital assets from a file"
+msgstr "Digitale Assets aus einer Datei importiert"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "Eine neue Adresse für den Verlängerungskalender erstellt"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "Die Datei muss kleiner als 1 MB sein."
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "Die Datei muss eine als UTF-8 gespeicherte CSV-Datei sein."
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr ""
+"Die erste Zeile muss die Spalten benennen und mit „name“ beginnen. Laden Sie "
+"die Vorlage herunter, um sie zu sehen."
+
+msgid "Only the first %(n)s rows are read."
+msgstr "Nur die ersten %(n)s Zeilen werden gelesen."
+
+msgid "Unknown type: %(v)s"
+msgstr "Unbekannter Typ: %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "Unbekannte Abrechnung: %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s ist kein Mitglied des Unternehmens."
+
+msgid "Renewals of %(company)s"
+msgstr "Verlängerungen von %(company)s"
+
+msgid "Renewal: %(name)s"
+msgstr "Verlängerung: %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s: %(n)s digitale Assets zu verlängern"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "Digitale Assets von %(company)s, die Aufmerksamkeit brauchen:"
+
+msgid "Open the list:"
+msgstr "Liste öffnen:"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr ""
+"Sie erhalten diese Zusammenfassung jede Woche, weil Sie das Unternehmen "
+"verwalten."
+
+msgid "document in the library"
+msgstr "Dokument in der Bibliothek"
+
+msgid "renewed on"
+msgstr "verlängert am"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "Digitale Assets, die innerhalb von 30 Tagen zu verlängern sind"
+
+msgid "%(n)s due for renewal"
+msgstr "%(n)s zu verlängern"
+
+msgid "digital assets"
+msgstr "digitale Assets"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Import"
+msgstr "Importieren"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr ""
+"Das Verlängerungsdatum rückt auf die nächste Periode vor und die "
+"Erinnerungen beginnen von neuem."
+
+msgid "Mark as renewed"
+msgstr "Als verlängert markieren"
+
+msgid "Renewed"
+msgstr "Verlängert"
+
+msgid "Renewal history"
+msgstr "Verlängerungsverlauf"
+
+msgid "renewed"
+msgstr "verlängert"
+
+msgid "Import assets from a file"
+msgstr "Assets aus einer Datei importieren"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"Fügen Sie viele Assets auf einmal aus einer CSV-Datei hinzu (Excel und "
+"Google Sheets können eine mit „Als CSV speichern“ erzeugen). Fehlerhafte "
+"Zeilen werden übersprungen und aufgelistet, die übrigen werden hinzugefügt."
+
+msgid "Download the template and fill in one asset per row."
+msgstr "Laden Sie die Vorlage herunter und füllen Sie pro Zeile ein Asset aus."
+
+msgid "Download the template"
+msgstr "Vorlage herunterladen"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"Der Typ ist domain, hosting, license, cloud, subscription, ssl oder other. "
+"Die Abrechnung ist yearly, monthly oder once. Daten werden so geschrieben: "
+"2027-03-14. Der Verantwortliche ist die E-Mail-Adresse eines Mitglieds des "
+"Unternehmens."
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr ""
+"Bis zu 500 Zeilen und 1 MB. Legen Sie niemals Passwörter in der Datei ab."
+
+msgid "Rows that were not added"
+msgstr "Nicht hinzugefügte Zeilen"
+
+msgid "Row %(n)s"
+msgstr "Zeile %(n)s"
+
+msgid "and %(n)s more"
+msgstr "und %(n)s weitere"
+
+msgid "Renewal calendar"
+msgstr "Verlängerungskalender"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"Abonnieren Sie Ihre Verlängerungen im Kalender Ihres Telefons oder "
+"Computers. Jedes Asset mit Verlängerungsdatum erscheint als ganztägiger "
+"Termin mit einer Erinnerung eine Woche vorher. Der Kalender aktualisiert "
+"sich von selbst, wenn Sie die Daten ändern."
+
+msgid "Calendar address"
+msgstr "Kalenderadresse"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"Wer diese Adresse hat, sieht die Namen und Daten Ihrer Assets. Halten Sie "
+"sie deshalb privat. Wenn sie bekannt wird, erstellen Sie eine neue: Die alte "
+"funktioniert sofort nicht mehr."
+
+msgid "Add to my calendar"
+msgstr "Zu meinem Kalender hinzufügen"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "Die alte Adresse funktioniert dann nicht mehr. Eine neue erstellen?"
+
+msgid "Make a new address"
+msgstr "Neue Adresse erstellen"
+
+msgid "Make the calendar address"
+msgstr "Kalenderadresse erstellen"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Total assets"
+msgstr "Assets insgesamt"
+
+msgid "Asset"
+msgstr "Asset"
+
+msgid "No date"
+msgstr "Kein Datum"
+
+msgid "Due within 30 days"
+msgstr "Fällig innerhalb von 30 Tagen"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "Digitale Assets"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "%(n)s Tag überfällig"
+msgstr[1] "%(n)s Tage überfällig"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "In %(n)s Tag"
+msgstr[1] "In %(n)s Tagen"
+
+msgid "Approved a suggestion of Marid"
+msgstr "Hat einen Vorschlag von Marid genehmigt"
+
+msgid "Asked Marid a question about a document"
+msgstr "Hat Marid eine Frage zu einem Dokument gestellt"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Identität, Briefe und Zertifikate auf Ihrem eigenen Briefpapier."
 

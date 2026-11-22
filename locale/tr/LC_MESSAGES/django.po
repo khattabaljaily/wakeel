@@ -12897,6 +12897,397 @@ msgstr "Görsel kopyalandı. Gönderiye yapıştırın."
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "Görsel kopyalanamadı; bunun yerine indirin."
 
+msgid "Domain"
+msgstr "Alan adı"
+
+msgid "Hosting"
+msgstr "Barındırma"
+
+msgid "Software licence"
+msgstr "Yazılım lisansı"
+
+msgid "Cloud service account"
+msgstr "Bulut hizmeti hesabı"
+
+msgid "Subscription"
+msgstr "Abonelik"
+
+msgid "SSL certificate"
+msgstr "SSL sertifikası"
+
+msgid "Yearly"
+msgstr "Yıllık"
+
+msgid "Monthly"
+msgstr "Aylık"
+
+msgid "One-time"
+msgstr "Tek seferlik"
+
+msgid "provider"
+msgstr "sağlayıcı"
+
+msgid "domain or address"
+msgstr "alan adı veya adres"
+
+msgid "account it is under"
+msgstr "bağlı olduğu hesap"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr ""
+"Hesabın e-postası veya kullanıcı adı; böylece herkes bulabilir. Asla parola "
+"değil."
+
+msgid "start date"
+msgstr "başlangıç tarihi"
+
+msgid "renewal date"
+msgstr "yenileme tarihi"
+
+msgid "renews automatically"
+msgstr "otomatik yenilenir"
+
+msgid "cost"
+msgstr "maliyet"
+
+msgid "currency"
+msgstr "para birimi"
+
+msgid "billing"
+msgstr "faturalandırma"
+
+msgid "responsible"
+msgstr "sorumlu"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "3 harfli para birimi kodunu yazın, örneğin USD."
+
+msgid "The cost cannot be negative."
+msgstr "Maliyet negatif olamaz."
+
+msgid "The renewal date cannot be before the start date."
+msgstr "Yenileme tarihi başlangıç tarihinden önce olamaz."
+
+msgid "This is not a valid domain name."
+msgstr "Bu geçerli bir alan adı değil."
+
+msgid "The registry has no record of this domain."
+msgstr "Kayıt kuruluşunda bu alan adına ait kayıt yok."
+
+msgid "The registry did not answer."
+msgstr "Kayıt kuruluşu yanıt vermedi."
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "Kayıt kuruluşu bu alan adının bitiş tarihini yayımlamıyor."
+
+msgid "Add a digital asset"
+msgstr "Dijital varlık ekle"
+
+msgid "Edit the digital asset"
+msgstr "Dijital varlığı düzenle"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "Yalnızca adresi olan bir alan adı otomatik olarak kontrol edilebilir."
+
+msgid "The end date was read: %(date)s."
+msgstr "Bitiş tarihi okundu: %(date)s."
+
+msgid "Could not read the end date."
+msgstr "Bitiş tarihi okunamadı."
+
+msgid "Late"
+msgstr "Gecikmiş"
+
+msgid "Due soon"
+msgstr "Yakında dolacak"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "30 gün içinde yenilenmeli veya gecikmiş"
+
+msgid "Add an asset"
+msgstr "Varlık ekle"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"Alan adları, barındırma, lisanslar, bulut hesapları, abonelikler ve "
+"sertifikalar tek yerde, yenileme tarihleriyle birlikte. Her biri bitmeden "
+"90, 30, 7 ve 1 gün önce hatırlatılırsınız. Buraya asla parola yazmayın."
+
+msgid "Yearly cost"
+msgstr "Yıllık maliyet"
+
+msgid "Renewal date"
+msgstr "Yenileme tarihi"
+
+msgid "Responsible"
+msgstr "Sorumlu"
+
+msgid "Provider"
+msgstr "Sağlayıcı"
+
+msgid "Renews automatically"
+msgstr "Otomatik yenilenir"
+
+msgid "Read the end date from the domain registry"
+msgstr "Bitiş tarihini alan adı kayıt kuruluşundan oku"
+
+msgid "Check now"
+msgstr "Şimdi kontrol et"
+
+msgid "This asset will be deleted for good."
+msgstr "Bu varlık kalıcı olarak silinecek."
+
+msgid "Nothing matches."
+msgstr "Eşleşen yok."
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "Henüz varlık yok. İlk alan adınızı veya aboneliğinizi ekleyin."
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"Bir alan adı için listedeki kontrol düğmesine basın; bitiş tarihi sizin için "
+"kayıt kuruluşundan okunur."
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr ""
+"Buraya parola veya anahtar yazmayın. Yalnızca kimin sağladığını, ne zaman "
+"bittiğini ve kimin ilgilendiğini yazın."
+
+msgid "Added a digital asset"
+msgstr "Bir dijital varlık ekledi"
+
+msgid "Changed a digital asset"
+msgstr "Bir dijital varlığı değiştirdi"
+
+msgid "Deleted a digital asset"
+msgstr "Bir dijital varlığı sildi"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "Yenilendi: bir sonraki yenileme tarihi %(date)s."
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr ""
+"Bu varlığın taşınacak bir yenileme tarihi yok veya tek seferlik bir maliyet."
+
+msgid "%(n)s assets were added."
+msgstr "%(n)s varlık eklendi."
+
+msgid "The file has no rows to add."
+msgstr "Dosyada eklenecek satır yok."
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "Takvim adresi hazır. Varsa eski adres artık çalışmıyor."
+
+msgid "Marked a digital asset as renewed"
+msgstr "Bir dijital varlığı yenilendi olarak işaretledi"
+
+msgid "Imported digital assets from a file"
+msgstr "Bir dosyadan dijital varlıkları içe aktardı"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "Yenileme takvimi için yeni bir adres oluşturdu"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "Dosya 1 MB'tan küçük olmalı."
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "Dosya UTF-8 olarak kaydedilmiş bir CSV olmalı."
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr ""
+"İlk satır sütunları adlandırmalı ve «name» ile başlamalı. Görmek için "
+"şablonu indirin."
+
+msgid "Only the first %(n)s rows are read."
+msgstr "Yalnızca ilk %(n)s satır okunur."
+
+msgid "Unknown type: %(v)s"
+msgstr "Bilinmeyen tür: %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "Bilinmeyen faturalandırma: %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s şirketin üyesi değil."
+
+msgid "Renewals of %(company)s"
+msgstr "%(company)s yenilemeleri"
+
+msgid "Renewal: %(name)s"
+msgstr "Yenileme: %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s: yenilenecek %(n)s dijital varlık"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "%(company)s şirketinin dikkat gerektiren dijital varlıkları:"
+
+msgid "Open the list:"
+msgstr "Listeyi aç:"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr "Şirketi yönettiğiniz için bu özeti her hafta alırsınız."
+
+msgid "document in the library"
+msgstr "kütüphanedeki belge"
+
+msgid "renewed on"
+msgstr "yenilenme tarihi"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "30 gün içinde yenilenecek dijital varlıklar"
+
+msgid "%(n)s due for renewal"
+msgstr "%(n)s yenilenecek"
+
+msgid "digital assets"
+msgstr "dijital varlık"
+
+msgid "Calendar"
+msgstr "Takvim"
+
+msgid "Import"
+msgstr "İçe aktar"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr ""
+"Yenileme tarihi bir sonraki döneme kayar ve hatırlatmalar yeniden başlar."
+
+msgid "Mark as renewed"
+msgstr "Yenilendi olarak işaretle"
+
+msgid "Renewed"
+msgstr "Yenilendi"
+
+msgid "Renewal history"
+msgstr "Yenileme geçmişi"
+
+msgid "renewed"
+msgstr "yenilendi"
+
+msgid "Import assets from a file"
+msgstr "Varlıkları dosyadan içe aktar"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"Bir CSV dosyasından çok sayıda varlığı tek seferde ekleyin (Excel ve Google "
+"E-Tablolar «CSV olarak kaydet» ile bir tane oluşturabilir). Hatalı satırlar "
+"atlanır ve listelenir, diğerleri eklenir."
+
+msgid "Download the template and fill in one asset per row."
+msgstr "Şablonu indirin ve her satıra bir varlık yazın."
+
+msgid "Download the template"
+msgstr "Şablonu indir"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"Tür domain, hosting, license, cloud, subscription, ssl veya other olmalıdır. "
+"Faturalandırma yearly, monthly veya once olmalıdır. Tarihler 2027-03-14 "
+"biçiminde yazılır. Sorumlu, şirketin bir üyesinin e-postasıdır."
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "En fazla 500 satır ve 1 MB. Dosyaya asla parola koymayın."
+
+msgid "Rows that were not added"
+msgstr "Eklenmeyen satırlar"
+
+msgid "Row %(n)s"
+msgstr "Satır %(n)s"
+
+msgid "and %(n)s more"
+msgstr "ve %(n)s tane daha"
+
+msgid "Renewal calendar"
+msgstr "Yenileme takvimi"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"Yenilemelerinize telefonunuzun veya bilgisayarınızın takviminden abone olun. "
+"Yenileme tarihi olan her varlık, bir hafta önceden hatırlatmayla tüm gün "
+"süren bir etkinlik olarak görünür. Tarihleri değiştirdiğinizde takvim "
+"kendiliğinden güncellenir."
+
+msgid "Calendar address"
+msgstr "Takvim adresi"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"Bu adrese sahip olan herkes varlıklarınızın adlarını ve tarihlerini "
+"görebilir, bu yüzden gizli tutun. Sızarsa yenisini oluşturun: eskisi hemen "
+"çalışmaz."
+
+msgid "Add to my calendar"
+msgstr "Takvimime ekle"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "Eski adres çalışmayacak. Yenisi oluşturulsun mu?"
+
+msgid "Make a new address"
+msgstr "Yeni adres oluştur"
+
+msgid "Make the calendar address"
+msgstr "Takvim adresini oluştur"
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Total assets"
+msgstr "Toplam varlık"
+
+msgid "Asset"
+msgstr "Varlık"
+
+msgid "No date"
+msgstr "Tarihsiz"
+
+msgid "Due within 30 days"
+msgstr "30 gün içinde dolacak"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "Dijital varlıklar"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "%(n)s gün gecikmiş"
+msgstr[1] "%(n)s gün gecikmiş"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "%(n)s gün sonra"
+msgstr[1] "%(n)s gün sonra"
+
+msgid "Approved a suggestion of Marid"
+msgstr "Marid'in bir önerisini onayladı"
+
+msgid "Asked Marid a question about a document"
+msgstr "Marid'e bir belge hakkında soru sordu"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Kimlik, mektuplar ve sertifikalar, kendi antetli kâğıdınızda."
 

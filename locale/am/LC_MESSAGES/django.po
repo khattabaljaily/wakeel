@@ -12584,6 +12584,383 @@ msgstr "ምስሉ ተቀድቷል። በልጥፉ ውስጥ ይለጥፉት።"
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "ምስሉን መቅዳት አልተቻለም፤ በምትኩ ያውርዱት።"
 
+msgid "Domain"
+msgstr "ዶሜይን"
+
+msgid "Hosting"
+msgstr "ሆስቲንግ"
+
+msgid "Software licence"
+msgstr "የሶፍትዌር ፈቃድ"
+
+msgid "Cloud service account"
+msgstr "የክላውድ አገልግሎት መለያ"
+
+msgid "Subscription"
+msgstr "የደንበኝነት ምዝገባ"
+
+msgid "SSL certificate"
+msgstr "የSSL የምስክር ወረቀት"
+
+msgid "Yearly"
+msgstr "ዓመታዊ"
+
+msgid "Monthly"
+msgstr "ወርሃዊ"
+
+msgid "One-time"
+msgstr "አንድ ጊዜ"
+
+msgid "provider"
+msgstr "አቅራቢ"
+
+msgid "domain or address"
+msgstr "ዶሜይን ወይም አድራሻ"
+
+msgid "account it is under"
+msgstr "የሚገኝበት መለያ"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr "ማንም ሰው እንዲያገኘው የመለያው ኢሜይል ወይም የተጠቃሚ ስም። የይለፍ ቃል በፍጹም አይደለም።"
+
+msgid "start date"
+msgstr "የመጀመሪያ ቀን"
+
+msgid "renewal date"
+msgstr "የእድሳት ቀን"
+
+msgid "renews automatically"
+msgstr "በራስ-ሰር ይታደሳል"
+
+msgid "cost"
+msgstr "ወጪ"
+
+msgid "currency"
+msgstr "ምንዛሬ"
+
+msgid "billing"
+msgstr "ክፍያ መጠየቂያ"
+
+msgid "responsible"
+msgstr "ኃላፊ"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "ባለ3 ፊደል የምንዛሬ ኮድ ይጻፉ፣ ለምሳሌ USD።"
+
+msgid "The cost cannot be negative."
+msgstr "ወጪ አሉታዊ ሊሆን አይችልም።"
+
+msgid "The renewal date cannot be before the start date."
+msgstr "የእድሳት ቀን ከመጀመሪያ ቀን በፊት ሊሆን አይችልም።"
+
+msgid "This is not a valid domain name."
+msgstr "ይህ ትክክለኛ የዶሜይን ስም አይደለም።"
+
+msgid "The registry has no record of this domain."
+msgstr "መዝጋቢው ስለዚህ ዶሜይን ምንም መዝገብ የለውም።"
+
+msgid "The registry did not answer."
+msgstr "መዝጋቢው አልመለሰም።"
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "መዝጋቢው የዚህን ዶሜይን የማብቂያ ቀን አያትምም።"
+
+msgid "Add a digital asset"
+msgstr "ዲጂታል ንብረት ጨምር"
+
+msgid "Edit the digital asset"
+msgstr "ዲጂታል ንብረት አርትዕ"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "አድራሻ ያለው ዶሜይን ብቻ በራስ-ሰር ሊመረመር ይችላል።"
+
+msgid "The end date was read: %(date)s."
+msgstr "የማብቂያ ቀን ተነብቧል፦ %(date)s።"
+
+msgid "Could not read the end date."
+msgstr "የማብቂያ ቀኑን ማንበብ አልተቻለም።"
+
+msgid "Late"
+msgstr "ያለፈበት"
+
+msgid "Due soon"
+msgstr "በቅርቡ የሚያልቅ"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "በ30 ቀናት ውስጥ የሚታደስ፣ ወይም ያለፈበት"
+
+msgid "Add an asset"
+msgstr "ንብረት ጨምር"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"ዶሜይኖች፣ ሆስቲንግ፣ ፈቃዶች፣ የክላውድ መለያዎች፣ የደንበኝነት ምዝገባዎች እና የምስክር ወረቀቶች በአንድ ቦታ፣ "
+"ከእድሳት ቀኖቻቸው ጋር። እያንዳንዱ ከማብቃቱ 90፣ 30፣ 7 እና 1 ቀን በፊት ይታወሳሉ። እዚህ የይለፍ ቃል በፍጹም "
+"አይጻፉ።"
+
+msgid "Yearly cost"
+msgstr "ዓመታዊ ወጪ"
+
+msgid "Renewal date"
+msgstr "የእድሳት ቀን"
+
+msgid "Responsible"
+msgstr "ኃላፊ"
+
+msgid "Provider"
+msgstr "አቅራቢ"
+
+msgid "Renews automatically"
+msgstr "በራስ-ሰር ይታደሳል"
+
+msgid "Read the end date from the domain registry"
+msgstr "የማብቂያ ቀኑን ከዶሜይን መዝጋቢ አንብብ"
+
+msgid "Check now"
+msgstr "አሁን ፈትሽ"
+
+msgid "This asset will be deleted for good."
+msgstr "ይህ ንብረት ለዘላለም ይሰረዛል።"
+
+msgid "Nothing matches."
+msgstr "የሚዛመድ የለም።"
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "እስካሁን ንብረት የለም። የመጀመሪያውን ዶሜይን ወይም የደንበኝነት ምዝገባ ይጨምሩ።"
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr "ለዶሜይን፣ በዝርዝሩ ውስጥ ያለውን የመፈተሽ ቁልፍ ይጫኑ፤ የማብቂያ ቀኑ ከመዝጋቢው ለእርስዎ ይነበባል።"
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr "እዚህ የይለፍ ቃል ወይም ቁልፍ አይጻፉ። የሚያቀርበውን፣ መቼ እንደሚያልቅ እና ማን እንደሚከታተለው ብቻ።"
+
+msgid "Added a digital asset"
+msgstr "ዲጂታል ንብረት ጨመረ"
+
+msgid "Changed a digital asset"
+msgstr "ዲጂታል ንብረት ለወጠ"
+
+msgid "Deleted a digital asset"
+msgstr "ዲጂታል ንብረት ሰረዘ"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "ታድሷል፦ ቀጣዩ የእድሳት ቀን %(date)s ነው።"
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr "ይህ ንብረት የሚተላለፍ የእድሳት ቀን የለውም፣ ወይም የአንድ ጊዜ ወጪ ነው።"
+
+msgid "%(n)s assets were added."
+msgstr "%(n)s ንብረቶች ተጨምረዋል።"
+
+msgid "The file has no rows to add."
+msgstr "በፋይሉ ውስጥ ለመጨመር ረድፎች የሉም።"
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "የቀን መቁጠሪያ አድራሻው ዝግጁ ነው። የቀድሞው፣ ካለ፣ ከእንግዲህ አይሰራም።"
+
+msgid "Marked a digital asset as renewed"
+msgstr "ዲጂታል ንብረትን እንደታደሰ ምልክት አደረገ"
+
+msgid "Imported digital assets from a file"
+msgstr "ዲጂታል ንብረቶችን ከፋይል አስገባ"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "ለእድሳት የቀን መቁጠሪያ አዲስ አድራሻ ፈጠረ"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "ፋይሉ ከ1 ሜባ ያነሰ መሆን አለበት።"
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "ፋይሉ በUTF-8 የተቀመጠ CSV መሆን አለበት።"
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr "የመጀመሪያው ረድፍ አምዶችን መሰየም አለበት፣ በ«name» ይጀምር። ለማየት አብነቱን ያውርዱ።"
+
+msgid "Only the first %(n)s rows are read."
+msgstr "የመጀመሪያዎቹ %(n)s ረድፎች ብቻ ይነበባሉ።"
+
+msgid "Unknown type: %(v)s"
+msgstr "ያልታወቀ ዓይነት፦ %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "ያልታወቀ ክፍያ መጠየቂያ፦ %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s የኩባንያው አባል አይደለም።"
+
+msgid "Renewals of %(company)s"
+msgstr "የ%(company)s እድሳቶች"
+
+msgid "Renewal: %(name)s"
+msgstr "እድሳት፦ %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s፦ የሚታደሱ %(n)s ዲጂታል ንብረቶች"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "ትኩረት የሚሹ የ%(company)s ዲጂታል ንብረቶች፦"
+
+msgid "Open the list:"
+msgstr "ዝርዝሩን ክፈት፦"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr "ኩባንያውን ስለሚያስተዳድሩ ይህን ማጠቃለያ በየሳምንቱ ይቀበላሉ።"
+
+msgid "document in the library"
+msgstr "በቤተ መጻሕፍት ውስጥ ያለ ሰነድ"
+
+msgid "renewed on"
+msgstr "የታደሰበት ቀን"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "በ30 ቀናት ውስጥ የሚታደሱ ዲጂታል ንብረቶች"
+
+msgid "%(n)s due for renewal"
+msgstr "የሚታደሱ %(n)s"
+
+msgid "digital assets"
+msgstr "ዲጂታል ንብረቶች"
+
+msgid "Calendar"
+msgstr "የቀን መቁጠሪያ"
+
+msgid "Import"
+msgstr "አስገባ"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr "የእድሳት ቀኑ ወደ ቀጣዩ ጊዜ ይሸጋገራል፣ ማስታወሻዎችም እንደገና ይጀምራሉ።"
+
+msgid "Mark as renewed"
+msgstr "እንደታደሰ ምልክት አድርግ"
+
+msgid "Renewed"
+msgstr "ታድሷል"
+
+msgid "Renewal history"
+msgstr "የእድሳት ታሪክ"
+
+msgid "renewed"
+msgstr "ታድሷል"
+
+msgid "Import assets from a file"
+msgstr "ንብረቶችን ከፋይል አስገባ"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"ብዙ ንብረቶችን በአንድ ጊዜ ከCSV ፋይል ይጨምሩ (Excel እና Google Sheets «እንደ CSV አስቀምጥ» ብለው "
+"ሊያስቀምጡ ይችላሉ)። የተሳሳቱ ረድፎች ይዘለላሉ ይዘረዘራሉም፣ የቀሩት ይጨመራሉ።"
+
+msgid "Download the template and fill in one asset per row."
+msgstr "አብነቱን ያውርዱ እና በእያንዳንዱ ረድፍ አንድ ንብረት ይሙሉ።"
+
+msgid "Download the template"
+msgstr "አብነቱን አውርድ"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"ዓይነቱ domain፣ hosting፣ license፣ cloud፣ subscription፣ ssl ወይም other ነው። ክፍያ "
+"መጠየቂያው yearly፣ monthly ወይም once ነው። ቀኖች እንዲህ ይጻፋሉ፦ 2027-03-14። ኃላፊው የኩባንያው "
+"አባል ኢሜይል ነው።"
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "እስከ 500 ረድፎች እና 1 ሜባ። በፋይሉ ውስጥ የይለፍ ቃል በፍጹም አያስገቡ።"
+
+msgid "Rows that were not added"
+msgstr "ያልተጨመሩ ረድፎች"
+
+msgid "Row %(n)s"
+msgstr "ረድፍ %(n)s"
+
+msgid "and %(n)s more"
+msgstr "እና %(n)s ተጨማሪ"
+
+msgid "Renewal calendar"
+msgstr "የእድሳት የቀን መቁጠሪያ"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"እድሳቶችዎን በስልክዎ ወይም በኮምፒውተርዎ የቀን መቁጠሪያ ይመዝገቡ። የእድሳት ቀን ያለው እያንዳንዱ ንብረት የሳምንት "
+"ቀደም ማስታወሻ ያለው የሙሉ ቀን ክስተት ሆኖ ይታያል። ቀኖችን ሲቀይሩ የቀን መቁጠሪያው በራሱ ይዘምናል።"
+
+msgid "Calendar address"
+msgstr "የቀን መቁጠሪያ አድራሻ"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"ይህ አድራሻ ያለው ማንኛውም ሰው የንብረቶችዎን ስሞች እና ቀኖች ማየት ይችላል፣ ስለዚህ በሚስጥር ያቆዩት። ከወጣ አዲስ "
+"ይፍጠሩ፤ የቀድሞው ወዲያውኑ መስራት ያቆማል።"
+
+msgid "Add to my calendar"
+msgstr "ወደ የቀን መቁጠሪያዬ ጨምር"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "የቀድሞው አድራሻ መስራት ያቆማል። አዲስ ይፈጠር?"
+
+msgid "Make a new address"
+msgstr "አዲስ አድራሻ ፍጠር"
+
+msgid "Make the calendar address"
+msgstr "የቀን መቁጠሪያ አድራሻ ፍጠር"
+
+msgid "Name"
+msgstr "ስም"
+
+msgid "Total assets"
+msgstr "ጠቅላላ ንብረቶች"
+
+msgid "Asset"
+msgstr "ንብረት"
+
+msgid "No date"
+msgstr "ቀን የለም"
+
+msgid "Due within 30 days"
+msgstr "በ30 ቀናት ውስጥ የሚያልቅ"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "ዲጂታል ንብረቶች"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "%(n)s ቀን አልፎታል"
+msgstr[1] "%(n)s ቀናት አልፈዋል"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "በ%(n)s ቀን"
+msgstr[1] "በ%(n)s ቀናት"
+
+msgid "Approved a suggestion of Marid"
+msgstr "የማሪድን ሐሳብ አጸደቀ"
+
+msgid "Asked Marid a question about a document"
+msgstr "ስለ አንድ ሰነድ ማሪድን ጠየቀ"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "መለያ፣ ደብዳቤዎችና ሰርተፍኬቶች በራስዎ የደብዳቤ ራስጌ።"
 

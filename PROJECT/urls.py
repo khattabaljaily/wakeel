@@ -22,6 +22,7 @@ urlpatterns = [
     path('company/wallet/', include('apps.credits.urls')),
     path('app/documents/', include('apps.library.urls')),
     path('app/assets/', include('apps.assets.urls')),
+    path('cal/', include('apps.assets.public_urls')),
     path('app/documents/d/', include('apps.documents.urls')),
     path('app/documents/share/', include('apps.sharing.urls')),
     path('s/', include('apps.sharing.public_urls')),

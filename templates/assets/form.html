@@ -22,11 +22,20 @@
             <div class="col-md-4">{% include "_field.html" with field=form.cost %}</div>
             <div class="col-md-4">{% include "_field.html" with field=form.currency %}</div>
             <div class="col-md-4">{% include "_field.html" with field=form.cycle %}</div>
-            <div class="col-12">{% include "_field.html" with field=form.responsible %}</div>
+            <div class="col-md-6">{% include "_field.html" with field=form.responsible %}</div>
+            <div class="col-md-6">{% include "_field.html" with field=form.document %}</div>
         </div>
         {% include "_field.html" with field=form.notes %}
         <p class="form-text">{% translate "Do not write passwords or keys here. Only who provides it, when it ends and who looks after it." %}</p>
         <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
     </div>
 </form>
+{% if renewals %}
+<div class="wk-card mt-3" style="max-width:820px"><div class="wk-card-body">
+    <h2 class="h6 mb-3">{% translate "Renewal history" %}</h2>
+    <ul class="list-unstyled small mb-0">
+    {% for r in renewals %}<li class="d-flex flex-wrap gap-2 py-1 border-bottom"><span dir="ltr">{{ r.renewed_on|date:"Y-m-d" }}</span><span class="small-muted">{% translate "renewed" %}:</span>{% if r.old_expiry %}<span dir="ltr">{{ r.old_expiry|date:"Y-m-d" }}</span><i class="bi bi-arrow-left"></i>{% endif %}<span dir="ltr" class="fw-semibold">{{ r.new_expiry|date:"Y-m-d" }}</span>{% if r.cost is not None %}<span class="small-muted" dir="ltr">{{ r.cost|floatformat:2 }} {{ r.currency }}</span>{% endif %}{% if r.by %}<span class="small-muted ms-auto">{{ r.by.get_full_name|default:r.by.email }}</span>{% endif %}</li>{% endfor %}
+    </ul>
+</div></div>
+{% endif %}
 {% endblock %}

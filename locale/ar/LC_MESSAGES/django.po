@@ -7957,6 +7957,186 @@ msgstr[3] "بعد %(n)s أيام"
 msgstr[4] "بعد %(n)s يوماً"
 msgstr[5] "بعد %(n)s يوم"
 
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "تم التجديد: موعد التجديد التالي %(date)s."
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr "هذا الأصل ليس له تاريخ تجديد لتحريكه، أو أنه تكلفة لمرة واحدة."
+
+msgid "%(n)s assets were added."
+msgstr "أُضيف %(n)s أصلاً."
+
+msgid "The file has no rows to add."
+msgstr "لا توجد في الملف صفوف لإضافتها."
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "عنوان التقويم جاهز. العنوان القديم، إن وُجد، لم يعد يعمل."
+
+msgid "Marked a digital asset as renewed"
+msgstr "سجّل تجديد أصل رقمي"
+
+msgid "Imported digital assets from a file"
+msgstr "استورد أصولاً رقمية من ملف"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "أنشأ عنواناً جديداً لتقويم التجديدات"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "يجب أن يكون الملف أصغر من 1 ميغابايت."
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "يجب أن يكون الملف CSV محفوظاً بترميز UTF-8."
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr "يجب أن يسمّي الصف الأول الأعمدة ويبدأ بـ «name». نزّل القالب لتراها."
+
+msgid "Only the first %(n)s rows are read."
+msgstr "تُقرأ أول %(n)s صفاً فقط."
+
+msgid "Unknown type: %(v)s"
+msgstr "نوع غير معروف: %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "دورة غير معروفة: %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s ليس عضواً في الشركة."
+
+msgid "Renewals of %(company)s"
+msgstr "تجديدات %(company)s"
+
+msgid "Renewal: %(name)s"
+msgstr "تجديد: %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s: %(n)s أصل رقمي يحتاج تجديداً"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "الأصول الرقمية في %(company)s التي تحتاج انتباهك:"
+
+msgid "Open the list:"
+msgstr "افتح القائمة:"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr "يصلك هذا الملخص كل أسبوع لأنك تدير الشركة."
+
+msgid "document in the library"
+msgstr "مستند من المكتبة"
+
+msgid "renewed on"
+msgstr "تاريخ التجديد"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "أصول رقمية يحين تجديدها خلال 30 يوماً"
+
+msgid "%(n)s due for renewal"
+msgstr "%(n)s يحين تجديدها"
+
+msgid "digital assets"
+msgstr "أصل رقمي"
+
+msgid "Calendar"
+msgstr "التقويم"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr "يتحرك تاريخ التجديد إلى الفترة التالية وتبدأ التذكيرات من جديد."
+
+msgid "Mark as renewed"
+msgstr "تم التجديد"
+
+msgid "Renewed"
+msgstr "تم التجديد"
+
+msgid "Renewal history"
+msgstr "سجل التجديدات"
+
+msgid "renewed"
+msgstr "جُدِّد"
+
+msgid "Import assets from a file"
+msgstr "استيراد الأصول من ملف"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"أضف أصولاً كثيرة دفعة واحدة من ملف CSV (يمكن لإكسل وجداول جوجل حفظ ملف بصيغة "
+"CSV). تُتجاوز الصفوف الخاطئة وتُعرض، وتُضاف البقية."
+
+msgid "Download the template and fill in one asset per row."
+msgstr "نزّل القالب واملأ أصلاً واحداً في كل صف."
+
+msgid "Download the template"
+msgstr "تنزيل القالب"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"النوع: domain أو hosting أو license أو cloud أو subscription أو ssl أو "
+"other. والدورة: yearly أو monthly أو once. التواريخ تُكتب هكذا 2027-03-14. "
+"والمسؤول هو بريد عضو في الشركة."
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "حتى 500 صف و1 ميغابايت. لا تضع كلمات مرور في الملف أبداً."
+
+msgid "Rows that were not added"
+msgstr "صفوف لم تُضف"
+
+msgid "Row %(n)s"
+msgstr "الصف %(n)s"
+
+msgid "and %(n)s more"
+msgstr "و%(n)s أخرى"
+
+msgid "Renewal calendar"
+msgstr "تقويم التجديدات"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"اشترك في تجديداتك داخل تقويم هاتفك أو حاسوبك. يظهر كل أصل له تاريخ تجديد "
+"كحدث طوال اليوم مع تذكير قبله بأسبوع. ويتحدّث التقويم وحده عند تغيير التواريخ."
+
+msgid "Calendar address"
+msgstr "عنوان التقويم"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"كل من يملك هذا العنوان يرى أسماء أصولك وتواريخها، فاحفظه سراً. وإن تسرّب فأنشئ "
+"عنواناً جديداً، ويتوقف القديم فوراً."
+
+msgid "Add to my calendar"
+msgstr "أضف إلى تقويمي"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "سيتوقف العنوان القديم عن العمل. أنشئ عنواناً جديداً؟"
+
+msgid "Make a new address"
+msgstr "إنشاء عنوان جديد"
+
+msgid "Make the calendar address"
+msgstr "إنشاء عنوان التقويم"
+
+msgid "Approved a suggestion of Marid"
+msgstr "وافق على اقتراح من مارد"
+
+msgid "Asked Marid a question about a document"
+msgstr "سأل مارد سؤالاً عن مستند"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."
 

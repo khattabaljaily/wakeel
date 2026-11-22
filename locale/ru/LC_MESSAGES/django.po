@@ -12941,6 +12941,402 @@ msgstr "Изображение скопировано. Вставьте его �
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "Не удалось скопировать изображение; скачайте его."
 
+msgid "Domain"
+msgstr "Домен"
+
+msgid "Hosting"
+msgstr "Хостинг"
+
+msgid "Software licence"
+msgstr "Лицензия на ПО"
+
+msgid "Cloud service account"
+msgstr "Учётная запись облачного сервиса"
+
+msgid "Subscription"
+msgstr "Подписка"
+
+msgid "SSL certificate"
+msgstr "SSL-сертификат"
+
+msgid "Yearly"
+msgstr "Ежегодно"
+
+msgid "Monthly"
+msgstr "Ежемесячно"
+
+msgid "One-time"
+msgstr "Разовый платёж"
+
+msgid "provider"
+msgstr "поставщик"
+
+msgid "domain or address"
+msgstr "домен или адрес"
+
+msgid "account it is under"
+msgstr "учётная запись"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr ""
+"Электронная почта или имя пользователя учётной записи, чтобы любой мог её "
+"найти. Никогда не пароль."
+
+msgid "start date"
+msgstr "дата начала"
+
+msgid "renewal date"
+msgstr "дата продления"
+
+msgid "renews automatically"
+msgstr "продлевается автоматически"
+
+msgid "cost"
+msgstr "стоимость"
+
+msgid "currency"
+msgstr "валюта"
+
+msgid "billing"
+msgstr "оплата"
+
+msgid "responsible"
+msgstr "ответственный"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "Введите трёхбуквенный код валюты, например USD."
+
+msgid "The cost cannot be negative."
+msgstr "Стоимость не может быть отрицательной."
+
+msgid "The renewal date cannot be before the start date."
+msgstr "Дата продления не может быть раньше даты начала."
+
+msgid "This is not a valid domain name."
+msgstr "Это недопустимое доменное имя."
+
+msgid "The registry has no record of this domain."
+msgstr "В реестре нет записи об этом домене."
+
+msgid "The registry did not answer."
+msgstr "Реестр не ответил."
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "Реестр не публикует дату окончания этого домена."
+
+msgid "Add a digital asset"
+msgstr "Добавить цифровой актив"
+
+msgid "Edit the digital asset"
+msgstr "Изменить цифровой актив"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "Автоматически можно проверить только домен с адресом."
+
+msgid "The end date was read: %(date)s."
+msgstr "Дата окончания прочитана: %(date)s."
+
+msgid "Could not read the end date."
+msgstr "Не удалось прочитать дату окончания."
+
+msgid "Late"
+msgstr "Просрочено"
+
+msgid "Due soon"
+msgstr "Скоро срок"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "К продлению в течение 30 дней или просрочено"
+
+msgid "Add an asset"
+msgstr "Добавить актив"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"Домены, хостинг, лицензии, облачные аккаунты, подписки и сертификаты в одном "
+"месте, с датами продления. Вам напомнят за 90, 30, 7 и 1 день до окончания "
+"каждого. Никогда не пишите здесь пароль."
+
+msgid "Yearly cost"
+msgstr "Годовая стоимость"
+
+msgid "Renewal date"
+msgstr "Дата продления"
+
+msgid "Responsible"
+msgstr "Ответственный"
+
+msgid "Provider"
+msgstr "Поставщик"
+
+msgid "Renews automatically"
+msgstr "Продлевается автоматически"
+
+msgid "Read the end date from the domain registry"
+msgstr "Прочитать дату окончания из реестра домена"
+
+msgid "Check now"
+msgstr "Проверить сейчас"
+
+msgid "This asset will be deleted for good."
+msgstr "Этот актив будет удалён навсегда."
+
+msgid "Nothing matches."
+msgstr "Ничего не найдено."
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "Активов пока нет. Добавьте первый домен или подписку."
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"Для домена нажмите кнопку проверки в списке, и дата окончания будет "
+"прочитана из реестра за вас."
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr ""
+"Не пишите здесь пароли и ключи. Только кто предоставляет, когда "
+"заканчивается и кто отвечает."
+
+msgid "Added a digital asset"
+msgstr "Добавил(а) цифровой актив"
+
+msgid "Changed a digital asset"
+msgstr "Изменил(а) цифровой актив"
+
+msgid "Deleted a digital asset"
+msgstr "Удалил(а) цифровой актив"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "Продлено: следующая дата продления — %(date)s."
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr ""
+"У этого актива нет даты продления для переноса, или это разовая стоимость."
+
+msgid "%(n)s assets were added."
+msgstr "Добавлено активов: %(n)s."
+
+msgid "The file has no rows to add."
+msgstr "В файле нет строк для добавления."
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "Адрес календаря готов. Прежний адрес, если он был, больше не работает."
+
+msgid "Marked a digital asset as renewed"
+msgstr "Отметил(а) цифровой актив как продлённый"
+
+msgid "Imported digital assets from a file"
+msgstr "Импортировал(а) цифровые активы из файла"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "Создал(а) новый адрес календаря продлений"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "Файл должен быть меньше 1 МБ."
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "Файл должен быть CSV в кодировке UTF-8."
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr ""
+"Первая строка должна называть столбцы и начинаться с «name». Скачайте "
+"шаблон, чтобы увидеть их."
+
+msgid "Only the first %(n)s rows are read."
+msgstr "Читаются только первые %(n)s строк."
+
+msgid "Unknown type: %(v)s"
+msgstr "Неизвестный тип: %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "Неизвестный вариант оплаты: %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s не состоит в компании."
+
+msgid "Renewals of %(company)s"
+msgstr "Продления %(company)s"
+
+msgid "Renewal: %(name)s"
+msgstr "Продление: %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s: цифровых активов к продлению — %(n)s"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "Цифровые активы %(company)s, требующие внимания:"
+
+msgid "Open the list:"
+msgstr "Открыть список:"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr ""
+"Вы получаете эту сводку каждую неделю, потому что управляете компанией."
+
+msgid "document in the library"
+msgstr "документ в библиотеке"
+
+msgid "renewed on"
+msgstr "продлено"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "Цифровые активы к продлению в течение 30 дней"
+
+msgid "%(n)s due for renewal"
+msgstr "к продлению: %(n)s"
+
+msgid "digital assets"
+msgstr "цифровые активы"
+
+msgid "Calendar"
+msgstr "Календарь"
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr ""
+"Дата продления переходит на следующий период, и напоминания начинаются "
+"заново."
+
+msgid "Mark as renewed"
+msgstr "Отметить как продлённый"
+
+msgid "Renewed"
+msgstr "Продлено"
+
+msgid "Renewal history"
+msgstr "История продлений"
+
+msgid "renewed"
+msgstr "продлено"
+
+msgid "Import assets from a file"
+msgstr "Импорт активов из файла"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"Добавьте много активов сразу из CSV-файла (Excel и Google Таблицы могут "
+"сохранить его через «Сохранить как CSV»). Ошибочные строки пропускаются и "
+"перечисляются, остальные добавляются."
+
+msgid "Download the template and fill in one asset per row."
+msgstr "Скачайте шаблон и заполните по одному активу в строке."
+
+msgid "Download the template"
+msgstr "Скачать шаблон"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"Тип: domain, hosting, license, cloud, subscription, ssl или other. Оплата: "
+"yearly, monthly или once. Даты пишутся так: 2027-03-14. Ответственный — "
+"электронная почта участника компании."
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "До 500 строк и 1 МБ. Никогда не помещайте в файл пароли."
+
+msgid "Rows that were not added"
+msgstr "Строки, которые не были добавлены"
+
+msgid "Row %(n)s"
+msgstr "Строка %(n)s"
+
+msgid "and %(n)s more"
+msgstr "и ещё %(n)s"
+
+msgid "Renewal calendar"
+msgstr "Календарь продлений"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"Подпишитесь на свои продления в календаре телефона или компьютера. Каждый "
+"актив с датой продления появляется как событие на весь день с напоминанием "
+"за неделю. Календарь обновляется сам, когда вы меняете даты."
+
+msgid "Calendar address"
+msgstr "Адрес календаря"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"Любой, у кого есть этот адрес, увидит названия и даты ваших активов, поэтому "
+"храните его в тайне. Если адрес стал известен, создайте новый: прежний сразу "
+"перестанет работать."
+
+msgid "Add to my calendar"
+msgstr "Добавить в мой календарь"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "Прежний адрес перестанет работать. Создать новый?"
+
+msgid "Make a new address"
+msgstr "Создать новый адрес"
+
+msgid "Make the calendar address"
+msgstr "Создать адрес календаря"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Total assets"
+msgstr "Всего активов"
+
+msgid "Asset"
+msgstr "Актив"
+
+msgid "No date"
+msgstr "Без даты"
+
+msgid "Due within 30 days"
+msgstr "Срок в течение 30 дней"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "Цифровые активы"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "Просрочено на %(n)s день"
+msgstr[1] "Просрочено на %(n)s дня"
+msgstr[2] "Просрочено на %(n)s дней"
+msgstr[3] "Просрочено на %(n)s дня"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "Через %(n)s день"
+msgstr[1] "Через %(n)s дня"
+msgstr[2] "Через %(n)s дней"
+msgstr[3] "Через %(n)s дня"
+
+msgid "Approved a suggestion of Marid"
+msgstr "Одобрил(а) предложение Марида"
+
+msgid "Asked Marid a question about a document"
+msgstr "Задал(а) Мариду вопрос о документе"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "Фирменный стиль, письма и сертификаты на вашем бланке."
 

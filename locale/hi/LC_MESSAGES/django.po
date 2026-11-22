@@ -12707,6 +12707,390 @@ msgstr "छवि कॉपी हो गई। इसे पोस्ट मे
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "छवि कॉपी नहीं हो सकी; इसके बजाय डाउनलोड करें।"
 
+msgid "Domain"
+msgstr "डोमेन"
+
+msgid "Hosting"
+msgstr "होस्टिंग"
+
+msgid "Software licence"
+msgstr "सॉफ़्टवेयर लाइसेंस"
+
+msgid "Cloud service account"
+msgstr "क्लाउड सेवा खाता"
+
+msgid "Subscription"
+msgstr "सदस्यता"
+
+msgid "SSL certificate"
+msgstr "SSL प्रमाणपत्र"
+
+msgid "Yearly"
+msgstr "वार्षिक"
+
+msgid "Monthly"
+msgstr "मासिक"
+
+msgid "One-time"
+msgstr "एकमुश्त"
+
+msgid "provider"
+msgstr "प्रदाता"
+
+msgid "domain or address"
+msgstr "डोमेन या पता"
+
+msgid "account it is under"
+msgstr "जिस खाते के अंतर्गत है"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr "खाते का ईमेल या उपयोगकर्ता नाम, ताकि कोई भी उसे ढूँढ सके। पासवर्ड कभी नहीं।"
+
+msgid "start date"
+msgstr "आरंभ तिथि"
+
+msgid "renewal date"
+msgstr "नवीनीकरण तिथि"
+
+msgid "renews automatically"
+msgstr "अपने-आप नवीनीकृत होता है"
+
+msgid "cost"
+msgstr "लागत"
+
+msgid "currency"
+msgstr "मुद्रा"
+
+msgid "billing"
+msgstr "बिलिंग"
+
+msgid "responsible"
+msgstr "ज़िम्मेदार"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "3 अक्षरों का मुद्रा कोड लिखें, जैसे USD।"
+
+msgid "The cost cannot be negative."
+msgstr "लागत ऋणात्मक नहीं हो सकती।"
+
+msgid "The renewal date cannot be before the start date."
+msgstr "नवीनीकरण तिथि आरंभ तिथि से पहले नहीं हो सकती।"
+
+msgid "This is not a valid domain name."
+msgstr "यह मान्य डोमेन नाम नहीं है।"
+
+msgid "The registry has no record of this domain."
+msgstr "रजिस्ट्री में इस डोमेन का कोई रिकॉर्ड नहीं है।"
+
+msgid "The registry did not answer."
+msgstr "रजिस्ट्री ने उत्तर नहीं दिया।"
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "रजिस्ट्री इस डोमेन की समाप्ति तिथि प्रकाशित नहीं करती।"
+
+msgid "Add a digital asset"
+msgstr "डिजिटल संपत्ति जोड़ें"
+
+msgid "Edit the digital asset"
+msgstr "डिजिटल संपत्ति संपादित करें"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "केवल पते वाले डोमेन की स्वचालित जाँच हो सकती है।"
+
+msgid "The end date was read: %(date)s."
+msgstr "समाप्ति तिथि पढ़ी गई: %(date)s।"
+
+msgid "Could not read the end date."
+msgstr "समाप्ति तिथि पढ़ी नहीं जा सकी।"
+
+msgid "Late"
+msgstr "विलंबित"
+
+msgid "Due soon"
+msgstr "जल्द देय"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "30 दिनों में नवीनीकरण होना है, या विलंबित"
+
+msgid "Add an asset"
+msgstr "संपत्ति जोड़ें"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"डोमेन, होस्टिंग, लाइसेंस, क्लाउड खाते, सदस्यताएँ और प्रमाणपत्र एक ही जगह, उनकी नवीनीकरण "
+"तिथियों के साथ। हर एक के समाप्त होने से 90, 30, 7 और 1 दिन पहले आपको याद दिलाया "
+"जाता है। यहाँ कभी पासवर्ड न लिखें।"
+
+msgid "Yearly cost"
+msgstr "वार्षिक लागत"
+
+msgid "Renewal date"
+msgstr "नवीनीकरण तिथि"
+
+msgid "Responsible"
+msgstr "ज़िम्मेदार"
+
+msgid "Provider"
+msgstr "प्रदाता"
+
+msgid "Renews automatically"
+msgstr "अपने-आप नवीनीकृत होता है"
+
+msgid "Read the end date from the domain registry"
+msgstr "डोमेन रजिस्ट्री से समाप्ति तिथि पढ़ें"
+
+msgid "Check now"
+msgstr "अभी जाँचें"
+
+msgid "This asset will be deleted for good."
+msgstr "यह संपत्ति हमेशा के लिए हटा दी जाएगी।"
+
+msgid "Nothing matches."
+msgstr "कुछ मेल नहीं खाता।"
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "अभी कोई संपत्ति नहीं है। अपना पहला डोमेन या सदस्यता जोड़ें।"
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"डोमेन के लिए सूची में जाँच बटन दबाएँ और समाप्ति तिथि रजिस्ट्री से आपके लिए पढ़ ली जाती है।"
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr ""
+"यहाँ पासवर्ड या कुंजियाँ न लिखें। केवल यह कि कौन प्रदान करता है, कब समाप्त होता है और "
+"कौन देखता है।"
+
+msgid "Added a digital asset"
+msgstr "एक डिजिटल संपत्ति जोड़ी"
+
+msgid "Changed a digital asset"
+msgstr "एक डिजिटल संपत्ति बदली"
+
+msgid "Deleted a digital asset"
+msgstr "एक डिजिटल संपत्ति हटाई"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "नवीनीकृत: अगली नवीनीकरण तिथि %(date)s है।"
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr ""
+"इस संपत्ति की कोई नवीनीकरण तिथि नहीं है जिसे आगे बढ़ाया जाए, या यह एकमुश्त लागत है।"
+
+msgid "%(n)s assets were added."
+msgstr "%(n)s संपत्तियाँ जोड़ी गईं।"
+
+msgid "The file has no rows to add."
+msgstr "फ़ाइल में जोड़ने के लिए कोई पंक्ति नहीं है।"
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "कैलेंडर का पता तैयार है। पुराना पता, यदि था, अब काम नहीं करता।"
+
+msgid "Marked a digital asset as renewed"
+msgstr "एक डिजिटल संपत्ति को नवीनीकृत चिह्नित किया"
+
+msgid "Imported digital assets from a file"
+msgstr "फ़ाइल से डिजिटल संपत्तियाँ आयात कीं"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "नवीनीकरण कैलेंडर के लिए नया पता बनाया"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "फ़ाइल 1 MB से छोटी होनी चाहिए।"
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "फ़ाइल UTF-8 में सहेजी गई CSV होनी चाहिए।"
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr ""
+"पहली पंक्ति में स्तंभों के नाम होने चाहिए, जो «name» से शुरू हों। उन्हें देखने के लिए टेम्पलेट "
+"डाउनलोड करें।"
+
+msgid "Only the first %(n)s rows are read."
+msgstr "केवल पहली %(n)s पंक्तियाँ पढ़ी जाती हैं।"
+
+msgid "Unknown type: %(v)s"
+msgstr "अज्ञात प्रकार: %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "अज्ञात बिलिंग: %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s कंपनी का सदस्य नहीं है।"
+
+msgid "Renewals of %(company)s"
+msgstr "%(company)s के नवीनीकरण"
+
+msgid "Renewal: %(name)s"
+msgstr "नवीनीकरण: %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s: नवीनीकरण के लिए %(n)s डिजिटल संपत्तियाँ"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "%(company)s की डिजिटल संपत्तियाँ जिन पर ध्यान चाहिए:"
+
+msgid "Open the list:"
+msgstr "सूची खोलें:"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr "आपको यह सारांश हर सप्ताह मिलता है क्योंकि आप कंपनी का प्रबंधन करते हैं।"
+
+msgid "document in the library"
+msgstr "लाइब्रेरी का दस्तावेज़"
+
+msgid "renewed on"
+msgstr "नवीनीकरण की तिथि"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "30 दिनों में नवीनीकरण वाली डिजिटल संपत्तियाँ"
+
+msgid "%(n)s due for renewal"
+msgstr "नवीनीकरण के लिए %(n)s"
+
+msgid "digital assets"
+msgstr "डिजिटल संपत्तियाँ"
+
+msgid "Calendar"
+msgstr "कैलेंडर"
+
+msgid "Import"
+msgstr "आयात"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr "नवीनीकरण तिथि अगली अवधि पर चली जाती है और याद दिलाना फिर से शुरू होता है।"
+
+msgid "Mark as renewed"
+msgstr "नवीनीकृत चिह्नित करें"
+
+msgid "Renewed"
+msgstr "नवीनीकृत"
+
+msgid "Renewal history"
+msgstr "नवीनीकरण का इतिहास"
+
+msgid "renewed"
+msgstr "नवीनीकृत"
+
+msgid "Import assets from a file"
+msgstr "फ़ाइल से संपत्तियाँ आयात करें"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"CSV फ़ाइल से एक साथ कई संपत्तियाँ जोड़ें (Excel और Google Sheets «CSV के रूप में सहेजें» से "
+"एक बना सकते हैं)। गलत पंक्तियाँ छोड़कर सूचीबद्ध की जाती हैं, बाकी जोड़ दी जाती हैं।"
+
+msgid "Download the template and fill in one asset per row."
+msgstr "टेम्पलेट डाउनलोड करें और हर पंक्ति में एक संपत्ति भरें।"
+
+msgid "Download the template"
+msgstr "टेम्पलेट डाउनलोड करें"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"प्रकार domain, hosting, license, cloud, subscription, ssl या other है। बिलिंग "
+"yearly, monthly या once है। तिथियाँ इस तरह लिखी जाती हैं: 2027-03-14। ज़िम्मेदार "
+"कंपनी के किसी सदस्य का ईमेल है।"
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "500 पंक्तियों और 1 MB तक। फ़ाइल में कभी पासवर्ड न रखें।"
+
+msgid "Rows that were not added"
+msgstr "जो पंक्तियाँ नहीं जोड़ी गईं"
+
+msgid "Row %(n)s"
+msgstr "पंक्ति %(n)s"
+
+msgid "and %(n)s more"
+msgstr "और %(n)s अन्य"
+
+msgid "Renewal calendar"
+msgstr "नवीनीकरण कैलेंडर"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"अपने नवीनीकरणों को अपने फ़ोन या कंप्यूटर के कैलेंडर में सब्सक्राइब करें। नवीनीकरण तिथि वाली "
+"हर संपत्ति पूरे दिन के कार्यक्रम के रूप में दिखती है, जिसमें एक सप्ताह पहले याद दिलाया जाता "
+"है। तिथियाँ बदलने पर कैलेंडर अपने-आप अपडेट हो जाता है।"
+
+msgid "Calendar address"
+msgstr "कैलेंडर का पता"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"जिसके पास भी यह पता है वह आपकी संपत्तियों के नाम और तिथियाँ देख सकता है, इसलिए इसे "
+"निजी रखें। यदि यह लीक हो जाए तो नया बनाएँ: पुराना तुरंत काम करना बंद कर देता है।"
+
+msgid "Add to my calendar"
+msgstr "मेरे कैलेंडर में जोड़ें"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "पुराना पता काम करना बंद कर देगा। नया बनाएँ?"
+
+msgid "Make a new address"
+msgstr "नया पता बनाएँ"
+
+msgid "Make the calendar address"
+msgstr "कैलेंडर का पता बनाएँ"
+
+msgid "Name"
+msgstr "नाम"
+
+msgid "Total assets"
+msgstr "कुल संपत्तियाँ"
+
+msgid "Asset"
+msgstr "संपत्ति"
+
+msgid "No date"
+msgstr "तिथि नहीं"
+
+msgid "Due within 30 days"
+msgstr "30 दिनों में देय"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "डिजिटल संपत्तियाँ"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "%(n)s दिन विलंबित"
+msgstr[1] "%(n)s दिन विलंबित"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "%(n)s दिन में"
+msgstr[1] "%(n)s दिनों में"
+
+msgid "Approved a suggestion of Marid"
+msgstr "मारिद के एक सुझाव को स्वीकृत किया"
+
+msgid "Asked Marid a question about a document"
+msgstr "एक दस्तावेज़ के बारे में मारिद से प्रश्न पूछा"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "पहचान, पत्र और प्रमाणपत्र, आपके अपने लेटरहेड पर।"
 

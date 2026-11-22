@@ -162,6 +162,7 @@ class KindNotificationTests(TestCase):
         def bad(user, company):
             raise RuntimeError('boom')
 
+        original = list(self.registry.COLLECTORS)         # the apps register theirs when they start: put them back afterwards
         self.registry.COLLECTORS[:] = [bad, good]
         try:
             self.client.force_login(self.owner)
@@ -169,7 +170,7 @@ class KindNotificationTests(TestCase):
             self.assertEqual(seen, [(self.owner.pk, self.company.pk)])
             self.assertEqual(Notification.objects.get(kind='reminder').user, self.owner)
         finally:
-            self.registry.COLLECTORS[:] = []
+            self.registry.COLLECTORS[:] = original
 
     def test_prune_deletes_old_read_and_old_unread_ones_only(self):
         import datetime

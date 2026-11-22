@@ -67,6 +67,18 @@ To add a layout: write `designs/<key>.html` (extend `base.html`, use `var(--bg) 
 
 `apps/inbox`: every 30 minutes the worker reads new Facebook and Instagram comments on posts published in the last 30 days, and the AI labels each (sentiment, category, urgency) and drafts a reply in the brand's voice. *High* and *crisis* comments notify the owners and admins at once (in the app and by email). Replies are sent from the inbox page; *auto-reply* (off by default) answers simple questions and praise on its own, never complaints or anything urgent. Needs `META_INBOX_SCOPES`.
 
+### Digital assets
+
+`apps/assets` keeps a company's domains, hosting, software licences, cloud accounts, subscriptions and SSL certificates with provider, renewal date, cost, auto-renew and the member responsible. It never stores passwords or keys.
+
+- **Reminders** 90, 30, 7 and 1 day before the renewal date and when late (owners, admins and the responsible member; notification centre + e-mail): `manage.py send_asset_reminders`, daily. It first re-reads each domain's end date from the registry (RDAP, `--no-check` skips that); the server only contacts the fixed RDAP service, never an address typed by a member.
+- **Mark as renewed** moves the date one cycle on (a monthly asset forgotten for months lands on the first future date), restarts the reminders and logs the renewal (`RenewalLog`, shown on the edit page).
+- **Weekly digest** to owners and admins of what is late or due in 30 days: `manage.py send_asset_digest`, weekly.
+- **Import** from CSV (`/app/assets/import/`, template download; at most 500 rows and 1 MB; wrong rows are listed and skipped).
+- **Calendar feed**: an `.ics` subscription (`/cal/<token>.ics`, no login: the secret address is the key; the manager can replace it and the old one stops working).
+- **Library link**: an asset can point to a paper of the library (invoice, proof of ownership); the file stays in the encrypted library.
+- Shown in the dashboard tile, the "what is waiting" list, the side-menu badge and answered by Marid (`search_assets`).
+
 ### WhatsApp approvals
 
 `apps/whatsapp` (WhatsApp Business Cloud API). With a client WhatsApp number in the Auto planner settings, *Send to the client on WhatsApp* on a plan (and the auto planner, when a plan is ready) sends the approved template `WHATSAPP_REVIEW_TEMPLATE` with the brand name, month and review link, and a quick-reply button. When the client taps it, every post awaiting review arrives as its design with *Approve* / *Request changes* buttons; a change request takes the client's next message as the note. Button ids are signed for the client's number; only the company's own client number is listened to. Webhook: `SITE_URL/whatsapp/webhook/` (verify token `WHATSAPP_VERIFY_TOKEN`, signed with the app secret).
@@ -210,6 +222,7 @@ apps/
   insights/    post performance from Meta, best hours, the planner's performance block, monthly reports, competitors
   inbox/       comments from Facebook and Instagram, AI triage, crisis alerts, replies
   whatsapp/    client approvals over WhatsApp (Cloud API, webhook)
+  assets/      digital assets (domains, hosting, licences...) with renewal reminders, renewal log, CSV import, calendar feed, weekly digest
   ads/         paid promotion suggestions, created PAUSED in Meta
   jobs/        background job model and the run_worker command
   api/         JSON endpoints used by the front-end (status, reschedule, rewrite, render, comments, publish, job polling)

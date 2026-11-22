@@ -12554,6 +12554,379 @@ msgstr "图片已复制，请粘贴到帖子中。"
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "无法复制图片，请改为下载。"
 
+msgid "Domain"
+msgstr "域名"
+
+msgid "Hosting"
+msgstr "主机托管"
+
+msgid "Software licence"
+msgstr "软件许可证"
+
+msgid "Cloud service account"
+msgstr "云服务账号"
+
+msgid "Subscription"
+msgstr "订阅"
+
+msgid "SSL certificate"
+msgstr "SSL 证书"
+
+msgid "Yearly"
+msgstr "按年"
+
+msgid "Monthly"
+msgstr "按月"
+
+msgid "One-time"
+msgstr "一次性"
+
+msgid "provider"
+msgstr "提供商"
+
+msgid "domain or address"
+msgstr "域名或地址"
+
+msgid "account it is under"
+msgstr "所属账号"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr "账号的电子邮箱或用户名，方便任何人找到它。切勿填写密码。"
+
+msgid "start date"
+msgstr "开始日期"
+
+msgid "renewal date"
+msgstr "续期日期"
+
+msgid "renews automatically"
+msgstr "自动续期"
+
+msgid "cost"
+msgstr "费用"
+
+msgid "currency"
+msgstr "货币"
+
+msgid "billing"
+msgstr "计费"
+
+msgid "responsible"
+msgstr "负责人"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "请填写 3 个字母的货币代码，例如 USD。"
+
+msgid "The cost cannot be negative."
+msgstr "费用不能为负数。"
+
+msgid "The renewal date cannot be before the start date."
+msgstr "续期日期不能早于开始日期。"
+
+msgid "This is not a valid domain name."
+msgstr "这不是有效的域名。"
+
+msgid "The registry has no record of this domain."
+msgstr "注册机构没有此域名的记录。"
+
+msgid "The registry did not answer."
+msgstr "注册机构没有响应。"
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "注册机构未公布此域名的到期日期。"
+
+msgid "Add a digital asset"
+msgstr "添加数字资产"
+
+msgid "Edit the digital asset"
+msgstr "编辑数字资产"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "只有带地址的域名才能自动检查。"
+
+msgid "The end date was read: %(date)s."
+msgstr "已读取到期日期：%(date)s。"
+
+msgid "Could not read the end date."
+msgstr "无法读取到期日期。"
+
+msgid "Late"
+msgstr "已逾期"
+
+msgid "Due soon"
+msgstr "即将到期"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "30 天内需续期，或已逾期"
+
+msgid "Add an asset"
+msgstr "添加资产"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"域名、主机托管、许可证、云账号、订阅和证书集中在一处，并附有续期日期。每项到"
+"期前 90 天、30 天、7 天和 1 天都会提醒您。切勿在此填写密码。"
+
+msgid "Yearly cost"
+msgstr "年度费用"
+
+msgid "Renewal date"
+msgstr "续期日期"
+
+msgid "Responsible"
+msgstr "负责人"
+
+msgid "Provider"
+msgstr "提供商"
+
+msgid "Renews automatically"
+msgstr "自动续期"
+
+msgid "Read the end date from the domain registry"
+msgstr "从域名注册机构读取到期日期"
+
+msgid "Check now"
+msgstr "立即检查"
+
+msgid "This asset will be deleted for good."
+msgstr "此资产将被永久删除。"
+
+msgid "Nothing matches."
+msgstr "没有匹配项。"
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "还没有资产。请添加您的第一个域名或订阅。"
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr "对于域名，点击列表中的检查按钮，系统会从注册机构为您读取到期日期。"
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr "请勿在此填写密码或密钥。只记录谁提供、何时到期以及谁负责。"
+
+msgid "Added a digital asset"
+msgstr "添加了数字资产"
+
+msgid "Changed a digital asset"
+msgstr "修改了数字资产"
+
+msgid "Deleted a digital asset"
+msgstr "删除了数字资产"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "已续期：下一个续期日期是 %(date)s。"
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr "此资产没有可顺延的续期日期，或属于一次性费用。"
+
+msgid "%(n)s assets were added."
+msgstr "已添加 %(n)s 项资产。"
+
+msgid "The file has no rows to add."
+msgstr "文件中没有可添加的行。"
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "日历地址已准备好。旧地址（如有）不再有效。"
+
+msgid "Marked a digital asset as renewed"
+msgstr "将数字资产标记为已续期"
+
+msgid "Imported digital assets from a file"
+msgstr "从文件导入了数字资产"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "为续期日历创建了新地址"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "文件必须小于 1 MB。"
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "文件必须是以 UTF-8 保存的 CSV。"
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr "第一行必须写明各列名称，并以“name”开头。下载模板即可查看。"
+
+msgid "Only the first %(n)s rows are read."
+msgstr "只读取前 %(n)s 行。"
+
+msgid "Unknown type: %(v)s"
+msgstr "未知类型：%(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "未知计费：%(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s 不是公司成员。"
+
+msgid "Renewals of %(company)s"
+msgstr "%(company)s 的续期"
+
+msgid "Renewal: %(name)s"
+msgstr "续期：%(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s：有 %(n)s 项数字资产需要续期"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "%(company)s 需要关注的数字资产："
+
+msgid "Open the list:"
+msgstr "打开列表："
+
+msgid "You receive this summary every week because you manage the company."
+msgstr "因为您管理公司，所以每周都会收到此摘要。"
+
+msgid "document in the library"
+msgstr "资料库中的文档"
+
+msgid "renewed on"
+msgstr "续期于"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "30 天内需续期的数字资产"
+
+msgid "%(n)s due for renewal"
+msgstr "%(n)s 项需续期"
+
+msgid "digital assets"
+msgstr "数字资产"
+
+msgid "Calendar"
+msgstr "日历"
+
+msgid "Import"
+msgstr "导入"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr "续期日期会移到下一个周期，提醒也将重新开始。"
+
+msgid "Mark as renewed"
+msgstr "标记为已续期"
+
+msgid "Renewed"
+msgstr "已续期"
+
+msgid "Renewal history"
+msgstr "续期记录"
+
+msgid "renewed"
+msgstr "已续期"
+
+msgid "Import assets from a file"
+msgstr "从文件导入资产"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"从 CSV 文件一次添加多项资产（Excel 和 Google 表格可通过“另存为 CSV”生成）。有"
+"误的行会被跳过并列出，其余的会被添加。"
+
+msgid "Download the template and fill in one asset per row."
+msgstr "下载模板，每行填写一项资产。"
+
+msgid "Download the template"
+msgstr "下载模板"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"类型为 domain、hosting、license、cloud、subscription、ssl 或 other。计费为 "
+"yearly、monthly 或 once。日期写作 2027-03-14。负责人填写公司成员的电子邮箱。"
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "最多 500 行和 1 MB。切勿在文件中放入密码。"
+
+msgid "Rows that were not added"
+msgstr "未添加的行"
+
+msgid "Row %(n)s"
+msgstr "第 %(n)s 行"
+
+msgid "and %(n)s more"
+msgstr "另有 %(n)s 项"
+
+msgid "Renewal calendar"
+msgstr "续期日历"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"在手机或电脑的日历中订阅您的续期。每个有续期日期的资产都会显示为全天事件，并"
+"提前一周提醒。更改日期时，日历会自动更新。"
+
+msgid "Calendar address"
+msgstr "日历地址"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"任何拥有此地址的人都能看到您资产的名称和日期，请妥善保密。如果泄露，请创建新"
+"地址，旧地址会立即失效。"
+
+msgid "Add to my calendar"
+msgstr "添加到我的日历"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "旧地址将失效。要创建新地址吗？"
+
+msgid "Make a new address"
+msgstr "创建新地址"
+
+msgid "Make the calendar address"
+msgstr "创建日历地址"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Total assets"
+msgstr "资产总数"
+
+msgid "Asset"
+msgstr "资产"
+
+msgid "No date"
+msgstr "无日期"
+
+msgid "Due within 30 days"
+msgstr "30 天内到期"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "数字资产"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "已逾期 %(n)s 天"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "%(n)s 天后"
+
+msgid "Approved a suggestion of Marid"
+msgstr "批准了 Marid 的建议"
+
+msgid "Asked Marid a question about a document"
+msgstr "就某份文档向 Marid 提问"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "标识、信函和证书,都用您自己的信笺。"
 

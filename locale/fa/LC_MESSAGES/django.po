@@ -12813,6 +12813,393 @@ msgstr "تصویر کپی شد. آن را در پست بچسبانید."
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "کپی تصویر ممکن نشد؛ به‌جای آن دانلودش کنید."
 
+msgid "Domain"
+msgstr "دامنه"
+
+msgid "Hosting"
+msgstr "هاست"
+
+msgid "Software licence"
+msgstr "مجوز نرم‌افزار"
+
+msgid "Cloud service account"
+msgstr "حساب سرویس ابری"
+
+msgid "Subscription"
+msgstr "اشتراک"
+
+msgid "SSL certificate"
+msgstr "گواهی SSL"
+
+msgid "Yearly"
+msgstr "سالانه"
+
+msgid "Monthly"
+msgstr "ماهانه"
+
+msgid "One-time"
+msgstr "یک‌بار"
+
+msgid "provider"
+msgstr "ارائه‌دهنده"
+
+msgid "domain or address"
+msgstr "دامنه یا نشانی"
+
+msgid "account it is under"
+msgstr "حسابی که به آن تعلق دارد"
+
+msgid ""
+"The e-mail or user name of the account, so anyone can find it. Never a "
+"password."
+msgstr ""
+"ایمیل یا نام کاربری حساب، تا هر کسی بتواند آن را پیدا کند. هرگز گذرواژه نه."
+
+msgid "start date"
+msgstr "تاریخ شروع"
+
+msgid "renewal date"
+msgstr "تاریخ تمدید"
+
+msgid "renews automatically"
+msgstr "خودکار تمدید می‌شود"
+
+msgid "cost"
+msgstr "هزینه"
+
+msgid "currency"
+msgstr "ارز"
+
+msgid "billing"
+msgstr "صورت‌حساب"
+
+msgid "responsible"
+msgstr "مسئول"
+
+msgid "Write the 3-letter currency code, for example USD."
+msgstr "کد ۳ حرفی ارز را بنویسید، مثلاً USD."
+
+msgid "The cost cannot be negative."
+msgstr "هزینه نمی‌تواند منفی باشد."
+
+msgid "The renewal date cannot be before the start date."
+msgstr "تاریخ تمدید نمی‌تواند پیش از تاریخ شروع باشد."
+
+msgid "This is not a valid domain name."
+msgstr "این نام دامنهٔ معتبری نیست."
+
+msgid "The registry has no record of this domain."
+msgstr "ثبت‌کنندهٔ دامنه هیچ سابقه‌ای از این دامنه ندارد."
+
+msgid "The registry did not answer."
+msgstr "ثبت‌کنندهٔ دامنه پاسخ نداد."
+
+msgid "The registry does not publish the end date of this domain."
+msgstr "ثبت‌کنندهٔ دامنه تاریخ پایان این دامنه را منتشر نمی‌کند."
+
+msgid "Add a digital asset"
+msgstr "افزودن دارایی دیجیتال"
+
+msgid "Edit the digital asset"
+msgstr "ویرایش دارایی دیجیتال"
+
+msgid "Only a domain with its address can be checked automatically."
+msgstr "فقط دامنه‌ای که نشانی دارد را می‌توان خودکار بررسی کرد."
+
+msgid "The end date was read: %(date)s."
+msgstr "تاریخ پایان خوانده شد: %(date)s."
+
+msgid "Could not read the end date."
+msgstr "تاریخ پایان خوانده نشد."
+
+msgid "Late"
+msgstr "دیرکرد"
+
+msgid "Due soon"
+msgstr "به‌زودی سررسید"
+
+msgid "Due for renewal within 30 days, or late"
+msgstr "سررسید تمدید در ۳۰ روز آینده، یا دیرکرد"
+
+msgid "Add an asset"
+msgstr "افزودن دارایی"
+
+msgid ""
+"Domains, hosting, licences, cloud accounts, subscriptions and certificates "
+"in one place, with their renewal dates. You are reminded 90, 30, 7 and 1 day "
+"before each one ends. Never write a password here."
+msgstr ""
+"دامنه‌ها، هاست‌ها، مجوزها، حساب‌های ابری، اشتراک‌ها و گواهی‌ها در یک‌جا، با تاریخ "
+"تمدیدشان. ۹۰، ۳۰، ۷ و ۱ روز پیش از پایان هر کدام یادآوری می‌شوید. هرگز اینجا "
+"گذرواژه ننویسید."
+
+msgid "Yearly cost"
+msgstr "هزینهٔ سالانه"
+
+msgid "Renewal date"
+msgstr "تاریخ تمدید"
+
+msgid "Responsible"
+msgstr "مسئول"
+
+msgid "Provider"
+msgstr "ارائه‌دهنده"
+
+msgid "Renews automatically"
+msgstr "خودکار تمدید می‌شود"
+
+msgid "Read the end date from the domain registry"
+msgstr "خواندن تاریخ پایان از ثبت‌کنندهٔ دامنه"
+
+msgid "Check now"
+msgstr "اکنون بررسی کن"
+
+msgid "This asset will be deleted for good."
+msgstr "این دارایی برای همیشه حذف می‌شود."
+
+msgid "Nothing matches."
+msgstr "موردی یافت نشد."
+
+msgid "No assets yet. Add your first domain or subscription."
+msgstr "هنوز دارایی‌ای نیست. نخستین دامنه یا اشتراک خود را اضافه کنید."
+
+msgid ""
+"For a domain, press the check button in the list and the end date is read "
+"from the registry for you."
+msgstr ""
+"برای دامنه، دکمهٔ بررسی را در فهرست بزنید تا تاریخ پایان از ثبت‌کننده برایتان "
+"خوانده شود."
+
+msgid ""
+"Do not write passwords or keys here. Only who provides it, when it ends and "
+"who looks after it."
+msgstr ""
+"اینجا گذرواژه یا کلید ننویسید. فقط اینکه چه کسی فراهم می‌کند، چه زمانی تمام "
+"می‌شود و چه کسی پیگیر آن است."
+
+msgid "Added a digital asset"
+msgstr "یک دارایی دیجیتال افزود"
+
+msgid "Changed a digital asset"
+msgstr "یک دارایی دیجیتال را تغییر داد"
+
+msgid "Deleted a digital asset"
+msgstr "یک دارایی دیجیتال را حذف کرد"
+
+msgid "Renewed: the next renewal date is %(date)s."
+msgstr "تمدید شد: تاریخ تمدید بعدی %(date)s است."
+
+msgid "This asset has no renewal date to move, or it is a one-time cost."
+msgstr "این دارایی تاریخ تمدیدی برای جابه‌جایی ندارد، یا هزینهٔ یک‌بار است."
+
+msgid "%(n)s assets were added."
+msgstr "%(n)s دارایی افزوده شد."
+
+msgid "The file has no rows to add."
+msgstr "فایل سطری برای افزودن ندارد."
+
+msgid "The calendar address is ready. The old one, if any, no longer works."
+msgstr "نشانی تقویم آماده است. نشانی قبلی، اگر بود، دیگر کار نمی‌کند."
+
+msgid "Marked a digital asset as renewed"
+msgstr "یک دارایی دیجیتال را تمدیدشده علامت زد"
+
+msgid "Imported digital assets from a file"
+msgstr "دارایی‌های دیجیتال را از فایل وارد کرد"
+
+msgid "Made a new address for the renewal calendar"
+msgstr "نشانی تازه‌ای برای تقویم تمدیدها ساخت"
+
+msgid "The file must be smaller than 1 MB."
+msgstr "فایل باید کمتر از ۱ مگابایت باشد."
+
+msgid "The file must be a CSV saved as UTF-8."
+msgstr "فایل باید CSV ذخیره‌شده با UTF-8 باشد."
+
+msgid ""
+"The first row must name the columns, starting with \"name\". Download the "
+"template to see them."
+msgstr ""
+"سطر نخست باید ستون‌ها را نام ببرد و با «name» شروع شود. برای دیدن آنها الگو "
+"را دانلود کنید."
+
+msgid "Only the first %(n)s rows are read."
+msgstr "فقط %(n)s سطر نخست خوانده می‌شود."
+
+msgid "Unknown type: %(v)s"
+msgstr "نوع ناشناخته: %(v)s"
+
+msgid "Unknown billing: %(v)s"
+msgstr "صورت‌حساب ناشناخته: %(v)s"
+
+msgid "%(v)s is not a member of the company."
+msgstr "%(v)s عضو شرکت نیست."
+
+msgid "Renewals of %(company)s"
+msgstr "تمدیدهای %(company)s"
+
+msgid "Renewal: %(name)s"
+msgstr "تمدید: %(name)s"
+
+msgid "%(company)s: %(n)s digital assets to renew"
+msgstr "%(company)s: %(n)s دارایی دیجیتال برای تمدید"
+
+msgid "Digital assets of %(company)s that need attention:"
+msgstr "دارایی‌های دیجیتال %(company)s که به توجه نیاز دارند:"
+
+msgid "Open the list:"
+msgstr "بازکردن فهرست:"
+
+msgid "You receive this summary every week because you manage the company."
+msgstr "این خلاصه را هر هفته دریافت می‌کنید چون مدیر شرکت هستید."
+
+msgid "document in the library"
+msgstr "سند در کتابخانه"
+
+msgid "renewed on"
+msgstr "تمدید در"
+
+msgid "Digital assets due for renewal within 30 days"
+msgstr "دارایی‌های دیجیتالی که ظرف ۳۰ روز باید تمدید شوند"
+
+msgid "%(n)s due for renewal"
+msgstr "%(n)s برای تمدید"
+
+msgid "digital assets"
+msgstr "دارایی دیجیتال"
+
+msgid "Calendar"
+msgstr "تقویم"
+
+msgid "Import"
+msgstr "وارد کردن"
+
+msgid ""
+"The renewal date moves to the next period and the reminders start again."
+msgstr "تاریخ تمدید به دورهٔ بعد می‌رود و یادآوری‌ها از نو شروع می‌شوند."
+
+msgid "Mark as renewed"
+msgstr "علامت‌گذاری به‌عنوان تمدیدشده"
+
+msgid "Renewed"
+msgstr "تمدیدشد"
+
+msgid "Renewal history"
+msgstr "تاریخچهٔ تمدیدها"
+
+msgid "renewed"
+msgstr "تمدیدشد"
+
+msgid "Import assets from a file"
+msgstr "وارد کردن دارایی‌ها از فایل"
+
+msgid ""
+"Add many assets at once from a CSV file (Excel and Google Sheets can save "
+"one with Save as CSV). Rows that are wrong are skipped and listed, the "
+"others are added."
+msgstr ""
+"دارایی‌های بسیار را یک‌جا از فایل CSV اضافه کنید (اکسل و Google Sheets "
+"می‌توانند با «ذخیره به‌صورت CSV» آن را بسازند). سطرهای نادرست رد و فهرست "
+"می‌شوند و بقیه افزوده می‌شوند."
+
+msgid "Download the template and fill in one asset per row."
+msgstr "الگو را دانلود کنید و برای هر سطر یک دارایی بنویسید."
+
+msgid "Download the template"
+msgstr "دانلود الگو"
+
+msgid ""
+"The type is domain, hosting, license, cloud, subscription, ssl or other. The "
+"billing is yearly, monthly or once. Dates are written 2027-03-14. The "
+"responsible is the e-mail of a member of the company."
+msgstr ""
+"نوع یکی از domain، hosting، license، cloud، subscription، ssl یا other است. "
+"صورت‌حساب yearly، monthly یا once است. تاریخ‌ها به این شکل نوشته می‌شوند: "
+"2027-03-14. مسئول، ایمیل یکی از اعضای شرکت است."
+
+msgid "Up to 500 rows and 1 MB. Never put passwords in the file."
+msgstr "تا ۵۰۰ سطر و ۱ مگابایت. هرگز گذرواژه در فایل نگذارید."
+
+msgid "Rows that were not added"
+msgstr "سطرهایی که افزوده نشدند"
+
+msgid "Row %(n)s"
+msgstr "سطر %(n)s"
+
+msgid "and %(n)s more"
+msgstr "و %(n)s مورد دیگر"
+
+msgid "Renewal calendar"
+msgstr "تقویم تمدیدها"
+
+msgid ""
+"Subscribe to your renewals in the calendar of your phone or computer. Each "
+"asset with a renewal date appears as an all-day event, with a reminder a "
+"week before. The calendar updates by itself when you change the dates."
+msgstr ""
+"تمدیدهای خود را در تقویم تلفن یا رایانه‌تان دنبال کنید. هر دارایی که تاریخ "
+"تمدید دارد به‌صورت رویدادی تمام‌روز با یادآوری یک هفته پیش نمایش داده می‌شود. "
+"با تغییر تاریخ‌ها، تقویم خودش به‌روز می‌شود."
+
+msgid "Calendar address"
+msgstr "نشانی تقویم"
+
+msgid ""
+"Anyone who has this address can see the names and dates of your assets, so "
+"keep it private. If it leaks, make a new one: the old one stops working at "
+"once."
+msgstr ""
+"هر کس این نشانی را داشته باشد نام‌ها و تاریخ‌های دارایی‌های شما را می‌بیند، پس "
+"آن را خصوصی نگه دارید. اگر فاش شد نشانی تازه بسازید: نشانی قبلی بلافاصله از "
+"کار می‌افتد."
+
+msgid "Add to my calendar"
+msgstr "افزودن به تقویم من"
+
+msgid "The old address will stop working. Make a new one?"
+msgstr "نشانی قبلی از کار می‌افتد. نشانی تازه ساخته شود؟"
+
+msgid "Make a new address"
+msgstr "ساخت نشانی تازه"
+
+msgid "Make the calendar address"
+msgstr "ساخت نشانی تقویم"
+
+msgid "Name"
+msgstr "نام"
+
+msgid "Total assets"
+msgstr "مجموع دارایی‌ها"
+
+msgid "Asset"
+msgstr "دارایی"
+
+msgid "No date"
+msgstr "بدون تاریخ"
+
+msgid "Due within 30 days"
+msgstr "سررسید تا ۳۰ روز آینده"
+
+msgctxt "navigation"
+msgid "Digital assets"
+msgstr "دارایی‌های دیجیتال"
+
+msgid "%(n)s day late"
+msgid_plural "%(n)s days late"
+msgstr[0] "%(n)s روز دیرکرد"
+msgstr[1] "%(n)s روز دیرکرد"
+
+msgid "In %(n)s day"
+msgid_plural "In %(n)s days"
+msgstr[0] "%(n)s روز دیگر"
+msgstr[1] "%(n)s روز دیگر"
+
+msgid "Approved a suggestion of Marid"
+msgstr "پیشنهادی از مارد را تأیید کرد"
+
+msgid "Asked Marid a question about a document"
+msgstr "دربارهٔ یک سند از مارد پرسید"
+
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "هویت، نامه‌ها و گواهی‌ها، روی سربرگ خودتان."
 

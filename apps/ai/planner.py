@@ -6,7 +6,7 @@ schemas below; `apps.content.services` turns them into model rows.
 """
 import calendar
 
-from apps.studio.designs import MOTIFS, SCHEMES, TEMPLATES
+from apps.studio.designs import MOTIFS, SCHEMES, V2_LAYOUTS
 from apps.studio.vectors import VECTORS
 
 from apps.content import doc_source
@@ -46,7 +46,7 @@ _POST_PROPS = {
     'subheadline': {'type': 'string'},
     'cta': {'type': 'string'},
     'badge': {'type': 'string'},
-    'template': {'type': 'string', 'enum': list(TEMPLATES)},
+    'template': {'type': 'string', 'enum': list(V2_LAYOUTS)},
     'scheme': {'type': 'string', 'enum': list(SCHEMES), 'description': 'Colour scheme of the design'},
     'motif': {'type': 'string', 'enum': list(MOTIFS), 'description': 'Background decoration of the design'},
     'vectors': {'type': 'array', 'items': {'type': 'string', 'enum': list(VECTORS)},
@@ -166,9 +166,8 @@ def generate_plan(plan):
     days = calendar.monthrange(plan.month.year, plan.month.month)[1]
     count = posts_count(plan)
     platforms = ', '.join(plan.platforms)
-    templates = '\n'.join(f'- {key}: {t["hint"]}' for key, t in TEMPLATES.items())
+    templates = '\n'.join(f'- {key}: {t["hint"]}' for key, t in V2_LAYOUTS.items())
     schemes = '\n'.join(f'- {key}: {v["hint"]}' for key, v in SCHEMES.items())
-    motifs = '\n'.join(f'- {key}: {v["hint"]}' for key, v in MOTIFS.items())
     brief = plan.brief.strip() or 'No special brief — plan the best month for this brand.'
     from apps.content.occasions import in_month
     occasions = '\n'.join(
@@ -184,7 +183,7 @@ def generate_plan(plan):
     from apps.companies.models import MediaAsset
     from apps.content.learning import recent_posts
     from apps.core import language
-    variety = max(4, min(10, count // 2))
+    variety = max(4, min(8, count // 2))
     photo_note = ('the media library has photos' if MediaAsset.objects.filter(company=company).exists()
                   else 'the media library is empty, so do not use them')
     team_language = language.name(language.of_user(plan.created_by) if plan.created_by else language.of_team(company))
@@ -224,18 +223,17 @@ Requirements:
 - If <competitor_insights> is present, give a few posts to those gaps and angles.
 
 Art direction (you are also the art director; a feed that repeats one look reads as automated):
-- For every image post choose `template` (the layout), `scheme` (the colours) and `motif` (the background decoration) so the idea and the look match: a statistic gets `stat`, an offer gets `offer`, a testimonial gets `quote`, a question or myth-buster gets `card`, a bold slogan gets `poster`, a greeting or occasion gets `frame`.
-- Vary them across the month. Use at least {variety} different layouts. Never use the same layout in two posts in a row, and avoid repeating a scheme or motif in consecutive posts. Don't default to `bold`.
-- The brand's own colours are applied automatically; `scheme` only decides how they are used (which colour is the ground). Keep the month's look cohesive but lively: mix calm and loud schemes.
+- For every image post choose the `template` (layout) that fits what the post says, and a `scheme` (which colour is the ground). The layout must serve the content, not decorate it: a statistic or years of experience gets `figure`; a list of steps, benefits or features gets `steps`; a software or service feature gets `showcase`; an offer or discount gets `promo`; a question, poll or myth-buster gets `ask`; a client review gets `testimonial`; Fridays, Eid, Ramadan and national days get `greeting`; everything else, a bold idea, a tip or an announcement, gets `statement`.
+- Vary them across the month. Use at least {variety} different layouts. Never use the same layout in two posts in a row, and avoid repeating a scheme in consecutive posts. Don't default to `statement`; keep it to about a third of the posts at most.
+- The brand's own colours, fonts and shape language are applied automatically; `scheme` only decides the ground. Keep the month's look cohesive but lively: mix calm and loud grounds.
 - Layouts:
 {templates}
-  Use the photo layouts (photo, split, arch, spotlight) only when the brand is likely to have a matching real photo: {photo_note}.
+  Use `cover` only when the brand is likely to have a matching real photo: {photo_note}.
 - Schemes:
 {schemes}
-- Motifs:
-{motifs}
-- `vectors`: 1-3 line drawings shown in a corner of the design, chosen for what the post is about (the first is drawn biggest), e.g. a post on inventory software gets building-warehouse, device-laptop, chart-line; an Eid greeting gets building-mosque, moon-stars, confetti. Pick from the names in the schema.
-- `stat` needs a short `badge` (the number or figure) and `offer` needs the offer in `badge`; give other layouts a badge only when it adds something."""
+- Write design text like a designer: a headline of 2-7 words that stands alone, never a sentence that trails off; a `subheadline` of one short line (or, for `steps` and `ask`, 2-4 short lines separated by line breaks); a `cta` of 2-3 words.
+- `figure` and `promo` need a short `badge` (the number or figure: 99.9%, +500, 24/7, 30%); other layouts take a badge only when it adds something (a tag such as "جديد" or the product name).
+- `vectors`: pick 1-3 topic keys; they also steer which product screen `showcase` draws (calendar, list, phone or dashboard). Pick from the names in the schema."""
 
     return call_json(SYSTEM_PROMPT, prompt, PLAN_SCHEMA, max_tokens=64000, effort='high')
 

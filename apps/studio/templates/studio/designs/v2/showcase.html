@@ -1,0 +1,120 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-showcase .frame { padding-bottom: 0; }
+.size-story.l-showcase .frame, .l-showcase.size-story .frame { padding-bottom: 0; padding-top: 200px; }
+.l-showcase .copy { flex: none; height: 450px; justify-content: center; padding: 20px 0; }
+.l-showcase.size-portrait .copy { height: 500px; }
+.l-showcase.size-story .copy { height: 620px; }
+.l-showcase .copy .headline { max-width: 94%; }
+.l-showcase .copy .sub { margin-top: 20px; max-width: 88%; }
+.l-showcase .copy .go { margin-top: 26px; font-family: var(--hf); font-weight: 800; font-size: 31px; color: var(--hi); }
+.l-showcase .top .contact { font-size: 24px; font-weight: 600; color: var(--muted); direction: ltr; display: flex; gap: 18px; }
+.l-showcase .stage { position: relative; flex: 1; min-height: 0; margin-inline: calc(var(--pad) * -1); overflow: hidden; }
+.l-showcase .glow { position: absolute; width: 900px; height: 900px; left: 50%; bottom: -520px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--hi) 38%, transparent), transparent 66%); }
+
+/* Floating cards that overlap the screen: depth, like a product shot. */
+.fl { position: absolute; z-index: 5; background: #fff; color: #1b2030; border-radius: 26px; box-shadow: 0 30px 70px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.04); direction: ltr; }
+.fl.a { left: calc(50% + 235px); top: 62px; width: 250px; padding: 22px 24px; transform: rotate(3deg); }
+.fl.a span { display: block; font-size: 18px; font-weight: 600; color: #8a92a6; }
+.fl.a strong { display: block; font-size: 44px; font-weight: 800; line-height: 1.15; }
+.fl.a .sp { display: flex; align-items: flex-end; gap: 6px; height: 46px; margin-top: 10px; }
+.fl.a .sp i { flex: 1; border-radius: 4px; background: color-mix(in srgb, var(--brand) 30%, #fff); } .fl.a .sp i:nth-child(5) { background: var(--brand); }
+.fl.b { left: calc(50% - 500px); top: 330px; display: flex; align-items: center; gap: 16px; padding: 18px 28px 18px 18px; border-radius: 999px; transform: rotate(-3deg); }
+.fl.b i { width: 54px; height: 54px; border-radius: 50%; background: var(--brand); color: var(--on-brand); display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 30px; font-weight: 800; }
+.fl.b b { display: block; width: 120px; height: 14px; border-radius: 8px; background: #cfd4df; } .fl.b u { display: block; width: 80px; height: 11px; border-radius: 6px; background: #e4e7ee; margin-top: 10px; text-decoration: none; }
+/* The product, drawn: a light UI with the brand colour as its accent. */
+.ui { --u-bg: #f6f7f9; --u-card: #fff; --u-line: #e6e8ee; --u-text: #1b2030; --u-mute: #8a92a6; --u-ac: var(--brand); --u-ac2: var(--brand2);
+  position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 860px; height: 1200px; background: var(--u-bg); border-radius: calc(var(--radius) * .6 + 18px) calc(var(--radius) * .6 + 18px) 0 0;
+  box-shadow: 0 -24px 90px rgba(0,0,0,.28), 0 0 0 2px rgba(255,255,255,.08); overflow: hidden; direction: ltr; color: var(--u-text); }
+.ui .bar { height: 56px; background: var(--u-card); border-bottom: 1px solid var(--u-line); display: flex; align-items: center; gap: 10px; padding: 0 22px; }
+.ui .bar i { width: 13px; height: 13px; border-radius: 50%; background: #d7dae3; }
+.ui .bar b { margin-inline-start: 24px; height: 22px; width: 280px; border-radius: 12px; background: #eceef3; }
+.ui .body { display: flex; height: calc(100% - 56px); }
+.ui .side { width: 96px; background: var(--u-card); border-inline-end: 1px solid var(--u-line); padding: 26px 0; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.ui .side i { width: 36px; height: 36px; border-radius: 11px; background: #eceef3; }
+.ui .side i:first-child { background: var(--u-ac); }
+.ui .main { flex: 1; padding: 30px; display: flex; flex-direction: column; gap: 22px; }
+.ui .h { font-weight: 800; font-size: 26px; font-family: var(--bf); }
+.ui .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.ui .kpi { background: var(--u-card); border: 1px solid var(--u-line); border-radius: 18px; padding: 20px; }
+.ui .kpi span { display: block; font-size: 17px; color: var(--u-mute); font-weight: 600; }
+.ui .kpi strong { display: block; font-size: 38px; margin-top: 6px; font-weight: 800; }
+.ui .kpi em { font-style: normal; font-size: 16px; font-weight: 700; color: #16a34a; }
+.ui .card { background: var(--u-card); border: 1px solid var(--u-line); border-radius: 20px; padding: 24px; }
+.ui .chart { display: flex; align-items: flex-end; gap: 16px; height: 230px; padding-top: 10px; }
+.ui .chart i { flex: 1; border-radius: 10px 10px 4px 4px; background: color-mix(in srgb, var(--u-ac) 28%, #fff); }
+.ui .chart i.on { background: var(--u-ac); }
+.ui .row { display: flex; align-items: center; gap: 16px; padding: 15px 0; border-bottom: 1px solid var(--u-line); }
+.ui .row:last-child { border-bottom: 0; }
+.ui .av { width: 46px; height: 46px; border-radius: 14px; background: color-mix(in srgb, var(--u-ac) 22%, #fff); flex-shrink: 0; }
+.ui .row .t { flex: 1; display: flex; flex-direction: column; gap: 9px; }
+.ui .row .t b { height: 13px; width: 62%; border-radius: 7px; background: #cfd4df; }
+.ui .row .t u { height: 10px; width: 38%; border-radius: 6px; background: #e4e7ee; text-decoration: none; }
+.ui .pill { height: 30px; width: 86px; border-radius: 15px; background: color-mix(in srgb, var(--u-ac) 18%, #fff); }
+.ui .pill.g { background: #dcfce7; } .ui .pill.r { background: #fee2e2; }
+.ui .cal { display: grid; grid-template-columns: 60px repeat(5, 1fr); grid-template-rows: 40px repeat(7, 74px); gap: 0; font-size: 15px; color: var(--u-mute); font-weight: 700; }
+.ui .cal div { border-bottom: 1px solid var(--u-line); border-inline-start: 1px solid var(--u-line); padding: 4px 6px; position: relative; }
+.ui .cal .ev { position: absolute; inset: 6px 5px; border-radius: 10px; background: color-mix(in srgb, var(--u-ac) 80%, #fff); }
+.ui .cal .ev.two { background: color-mix(in srgb, var(--u-ac) 52%, #fff); }
+.ui .cal .ev.soft { background: color-mix(in srgb, var(--u-ac) 24%, #fff); }
+.ui .cal .ev.tall { bottom: -62px; }
+/* phone */
+.ph { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 520px; height: 1100px; border-radius: 76px 76px 0 0; background: #0b0d12; padding: 16px 16px 0;
+  box-shadow: 0 -24px 90px rgba(0,0,0,.35), inset 0 0 0 3px #2a2e39; direction: ltr; }
+.ph .screen { height: 100%; background: #f4f5f8; border-radius: 62px 62px 0 0; overflow: hidden; padding: 44px 30px; display: flex; flex-direction: column; gap: 18px; color: #1b2030; }
+.ph .notch { align-self: center; width: 140px; height: 32px; border-radius: 16px; background: #0b0d12; margin-top: -26px; }
+.ph .hdr { display: flex; align-items: center; gap: 16px; margin-top: 12px; }
+.ph .hdr i { width: 56px; height: 56px; border-radius: 50%; background: var(--brand); } .ph .hdr b { font-size: 26px; font-weight: 800; }
+.ph .bubble { max-width: 78%; padding: 20px 24px; border-radius: 26px; font-size: 22px; font-weight: 600; line-height: 1.4; background: #fff; border: 1px solid #e6e8ee; }
+.ph .bubble.me { align-self: flex-end; background: var(--brand); color: var(--on-brand); border-color: transparent; }
+.ph .cardx { background: #fff; border: 1px solid #e6e8ee; border-radius: 26px; padding: 24px; display: flex; gap: 18px; align-items: center; }
+.ph .cardx i { width: 64px; height: 64px; border-radius: 18px; background: color-mix(in srgb, var(--brand) 25%, #fff); }
+.ph .cardx b { display: block; height: 14px; width: 150px; border-radius: 8px; background: #cfd4df; margin-bottom: 12px; } .ph .cardx u { display: block; height: 11px; width: 100px; border-radius: 6px; background: #e4e7ee; }
+{% endblock %}
+{% block body %}
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}{% if badge %}<span class="tag">{{ badge }}</span>{% else %}{% include "studio/designs/_contact.html" %}{% endif %}</div>
+  <div class="copy fit-box">
+    <div class="headline" data-fit="104" data-min="50" id="hd">{{ headline_html }}</div>
+    {% if subheadline %}<div class="sub" data-fit="38" data-min="22" id="sb">{{ subheadline }}</div>{% endif %}
+    {% if cta %}<div class="go">{{ cta }} {% if dir == 'rtl' %}←{% else %}→{% endif %}</div>{% endif %}
+  </div>
+  <div class="stage">
+    <div class="glow"></div>
+    <div class="fl a"><span>●</span><strong>+24%</strong><div class="sp"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:100%"></i></div></div>
+    <div class="fl b"><i>✓</i><div><b></b><u></u></div></div>
+    {% if mock == 'phone' %}
+    <div class="ph"><div class="screen"><div class="notch"></div>
+      <div class="hdr"><i></i><b>{{ company.name }}</b></div>
+      <div class="bubble">{{ headline }}</div><div class="bubble me">✓</div>
+      <div class="cardx"><i></i><div><b></b><u></u></div></div><div class="cardx"><i></i><div><b></b><u></u></div></div><div class="cardx"><i></i><div><b></b><u></u></div></div>
+    </div></div>
+    {% else %}
+    <div class="ui"><div class="bar"><i></i><i></i><i></i><b></b></div>
+      <div class="body"><div class="side"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="main">
+      {% if mock == 'calendar' %}
+        <div class="h">{{ company.name }}</div>
+        <div class="card" style="padding:0;overflow:hidden"><div class="cal">
+          <div></div><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div>
+          <div>9</div><div><span class="ev"></span></div><div></div><div><span class="ev two"></span></div><div></div><div><span class="ev soft"></span></div>
+          <div>10</div><div></div><div><span class="ev tall"></span></div><div></div><div><span class="ev"></span></div><div></div>
+          <div>11</div><div><span class="ev two"></span></div><div></div><div><span class="ev soft"></span></div><div></div><div><span class="ev two"></span></div>
+          <div>12</div><div></div><div></div><div><span class="ev"></span></div><div><span class="ev soft"></span></div><div></div>
+          <div>1</div><div><span class="ev soft"></span></div><div><span class="ev two"></span></div><div></div><div></div><div><span class="ev"></span></div>
+          <div>2</div><div></div><div></div><div></div><div><span class="ev two"></span></div><div></div>
+        </div></div>
+      {% elif mock == 'list' %}
+        <div class="kpis"><div class="kpi"><span>●</span><strong>1,248</strong><em>▲ 12%</em></div><div class="kpi"><span>●</span><strong>86</strong><em>▲ 4%</em></div><div class="kpi"><span>●</span><strong>9</strong><em style="color:#dc2626">▼ 2</em></div></div>
+        <div class="card"><div class="row"><i class="av"></i><div class="t"><b></b><u></u></div><i class="pill g"></i></div><div class="row"><i class="av"></i><div class="t"><b></b><u></u></div><i class="pill"></i></div><div class="row"><i class="av"></i><div class="t"><b></b><u></u></div><i class="pill r"></i></div><div class="row"><i class="av"></i><div class="t"><b></b><u></u></div><i class="pill g"></i></div><div class="row"><i class="av"></i><div class="t"><b></b><u></u></div><i class="pill"></i></div></div>
+      {% else %}
+        <div class="kpis"><div class="kpi"><span>●</span><strong>24.6k</strong><em>▲ 18%</em></div><div class="kpi"><span>●</span><strong>1,042</strong><em>▲ 7%</em></div><div class="kpi"><span>●</span><strong>96%</strong><em>▲ 2%</em></div></div>
+        <div class="card"><div class="chart"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:68%"></i><i class="on" style="height:92%"></i><i style="height:60%"></i><i style="height:74%"></i><i style="height:56%"></i></div></div>
+        <div class="card"><div class="row"><i class="av"></i><div class="t"><b></b><u></u></div><i class="pill g"></i></div><div class="row"><i class="av"></i><div class="t"><b></b><u></u></div><i class="pill"></i></div></div>
+      {% endif %}
+      </div></div></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

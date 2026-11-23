@@ -1,0 +1,18 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-display .frame { padding-top: 70px; }
+.l-display .fit-box { justify-content: safe center; }
+.l-display .headline { font-weight: 900; line-height: 1.02; letter-spacing: -1px; text-wrap: balance; }
+[dir=rtl] .l-display .headline { line-height: 1.12; letter-spacing: 0; }
+.l-display .sub { margin-top: 36px; max-width: 70%; }
+{% endblock %}
+{% block body %}
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}{% if badge %}<span class="tag">{{ badge }}</span>{% endif %}</div>
+  <div class="fit-box">
+    <div class="headline" data-fit="250" data-min="80">{{ headline_html }}</div>
+    {% if subheadline %}<div class="sub" data-fit="40" data-min="26">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% include "studio/designs/v2/_foot.html" %}
+</div>
+{% endblock %}

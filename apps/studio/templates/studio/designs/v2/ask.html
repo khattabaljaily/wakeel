@@ -1,0 +1,21 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-ask .q { position: absolute; z-index: 2; font-family: var(--hf); font-weight: 900; font-size: 1150px; line-height: .8; color: var(--fg); opacity: .07; inset-inline-start: -40px; bottom: -120px; pointer-events: none; }
+.l-ask .frame { z-index: 3; }
+.l-ask .opts { margin-top: 40px; display: flex; flex-direction: column; gap: 18px; }
+.l-ask .opt { display: flex; align-items: center; gap: 24px; padding: 20px 28px; border: 3px solid var(--line); border-radius: calc(var(--radius) * .6 + 6px); background: color-mix(in srgb, var(--fg) 5%, transparent); font-weight: 700; }
+.l-ask .opt b { width: 54px; height: 54px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--shape); color: var(--on-shape); font-family: var(--hf); font-size: 28px; font-weight: 800; }
+.l-ask .opt span { flex: 1; }
+{% endblock %}
+{% block body %}
+<div class="q">{% if dir == 'rtl' %}؟{% else %}?{% endif %}</div>
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}{% if badge %}<span class="tag">{{ badge }}</span>{% endif %}</div>
+  <div class="fit-box">
+    <div class="headline" data-fit="110" data-min="48">{{ headline_html }}</div>
+    {% if points %}<div class="opts">{% for p in points|slice:":3" %}<div class="opt"><b>{% if dir == 'rtl' %}{% cycle 'أ' 'ب' 'ج' %}{% else %}{% cycle 'A' 'B' 'C' %}{% endif %}</b><span data-fit="40" data-min="24">{{ p }}</span></div>{% endfor %}</div>
+    {% elif subheadline %}<div class="rule"></div><div class="sub" data-fit="42" data-min="26">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% include "studio/designs/v2/_foot.html" %}
+</div>
+{% endblock %}

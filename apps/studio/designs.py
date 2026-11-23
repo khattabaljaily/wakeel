@@ -79,6 +79,51 @@ TEMPLATES = {
     },
 }
 
+# The v2 layouts: composed from the brand's own palette and shape language (style.py, v2.py), built to fit a kind of content.
+V2_LAYOUTS = {
+    'statement': {
+        'name': _('بيان'), 'scheme': 'dark',
+        'hint': 'Typography-led: a big headline with one emphasised phrase. For announcements, ideas, slogans, tips and any short message without a figure, list or product to show.',
+    },
+    'display': {
+        'name': _('عنوان ضخم'), 'scheme': 'dark',
+        'hint': 'Typographic poster: the headline fills the whole canvas, one word outlined. Only for a punchy headline of 2-5 words, a slogan or a bold claim, with no sub-text needed.',
+    },
+    'figure': {
+        'name': _('رقم بارز'), 'scheme': 'light',
+        'hint': 'A huge number is the hero (put it in `badge`: 99.9%, 24/7, +500, "9 سنوات"); the headline explains it. For statistics, results, milestones, prices and years of experience.',
+    },
+    'showcase': {
+        'name': _('عرض منتج'), 'scheme': 'deep',
+        'hint': 'Headline above a drawn product screen (dashboard, list, calendar or mobile app, picked from the topic). For software features, product launches and service demos.',
+    },
+    'steps': {
+        'name': _('خطوات وقائمة'), 'scheme': 'light',
+        'hint': 'A numbered list. Put 2-4 short items in `subheadline`, one per line; the headline is the list title. For how-to, steps, benefits, checklists, features and process posts.',
+    },
+    'ask': {
+        'name': _('سؤال'), 'scheme': 'primary',
+        'hint': 'A big question with a giant question mark behind it. For polls and engagement: put 2-3 answer options in `subheadline`, one per line, or leave it as a short invitation to comment.',
+    },
+    'testimonial': {
+        'name': _('رأي عميل'), 'scheme': 'soft',
+        'hint': 'A large quote mark and the quote in the headline; `subheadline` is the person and role. For client reviews, testimonials and quotes.',
+    },
+    'cover': {
+        'name': _('غلاف صورة'), 'scheme': 'dark',
+        'hint': 'Full-bleed photo with a gradient and the text low on the canvas. Only when a real photo fits; for places, people, products and events.',
+    },
+    'promo': {
+        'name': _('عرض ترويجي'), 'scheme': 'primary',
+        'hint': 'A scalloped seal carries the offer (put the figure in `badge`: 30%, 50, "مجاناً"). For discounts, offers, launches and limited-time campaigns.',
+    },
+    'greeting': {
+        'name': _('تهنئة'), 'scheme': 'deep',
+        'hint': 'Ceremonial: centred text in a geometric-patterned frame, serif headline. For religious occasions, Fridays, Eid, national days and greetings.',
+    },
+}
+TEMPLATES.update(V2_LAYOUTS)
+
 # The decoration a layout gets when its post has no motif chosen (posts made before motifs existed).
 DEFAULT_MOTIF = {
     'bold': 'rings', 'gradient': 'blobs', 'photo': 'none', 'split': 'dots', 'minimal': 'none', 'quote': 'arcs',
@@ -87,7 +132,7 @@ DEFAULT_MOTIF = {
 }
 
 # Layouts that show a photo from the media library when the post has one.
-PHOTO_TEMPLATES = ('photo', 'split', 'arch', 'spotlight')
+PHOTO_TEMPLATES = ('photo', 'split', 'arch', 'spotlight', 'cover')
 
 # Layouts with topic vectors in the bottom corner (apps.studio.vectors). Photo layouts have their photo,
 # and the centred ones (quote, frame, stat, offer) keep their single focal point.

@@ -17,7 +17,7 @@ from apps.companies.models import MediaAsset
 from apps.credits import catalog, charging, jobs as credit_jobs, quote as quotes
 from apps.jobs.models import Job
 from apps.jobs.runner import worker_alive
-from apps.studio.designs import MOTIFS, SCHEMES, SIZES, TEMPLATES
+from apps.studio.designs import MOTIFS, SCHEMES, SIZES, TEMPLATES, V2_LAYOUTS
 from apps.studio.render import palette
 
 from apps.whatsapp.services import available as whatsapp_available
@@ -256,7 +256,9 @@ def post_edit(request, pk):
     form = PostForm(instance=post, company=request.company)
     return render(request, 'content/post_edit.html', {
         'post': post, 'form': form,
-        'templates': TEMPLATES, 'sizes': SIZES, 'motifs': MOTIFS,
+        # New layouts only; a post that still uses an older one keeps it in the list so the choice stays visible.
+        'templates': {**V2_LAYOUTS, **({post.template: TEMPLATES[post.template]} if post.template in TEMPLATES else {})},
+        'sizes': SIZES, 'motifs': MOTIFS,
         'variants': variant_choices(), 'copies': post.copies.order_by('created_at')[:10],
         'schemes': [{'key': key, 'name': v['name'], **palette(key, request.company.primary_color, request.company.secondary_color,
                                                               request.company.accent_color)} for key, v in SCHEMES.items()],

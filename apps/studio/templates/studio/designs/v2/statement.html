@@ -1,0 +1,19 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-statement .fit-box { justify-content: {% if v.align == 'end' %}safe end{% else %}safe center{% endif %}; }
+.l-statement .eyebrow { margin-bottom: 36px; }
+.l-statement .sub { max-width: 86%; }
+{% if emblem_on %}.l-statement .fit-box { margin-top: 360px; }{% endif %}
+{% endblock %}
+{% block body %}
+{% if emblem_on %}<div class="emblem"><i class="t3"></i><div class="t2"><svg viewBox="0 0 24 24">{{ art.1.1|safe }}</svg></div><div class="t1"><svg viewBox="0 0 24 24">{{ art.0.1|safe }}</svg></div></div>{% endif %}
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}{% if badge and v.badge_top %}<span class="tag">{{ badge }}</span>{% endif %}</div>
+  <div class="fit-box">
+    {% if badge and not v.badge_top %}<div class="eyebrow">{{ badge }}</div>{% endif %}
+    <div class="headline" data-fit="136" data-min="56">{{ headline_html }}</div>
+    {% if subheadline %}<div class="rule"></div><div class="sub" data-fit="42" data-min="26">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% include "studio/designs/v2/_foot.html" %}
+</div>
+{% endblock %}

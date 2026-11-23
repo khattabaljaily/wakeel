@@ -16,8 +16,9 @@ from django.core.files.base import ContentFile
 from django.template.loader import render_to_string
 from django.templatetags.static import static
 
+from . import v2
 from . import vectors as topic_vectors
-from .designs import ART_TEMPLATES, DEFAULT_MOTIF, FONT_FAMILIES, MOTIFS, SCHEMES, SIZES, TEMPLATES
+from .designs import ART_TEMPLATES, DEFAULT_MOTIF, FONT_FAMILIES, MOTIFS, SCHEMES, SIZES, TEMPLATES, V2_LAYOUTS
 
 ARABIC_RE = re.compile(r'[\u0600-\u06FF]')
 
@@ -184,7 +185,7 @@ def design_context(company, fields, *, for_file=False):
         chosen = [v for v in chosen.split(',') if v]
     art = topic_vectors.for_post(chosen, fields['headline'], fields['subheadline'], fields.get('title', ''),
                                  fields.get('pillar', '')) if template in ART_TEMPLATES else []
-    return {
+    context = {
         'art': art,
         **fields,
         'scheme': scheme,
@@ -210,11 +211,16 @@ def design_context(company, fields, *, for_file=False):
             'p_light': mix(p, '#ffffff', 0.85), 'ink': mix(p, '#000000', 0.78),
         },
     }
+    if template in V2_LAYOUTS:
+        context.update(v2.context(company, fields, for_file=for_file, template=template, scheme=scheme, variant=variant,
+                                  logo_path=company.logo.path if company.logo else ''))
+    return context
 
 
 def render_html(company, fields, *, for_file=False):
     context = design_context(company, fields, for_file=for_file)
-    return render_to_string(f'studio/designs/{fields["template"]}.html', context)
+    folder = 'studio/designs/v2' if fields['template'] in V2_LAYOUTS else 'studio/designs'
+    return render_to_string(f'{folder}/{fields["template"]}.html', context)
 
 
 # --- rendering --------------------------------------------------------------

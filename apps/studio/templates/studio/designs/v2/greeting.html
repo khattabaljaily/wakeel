@@ -1,0 +1,33 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-greeting { --hf: 'El Messiri', 'Amiri', serif; }
+.l-greeting .orn { opacity: .14 !important; }
+.l-greeting .orn-fix { position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M60 6 L74 30 L102 26 L90 52 L114 60 L90 68 L102 94 L74 90 L60 114 L46 90 L18 94 L30 68 L6 60 L30 52 L18 26 L46 30Z'/%3E%3Ccircle cx='60' cy='60' r='12'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px; opacity: .07; color: var(--fg);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, transparent 30%, #000 100%); mask-image: radial-gradient(ellipse at 50% 50%, transparent 30%, #000 100%); }
+.l-greeting .border { position: absolute; inset: 44px; z-index: 2; border: 2px solid var(--hi); border-radius: calc(var(--radius) * .5); opacity: .9; }
+.l-greeting .border::after { content: ''; position: absolute; inset: 14px; border: 1px solid var(--hi); border-radius: calc(var(--radius) * .35); opacity: .5; }
+.l-greeting .frame { align-items: center; text-align: center; padding-top: 130px; padding-bottom: 130px; }
+.size-story .l-greeting .frame, .l-greeting.size-story .frame { padding-top: 260px; padding-bottom: 300px; }
+.l-greeting .star { width: 74px; height: 74px; color: var(--hi); margin-bottom: 36px; flex-shrink: 0; }
+.l-greeting .fit-box { align-items: center; width: 100%; }
+.l-greeting .headline { font-weight: 700; }
+.l-greeting .sub { margin-top: 30px; max-width: 80%; }
+.l-greeting .eyebrow { margin-bottom: 30px; }
+.l-greeting .eyebrow::before { display: none; }
+.l-greeting .eyebrow::after { content: ''; width: 38px; height: 4px; border-radius: 2px; background: currentColor; }
+.l-greeting .eyebrow, .l-greeting .lockup { justify-content: center; }
+{% endblock %}
+{% block body %}
+<div class="orn-fix"></div><div class="border"></div>
+<div class="frame">
+  <svg class="star" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4"><path d="M60 6 L74 30 L102 26 L90 52 L114 60 L90 68 L102 94 L74 90 L60 114 L46 90 L18 94 L30 68 L6 60 L30 52 L18 26 L46 30Z"/><circle cx="60" cy="60" r="12"/></svg>
+  <div class="fit-box">
+    {% if badge %}<div class="eyebrow">{{ badge }}</div>{% endif %}
+    <div class="headline" data-fit="124" data-min="54">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" data-fit="40" data-min="26">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% include "studio/designs/v2/_lockup.html" %}
+</div>
+{% endblock %}

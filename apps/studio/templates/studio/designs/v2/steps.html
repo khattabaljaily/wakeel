@@ -1,0 +1,21 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-steps .headline { margin-bottom: 8px; }
+.l-steps .list { margin-top: 34px; display: flex; flex-direction: column; }
+.l-steps .item { display: flex; align-items: center; gap: 34px; padding: 26px 0; border-top: 2px solid var(--line); }
+.l-steps .item:last-child { border-bottom: 2px solid var(--line); }
+.l-steps .n { font-family: var(--hf); font-weight: 900; font-size: 66px; line-height: 1; color: var(--display); min-width: 108px; text-align: start; direction: ltr; }
+.l-steps .t { font-weight: 700; line-height: 1.4; flex: 1; text-wrap: pretty; }
+{% endblock %}
+{% block body %}
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}{% if badge %}<span class="tag">{{ badge }}</span>{% endif %}</div>
+  <div class="fit-box">
+    <div class="headline" data-fit="92" data-min="44">{{ headline_html }}</div>
+    {% if points %}
+    <div class="list">{% for p in points|slice:":4" %}<div class="item"><span class="n">{{ forloop.counter|stringformat:"02d" }}</span><span class="t" data-fit="44" data-min="26">{{ p }}</span></div>{% endfor %}</div>
+    {% elif subheadline %}<div class="rule"></div><div class="sub" data-fit="42" data-min="26">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% include "studio/designs/v2/_foot.html" %}
+</div>
+{% endblock %}

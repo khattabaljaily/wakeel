@@ -1,0 +1,24 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-figure .fit-box { justify-content: center; }
+.l-figure .num { font-family: var(--hf); font-weight: 800; line-height: 1; letter-spacing: -.04em; text-align: start; color: var(--display); background: linear-gradient(160deg, var(--display) 35%, color-mix(in srgb, var(--display) 40%, var(--fg))); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.l-figure .num small { font-size: .42em; letter-spacing: 0; margin-inline-start: .08em; opacity: .9; }
+.l-figure .hd { margin-top: 28px; }
+.l-figure .ringwrap { position: relative; align-self: flex-start; }
+.l-figure .ring { position: absolute; inset: -34px; width: calc(100% + 68px); height: calc(100% + 68px); }
+.l-figure .ring circle { fill: none; stroke-width: 10; }
+.l-figure .ring .bgc { stroke: var(--line); }
+.l-figure .ring .fgc { stroke: var(--hi); stroke-linecap: round; transform: rotate(-90deg); transform-origin: 50% 50%; }
+{% endblock %}
+{% block body %}
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}</div>
+  <div class="fit-box">
+    <div class="num" data-fit="330" data-min="120"{% if fig_ltr %} dir="ltr" style="text-align:{% if dir == 'rtl' %}right{% else %}left{% endif %}"{% endif %}><bdi>{{ fig_main }}</bdi>{% if fig_unit %}<small>{{ fig_unit }}</small>{% endif %}</div>
+    <div class="rule"></div>
+    <div class="headline hd" data-fit="74" data-min="38">{{ headline }}</div>
+    {% if subheadline %}<div class="sub" style="margin-top:22px" data-fit="38" data-min="24">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% include "studio/designs/v2/_foot.html" %}
+</div>
+{% endblock %}

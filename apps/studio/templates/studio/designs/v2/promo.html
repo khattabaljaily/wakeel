@@ -1,0 +1,23 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-promo .seal { position: absolute; z-index: 2; width: 560px; height: 560px; inset-inline-end: -90px; bottom: -10px; transform: rotate(calc(var(--orot) / 5)); }
+.l-promo .seal svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--shape); }
+.l-promo .seal .in { position: absolute; inset: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--on-shape); font-family: var(--hf); font-weight: 900; line-height: 1.05; transform: rotate(calc(var(--orot) / -6)); }
+.l-promo .seal .in span { font-size: 168px; direction: ltr; display: inline-flex; align-items: flex-start; }
+.l-promo .seal .in span small { font-size: 78px; margin-top: 14px; }
+.l-promo .seal .in em { font-style: normal; font-size: 40px; font-weight: 800; margin-top: 6px; }
+.l-promo .fit-box { justify-content: safe start; padding-top: 70px; }
+.l-promo .foot { border-top: 0; justify-content: flex-start; }
+.l-promo .fit-box { flex: 1; }
+{% endblock %}
+{% block body %}
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}</div>
+  <div class="fit-box">
+    <div class="headline" data-fit="112" data-min="48">{{ headline_html }}</div>
+    {% if subheadline %}<div class="rule"></div><div class="sub" data-fit="42" data-min="26">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% if fig_main %}<div class="seal"><svg viewBox="0 0 200 200"><polygon points="{{ seal_points }}"/></svg><div class="in"><span>{{ fig_main }}{% if fig_unit in "%٪+" %}<small>{{ fig_unit }}</small>{% endif %}</span>{% if fig_unit and fig_unit not in "%٪+" %}<em>{{ fig_unit }}</em>{% endif %}</div></div>{% endif %}
+  <div class="foot">{% if cta %}<span class="go">{{ cta }}<span>{% if dir == 'rtl' %}←{% else %}→{% endif %}</span></span>{% endif %}</div>
+</div>
+{% endblock %}

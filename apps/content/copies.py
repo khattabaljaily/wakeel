@@ -120,7 +120,8 @@ def run_repost(job):
     result = planner.adapt_post(post, 'This post did well and is being published again. Keep the idea and the facts, but write it '
                                       'fresh: a new hook, new headline and new caption wording, so followers do not feel it is a copy.')
     job.add_usage(result)
-    look = direct([{'template': '', 'scheme': '', 'motif': '', 'format': post.format}], has_photos=bool(post.background_id), seed=job.pk)[0]
+    look = direct([{'template': post.template, 'scheme': '', 'motif': '', 'format': post.format, 'headline': post.headline, 'subheadline': post.subheadline,
+                    'badge': post.badge, 'title': post.title, 'pillar': post.pillar}], has_photos=bool(post.background_id), seed=job.pk)[0]
     copy = make_copy(post, result.data, plan=plan, scheduled_at=when, created_by=job.created_by,
                      scheme=look['scheme'], motif=look['motif'], variant=look['variant'])
     _render(job, copy)

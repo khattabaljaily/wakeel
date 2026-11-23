@@ -1,0 +1,20 @@
+{% extends "studio/designs/v2/base.html" %}
+{% block style %}
+.l-cover .photo { position: absolute; inset: 0; z-index: 1; background: {% if photo %}url('{{ photo }}') center/cover no-repeat{% else %}linear-gradient(150deg, var(--deep), var(--ink)){% endif %}; }
+.l-cover .shade { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,.35) 52%, rgba(0,0,0,.88) 100%); }
+.l-cover { color: #fff; --fg: #fff; --muted: rgba(255,255,255,.82); --line: rgba(255,255,255,.28); --hi: {{ pal.brand_on_ink }}; --shape: {{ pal.brand }}; --on-shape: {{ pal.on_brand }}; --mk: #fff; }
+.l-cover .fit-box { justify-content: safe end; }
+.l-cover .headline { text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+.l-cover .sub { margin-top: 22px; }
+{% endblock %}
+{% block body %}
+<div class="photo"></div><div class="shade"></div>
+<div class="frame">
+  <div class="top">{% include "studio/designs/v2/_lockup.html" %}{% if badge %}<span class="tag">{{ badge }}</span>{% endif %}</div>
+  <div class="fit-box">
+    <div class="headline" data-fit="112" data-min="50">{{ headline_html }}</div>
+    {% if subheadline %}<div class="sub" data-fit="40" data-min="26">{{ subheadline }}</div>{% endif %}
+  </div>
+  {% include "studio/designs/v2/_foot.html" %}
+</div>
+{% endblock %}

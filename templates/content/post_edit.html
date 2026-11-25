@@ -236,7 +236,7 @@
             </div>
             {% if post.scheduled_at %}<div class="small mb-2"><i class="bi bi-calendar-event text-primary"></i> {% translate "موعده المقترح:" %} <strong dir="ltr">{{ post.scheduled_at|date:"Y-m-d H:i" }}</strong> {% translate "(اختر «جدولة» في Business Suite لنشره في موعده)." %}</div>{% endif %}
             <button type="button" class="btn btn-sm btn-success" id="manualDone"><i class="bi bi-send-check"></i> {% translate "تم النشر" %}</button>
-            <div class="small-muted mt-3"><i class="bi bi-lightning-charge"></i> {% translate "قريباً: النشر المباشر على فيسبوك وإنستغرام سيكون مؤتمتاً بالكامل، فيُنشر المنشور المعتمد في موعده دون أي خطوة منك." %}</div>
+            <div class="small-muted mt-3"><i class="bi bi-lightning-charge"></i> {% translate "قريباً: النشر المباشر والنشر التلقائي على فيسبوك وإنستغرام، فيُنشر المنشور المعتمد في موعده دون أي خطوة منك." %}</div>
         </div>
     </div>
     <div class="wk-card mt-3" id="comments">

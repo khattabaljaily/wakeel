@@ -6297,3 +6297,26 @@ msgstr "Image copied. Paste it into the post."
 
 msgid "تعذّر نسخ الصورة، نزّلها بدلاً من ذلك."
 msgstr "Couldn't copy the image; download it instead."
+
+msgid "النشر على فيسبوك وإنستغرام والنشر التلقائي قريباً"
+msgstr ""
+"Publishing to Facebook and Instagram, and auto-publishing, are coming soon"
+
+msgid ""
+"نجهّز هذه الخدمة وستكون متاحة قريباً. في الأثناء انسخ منشورك المعتمد وانشره "
+"بنفسك بخطوة واحدة، ويمكنك ربط تيك توك والنشر عليه."
+msgstr ""
+"We are getting this service ready and it will be available soon. Meanwhile, "
+"copy your approved post and publish it yourself in one step, and you can "
+"connect TikTok and publish to it."
+
+msgid "النشر التلقائي على فيسبوك وإنستغرام."
+msgstr "Auto-publishing to Facebook and Instagram."
+
+msgid ""
+"قريباً: النشر المباشر والنشر التلقائي على فيسبوك وإنستغرام، فيُنشر المنشور "
+"المعتمد في موعده دون أي خطوة منك."
+msgstr ""
+"Coming soon: direct publishing and auto-publishing to Facebook and "
+"Instagram. An approved post will go out at its time without any step from "
+"you."

@@ -34,7 +34,7 @@
                 <li class="done"><span><i class="bi bi-palette"></i></span><div><strong>{% translate "يصمم المنشورات" %}</strong><small>{% translate "بألوان علامتك وخطوطها وشعارها" %}</small></div></li>
                 <li class="done"><span><i class="bi bi-envelope"></i></span><div><strong>{% translate "يرسل رابط المراجعة للعميل" %}</strong><small>{% translate "يعتمد المنشورات أو يطلب تعديلها دون حساب" %}</small></div></li>
                 <li class="{% if auto_publish %}done{% endif %}"><span><i class="bi bi-send-check"></i></span><div><strong>{% translate "ينشر المعتمد في موعده" %}</strong>
-                    <small>{% if auto_publish %}{% translate "النشر التلقائي مفعّل" %}{% else %}{% translate "فعّل" %} <a href="{% url 'social:accounts' %}">{% translate "النشر التلقائي" %}</a> {% translate "ليكتمل ذلك دون تدخل" %}{% endif %}</small></div></li>
+                    <small>{% if auto_publish %}{% translate "النشر التلقائي مفعّل" %}{% else %}{% translate "فعّل" %} <a href="{% url 'social:accounts' %}">{% translate "النشر التلقائي" %}</a> {% translate "ليكتمل ذلك دون تدخل" %}{% endif %}{% if publish_soon %}<br><span class="badge text-bg-warning">{% translate "قريباً" %}</span> {% translate "النشر التلقائي على فيسبوك وإنستغرام." %}{% endif %}</small></div></li>
             </ol>
             {% if upcoming_plan %}
             <a href="{{ upcoming_plan.get_absolute_url }}" class="btn btn-soft w-100"><i class="bi bi-stars"></i> {% blocktranslate trimmed with upcoming=upcoming|date:"F" %}خطة {{ upcoming }} موجودة: افتحها{% endblocktranslate %}</a>

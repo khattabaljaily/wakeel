@@ -15,8 +15,8 @@
 {% endif %}
 {% if meta_enabled and not meta_open %}
 <div class="alert alert-info d-flex gap-2 align-items-start"><i class="bi bi-hourglass-split mt-1"></i>
-    <div><strong>{% translate "ربط فيسبوك وإنستغرام قريباً" %}</strong><br>
-    {% translate "الخدمة قيد الاعتماد لدى Meta ولم تُفتح بعد، وستكون متاحة قريباً. يمكنك الآن ربط تيك توك والنشر عليه." %}</div></div>
+    <div><strong>{% translate "النشر على فيسبوك وإنستغرام والنشر التلقائي قريباً" %}</strong><br>
+    {% translate "نجهّز هذه الخدمة وستكون متاحة قريباً. في الأثناء انسخ منشورك المعتمد وانشره بنفسك بخطوة واحدة، ويمكنك ربط تيك توك والنشر عليه." %}</div></div>
 {% endif %}
 
 <div class="row g-4">
@@ -75,7 +75,8 @@
         <div class="wk-card mb-4"><div class="wk-card-body">
             <form method="post" action="{% url 'social:auto_publish' %}" class="d-flex align-items-start gap-3">{% csrf_token %}
                 <div class="flex-grow-1"><strong>{% translate "النشر التلقائي في الموعد" %}</strong>
-                    <div class="small-muted">{% translate "عند تفعيله، ينشر وكيل كل منشور" %} <strong>{% translate "معتمد" %}</strong> {% translate "(صورة أو قصة) في موعده المحدد على الحسابات المربوطة. المنشورات غير المعتمدة لا تُنشر أبداً." %}</div></div>
+                    <div class="small-muted">{% translate "عند تفعيله، ينشر وكيل كل منشور" %} <strong>{% translate "معتمد" %}</strong> {% translate "(صورة أو قصة) في موعده المحدد على الحسابات المربوطة. المنشورات غير المعتمدة لا تُنشر أبداً." %}</div>
+                    {% if meta_enabled and not meta_open %}<div class="small mt-1"><span class="badge text-bg-warning">{% translate "قريباً" %}</span> {% translate "النشر التلقائي على فيسبوك وإنستغرام." %}</div>{% endif %}</div>
                 <div class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" role="switch" name="auto_publish" {% if company.auto_publish %}checked{% endif %} onchange="this.form.submit()" aria-label="{% translate "النشر التلقائي" %}"></div>
             </form>
         </div></div>

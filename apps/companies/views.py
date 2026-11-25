@@ -343,6 +343,7 @@ def autopilot(request):
         form.save()
         messages.success(request, _('تم تشغيل المخطط الآلي.') if company.autopilot else _('تم إيقاف المخطط الآلي.'))
         return redirect('companies:autopilot')
+    from apps.social.views import meta_open
     today = timezone.localdate()
     upcoming = next_month(today)
     run_on = today.replace(day=company.autopilot_day) if today.day <= company.autopilot_day else \
@@ -351,4 +352,5 @@ def autopilot(request):
         'form': form, 'run_on': run_on, 'upcoming': upcoming,
         'upcoming_plan': ContentPlan.objects.filter(company=company, month=upcoming).first(),
         'auto_publish': company.auto_publish,
+        'publish_soon': settings.META_ENABLED and not meta_open(request.user),     # Facebook/Instagram publishing is not open to everyone yet
     })

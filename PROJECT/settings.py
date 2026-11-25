@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'apps.audit',
     'apps.credits',
     'apps.billing',
+    'apps.money',
     'apps.identity',
     'apps.library',
     'apps.assets',

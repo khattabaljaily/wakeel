@@ -97,6 +97,9 @@ class Company(models.Model):
     # country the company wrote, by apps.companies.operators.assign; a change of operator is the console's.
     country_code = models.CharField(max_length=2, blank=True, editable=False)
     operator = models.CharField(max_length=20, blank=True, editable=False)
+    # The currency the company sees prices in and pays in (ISO 4217), from its country when it is created. It does not
+    # follow later edits of the country: only the console changes it.
+    currency = models.CharField(max_length=3, blank=True, editable=False)
     city = models.CharField(_('المدينة'), max_length=80, blank=True)
     description = models.TextField(_('نبذة عن الشركة'), help_text=_('ماذا تقدم الشركة، ولمن، وما الذي يميزها.'))
     products = models.TextField(_('المنتجات والخدمات'), blank=True)
@@ -213,6 +216,9 @@ class Company(models.Model):
         if not self.operator:
             from . import operators
             operators.assign(self, operators.code_from_name(self.country))
+        if not self.currency:
+            from apps.money import currencies
+            self.currency = currencies.for_country(self.country_code)
         super().save(*args, **kwargs)
 
     @property

@@ -1071,3 +1071,18 @@ html.wk-scroll-lock, html.wk-scroll-lock body { overflow: hidden !important; ove
 /* The selected row of a master-detail list (documents): tinted like the active sidebar link, not Bootstrap's blue. */
 .list-group-item.active { background: var(--wk-primary-50); color: var(--wk-ink); border-color: var(--wk-border); }
 .list-group-item.active .opacity-75 { opacity: .7 !important; }
+
+/* ---------- Fields written left to right ----------
+   E-mails, links, phone numbers and dates are typed left to right (so "+974…" keeps its plus on the left), but they
+   line up with the page: on the right when the screens are in Arabic, on the left in English. Covers every form at
+   once, including phone fields that carry no dir="ltr" of their own. */
+input:is([type=email], [type=url], [type=tel], [type=date], [type=datetime-local], [type=time], [type=month], [type=week], [type=number],
+         [name*=phone], [name*=whatsapp], [name*=email], [name*=website], [name$=url]):not([type=checkbox], [type=radio], [type=hidden]),
+input[dir=ltr], textarea[dir=ltr] { direction: ltr; text-align: left; }
+html[dir=rtl] :is(input:is([type=email], [type=url], [type=tel], [type=date], [type=datetime-local], [type=time], [type=month], [type=week], [type=number],
+         [name*=phone], [name*=whatsapp], [name*=email], [name*=website], [name$=url]):not([type=checkbox], [type=radio], [type=hidden]),
+         input[dir=ltr], textarea[dir=ltr]) { text-align: right; }
+/* A login/register field's icon sits on the page's start side (the right in Arabic), and so must the room kept for it,
+   even when the field itself is written left to right (e-mail, phone). */
+html[dir=rtl] .wk-afield__box .form-control { padding-right: 2.7rem; padding-left: .75rem; }
+html[dir=rtl] .wk-afield__box:has(.wk-afield__eye) .form-control { padding-left: 2.8rem; }

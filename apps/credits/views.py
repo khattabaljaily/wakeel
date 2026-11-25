@@ -41,5 +41,5 @@ def wallet(request):
         'wallet': wallet_row, 'balance': catalog.money(wallet_row.balance), 'page': page, 'services': services,
         'low': not wallet_row.is_exempt and wallet_row.balance < catalog.LOW_BALANCE, 'kind': kind,
         'month': {'added': catalog.money(added), 'used': catalog.money(-used), 'uses': this_month.filter(action=WalletTransaction.AI_SERVICE).count()},
-        'packages': [{'amount': catalog.format_package(p), 'label': catalog.money(int(p * catalog.POINTS_PER_RIYAL))} for p in catalog.topup_packages()],
+        'packages': [{'amount': catalog.format_package(p), 'points': int(p * catalog.POINTS_PER_RIYAL)} for p in catalog.topup_packages()],
         'payments_open': payments_open(request.company), 'paid': request.GET.get('paid') == '1'})

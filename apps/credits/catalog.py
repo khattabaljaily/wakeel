@@ -187,17 +187,27 @@ def unit(language: str = '') -> str:
     return currencies.symbol(QAR, _language(language)).strip('\u200f\u200e\u00a0 .')
 
 
-# An Arabic amount is shown with the sign on the RIGHT of the number (owner's decision, 2026-11-25). The sign comes first in an
-# isolated right-to-left run, so it lands on the right whatever the surrounding text's direction (a dir="ltr" badge, an
-# Arabic sentence, an e-mail): the run is closed by U+2069 and cannot be reordered by what is around it.
+# An Arabic amount reads number first, then the sign, from the right: the sign lands on the LEFT of the number (owner's decision,
+# 2026-11-25, after a first version put it on the right by mistake). The number comes first in an isolated right-to-left run, so
+# it is the same whatever the surrounding text's direction (a dir="ltr" badge, an Arabic sentence, an e-mail): the run is closed
+# by U+2069 and cannot be reordered by what is around it.
 RLI, PDI = '\u2067', '\u2069'
 
 
 def money_pattern(language: str = '') -> str:
-    """The amount's shape with {n} where the number goes: '{n} QAR', or in Arabic 'ر.ق {n}' read right to left."""
+    """The amount's shape with {n} where the number goes: '{n} QAR', or in Arabic '{n} ر.ق' read right to left (the sign shows left
+    of the number)."""
     if _language(language).startswith('ar'):
-        return f'{RLI}{unit(language)} {{n}}{PDI}'
+        return f'{RLI}{{n}} {unit(language)}{PDI}'
     return f'{{n}} {unit(language)}'
+
+
+def money_html(points, language: str = '') -> str:
+    """The same amount for a big number on a screen: the sign is wrapped in <small class="wk-unit"> so it can be set smaller than the
+    figure. The caller marks it safe (the pieces are escaped here)."""
+    from django.utils.html import escape
+    sign = unit(language)
+    return money_pattern(language).replace(sign, f'<small class="wk-unit">{escape(sign)}</small>').replace('{n}', escape(format_points(points)))
 
 
 def money(points, language: str = '') -> str:

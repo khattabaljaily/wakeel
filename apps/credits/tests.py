@@ -49,13 +49,13 @@ class PricingRuleTests(SimpleTestCase):
                 if not catalog.is_free(key):
                     self.assertGreaterEqual(catalog.price_points(key, units), catalog.POINTS_PER_RIYAL, (key, units))
 
-    def test_an_arabic_amount_has_the_sign_on_the_right_of_the_number(self):
-        # Owner's decision (2026-11-25). The sign comes first inside an isolated right-to-left run, so it sits on the right
-        # of the number whatever direction the text around it has; English keeps the number first.
-        self.assertEqual(catalog.money(20000, 'ar'), '\u2067ر.ق 20\u2069')
-        self.assertEqual(catalog.money(1250000, 'ar'), '\u2067ر.ق 1,250\u2069')
+    def test_an_arabic_amount_has_the_sign_on_the_left_of_the_number(self):
+        # Owner's decision (2026-11-25). The number comes first inside an isolated right-to-left run: read from the right, the
+        # sign follows it and shows on its left, whatever direction the text around it has. English keeps the number first too.
+        self.assertEqual(catalog.money(20000, 'ar'), '\u206720 ر.ق\u2069')
+        self.assertEqual(catalog.money(1250000, 'ar'), '\u20671,250 ر.ق\u2069')
         self.assertEqual(catalog.money(20000, 'en'), '20 QAR')
-        self.assertEqual(catalog.money_pattern('ar'), '\u2067ر.ق {n}\u2069')
+        self.assertEqual(catalog.money_pattern('ar'), '\u2067{n} ر.ق\u2069')
         self.assertEqual(catalog.money_pattern('en'), '{n} QAR')
 
     def test_a_dollar_cost_is_converted_at_the_fixed_rate_and_rounded_up(self):
@@ -294,7 +294,7 @@ class WalletPageTests(TestCase):
         self.assertIn('generate_plan', page)
         self.assertIn('/ 9 <bdi>post</bdi>', page)
         for amount in ('20', '50', '100', '200'):
-            self.assertIn(f'>{amount} QAR</span>', page)                  # the packages, as they are
+            self.assertIn(f'>{amount} <small class="wk-unit">QAR</small></span>', page)   # the packages, as they are (sign set smaller)
         self.client.cookies['wakeel_lang'] = 'ar'
         self.assertIn('/ 9 <bdi>منشور</bdi>', self.client.get(reverse('credits:wallet')).content.decode())
 

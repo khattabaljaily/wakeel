@@ -96,7 +96,7 @@ def overview(company, user, membership):
     spent = catalog.money(charging.revenue(since=month, company=company)[2])
     low = not wallet.is_exempt and wallet.balance < catalog.LOW_BALANCE
     return {
-        'balance': catalog.money(wallet.balance), 'exempt': wallet.is_exempt, 'low': low, 'spent_month': spent,
+        'balance': catalog.money(wallet.balance), 'balance_points': wallet.balance, 'exempt': wallet.is_exempt, 'low': low, 'spent_month': spent,
         'records': Record.objects.count(),
         'expiring': Record.objects.filter(expiry_date__isnull=False, expiry_date__lte=today + datetime.timedelta(days=SOON_DAYS)).count(),
         'assets': Asset.objects.count(),

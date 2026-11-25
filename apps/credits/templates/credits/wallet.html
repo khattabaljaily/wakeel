@@ -9,7 +9,7 @@
         <span class="wk-wallet-hero__icon"><i class="bi bi-wallet2"></i></span>
         <div>
             <div class="wk-wallet-hero__label">{% translate "Balance" %}</div>
-            <div class="wk-wallet-hero__num" dir="ltr">{% if wallet.is_exempt %}∞{% else %}{{ balance }}{% endif %}</div>
+            <div class="wk-wallet-hero__num" dir="ltr">{% if wallet.is_exempt %}∞{% else %}{{ wallet.balance|riyals_big }}{% endif %}</div>
             {% if wallet.is_exempt %}<span class="wk-wallet-chip">{% translate "This company is not charged." %}</span>
             {% elif low %}<span class="wk-wallet-chip wk-wallet-chip--warn"><i class="bi bi-exclamation-triangle"></i> {% translate "The balance is low. Top it up to keep using the paid services." %}</span>{% endif %}
         </div>
@@ -30,7 +30,7 @@
                 <{% if payments_open %}form method="post" action="{% url 'billing:checkout' %}"{% else %}div{% endif %} class="wk-packages">{% if payments_open %}{% csrf_token %}{% endif %}
                     {% for p in packages %}
                     <button class="wk-package" name="amount" value="{{ p.amount }}" {% if not payments_open %}disabled{% endif %}>
-                        <span class="wk-package__amount" dir="ltr">{{ p.label }}</span>
+                        <span class="wk-package__amount" dir="ltr">{{ p.points|riyals_big }}</span>
                         {% if payments_open %}<span class="wk-package__go"><i class="bi bi-credit-card"></i> {% translate "Pay by card" %}</span>{% endif %}
                     </button>
                     {% endfor %}

@@ -1,4 +1,5 @@
 from django import template
+from django.utils.safestring import mark_safe
 
 from .. import catalog, quote as quotes
 
@@ -21,6 +22,12 @@ def quote(service_key, units=None):
 def riyals(points):
     """Points as an amount with the riyal: 5000 -> '5 ر.ق'."""
     return catalog.money(points)
+
+
+@register.filter
+def riyals_big(points):
+    """Points as a large figure with the riyal sign set smaller beside it (a hero balance, a package)."""
+    return mark_safe(catalog.money_html(points))
 
 
 @register.simple_tag

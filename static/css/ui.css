@@ -108,6 +108,7 @@ input[type=file].form-control:hover::file-selector-button { background: var(--wk
 .wk-package:not(:disabled):hover { border-color: var(--wk-primary); box-shadow: 0 10px 24px -14px rgba(79, 59, 219, .55); transform: translateY(-2px); }
 .wk-package:disabled { opacity: .55; cursor: not-allowed; }
 .wk-package__amount { font-size: 1.6rem; font-weight: 800; }
+.wk-unit { font-size: .5em; font-weight: 600; opacity: .75; }      /* the riyal sign beside a big figure: smaller than the number */
 .wk-package__go { margin-top: .35rem; font-size: .8rem; font-weight: 700; color: var(--wk-primary); }
 .wk-price-list { max-height: 26rem; overflow-y: auto; border-top: 1px solid var(--wk-border); }
 .wk-price-row { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 1.25rem; font-size: .9rem; border-bottom: 1px solid #eef0f7; }

@@ -35,10 +35,26 @@ class PricingRuleTests(SimpleTestCase):
         self.assertEqual(sale_price_usd('0.0624', profit='0.5', failures='0.1', card_fees='0.06', step='0.01'), Decimal('0.12'))
 
     def test_rounding_is_up_and_once(self):
-        self.assertEqual(catalog.price_points('generate_plan', 9), 190)
-        self.assertEqual(catalog.price_points('generate_plan', 1), 70)
+        self.assertEqual(catalog.price_points('generate_plan', 9), 1000)
+        self.assertEqual(catalog.price_points('generate_plan', 1), 1000)
         # A plan of many posts is not priced as many one-post plans.
         self.assertLess(catalog.price_points('generate_plan', 9), 9 * catalog.price_points('generate_plan', 1))
+
+    def test_every_price_is_a_whole_riyal_and_never_below_one(self):
+        # Owner's rule (2026-11-25): the riyal is the base currency, no fractions, nothing cheaper than 1 riyal.
+        for key in catalog.service_keys():
+            for units in (None, 1, 9, 40):
+                for price in (catalog.price_points(key, units), catalog.base_points(key, units)):
+                    self.assertEqual(price % catalog.POINTS_PER_RIYAL, 0, (key, units))
+                if not catalog.is_free(key):
+                    self.assertGreaterEqual(catalog.price_points(key, units), catalog.POINTS_PER_RIYAL, (key, units))
+
+    def test_a_dollar_cost_is_converted_at_the_fixed_rate_and_rounded_up(self):
+        # $1 of cost sells at $1.50 with no fees = 5.46 riyals -> 6; the rate is the Qatar Central Bank's 3.64.
+        self.assertEqual(catalog.whole(Decimal('5.46')), 6000)
+        self.assertEqual(catalog.whole(Decimal('5')), 5000)
+        self.assertEqual(catalog.whole(Decimal('0.01')), 1000)
+        self.assertEqual(catalog.whole(0), 1000)
 
     def test_every_service_has_a_price_or_is_free(self):
         for key in catalog.service_keys():
@@ -53,13 +69,13 @@ class PricingRuleTests(SimpleTestCase):
 
     def test_packages_are_written_as_they_are(self):
         # A screenshot caught "$1 $25 $5": stripping zeros from '10' and '50' turned them into '1' and '5'.
-        self.assertEqual([catalog.format_package(p) for p in catalog.topup_packages_usd()], ['10', '25', '50', '100'])
+        self.assertEqual([catalog.format_package(p) for p in catalog.topup_packages()], ['20', '50', '100', '200'])
         self.assertEqual(catalog.format_package('2.50'), '2.5')
-        with self.assertRaisesMessage(ValueError, '$10, $25, $50, $100'):
+        with self.assertRaisesMessage(ValueError, '20, 50, 100, 200'):
             catalog.topup_points(3)
 
     def test_topup_packages_are_only_the_listed_ones(self):
-        self.assertEqual(catalog.topup_points(10), 10000)
+        self.assertEqual(catalog.topup_points(20), 20000)
         with self.assertRaises(ValueError):
             catalog.topup_points(3)
 
@@ -74,32 +90,32 @@ class QuoteTests(SimpleTestCase):
     def test_the_token_carries_the_total_and_cannot_be_forged(self):
         q = quotes.make('generate_plan', 9)
         data = quotes.read_token(q.token)
-        self.assertEqual((data['s'], data['u'], data['t']), ('generate_plan', 9, 190))
+        self.assertEqual((data['s'], data['u'], data['t']), ('generate_plan', 9, 1000))
         self.assertIsNone(quotes.read_token(q.token[:-3] + 'abc'))
 
     def test_a_bundle_shows_every_part_and_the_whole(self):
         q = quotes.bundle(quotes.make('rewrite_post'), quotes.make('generate_report'))
-        self.assertEqual(q.total, 30 + 20)
-        self.assertEqual([line.points for line in q.lines], [30, 20])
+        self.assertEqual(q.total, 1000 + 1000)
+        self.assertEqual([line.points for line in q.lines], [1000, 1000])
 
 
 class ChargeTests(TestCase):
     def setUp(self):
-        self.company = make_company(balance=1000)
+        self.company = make_company(balance=10_000)
         self.user = make_user(self.company)
 
     def test_charge_takes_exactly_the_quote_and_keeps_the_breakdown(self):
         q = quotes.make('generate_plan', 9)
         txn = charging.charge(self.company, self.user, q)
-        self.assertEqual(txn.delta, -190)
-        self.assertEqual(sum(b['points'] for b in txn.breakdown), 190)
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 810)
+        self.assertEqual(txn.delta, -1000)
+        self.assertEqual(sum(b['points'] for b in txn.breakdown), 1000)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 9000)
 
     def test_a_price_that_differs_from_the_one_shown_charges_nothing(self):
         with self.assertRaises(charging.PriceChanged) as caught:
             charging.charge(self.company, self.user, quotes.make('generate_plan', 9), expected_total=80)
-        self.assertEqual((caught.exception.shown, caught.exception.now), (80, 190))
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 1000)
+        self.assertEqual((caught.exception.shown, caught.exception.now), (80, 1000))
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 10_000)
         self.assertFalse(WalletTransaction.objects.exists())
 
     def test_the_balance_never_goes_below_zero(self):
@@ -108,15 +124,15 @@ class ChargeTests(TestCase):
         wallet.save()
         with self.assertRaises(charging.InsufficientCredits) as caught:
             charging.charge(self.company, self.user, quotes.make('generate_plan', 9))
-        self.assertEqual((caught.exception.cost, caught.exception.balance), (190, 100))
+        self.assertEqual((caught.exception.cost, caught.exception.balance), (1000, 100))
         self.assertEqual(Wallet.objects.get(company=self.company).balance, 100)
 
     def test_a_refund_gives_back_once(self):
         txn = charging.charge(self.company, self.user, quotes.make('rewrite_post'))
         first = charging.refund(txn)
-        self.assertEqual(first.delta, 30)
+        self.assertEqual(first.delta, 1000)
         self.assertIsNone(charging.refund(txn))                       # a second call does nothing
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 1000)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 10_000)
 
     def test_free_services_exempt_companies_and_superusers_are_not_charged(self):
         self.assertIsNone(charging.charge(self.company, self.user, quotes.make('learn')))
@@ -132,20 +148,20 @@ class JobChargeTests(TestCase):
     """Job.enqueue charges a paid kind at its quote; a failed or cancelled job gives the charge back."""
 
     def setUp(self):
-        self.company = make_company(balance=1000)
+        self.company = make_company(balance=10_000)
         self.user = make_user(self.company)
         self.post = self.company.posts.create(title='x', platforms=['facebook'], created_by=self.user)
 
     def test_enqueue_charges_and_links_the_charge_to_the_job(self):
         job = Job.enqueue(self.company, Job.Kind.REWRITE_POST, self.user, post_id=self.post.pk, instruction='x')
         job.refresh_from_db()
-        self.assertEqual(job.charge_txn.delta, -30)
+        self.assertEqual(job.charge_txn.delta, -1000)
         self.assertEqual(job.charge_txn.reference, f'job:{job.pk}')
 
     def test_a_plan_is_priced_by_its_posts(self):
         plan = ContentPlan.objects.create(company=self.company, month=datetime.date(2026, 12, 1), platforms=['facebook'], posts_per_week=2)
         job = Job.enqueue(self.company, Job.Kind.GENERATE_PLAN, self.user, plan_id=plan.pk)
-        self.assertEqual(job.charge_txn.delta, -190)               # 9 posts in December at 2 a week
+        self.assertEqual(job.charge_txn.delta, -1000)              # 9 posts in December at 2 a week
         self.assertEqual((job.charge_txn.units, job.charge_txn.service_key), (9, 'generate_plan'))
 
     def test_a_refused_payment_makes_no_job(self):
@@ -158,7 +174,7 @@ class JobChargeTests(TestCase):
         for kind in (Job.Kind.LEARN, Job.Kind.FETCH_INBOX, Job.Kind.RENDER_POST, Job.Kind.PUBLISH_POST, Job.Kind.FETCH_INSIGHTS):
             job = Job.enqueue(self.company, kind, self.user)
             self.assertIsNone(job.charge_txn)
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 1000)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 10_000)
 
     def test_a_failed_job_gives_the_charge_back_and_a_done_one_keeps_it(self):
         from apps.ai.client import AIError
@@ -167,18 +183,18 @@ class JobChargeTests(TestCase):
             run_job(failing)
         failing.refresh_from_db()
         self.assertEqual(failing.status, Job.Status.FAILED)
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 1000)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 10_000)
         working = Job.enqueue(self.company, Job.Kind.REWRITE_POST, self.user, post_id=self.post.pk, instruction='x')
         with mock.patch.dict('apps.jobs.runner.HANDLERS', {Job.Kind.REWRITE_POST: mock.Mock(return_value='تم')}):
             run_job(working)
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 970)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 9000)
 
     def test_cancelling_gives_the_charge_back_once(self):
         job = Job.enqueue(self.company, Job.Kind.REWRITE_POST, self.user, post_id=self.post.pk, instruction='x')
         self.client.force_login(self.user)
         self.assertEqual(self.client.post(reverse('api:job_cancel', args=[job.pk])).status_code, 200)
         self.client.post(reverse('api:job_cancel', args=[job.pk]))
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 1000)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 10_000)
         self.assertEqual(WalletTransaction.objects.filter(action='refund').count(), 1)
 
 
@@ -221,8 +237,8 @@ class PaymentRefusedTests(TestCase):
         r = self.client.post(reverse('api:post_rewrite', args=[self.post.pk]), {'instruction': 'x'}, content_type='application/json')
         self.assertEqual(r.status_code, 402)
         body = r.json()
-        self.assertEqual((body['needed'], body['balance'], body['code']), (30, 5, 'insufficient_credits'))
-        self.assertIn('$0.03', body['error'])
+        self.assertEqual((body['needed'], body['balance'], body['code']), (1000, 5, 'insufficient_credits'))
+        self.assertIn('1 QAR', body['error'])
         self.assertFalse(Job.objects.exists())
 
     def test_a_stale_price_in_the_api_is_a_402_that_names_both_prices(self):
@@ -230,8 +246,8 @@ class PaymentRefusedTests(TestCase):
         r = self.client.post(reverse('api:post_rewrite', args=[self.post.pk]), {'instruction': 'x', 'expected_points': 8},
                              content_type='application/json')
         self.assertEqual(r.status_code, 402)
-        self.assertIn('$0.03', r.json()['error'])
-        self.assertIn('$0.01', r.json()['error'])
+        self.assertIn('1 QAR', r.json()['error'])
+        self.assertIn('0.01 QAR', r.json()['error'])
         self.assertEqual(Wallet.objects.get(company=self.company).balance, 1000)
 
     def test_a_page_redirects_to_the_wallet_with_a_message_and_makes_no_plan(self):
@@ -246,7 +262,7 @@ class PaymentRefusedTests(TestCase):
         Wallet.objects.filter(company=self.company).update(balance=1000)
         page = self.client.get(reverse('content:plan_create')).content.decode()
         self.assertIn('id="expectedPoints"', page)
-        self.assertIn('"9": 190', page)                              # the price table the screen works from
+        self.assertIn('"9": 1000', page)                              # the price table the screen works from
         month = (datetime.date.today().replace(day=1) + datetime.timedelta(days=32)).replace(day=1).isoformat()
         r = self.client.post(reverse('content:plan_create'), {'month': month, 'platforms': ['facebook'], 'posts_per_week': 4,
                                                               'brief': '', 'expected_points': 1})
@@ -256,7 +272,7 @@ class PaymentRefusedTests(TestCase):
 
 class WalletPageTests(TestCase):
     def test_only_managers_see_the_wallet_and_the_price_list_and_ledger(self):
-        company = make_company(balance=2500)
+        company = make_company(balance=12_000)
         owner = make_user(company)
         editor = make_user(company, 'editor', 'e@x.test')
         charging.charge(company, owner, quotes.make('generate_plan', 9))
@@ -265,11 +281,11 @@ class WalletPageTests(TestCase):
         self.assertEqual(self.client.get(reverse('credits:wallet')).status_code, 403)
         self.client.force_login(owner)
         page = self.client.get(reverse('credits:wallet')).content.decode()
-        self.assertIn('$2.31', page)                                 # 2500 - 190 points
+        self.assertIn('11 QAR', page)                                # 12 riyals less the 1 riyal the plan cost
         self.assertIn('generate_plan', page)
         self.assertIn('/ 9 <bdi>post</bdi>', page)
-        for amount in ('10', '25', '50', '100'):
-            self.assertIn(f'>${amount}</span>', page)                     # the packages, as they are
+        for amount in ('20', '50', '100', '200'):
+            self.assertIn(f'>{amount} QAR</span>', page)                  # the packages, as they are
         self.client.cookies['wakeel_lang'] = 'ar'
         self.assertIn('/ 9 <bdi>منشور</bdi>', self.client.get(reverse('credits:wallet')).content.decode())
 
@@ -292,11 +308,11 @@ class OpsWalletTests(TestCase):
         self.assertEqual(Wallet.objects.get(company=self.company).balance, 10000)
         txn = WalletTransaction.objects.get()
         self.assertEqual((txn.action, txn.delta, txn.user, txn.description), ('admin_grant', 10000, self.admin, 'pilot'))
-        self.client.post(url, {'amount': '-2.5'})
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 7500)
-        for bad in ('', 'abc', '0', '5000'):
+        self.client.post(url, {'amount': '-2'})
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 8000)
+        for bad in ('', 'abc', '0', '5001', '2.5'):               # a whole riyal, up to 5,000
             self.client.post(url, {'amount': bad})
-        self.assertEqual(Wallet.objects.get(company=self.company).balance, 7500)
+        self.assertEqual(Wallet.objects.get(company=self.company).balance, 8000)
 
     def test_an_exempt_company_is_not_charged(self):
         self.client.force_login(self.admin)
@@ -307,14 +323,14 @@ class OpsWalletTests(TestCase):
         self.assertIsNone(job.charge_txn)
 
     def test_revenue_is_what_was_charged_less_what_was_given_back(self):
-        Wallet.objects.filter(company=self.company).update(balance=1000)
-        a = charging.charge(self.company, self.owner, quotes.make('generate_plan', 9))     # 190
-        charging.charge(self.company, self.owner, quotes.make('rewrite_post'))             # 30
+        Wallet.objects.filter(company=self.company).update(balance=10_000)
+        a = charging.charge(self.company, self.owner, quotes.make('generate_plan', 9))     # 1 riyal
+        charging.charge(self.company, self.owner, quotes.make('rewrite_post'))             # 1 riyal
         charging.refund(a)
-        charged, refunded, net = charging.revenue_usd()
-        self.assertEqual((charged, refunded, net), (Decimal('0.220'), Decimal('0.190'), Decimal('0.030')))
+        self.assertEqual(charging.revenue(), (2000, 1000, 1000))                           # points: 2 charged, 1 given back
+        self.assertEqual(charging.revenue_usd()[2], Decimal(1000) / 1000 / Decimal('3.64'))   # the same net, in dollars
         self.client.force_login(self.admin)
-        self.assertContains(self.client.get(reverse('ops:company', args=[self.company.pk])), '$0.03')
+        self.assertContains(self.client.get(reverse('ops:company', args=[self.company.pk])), '1 QAR')
         self.assertContains(self.client.get(reverse('ops:usage')), 'wk-card adm-kpi')
 
 

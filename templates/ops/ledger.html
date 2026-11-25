@@ -6,9 +6,9 @@
 {% block subtitle %}<div class="subtitle">{% translate "كل حركة على رصيد أي شركة: شحن، ومنح من الإدارة، وبيع الخدمات، والاسترجاع." %}</div>{% endblock %}
 {% block content %}
 <div class="adm-kpis">
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-credit-card"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ month.topups }}</div><div class="adm-kpi__lbl">{% translate "شحن هذا الشهر" %}</div></div></div>
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-gold"><i class="bi bi-gift"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ month.grants }}</div><div class="adm-kpi__lbl">{% translate "منح من الإدارة هذا الشهر" %}</div></div></div>
-    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-cart"></i></div><div><div class="adm-kpi__num" dir="ltr">${{ month.net|money }}</div><div class="adm-kpi__lbl">{% translate "المخصوم هذا الشهر (صافي بعد الاسترجاع)" %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-credit-card"></i></div><div><div class="adm-kpi__num" dir="ltr">{{ month.topups }}</div><div class="adm-kpi__lbl">{% translate "شحن هذا الشهر" %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-gold"><i class="bi bi-gift"></i></div><div><div class="adm-kpi__num" dir="ltr">{{ month.grants }}</div><div class="adm-kpi__lbl">{% translate "منح من الإدارة هذا الشهر" %}</div></div></div>
+    <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-cart"></i></div><div><div class="adm-kpi__num" dir="ltr">{{ month.net }}</div><div class="adm-kpi__lbl">{% translate "المخصوم هذا الشهر (صافي بعد الاسترجاع)" %}</div></div></div>
 </div>
 <form method="get" class="d-flex flex-wrap gap-2 mb-3">
     {% if only %}<input type="hidden" name="company" value="{{ only.pk }}"><span class="adm-pill adm-pill--info align-self-center">{{ only.name }} <a href="{% url 'ops:ledger' %}" aria-label="{% translate "إزالة التصفية" %}">×</a></span>{% endif %}
@@ -24,7 +24,7 @@
     <div class="list-group-item d-flex flex-wrap justify-content-between gap-2 small">
         <span><a href="{% url 'ops:company' t.company_id %}">{{ t.company.name }}</a> · {{ t.get_action_display }}{% if t.service_key %} · {{ t.service_key }}{% endif %}
             {% if t.user %}<span class="small-muted" dir="ltr">{{ t.user.email }}</span>{% endif %}{% if t.description %}<span class="small-muted"> — {{ t.description|truncatechars:80 }}</span>{% endif %}</span>
-        <span class="text-nowrap"><span class="small-muted">{{ t.created_at|date:"j/n/Y H:i" }}</span> <strong dir="ltr" class="{% if t.delta < 0 %}text-danger{% else %}text-success{% endif %}">{% if t.delta > 0 %}+{% else %}−{% endif %}${{ t.usd }}</strong></span>
+        <span class="text-nowrap"><span class="small-muted">{{ t.created_at|date:"j/n/Y H:i" }}</span> <strong dir="ltr" class="{% if t.delta < 0 %}text-danger{% else %}text-success{% endif %}">{% if t.delta > 0 %}+{% else %}−{% endif %}{{ t.amount }}</strong></span>
     </div>
 {% empty %}<div class="p-4 text-center small-muted">{% translate "لا توجد حركات." %}</div>{% endfor %}
 </div>{% include "ops/_pager.html" with keep=request.GET.dict %}</div>

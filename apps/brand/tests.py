@@ -77,9 +77,9 @@ class PriceTests(Base):
                     Wallet.objects.filter(company=self.company).update(balance=before)
 
     def test_the_owner_prices_are_the_ones_charged(self):
-        self.assertEqual(service.quote('logo', 'standard').total, 3000)
-        self.assertEqual(service.quote('logo', 'premium').total, 12000)
-        self.assertEqual(service.quote('logo', 'standard', bundle=True).total, 2400)          # 20% off inside the kit
+        self.assertEqual(service.quote('logo', 'standard').total, 11000)                        # $3 at 3.64, rounded up
+        self.assertEqual(service.quote('logo', 'premium').total, 44000)
+        self.assertEqual(service.quote('logo', 'standard', bundle=True).total, 9000)           # 20% off inside the kit: 8.8, rounded up
 
     def test_a_wrong_price_is_refused_without_charging_or_keeping_an_asset(self):
         before = self.balance()

@@ -714,8 +714,8 @@ msgstr "انجام بده"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
-msgstr "انجام بده با $%(price)s"
+msgid "Do it for %(price)s"
+msgstr "انجام بده با %(price)s"
 
 #: apps/assistant/templates/assistant/chat.html:20
 msgid "No thanks"
@@ -993,7 +993,7 @@ msgstr "پرداخت آنلاین هنوز فعال نشده است."
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
 msgstr "اعتبار MyDocHub: %(amount)s دلار"
 
 #: apps/billing/views.py:70
@@ -2509,8 +2509,8 @@ msgstr "پرداخت امن با کارت."
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "پرداخت $%(dollars)s"
+msgid "Pay %(dollars)s"
+msgstr "پرداخت %(dollars)s"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2924,7 +2924,7 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
+msgid "From %(p)s a page"
 msgstr "از %(p)s دلار برای هر صفحه"
 
 #: apps/docops/templates/docops/services/hub.html:18
@@ -2933,7 +2933,7 @@ msgstr "آخرین نتایج"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
+msgid "From %(p)s a page."
 msgstr "از %(p)s دلار برای هر صفحه."
 
 #: apps/docops/templates/docops/services/start.html:13
@@ -3199,12 +3199,12 @@ msgstr "هنوز برای «%(name)s» قالبی ندارید."
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "می‌خواهید برای شرکتتان و با هویت آن، یک قالب از این سند بسازم؟ ساخت قالب و "
-"نوشتن این سند این بار $%(first)s هزینه دارد. از آن به بعد، هر بار که به "
-"«%(name)s» نیاز داشته باشید، فقط $%(later)s برای نوشتن آن می‌پردازید."
+"نوشتن این سند این بار %(first)s هزینه دارد. از آن به بعد، هر بار که به "
+"«%(name)s» نیاز داشته باشید، فقط %(later)s برای نوشتن آن می‌پردازید."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -4068,10 +4068,10 @@ msgstr "هنوز فرمی نیست."
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"ساخت یک فرم یک بار $%(price)s از موجودی کم می‌کند. پاسخ‌های آن رایگان است (تا "
+"ساخت یک فرم یک بار %(price)s از موجودی کم می‌کند. پاسخ‌های آن رایگان است (تا "
 "%(limit)s پاسخ)."
 
 #: apps/forms/templates/forms/list.html:33
@@ -5769,8 +5769,8 @@ msgstr[1] "%(n)s صفحه خوانده می‌شود"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
-msgstr "موجودی شما: <bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
+msgstr "موجودی شما: <bdi dir=\"ltr\">%(balance)s</bdi>"
 
 #: apps/presentations/templates/presentations/confirm.html:19
 msgid ""
@@ -5782,8 +5782,8 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
-msgstr "با $%(price)s بسازید"
+msgid "Create it for %(price)s"
+msgstr "با %(price)s بسازید"
 
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
@@ -5861,8 +5861,8 @@ msgstr "هنوز ارائه‌ای وجود ندارد."
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
-msgstr "از <bdi dir=\"ltr\">$%(price)s</bdi>"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
+msgstr "از <bdi dir=\"ltr\">%(price)s</bdi>"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
@@ -7121,7 +7121,7 @@ msgstr "پول"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
+msgid "Grants %(g)s"
 msgstr "هدیه‌ها %(g)s دلار"
 
 #: templates/console/overview.html:16
@@ -7142,7 +7142,7 @@ msgstr "%(n)s فراخوانی · %(f)s ناموفق"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
+msgid "%(u)s cost never billed"
 msgstr "%(u)s دلار هزینه صورتحساب‌نشده"
 
 #: templates/console/overview.html:21
@@ -7714,8 +7714,8 @@ msgstr "یک سند را در کتابخانه بارگذاری کرد"
 msgid "Verified by Wakeel"
 msgstr "تأییدشده توسط Wakeel"
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "اعتبار Wakeel: $%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "اعتبار Wakeel: %(amount)s"
 
 msgid "Wallet"
 msgstr "کیف پول"
@@ -7749,9 +7749,6 @@ msgstr "این را دریافت می‌کنید چون این یادآور را
 
 msgid "You were not charged."
 msgstr "هزینه‌ای از شما کسر نشد."
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "موجودی شما: $%(balance)s. حدود نیم دقیقه طول می‌کشد."
 
 msgid "[سيناريو الفيديو]"
 msgstr "[اسکریپت ویدیو]"

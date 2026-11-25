@@ -708,8 +708,8 @@ msgstr "실행"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
-msgstr "$%(price)s로 실행"
+msgid "Do it for %(price)s"
+msgstr "%(price)s로 실행"
 
 #: apps/assistant/templates/assistant/chat.html:20
 msgid "No thanks"
@@ -990,8 +990,8 @@ msgstr "온라인 결제는 아직 열리지 않았습니다."
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
-msgstr "MyDocHub 크레딧: $%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
+msgstr "MyDocHub 크레딧: %(amount)s"
 
 #: apps/billing/views.py:70
 msgid "The payment page could not be opened. Please try again."
@@ -1254,7 +1254,7 @@ msgid ""
 "%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
 "%(balance)s."
 msgstr ""
-"로고를 바탕으로 %(n)s개를 디자인합니다(%(d)s%% 할인). 잔액: $%(balance)s."
+"로고를 바탕으로 %(n)s개를 디자인합니다(%(d)s%% 할인). 잔액: %(balance)s."
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -2497,8 +2497,8 @@ msgstr "안전한 카드 결제."
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "$%(dollars)s 결제"
+msgid "Pay %(dollars)s"
+msgstr "%(dollars)s 결제"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2913,8 +2913,8 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
-msgstr "페이지당 $%(p)s부터"
+msgid "From %(p)s a page"
+msgstr "페이지당 %(p)s부터"
 
 #: apps/docops/templates/docops/services/hub.html:18
 msgid "Latest results"
@@ -2922,8 +2922,8 @@ msgstr "최신 결과"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
-msgstr "페이지당 $%(p)s부터."
+msgid "From %(p)s a page."
+msgstr "페이지당 %(p)s부터."
 
 #: apps/docops/templates/docops/services/start.html:13
 #: apps/identity/forms.py:22 apps/identity/forms.py:26
@@ -3188,12 +3188,12 @@ msgstr "아직 «%(name)s» 템플릿이 없습니다."
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "회사 고유의 스타일로 템플릿을 만들어 드릴까요? 이번에는 템플릿 제작과 문서 작"
-"성에 $%(first)s가 들어요. 이후 «%(name)s»이(가) 필요할 때마다 문서 작성 비용 "
-"$%(later)s만 내시면 돼요."
+"성에 %(first)s가 들어요. 이후 «%(name)s»이(가) 필요할 때마다 문서 작성 비용 "
+"%(later)s만 내시면 돼요."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -4048,10 +4048,10 @@ msgstr "아직 양식이 없습니다."
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"양식을 만들면 잔액에서 한 번 $%(price)s가 차감됩니다. 답변은 무료입니다(최대 "
+"양식을 만들면 잔액에서 한 번 %(price)s가 차감됩니다. 답변은 무료입니다(최대 "
 "%(limit)s개)."
 
 #: apps/forms/templates/forms/list.html:33
@@ -5737,8 +5737,8 @@ msgstr[0] "%(n)s페이지를 읽습니다"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
-msgstr "잔액: <bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
+msgstr "잔액: <bdi dir=\"ltr\">%(balance)s</bdi>"
 
 #: apps/presentations/templates/presentations/confirm.html:19
 msgid ""
@@ -5750,8 +5750,8 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
-msgstr "$%(price)s로 만들기"
+msgid "Create it for %(price)s"
+msgstr "%(price)s로 만들기"
 
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
@@ -5827,8 +5827,8 @@ msgstr "아직 프레젠테이션이 없습니다."
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
-msgstr "<bdi dir=\"ltr\">$%(price)s</bdi>부터"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
+msgstr "<bdi dir=\"ltr\">%(price)s</bdi>부터"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
@@ -7082,8 +7082,8 @@ msgstr "금액"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
-msgstr "지급 $%(g)s"
+msgid "Grants %(g)s"
+msgstr "지급 %(g)s"
 
 #: templates/console/overview.html:16
 #, python-format
@@ -7103,8 +7103,8 @@ msgstr "호출 %(n)s건 · 실패 %(f)s건"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
-msgstr "청구되지 않은 비용 $%(u)s"
+msgid "%(u)s cost never billed"
+msgstr "청구되지 않은 비용 %(u)s"
 
 #: templates/console/overview.html:21
 msgid "AI budget this month"
@@ -7669,8 +7669,8 @@ msgstr "라이브러리에 문서를 업로드함"
 msgid "Verified by Wakeel"
 msgstr "Wakeel 인증"
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "Wakeel 크레딧: $%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "Wakeel 크레딧: %(amount)s"
 
 msgid "Wallet"
 msgstr "지갑"
@@ -7705,9 +7705,6 @@ msgstr "Wakeel에서 이 알림을 설정했기 때문에 이 메시지를 받�
 
 msgid "You were not charged."
 msgstr "요금이 청구되지 않았습니다."
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "잔액: $%(balance)s. 약 30초 걸립니다."
 
 msgid "[سيناريو الفيديو]"
 msgstr "[동영상 스크립트]"

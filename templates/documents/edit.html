@@ -80,7 +80,7 @@
   <label class="form-label" for="rw-notes">{% translate "What should change?" %}</label>
   <textarea class="form-control" id="rw-notes" name="notes" rows="3" maxlength="2000" required></textarea>
   <div class="form-text mb-3">{% translate "For example: make it shorter, add a clause about confidentiality, change the amount to 1,500." %}</div>
-  <button type="submit" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Rewrite it" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ rewrite_quote.usd }}</span></button>
+  <button type="submit" class="btn btn-primary"><i class="bi bi-stars"></i> {% translate "Rewrite it" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">{{ rewrite_quote.amount }}</span></button>
   <small class="small-muted d-block mt-2">{% translate "Save your edits first: the AI works on the saved text. You are charged only if the new text is delivered." %}</small>
   </div>
 </form>

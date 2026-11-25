@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.utils import translation
 
-SUPPORTED = {code for code, _ in settings.LANGUAGES}
+SUPPORTED = {code for code, _ in settings.INTERFACE_LANGUAGES}
 
 
 def preferred_language(request):

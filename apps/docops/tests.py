@@ -76,7 +76,9 @@ class PriceTests(Base):
                 Wallet.objects.filter(company=self.company).update(balance=before)
 
     def test_a_translation_price_follows_the_script_of_the_target_language(self):
-        with mock.patch('apps.docops.density.document_size', return_value=TEXT_SIZE):
+        # Prices are whole riyals now, so the difference only shows on a document big enough to cost several of them.
+        with mock.patch('apps.docops.density.document_size', return_value={**TEXT_SIZE, 'text_tokens': 12000}), \
+                mock.patch('apps.docops.ops.page_count', return_value=10):
             arabic, latin = self.quote('translate', 'standard', 'ar'), self.quote('translate', 'standard', 'en')
             self.assertGreater(arabic.total, latin.total)                   # writing Arabic takes more tokens
             page = self.client.get(reverse('services:confirm', args=['translate', self.record.pk]))
@@ -222,7 +224,7 @@ class AccessTests(Base):
 
     def test_the_hub_and_the_upload_path_keep_the_file_in_the_library(self):
         hub = self.client.get(reverse('services:hub'))
-        self.assertContains(hub, quotes.make(ops.SERVICES['summarize'], pages=1).usd)      # the page price the card shows
+        self.assertContains(hub, quotes.make(ops.SERVICES['summarize'], pages=1).amount)      # the page price the card shows
         from django.core.files.uploadedfile import SimpleUploadedFile
         response = self.client.post(reverse('services:start', args=['ocr']), {'file': SimpleUploadedFile('s.pdf', PDF)})
         record = Record.all_companies.get(title='s')

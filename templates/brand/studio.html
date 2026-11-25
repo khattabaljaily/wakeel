@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n credits %}
 {% block title %}{% translate "Company identity" context "navigation" %}{% endblock %}
 {% block page_title %}{% translate "Company identity" context "navigation" %}{% endblock %}
 {% block subtitle %}<div class="subtitle">{% translate "Everything that makes your company look like itself: logo, colours, fonts, stationery and digital pieces, designed for you in famous, professional fonts." %}</div>{% endblock %}
@@ -56,7 +56,7 @@
     <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
       {% for value, label, quote, note in c.prices %}
       <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}" data-points="{{ quote.total }}"{% if value == 'premium' %} checked{% endif %}>
-        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">${{ quote.usd }}</span></span><small class="small-muted">{{ note }}</small></span></label>
+        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">{{ quote.amount }}</span></span><small class="small-muted">{{ note }}</small></span></label>
       {% endfor %}
     </fieldset>
     {% if c.note %}<div class="mb-3"><label class="form-label" for="n-{{ c.key }}">{% translate "Anything to tell the designer?" %}</label>
@@ -81,8 +81,8 @@
     <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
       {% for value, label, total, logo in totals %}
       <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}" data-points="{{ logo.total }}"{% if value == 'premium' %} checked{% endif %}>
-        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">${{ logo.usd }}</span></span>
-          <small class="small-muted">{% blocktranslate with t=total %}Today you pay for the logo; the whole kit comes to ${{ t }} with the discount.{% endblocktranslate %}</small></span></label>
+        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">{{ logo.amount }}</span></span>
+          <small class="small-muted">{% blocktranslate with t=total %}Today you pay for the logo; the whole kit comes to {{ t }} with the discount.{% endblocktranslate %}</small></span></label>
       {% endfor %}
     </fieldset>
     <label class="form-label" for="kit-note">{% translate "Anything to tell the designer?" %}</label><textarea class="form-control" id="kit-note" name="note" rows="3" maxlength="500" dir="auto"></textarea>
@@ -94,11 +94,11 @@
   <input type="hidden" name="expected_points" value="">
   <div class="modal-header"><h2 class="modal-title h5">{% translate "Make the rest of the kit" %}</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button></div>
   <div class="modal-body">
-    <p class="small-muted">{% blocktranslate with n=remaining d=discount balance=balance %}{{ n }} pieces will be designed from your logo, {{ d }}% off. Your balance: ${{ balance }}.{% endblocktranslate %}</p>
+    <p class="small-muted">{% blocktranslate with n=remaining d=discount balance=balance %}{{ n }} pieces will be designed from your logo, {{ d }}% off. Your balance: {{ balance }}.{% endblocktranslate %}</p>
     <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
       {% for value, label, quote in rest %}
       <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}" data-points="{{ quote.total }}"{% if value == 'premium' %} checked{% endif %}>
-        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">${{ quote.usd }}</span></span>
+        <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border" dir="ltr">{{ quote.amount }}</span></span>
           <small class="small-muted">{% translate "Everything that is left, with the discount" %}</small></span></label>
       {% endfor %}
     </fieldset>
@@ -109,11 +109,13 @@
 {% endblock %}
 {% block scripts %}<script>
 /* The price on the button is the price charged: the chosen quality's points go in expected_points, and the server checks them. */
+{% riyal as unit %}var UNIT = '{{ unit|escapejs }}';
+function fmt(p) { var v = p / 1000, whole = v === Math.floor(v); return v.toLocaleString('en-US', {minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: 2}); }
 document.querySelectorAll('form[data-priced]').forEach(function (form) {
   var out = form.querySelector('input[name=expected_points]'), chip = form.querySelector('[data-chip]');
   function refresh() {
     var r = form.querySelector('input[name=tier]:checked'), p = r ? parseInt(r.dataset.points, 10) : null;
-    out.value = p === null ? '' : p; if (chip) chip.textContent = p === null ? '' : '$' + (p / 1000).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    out.value = p === null ? '' : p; if (chip) chip.textContent = p === null ? '' : fmt(p) + ' ' + UNIT;
   }
   form.addEventListener('change', refresh); refresh();
 });

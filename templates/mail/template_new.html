@@ -21,8 +21,8 @@
   </div>
   <div class="mb-3"><label class="form-label" for="{{ form.notes.id_for_label }}">{{ form.notes.label }}</label>{{ form.notes }}<div class="form-text">{{ form.notes.help_text }}</div></div>
   <div class="d-flex flex-wrap align-items-center gap-3">
-    <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-stars"></i> {% translate "Design my template" %} <span class="badge bg-white bg-opacity-25" dir="ltr">${{ quote.usd }}</span></button>
-    <small class="small-muted">{% blocktranslate with balance=balance %}Your balance: ${{ balance }}. It takes about half a minute.{% endblocktranslate %}</small>
+    <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-stars"></i> {% translate "Design my template" %} <span class="badge bg-white bg-opacity-25" dir="ltr">{{ quote.amount }}</span></button>
+    <small class="small-muted">{% blocktranslate with balance=balance %}Your balance: {{ balance }}. It takes about half a minute.{% endblocktranslate %}</small>
   </div>
 </div></form>
 </div>

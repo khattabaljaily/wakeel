@@ -102,11 +102,9 @@ def refund(txn, reason: str = 'failed'):
             description=f'Refund: {original.service_key} {reason}')
 
 
-def revenue_usd(since=None, company=None):
-    """(charged, refunded, net) in USD for AI services since a date: what customers were charged against what was given back.
-    The console sets it against the real AI cost of the same period."""
-    from decimal import Decimal
-
+def revenue(since=None, company=None):
+    """(charged, refunded, net) in points (riyals x 1000) for AI services since a date: what customers were charged against
+    what was given back."""
     from django.db.models import Sum
     rows = WalletTransaction.objects.filter(action__in=[WalletTransaction.AI_SERVICE, WalletTransaction.REFUND])
     if since is not None:
@@ -114,6 +112,12 @@ def revenue_usd(since=None, company=None):
     if company is not None:
         rows = rows.filter(company=company)
     totals = {a: rows.filter(action=a).aggregate(s=Sum('delta'))['s'] or 0 for a in (WalletTransaction.AI_SERVICE, WalletTransaction.REFUND)}
-    charged = Decimal(-totals[WalletTransaction.AI_SERVICE]) / 1000
-    refunded = Decimal(totals[WalletTransaction.REFUND]) / 1000
+    charged, refunded = -totals[WalletTransaction.AI_SERVICE], totals[WalletTransaction.REFUND]
     return charged, refunded, charged - refunded
+
+
+def revenue_usd(since=None, company=None):
+    """The same in dollars (at the central bank's fixed rate): the console sets it against the real AI cost of the same
+    period, which the providers charge in dollars."""
+    from . import catalog
+    return tuple(Decimal(points) / catalog.POINTS_PER_RIYAL / catalog.QAR_PER_USD for points in revenue(since, company))

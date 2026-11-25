@@ -26,10 +26,11 @@ def for_company(company):
 
 
 # ── Stripe payment links (settings.PAYMENT_LINKS): no secret key, only the webhook's ─────────────────────────────────
-def payment_link(key, amount):
-    """The operator's payment link for a package (Decimal USD), or '' when it has none."""
+def payment_link(key, amount, currency='QAR'):
+    """The operator's payment link for a package (a Decimal in `currency`), or '' when it has none. Links are filed as
+    "QAR:50": a link made when packages were in dollars ("50") is never taken for a riyal package."""
     links = (getattr(settings, 'PAYMENT_LINKS', {}) or {}).get(key) or {}
-    return links.get(f'{amount.normalize():f}', '') or links.get(str(amount), '')
+    return links.get(f'{currency}:{amount.normalize():f}', '') or links.get(f'{currency}:{amount}', '')
 
 
 def webhook_gateway(key):

@@ -12,7 +12,7 @@ from django.views.decorators.http import require_POST
 from apps.audit import log as audit
 from apps.companies.decorators import company_required
 from apps.credits.charging import get_wallet
-from apps.credits.catalog import format_points
+from apps.credits.catalog import money
 from apps.credits.jobs import expected_points
 
 from . import service
@@ -74,11 +74,11 @@ def studio(request):
     palette = [(k, v) for k, v in (kit.palette or {}).items() if v]
     remaining = [e for e in service.ELEMENTS if e != 'logo' and not BrandAsset.objects.filter(element=e, status__in=['done', 'queued', 'running']).exists()]
     kit_logo = {t: service.quote('logo', t, True) for t, _label in BrandAsset.TIERS}          # the logo at the kit's discount: the kit starts with it
-    totals = [(t, label, format_points(service.kit_total(t)), kit_logo[t]) for t, label in BrandAsset.TIERS]
+    totals = [(t, label, money(service.kit_total(t)), kit_logo[t]) for t, label in BrandAsset.TIERS]
     rest = [(t, label, service.quotes.bundle(*[service.quote(e, t, True) for e in remaining])) for t, label in BrandAsset.TIERS] if remaining else []
     return render(request, 'brand/studio.html', {
         'sections': sections, 'kit': kit, 'palette': palette, 'made': made, 'total': len(service.ELEMENTS), 'has_name': bool(company.name),
-        'totals': totals, 'rest': rest, 'remaining': len(remaining), 'balance': format_points(get_wallet(company).balance),
+        'totals': totals, 'rest': rest, 'remaining': len(remaining), 'balance': money(get_wallet(company).balance),
         'discount': int(service.KIT_DISCOUNT * 100), 'symbol_data': kit.symbol})
 
 

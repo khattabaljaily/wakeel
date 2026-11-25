@@ -10,7 +10,7 @@ from django.views.decorators.http import require_POST
 
 from apps.audit import log as audit
 from apps.companies.decorators import company_required
-from apps.credits.catalog import format_points
+from apps.credits.catalog import money
 from apps.credits.charging import get_wallet
 from apps.credits.jobs import expected_points
 
@@ -56,7 +56,7 @@ def new(request):
     if reason:
         messages.error(request, reason)
     return render(request, 'presentations/confirm.html', {
-        'p': made, 'quote': quote, 'balance': format_points(get_wallet(request.company).balance), 'source': made.source,
+        'p': made, 'quote': quote, 'balance': money(get_wallet(request.company).balance), 'source': made.source,
         'source_pages': pages, 'blocked': bool(reason),
         'fields': [(f.name, form[f.name].value()) for f in form if form[f.name].value() not in (None, '')]})
 

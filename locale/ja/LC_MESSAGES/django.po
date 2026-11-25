@@ -711,8 +711,8 @@ msgstr "実行する"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
-msgstr "$%(price)sで実行する"
+msgid "Do it for %(price)s"
+msgstr "%(price)sで実行する"
 
 #: apps/assistant/templates/assistant/chat.html:20
 msgid "No thanks"
@@ -996,8 +996,8 @@ msgstr "オンライン決済はまだご利用いただけません。"
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
-msgstr "MyDocHubクレジット:$%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
+msgstr "MyDocHubクレジット:%(amount)s"
 
 #: apps/billing/views.py:70
 msgid "The payment page could not be opened. Please try again."
@@ -1260,7 +1260,7 @@ msgstr "ロゴから始める"
 msgid ""
 "%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
 "%(balance)s."
-msgstr "ロゴを基に%(n)s点をデザインします（%(d)s%%オフ）。残高：$%(balance)s。"
+msgstr "ロゴを基に%(n)s点をデザインします（%(d)s%%オフ）。残高：%(balance)s。"
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -2512,8 +2512,8 @@ msgstr "安全なカード決済。"
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "$%(dollars)s を支払う"
+msgid "Pay %(dollars)s"
+msgstr "%(dollars)s を支払う"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2936,8 +2936,8 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
-msgstr "1ページあたり$%(p)sから"
+msgid "From %(p)s a page"
+msgstr "1ページあたり%(p)sから"
 
 #: apps/docops/templates/docops/services/hub.html:18
 msgid "Latest results"
@@ -2945,8 +2945,8 @@ msgstr "最新の結果"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
-msgstr "1ページあたり$%(p)sから。"
+msgid "From %(p)s a page."
+msgstr "1ページあたり%(p)sから。"
 
 #: apps/docops/templates/docops/services/start.html:13
 #: apps/identity/forms.py:22 apps/identity/forms.py:26
@@ -3214,12 +3214,12 @@ msgstr "「%(name)s」のテンプレートはまだありません。"
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "御社のアイデンティティに合わせたテンプレートも作成しましょうか?テンプレートの"
-"作成とこのドキュメントの作成には、今回 $%(first)s かかります。次回以降"
-"「%(name)s」が必要なときは、作成料金の $%(later)s だけでご利用いただけます。"
+"作成とこのドキュメントの作成には、今回 %(first)s かかります。次回以降"
+"「%(name)s」が必要なときは、作成料金の %(later)s だけでご利用いただけます。"
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -4082,10 +4082,10 @@ msgstr "まだフォームがありません。"
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"フォームの作成には残高から一度だけ$%(price)sかかります。回答は無料です"
+"フォームの作成には残高から一度だけ%(price)sかかります。回答は無料です"
 "（%(limit)s件まで）。"
 
 #: apps/forms/templates/forms/list.html:33
@@ -5784,8 +5784,8 @@ msgstr[0] "%(n)sページを読み取ります"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
-msgstr "残高：<bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
+msgstr "残高：<bdi dir=\"ltr\">%(balance)s</bdi>"
 
 #: apps/presentations/templates/presentations/confirm.html:19
 msgid ""
@@ -5797,8 +5797,8 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
-msgstr "$%(price)sで作成"
+msgid "Create it for %(price)s"
+msgstr "%(price)sで作成"
 
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
@@ -5876,8 +5876,8 @@ msgstr "プレゼンテーションはまだありません。"
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
-msgstr "<bdi dir=\"ltr\">$%(price)s</bdi>〜"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
+msgstr "<bdi dir=\"ltr\">%(price)s</bdi>〜"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
@@ -7141,8 +7141,8 @@ msgstr "お金"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
-msgstr "付与 $%(g)s"
+msgid "Grants %(g)s"
+msgstr "付与 %(g)s"
 
 #: templates/console/overview.html:16
 #, python-format
@@ -7162,8 +7162,8 @@ msgstr "%(n)s 回の呼び出し · %(f)s 件失敗"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
-msgstr "未請求コスト $%(u)s"
+msgid "%(u)s cost never billed"
+msgstr "未請求コスト %(u)s"
 
 #: templates/console/overview.html:21
 msgid "AI budget this month"
@@ -7731,8 +7731,8 @@ msgstr "ライブラリにドキュメントをアップロードしました"
 msgid "Verified by Wakeel"
 msgstr "Wakeel認証済み"
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "Wakeelクレジット: $%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "Wakeelクレジット: %(amount)s"
 
 msgid "Wallet"
 msgstr "ウォレット"
@@ -7771,9 +7771,6 @@ msgstr "このメールは、Wakeelで設定したリマインダーにより送
 
 msgid "You were not charged."
 msgstr "請求は発生していません。"
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "残高: $%(balance)s。約30秒かかります。"
 
 msgid "[سيناريو الفيديو]"
 msgstr "[動画スクリプト]"

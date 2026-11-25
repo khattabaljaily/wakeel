@@ -99,12 +99,12 @@ def _product_totals(month_start):
     from apps.documents.models import Document
     from apps.library.models import Record
     from apps.credits.models import Wallet
-    charged, refunded, net = charging.revenue_usd(since=month_start)
+    charged, refunded, net = charging.revenue(since=month_start)
     topups = WalletTransaction.objects.filter(created_at__gte=month_start, action=WalletTransaction.TOPUP).aggregate(s=Sum('delta'))['s'] or 0
     held = Wallet.objects.filter(is_exempt=False).aggregate(s=Sum('balance'))['s'] or 0
     empty = Wallet.objects.filter(is_exempt=False, balance__lte=0, company__is_active=True).count()
     return {
-        'net': net, 'topups': catalog.format_points(topups), 'held': catalog.format_points(held), 'empty_wallets': empty,
+        'net': catalog.money(net), 'topups': catalog.money(topups), 'held': catalog.money(held), 'empty_wallets': empty,
         'documents_month': Document.all_companies.filter(created_at__gte=month_start).count(),
         'records': Record.all_companies.count(),
         'users': User.objects.count(), 'new_users': User.objects.filter(date_joined__gte=month_start).count(),
@@ -208,8 +208,8 @@ def subscriptions_data(request):
         for c in companies:
             c.owner = owners.get(c.pk)
             wallet = getattr(c, 'wallet', None)
-            c.balance_usd = catalog.format_points(wallet.balance if wallet else 0)
-            c.data = _subscription_data(c, c.owner, c.members, c.post_count, c.balance_usd)
+            c.balance_amount = catalog.money(wallet.balance if wallet else 0)
+            c.data = _subscription_data(c, c.owner, c.members, c.post_count, c.balance_amount)
 
     return tables.subscriptions().json(request, queryset, prepare=prepare)
 
@@ -354,16 +354,16 @@ def company_detail(request, pk):
         'months_table': months_table, 'months_rows': months_table.rows(months, request),
         'jobs_table': tables.jobs(company),
         'data': _subscription_data(company, owner, company.memberships.count(), company.posts.count(),
-                                   catalog.format_points(charging.get_wallet(company).balance)),
+                                   catalog.money(charging.get_wallet(company).balance)),
         'edit_form': SubscriptionEditForm(),
         'members': company.memberships.select_related('user').order_by('created_at'),
         'plans': company.plans.annotate(n=Count('posts'))[:12],
         'posts_by_status': {Post.Status(s).label: n for s, n in
                             company.posts.order_by().values_list('status').annotate(n=Count('pk'))},
         'accounts': company.social_accounts.all(),
-        'wallet': charging.get_wallet(company), 'wallet_usd': catalog.format_points(charging.get_wallet(company).balance),
+        'wallet': charging.get_wallet(company), 'wallet_amount': catalog.money(charging.get_wallet(company).balance),
         'wallet_rows': WalletTransaction.objects.filter(company=company)[:10],
-        'revenue': charging.revenue_usd(company=company),
+        'revenue': charging.revenue(company=company),
         'current_operator': operator_names.bind(operators_service.of_company(company)),
         'operators_list': [operator_names.bind(o) for o in registry.operators(operators_service.PRODUCT)],
     })
@@ -377,11 +377,11 @@ def wallet_grant(request, pk):
     company = get_object_or_404(Company, pk=pk)
     try:
         amount = Decimal(request.POST.get('amount', ''))
-        points = int(amount * 1000)
-        if not points or abs(amount) > 1000:
+        points = int(amount * catalog.POINTS_PER_RIYAL)
+        if not points or abs(amount) > 5000 or amount != amount.to_integral_value():
             raise ValueError
     except (InvalidOperation, ValueError):
-        messages.error(request, _('أدخل مبلغاً صحيحاً بالدولار (حتى 1000).'))
+        messages.error(request, _('أدخل مبلغاً صحيحاً بالريال (حتى 5000).'))
         return _back_to(request, pk)
     charging.add_points(company, points, action=WalletTransaction.ADMIN_GRANT, user=request.user,
                         description=(request.POST.get('note') or '')[:200] or 'Admin grant')
@@ -564,13 +564,13 @@ def ledger(request):
     month_rows = WalletTransaction.objects.filter(created_at__gte=month)
     topups = sum(month_rows.filter(action=WalletTransaction.TOPUP).values_list('delta', flat=True))
     grants = sum(month_rows.filter(action__in=[WalletTransaction.ADMIN_GRANT, WalletTransaction.TRIAL]).values_list('delta', flat=True))
-    charged, refunded, net = charging.revenue_usd(since=month)
+    charged, refunded, net = charging.revenue(since=month)
     page = _page(request, entries)
     for t in page:
-        t.usd = catalog.format_points(abs(t.delta))
+        t.amount = catalog.money(abs(t.delta))
     return render(request, 'ops/ledger.html', {
         'page': page, 'q': q, 'action': action, 'only': only, 'actions': WalletTransaction.ACTION_CHOICES,
-        'month': {'topups': catalog.format_points(topups), 'grants': catalog.format_points(grants), 'charged': charged, 'net': net},
+        'month': {'topups': catalog.money(topups), 'grants': catalog.money(grants), 'charged': catalog.money(charged), 'net': catalog.money(net)},
     })
 
 
@@ -588,7 +588,7 @@ def prices(request):
         except Exception:
             points = None
         rows.append({'key': key, 'name': catalog.service_name(key, lang), 'free': catalog.is_free(key),
-                     'price': catalog.format_points(points) if points is not None else '—',
+                     'price': catalog.money(points) if points is not None else '—',
                      'per_page': bool(catalog.page_pricing(key)) and key not in fixed, 'launched': catalog.is_launched(key)})
     return render(request, 'ops/prices.html', {'rows': rows})
 

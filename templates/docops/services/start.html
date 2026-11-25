@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %}{% include "docops/services/_name.html" %}{% endblock %}
 {% block page_title %}{% include "docops/services/_name.html" %}{% endblock %}
-{% block subtitle %}<div class="subtitle">{% include "docops/services/_about.html" %} {% blocktranslate with p=price_one %}From ${{ p }} a page.{% endblocktranslate %}</div>{% endblock %}
+{% block subtitle %}<div class="subtitle">{% include "docops/services/_about.html" %} {% blocktranslate with p=price_one %}From {{ p }} a page.{% endblocktranslate %}</div>{% endblock %}
 {% block actions %}<a class="btn btn-light" href="{% url 'services:hub' %}">{% translate "AI services" context "navigation" %}</a>{% endblock %}
 {% block content %}
 {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}

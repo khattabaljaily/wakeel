@@ -10,7 +10,7 @@ from apps.ai import client as ai
 from apps.audit.models import AuditEvent
 from apps.companies.models import Membership
 from apps.content.tests import make_company, make_user
-from apps.credits import quote as quotes
+from apps.credits import catalog, quote as quotes
 from apps.credits.models import Wallet
 from apps.jobs.models import Job
 from apps.jobs.runner import run_job
@@ -70,7 +70,7 @@ class WritingTests(Base):
         page = self.client.get(reverse('documents:new', args=['document']))
         self.assertContains(page, f'name="expected_points_write" value="{write}"')
         self.assertContains(page, f'name="expected_points_template" value="{first}"')
-        self.assertContains(page, f'${write / 1000:,.2f}')
+        self.assertContains(page, catalog.money(write))
         self.template()
         before = self.balance()
         self.client.post(reverse('documents:new', args=['document']),
@@ -83,7 +83,7 @@ class WritingTests(Base):
         page = self.client.post(reverse('documents:new', args=['document']), {**AI_FORM, 'action': 'write'})
         self.assertContains(page, 'name="action" value="write_new_template"')
         first = quotes.bundle(quotes.make('generate_template'), quotes.make('fill_document'))
-        self.assertContains(page, f'${first.usd}')
+        self.assertContains(page, first.amount)
         for text, usd in first.described():                                              # the lines of the price are listed
             self.assertContains(page, usd)
         self.assertEqual((self.balance(), Job.objects.count()), (before, 0))

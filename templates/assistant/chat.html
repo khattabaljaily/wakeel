@@ -11,13 +11,13 @@
       {% if row.m.text %}<div class="chat-msg {{ row.m.role }}" dir="auto">{{ row.m.text }}</div>{% endif %}
       {% for c in row.cards %}
       <div class="chat-card">
-        <h3><span dir="auto">{{ c.title }}</span>{% if c.free %}<span class="badge text-bg-success">{% translate "Free" %}</span>{% elif not c.error %}<span class="badge text-bg-warning" dir="ltr">${{ c.price }}</span>{% endif %}</h3>
+        <h3><span dir="auto">{{ c.title }}</span>{% if c.free %}<span class="badge text-bg-success">{% translate "Free" %}</span>{% elif not c.error %}<span class="badge text-bg-warning" dir="ltr">{{ c.price }}</span>{% endif %}</h3>
         <dl>{% for label, value in c.rows %}<dt>{{ label }}</dt><dd><bdi>{{ value }}</bdi></dd>{% endfor %}</dl>
-        {% if c.lines and c.p.status == 'proposed' %}<ul class="chat-lines">{% for text, usd in c.lines %}<li><span>{{ text }}</span><span dir="ltr">${{ usd }}</span></li>{% endfor %}</ul>{% endif %}
+        {% if c.lines and c.p.status == 'proposed' %}<ul class="chat-lines">{% for text, amount in c.lines %}<li><span>{{ text }}</span><span dir="ltr">{{ amount }}</span></li>{% endfor %}</ul>{% endif %}
         {% if c.error and c.p.status == 'proposed' %}<div class="alert alert-danger py-2">{{ c.error }}</div>{% endif %}
         {% if c.p.can_approve and not c.error %}
         <div class="chat-actions">
-          <form method="post" action="{% url 'assistant:approve' c.p.pk %}" data-once>{% csrf_token %}<input type="hidden" name="expected_points" value="{{ c.points }}"><button type="submit" class="btn btn-primary">{% if c.free %}{% translate "Do it" %}{% else %}{% blocktranslate with price=c.price %}Do it for ${{ price }}{% endblocktranslate %}{% endif %}</button></form>
+          <form method="post" action="{% url 'assistant:approve' c.p.pk %}" data-once>{% csrf_token %}<input type="hidden" name="expected_points" value="{{ c.points }}"><button type="submit" class="btn btn-primary">{% if c.free %}{% translate "Do it" %}{% else %}{% blocktranslate with price=c.price %}Do it for {{ price }}{% endblocktranslate %}{% endif %}</button></form>
           <form method="post" action="{% url 'assistant:dismiss' c.p.pk %}">{% csrf_token %}<button type="submit" class="btn btn-light">{% translate "No thanks" %}</button></form>
         </div>
         {% elif c.p.status == 'proposed' %}<span class="badge text-bg-secondary">{% translate "Expired" context "suggestion" %}</span>

@@ -16,7 +16,7 @@
   <fieldset class="mb-3"><legend class="h6">{% translate "Quality" context "presentation quality" %}</legend>
     {% for value, label, quote, note in tiers %}
     <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ value }}"{% if form.tier.value|default:'premium' == value %} checked{% endif %}>
-      <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border">{% blocktranslate with price=quote.usd %}from <bdi dir="ltr">${{ price }}</bdi>{% endblocktranslate %}</span></span>
+      <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b><span class="badge text-bg-light border">{% blocktranslate with price=quote.amount %}from <bdi dir="ltr">{{ price }}</bdi>{% endblocktranslate %}</span></span>
         <small class="small-muted">{{ note }}</small></span></label>
     {% endfor %}
     <div class="form-text">{% translate "The price shown is for 10 slides. You see the exact price before anything is charged." %}</div>

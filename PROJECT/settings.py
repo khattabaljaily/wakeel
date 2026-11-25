@@ -144,6 +144,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'django.template.context_processors.i18n',
+                'apps.core.context_processors.interface_languages',
                 'apps.companies.context_processors.current_company',
                 'apps.notifications.context_processors.notifications',
                 'apps.ops.context_processors.ops',
@@ -179,9 +180,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 LANGUAGE_CODE = 'ar'
-# The same 16 languages as MyDocHub and TakeWing (the names are the languages' own). Wakeel's own texts are written in
-# Arabic and translated to English; the texts that came from MyDocHub are written in English. A language without a
-# translation of a text shows it in the language it was written in.
+# The screens are in Arabic and English only (owner's decision, 2026-11-25); the other catalogs in locale/ stay on disk, unused.
+INTERFACE_LANGUAGES = [
+    ('ar', 'العربية'),
+    ('en', 'English'),
+]
+# LANGUAGES is wider: the languages a company can WRITE in (documents, letterheads, presentations, translations), the same 16
+# as MyDocHub and TakeWing (the names are the languages' own). Wakeel's own texts are written in Arabic and translated to
+# English; the texts that came from MyDocHub are written in English.
 LANGUAGES = [
     ('ar', 'العربية'),
     ('en', 'English'),
@@ -319,8 +325,8 @@ ENJAZ_OPERATORS = {'PRODUCT': 'wakeel', 'ACCOUNT': 'apps.companies.operators.of_
 
 # Card payments for top-ups go through the company's operator (enjaz-operators). Each operator's keys live only in secrets.json:
 #   "GATEWAYS": {"jovia": {"secret_key": ..., "webhook_secret": ...}}
-# or, with no secret key, one Stripe payment link per package: "PAYMENT_LINKS": {"jovia": {"10": "https://buy.stripe.com/...", ...}}
-# (link: fixed price in USD, quantity not adjustable, after payment back to SITE_URL/company/wallet/?paid=1) plus the webhook secret.
+# or, with no secret key, one Stripe payment link per package, filed by currency and amount: "PAYMENT_LINKS": {"jovia": {"QAR:50": "https://buy.stripe.com/...", ...}} (packages are in riyals; a dollar-era key such as "50" is never used)
+# (link: fixed price in QAR, quantity not adjustable, after payment back to SITE_URL/company/wallet/?paid=1) plus the webhook secret.
 # Point the operator's Stripe webhook at SITE_URL/billing/webhook/<operator>/ (events checkout.session.completed,
 # checkout.session.async_payment_succeeded, checkout.session.expired). Without keys the Pay buttons stay disabled.
 GATEWAY_KEYS = get_secret('GATEWAYS', {}) or {}

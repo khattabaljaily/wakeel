@@ -309,7 +309,7 @@ class ThePriceShownIsThePriceCharged(Base):
         card, page = self.card(p)
         self.assertGreater(card['points'], 0)
         self.assertContains(page, f'name="expected_points" value="{card["points"]}"')
-        self.assertContains(page, f'Do it for ${card["price"]}')
+        self.assertContains(page, f'Do it for {card["price"]}')
         before = self.balance()
         self.approve(p)
         p.refresh_from_db()

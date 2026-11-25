@@ -140,7 +140,7 @@ def run_due(now=None):
                     if exc.code == 'insufficient_credits':
                         notify_managers_event(company, 'report_skipped', url='/company/wallet/',
                                               dedupe_key=f'report-skipped-{company.pk}-{month:%Y-%m}',
-                                              balance=catalog.format_points(exc.balance), needed=catalog.format_points(exc.cost))
+                                              balance=catalog.money(exc.balance), needed=catalog.money(exc.cost))
                     continue
                 queued += 1
     return queued

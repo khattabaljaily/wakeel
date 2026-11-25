@@ -5633,10 +5633,10 @@ msgstr "Wallet"
 
 msgid ""
 "سيكتب وكيل الخطة من جديد، وتُستبدل كل منشوراتها الحالية بما فيها تعديلاتك. "
-"السعر $%(price)s."
+"السعر %(price)s."
 msgstr ""
 "Wakeel will write the plan again, and all its current posts, including your "
-"edits, will be replaced. Price: $%(price)s."
+"edits, will be replaced. Price: %(price)s."
 
 msgid "معفاة"
 msgstr "Exempt"

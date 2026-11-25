@@ -8,4 +8,4 @@ def wallet(request):
         return {}
     from .models import Wallet
     row = Wallet.objects.filter(company=company).only('balance', 'is_exempt').first()
-    return {'wallet_usd': catalog.format_points(row.balance if row else 0), 'wallet_exempt': bool(row and row.is_exempt)}
+    return {'wallet_amount': catalog.money(row.balance if row else 0), 'wallet_exempt': bool(row and row.is_exempt)}

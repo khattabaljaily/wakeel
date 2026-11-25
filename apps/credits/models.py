@@ -6,7 +6,7 @@ from apps.companies.models import Company
 
 
 class Wallet(models.Model):
-    """One prepaid balance per company, in points (1 point = $0.001)."""
+    """One prepaid balance per company, in points (1 point = 0.001 riyal; the riyal is the base currency)."""
 
     company = models.OneToOneField(Company, on_delete=models.CASCADE, related_name='wallet')
     balance = models.IntegerField(_('balance'), default=0)

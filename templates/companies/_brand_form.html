@@ -28,7 +28,7 @@
             <p class="small-muted mb-2">{% translate "ارفع سجلاً تجارياً أو شهادة ضريبية أو بطاقة عمل، وسيقرأ وكيل بياناتها ويملأ الحقول الفارغة. تراجعها بعد ذلك قبل الحفظ، ولا يُخصم منك إلا إذا قُرئت." %}</p>
             <div class="input-group">
                 <input type="file" class="form-control" id="paperFile" accept="application/pdf,image/png,image/jpeg,image/webp">
-                <button type="button" class="btn btn-ai" id="paperBtn" data-points="{{ paperQuote.total }}"><i class="bi bi-magic"></i> {% translate "املأ من الورقة" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">${{ paperQuote.usd }}</span></button>
+                <button type="button" class="btn btn-ai" id="paperBtn" data-points="{{ paperQuote.total }}"><i class="bi bi-magic"></i> {% translate "املأ من الورقة" %} <span dir="ltr" class="badge bg-white bg-opacity-25 ms-1">{{ paperQuote.amount }}</span></button>
             </div>
             <div class="small text-primary mt-2 d-none" id="paperStatus"><span class="spinner-border spinner-border-sm"></span> {% translate "وكيل يقرأ الورقة…" %}</div>
         </div>

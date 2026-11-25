@@ -58,7 +58,7 @@ def plan_create(request):
         return redirect(f'{plan.get_absolute_url()}?job={job.pk}')
     return render(request, 'content/plan_form.html', {
         'form': form, 'plan_prices': credit_jobs.price_table('generate_plan'),
-        'wallet': charging.get_wallet(request.company), 'wallet_usd': catalog.format_points(charging.get_wallet(request.company).balance)})
+        'wallet': charging.get_wallet(request.company), 'wallet_amount': catalog.money(charging.get_wallet(request.company).balance)})
 
 
 @company_required

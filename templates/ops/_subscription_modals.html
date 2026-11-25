@@ -12,7 +12,7 @@
                 <div><div class="adm-view__label">{% translate "البريد الإلكتروني" %}</div><div class="adm-view__val" dir="ltr" data-f="email"></div></div>
                 <div><div class="adm-view__label">{% translate "الهاتف" %}</div><div class="adm-view__val" dir="ltr" data-f="phone"></div></div>
                 <div><div class="adm-view__label">{% translate "المدينة والدولة" %}</div><div class="adm-view__val"><span data-f="city"></span> <span data-f="country"></span></div></div>
-                <div><div class="adm-view__label">{% translate "الرصيد ($)" %}</div><div class="adm-view__val" dir="ltr" data-f="balance"></div></div>
+                <div><div class="adm-view__label">{% translate "الرصيد" %}</div><div class="adm-view__val" dir="ltr" data-f="balance"></div></div>
                 <div><div class="adm-view__label">{% translate "أعضاء الفريق · المنشورات" %}</div><div class="adm-view__val"><span data-f="members"></span> · <span data-f="posts"></span></div></div>
             </div>
             <div class="adm-statusbar" data-f="statusbar"><i class="bi"></i><div class="flex-grow-1 fw-semibold" data-f="statustext"></div><span class="badge text-bg-light" data-f="status_label"></span></div>
@@ -43,9 +43,9 @@
         <div class="modal-header"><h2 class="modal-title h5" id="topupTitle"><i class="bi bi-wallet2 text-primary"></i> {% translate "شحن الرصيد" %}</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate "إغلاق" %}"></button></div>
         <div class="modal-body">
-            <p class="text-muted small">{% translate "شحن رصيد" %} <strong data-f="name"></strong> {% translate "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:" %} <strong dir="ltr">$<span data-f="balance"></span></strong>. {% translate "يُسجَّل في سجل المحافظ." %}</p>
-            <label class="form-label" for="topupAmount">{% translate "المبلغ ($، سالب للسحب)" %}</label>
-            <input name="amount" id="topupAmount" class="form-control mb-3" dir="ltr" inputmode="decimal" placeholder="10" required>
+            <p class="text-muted small">{% translate "شحن رصيد" %} <strong data-f="name"></strong> {% translate "يدوياً (بعد استلام الدفع، أو منحة). الرصيد الحالي:" %} <strong dir="ltr"><span data-f="balance"></span></strong>. {% translate "يُسجَّل في سجل المحافظ." %}</p>
+            <label class="form-label" for="topupAmount">{% translate "المبلغ (ريال، سالب للسحب)" %}</label>
+            <input name="amount" id="topupAmount" class="form-control mb-3" dir="ltr" inputmode="numeric" placeholder="10" required>
             <label class="form-label" for="topupNote">{% translate "ملاحظة (تظهر في السجل)" %}</label>
             <input name="note" id="topupNote" class="form-control" maxlength="200" placeholder="{% translate "مثلاً: تحويل بنكي رقم…" %}">
         </div>

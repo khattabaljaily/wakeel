@@ -21,10 +21,10 @@
 </div>
 
 <div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-4 align-items-center">
-    <div><div class="small-muted">{% translate "الرصيد" %}</div><strong class="fs-4" dir="ltr">${{ wallet_usd }}</strong>{% if wallet.is_exempt %} <span class="adm-pill adm-pill--info">{% translate "معفاة" %}</span>{% endif %}</div>
-    <div><div class="small-muted">{% translate "المخصوم (صافي)" %}</div><strong dir="ltr">${{ revenue.2|money }}</strong></div>
+    <div><div class="small-muted">{% translate "الرصيد" %}</div><strong class="fs-4" dir="ltr">{{ wallet_amount }}</strong>{% if wallet.is_exempt %} <span class="adm-pill adm-pill--info">{% translate "معفاة" %}</span>{% endif %}</div>
+    <div><div class="small-muted">{% translate "المخصوم (صافي)" %}</div><strong dir="ltr">{{ revenue.2|riyals }}</strong></div>
     <form method="post" action="{% url 'ops:wallet_grant' target.pk %}" class="d-flex gap-2 align-items-end ms-auto">{% csrf_token %}
-        <div><label class="small-muted d-block" for="grantAmount">{% translate "إضافة رصيد ($، سالب للسحب)" %}</label><input id="grantAmount" name="amount" class="form-control" dir="ltr" placeholder="10" required style="width:130px"></div>
+        <div><label class="small-muted d-block" for="grantAmount">{% translate "إضافة رصيد (ريال، سالب للسحب)" %}</label><input id="grantAmount" name="amount" class="form-control" dir="ltr" placeholder="10" required style="width:130px"></div>
         <div><label class="small-muted d-block" for="grantNote">{% translate "ملاحظة" %}</label><input id="grantNote" name="note" class="form-control" maxlength="200"></div>
         <button class="btn btn-primary">{% translate "تنفيذ" %}</button>
     </form>
@@ -32,7 +32,7 @@
 </div>
 {% if wallet_rows %}<div class="d-flex justify-content-between align-items-center px-3 py-2 border-top small"><strong>{% translate "آخر الحركات على الرصيد" %}</strong><a href="{% url 'ops:ledger' %}?company={{ target.pk }}" class="fw-semibold">{% translate "سجل الشحن والخصم الكامل" %}</a></div>
 <div class="list-group list-group-flush">{% for t in wallet_rows %}
-    <div class="list-group-item d-flex justify-content-between gap-2 small"><span>{{ t.get_action_display }}{% if t.service_key %} · {{ t.service_key }}{% endif %} <span class="small-muted">{{ t.created_at|date:"j/n H:i" }}{% if t.description %} · {{ t.description|truncatechars:50 }}{% endif %}</span></span><strong dir="ltr">{% if t.delta > 0 %}+{% endif %}${{ t.delta|usd }}</strong></div>
+    <div class="list-group-item d-flex justify-content-between gap-2 small"><span>{{ t.get_action_display }}{% if t.service_key %} · {{ t.service_key }}{% endif %} <span class="small-muted">{{ t.created_at|date:"j/n H:i" }}{% if t.description %} · {{ t.description|truncatechars:50 }}{% endif %}</span></span><strong dir="ltr">{% if t.delta > 0 %}+{% endif %}{{ t.delta|riyals }}</strong></div>
 {% endfor %}</div>{% endif %}</div>
 
 <div class="wk-card mb-4"><div class="wk-card-body d-flex flex-wrap gap-3 align-items-end">

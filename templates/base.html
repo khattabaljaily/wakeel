@@ -178,7 +178,7 @@
                     <a class="rail-btn" href="{% url 'companies:brand' %}"{% nav_current '/company/brand/' %}><i class="bi bi-palette"></i><span class="lbl">{% translate "بيانات الشركة وهويتها" %}</span></a>
                     <a class="rail-btn" href="{% url 'companies:team' %}"{% nav_current '/company/team/' %}><i class="bi bi-people"></i><span class="lbl">{% translate "الفريق" %}</span></a>
                     {% if membership.can_manage %}<a class="rail-btn" href="{% url 'audit:activity' %}"{% nav_current '/company/activity/' %}><i class="bi bi-clock-history"></i><span class="lbl">{% translate "Activity" %}</span></a>{% endif %}
-                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'credits:wallet' %}"{% nav_current '/company/wallet/' %}><i class="bi bi-wallet2"></i><span class="lbl">{% translate "Wallet" %}</span>{% if wallet_usd %}<span class="rail-badge rail-badge--money" dir="ltr">${{ wallet_usd }}</span>{% endif %}</a>{% endif %}
+                    {% if membership.can_manage %}<a class="rail-btn" href="{% url 'credits:wallet' %}"{% nav_current '/company/wallet/' %}><i class="bi bi-wallet2"></i><span class="lbl">{% translate "Wallet" %}</span>{% if wallet_amount %}<span class="rail-badge rail-badge--money" dir="ltr">{{ wallet_amount }}</span>{% endif %}</a>{% endif %}
                 </div>
             </div>
         </nav>

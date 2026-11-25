@@ -13,7 +13,6 @@ from django.utils import timezone
 from . import currencies
 from .models import ExchangeRate, RateLog
 
-POINTS_PER_DOLLAR = 1000
 # The sources publish once a day; a day and a half covers one missed update.
 AUTO_MAX_AGE = timedelta(hours=36)
 # Two sources further apart than this do not settle a rate on their own.
@@ -34,9 +33,6 @@ class Rate:
 
     def from_usd(self, amount_usd):
         return currencies.quantize(Decimal(str(amount_usd)) * self.per_usd, self.currency)
-
-    def from_points(self, points):
-        return self.from_usd(Decimal(int(points or 0)) / POINTS_PER_DOLLAR)
 
     def __repr__(self):
         return f'<Rate 1 USD = {self.per_usd} {self.currency} ({self.source})>'

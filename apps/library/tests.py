@@ -140,7 +140,7 @@ from unittest import mock
 from django.test import override_settings
 
 from apps.ai import client as ai
-from apps.credits import quote as quotes
+from apps.credits import catalog, quote as quotes
 from apps.credits.models import Wallet
 from apps.jobs.models import Job
 from apps.jobs.runner import run_job
@@ -171,7 +171,7 @@ class ReadItForMeTests(TestCase):
     def test_form_shows_the_price_that_is_charged(self):
         page = self.client.get(reverse('library:upload'))
         self.assertContains(page, f'name="expected_points" value="{self.shown}"')
-        self.assertContains(page, f'${self.shown / 1000:,.2f}')
+        self.assertContains(page, catalog.money(self.shown))
         self.upload()
         self.assertEqual(self.balance - self.balance_now(), self.shown)          # exactly what was shown
         job = Job.objects.get()

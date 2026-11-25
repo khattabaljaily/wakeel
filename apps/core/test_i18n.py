@@ -57,14 +57,27 @@ class LanguageTests(TestCase):
         self.assertIn('مرحباً', subjects['ar@x.test'])
 
 
-class SixteenLanguagesTests(TestCase):
-    """The languages of MyDocHub came with the merge: every one can be picked, saved and shown."""
-    CODES = ['ar', 'en', 'tr', 'de', 'fr', 'es', 'pt', 'it', 'ru', 'zh-hans', 'ja', 'ko', 'hi', 'id', 'fa', 'am']
+class TwoLanguagesTests(TestCase):
+    """The screens come in Arabic and English only (owner's decision, 2026-11-25)."""
+    CODES = ['ar', 'en']
+    DROPPED = ['tr', 'de', 'fr', 'es', 'pt', 'it', 'ru', 'zh-hans', 'ja', 'ko', 'hi', 'id', 'fa', 'am']
 
-    def test_the_menu_lists_all_of_them(self):
+    def test_the_menu_lists_only_these(self):
         page = self.client.get(reverse('accounts:login')).content.decode()
         for code in self.CODES:
             self.assertIn(f'name="language" value="{code}"', page, code)
+        for code in self.DROPPED:
+            self.assertNotIn(f'name="language" value="{code}"', page, code)
+
+    def test_a_dropped_language_cannot_be_picked_and_a_saved_one_reads_arabic(self):
+        user = make_user('d@x.test', make_company())
+        self.client.force_login(user)
+        self.client.post(reverse('core:set_language'), {'language': 'fr'})
+        user.refresh_from_db()
+        self.assertNotEqual(user.language, 'fr')
+        user.language = 'fr'                                                    # saved before the cut
+        user.save(update_fields=['language'])
+        self.assertContains(self.client.get(reverse('core:dashboard')), 'lang="ar"')
 
     def test_every_language_can_be_picked_and_saved_on_the_account(self):
         user = make_user('u@x.test', make_company())
@@ -78,7 +91,7 @@ class SixteenLanguagesTests(TestCase):
             self.assertContains(page, f'lang="{code}"')
 
     def test_direction_follows_the_language(self):
-        for code, rtl in (('fa', True), ('ar', True), ('tr', False), ('zh-hans', False)):
+        for code, rtl in (('ar', True), ('en', False)):
             self.client.post(reverse('core:set_language'), {'language': code})
             page = self.client.get(reverse('accounts:login'))
             self.assertContains(page, f'lang="{code}" dir="{"rtl" if rtl else "ltr"}"')

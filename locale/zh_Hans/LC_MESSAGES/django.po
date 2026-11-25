@@ -703,8 +703,8 @@ msgstr "执行"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
-msgstr "花费 $%(price)s 执行"
+msgid "Do it for %(price)s"
+msgstr "花费 %(price)s 执行"
 
 #: apps/assistant/templates/assistant/chat.html:20
 msgid "No thanks"
@@ -978,8 +978,8 @@ msgstr "在线支付尚未开放。"
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
-msgstr "MyDocHub 余额:$%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
+msgstr "MyDocHub 余额:%(amount)s"
 
 #: apps/billing/views.py:70
 msgid "The payment page could not be opened. Please try again."
@@ -1236,7 +1236,7 @@ msgstr "从标志开始"
 msgid ""
 "%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
 "%(balance)s."
-msgstr "将根据您的标志设计 %(n)s 项，享 %(d)s%% 折扣。您的余额：$%(balance)s。"
+msgstr "将根据您的标志设计 %(n)s 项，享 %(d)s%% 折扣。您的余额：%(balance)s。"
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -2451,8 +2451,8 @@ msgstr "安全的银行卡支付。"
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "支付 $%(dollars)s"
+msgid "Pay %(dollars)s"
+msgstr "支付 %(dollars)s"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2845,8 +2845,8 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
-msgstr "每页 $%(p)s 起"
+msgid "From %(p)s a page"
+msgstr "每页 %(p)s 起"
 
 #: apps/docops/templates/docops/services/hub.html:18
 msgid "Latest results"
@@ -2854,8 +2854,8 @@ msgstr "最新结果"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
-msgstr "每页 $%(p)s 起。"
+msgid "From %(p)s a page."
+msgstr "每页 %(p)s 起。"
 
 #: apps/docops/templates/docops/services/start.html:13
 #: apps/identity/forms.py:22 apps/identity/forms.py:26
@@ -3108,11 +3108,11 @@ msgstr "您还没有「%(name)s」的模板。"
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "要为贵公司按其品牌形象制作一个模板吗?本次制作模板并撰写此文档需花费 $"
-"%(first)s。之后每次需要「%(name)s」时,撰写费用仅需 $%(later)s。"
+"%(first)s。之后每次需要「%(name)s」时,撰写费用仅需 %(later)s。"
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3946,10 +3946,10 @@ msgstr "还没有表单。"
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"创建一个表单会从余额中一次性扣除 $%(price)s。回答免费（最多 %(limit)s 条）。"
+"创建一个表单会从余额中一次性扣除 %(price)s。回答免费（最多 %(limit)s 条）。"
 
 #: apps/forms/templates/forms/list.html:33
 msgid "Create the form"
@@ -5592,8 +5592,8 @@ msgstr[0] "将读取 %(n)s 页"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
-msgstr "您的余额：<bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
+msgstr "您的余额：<bdi dir=\"ltr\">%(balance)s</bdi>"
 
 #: apps/presentations/templates/presentations/confirm.html:19
 msgid ""
@@ -5605,8 +5605,8 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
-msgstr "花费 $%(price)s 创建"
+msgid "Create it for %(price)s"
+msgstr "花费 %(price)s 创建"
 
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
@@ -5676,8 +5676,8 @@ msgstr "还没有演示文稿。"
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
-msgstr "<bdi dir=\"ltr\">$%(price)s</bdi> 起"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
+msgstr "<bdi dir=\"ltr\">%(price)s</bdi> 起"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
@@ -6906,8 +6906,8 @@ msgstr "资金"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
-msgstr "赠送 $%(g)s"
+msgid "Grants %(g)s"
+msgstr "赠送 %(g)s"
 
 #: templates/console/overview.html:16
 #, python-format
@@ -6927,8 +6927,8 @@ msgstr "%(n)s 次调用 · %(f)s 次失败"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
-msgstr "$%(u)s 未计费成本"
+msgid "%(u)s cost never billed"
+msgstr "%(u)s 未计费成本"
 
 #: templates/console/overview.html:21
 msgid "AI budget this month"
@@ -7489,8 +7489,8 @@ msgstr "向资料库上传了文档"
 msgid "Verified by Wakeel"
 msgstr "Wakeel 认证"
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "Wakeel 余额：$%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "Wakeel 余额：%(amount)s"
 
 msgid "Wallet"
 msgstr "钱包"
@@ -7524,9 +7524,6 @@ msgstr "您收到此邮件，是因为您在 Wakeel 中设置了此提醒。"
 
 msgid "You were not charged."
 msgstr "您未被扣费。"
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "您的余额：$%(balance)s。大约需要半分钟。"
 
 msgid "[سيناريو الفيديو]"
 msgstr "[视频脚本]"

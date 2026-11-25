@@ -18,6 +18,7 @@ from apps.companies.operators import of_company
 from apps.credits import catalog
 from apps.credits.charging import add_points
 from apps.credits.models import WalletTransaction
+from apps.money import currencies
 
 from . import gateways
 from .models import Payment
@@ -27,6 +28,7 @@ logger = logging.getLogger(__name__)
 # Every Wakeel payment names itself 'wakeel-<id>' to Stripe. One Stripe account serves several products, and each webhook endpoint
 # receives the events of all of them: a bare number from another product must never settle one of ours.
 REFERENCE_PREFIX = 'wakeel-'
+CURRENCY = catalog.QAR       # every package is sold in Qatari riyals (the base currency)
 
 
 def reference(payment):
@@ -45,11 +47,11 @@ def checkout(request):
     except (ArithmeticError, ValueError):
         messages.error(request, _('Choose one of the top-up packages.'))
         return redirect('credits:wallet')
-    link = gateways.payment_link(operator, amount)
+    link = gateways.payment_link(operator, amount, CURRENCY)
     if link and gateways.webhook_gateway(operator) is not None:
         # The package's Stripe payment link, naming this payment: the webhook credits it once, at the right amount.
-        payment = Payment.objects.create(company=request.company, user=request.user, amount_usd=amount, points=points,
-                                         operator=operator, currency='USD')
+        payment = Payment.objects.create(company=request.company, user=request.user, amount=amount, points=points,
+                                         operator=operator, currency=CURRENCY)
         query = {'client_reference_id': reference(payment)}
         if request.user.email:
             query['prefilled_email'] = request.user.email
@@ -58,13 +60,13 @@ def checkout(request):
     if gateway is None:
         messages.error(request, _('Online payment is not open yet.'))
         return redirect('credits:wallet')
-    payment = Payment.objects.create(company=request.company, user=request.user, amount_usd=amount, points=points,
-                                     operator=gateway.operator.key, currency='USD')
+    payment = Payment.objects.create(company=request.company, user=request.user, amount=amount, points=points,
+                                     operator=gateway.operator.key, currency=CURRENCY)
     base = request.build_absolute_uri('/').rstrip('/')     # the host the member is on, so a local run returns to itself
     try:
         done = gateway.checkout(
-            payment_id=reference(payment), amount=amount, currency='USD', email=request.user.email,
-            name=_('Wakeel credit: $%(amount)s') % {'amount': f'{amount:,.2f}'},
+            payment_id=reference(payment), amount=amount, currency=CURRENCY, email=request.user.email,
+            name=_('Wakeel credit: %(amount)s') % {'amount': catalog.money(points)},
             success_url=base + reverse('credits:wallet') + '?paid=1', cancel_url=base + reverse('credits:wallet'),
             metadata={'company_id': request.company.pk})
     except GatewayError:
@@ -108,12 +110,12 @@ def webhook(request, operator):
             payment.status = Payment.EXPIRED
             payment.save(update_fields=['status'])
             return HttpResponse(status=200)
-        right_amount = event.amount_minor == int(payment.amount_usd * 100) and event.currency == payment.currency
+        right_amount = event.amount_minor == currencies.to_minor(payment.amount, payment.currency) and event.currency == payment.currency
         if not right_amount:
             logger.error('Payment %s did not match: total=%s %s', payment.pk, event.amount_minor, event.currency)
             return HttpResponse(status=200)
         payment.status, payment.paid_at = Payment.PAID, timezone.now()
         payment.save(update_fields=['status', 'paid_at'])
         add_points(payment.company, payment.points, action=WalletTransaction.TOPUP, user=payment.user,
-                   description=f'Card payment ${payment.amount_usd} ({payment.operator})')
+                   description=f'Card payment {payment.amount} {payment.currency} ({payment.operator})')
     return HttpResponse(status=200)

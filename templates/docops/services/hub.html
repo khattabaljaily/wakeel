@@ -10,7 +10,7 @@
     <div class="fs-3 mb-2 text-primary">{% include "docops/services/_icon.html" %}</div>
     <h2 class="h5">{% include "docops/services/_name.html" %}</h2>
     <p class="small-muted">{% include "docops/services/_about.html" %}</p>
-    <span class="badge text-bg-light border">{% blocktranslate with p=price %}From ${{ p }} a page{% endblocktranslate %}</span>
+    <span class="badge text-bg-light border">{% blocktranslate with p=price %}From {{ p }} a page{% endblocktranslate %}</span>
   </div></a></div>
   {% endfor %}
 </div>

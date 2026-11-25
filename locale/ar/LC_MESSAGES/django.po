@@ -706,8 +706,8 @@ msgstr "نفّذ"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
-msgstr "نفّذ مقابل $%(price)s"
+msgid "Do it for %(price)s"
+msgstr "نفّذ مقابل %(price)s"
 
 #: apps/assistant/templates/assistant/chat.html:20
 msgid "No thanks"
@@ -983,8 +983,8 @@ msgstr "الدفع عبر الإنترنت غير متاح بعد."
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
-msgstr "رصيد MyDocHub: $%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
+msgstr "رصيد MyDocHub: %(amount)s"
 
 #: apps/billing/views.py:70
 msgid "The payment page could not be opened. Please try again."
@@ -1243,7 +1243,7 @@ msgstr "ابدأ بالشعار"
 msgid ""
 "%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
 "%(balance)s."
-msgstr "سيُصمَّم %(n)s قطعة من شعارك بخصم %(d)s%%. رصيدك: $%(balance)s."
+msgstr "سيُصمَّم %(n)s قطعة من شعارك بخصم %(d)s%%. رصيدك: %(balance)s."
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -2479,8 +2479,8 @@ msgstr "دفع آمن بالبطاقة."
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "ادفع $%(dollars)s"
+msgid "Pay %(dollars)s"
+msgstr "ادفع %(dollars)s"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2886,8 +2886,8 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
-msgstr "من %(p)s$ للصفحة"
+msgid "From %(p)s a page"
+msgstr "من %(p)s للصفحة"
 
 #: apps/docops/templates/docops/services/hub.html:18
 msgid "Latest results"
@@ -2895,8 +2895,8 @@ msgstr "آخر النتائج"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
-msgstr "من %(p)s$ للصفحة."
+msgid "From %(p)s a page."
+msgstr "من %(p)s للصفحة."
 
 #: apps/docops/templates/docops/services/start.html:13
 #: apps/identity/forms.py:22 apps/identity/forms.py:26
@@ -3157,12 +3157,12 @@ msgstr "ليس لديك قالب لـ «%(name)s» بعد."
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "هل أصنع لك قالبًا منه لشركتك بهويتها؟ تبلغ تكلفة إنشاء القالب وكتابة هذا "
-"المستند $%(first)s هذه المرة. وبعد ذلك، في كل مرة تحتاج فيها إلى «%(name)s»، "
-"ستدفع $%(later)s فقط مقابل الكتابة."
+"المستند %(first)s هذه المرة. وبعد ذلك، في كل مرة تحتاج فيها إلى «%(name)s»، "
+"ستدفع %(later)s فقط مقابل الكتابة."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -4016,10 +4016,10 @@ msgstr "لا توجد نماذج بعد."
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"إنشاء نموذج يكلّف $%(price)s من الرصيد، مرة واحدة. الإجابات عليه مجانية (حتى "
+"إنشاء نموذج يكلّف %(price)s من الرصيد، مرة واحدة. الإجابات عليه مجانية (حتى "
 "%(limit)s إجابة)."
 
 #: apps/forms/templates/forms/list.html:33
@@ -5695,8 +5695,8 @@ msgstr[5] "تُقرأ %(n)s صفحة"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
-msgstr "رصيدك: <bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
+msgstr "رصيدك: <bdi dir=\"ltr\">%(balance)s</bdi>"
 
 #: apps/presentations/templates/presentations/confirm.html:19
 msgid ""
@@ -5708,8 +5708,8 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
-msgstr "أنشئه مقابل $%(price)s"
+msgid "Create it for %(price)s"
+msgstr "أنشئه مقابل %(price)s"
 
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
@@ -5788,8 +5788,8 @@ msgstr "لا توجد عروض تقديمية بعد."
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
-msgstr "من <bdi dir=\"ltr\">$%(price)s</bdi>"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
+msgstr "من <bdi dir=\"ltr\">%(price)s</bdi>"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
@@ -7031,8 +7031,8 @@ msgstr "الأموال"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
-msgstr "منح $%(g)s"
+msgid "Grants %(g)s"
+msgstr "منح %(g)s"
 
 #: templates/console/overview.html:16
 #, python-format
@@ -7052,8 +7052,8 @@ msgstr "%(n)s استدعاءات · %(f)s فاشلة"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
-msgstr "$%(u)s تكلفة لم تُحتسب"
+msgid "%(u)s cost never billed"
+msgstr "%(u)s تكلفة لم تُحتسب"
 
 #: templates/console/overview.html:21
 msgid "AI budget this month"
@@ -7324,17 +7324,16 @@ msgid "Never charged (internal and demo companies)."
 msgstr "لا يُخصم منها أبداً (الشركات الداخلية والتجريبية)."
 
 msgid ""
-"The price changed to $%(now)s (you were shown $%(shown)s). Nothing was "
+"The price changed to %(now)s (you were shown %(shown)s). Nothing was "
 "charged: check it and try again."
 msgstr ""
-"تغيّر السعر إلى $%(now)s (كان المعروض $%(shown)s). لم يُخصم شيء: راجعه وحاول "
-"مرة أخرى."
+"تغيّر السعر إلى %(now)s (كان المعروض %(shown)s). لم يُخصم شيء: راجعه وحاول مرة "
+"أخرى."
 
 msgid ""
-"Your balance is not enough: this needs $%(cost)s and your balance is $"
+"Your balance is not enough: this needs %(cost)s and your balance is $"
 "%(balance)s. Top up to continue."
-msgstr ""
-"رصيدك لا يكفي: يلزم $%(cost)s ورصيدك $%(balance)s. اشحن رصيدك للمتابعة."
+msgstr "رصيدك لا يكفي: يلزم %(cost)s ورصيدك %(balance)s. اشحن رصيدك للمتابعة."
 
 msgid "%(count)s × %(unit)s"
 msgstr "%(count)s × %(unit)s"
@@ -7343,14 +7342,14 @@ msgid "post"
 msgstr "منشور"
 
 msgid ""
-"The autopilot is waiting for a top-up: it needs $%(needed)s and the balance "
-"is $%(balance)s"
-msgstr "المخطط الآلي ينتظر شحن الرصيد: يحتاج $%(needed)s والرصيد $%(balance)s"
+"The autopilot is waiting for a top-up: it needs %(needed)s and the balance "
+"is %(balance)s"
+msgstr "المخطط الآلي ينتظر شحن الرصيد: يحتاج %(needed)s والرصيد %(balance)s"
 
 msgid ""
-"The monthly report was not made: the balance is $%(balance)s and it needs $"
+"The monthly report was not made: the balance is %(balance)s and it needs $"
 "%(needed)s"
-msgstr "لم يُعدّ التقرير الشهري: الرصيد $%(balance)s ويحتاج $%(needed)s"
+msgstr "لم يُعدّ التقرير الشهري: الرصيد %(balance)s ويحتاج %(needed)s"
 
 msgid "Thank you. The balance is added as soon as the payment is confirmed."
 msgstr "شكراً لك. يُضاف الرصيد فور تأكيد الدفع."
@@ -7359,8 +7358,8 @@ msgid ""
 "The balance is added once the payment is confirmed. 1 dollar = 1,000 points."
 msgstr "يُضاف الرصيد بعد تأكيد الدفع. 1 دولار = 1,000 نقطة."
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "رصيد وكيل: $%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "رصيد وكيل: %(amount)s"
 
 msgid ""
 "This service is paused for now and will be back soon. Nothing was charged."
@@ -7444,12 +7443,8 @@ msgid "free"
 msgstr "مجاناً"
 
 msgid ""
-"Your balance: $%(balance)s. You are charged only if the text is delivered."
-msgstr "رصيدك: $%(balance)s. لا يُخصم منك إلا إذا سُلِّم النص."
-
-msgid ""
 "Shall I make a template of it for your company, in its identity? After that, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "هل أصمّم لها قالباً لشركتك بهويتها؟ بعد ذلك، كلما احتجت «%(name)s» تدفع $"
 "%(later)s فقط للكتابة."
@@ -7471,8 +7466,8 @@ msgstr ""
 "فارغة بينهما."
 
 msgid ""
-"Today you pay for the logo; the whole kit comes to $%(t)s with the discount."
-msgstr "تدفع اليوم ثمن الشعار فقط، ويبلغ مجموع الحزمة كلها $%(t)s بعد الخصم."
+"Today you pay for the logo; the whole kit comes to %(t)s with the discount."
+msgstr "تدفع اليوم ثمن الشعار فقط، ويبلغ مجموع الحزمة كلها %(t)s بعد الخصم."
 
 msgid ""
 "Your balance is not enough for this presentation. Top up your wallet and try "
@@ -7594,9 +7589,6 @@ msgstr "يحذف كلمة المرور المحفوظة من وكيل. تبقى 
 
 msgid "The mailbox will be disconnected from Wakeel."
 msgstr "سيتم فصل صندوق البريد عن وكيل."
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "رصيدك: $%(balance)s. يستغرق نحو نصف دقيقة."
 
 msgid ""
 "The conversation is free (up to %(limit)s messages a day); only the services "
@@ -8136,6 +8128,9 @@ msgstr "وافق على اقتراح من مارد"
 
 msgid "Asked Marid a question about a document"
 msgstr "سأل مارد سؤالاً عن مستند"
+
+msgid "The balance is added once the payment is confirmed."
+msgstr "يُضاف الرصيد بعد تأكيد الدفع."
 
 #~ msgid "Identity, letters and certificates, on your own letterhead."
 #~ msgstr "الهوية والخطابات والشهادات، على ورقك المروس."

@@ -35,11 +35,11 @@ def wallet(request):
         svc = catalog.service(key)
         quote = quotes.make(key, 1 if catalog.unit_name(key) else None)
         services.append({'key': key, 'free': catalog.is_free(key), 'name': catalog.service_name(key, request.LANGUAGE_CODE),
-                         'price': quote.usd,
-                         'per_unit': quotes.unit_label(key), 'nine': (quotes.make(key, 9).usd if catalog.unit_name(key) else quotes.make(key, '9', 9).usd if catalog.page_pricing(key) else '')})
+                         'price': quote.amount,
+                         'per_unit': quotes.unit_label(key), 'nine': (quotes.make(key, 9).amount if catalog.unit_name(key) else quotes.make(key, '9', 9).amount if catalog.page_pricing(key) else '')})
     return render(request, 'credits/wallet.html', {
-        'wallet': wallet_row, 'balance': catalog.format_points(wallet_row.balance), 'page': page, 'services': services,
-        'low': not wallet_row.is_exempt and wallet_row.balance < 1000, 'kind': kind,
-        'month': {'added': catalog.format_points(added), 'used': catalog.format_points(-used), 'uses': this_month.filter(action=WalletTransaction.AI_SERVICE).count()},
-        'packages': [{'usd': catalog.format_package(p), 'points': int(p * 1000)} for p in catalog.topup_packages_usd()],
+        'wallet': wallet_row, 'balance': catalog.money(wallet_row.balance), 'page': page, 'services': services,
+        'low': not wallet_row.is_exempt and wallet_row.balance < catalog.LOW_BALANCE, 'kind': kind,
+        'month': {'added': catalog.money(added), 'used': catalog.money(-used), 'uses': this_month.filter(action=WalletTransaction.AI_SERVICE).count()},
+        'packages': [{'amount': catalog.format_package(p), 'label': catalog.money(int(p * catalog.POINTS_PER_RIYAL))} for p in catalog.topup_packages()],
         'payments_open': payments_open(request.company), 'paid': request.GET.get('paid') == '1'})

@@ -18,7 +18,7 @@ KINDS = (Operation.TRANSLATE, Operation.SUMMARIZE, Operation.EXTRACT, Operation.
 
 @_member
 def hub(request):
-    cards = [(kind, quotes.make(ops.SERVICES[kind], pages=1).usd) for kind in KINDS]
+    cards = [(kind, quotes.make(ops.SERVICES[kind], pages=1).amount) for kind in KINDS]
     recent = Operation.objects.select_related('record')[:10]
     return render(request, 'docops/services/hub.html', {'cards': cards, 'recent': recent,
                                                         })
@@ -51,7 +51,7 @@ def start(request, kind):
             error = _('Upload a file or choose a document.')
     documents = Record.objects.order_by('-created_at')[:100]
     return render(request, 'docops/services/start.html', {'kind': kind, 'documents': documents, 'error': error,
-                                                          'price_one': quotes.make(ops.SERVICES[kind], pages=1).usd})
+                                                          'price_one': quotes.make(ops.SERVICES[kind], pages=1).amount})
 
 
 @_editor

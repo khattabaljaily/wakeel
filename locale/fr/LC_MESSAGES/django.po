@@ -717,7 +717,7 @@ msgstr "Le faire"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
+msgid "Do it for %(price)s"
 msgstr "Le faire pour %(price)s $"
 
 #: apps/assistant/templates/assistant/chat.html:20
@@ -1008,7 +1008,7 @@ msgstr "Le paiement en ligne n'est pas encore disponible."
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
 msgstr "Crédit MyDocHub : %(amount)s $"
 
 #: apps/billing/views.py:70
@@ -2556,8 +2556,8 @@ msgstr "Paiement sécurisé par carte."
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "Payer $%(dollars)s"
+msgid "Pay %(dollars)s"
+msgstr "Payer %(dollars)s"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2990,7 +2990,7 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
+msgid "From %(p)s a page"
 msgstr "À partir de %(p)s $ la page"
 
 #: apps/docops/templates/docops/services/hub.html:18
@@ -2999,7 +2999,7 @@ msgstr "Derniers résultats"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
+msgid "From %(p)s a page."
 msgstr "À partir de %(p)s $ la page."
 
 #: apps/docops/templates/docops/services/start.html:13
@@ -3274,8 +3274,8 @@ msgstr "Vous n'avez pas encore de modèle pour « %(name)s »."
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "Souhaitez-vous que j'en fasse un modèle pour votre entreprise, à son image ? "
 "Créer le modèle et rédiger ce document coûte %(first)s $ cette fois-ci. "
@@ -4161,10 +4161,10 @@ msgstr "Aucun formulaire pour l'instant."
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"Créer un formulaire coûte $%(price)s du solde, une seule fois. Ses réponses "
+"Créer un formulaire coûte %(price)s du solde, une seule fois. Ses réponses "
 "sont gratuites (jusqu'à %(limit)s réponses)."
 
 #: apps/forms/templates/forms/list.html:33
@@ -5894,7 +5894,7 @@ msgstr[1] "%(n)s pages sont lues"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
 msgstr "votre solde : %(balance)s $"
 
 #: apps/presentations/templates/presentations/confirm.html:19
@@ -5908,7 +5908,7 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
+msgid "Create it for %(price)s"
 msgstr "La créer pour %(price)s $"
 
 #: apps/presentations/templates/presentations/confirm.html:21
@@ -5987,7 +5987,7 @@ msgstr "Aucune présentation pour le moment."
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
 msgstr "dès %(price)s $"
 
 #: apps/presentations/templates/presentations/list.html:36
@@ -7287,7 +7287,7 @@ msgstr "Argent"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
+msgid "Grants %(g)s"
 msgstr "Crédits offerts %(g)s $"
 
 #: templates/console/overview.html:16
@@ -7308,7 +7308,7 @@ msgstr "%(n)s appels · %(f)s en échec"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
+msgid "%(u)s cost never billed"
 msgstr "%(u)s $ de coût jamais facturé"
 
 #: templates/console/overview.html:21
@@ -7882,8 +7882,8 @@ msgstr "Document ajouté à la bibliothèque"
 msgid "Verified by Wakeel"
 msgstr "Vérifié par Wakeel"
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "Crédit Wakeel : $%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "Crédit Wakeel : %(amount)s"
 
 msgid "Wallet"
 msgstr "Portefeuille"
@@ -7923,9 +7923,6 @@ msgstr "Vous recevez ceci car vous avez défini ce rappel dans Wakeel."
 
 msgid "You were not charged."
 msgstr "Vous n'avez pas été débité."
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "Votre solde : $%(balance)s. Cela prend environ une demi-minute."
 
 msgid "[سيناريو الفيديو]"
 msgstr "[Script vidéo]"

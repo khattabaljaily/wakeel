@@ -48,14 +48,14 @@
         <div class="quick mb-2">{% for q in quick_rewrites %}<button type="button" data-rewrite="{{ q }}">{{ q }}</button>{% endfor %}</div>
         <div class="input-group">
             <input type="text" class="form-control" id="rewriteInput" placeholder="{% translate "مثال: ركّز على خدمة التوصيل المجاني واذكر أنها لفترة محدودة" %}">
-            <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> {% translate "نفّذ" %} <span dir="ltr">· ${% price 'rewrite_post' %}</span></button>
+            <button type="button" class="btn btn-ai" id="rewriteBtn"><i class="bi bi-magic"></i> {% translate "نفّذ" %} <span dir="ltr">· {% price 'rewrite_post' %}</span></button>
         </div>
         <div class="small text-primary mt-2 d-none" id="rewriteStatus"><span class="spinner-border spinner-border-sm"></span> <span>{% translate "وكيل يعيد كتابة المنشور…" %}</span></div>
         <div class="d-flex flex-wrap gap-2 align-items-center mt-3 pt-3 border-top">
             <span class="small fw-semibold"><i class="bi bi-translate"></i> {% translate "نسخة جديدة من هذا المنشور:" %}</span>
             <select class="form-select form-select-sm w-auto" id="variantLang">{% for key, label in variants %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select>
-            <button type="button" class="btn btn-sm btn-soft" id="variantBtn">{% translate "أنشئ النسخة" %} <span dir="ltr">· ${% price 'variant_post' %}</span></button>
-            {% if post.status == 'published' %}<button type="button" class="btn btn-sm btn-soft" id="repostBtn"><i class="bi bi-recycle"></i> {% translate "أعد نشره بصياغة جديدة" %} <span dir="ltr">· ${% price 'repost' %}</span></button>{% endif %}
+            <button type="button" class="btn btn-sm btn-soft" id="variantBtn">{% translate "أنشئ النسخة" %} <span dir="ltr">· {% price 'variant_post' %}</span></button>
+            {% if post.status == 'published' %}<button type="button" class="btn btn-sm btn-soft" id="repostBtn"><i class="bi bi-recycle"></i> {% translate "أعد نشره بصياغة جديدة" %} <span dir="ltr">· {% price 'repost' %}</span></button>{% endif %}
         </div>
         {% if post.source_post or copies %}<div class="small-muted mt-2">
             {% if post.source_post %}{% translate "منسوخ من:" %} <a href="{% url 'content:post_edit' post.source_post_id %}">{{ post.source_post.title }}</a>{% endif %}

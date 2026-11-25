@@ -230,22 +230,22 @@ class Paying(Base):
     """A form is paid once, when it is created, at the price on the button. Its answers cost nothing."""
 
     def test_the_price_on_the_button_is_the_price_charged_and_written_in_the_ledger(self):
-        self.fund(1000)
+        self.fund(10_000)
         quote = views.price()
         page = self.client.get(reverse('forms:list'))
         self.assertContains(page, f'name="expected_points" value="{quote.total}"')
-        self.assertContains(page, f'${quote.usd}')
-        self.assertEqual(quote.total, 250)                                          # the owner's price: $0.25
+        self.assertContains(page, quote.amount)
+        self.assertEqual(quote.total, 1000)                                         # the owner's price: 1 riyal
         self.assertIsNotNone(self.make())
-        self.assertEqual(self.balance(), 1000 - quote.total)
+        self.assertEqual(self.balance(), 10_000 - quote.total)
         row = WalletTransaction.objects.get(company=self.company, service_key='create_form')
         self.assertEqual((row.delta, row.breakdown[0]['points']), (-quote.total, quote.total))
 
     def test_a_different_price_is_refused_without_charging_or_making_a_form(self):
-        self.fund(1000)
+        self.fund(10_000)
         page = self.client.post(reverse('forms:new'), {'title': 'x', 'audience': 'public', 'expected_points': 1})
         self.assertContains(page, 'The price changed')
-        self.assertEqual((self.balance(), Form.all_companies.count()), (1000, 0))
+        self.assertEqual((self.balance(), Form.all_companies.count()), (10_000, 0))
 
     def test_without_enough_balance_no_form_is_made_and_the_page_says_why(self):
         self.fund(100)
@@ -255,20 +255,20 @@ class Paying(Base):
         self.assertEqual((self.balance(), Form.all_companies.count()), (100, 0))
 
     def test_a_failed_save_gives_the_money_back(self):
-        self.fund(1000)
+        self.fund(10_000)
         with mock.patch.object(Form, 'save', side_effect=RuntimeError('database')):
             with self.assertRaises(RuntimeError):
                 self.client.post(reverse('forms:new'), {'title': 'x', 'audience': 'public', 'expected_points': views.price().total})
-        self.assertEqual((self.balance(), WalletTransaction.objects.filter(service_key='create_form').count()), (1000, 0))
+        self.assertEqual((self.balance(), WalletTransaction.objects.filter(service_key='create_form').count()), (10_000, 0))
 
     def test_questions_editing_and_answering_cost_nothing(self):
-        self.fund(1000)
+        self.fund(10_000)
         form = self.make()
         self.ask(form, 'Why?')
         self.client.post(reverse('forms:edit', args=[form.pk]), {'title': 'New', 'audience': 'public'})
         self.logout()
         self.client.post(reverse('fill', args=[form.code]), {f'q{Question.all_companies.get(form=form).pk}': 'Because'})
-        self.assertEqual(self.balance(), 750)
+        self.assertEqual(self.balance(), 10_000 - views.price().total)
 
     def test_an_exempt_company_is_not_charged(self):
         self.fund(0, is_exempt=True)

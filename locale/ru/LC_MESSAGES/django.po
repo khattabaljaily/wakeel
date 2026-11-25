@@ -716,8 +716,8 @@ msgstr "Выполнить"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
-msgstr "Выполнить за $%(price)s"
+msgid "Do it for %(price)s"
+msgstr "Выполнить за %(price)s"
 
 #: apps/assistant/templates/assistant/chat.html:20
 msgid "No thanks"
@@ -999,8 +999,8 @@ msgstr "Онлайн-оплата пока недоступна."
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
-msgstr "Баланс MyDocHub: $%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
+msgstr "Баланс MyDocHub: %(amount)s"
 
 #: apps/billing/views.py:70
 msgid "The payment page could not be opened. Please try again."
@@ -1269,7 +1269,7 @@ msgid ""
 "%(balance)s."
 msgstr ""
 "%(n)s элементов будут оформлены по вашему логотипу со скидкой %(d)s%%. Ваш "
-"баланс: $%(balance)s."
+"баланс: %(balance)s."
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -2536,8 +2536,8 @@ msgstr "Безопасная оплата картой."
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "Оплатить $%(dollars)s"
+msgid "Pay %(dollars)s"
+msgstr "Оплатить %(dollars)s"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2964,8 +2964,8 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
-msgstr "От $%(p)s за страницу"
+msgid "From %(p)s a page"
+msgstr "От %(p)s за страницу"
 
 #: apps/docops/templates/docops/services/hub.html:18
 msgid "Latest results"
@@ -2973,8 +2973,8 @@ msgstr "Последние результаты"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
-msgstr "От $%(p)s за страницу."
+msgid "From %(p)s a page."
+msgstr "От %(p)s за страницу."
 
 #: apps/docops/templates/docops/services/start.html:13
 #: apps/identity/forms.py:22 apps/identity/forms.py:26
@@ -3242,12 +3242,12 @@ msgstr "У вас пока нет шаблона для «%(name)s»."
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "Создать для вашей компании шаблон в её фирменном стиле? В этот раз создание "
-"шаблона и написание документа обойдутся в $%(first)s. В дальнейшем за каждый "
-"документ «%(name)s» вы будете платить только $%(later)s за написание."
+"шаблона и написание документа обойдутся в %(first)s. В дальнейшем за каждый "
+"документ «%(name)s» вы будете платить только %(later)s за написание."
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -4122,10 +4122,10 @@ msgstr "Форм пока нет."
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"Создание формы стоит $%(price)s с баланса, один раз. Ответы бесплатны (до "
+"Создание формы стоит %(price)s с баланса, один раз. Ответы бесплатны (до "
 "%(limit)s ответов)."
 
 #: apps/forms/templates/forms/list.html:33
@@ -5839,8 +5839,8 @@ msgstr[3] "Читается %(n)s страницы"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
-msgstr "ваш баланс: <bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
+msgstr "ваш баланс: <bdi dir=\"ltr\">%(balance)s</bdi>"
 
 #: apps/presentations/templates/presentations/confirm.html:19
 msgid ""
@@ -5852,8 +5852,8 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
-msgstr "Создать за $%(price)s"
+msgid "Create it for %(price)s"
+msgstr "Создать за %(price)s"
 
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
@@ -5932,8 +5932,8 @@ msgstr "Презентаций пока нет."
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
-msgstr "от <bdi dir=\"ltr\">$%(price)s</bdi>"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
+msgstr "от <bdi dir=\"ltr\">%(price)s</bdi>"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
@@ -7206,8 +7206,8 @@ msgstr "Деньги"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
-msgstr "Начислено: $%(g)s"
+msgid "Grants %(g)s"
+msgstr "Начислено: %(g)s"
 
 #: templates/console/overview.html:16
 #, python-format
@@ -7227,8 +7227,8 @@ msgstr "Вызовов: %(n)s · ошибок: %(f)s"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
-msgstr "Стоимость без списания: $%(u)s"
+msgid "%(u)s cost never billed"
+msgstr "Стоимость без списания: %(u)s"
 
 #: templates/console/overview.html:21
 msgid "AI budget this month"
@@ -7795,8 +7795,8 @@ msgstr "Документ загружен в библиотеку"
 msgid "Verified by Wakeel"
 msgstr "Проверено Wakeel"
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "Кредит Wakeel: $%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "Кредит Wakeel: %(amount)s"
 
 msgid "Wallet"
 msgstr "Кошелёк"
@@ -7830,9 +7830,6 @@ msgstr "Вы получили это, потому что установили �
 
 msgid "You were not charged."
 msgstr "С вас ничего не списано."
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "Ваш баланс: $%(balance)s. Это займёт около получаса."
 
 msgid "[سيناريو الفيديو]"
 msgstr "[Сценарий видео]"

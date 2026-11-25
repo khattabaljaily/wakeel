@@ -5,7 +5,9 @@ LANGUAGE_NAMES = {'ar': 'Arabic (Modern Standard Arabic)', 'en': 'English'}
 
 
 def of_user(user):
-    return (getattr(user, 'language', '') or settings.LANGUAGE_CODE) if user else settings.LANGUAGE_CODE
+    """The interface language the person reads in; one saved before the screens were cut to Arabic and English reads Arabic."""
+    language = getattr(user, 'language', '') if user else ''
+    return language if language in dict(settings.INTERFACE_LANGUAGES) else settings.LANGUAGE_CODE
 
 
 def of_team(company):

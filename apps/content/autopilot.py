@@ -79,7 +79,7 @@ def _tell_balance_low(company, owner_user, exc):
     from apps.notifications.services import notify_managers_event
     month = timezone.localdate().strftime('%Y-%m')
     notify_managers_event(company, 'autopilot_paused', url='/company/wallet/', dedupe_key=f'autopilot-paused-{company.pk}-{month}',
-                          balance=catalog.format_points(exc.balance), needed=catalog.format_points(exc.cost))
+                          balance=catalog.money(exc.balance), needed=catalog.money(exc.cost))
 
 
 def deliver(plan):

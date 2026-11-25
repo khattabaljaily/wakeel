@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n credits %}
 {% block title %}{% include "docops/services/_name.html" %}{% endblock %}
 {% block page_title %}{% include "docops/services/_name.html" %}{% endblock %}
 {% block subtitle %}<div class="subtitle" dir="auto">{{ record.title }} · {% blocktranslate count n=pages %}{{ n }} page{% plural %}{{ n }} pages{% endblocktranslate %}{% if pages_total and pages_total > pages %} ({% blocktranslate with total=pages_total max=max_pages %}of {{ total }}; only the first {{ max }} are read{% endblocktranslate %}){% endif %}</div>{% endblock %}
@@ -12,10 +12,10 @@
     {% for tier, label, quote, by_script in options %}
     <label class="d-flex gap-2 align-items-start border rounded-3 p-3 mb-2 {% if not quote %}opacity-50{% endif %}"><input type="radio" class="form-check-input mt-1" name="tier" value="{{ tier }}"{% if forloop.first %} checked{% endif %}{% if not quote %} disabled{% endif %}
       {% if quote %}data-points="{{ quote.total }}"{% if by_script %} data-arabic="{{ by_script.arabic.total }}" data-latin="{{ by_script.latin.total }}" data-other="{{ by_script.other.total }}"{% endif %}{% endif %}>
-      <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b>{% if quote %}<span class="badge text-bg-light border" dir="ltr" data-chip>${{ quote.usd }}</span>{% else %}<span class="badge text-bg-light border">{% translate "Coming soon" %}</span>{% endif %}</span>
+      <span class="flex-grow-1"><span class="d-flex justify-content-between"><b>{{ label }}</b>{% if quote %}<span class="badge text-bg-light border" dir="ltr" data-chip>{{ quote.amount }}</span>{% else %}<span class="badge text-bg-light border">{% translate "Coming soon" %}</span>{% endif %}</span>
         <small class="small-muted">{% include "docops/services/_tier.html" %}</small></span></label>
     {% endfor %}</fieldset>
-  {% else %}{% for tier, label, quote, by_script in options %}<input type="hidden" name="tier" value="{{ tier }}"><p class="mb-3">{% translate "Price" %}: <span class="badge text-bg-light border" dir="ltr" data-chip data-points="{{ quote.total }}">${{ quote.usd }}</span></p>{% endfor %}{% endif %}
+  {% else %}{% for tier, label, quote, by_script in options %}<input type="hidden" name="tier" value="{{ tier }}"><p class="mb-3">{% translate "Price" %}: <span class="badge text-bg-light border" dir="ltr" data-chip data-points="{{ quote.total }}">{{ quote.amount }}</span></p>{% endfor %}{% endif %}
   {% if kind == 'translate' %}
   <div class="row"><div class="col-md-6 mb-3"><label class="form-label" for="svc-src">{% translate "From" %}</label>
     <select class="form-select" id="svc-src" name="source_language"><option value="">{% translate "Detect it" %}</option>{% for code, name, script in languages %}<option value="{{ code }}">{{ name }}</option>{% endfor %}</select></div>
@@ -42,13 +42,14 @@
     var p = (script && radio.dataset[script]) || radio.dataset.points;
     return p ? parseInt(p, 10) : null;
   }
-  function fmt(p) { return (p / 1000).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  {% riyal as unit %}var UNIT = '{{ unit|escapejs }}';
+  function fmt(p) { var v = p / 1000, whole = v === Math.floor(v); return v.toLocaleString('en-US', {minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: 2}); }
   function refresh() {
     var radios = form.querySelectorAll('input[name=tier][data-points]'), chosen = null;
-    radios.forEach(function (r) { var p = points(r), chip = r.closest('label').querySelector('[data-chip]'); if (chip && p !== null) chip.textContent = '$' + fmt(p); if (r.checked) chosen = r; });
+    radios.forEach(function (r) { var p = points(r), chip = r.closest('label').querySelector('[data-chip]'); if (chip && p !== null) chip.textContent = fmt(p) + ' ' + UNIT; if (r.checked) chosen = r; });
     var single = form.querySelector('[data-chip][data-points]'), p = chosen ? points(chosen) : (single ? parseInt(single.dataset.points, 10) : null);
     out.value = p === null ? '' : p;
-    document.getElementById('runPrice').textContent = p === null ? '' : '$' + fmt(p);
+    document.getElementById('runPrice').textContent = p === null ? '' : fmt(p) + ' ' + UNIT;
   }
   form.addEventListener('change', refresh); refresh();
 })();

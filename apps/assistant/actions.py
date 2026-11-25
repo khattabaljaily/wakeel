@@ -566,7 +566,7 @@ def card(proposal, request):
     except Exception:                    # a document deleted since, a service switched off
         quote, error = None, _('This can no longer be done: check that the document still exists.')
     points = quote.total if quote else 0
-    return {'title': title_of(proposal), 'rows': action.describe(proposal.params), 'price': catalog.format_points(points),
+    return {'title': title_of(proposal), 'rows': action.describe(proposal.params), 'price': catalog.money(points),
             'points': points, 'free': not points and not error, 'error': error, 'lines': quote.described() if quote and points else []}
 
 

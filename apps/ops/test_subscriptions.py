@@ -109,9 +109,9 @@ class SubscriptionActionTests(TestCase):
         from apps.credits import charging
         url = reverse('ops:wallet_grant', args=[self.company.pk])
         before = charging.get_wallet(self.company).balance
-        response = self.client.post(url, {'amount': '12.5', 'note': 'bank transfer 77', 'next': reverse('ops:subscriptions')})
+        response = self.client.post(url, {'amount': '12', 'note': 'bank transfer 77', 'next': reverse('ops:subscriptions')})
         self.assertRedirects(response, reverse('ops:subscriptions'), fetch_redirect_response=False)
-        self.assertEqual(charging.get_wallet(self.company).balance, before + 12500)
+        self.assertEqual(charging.get_wallet(self.company).balance, before + 12000)
         ledger = self.client.get(reverse('ops:ledger'), {'company': self.company.pk})
         self.assertContains(ledger, 'bank transfer 77')
         # a link to another site is ignored
@@ -120,7 +120,7 @@ class SubscriptionActionTests(TestCase):
         # the list shows the balance
         data = self.client.get(reverse('ops:subscriptions_data')).json()
         from apps.credits import catalog
-        self.assertIn(catalog.format_points(before + 13500), str(data))
+        self.assertIn(catalog.money(before + 13000), str(data))
 
     def test_edit(self):
         self.post('subscription_update', {'name': 'إنجاز الجديدة', 'industry': 'تقنية', 'country': 'قطر', 'city': 'الدوحة',

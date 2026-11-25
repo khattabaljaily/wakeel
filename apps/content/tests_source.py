@@ -147,7 +147,7 @@ class PostFromDocument(Base):
         total = quotes.make('rewrite_post').total
         self.assertContains(page, reverse('content:post_from_document', args=[self.record.pk]))
         self.assertContains(page, f'name="expected_points" value="{total}"')
-        self.assertContains(page, f'${total / 1000:,.2f}')
+        self.assertContains(page, quotes.make('rewrite_post').amount)
         self.assertContains(page, f'content:plan_create'.replace('content:plan_create', reverse('content:plan_create') + f'?source={self.record.pk}'))
         before = self.balance()
         self.go()

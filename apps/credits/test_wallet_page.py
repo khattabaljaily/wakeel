@@ -23,13 +23,13 @@ class WalletPageTests(TestCase):
 
     def test_balance_and_month_figures(self):
         page = self.page()
-        self.assertContains(page, '$5.00')                       # the balance as the wallet holds it
+        self.assertContains(page, '5 QAR')                       # the balance as the wallet holds it
         self.assertContains(page, 'Added this month')
-        self.assertEqual(page.context['month'], {'added': '5.00', 'used': '0.08', 'uses': 1})
+        self.assertEqual(page.context['month'], {'added': '5 QAR', 'used': '0.08 QAR', 'uses': 1})
 
-    def test_every_package_is_offered_including_the_hundred(self):
+    def test_every_package_is_offered_up_to_the_two_hundred(self):
         page = self.page()
-        for amount in ('10', '25', '50', '100'):
+        for amount in ('20', '50', '100', '200'):
             self.assertContains(page, f'value="{amount}"')
 
     def test_ledger_filters(self):

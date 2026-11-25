@@ -54,9 +54,9 @@
 
 <div class="adm-kpis">
     <a href="{% url 'ops:ledger' %}" class="wk-card adm-kpi"><div class="adm-kpi__icon tone-approved"><i class="bi bi-cart"></i></div>
-        <div><div class="adm-kpi__num" dir="ltr">${{ product.net|money }}</div><div class="adm-kpi__lbl">{% translate "المخصوم من العملاء هذا الشهر" %}</div><div class="adm-kpi__sub" dir="ltr">{% translate "شحن" %} ${{ product.topups }}</div></div></a>
+        <div><div class="adm-kpi__num" dir="ltr">{{ product.net }}</div><div class="adm-kpi__lbl">{% translate "المخصوم من العملاء هذا الشهر" %}</div><div class="adm-kpi__sub" dir="ltr">{% translate "شحن" %} {{ product.topups }}</div></div></a>
     <a href="{% url 'ops:ledger' %}" class="wk-card adm-kpi {% if product.empty_wallets %}adm-kpi--alert{% endif %}"><div class="adm-kpi__icon tone-gold"><i class="bi bi-wallet2"></i></div>
-        <div><div class="adm-kpi__num" dir="ltr">${{ product.held }}</div><div class="adm-kpi__lbl">{% translate "أرصدة العملاء الحالية" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with n=product.empty_wallets %}{{ n }} محفظة فارغة{% endblocktranslate %}</div></div></a>
+        <div><div class="adm-kpi__num" dir="ltr">{{ product.held }}</div><div class="adm-kpi__lbl">{% translate "أرصدة العملاء الحالية" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with n=product.empty_wallets %}{{ n }} محفظة فارغة{% endblocktranslate %}</div></div></a>
     <div class="wk-card adm-kpi"><div class="adm-kpi__icon tone-primary"><i class="bi bi-file-earmark-text"></i></div>
         <div><div class="adm-kpi__num">{{ product.documents_month }}</div><div class="adm-kpi__lbl">{% translate "مستند صادر هذا الشهر" %}</div><div class="adm-kpi__sub">{% blocktranslate trimmed with n=product.records %}{{ n }} ورقة في المكتبات{% endblocktranslate %}</div></div></div>
     <a href="{% url 'ops:users' %}" class="wk-card adm-kpi"><div class="adm-kpi__icon tone-review"><i class="bi bi-people"></i></div>

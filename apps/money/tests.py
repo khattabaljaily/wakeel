@@ -45,7 +45,6 @@ class RateTests(TestCase):
         self.assertEqual(rate.source, 'peg')
         self.assertEqual([rate.from_usd(u) for u in (10, 25, 50, 100)],
                          [Decimal('36.40'), Decimal('91.00'), Decimal('182.00'), Decimal('364.00')])
-        self.assertEqual(rate.from_points(120), Decimal('0.44'))                  # $0.12 -> 0.4368 -> 0.44
 
     def test_no_rate_means_nothing_sold(self):
         with self.assertRaises(rates.RateUnavailable):

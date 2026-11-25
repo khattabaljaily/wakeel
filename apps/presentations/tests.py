@@ -73,7 +73,7 @@ class PriceTests(Base):
         page = self.client.post(reverse('presentations:new'), self.data())
         quote = service.quote('premium', 10)
         self.assertContains(page, f'name="expected_points" value="{quote.total}"')
-        self.assertContains(page, f'${quote.usd}')
+        self.assertContains(page, quote.amount)
         self.assertEqual((self.balance(), Job.objects.count(), Presentation.all_companies.count()), (before, 0, 0))
 
     def test_every_option_and_size_is_charged_exactly_what_is_shown(self):

@@ -8,10 +8,10 @@
 <div class="collapse {% if open_form %}show{% endif %} mb-3" id="newForm">
 <form class="wk-card" style="max-width:760px" method="post" action="{% url 'forms:new' %}" novalidate data-once><div class="wk-card-body">{% csrf_token %}
   <input type="hidden" name="expected_points" value="{{ quote.total }}">
-  <p class="small-muted">{% blocktranslate with price=quote.usd limit=limit %}Creating a form costs ${{ price }} from the balance, once. Its answers are free (up to {{ limit }} answers).{% endblocktranslate %}</p>
+  <p class="small-muted">{% blocktranslate with price=quote.amount limit=limit %}Creating a form costs {{ price }} from the balance, once. Its answers are free (up to {{ limit }} answers).{% endblocktranslate %}</p>
   {% if form.non_field_errors %}<div class="alert alert-danger">{% for e in form.non_field_errors %}{{ e }}{% endfor %}</div>{% endif %}
   {% for field in form %}{% include "forms/_field.html" %}{% endfor %}
-  <button type="submit" class="btn btn-primary">{% translate "Create the form" %} <span class="badge bg-white bg-opacity-25 ms-1" dir="ltr">${{ quote.usd }}</span></button>
+  <button type="submit" class="btn btn-primary">{% translate "Create the form" %} <span class="badge bg-white bg-opacity-25 ms-1" dir="ltr">{{ quote.amount }}</span></button>
 </div></form></div>
 
 <div class="wk-card"><div class="list-group list-group-flush">

@@ -703,8 +703,8 @@ msgstr "አድርግ"
 
 #: apps/assistant/templates/assistant/chat.html:19
 #, python-format
-msgid "Do it for $%(price)s"
-msgstr "በ$%(price)s አድርግ"
+msgid "Do it for %(price)s"
+msgstr "በ%(price)s አድርግ"
 
 #: apps/assistant/templates/assistant/chat.html:20
 msgid "No thanks"
@@ -978,8 +978,8 @@ msgstr "የኦንላይን ክፍያ ገና አልተከፈተም።"
 
 #: apps/billing/views.py:64
 #, python-format
-msgid "MyDocHub credit: $%(amount)s"
-msgstr "የMyDocHub ቀሪ ሂሳብ፦ $%(amount)s"
+msgid "MyDocHub credit: %(amount)s"
+msgstr "የMyDocHub ቀሪ ሂሳብ፦ %(amount)s"
 
 #: apps/billing/views.py:70
 msgid "The payment page could not be opened. Please try again."
@@ -1236,7 +1236,7 @@ msgstr "በአርማ ጀምር"
 msgid ""
 "%(n)s pieces will be designed from your logo, %(d)s%% off. Your balance: $"
 "%(balance)s."
-msgstr "%(n)s ክፍሎች ከአርማዎ ይነደፋሉ፣ %(d)s%% ቅናሽ። ቀሪ ሂሳብዎ፦ $%(balance)s።"
+msgstr "%(n)s ክፍሎች ከአርማዎ ይነደፋሉ፣ %(d)s%% ቅናሽ። ቀሪ ሂሳብዎ፦ %(balance)s።"
 
 #: apps/brand/templates/brand/studio.html:103
 msgid "Everything that is left, with the discount"
@@ -2456,8 +2456,8 @@ msgstr "ደህንነቱ የተጠበቀ የካርድ ክፍያ።"
 
 #: apps/credits/templates/credits/balance.html:24
 #, python-format
-msgid "Pay $%(dollars)s"
-msgstr "$%(dollars)s ይክፈሉ"
+msgid "Pay %(dollars)s"
+msgstr "%(dollars)s ይክፈሉ"
 
 #: apps/credits/templates/credits/balance.html:25
 msgid "Pay"
@@ -2858,8 +2858,8 @@ msgstr ""
 
 #: apps/docops/templates/docops/services/hub.html:13
 #, python-format
-msgid "From $%(p)s a page"
-msgstr "ከ$%(p)s በገጽ"
+msgid "From %(p)s a page"
+msgstr "ከ%(p)s በገጽ"
 
 #: apps/docops/templates/docops/services/hub.html:18
 msgid "Latest results"
@@ -2867,8 +2867,8 @@ msgstr "የቅርብ ጊዜ ውጤቶች"
 
 #: apps/docops/templates/docops/services/start.html:7
 #, python-format
-msgid "From $%(p)s a page."
-msgstr "ከ$%(p)s በገጽ።"
+msgid "From %(p)s a page."
+msgstr "ከ%(p)s በገጽ።"
 
 #: apps/docops/templates/docops/services/start.html:13
 #: apps/identity/forms.py:22 apps/identity/forms.py:26
@@ -3121,11 +3121,11 @@ msgstr "ለ«%(name)s» እስካሁን አብነት የለዎትም።"
 #, python-format
 msgid ""
 "Shall I make a template of it for your company, in its identity? Making the "
-"template and writing this document costs $%(first)s this time. Afterwards, "
-"each time you need a «%(name)s», you pay only $%(later)s for the writing."
+"template and writing this document costs %(first)s this time. Afterwards, "
+"each time you need a «%(name)s», you pay only %(later)s for the writing."
 msgstr ""
 "ለድርጅትዎ በማንነቱ መሠረት አብነት (template) ላዘጋጅ? አብነቱን ማዘጋጀትና ይህን ሰነድ መጻፍ በዚህ ጊዜ $"
-"%(first)s ያስከፍላል። ከዚያ በኋላ «%(name)s» በፈለጉ ቁጥር ለጽሑፉ $%(later)s ብቻ ይከፍላሉ።"
+"%(first)s ያስከፍላል። ከዚያ በኋላ «%(name)s» በፈለጉ ቁጥር ለጽሑፉ %(later)s ብቻ ይከፍላሉ።"
 
 #: apps/documents/templates/documents/ai_new.html:21
 msgid "Yes, make my template and write the document"
@@ -3960,10 +3960,10 @@ msgstr "እስካሁን ቅጽ የለም።"
 #: apps/forms/templates/forms/list.html:25
 #, python-format
 msgid ""
-"Creating a form costs $%(price)s from the balance, once. Its answers are "
-"free (up to %(limit)s answers)."
+"Creating a form costs %(price)s from the balance, once. Its answers are free "
+"(up to %(limit)s answers)."
 msgstr ""
-"ቅጽ መፍጠር ከቀሪ ሂሳቡ $%(price)s ያስከፍላል፣ አንድ ጊዜ ብቻ። መልሶቹ ነፃ ናቸው (እስከ %(limit)s "
+"ቅጽ መፍጠር ከቀሪ ሂሳቡ %(price)s ያስከፍላል፣ አንድ ጊዜ ብቻ። መልሶቹ ነፃ ናቸው (እስከ %(limit)s "
 "መልሶች)።"
 
 #: apps/forms/templates/forms/list.html:33
@@ -5617,8 +5617,8 @@ msgstr[1] "%(n)s ገጾች ይነበባሉ"
 
 #: apps/presentations/templates/presentations/confirm.html:14
 #, python-format
-msgid "your balance: <bdi dir=\"ltr\">$%(balance)s</bdi>"
-msgstr "ቀሪ ሂሳብዎ፦ <bdi dir=\"ltr\">$%(balance)s</bdi>"
+msgid "your balance: <bdi dir=\"ltr\">%(balance)s</bdi>"
+msgstr "ቀሪ ሂሳብዎ፦ <bdi dir=\"ltr\">%(balance)s</bdi>"
 
 #: apps/presentations/templates/presentations/confirm.html:19
 msgid ""
@@ -5630,8 +5630,8 @@ msgstr ""
 
 #: apps/presentations/templates/presentations/confirm.html:20
 #, python-format
-msgid "Create it for $%(price)s"
-msgstr "በ$%(price)s ይፍጠሩት"
+msgid "Create it for %(price)s"
+msgstr "በ%(price)s ይፍጠሩት"
 
 #: apps/presentations/templates/presentations/confirm.html:21
 #: apps/sharing/templates/sharing/list.html:22
@@ -5703,8 +5703,8 @@ msgstr "ገና ምንም ገለጻ የለም።"
 
 #: apps/presentations/templates/presentations/list.html:34
 #, python-format
-msgid "from <bdi dir=\"ltr\">$%(price)s</bdi>"
-msgstr "ከ<bdi dir=\"ltr\">$%(price)s</bdi>"
+msgid "from <bdi dir=\"ltr\">%(price)s</bdi>"
+msgstr "ከ<bdi dir=\"ltr\">%(price)s</bdi>"
 
 #: apps/presentations/templates/presentations/list.html:36
 msgid ""
@@ -6932,8 +6932,8 @@ msgstr "ገንዘብ"
 #: templates/console/overview.html:15
 #: templates/console/workspace_detail.html:16
 #, python-format
-msgid "Grants $%(g)s"
-msgstr "ስጦታዎች $%(g)s"
+msgid "Grants %(g)s"
+msgstr "ስጦታዎች %(g)s"
 
 #: templates/console/overview.html:16
 #, python-format
@@ -6953,8 +6953,8 @@ msgstr "%(n)s ጥሪዎች · %(f)s ያልተሳኩ"
 
 #: templates/console/overview.html:18
 #, python-format
-msgid "$%(u)s cost never billed"
-msgstr "$%(u)s ያልተከፈለበት ወጪ"
+msgid "%(u)s cost never billed"
+msgstr "%(u)s ያልተከፈለበት ወጪ"
 
 #: templates/console/overview.html:21
 msgid "AI budget this month"
@@ -7516,8 +7516,8 @@ msgstr "ሰነድ ወደ ቤተ-መጻሕፍት ሰቅሏል"
 msgid "Verified by Wakeel"
 msgstr "በWakeel የተረጋገጠ"
 
-msgid "Wakeel credit: $%(amount)s"
-msgstr "የWakeel ክሬዲት: $%(amount)s"
+msgid "Wakeel credit: %(amount)s"
+msgstr "የWakeel ክሬዲት: %(amount)s"
 
 msgid "Wallet"
 msgstr "ቦርሳ"
@@ -7551,9 +7551,6 @@ msgstr "ይህን የሚቀበሉት በWakeel ውስጥ ይህን አስታዋ�
 
 msgid "You were not charged."
 msgstr "ክፍያ አልተጠየቁም።"
-
-msgid "Your balance: $%(balance)s. It takes about half a minute."
-msgstr "ቀሪ ሒሳብዎ: $%(balance)s። ወደ ግማሽ ደቂቃ ይወስዳል።"
 
 msgid "[سيناريو الفيديو]"
 msgstr "[የቪዲዮ ስክሪፕት]"

@@ -93,10 +93,10 @@ def overview(company, user, membership):
     today = timezone.localdate()
     wallet = charging.get_wallet(company)
     month = timezone.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-    spent = charging.revenue_usd(since=month, company=company)[2]
-    low = not wallet.is_exempt and wallet.balance < 1000          # under $1
+    spent = catalog.money(charging.revenue(since=month, company=company)[2])
+    low = not wallet.is_exempt and wallet.balance < catalog.LOW_BALANCE
     return {
-        'balance': catalog.format_points(wallet.balance), 'exempt': wallet.is_exempt, 'low': low, 'spent_month': spent,
+        'balance': catalog.money(wallet.balance), 'exempt': wallet.is_exempt, 'low': low, 'spent_month': spent,
         'records': Record.objects.count(),
         'expiring': Record.objects.filter(expiry_date__isnull=False, expiry_date__lte=today + datetime.timedelta(days=SOON_DAYS)).count(),
         'assets': Asset.objects.count(),

@@ -20,7 +20,7 @@ from django.views.decorators.http import require_POST
 from apps.audit import log as audit
 from apps.audit.models import AuditEvent
 from apps.companies.decorators import company_required
-from apps.credits.catalog import format_points
+from apps.credits.catalog import money
 from apps.credits.charging import get_wallet
 from apps.credits.jobs import expected_points
 
@@ -515,7 +515,7 @@ def template_new(request):
         job = generate.start(company, request.user, form.cleaned_data, expected_points(request.POST))
         return redirect(f"{reverse('documents:working', args=[job.pk])}?{urlencode({'back': reverse('mail:templates')})}")
     return render(request, 'mail/template_new.html', {'form': form, 'quote': generate.quote(), 'styles': generate.STYLES.items(),
-                                                      'balance': format_points(get_wallet(company).balance)})
+                                                      'balance': money(get_wallet(company).balance)})
 
 
 @editor

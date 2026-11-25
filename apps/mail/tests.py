@@ -722,10 +722,10 @@ class MailTemplateViewsTests(MailBase):
         self.owner.language = 'en'                                              # the job names the template in its maker's language
         self.owner.save(update_fields=['language'])
         quote = generate.quote()
-        self.assertEqual(quote.total, 240)                                      # the owner's price: $0.24
+        self.assertEqual(quote.total, 1000)                                     # the owner's price: 1 riyal
         page = self.client.get(reverse('mail:template_new'))
         self.assertContains(page, f'name="expected_points" value="{quote.total}"')
-        self.assertContains(page, f'${quote.usd}')
+        self.assertContains(page, quote.amount)
         before = self.balance()
         response = self.order()
         self.assertEqual(before - self.balance(), quote.total)

@@ -50,7 +50,7 @@
             <div class="wk-price-list" id="serviceList">
                 {% for s in services %}
                 <div class="wk-price-row" data-name="{{ s.name|lower }}"><span>{{ s.name }}</span>
-                    <span class="wk-price-row__v" dir="ltr">{% if s.free %}<span class="small-muted">{% translate "Free" %}</span>{% elif s.per_unit %}{{ s.nine }} <span class="small-muted">/ 9 <bdi>{{ s.per_unit }}</bdi></span>{% else %}{{ s.price }}{% endif %}</span></div>
+                    <span class="wk-price-row__v">{% if s.free %}<span class="small-muted">{% translate "Free" %}</span>{% elif s.per_unit %}{% translate "From" %} {{ s.price }} <span class="small-muted">/ <bdi>{{ s.per_unit }}</bdi></span>{% else %}{{ s.price }}{% endif %}</span></div>
                 {% endfor %}
                 <div class="p-3 text-center small-muted" id="serviceNone" hidden>{% translate "No service matches." %}</div>
             </div>

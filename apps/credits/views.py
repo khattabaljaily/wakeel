@@ -36,7 +36,9 @@ def wallet(request):
         quote = quotes.make(key, 1 if catalog.unit_name(key) else None)
         services.append({'key': key, 'free': catalog.is_free(key), 'name': catalog.service_name(key, request.LANGUAGE_CODE),
                          'price': quote.amount,
-                         'per_unit': quotes.unit_label(key), 'nine': (quotes.make(key, 9).amount if catalog.unit_name(key) else quotes.make(key, '9', 9).amount if catalog.page_pricing(key) else '')})
+                         # "from X / page": a service that grows with the pages or the posts. A design with a price of its own (a
+                         # logo, a letterhead) is one price, not a price per page.
+                         'per_unit': '' if svc.get('price') is not None else quotes.unit_label(key)})
     return render(request, 'credits/wallet.html', {
         'wallet': wallet_row, 'balance': catalog.money(wallet_row.balance), 'page': page, 'services': services,
         'low': not wallet_row.is_exempt and wallet_row.balance < catalog.LOW_BALANCE, 'kind': kind,

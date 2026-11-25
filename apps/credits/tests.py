@@ -292,11 +292,11 @@ class WalletPageTests(TestCase):
         page = self.client.get(reverse('credits:wallet')).content.decode()
         self.assertIn('11 QAR', page)                                # 12 riyals less the 1 riyal the plan cost
         self.assertIn('generate_plan', page)
-        self.assertIn('/ 9 <bdi>post</bdi>', page)
+        self.assertIn('/ <bdi>post</bdi>', page)                        # "From 1 QAR / post": a price that grows with the posts
         for amount in ('20', '50', '100', '200'):
             self.assertIn(f'>{amount} <small class="wk-unit">QAR</small></span>', page)   # the packages, as they are (sign set smaller)
         self.client.cookies['wakeel_lang'] = 'ar'
-        self.assertIn('/ 9 <bdi>منشور</bdi>', self.client.get(reverse('credits:wallet')).content.decode())
+        self.assertIn('/ <bdi>منشور</bdi>', self.client.get(reverse('credits:wallet')).content.decode())
 
 
 class OpsWalletTests(TestCase):

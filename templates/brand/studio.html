@@ -109,13 +109,13 @@
 {% endblock %}
 {% block scripts %}<script>
 /* The price on the button is the price charged: the chosen quality's points go in expected_points, and the server checks them. */
-{% riyal as unit %}var UNIT = '{{ unit|escapejs }}';
+{% riyal_pattern as pattern %}var PATTERN = '{{ pattern|escapejs }}';
 function fmt(p) { var v = p / 1000, whole = v === Math.floor(v); return v.toLocaleString('en-US', {minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: 2}); }
 document.querySelectorAll('form[data-priced]').forEach(function (form) {
   var out = form.querySelector('input[name=expected_points]'), chip = form.querySelector('[data-chip]');
   function refresh() {
     var r = form.querySelector('input[name=tier]:checked'), p = r ? parseInt(r.dataset.points, 10) : null;
-    out.value = p === null ? '' : p; if (chip) chip.textContent = p === null ? '' : fmt(p) + ' ' + UNIT;
+    out.value = p === null ? '' : p; if (chip) chip.textContent = p === null ? '' : PATTERN.replace('{n}', fmt(p));
   }
   form.addEventListener('change', refresh); refresh();
 });

@@ -120,7 +120,7 @@ class SubscriptionActionTests(TestCase):
         # the list shows the balance
         data = self.client.get(reverse('ops:subscriptions_data')).json()
         from apps.credits import catalog
-        self.assertIn(catalog.money(before + 13000), str(data))
+        self.assertIn(catalog.money(before + 13000), data['data'][0]['balance'])
 
     def test_edit(self):
         self.post('subscription_update', {'name': 'إنجاز الجديدة', 'industry': 'تقنية', 'country': 'قطر', 'city': 'الدوحة',

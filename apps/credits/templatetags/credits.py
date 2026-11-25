@@ -24,6 +24,7 @@ def riyals(points):
 
 
 @register.simple_tag
-def riyal():
-    """The riyal's sign in the reader's language, for a number the page writes itself (a script that works out a price)."""
-    return catalog.unit()
+def riyal_pattern():
+    """The amount's shape with {n} for the number, for a script that works out a price itself: 'QAR' after it, or the Arabic
+    sign on its right. The script puts its formatted number where {n} is."""
+    return catalog.money_pattern()

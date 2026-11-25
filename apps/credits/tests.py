@@ -49,6 +49,15 @@ class PricingRuleTests(SimpleTestCase):
                 if not catalog.is_free(key):
                     self.assertGreaterEqual(catalog.price_points(key, units), catalog.POINTS_PER_RIYAL, (key, units))
 
+    def test_an_arabic_amount_has_the_sign_on_the_right_of_the_number(self):
+        # Owner's decision (2026-11-25). The sign comes first inside an isolated right-to-left run, so it sits on the right
+        # of the number whatever direction the text around it has; English keeps the number first.
+        self.assertEqual(catalog.money(20000, 'ar'), '\u2067ر.ق 20\u2069')
+        self.assertEqual(catalog.money(1250000, 'ar'), '\u2067ر.ق 1,250\u2069')
+        self.assertEqual(catalog.money(20000, 'en'), '20 QAR')
+        self.assertEqual(catalog.money_pattern('ar'), '\u2067ر.ق {n}\u2069')
+        self.assertEqual(catalog.money_pattern('en'), '{n} QAR')
+
     def test_a_dollar_cost_is_converted_at_the_fixed_rate_and_rounded_up(self):
         # $1 of cost sells at $1.50 with no fees = 5.46 riyals -> 6; the rate is the Qatar Central Bank's 3.64.
         self.assertEqual(catalog.whole(Decimal('5.46')), 6000)

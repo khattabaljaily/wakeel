@@ -177,12 +177,29 @@ def format_points(points) -> str:
     return f'{value:,.0f}' if value == value.to_integral_value() else f'{value:,.2f}'
 
 
+def _language(language: str = '') -> str:
+    return (language or get_language() or 'en').lower()
+
+
 def unit(language: str = '') -> str:
     """The riyal's sign in the reader's language: 'ر.ق' in Arabic, 'QAR' in English."""
     from apps.money import currencies
-    return currencies.symbol(QAR, language or get_language() or 'en').strip('\u200f\u200e\u00a0 ')
+    return currencies.symbol(QAR, _language(language)).strip('\u200f\u200e\u00a0 .')
+
+
+# An Arabic amount is shown with the sign on the RIGHT of the number (owner's decision, 2026-11-25). The sign comes first in an
+# isolated right-to-left run, so it lands on the right whatever the surrounding text's direction (a dir="ltr" badge, an
+# Arabic sentence, an e-mail): the run is closed by U+2069 and cannot be reordered by what is around it.
+RLI, PDI = '\u2067', '\u2069'
+
+
+def money_pattern(language: str = '') -> str:
+    """The amount's shape with {n} where the number goes: '{n} QAR', or in Arabic 'ر.ق {n}' read right to left."""
+    if _language(language).startswith('ar'):
+        return f'{RLI}{unit(language)} {{n}}{PDI}'
+    return f'{{n}} {unit(language)}'
 
 
 def money(points, language: str = '') -> str:
-    """An amount as people read it: '20 ر.ق' / '20 QAR'."""
-    return f'{format_points(points)} {unit(language)}'
+    """An amount as people read it: '20 QAR', and in Arabic the sign right of the number."""
+    return money_pattern(language).replace('{n}', format_points(points))

@@ -1,81 +1,373 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load static %}
+{% load static cache_bust %}
 {% block title %}{% translate "عمل شركتك في مكان واحد" %}{% endblock %}
-{% block body_class %}wk-landing{% endblock %}
+{% block body_class %}wk-landing lp{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static_v 'css/landing.css' %}">{% endblock %}
 {% block body %}
-<nav>
-    <div class="container d-flex align-items-center gap-3">
-        <a href="{% url 'core:home' %}" class="d-flex align-items-center gap-2"><img src="{% static 'img/logo.svg' %}" width="40" alt=""><span class="fs-3 fw-bold" style="color: var(--wk-ink)">{% translate "وكيل" %}</span></a>
-        <div class="ms-auto d-flex gap-2 align-items-center">
-            {% include "_language_switch.html" %}
-            <a href="{% url 'accounts:login' %}" class="btn btn-light">{% translate "تسجيل الدخول" %}</a>
-            <a href="{% url 'accounts:register' %}" class="btn btn-primary d-none d-sm-inline-block">{% translate "ابدأ الآن" %}</a>
-        </div>
-    </div>
-</nav>
 
-<section class="hero">
-    <div class="container">
-        <div class="row align-items-center g-4 g-lg-5">
+{# ================= Hero ================= #}
+<header class="lp-hero">
+    <div class="lp-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <nav class="lp-nav">
+        <div class="container d-flex align-items-center gap-3">
+            <a href="{% url 'core:home' %}" class="lp-brand"><img src="{% static 'img/logo.svg' %}" width="38" alt=""><span>{% translate "وكيل" %}</span></a>
+            <div class="lp-nav__links d-none d-lg-flex">
+                <a href="#studio">{% translate "استوديو الذكاء الاصطناعي" %}</a>
+                <a href="#documents">{% translate "المستندات" %}</a>
+                <a href="#mail">{% translate "البريد والتواصل" %}</a>
+                <a href="#social">{% translate "السوشال ميديا" %}</a>
+            </div>
+            <div class="ms-auto d-flex gap-2 align-items-center">
+                {% include "_language_switch.html" with lang_class="lp-lang" %}
+                <a href="{% url 'accounts:login' %}" class="btn lp-btn-ghost d-none d-sm-inline-flex">{% translate "تسجيل الدخول" %}</a>
+                <a href="{% url 'accounts:register' %}" class="btn lp-btn-light">{% translate "ابدأ الآن" %}</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container lp-hero__body">
+        <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <span class="pill mb-3"><i class="bi bi-stars"></i> {% translate "منصة واحدة لتسويق شركتك ومستنداتها وفريقها" %}</span>
-                <h1 class="mb-3">{% translate "تسويقك ومستنداتك وفريقك" %}<br>{% translate "في منصة واحدة" %} <span class="grad">{% translate "ذكية" %}</span></h1>
-                <p class="lead mb-4">{% translate "وكيل يضع خطة المحتوى الشهرية ويكتب المنشورات ويصممها وينشرها، ويحفظ مستندات شركتك ويصدرها بالذكاء الاصطناعي ويترجمها ويلخصها، ويدير مهام فريقك وبريده، ومساعده مارد ينفّذ ما تطلبه بموافقتك." %}</p>
+                <span class="lp-eyebrow"><i class="bi bi-stars"></i> {% translate "منصة أعمال يقودها الذكاء الاصطناعي" %}</span>
+                <h1 class="lp-title">{% translate "اطلب بجملة واحدة،" %}<br><span class="lp-grad">{% translate "واستلم العمل جاهزاً." %}</span></h1>
+                <p class="lp-lead">{% translate "هوية شركتك، وترجمة مستنداتها وتلخيصها، وخطاباتها الرسمية، وبريدها، وخطة محتواها على السوشال ميديا. فريق عمل كامل بالذكاء الاصطناعي في منصة واحدة، والسعر أمامك قبل كل خطوة." %}</p>
                 <div class="d-flex gap-2 flex-wrap">
-                    <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> {% translate "ابدأ الآن" %}</a>
-                    <a href="#how" class="btn btn-light btn-lg">{% translate "كيف يعمل؟" %}</a>
+                    <a href="{% url 'accounts:register' %}" class="btn lp-btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> {% translate "أنشئ حساب شركتك" %}</a>
+                    <a href="#studio" class="btn lp-btn-ghost btn-lg">{% translate "شاهد ما يمكنك فعله" %} <i class="bi bi-arrow-down-short"></i></a>
                 </div>
+                <ul class="lp-proof">
+                    <li><i class="bi bi-translate"></i> {% translate "16 لغة للمستندات" %}</li>
+                    <li><i class="bi bi-shield-lock"></i> {% translate "ملفات مشفّرة" %}</li>
+                    <li><i class="bi bi-hand-thumbs-up"></i> {% translate "لا شيء يُنفَّذ دون موافقتك" %}</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-6">
+                {# A live «ask → result» console; the JS cycles the requests and their results together. #}
+                <div class="lp-console" data-lp-console>
+                    <div class="lp-console__bar"><i></i><i></i><i></i><span><i class="bi bi-chat-heart"></i> {% translate "مارد، مساعدك" %}</span></div>
+                    <div class="lp-ask">
+                        <i class="bi bi-stars"></i>
+                        <span class="lp-ask__text" data-lp-type></span><span class="lp-caret" aria-hidden="true"></span>
+                    </div>
+                    <ul class="lp-phrases" hidden>
+                        <li>{% translate "صمّم شعاراً وهوية كاملة لشركتي" %}</li>
+                        <li>{% translate "ترجم هذا العقد إلى الإنجليزية" %}</li>
+                        <li>{% translate "اكتب رسالة ترحيب لعملائنا الجدد" %}</li>
+                        <li>{% translate "جهّز خطة منشورات الشهر القادم" %}</li>
+                    </ul>
+                    <div class="lp-out">
+                        <div class="lp-scene is-on">
+                            <div class="lp-kit">
+                                <div class="lp-kit__logo"><span>ن</span></div>
+                                <div class="lp-kit__swatches"><i style="--c:#0f5c4c"></i><i style="--c:#e8b04a"></i><i style="--c:#f4efe4"></i><i style="--c:#1d2321"></i></div>
+                                <div class="lp-kit__card"><b>{% translate "نخلة للتجارة" %}</b><small>info@nakhla.qa</small></div>
+                                <div class="lp-kit__paper"><i></i><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                        <div class="lp-scene">
+                            <div class="lp-tr">
+                                <div class="lp-page" dir="rtl"><b>عقد توريد</b><i></i><i></i><i></i><i class="s"></i></div>
+                                <div class="lp-tr__arrow"><i class="bi bi-arrow-left-right"></i></div>
+                                <div class="lp-page" dir="ltr"><b>Supply Agreement</b><i></i><i></i><i></i><i class="s"></i></div>
+                            </div>
+                        </div>
+                        <div class="lp-scene">
+                            <div class="lp-mailmock">
+                                <div class="lp-mailmock__head"><span class="lp-dot" style="--c:#0f5c4c">ن</span><div><b>{% translate "أهلاً بك في نخلة!" %}</b><small>{% translate "إلى: عملاؤنا الجدد" %}</small></div></div>
+                                <div class="lp-mailmock__banner"></div>
+                                <i></i><i></i><i class="s"></i>
+                                <span class="lp-mailmock__btn">{% translate "تصفّح منتجاتنا" %}</span>
+                            </div>
+                        </div>
+                        <div class="lp-scene">
+                            <div class="lp-posts">
+                                <div style="--a:#6d5ef8;--b:#3b2bc7"><small>{% translate "الأحد" %}</small></div>
+                                <div style="--a:#ffb020;--b:#f97316"><small>{% translate "الثلاثاء" %}</small></div>
+                                <div style="--a:#0ea5e9;--b:#1e3a8a"><small>{% translate "الخميس" %}</small></div>
+                                <div style="--a:#0f9d6b;--b:#0f5c4c"><small>{% translate "السبت" %}</small></div>
+                                <div style="--a:#ec4899;--b:#9d174d"><small>{% translate "الإثنين" %}</small></div>
+                                <div style="--a:#12112a;--b:#2d2b5a"><small>{% translate "الأربعاء" %}</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lp-quote">
+                        <span><i class="bi bi-receipt"></i> {% translate "السعر يظهر هنا قبل التنفيذ" %}</span>
+                        <span class="lp-quote__ok"><i class="bi bi-check2"></i> {% translate "موافق، نفّذ" %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{# ================= Chapter index ================= #}
+<div class="lp-index" data-lp-index>
+    <div class="container">
+        <a href="#studio" data-to="studio"><b>01</b> {% translate "استوديو الذكاء الاصطناعي" %}</a>
+        <a href="#documents" data-to="documents"><b>02</b> {% translate "المستندات" %}</a>
+        <a href="#mail" data-to="mail"><b>03</b> {% translate "البريد والتواصل" %}</a>
+        <a href="#social" data-to="social"><b>04</b> {% translate "السوشال ميديا والنشر" %}</a>
+    </div>
+</div>
+
+{# ================= 01 AI studio ================= #}
+<section class="lp-ch lp-ch--studio" id="studio">
+    <div class="container">
+        <div class="lp-ch__head">
+            <span class="lp-ch__num">01</span>
+            <div>
+                <span class="lp-kicker">{% translate "استوديو الذكاء الاصطناعي" %}</span>
+                <h2>{% translate "صِف ما تريد، واستلمه جاهزاً" %}</h2>
+                <p>{% translate "ما كان يحتاج مصمماً ومترجماً ومحللاً أياماً، ينجزه الاستوديو في دقائق، بهوية شركتك وبلغتك." %}</p>
+            </div>
+        </div>
+
+        <div class="lp-bento">
+            <article class="lp-tile lp-tile--brand">
+                <div class="lp-tile__txt">
+                    <span class="lp-ico"><i class="bi bi-bezier2"></i></span>
+                    <h3>{% translate "هوية شركتك كاملة، من شعار واحد" %}</h3>
+                    <p>{% translate "يرسم الاستوديو شعاراً لشركتك، ثم يبني عليه 16 قطعة متناسقة تستخدمها فوراً." %}</p>
+                    <ul class="lp-tags">
+                        <li>{% translate "لوحة الألوان والخطوط" %}</li><li>{% translate "الورق المروّس" %}</li><li>{% translate "بطاقة العمل" %}</li>
+                        <li>{% translate "الفاتورة والإيصال" %}</li><li>{% translate "توقيع البريد" %}</li><li>{% translate "حزمة السوشال ميديا" %}</li>
+                        <li>{% translate "أيقونات التطبيق" %}</li><li>{% translate "دليل الهوية" %}</li>
+                    </ul>
+                </div>
+                <div class="lp-brandboard" aria-hidden="true">
+                    <div class="lp-bb lp-bb--logo"><span>ن</span><small>{% translate "نخلة" %}</small></div>
+                    <div class="lp-bb lp-bb--colors"><i style="--c:#0f5c4c"></i><i style="--c:#e8b04a"></i><i style="--c:#f4efe4"></i><i style="--c:#1d2321"></i></div>
+                    <div class="lp-bb lp-bb--card"><span>ن</span><b>{% translate "نخلة للتجارة" %}</b><small>+974 4400 0000</small></div>
+                </div>
+            </article>
+
+            <article class="lp-tile">
+                <span class="lp-ico"><i class="bi bi-translate"></i></span>
+                <h3>{% translate "ترجمة المستندات" %}</h3>
+                <p>{% translate "العقود والخطابات والتقارير بين 16 لغة، مع خيار يحافظ على تصميم الصفحة الأصلي." %}</p>
+                <div class="lp-langs" aria-hidden="true"><span>العربية</span><span>English</span><span>Français</span><span>Türkçe</span><span>+12</span></div>
+            </article>
+
+            <article class="lp-tile">
+                <span class="lp-ico"><i class="bi bi-text-paragraph"></i></span>
+                <h3>{% translate "تلخيص بالطول الذي تختاره" %}</h3>
+                <p>{% translate "خمسون صفحة تصبح فقرة، أو صفحة، أو ملخصاً مفصلاً. تقرأ الخلاصة وتقرر." %}</p>
+                <div class="lp-sum" aria-hidden="true"><span>{% translate "قصير" %}</span><span class="on">{% translate "متوسط" %}</span><span>{% translate "مفصّل" %}</span></div>
+            </article>
+
+            <article class="lp-tile">
+                <span class="lp-ico"><i class="bi bi-table"></i></span>
+                <h3>{% translate "استخراج البيانات" %}</h3>
+                <p>{% translate "الأطراف والمبالغ والتواريخ من الفواتير والعقود، مرتبة في جدول جاهز." %}</p>
+            </article>
+
+            <article class="lp-tile">
+                <span class="lp-ico"><i class="bi bi-file-earmark-word"></i></span>
+                <h3>{% translate "من صورة أو PDF إلى Word" %}</h3>
+                <p>{% translate "ورقة ممسوحة أو ملف PDF مغلق يصبح ملف Word تعدّله كما تشاء." %}</p>
+            </article>
+
+            <article class="lp-tile lp-tile--wide">
+                <span class="lp-ico"><i class="bi bi-easel"></i></span>
+                <h3>{% translate "عروض تقديمية ذكية" %}</h3>
+                <p>{% translate "اكتب الفكرة في سطرين، واستلم عرضاً تقديمياً كاملاً بألوان شركتك وشعارها." %}</p>
+            </article>
+
+            <article class="lp-tile lp-tile--marid">
+                <span class="lp-ico"><i class="bi bi-chat-heart"></i></span>
+                <h3>{% translate "مارد، مساعدك الشخصي" %}</h3>
+                <p>{% translate "لا تحتاج أن تعرف أين الزر. اكتب لمارد ما تريد، فيقترح الخطوة ويعرض سعرها، ولا ينفّذ إلا بموافقتك." %}</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# ================= 02 Documents ================= #}
+<section class="lp-ch lp-ch--docs" id="documents">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <span class="lp-ch__num">02</span>
+                <span class="lp-kicker">{% translate "المستندات" %}</span>
+                <h2>{% translate "أوراق شركتك: محفوظة، ومنظّمة، وتصدر بورقك الرسمي" %}</h2>
+                <p class="lp-ch__lead">{% translate "من الرخصة التجارية إلى آخر خطاب صادر، كل أوراق الشركة في مكتبة واحدة تعرف ما فيها وتنبّهك قبل أن يفوتك موعد." %}</p>
+                <ul class="lp-points">
+                    <li><i class="bi bi-safe2"></i><div><b>{% translate "مكتبة مشفّرة" %}</b><span>{% translate "التراخيص والعقود والسجلات والمراسلات، مصنفة وسهلة البحث، ولكل عضو في الفريق صلاحيته." %}</span></div></li>
+                    <li><i class="bi bi-bell"></i><div><b>{% translate "تنبيه قبل الانتهاء" %}</b><span>{% translate "يقرأ وكيل تاريخ انتهاء كل رخصة وعقد، وينبهك قبلها بثلاثين يوماً." %}</span></div></li>
+                    <li><i class="bi bi-pencil-square"></i><div><b>{% translate "إصدار المستندات" %}</b><span>{% translate "خطابات وعروض أسعار وشهادات يكتبها وكيل بقوالب مصممة لك، على ورقك المروّس، بصيغة PDF أو Word." %}</span></div></li>
+                    <li><i class="bi bi-qr-code"></i><div><b>{% translate "تحقق برمز QR" %}</b><span>{% translate "يمسح المستلم الرمز ويتأكد أن المستند صادر منك فعلاً." %}</span></div></li>
+                    <li><i class="bi bi-link-45deg"></i><div><b>{% translate "مشاركة آمنة" %}</b><span>{% translate "رابط بكلمة مرور ومدة صلاحية، تلغيه متى شئت." %}</span></div></li>
+                    <li><i class="bi bi-hdd-network"></i><div><b>{% translate "الأصول الرقمية" %}</b><span>{% translate "النطاقات والاستضافات والاشتراكات بمواعيد تجديدها، فلا يتوقف موقعك فجأة." %}</span></div></li>
+                </ul>
+            </div>
+            <div class="col-lg-7">
+                <div class="lp-docstage" aria-hidden="true">
+                    <div class="lp-letter">
+                        <div class="lp-letter__head"><span class="lp-dot" style="--c:#0f5c4c">ن</span><b>{% translate "نخلة للتجارة" %}</b><small>{% translate "الدوحة، قطر" %}</small></div>
+                        <b class="lp-letter__title">{% translate "خطاب عرض سعر" %}</b>
+                        <i></i><i></i><i></i><i class="s"></i><i></i><i class="s"></i>
+                        <div class="lp-letter__foot"><i class="bi bi-qr-code lp-qr"></i><small>{% translate "امسح للتحقق" %}</small></div>
+                    </div>
+                    <div class="lp-lib">
+                        <div class="lp-lib__head"><i class="bi bi-folder2-open"></i> {% translate "مكتبة المستندات" %}</div>
+                        <div class="lp-lib__row"><i class="bi bi-file-earmark-pdf"></i><span>{% translate "الرخصة التجارية" %}</span><em class="warn">{% translate "تنتهي خلال 12 يوماً" %}</em></div>
+                        <div class="lp-lib__row"><i class="bi bi-file-earmark-text"></i><span>{% translate "عقد إيجار المكتب" %}</span><em>{% translate "سارٍ" %}</em></div>
+                        <div class="lp-lib__row"><i class="bi bi-file-earmark-pdf"></i><span>{% translate "السجل التجاري" %}</span><em>{% translate "سارٍ" %}</em></div>
+                        <div class="lp-lib__row"><i class="bi bi-globe2"></i><span>nakhla.qa</span><em class="warn">{% translate "يُجدَّد خلال 20 يوماً" %}</em></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ================= 03 Mail and communication ================= #}
+<section class="lp-ch lp-ch--mail" id="mail">
+    <div class="container">
+        <div class="row align-items-center g-5 flex-lg-row-reverse">
+            <div class="col-lg-5">
+                <span class="lp-ch__num">03</span>
+                <span class="lp-kicker">{% translate "البريد والتواصل" %}</span>
+                <h2>{% translate "بريد شركتك وتواصلها، في نفس المكان" %}</h2>
+                <p class="lp-ch__lead">{% translate "لا تنتقل بين البرامج: بريدك ورسائلك لعملائك وإعلاناتك لفريقك بجانب مستنداتك." %}</p>
+                <ul class="lp-points">
+                    <li><i class="bi bi-inbox"></i><div><b>{% translate "صندوق بريد الشركة" %}</b><span>{% translate "اربط بريدك الحالي، واقرأ وأرسل من داخل وكيل، وأرفق مستنداتك من المكتبة مباشرة." %}</span></div></li>
+                    <li><i class="bi bi-magic"></i><div><b>{% translate "رسائل مصممة بالذكاء الاصطناعي" %}</b><span>{% translate "صِف الرسالة، فيكتبها وكيل ويصممها بألوان شركتك وشعارها: ترحيب، عرض، تهنئة، أو تذكير." %}</span></div></li>
+                    <li><i class="bi bi-megaphone"></i><div><b>{% translate "إعلانات الشركة" %}</b><span>{% translate "تعاميم داخلية تصل إلى الفريق كله وتعرف من قرأها." %}</span></div></li>
+                    <li><i class="bi bi-ui-checks"></i><div><b>{% translate "نماذج واستبيانات" %}</b><span>{% translate "اجمع آراء العملاء أو طلبات الموظفين برابط واحد، والنتائج أمامك." %}</span></div></li>
+                    <li><i class="bi bi-people"></i><div><b>{% translate "مساحة الفريق" %}</b><span>{% translate "مهام وجهات اتصال وملاحظات، بصلاحيات لكل دور." %}</span></div></li>
+                </ul>
+            </div>
+            <div class="col-lg-7">
+                <div class="lp-mailstage" aria-hidden="true">
+                    <div class="lp-inbox">
+                        <div class="lp-inbox__row on"><span class="lp-dot" style="--c:#6d5ef8">م</span><div><b>{% translate "مريم — شركة الريان" %}</b><small>{% translate "نرغب في عرض سعر لـ 200 وحدة…" %}</small></div></div>
+                        <div class="lp-inbox__row"><span class="lp-dot" style="--c:#0ea5e9">ع</span><div><b>{% translate "عبدالله — المحاسب" %}</b><small>{% translate "مرفق كشف الحساب الشهري" %}</small></div></div>
+                        <div class="lp-inbox__row"><span class="lp-dot" style="--c:#f97316">س</span><div><b>{% translate "سارة — الموارد البشرية" %}</b><small>{% translate "موعد اجتماع الفريق الأسبوعي" %}</small></div></div>
+                    </div>
+                    <div class="lp-compose">
+                        <div class="lp-compose__ask"><i class="bi bi-stars"></i> {% translate "رسالة تهنئة بالعيد لعملائنا، بنبرة دافئة" %}</div>
+                        <div class="lp-compose__mail">
+                            <div class="lp-compose__banner"><span>{% translate "عيد مبارك" %}</span></div>
+                            <i></i><i></i><i class="s"></i>
+                            <span class="lp-mailmock__btn">{% translate "اكتشف عروض العيد" %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ================= 04 Social media ================= #}
+<section class="lp-ch lp-ch--social" id="social">
+    <div class="container">
+        <div class="lp-ch__head">
+            <span class="lp-ch__num">04</span>
+            <div>
+                <span class="lp-kicker">{% translate "السوشال ميديا والنشر" %}</span>
+                <h2>{% translate "خطة الشهر جاهزة قبل أن يبدأ" %}</h2>
+                <p>{% translate "يعرف وكيل شركتك وجمهورها ومناسبات سوقها، فيضع الخطة ويكتب المنشورات ويصممها، وأنت تراجع وتعتمد." %}</p>
+            </div>
+        </div>
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-7">
+                <div class="lp-cal" aria-hidden="true">
+                    <div class="lp-cal__head"><b><i class="bi bi-calendar3"></i> {% translate "خطة المحتوى — الشهر القادم" %}</b><span>{% translate "16 منشوراً جاهزاً" %}</span></div>
+                    <div class="lp-cal__grid">
+                        <div class="lp-cal__day"><em>1</em></div><div class="lp-cal__day"><em>2</em><span class="lp-cal__post" style="--a:#6d5ef8;--b:#3b2bc7"><i class="bi bi-tiktok"></i></span></div><div class="lp-cal__day"><em>3</em></div><div class="lp-cal__day"><em>4</em><span class="lp-cal__post" style="--a:#ffb020;--b:#f97316"><i class="bi bi-instagram"></i></span></div><div class="lp-cal__day"><em>5</em></div><div class="lp-cal__day"><em>6</em><span class="lp-cal__post" style="--a:#0ea5e9;--b:#1e3a8a"><i class="bi bi-facebook"></i></span></div><div class="lp-cal__day"><em>7</em></div><div class="lp-cal__day"><em>8</em></div><div class="lp-cal__day"><em>9</em><span class="lp-cal__post" style="--a:#0f9d6b;--b:#0f5c4c"><i class="bi bi-tiktok"></i></span></div><div class="lp-cal__day"><em>10</em></div><div class="lp-cal__day"><em>11</em><span class="lp-cal__post" style="--a:#ec4899;--b:#9d174d"><i class="bi bi-instagram"></i></span></div><div class="lp-cal__day"><em>12</em></div><div class="lp-cal__day"><em>13</em><span class="lp-cal__post" style="--a:#12112a;--b:#2d2b5a"><i class="bi bi-facebook"></i></span></div><div class="lp-cal__day"><em>14</em></div><div class="lp-cal__day"><em>15</em></div><div class="lp-cal__day"><em>16</em><span class="lp-cal__post" style="--a:#f97316;--b:#b45309"><i class="bi bi-tiktok"></i></span></div><div class="lp-cal__day"><em>17</em></div><div class="lp-cal__day"><em>18</em><span class="lp-cal__post" style="--a:#6d5ef8;--b:#0ea5e9"><i class="bi bi-instagram"></i></span></div><div class="lp-cal__day"><em>19</em></div><div class="lp-cal__day"><em>20</em><span class="lp-cal__post" style="--a:#0f5c4c;--b:#e8b04a"><i class="bi bi-facebook"></i></span></div><div class="lp-cal__day"><em>21</em></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="lp-flow">
+                    <div class="lp-flow__step"><span>1</span><div><b>{% translate "خطة شهرية مدروسة" %}</b><small>{% translate "أهداف ومحاور ومناسبات السوق، وأفضل أوقات النشر لجمهورك." %}</small></div></div>
+                    <div class="lp-flow__step"><span>2</span><div><b>{% translate "منشورات مكتوبة ومصممة" %}</b><small>{% translate "نصوص مقنعة بالعربية والإنجليزية مع الوسوم، وتصاميم بهويتك بمقاس كل منصة، وسيناريوهات فيديو قصيرة." %}</small></div></div>
+                    <div class="lp-flow__step"><span>3</span><div><b>{% translate "مراجعة واعتماد" %}</b><small>{% translate "عدّل النص أو التصميم بضغطة، واعتمد ما يعجبك." %}</small></div></div>
+                    <div class="lp-flow__step"><span>4</span><div><b>{% translate "نشر في موعده" %}</b><small>{% translate "انشر على تيك توك مباشرة. النشر على فيسبوك وإنستغرام قريباً." %}</small></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="lp-mini">
+            <div><i class="bi bi-calendar2-check"></i><b>{% translate "المخطط الآلي" %}</b><span>{% translate "يجهّز خطة كل شهر تلقائياً." %}</span></div>
+            <div><i class="bi bi-chat-dots"></i><b>{% translate "التعليقات" %}</b><span>{% translate "ردود مقترحة على تعليقات جمهورك." %}</span></div>
+            <div><i class="bi bi-graph-up"></i><b>{% translate "الأداء" %}</b><span>{% translate "ما نجح وما لم ينجح، بأرقام واضحة." %}</span></div>
+            <div><i class="bi bi-binoculars"></i><b>{% translate "المنافسون" %}</b><span>{% translate "ماذا ينشرون، وأين تتفوق عليهم." %}</span></div>
+        </div>
+    </div>
+</section>
+
+{# ================= Price promise + start ================= #}
+<section class="lp-promise">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <span class="lp-kicker lp-kicker--light">{% translate "تدفع بقدر ما تستخدم" %}</span>
+                <h2>{% translate "السعر الذي تراه، هو ما يُخصم بالضبط" %}</h2>
+                <p>{% translate "لا باقات تدفع ثمنها ولا تستخدمها. اشحن محفظتك، وقبل كل خدمة يعرض وكيل سعرها مفصلاً، ولا يُخصم شيء إلا بموافقتك. وإن لم تنجح الخدمة، لا تدفع." %}</p>
             </div>
             <div class="col-lg-6">
-                <div class="mock">
-                    <div class="d-flex align-items-center gap-2 px-3 py-2 border-bottom small text-muted">
-                        <i class="bi bi-calendar3 text-primary"></i> {% translate "خطة المحتوى — الشهر القادم" %}
-                        <span class="ms-auto wk-status approved">{% translate "16 منشوراً جاهزاً" %}</span>
-                    </div>
-                    <div class="mock-grid">
-                        <div style="background: linear-gradient(135deg,#6d5ef8,#4f3bdb)"></div>
-                        <div style="background: #f7f6f2; box-shadow: inset 0 0 0 1px #e6e8f2"></div>
-                        <div style="background: radial-gradient(circle at 30% 20%,#0ea5e9,#1e3a8a)"></div>
-                        <div style="background: #12112a"></div>
-                        <div style="background: linear-gradient(135deg,#ffb020,#f97316)"></div>
-                        <div style="background: linear-gradient(135deg,#1e3a8a,#0ea5e9)"></div>
-                    </div>
-                </div>
+                <ol class="lp-start">
+                    <li><span>1</span><div><b>{% translate "أنشئ حساب شركتك" %}</b><small>{% translate "في دقيقة، باسم الشركة وبريدك." %}</small></div></li>
+                    <li><span>2</span><div><b>{% translate "عرّف وكيل بشركتك" %}</b><small>{% translate "النشاط والجمهور والهوية، مرة واحدة فقط." %}</small></div></li>
+                    <li><span>3</span><div><b>{% translate "اطلب ما تحتاجه" %}</b><small>{% translate "من الاستوديو أو من مارد، وادفع ثمن ما تطلبه فقط." %}</small></div></li>
+                </ol>
             </div>
         </div>
-    </div>
-</section>
-
-<section class="py-5" id="how">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">{% translate "كل ما تحتاجه شركتك، في منصة واحدة" %}</h2>
-            <p class="text-muted">{% translate "من التسويق إلى المستندات إلى الفريق، ويربط بينها مساعد واحد." %}</p>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-primary"><i class="bi bi-bullseye"></i></div><h3>{% translate "خطة شهرية ومنشورات" %}</h3><p>{% translate "أهداف ومحاور ومناسبات السوق، ونصوص مقنعة بالعربية أو الإنجليزية، مع الوسوم وأفضل أوقات النشر." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-approved"><i class="bi bi-palette"></i></div><h3>{% translate "تصميم بهويتك" %}</h3><p>{% translate "صور احترافية بألوانك وخطوطك وشعارك، بمقاسات كل منصة، وسيناريوهات جاهزة للفيديو." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-review"><i class="bi bi-folder2"></i></div><h3>{% translate "مكتبة المستندات" %}</h3><p>{% translate "التراخيص والعقود والمراسلات في مكان واحد مشفّر، مع تنبيهات قبل انتهائها وقراءة تفاصيلها بالذكاء الاصطناعي." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-published"><i class="bi bi-file-earmark-richtext"></i></div><h3>{% translate "مستندات صادرة بورق شركتك" %}</h3><p>{% translate "يكتب وكيل المستند بقوالب مصممة لك، بالورق الرسمي، ويصدره PDF أو Word مع رمز تحقق QR." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-primary"><i class="bi bi-translate"></i></div><h3>{% translate "ترجمة وتلخيص واستخراج" %}</h3><p>{% translate "ترجمة المستندات وتلخيصها واستخراج بياناتها وتحويلها إلى Word بـ16 لغة، بسعر معروض قبل التنفيذ." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-approved"><i class="bi bi-easel"></i></div><h3>{% translate "هوية وعروض تقديمية" %}</h3><p>{% translate "شعار وألوان وبطاقات وورق مروّس وعروض تقديمية بهوية شركتك، من وصف قصير." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-review"><i class="bi bi-people"></i></div><h3>{% translate "فريقك وبريدك" %}</h3><p>{% translate "مهام وجهات اتصال وإعلانات داخلية ونماذج واستبيانات، وصندوق بريد الشركة، بصلاحيات لكل دور." %}</p></div></div>
-            <div class="col-md-6 col-lg-3"><div class="feature"><div class="ico tone-published"><i class="bi bi-chat-heart"></i></div><h3>{% translate "مارد، مساعدك" %}</h3><p>{% translate "اطلب بجملة: خطة أو منشور أو ترجمة أو مهمة. يقترح مارد ويعرض السعر، ولا ينفّذ إلا بموافقتك." %}</p></div></div>
-        </div>
-        <div class="wk-pay text-center mt-5"><i class="bi bi-wallet2"></i> <strong>{% translate "تدفع بقدر ما تستخدم" %}</strong> {% translate "السعر يظهر قبل كل خدمة، ويُخصم من محفظتك كما هو بالضبط." %}</div>
-    </div>
-</section>
-
-<section class="py-5 steps" style="background: #fafbff">
-    <div class="container">
-        <div class="row g-4 text-center">
-            <div class="col-md-4"><span class="num mb-3">1</span><h3 class="h5">{% translate "عرّفنا بشركتك" %}</h3><p class="text-muted">{% translate "النشاط والجمهور والنبرة والهوية البصرية." %}</p></div>
-            <div class="col-md-4"><span class="num mb-3">2</span><h3 class="h5">{% translate "اطلب خطة الشهر" %}</h3><p class="text-muted">{% translate "يعدّ وكيل الاستراتيجية وكل المنشورات وتصاميمها." %}</p></div>
-            <div class="col-md-4"><span class="num mb-3">3</span><h3 class="h5">{% translate "راجع واعتمد" %}</h3><p class="text-muted">{% translate "عدّل ما تريد بضغطة، واعتمد المنشورات للنشر." %}</p></div>
+        <div class="lp-cta">
+            <h3>{% translate "شركتك تستحق فريقاً لا ينام" %}</h3>
+            <a href="{% url 'accounts:register' %}" class="btn lp-btn-light btn-lg"><i class="bi bi-rocket-takeoff"></i> {% translate "ابدأ الآن" %}</a>
         </div>
     </div>
 </section>
 
 {% include "core/_footer.html" %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Hero console: type a request, show its result, move to the next.
+    var box = document.querySelector('[data-lp-console]');
+    if (box) {
+        var phrases = [].map.call(box.querySelectorAll('.lp-phrases li'), function (li) { return li.textContent.trim(); });
+        var scenes = box.querySelectorAll('.lp-scene'), out = box.querySelector('[data-lp-type]'), n = 0;
+        var show = function (i) { scenes.forEach(function (s, k) { s.classList.toggle('is-on', k === i); }); };
+        var run = function () {
+            var text = phrases[n], c = 0;
+            box.classList.remove('is-done');
+            if (reduce) { out.textContent = text; show(n); box.classList.add('is-done'); }
+            else {
+                out.textContent = '';
+                var t = setInterval(function () {
+                    out.textContent = text.slice(0, ++c);
+                    if (c >= text.length) { clearInterval(t); setTimeout(function () { show(n); box.classList.add('is-done'); }, 350); }
+                }, 45);
+            }
+            setTimeout(function () { n = (n + 1) % phrases.length; run(); }, reduce ? 4000 : 4200 + text.length * 45);
+        };
+        run();
+    }
+
+    // Reveal on scroll, and the chapter index follows the reader.
+    var links = document.querySelectorAll('[data-lp-index] a');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+        }, {rootMargin: '0px 0px -10% 0px'});
+        document.querySelectorAll('.lp-tile, .lp-points li, .lp-docstage, .lp-mailstage, .lp-cal, .lp-flow__step, .lp-mini > div, .lp-start li')
+            .forEach(function (el) { if (!reduce) { el.classList.add('lp-rv'); io.observe(el); } });
+        var spy = new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+                if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('on', a.dataset.to === e.target.id); });
+            });
+        }, {rootMargin: '-45% 0px -50% 0px'});
+        ['studio', 'documents', 'mail', 'social'].forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+    }
+})();
+</script>
 {% endblock %}

@@ -6320,3 +6320,434 @@ msgstr ""
 "Coming soon: direct publishing and auto-publishing to Facebook and "
 "Instagram. An approved post will go out at its time without any step from "
 "you."
+
+msgid "استوديو الذكاء الاصطناعي"
+msgstr "AI studio"
+
+msgid "المستندات"
+msgstr "Documents"
+
+msgid "السوشال ميديا"
+msgstr "Social media"
+
+msgid "منصة أعمال يقودها الذكاء الاصطناعي"
+msgstr "A business platform driven by AI"
+
+msgid "اطلب بجملة واحدة،"
+msgstr "Ask in one sentence,"
+
+msgid "واستلم العمل جاهزاً."
+msgstr "get the work done."
+
+msgid ""
+"هوية شركتك، وترجمة مستنداتها وتلخيصها، وخطاباتها الرسمية، وبريدها، وخطة "
+"محتواها على السوشال ميديا. فريق عمل كامل بالذكاء الاصطناعي في منصة واحدة، "
+"والسعر أمامك قبل كل خطوة."
+msgstr ""
+"Your company's identity, the translation and summaries of its documents, its "
+"official letters, its e-mail and its social media content plan. A full AI "
+"team on one platform, with the price in front of you before every step."
+
+msgid "أنشئ حساب شركتك"
+msgstr "Create your company account"
+
+msgid "شاهد ما يمكنك فعله"
+msgstr "See what you can do"
+
+msgid "16 لغة للمستندات"
+msgstr "16 languages for documents"
+
+msgid "ملفات مشفّرة"
+msgstr "Encrypted files"
+
+msgid "لا شيء يُنفَّذ دون موافقتك"
+msgstr "Nothing runs without your approval"
+
+msgid "صمّم شعاراً وهوية كاملة لشركتي"
+msgstr "Design a logo and a full identity for my company"
+
+msgid "ترجم هذا العقد إلى الإنجليزية"
+msgstr "Translate this contract into English"
+
+msgid "اكتب رسالة ترحيب لعملائنا الجدد"
+msgstr "Write a welcome e-mail for our new customers"
+
+msgid "جهّز خطة منشورات الشهر القادم"
+msgstr "Prepare next month's post plan"
+
+msgid "نخلة للتجارة"
+msgstr "Nakhla Trading"
+
+msgid "أهلاً بك في نخلة!"
+msgstr "Welcome to Nakhla!"
+
+msgid "إلى: عملاؤنا الجدد"
+msgstr "To: our new customers"
+
+msgid "تصفّح منتجاتنا"
+msgstr "Browse our products"
+
+msgid "السعر يظهر هنا قبل التنفيذ"
+msgstr "The price shows here before anything runs"
+
+msgid "موافق، نفّذ"
+msgstr "OK, go ahead"
+
+msgid "السوشال ميديا والنشر"
+msgstr "Social media and publishing"
+
+msgid "صِف ما تريد، واستلمه جاهزاً"
+msgstr "Describe what you want, and get it ready"
+
+msgid ""
+"ما كان يحتاج مصمماً ومترجماً ومحللاً أياماً، ينجزه الاستوديو في دقائق، بهوية "
+"شركتك وبلغتك."
+msgstr ""
+"What used to take a designer, a translator and an analyst days, the studio "
+"does in minutes, in your brand and your language."
+
+msgid "هوية شركتك كاملة، من شعار واحد"
+msgstr "Your whole brand identity, from one logo"
+
+msgid ""
+"يرسم الاستوديو شعاراً لشركتك، ثم يبني عليه 16 قطعة متناسقة تستخدمها فوراً."
+msgstr ""
+"The studio draws a logo for your company, then builds 16 matching pieces on "
+"it that you can use right away."
+
+msgid "لوحة الألوان والخطوط"
+msgstr "Colours and typography"
+
+msgid "الورق المروّس"
+msgstr "Letterhead"
+
+msgid "بطاقة العمل"
+msgstr "Business card"
+
+msgid "الفاتورة والإيصال"
+msgstr "Invoice and receipt"
+
+msgid "توقيع البريد"
+msgstr "E-mail signature"
+
+msgid "حزمة السوشال ميديا"
+msgstr "Social media kit"
+
+msgid "أيقونات التطبيق"
+msgstr "App icons"
+
+msgid "دليل الهوية"
+msgstr "Brand guidelines"
+
+msgid "نخلة"
+msgstr "Nakhla"
+
+msgid "ترجمة المستندات"
+msgstr "Document translation"
+
+msgid ""
+"العقود والخطابات والتقارير بين 16 لغة، مع خيار يحافظ على تصميم الصفحة الأصلي."
+msgstr ""
+"Contracts, letters and reports across 16 languages, with an option that "
+"keeps the original page design."
+
+msgid "تلخيص بالطول الذي تختاره"
+msgstr "Summaries at the length you choose"
+
+msgid "خمسون صفحة تصبح فقرة، أو صفحة، أو ملخصاً مفصلاً. تقرأ الخلاصة وتقرر."
+msgstr ""
+"Fifty pages become a paragraph, a page or a detailed summary. Read the gist "
+"and decide."
+
+msgid "قصير"
+msgstr "Short"
+
+msgid "متوسط"
+msgstr "Medium"
+
+msgid "مفصّل"
+msgstr "Detailed"
+
+msgid "استخراج البيانات"
+msgstr "Data extraction"
+
+msgid "الأطراف والمبالغ والتواريخ من الفواتير والعقود، مرتبة في جدول جاهز."
+msgstr ""
+"Parties, amounts and dates from invoices and contracts, laid out in a ready "
+"table."
+
+msgid "من صورة أو PDF إلى Word"
+msgstr "From an image or PDF to Word"
+
+msgid "ورقة ممسوحة أو ملف PDF مغلق يصبح ملف Word تعدّله كما تشاء."
+msgstr ""
+"A scanned page or a locked PDF becomes a Word file you can edit freely."
+
+msgid "عروض تقديمية ذكية"
+msgstr "Smart presentations"
+
+msgid "اكتب الفكرة في سطرين، واستلم عرضاً تقديمياً كاملاً بألوان شركتك وشعارها."
+msgstr ""
+"Write the idea in two lines and get a full presentation in your company's "
+"colours and logo."
+
+msgid "مارد، مساعدك الشخصي"
+msgstr "Marid, your personal assistant"
+
+msgid ""
+"لا تحتاج أن تعرف أين الزر. اكتب لمارد ما تريد، فيقترح الخطوة ويعرض سعرها، "
+"ولا ينفّذ إلا بموافقتك."
+msgstr ""
+"No need to know where the button is. Tell Marid what you want; it suggests "
+"the step, shows its price, and runs it only when you approve."
+
+msgid "أوراق شركتك: محفوظة، ومنظّمة، وتصدر بورقك الرسمي"
+msgstr ""
+"Your company's papers: kept safe, organised, and issued on your letterhead"
+
+msgid ""
+"من الرخصة التجارية إلى آخر خطاب صادر، كل أوراق الشركة في مكتبة واحدة تعرف ما "
+"فيها وتنبّهك قبل أن يفوتك موعد."
+msgstr ""
+"From the trade licence to the latest letter, every company paper in one "
+"library that knows what is inside and warns you before a date slips by."
+
+msgid "مكتبة مشفّرة"
+msgstr "An encrypted library"
+
+msgid ""
+"التراخيص والعقود والسجلات والمراسلات، مصنفة وسهلة البحث، ولكل عضو في الفريق "
+"صلاحيته."
+msgstr ""
+"Licences, contracts, registrations and correspondence, sorted and easy to "
+"search, with permissions for each team member."
+
+msgid "تنبيه قبل الانتهاء"
+msgstr "Alerts before expiry"
+
+msgid "يقرأ وكيل تاريخ انتهاء كل رخصة وعقد، وينبهك قبلها بثلاثين يوماً."
+msgstr ""
+"Wakeel reads the expiry date of every licence and contract and alerts you "
+"thirty days ahead."
+
+msgid "إصدار المستندات"
+msgstr "Issuing documents"
+
+msgid ""
+"خطابات وعروض أسعار وشهادات يكتبها وكيل بقوالب مصممة لك، على ورقك المروّس، "
+"بصيغة PDF أو Word."
+msgstr ""
+"Letters, quotations and certificates written by Wakeel from templates "
+"designed for you, on your letterhead, as PDF or Word."
+
+msgid "تحقق برمز QR"
+msgstr "QR verification"
+
+msgid "يمسح المستلم الرمز ويتأكد أن المستند صادر منك فعلاً."
+msgstr ""
+"The recipient scans the code and confirms the document really came from you."
+
+msgid "مشاركة آمنة"
+msgstr "Secure sharing"
+
+msgid "رابط بكلمة مرور ومدة صلاحية، تلغيه متى شئت."
+msgstr ""
+"A link with a password and an expiry date, which you can cancel any time."
+
+msgid "الأصول الرقمية"
+msgstr "Digital assets"
+
+msgid "النطاقات والاستضافات والاشتراكات بمواعيد تجديدها، فلا يتوقف موقعك فجأة."
+msgstr ""
+"Domains, hosting and subscriptions with their renewal dates, so your website "
+"never stops by surprise."
+
+msgid "الدوحة، قطر"
+msgstr "Doha, Qatar"
+
+msgid "خطاب عرض سعر"
+msgstr "Quotation letter"
+
+msgid "امسح للتحقق"
+msgstr "Scan to verify"
+
+msgid "الرخصة التجارية"
+msgstr "Trade licence"
+
+msgid "تنتهي خلال 12 يوماً"
+msgstr "Expires in 12 days"
+
+msgid "عقد إيجار المكتب"
+msgstr "Office lease"
+
+msgid "سارٍ"
+msgstr "Valid"
+
+msgid "السجل التجاري"
+msgstr "Commercial registration"
+
+msgid "يُجدَّد خلال 20 يوماً"
+msgstr "Renews in 20 days"
+
+msgid "بريد شركتك وتواصلها، في نفس المكان"
+msgstr "Your company's e-mail and communication, in the same place"
+
+msgid ""
+"لا تنتقل بين البرامج: بريدك ورسائلك لعملائك وإعلاناتك لفريقك بجانب مستنداتك."
+msgstr ""
+"No jumping between programs: your mail, your messages to customers and your "
+"team announcements sit next to your documents."
+
+msgid "صندوق بريد الشركة"
+msgstr "The company mailbox"
+
+msgid ""
+"اربط بريدك الحالي، واقرأ وأرسل من داخل وكيل، وأرفق مستنداتك من المكتبة "
+"مباشرة."
+msgstr ""
+"Connect your existing e-mail, read and send from inside Wakeel, and attach "
+"documents straight from the library."
+
+msgid "رسائل مصممة بالذكاء الاصطناعي"
+msgstr "E-mails designed by AI"
+
+msgid ""
+"صِف الرسالة، فيكتبها وكيل ويصممها بألوان شركتك وشعارها: ترحيب، عرض، تهنئة، أو "
+"تذكير."
+msgstr ""
+"Describe the message and Wakeel writes and designs it in your colours and "
+"logo: a welcome, an offer, greetings or a reminder."
+
+msgid "إعلانات الشركة"
+msgstr "Company announcements"
+
+msgid "تعاميم داخلية تصل إلى الفريق كله وتعرف من قرأها."
+msgstr ""
+"Internal notices that reach the whole team, and you know who read them."
+
+msgid "نماذج واستبيانات"
+msgstr "Forms and surveys"
+
+msgid "اجمع آراء العملاء أو طلبات الموظفين برابط واحد، والنتائج أمامك."
+msgstr ""
+"Collect customer feedback or staff requests with one link, with the results "
+"in front of you."
+
+msgid "مساحة الفريق"
+msgstr "Team workspace"
+
+msgid "مهام وجهات اتصال وملاحظات، بصلاحيات لكل دور."
+msgstr "Tasks, contacts and notes, with permissions for each role."
+
+msgid "مريم — شركة الريان"
+msgstr "Maryam — Al Rayyan Co."
+
+msgid "نرغب في عرض سعر لـ 200 وحدة…"
+msgstr "We would like a quotation for 200 units…"
+
+msgid "عبدالله — المحاسب"
+msgstr "Abdullah — Accountant"
+
+msgid "مرفق كشف الحساب الشهري"
+msgstr "Monthly statement attached"
+
+msgid "سارة — الموارد البشرية"
+msgstr "Sara — HR"
+
+msgid "موعد اجتماع الفريق الأسبوعي"
+msgstr "Weekly team meeting time"
+
+msgid "رسالة تهنئة بالعيد لعملائنا، بنبرة دافئة"
+msgstr "An Eid greeting for our customers, in a warm tone"
+
+msgid "عيد مبارك"
+msgstr "Eid Mubarak"
+
+msgid "اكتشف عروض العيد"
+msgstr "See our Eid offers"
+
+msgid "خطة الشهر جاهزة قبل أن يبدأ"
+msgstr "The month's plan is ready before it starts"
+
+msgid ""
+"يعرف وكيل شركتك وجمهورها ومناسبات سوقها، فيضع الخطة ويكتب المنشورات ويصممها، "
+"وأنت تراجع وتعتمد."
+msgstr ""
+"Wakeel knows your company, its audience and its market's occasions, so it "
+"sets the plan and writes and designs the posts, while you review and approve."
+
+msgid "خطة شهرية مدروسة"
+msgstr "A well-thought monthly plan"
+
+msgid "أهداف ومحاور ومناسبات السوق، وأفضل أوقات النشر لجمهورك."
+msgstr ""
+"Goals, themes and market occasions, and the best times to post for your "
+"audience."
+
+msgid "منشورات مكتوبة ومصممة"
+msgstr "Posts written and designed"
+
+msgid ""
+"نصوص مقنعة بالعربية والإنجليزية مع الوسوم، وتصاميم بهويتك بمقاس كل منصة، "
+"وسيناريوهات فيديو قصيرة."
+msgstr ""
+"Persuasive copy in Arabic and English with hashtags, designs in your brand "
+"sized for each platform, and short video scripts."
+
+msgid "مراجعة واعتماد"
+msgstr "Review and approve"
+
+msgid "عدّل النص أو التصميم بضغطة، واعتمد ما يعجبك."
+msgstr "Change the text or design in one click, and approve what you like."
+
+msgid "نشر في موعده"
+msgstr "Published on time"
+
+msgid "انشر على تيك توك مباشرة. النشر على فيسبوك وإنستغرام قريباً."
+msgstr ""
+"Publish to TikTok directly. Publishing to Facebook and Instagram is coming "
+"soon."
+
+msgid "يجهّز خطة كل شهر تلقائياً."
+msgstr "Prepares every month's plan automatically."
+
+msgid "ردود مقترحة على تعليقات جمهورك."
+msgstr "Suggested replies to your audience's comments."
+
+msgid "ما نجح وما لم ينجح، بأرقام واضحة."
+msgstr "What worked and what did not, in clear numbers."
+
+msgid "ماذا ينشرون، وأين تتفوق عليهم."
+msgstr "What they post, and where you beat them."
+
+msgid "السعر الذي تراه، هو ما يُخصم بالضبط"
+msgstr "The price you see is exactly what is charged"
+
+msgid ""
+"لا باقات تدفع ثمنها ولا تستخدمها. اشحن محفظتك، وقبل كل خدمة يعرض وكيل سعرها "
+"مفصلاً، ولا يُخصم شيء إلا بموافقتك. وإن لم تنجح الخدمة، لا تدفع."
+msgstr ""
+"No plans you pay for and never use. Top up your wallet; before every service "
+"Wakeel shows its itemised price, and nothing is charged without your "
+"approval. If a service fails, you do not pay."
+
+msgid "في دقيقة، باسم الشركة وبريدك."
+msgstr "In a minute, with the company name and your e-mail."
+
+msgid "عرّف وكيل بشركتك"
+msgstr "Tell Wakeel about your company"
+
+msgid "النشاط والجمهور والهوية، مرة واحدة فقط."
+msgstr "Business, audience and brand, just once."
+
+msgid "اطلب ما تحتاجه"
+msgstr "Ask for what you need"
+
+msgid "من الاستوديو أو من مارد، وادفع ثمن ما تطلبه فقط."
+msgstr "From the studio or from Marid, and pay only for what you order."
+
+msgid "شركتك تستحق فريقاً لا ينام"
+msgstr "Your company deserves a team that never sleeps"
+
+msgid "عقد توريد"
+msgstr "Supply agreement"
